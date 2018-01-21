@@ -12,20 +12,20 @@ Lued is an extensible text editor written in C and Lua.
 Basic Operations
 ----------------
 * ** JUST TYPE!!!! **
-* Arrow keys, Delete, Backspace, PgUp, PgDn, Home and End work as expected.
-* Shift+Delete deletes a line
-* Ctrl+s and Ctrl+q save and quit as expected
-* Ctrl+z / Ctrl+y undo/redo as expected.
-* Ctrl+f finds and Ctrl+l finds again (Ctrl+h finds in reverse direction)
-* Ctrl+r for Find and Replace
-* Ctrl+t moves to Top (first line). Double tap goes to last line
-* Ctrl+g moves right one word, Ctrl+d moves left one word
+* Arrow keys, <kbd>Delete</kbd>, <kbd>Backspace</kbd>, <kbd>PgUp</kbd>, <kbd>PgDn</kbd>, <kbd>Home</kbd> and <kbd>End</kbd> work as expected.
+* <kbd>Shift</kbd>+<kbd>Delete</kbd> deletes a line
+* <kbd>Ctrl</kbd>+<kbd>s</kbd> and <kbd>Ctrl</kbd>+<kbd>q</kbd> save and quit as expected
+* <kbd>Ctrl</kbd>+<kbd>z</kbd> / <kbd>Ctrl</kbd>+<kbd>y</kbd> undo/redo as expected.
+* <kbd>Ctrl</kbd>+<kbd>f</kbd> finds and <kbd>Ctrl</kbd>+<kbd>l</kbd> finds again (<kbd>Ctrl</kbd>+h finds in reverse direction)
+* <kbd>Ctrl</kbd>+<kbd>r</kbd> for Find and Replace
+* <kbd>Ctrl</kbd>+<kbd>t</kbd> moves to Top (first line). Double tap goes to last line
+* <kbd>Ctrl</kbd>+<kbd>g</kbd> moves right one word, <kbd>Ctrl</kbd>+<kbd>d</kbd> moves left one word
 
 Cut / Copy / Paste
 ------------------
-* Ctrl+a starts selecting (similar to mouse press and hold)
-* Ctrl+x / Ctrl+c / Ctrl+v cut, copy and paste as expected.
-* A common cut and paste sequence is Ctrl+a, move, Ctrl+c, move Ctrl+v
+* <kbd>Ctrl</kbd>+<kbd>a</kbd> starts selecting (similar to mouse press and hold)
+* <kbd>Ctrl</kbd>+<kbd>x</kbd> / <kbd>Ctrl</kbd>+<kbd>c</kbd> / <kbd>Ctrl</kbd>+<kbd>v</kbd> cut, copy and paste as expected.
+* A common cut and paste sequence is <kbd>Ctrl</kbd>+a, move, <kbd>Ctrl</kbd>+<kbd>c</kbd>, move <kbd>Ctrl</kbd>+<kbd>v</kbd>
 
 Mouse
 -----
@@ -43,37 +43,37 @@ Control Keys (Configurable in lued.lua)
 
 Select Commands
 ---------------
-* Ctrl+a starts selecting
-  *  Ctrl+a,<Home> selects from beginning of line to cursor
-  *  Ctrl+a,<End> selects from cursor to end of line
-  *  Ctrl+a,Ctrl+g selects word. Keep hitting Ctrl+g to select more words
-* Alt+s<Enter> selects the current line (same as <Home>,Ctrl+d,Down-Arrow)
-  *  A common sequence is Alt+s, one or more <Enter> to select lines, Ctrl+x or c
-  *  Alt+s5 selects 5 lines
-* Ctrl+k selects the current word
-  *  A common sequence is Ctrl+k, Ctrl+l to select a word and then find it
-  *  Keep hitting Ctrl+k to select more words
+* <kbd>Ctrl</kbd>+<kbd>a</kbd> starts selecting
+  *  <kbd>Ctrl</kbd>+a,<kbd>Home</kbd> selects from beginning of line to cursor
+  *  <kbd>Ctrl</kbd>+<kbd>a</kbd>,<kbd>End</kbd> selects from cursor to end of line
+  *  <kbd>Ctrl</kbd>+<kbd>a</kbd>,<kbd>Ctrl</kbd>+<kbd>g</kbd> selects word. Keep hitting <kbd>Ctrl</kbd>+<kbd>g</kbd> to select more words
+* <kbd>Alt</kbd>+<kbd>s</kbd><Enter> selects the current line (same as <Home>,<kbd>Ctrl</kbd>+<kbd>d</kbd>,<kbd>Down-Arrow</kbd>)
+  *  A common sequence is <kbd>Alt</kbd>+<kbd>s</kbd>, one or more <Enter> to select lines, <kbd>Ctrl</kbd>+<kbd>x</kbd> or <kbd>c</kbd>
+  *  <kbd>Alt</kbd>+<kbd>s5</kbd> selects 5 lines
+* <kbd>Ctrl</kbd>+k selects the current word
+  *  A common sequence is <kbd>Ctrl</kbd>+k, <kbd>Ctrl</kbd>+<kbd>l</kbd> to select a word and then find it
+  *  Keep hitting <kbd>Ctrl</kbd>+k to select more words
 
 Delete/Cut/Copy Commands
 ------------------------
-* Alt+b deletes to start of line  (Same as Ctrl+a,<Home>,<Delete>)
-* Alt+e deletes to end of line    (Same as Ctrl+a,<End>,<Delete>)
-* Alt+x deletes current line      (Same as Shift+Delete)
-  * Multiple, Back-to-Back Alt+x will combine all deleted lines in the paste buffer.
-* Alt+d5<enter> deletes 5 lines   (Same as Alt+S5,<Delete>)
-* Alt+w deletes to end of word    (Same as Ctrl+a,Ctrl+g,<Delete>)
-* Alt+c copies current line to paste buffer. 
+* <kbd>Alt</kbd>+<kbd>b</kbd> deletes to beginning of line (Same as <kbd>Ctrl</kbd>+<kbd>a</kbd>,<Home>,<Delete>)
+* <kbd>Alt</kbd>+<kbd>e</kbd> deletes to end of line (Same as <kbd>Ctrl</kbd>+<kbd>a</kbd>,<End>,<Delete>)
+* <kbd>Alt</kbd>+<kbd>x</kbd> deletes current line  (Same as <kbd>Shift</kbd>+<kbd>Delete</kbd>)
+  * Multiple, Back-to-Back <kbd>Alt</kbd>+<kbd>x</kbd> will combine all deleted lines in the paste buffer.
+* <kbd>Alt</kbd>+<kbd>d5</kbd><kbd>enter</kbd> deletes 5 lines   (Same as <kbd>Alt</kbd>+<kbd>s5</kbd>,<kbd>Delete<kbd>)
+* <kbd>Alt</kbd>+<kbd>w</kbd> deletes to end of word    (Same as <kbd>Ctrl</kbd>+<kbd>a</kbd>,<kbd>Ctrl</kbd>+<kbd>g</kbd>,<kbd>Delete</kbd>)
+* <kbd>Alt</kbd>+<kbd>c</kbd> copies current line to paste buffer. 
   * Repeat to copy more lines to the paste buffer.
 
 Movement
 --------
-* Alt+l420<enter> goes to line 420
+* <kbd>Alt</kbd>+<kbd>l420</kbd><kbd>Enter</kbd> goes to line 420
 
 Multiple Files
 --------------
-* Ctrl+o opens a file and Ctrl+n creates a new file
-* Ctrl+b shows a selectable list of all open file buffers
-* Alt+Shift+B goes to previous file buffer (useful when working with two files)
+* <kbd>Ctrl</kbd>+<kbd>o</kbd> opens a file and <kbd>Ctrl</kbd>+<kbd>n</kbd> creates a new file
+* <kbd>Ctrl</kbd>+<kbd>b</kbd> shows a selectable list of all open file buffers
+* <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> goes to previous file buffer (useful when working with two files)
 
 Installation
 ------------
