@@ -59,9 +59,11 @@ Delete/Cut/Copy Commands
 * Alt+b deletes to start of line  (Same as Ctrl+a,<Home>,<Delete>)
 * Alt+e deletes to end of line    (Same as Ctrl+a,<End>,<Delete>)
 * Alt+x deletes current line      (Same as Shift+Delete)
+** Multiple, Back-to-Back Alt+x will combine all deleted lines in the paste buffer.
 * Alt+d5<enter> deletes 5 lines   (Same as Alt+S5,<Delete>)
 * Alt+w deletes to end of word    (Same as Ctrl+a,Ctrl+g,<Delete>)
-* Alt+c copies current line to paste buffer. Repeat to copy more lines.
+* Alt+c copies current line to paste buffer. 
+** Repeat to copy more lines to the paste buffer.
 
 Movement
 --------
@@ -72,6 +74,22 @@ Multiple Files
 * Ctrl+o opens a file and Ctrl+n creates a new file
 * Ctrl+b shows a selectable list of all open file buffers
 * Alt+Shift+B goes to previous file buffer (useful when working with two files)
+
+Installation
+------------
+* cd src
+* make
+** make will use wget to download lua
+
+Trial Run
+---------
+./lued
+./lued one or more filenames
+
+Complete Install
+----------------
+cp lued to your bin folder
+cp lued_scripts/lued.lua to your home directory
 
 
 

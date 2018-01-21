@@ -45,7 +45,6 @@ SOFTWARE.
 #include "lua-5.2.4/install/include/lua.h"
 #include "lua-5.2.4/install/include/lualib.h"
 #include "carr.h"
-#include "carr_arg.h"
 #include "carr_esc.h"
 #include "carr_readline.h"
 #include "carr_readline_lua.h"

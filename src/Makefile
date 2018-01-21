@@ -43,8 +43,8 @@ $(EXE).log: $(EXE)
 all: $(EXE).log dox
 
 compile: main.c $(EXE)
-main.c: main/$(MAIN)
-	cp main/$(MAIN) main.c
+#main.c: main/$(MAIN)
+#	cp main/$(MAIN) main.c
 
 push:
 	git push
