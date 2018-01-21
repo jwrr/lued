@@ -16,7 +16,7 @@ Basic Operations
 * <kbd>Shift</kbd>+<kbd>Delete</kbd> deletes a line
 * <kbd>Ctrl</kbd>+<kbd>s</kbd> and <kbd>Ctrl</kbd>+<kbd>q</kbd> save and quit as expected
 * <kbd>Ctrl</kbd>+<kbd>z</kbd> / <kbd>Ctrl</kbd>+<kbd>y</kbd> undo/redo as expected.
-* <kbd>Ctrl</kbd>+<kbd>f</kbd> finds and <kbd>Ctrl</kbd>+<kbd>l</kbd> finds again (<kbd>Ctrl</kbd>+<kbd>h</kbd> finds in reverse direction)
+* <kbd>Ctrl</kbd>+<kbd>f</kbd> finds and <kbd>Ctrl</kbd>+<kbd>l (el)</kbd> finds again (<kbd>Ctrl</kbd>+<kbd>h</kbd> finds in reverse direction)
 * <kbd>Ctrl</kbd>+<kbd>r</kbd> for Find and Replace
 * <kbd>Ctrl</kbd>+<kbd>t</kbd> moves to Top (first line). Double tap goes to last line
 * <kbd>Ctrl</kbd>+<kbd>g</kbd> moves right one word, <kbd>Ctrl</kbd>+<kbd>d</kbd> moves left one word
@@ -44,14 +44,14 @@ Control Keys (Configurable in lued.lua)
 Select Commands
 ---------------
 * <kbd>Ctrl</kbd>+<kbd>a</kbd> starts selecting
-  *  <kbd>Ctrl</kbd>+a,<kbd>Home</kbd> selects from beginning of line to cursor
+  *  <kbd>Ctrl</kbd>+<kbd>a</kbd>,<kbd>Home</kbd> selects from beginning of line to cursor
   *  <kbd>Ctrl</kbd>+<kbd>a</kbd>,<kbd>End</kbd> selects from cursor to end of line
   *  <kbd>Ctrl</kbd>+<kbd>a</kbd>,<kbd>Ctrl</kbd>+<kbd>g</kbd> selects word. Keep hitting <kbd>Ctrl</kbd>+<kbd>g</kbd> to select more words
 * <kbd>Alt</kbd>+<kbd>s</kbd><Enter> selects the current line (same as <Home>,<kbd>Ctrl</kbd>+<kbd>d</kbd>,<kbd>Down-Arrow</kbd>)
   *  A common sequence is <kbd>Alt</kbd>+<kbd>s</kbd>, one or more <Enter> to select lines, <kbd>Ctrl</kbd>+<kbd>x</kbd> or <kbd>c</kbd>
   *  <kbd>Alt</kbd>+<kbd>s5</kbd> selects 5 lines
 * <kbd>Ctrl</kbd>+<kbd>k</kbd> selects the current word
-  *  A common sequence is <kbd>Ctrl</kbd>+k, <kbd>Ctrl</kbd>+<kbd>l</kbd> to select a word and then find it
+  *  A common sequence is <kbd>Ctrl</kbd>+k, <kbd>Ctrl</kbd>+<kbd>l (el)</kbd> to select a word and then find it
   *  Keep hitting <kbd>Ctrl</kbd>+k to select more words
 
 Delete/Cut/Copy Commands
@@ -67,7 +67,7 @@ Delete/Cut/Copy Commands
 
 Movement
 --------
-* <kbd>Alt</kbd>+<kbd>l420</kbd><kbd>Enter</kbd> goes to line 420
+* <kbd>Alt</kbd>+<kbd>l (el)420</kbd><kbd>Enter</kbd> goes to line 420
 
 Multiple Files
 --------------
