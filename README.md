@@ -44,26 +44,26 @@ Control Keys (Configurable in lued.lua)
 Select Commands
 ---------------
 * Ctrl+a starts selecting
-**  Ctrl+a,<Home> selects from beginning of line to cursor
-**  Ctrl+a,<End> selects from cursor to end of line
-**  Ctrl+a,Ctrl+g selects word. Keep hitting Ctrl+g to select more words
+  *  Ctrl+a,<Home> selects from beginning of line to cursor
+  *  Ctrl+a,<End> selects from cursor to end of line
+  *  Ctrl+a,Ctrl+g selects word. Keep hitting Ctrl+g to select more words
 * Alt+s<Enter> selects the current line (same as <Home>,Ctrl+d,Down-Arrow)
-**  A common sequence is Alt+s, one or more <Enter> to select lines, Ctrl+x or c
-**  Alt+s5 selects 5 lines
+  *  A common sequence is Alt+s, one or more <Enter> to select lines, Ctrl+x or c
+  *  Alt+s5 selects 5 lines
 * Ctrl+k selects the current word
-**  A common sequence is Ctrl+k, Ctrl+l to select a word and then find it
-**  Keep hitting Ctrl+k to select more words
+  *  A common sequence is Ctrl+k, Ctrl+l to select a word and then find it
+  *  Keep hitting Ctrl+k to select more words
 
 Delete/Cut/Copy Commands
 ------------------------
 * Alt+b deletes to start of line  (Same as Ctrl+a,<Home>,<Delete>)
 * Alt+e deletes to end of line    (Same as Ctrl+a,<End>,<Delete>)
 * Alt+x deletes current line      (Same as Shift+Delete)
-** Multiple, Back-to-Back Alt+x will combine all deleted lines in the paste buffer.
+  * Multiple, Back-to-Back Alt+x will combine all deleted lines in the paste buffer.
 * Alt+d5<enter> deletes 5 lines   (Same as Alt+S5,<Delete>)
 * Alt+w deletes to end of word    (Same as Ctrl+a,Ctrl+g,<Delete>)
 * Alt+c copies current line to paste buffer. 
-** Repeat to copy more lines to the paste buffer.
+  * Repeat to copy more lines to the paste buffer.
 
 Movement
 --------
@@ -79,19 +79,15 @@ Installation
 ------------
 * cd src
 * make
-** make will use wget to download lua
+  * make will use wget to download lua
 
 Trial Run
 ---------
-./lued
-./lued one or more filenames
+* ./lued
+* ./lued one or more filenames
 
 Complete Install
 ----------------
-cp lued to your bin folder
-cp lued_scripts/lued.lua to your home directory
+* cp lued to a folder in your path... or your home directory and use (~/lued)
+* cp lued_scripts/lued.lua to your home directory
 
-
-
-
- 
