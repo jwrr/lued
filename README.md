@@ -86,8 +86,8 @@ Trial Run
 * ./lued
 * ./lued one or more filenames
 
-Complete Install
-----------------
+Finish Installation
+-------------------
 * cp lued to a folder in your path... or your home directory and use (~/lued)
 * cp lued_scripts/lued.lua to your home directory
 
