@@ -26,6 +26,7 @@ SOFTWARE.
 
 
 #include "headers.h"
+#include <getopt.h>
 
 #define LUED_SELOFF 0
 #define LUED_SELEND 1
