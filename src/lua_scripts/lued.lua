@@ -229,6 +229,11 @@ function remove_trailing_spaces(next_row,next_col,force,dd)
   end
   if next_row > 0 and next_col > 0 then
     set_cur_pos(next_row,next_col)
+    local numlines = get_numlines()
+    if next_row > numlines then
+      next_row = numlines
+      eol(dd2);
+    end
     if (next_row ~= row) then
       saved_line = get_line()
     end
@@ -338,12 +343,12 @@ function reindent(n,dd)
   end
   set_cur_pos(r,c)
   disp(dd)
-end  
+end
 
 function hot_range(lower,upper)
   local hot = ""
   for ch=string.byte(lower),string.byte(upper) do
-    hot = hot .. "," .. string.char(ch) 
+    hot = hot .. "," .. string.char(ch)
   end
   if hot ~= "" then hot = hot .. "," end
   return hot
@@ -402,7 +407,7 @@ function disp(dd)
    if (pr+tr-r < min_lines_from_bot) then
      set_page_offset_percent(-min_lines_from_bot,dd2)
    end
-   if dd == 0 then 
+   if dd == 0 then
      g_command_count = g_command_count or 0
      g_command_count = g_command_count + 1
      if lua_mode == nil then return end
@@ -555,7 +560,9 @@ function line_down(n,dd)
   local r,c = get_cur_pos()
   local numlines = get_numlines()
   local r2 = r + n
-  if r2>numlines then r2 = numlines end
+--  if r2>numlines then
+--    r2 = numlines
+--  end
   remove_trailing_spaces(r2,c,false,dd2)
   disp(dd)
 end
@@ -614,7 +621,7 @@ function sol(dd)
     end
     local r,c = get_cur_pos()
     sol_classic(dd2)
-    sow(dd2)
+    skip_spaces(dd2)
     local r2,c2 = get_cur_pos()
     if (c2 == c) then set_cur_pos(r,1) end
   end
@@ -776,7 +783,7 @@ function find_reverse(str,dd)
     disp(dd)
     return
   end
-  
+
   local g_find_str2 = g_find_str
   if not case_sensitive then
     g_find_str2 = string.lower(g_find_str)
@@ -853,7 +860,7 @@ function find_forward(str,nowrap,search_all,replace,dd)
     disp(dd)
     return
   end
-  
+
   local g_find_str2 = g_find_str
   if not case_sensitive then
     g_find_str2 = string.lower(g_find_str2)
@@ -865,7 +872,7 @@ function find_forward(str,nowrap,search_all,replace,dd)
       disp(dd)
       return
     end
-  
+
 
 
   end
@@ -932,7 +939,7 @@ function find_and_replace(from,to,options,dd)
   if options=='a' then
     replace_all = true
   end
-  
+
   local r,c = get_cur_pos()
   repeat
     found = find_forward(str,true,false,true,dd2)
@@ -1627,11 +1634,14 @@ Basic Operations
 - Ctrl+f finds and Ctrl+l finds again (Ctrl+h finds in reverse direction)
 - Ctrl+r for Find and Replace
 - Ctrl+t moves to Top (first line). Double tap goes to last line
-- Ctrl+g moves right one word, Ctrl+d moves left one word
+- Alt+s moves left one word, Alt+f moves right one word
+- Alt+a moves to start of line, Alt+g moves to end of line
+- Ctrl+d deletes character, Alt+d backspaces char
 Cut / Copy / Paste
 - Ctrl+a starts selecting (similar to mouse press and hold)
 - Ctrl+x / Ctrl+c / Ctrl+v cut, copy and paste as expected.
 - A common cut and paste sequence is Ctrl+a, move, Ctrl+c, move Ctrl+v
+- Ctrl+d is the same as the delete key; Alt+d is the same as backspace key
 
 Try the Scroll Wheel... It should work
 Try Mouse select, right mouse button to copy/paste... It should work too.
@@ -1654,9 +1664,6 @@ Select Commands
   Ctrl+a,<Home> selects from beginning of line to cursor
   Ctrl+a,<End> selects from cursor to end of line
   Ctrl+a,Ctrl+g selects word. Keep hitting Ctrl+g to select more words
-- Alt+s<Enter> selects the current line (same as <Home>,Ctrl+d,Down-Arrow)
-  A common sequence is Alt+s, one or more <Enter> to select lines, Ctrl+x (or c)
-  Alt+s5 selects 5 lines
 - Ctrl+k selects the current word
   A common sequence is Ctrl+k, Ctrl+l to select a word and then find it
   Keep hitting Ctrl+k to select more words
@@ -1665,7 +1672,6 @@ Delete/Cut/Copy Commands
 - Alt+b deletes to start of line  (Same as Ctrl+a,<Home>,<Delete>)
 - Alt+e deletes to end of line    (Same as Ctrl+a,<End>,<Delete>)
 - Alt+x deletes current line      (Same as Shift+Delete)
-- Alt+d5<enter> deletes 5 lines   (Same as Alt+S5,<Delete>)
 - Alt+w deletes to end of word    (Same as Ctrl+a,Ctrl+g,<Delete>)
 - Alt+c copies current line to paste buffer. Repeat to copy more lines.
 
@@ -1774,16 +1780,16 @@ end
 
 -- key bindings
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
-set_hotkeys( ",b,B,c,e,ED,EE,EX"..
+set_hotkeys( ",a,b,B,c,d,e,ED,EE,EX,f,g"..
              ",i,IS,ld,ln,lu,mm,MM,mn,MN,mp"..
-             ",ob,ol,om,oo,ot,ou,sall,sb,se"..
-             ",sn,sp,S,sw,rr,v,w,x,")
+             ",ob,ol,om,oo,ot,ou,s,Sall,Sb,Se"..
+             ",Sn,Sp,sw,rr,v,w,x,")
 
 set_repeatables(",ctrl_F,")
 -- set_repeatables(",,")
 set_non_repeatables(",bo,sb,se,sl,sn,so,sp,sw,to,")
 
--- alt- 
+-- alt-
 -- esc-
 b =   del_sol
 B =   buffer_prev
@@ -1804,21 +1810,25 @@ c =   function(n)
   set_cur_pos(sel_sr,1)
   set_sel_start()
   set_cur_pos(r+1,1)
-  set_sel_end() 
-  
+  set_sel_end()
+
   disp(dd)
 end
 
 -- c =   copy_line -- copy current line to paste buffer
+a =   sol
 C =   copy_line -- C5 copies 5 lines to paste buffer
 Ci =  function() set_case_sensitive(0) end -- used for find/search
 Cs =  set_case_sensitive -- used for find/search
-d =   del_line -- delete N lines (Alt+d12)
+d =   del_backspace
+-- d =   del_line -- delete N lines (Alt+d12)
 e =   cut_eol
 ED =  edit_mode
 Efc = set_enable_file_changed -- efc1 enables; efc0 disables
 EE =  exit_session -- save and close current session
 EX =  exit_all -- save and close all sessions
+f =   word_right
+g =   eol
 i =  toggle_auto_indent
 I_squote = indent_scope
 IS =  indent_scope
@@ -1846,14 +1856,15 @@ relu = relued -- reload lued script
 rr =  find_reverse
 rt =  set_replace_tabs -- rt0 rt4
 rts =  set_remove_trailing_spaces -- rts0 rts1
-s =  function(n) sol_classic(1); set_sel_start(1); line_down(n); end
-sb =  function() set_sel_start(); sol(); end
-sall = search_all
-se =  function() set_sel_start(); eol(); end
-si =  set_scope_indent -- si2 si3 si4
-sn =  session_next
-sow = skip_spaces
-sw =  function() word_start(1); set_sel_start(); var_end(1); set_sel_end(); disp(); end
+s =   word_left
+-- S =  function(n) sol_classic(1); set_sel_start(1); line_down(n); end
+Sb =  function() set_sel_start(); sol(); end
+Sall = search_all
+Se =  function() set_sel_start(); eol(); end
+Si =  set_scope_indent -- si2 si3 si4
+Sn =  session_next
+Sow = skip_spaces
+Sw =  function() word_start(1); set_sel_start(); var_end(1); set_sel_end(); disp(); end
 up =  line_up -- up23 moves up 23 lines
 v =   global_paste
 w =   del_eow
@@ -1888,9 +1899,9 @@ ctrl_P = sel_toggle        -- SPARE
 
 ctrl_A = sel_toggle
 ctrl_S = save_file
-ctrl_D = word_left
+ctrl_D = del_char
 ctrl_F = find_forward
-ctrl_G = word_right
+ctrl_G = word_right  -- SPARE
 
 ctrl_H = find_reverse_again  -- SPARE check if this is <backspace>
 ctrl_J = find_reverse_again  -- Same as ^M, <enter>

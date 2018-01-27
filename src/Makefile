@@ -4,18 +4,18 @@ PRJ = lued
 EXE = $(PRJ)
 HTML_PATH = ../html/$(PRJ)
 MAIN = $(EXE)_main.c
-SRC = $(wildcard *.c) 
+SRC = $(wildcard *.c)
 OBJ = $(patsubst %.c, %.o, $(SRC))
 LUA=lua-5.2.4
 LUA_URL=https://www.lua.org/ftp
 LUA_PATH=./$(LUA)
-#LUA_L=-llua5.2 
+#LUA_L=-llua5.2
 LUA_L=-L$(LUA_PATH)/install/lib -llua -lm -ldl
 INC=-I$(LUA_PATH)/install/include
 HEADERS = $(wildcard *.h)
 CC = gcc
 GDB_CFLAGS= -g
-VALGRIND_CFLAGS= -g 
+VALGRIND_CFLAGS= -g
 LCOV_CFLAGS= -g -O0 -fprofile-arcs -ftest-coverage
 CFLAGS = -std=c99 -Wall $(INC) $(LCOV_CFLAGS)
 LFLAGS = -lgcov -fprofile-arcs
@@ -27,7 +27,7 @@ LIBS =$(LUA_L)
 $(EXE): $(LUA_PATH) $(OBJ)
 	$(CC) $(OBJ) $(LFLAGS) -o $@ $(LIBS)
 
-$(LUA_PATH): $(LUA).tar.gz	
+$(LUA_PATH): $(LUA).tar.gz
 	tar zxvf $(LUA).tar.gz
 	cd $(LUA_PATH) && make linux && make local
 
@@ -64,7 +64,7 @@ gdb: compile
 	gdb $(EXE)
 
 valgrind: compile
-	valgrind --leak-check=yes --xml=yes --xml-file=$(HTML_PATH)/valgrind/valgrind.xml ./$(EXE)       
+	valgrind --leak-check=yes --xml=yes --xml-file=$(HTML_PATH)/valgrind/valgrind.xml ./$(EXE)
 
 lcov: $(EXE).log
 	lcov --capture --directory . --output-file coverage.info

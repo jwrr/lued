@@ -19,7 +19,9 @@ Basic Operations
 * <kbd>Ctrl</kbd>+<kbd>f</kbd> finds and <kbd>Ctrl</kbd>+<kbd>l (el)</kbd> finds again (<kbd>Ctrl</kbd>+<kbd>h</kbd> finds in reverse direction)
 * <kbd>Ctrl</kbd>+<kbd>r</kbd> for Find and Replace
 * <kbd>Ctrl</kbd>+<kbd>t</kbd> moves to Top (first line). Double tap goes to last line
-* <kbd>Ctrl</kbd>+<kbd>g</kbd> moves right one word, <kbd>Ctrl</kbd>+<kbd>d</kbd> moves left one word
+* <kbd>Alt</kbd>+<kbd>a</kbd> moves to start of line (Same as <kbd>Home</kbd>), <kbd>Alt</kbd>+<kbd>g</kbd> moves end of line (same as <kbd>End/kbd>)
+* <kbd>Alt</kbd>+<kbd>s</kbd> moves left one word, <kbd>Alt</kbd>+<kbd>f</kbd> moves right one word
+* <kbd>Ctrl</kbd>+<kbd>d</kbd> is the same as <kbd>Delete</kbd>, <kbd>Alt</kbd>+<kbd>d</kbd> is the same as <kbd>Backspace</kbd>
 
 Cut / Copy / Paste
 ------------------
@@ -60,7 +62,6 @@ Delete/Cut/Copy Commands
 * <kbd>Alt</kbd>+<kbd>e</kbd> deletes to end of line (Same as <kbd>Ctrl</kbd>+<kbd>a</kbd>,<kbd>End</kbd>,<Delete>)
 * <kbd>Alt</kbd>+<kbd>x</kbd> deletes current line  (Same as <kbd>Shift</kbd>+<kbd>Delete</kbd>)
   * Multiple, Back-to-Back <kbd>Alt</kbd>+<kbd>x</kbd> will combine all deleted lines in the paste buffer.
-* <kbd>Alt</kbd>+<kbd>d5</kbd><kbd>enter</kbd> deletes 5 lines   (Same as <kbd>Alt</kbd>+<kbd>s5</kbd>,<kbd>Delete</kbd>)
 * <kbd>Alt</kbd>+<kbd>w</kbd> deletes to end of word    (Same as <kbd>Ctrl</kbd>+<kbd>a</kbd>,<kbd>Ctrl</kbd>+<kbd>g</kbd>,<kbd>Delete</kbd>)
 * <kbd>Alt</kbd>+<kbd>c</kbd> copies current line to paste buffer. 
   * Repeat to copy more lines to the paste buffer.

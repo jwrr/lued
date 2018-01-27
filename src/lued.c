@@ -1603,6 +1603,7 @@ void lued_atexit() {
    printf("%s",ESC_NORMSCREEN);
    printf("%s",ESC_PASTEOFF);
    raw_off();
+   system("stty sane");
 }
 
 int lued_main (int argc, char** argv)

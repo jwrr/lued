@@ -54,7 +54,7 @@ static void cursor_left(carr_t* line, size_t n) {
    if isNULL(line) return;
    n = min(n, carr_i(line));
    if isZERO(n) return;
-   printf(ESC_LEFT_N, n);
+   printf(ESC_LEFT_N,(int)n);
    fflush(stdout);
    carr_set_it(line, carr_i(line) - n);
 }
@@ -66,7 +66,7 @@ static void cursor_home(carr_t* line) {
 
 static void cursor_right(carr_t* line, size_t n) {
    if isNULL(line) return;
-   if (carr_validi(line)) printf(ESC_RIGHT_N, n);
+   if (carr_validi(line)) printf(ESC_RIGHT_N, (int)n);
    fflush(stdout);
    carr_set_it(line, carr_i(line) + n);
    // carr_nexti(line);
@@ -197,7 +197,7 @@ carr_t* carr_readline(const char* prompt, carr_t* history, const char* hotkeys, 
       getchar_raw(&c);
       // printf("[%d,'%c']", c, c); fflush(stdout); if isEQ(c,'q') break; continue;
 
-      int custom_esc_sequence = isEQ(esc_i,1) && !isEQ(c,'[');
+      int custom_esc_sequence = isEQ(esc_i,1) && !( isEQ(c,'[') || isEQ(c,'O') ); // OH=home, OF=end
       if (custom_esc_sequence) {
          esc_i = 0;
          esc[0] = '\0';
@@ -250,16 +250,16 @@ carr_t* carr_readline(const char* prompt, carr_t* history, const char* hotkeys, 
          } else if isEQS(esc, ESC_DELETE) {
             if (screen_mode) {carr_inserti(line, "esc_delete", 0); break; }
             delete_char(line);
-         } else if isEQS(esc, ESC_HOME) {
+         } else if (isEQS(esc, ESC_HOME) || isEQS(esc, ESC_HOME2) || isEQS(esc, ESC_HOME3)) {
             if (screen_mode) {carr_inserti(line, "esc_home", 0); break; }
             cursor_home(line);
-         } else if isEQS(esc, ESC_END) {
+         } else if (isEQS(esc, ESC_END) || isEQS(esc, ESC_END2) || isEQS(esc, ESC_END3)) {
             if (screen_mode) {carr_inserti(line, "esc_end", 0); break; }
             cursor_end(line);
-         } else if isEQS(esc, ESC_PAGEUP) {
+         } else if (isEQS(esc, ESC_PAGEUP) || isEQS(esc, ESC_PAGEUP2)) {
             if (screen_mode) {carr_inserti(line, "esc_pageup", 0); break; }
             cursor_end(line);
-         } else if isEQS(esc, ESC_PAGEDOWN) {
+         } else if (isEQS(esc, ESC_PAGEDOWN) || isEQS(esc, ESC_PAGEDOWN2)) {
             if (screen_mode) {carr_inserti(line, "esc_pagedown", 0); break; }
             cursor_end(line);
          } else if isEQS(esc, ESC_PASTESTART) {
