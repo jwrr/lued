@@ -1,7 +1,9 @@
-/* 
+/*
 MIT License
 
-Copyright (c) 2018 jwrr
+Copyright (c) 2018 JWRR.COM
+
+git clone https://github.com/jwrr/lued.git
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -44,9 +46,11 @@ SOFTWARE.
 #define ESC_HOME     "\e[1;2D"
 #define ESC_HOME2    "\eOH"
 #define ESC_HOME3    "\e[1~"
+#define ESC_HOME4    "\e[H"
 #define ESC_END      "\e[1;2C"
 #define ESC_END2     "\eOF"
 #define ESC_END3     "\e[4~"
+#define ESC_END4     "\e[F"
 #define ESC_PAGEDOWN "\e[1;2B"
 #define ESC_PAGEDOWN2 "\e[6~"
 #define ESC_PAGEUP   "\e[1;2A"
@@ -98,21 +102,21 @@ o   The low two bits of Cb encode button information: 0=MB1 pressed,
     1=MB2 pressed, 2=MB3 pressed, 3=release.
 o   The next three bits encode the modifiers which were down when the
     button was pressed and are added together:  4=Shift, 8=Meta, 16=Con-
-    trol. 
+    trol.
 
 =================
 
 
 #define ESC_MOUSETRACKING "\e[1002;1;1;1;80T"
-CSI Ps ; Ps ; Ps ; Ps ; Ps T . 
-The parameters are func, startx, starty, firstrow, and lastrow. 
-func is non-zero to initiate highlight tracking and zero to abort. 
-startx and starty give the starting x and y location for the highlighted region. 
-The ending location tracks the mouse, but will never be above row firstrow and 
+CSI Ps ; Ps ; Ps ; Ps ; Ps T .
+The parameters are func, startx, starty, firstrow, and lastrow.
+func is non-zero to initiate highlight tracking and zero to abort.
+startx and starty give the starting x and y location for the highlighted region.
+The ending location tracks the mouse, but will never be above row firstrow and
 will always be above row lastrow. (The top of the screen is row 1.
 
 #define ESC_MOUSE1EVENT   "\e[M@"
-CSI M @ Cx Cy . ( @ = 32 + 0 (button 1) + 32 (motion indicator) 
+CSI M @ Cx Cy . ( @ = 32 + 0 (button 1) + 32 (motion indicator)
 
 */
 

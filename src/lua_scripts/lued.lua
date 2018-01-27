@@ -1,7 +1,9 @@
 --[[
 MIT License
 
-Copyright (c) 2018 jwrr
+Copyright (c) 2018 JWRR.COM
+
+git clone https://github.com/jwrr/lued.git
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -255,6 +257,17 @@ function remove_all_trailing_space(dd)
   set_cur_pos(r,c)
   set_page_pos(pr,pc)
   disp(dd)
+end
+
+function remove_all_trailing_space_all_files(dd)
+  local dd2 = 1
+  local fileid = get_fileid()
+  local num_sessions = get_numsessions()
+  for i=1,num_sessions do
+    session_sel(i,dd2)
+    remove_all_trailing_space(dd2)
+  end
+  session_sel(fileid,dd)
 end
 
 function remove_all_leading_tabs(tab_size,dd)
@@ -665,7 +678,10 @@ end
 
 function goto_line(n,dd)
   local r,c = get_cur_pos()
-  n = n or r
+  if n == nil then
+    local n_str = lued_prompt("Goto Linenumber: ", "", "")
+    n = tonumber(n_str) or r
+  end
   if n > r then
     line_down(n-r,dd)
   elseif (n < r) then
@@ -1063,6 +1079,17 @@ function sel_line(n,dd)
   disp(dd)
 end
 
+function sel_all(dd)
+  local dd2 = 1
+  if not is_sof() then
+    top(dd2)
+  end
+  set_sel_start()
+  top(dd2)
+  set_sel_end()
+  disp(dd)
+end
+
 function sel_toggle(dd)
   set_sel()
   disp(dd)
@@ -1416,6 +1443,19 @@ function save_as(filename, dd)
   disp(dd)
 end
 
+function save_all(dd)
+  local dd2 = 1
+  local fileid = get_fileid()
+  local numsessions = get_numsessions()
+  for i=1,numsessions do
+    session_sel(i)
+    if is_modified()==1 then
+      save_session(dd2)
+    end
+  end
+  session_sel(fileid,dd)
+end
+
 function exit_session(dd)
   save_session()
   close_session()
@@ -1509,26 +1549,35 @@ function redo_cmd(dd)
   disp(dd)
 end
 
-function set_nameless_mark()
-  nameless_stack = nameless_stack or 0
-  set_mark("nameless_" .. nameless_stack)
-  nameless_stack = nameless_stack + 1
+function set_nameless_mark(dd)
+  local dd2 = 1
+  g_nameless_stack = g_nameless_stack or 0
+  set_mark("nameless_" .. g_nameless_stack)
+  g_nameless_stack = g_nameless_stack + 1
+  local r,c = get_cur_pos()
+  sol_classic(dd2)
+  set_sel_start()
+  eol(dd2)
+  set_sel_end()
+  disp()
+  lued_prompt(" - Mark set on line# "..r..". Alt+MM returns to this line. Hit <Enter> to continue...","hit_cr")
+  set_sel_off()
   disp()
 end
 
 function goto_nameless_mark_prev()
-  nameless_stack = nameless_stack or 1
-  if nameless_stack==0 then nameless_stack = 1 end
-  nameless_stack = nameless_stack - 1
-  goto_mark("nameless_" .. nameless_stack)
+  g_nameless_stack = g_nameless_stack or 1
+  if g_nameless_stack==0 then g_nameless_stack = 1 end
+  g_nameless_stack = g_nameless_stack - 1
+  goto_mark("nameless_" .. g_nameless_stack)
   disp()
 end
 
 function goto_nameless_mark_next()
-  nameless_stack = nameless_stack or 0
-  nameless_stack = nameless_stack + 1
-  local found = goto_mark("nameless_" .. nameless_stack)
-  if not found then nameless_stack = nameless_stack - 1 end
+  g_nameless_stack = g_nameless_stack or 0
+  g_nameless_stack = g_nameless_stack + 1
+  local found = goto_mark("nameless_" .. g_nameless_stack)
+  if not found then g_nameless_stack = g_nameless_stack - 1 end
   disp()
 end
 
@@ -1631,16 +1680,16 @@ Basic Operations
 - Shift+Delete deletes a line
 - Ctrl+s and Ctrl+q save and quit as expected
 - Ctrl+z / Ctrl+y undo/redo as expected.
-- Ctrl+f finds and Ctrl+l finds again (Ctrl+h finds in reverse direction)
+- Ctrl+f finds and Alt+l finds again (Ctrl+h finds in reverse direction)
 - Ctrl+r for Find and Replace
 - Ctrl+t moves to Top (first line). Double tap goes to last line
 - Alt+s moves left one word, Alt+f moves right one word
 - Alt+a moves to start of line, Alt+g moves to end of line
 - Ctrl+d deletes character, Alt+d backspaces char
 Cut / Copy / Paste
-- Ctrl+a starts selecting (similar to mouse press and hold)
+- Alt+z starts selecting (similar to mouse press and hold)
 - Ctrl+x / Ctrl+c / Ctrl+v cut, copy and paste as expected.
-- A common cut and paste sequence is Ctrl+a, move, Ctrl+c, move Ctrl+v
+- A common cut and paste sequence is Alt+z, move, Ctrl+c, move Ctrl+v
 - Ctrl+d is the same as the delete key; Alt+d is the same as backspace key
 
 Try the Scroll Wheel... It should work
@@ -1660,19 +1709,19 @@ Control Keys
  N (New),       M (Enter)
 
 Select Commands
-- Ctrl+a starts selecting
-  Ctrl+a,<Home> selects from beginning of line to cursor
-  Ctrl+a,<End> selects from cursor to end of line
-  Ctrl+a,Ctrl+g selects word. Keep hitting Ctrl+g to select more words
-- Ctrl+k selects the current word
-  A common sequence is Ctrl+k, Ctrl+l to select a word and then find it
-  Keep hitting Ctrl+k to select more words
+- Alt+z starts selecting
+  Alt+z,<Home> selects from beginning of line to cursor
+  Alt+z,<End> selects from cursor to end of line
+  Alt+z,Alt+f selects word. Keep hitting Alt+f to select more words
+- Alt+k selects the current word
+  A common sequence is Alt+k, Alt+l to select a word and then find it
+  Keep hitting Alt+k to select more words
 
 Delete/Cut/Copy Commands
-- Alt+b deletes to start of line  (Same as Ctrl+a,<Home>,<Delete>)
-- Alt+e deletes to end of line    (Same as Ctrl+a,<End>,<Delete>)
+- Alt+b deletes to start of line  (Same as Alt+z,<Home>,<Delete>)
+- Alt+e deletes to end of line    (Same as Alt+z,<End>,<Delete>)
 - Alt+x deletes current line      (Same as Shift+Delete)
-- Alt+w deletes to end of word    (Same as Ctrl+a,Ctrl+g,<Delete>)
+- Alt+w deletes to end of word    (Same as Alt+z,Alt+f,<Delete>)
 - Alt+c copies current line to paste buffer. Repeat to copy more lines.
 
 - Alt+l420<enter> goes to line 420
@@ -1781,9 +1830,9 @@ end
 -- key bindings
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
 set_hotkeys( ",a,b,B,c,d,e,ED,EE,EX,f,g"..
-             ",i,IS,ld,ln,lu,mm,MM,mn,MN,mp"..
+             ",i,IS,k,l,LN,LU,m,MM,Mn,MN,Mp"..
              ",ob,ol,om,oo,ot,ou,s,Sall,Sb,Se"..
-             ",Sn,Sp,sw,rr,v,w,x,")
+             ",Sn,Sp,sw,r,v,w,x,z,")
 
 set_repeatables(",ctrl_F,")
 -- set_repeatables(",,")
@@ -1832,15 +1881,16 @@ g =   eol
 i =  toggle_auto_indent
 I_squote = indent_scope
 IS =  indent_scope
-l =  goto_line  -- l420 goes to line 420
-ln =  toggle_line_numbers
-lu =  set_lua_mode
-m_squote = function(name) set_mark(name); disp() end
+k = function() if is_sel_off()==1 then sel_word() else word_right() end end
+l = find_forward_again
+LN =  toggle_line_numbers
+LU =  set_lua_mode
+M_squote = function(name) set_mark(name); disp() end
 M_squote = function(name) goto_mark(name); disp() end
-mm = set_nameless_mark
+m = set_nameless_mark
 MM = goto_nameless_mark_prev
-mn = goto_nameless_mark_next MN = goto_nameless_mark_next
-mp = goto_nameless_mark_prev
+Mn = goto_nameless_mark_next MN = goto_nameless_mark_next
+Mp = goto_nameless_mark_prev
 mlft = set_min_lines_from_top
 mlfb = set_min_lines_from_bot
 ob =  function() set_page_offset_percent(0.99,0) end -- align cursor to bottom
@@ -1849,17 +1899,20 @@ om =  function() set_page_offset_percent(0.5,0) end  -- align cursor to middle
 ot =  function() set_page_offset_percent(0.01,0) end -- align cursor to top
 ou =  function() set_page_offset_percent(0.25,0) end -- align cursor to upper
 --oo =  cr_before   OO = cr_after
-ps =  set_pagesize -- used by page_up / page_down
-ralt = remove_all_leading_tabs
-rats = remove_all_trailing_space
-relu = relued -- reload lued script
-rr =  find_reverse
-rt =  set_replace_tabs -- rt0 rt4
-rts =  set_remove_trailing_spaces -- rts0 rts1
+Ps =  set_pagesize -- used by page_up / page_down
+Ralt = remove_all_leading_tabs
+Rats = remove_all_trailing_space
+Ratsall = remove_all_trailing_space_all_files
+Relued = relued -- reload lued script
+r =  find_reverse
+Rt =  set_replace_tabs -- rt0 rt4
+Rts = set_remove_trailing_spaces -- rts0 rts1
 s =   word_left
 -- S =  function(n) sol_classic(1); set_sel_start(1); line_down(n); end
+S = save_file
 Sb =  function() set_sel_start(); sol(); end
 Sall = search_all
+Saveall = save_all
 Se =  function() set_sel_start(); eol(); end
 Si =  set_scope_indent -- si2 si3 si4
 Sn =  session_next
@@ -1870,6 +1923,7 @@ v =   global_paste
 w =   del_eow
 x =   del_line -- hotkey cut line
 X =   del_line -- Not hot key
+z =   sel_toggle
 _colon_w = save_file
 _colon_wq = quit_session
 
@@ -1897,7 +1951,7 @@ ctrl_I = insert_tab -- terminal <Tab> key (do not change)
 ctrl_O = open_file
 ctrl_P = sel_toggle        -- SPARE
 
-ctrl_A = sel_toggle
+ctrl_A = sel_all
 ctrl_S = save_file
 ctrl_D = del_char
 ctrl_F = find_forward
@@ -1906,7 +1960,7 @@ ctrl_G = word_right  -- SPARE
 ctrl_H = find_reverse_again  -- SPARE check if this is <backspace>
 ctrl_J = find_reverse_again  -- Same as ^M, <enter>
 ctrl_K = function() if is_sel_off()==1 then sel_word() else word_right() end end
-ctrl_L = find_forward_again
+ctrl_L = goto_line
 
 ctrl_Z = undo_cmd
 ctrl_X = global_cut

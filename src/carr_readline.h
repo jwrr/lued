@@ -1,7 +1,9 @@
-/* 
+/*
 MIT License
 
-Copyright (c) 2018 jwrr
+Copyright (c) 2018 JWRR.COM
+
+git clone https://github.com/jwrr/lued.git
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,6 +27,6 @@ SOFTWARE.
 
 #include "carr.h"
 #include "carr_esc.h"
-carr_t* carr_readline(const char* prompt, carr_t* history, const char* hotkeys, const char* readables, const char* non_readables);
+carr_t* carr_readline(const char* prompt, int repeat_previous, carr_t* history, const char* hotkeys, const char* readables, const char* non_readables);
 void raw_on();
 void raw_off();

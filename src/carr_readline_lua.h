@@ -1,7 +1,9 @@
-/* 
+/*
 MIT License
 
-Copyright (c) 2018 jwrr
+Copyright (c) 2018 JWRR.COM
+
+git clone https://github.com/jwrr/lued.git
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +34,7 @@ int lua_find_read(lua_State *L);
 int lua_replace_read(lua_State *L);
 
 int carr_readline_lua(char** buffer, const char* prmt);
-int carr_readline_postprocessor(carr_t* c_str, uint32_t max_leading_spaces); 
+int carr_readline_postprocessor(carr_t* c_str, uint32_t max_leading_spaces);
 carr_t* get_cmd_hist(); // from lua.c
 int lua_set_hotkeys (lua_State *L);
 int lua_get_hotkeys (lua_State *L);

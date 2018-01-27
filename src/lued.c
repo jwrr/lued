@@ -1,7 +1,9 @@
-/* 
+/*
 MIT License
 
-Copyright (c) 2018 jwrr
+Copyright (c) 2018 JWRR.COM
+
+git clone https://github.com/jwrr/lued.git
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1526,8 +1528,8 @@ static int display_screen(int lua_mode, int highlight_trailing_spaces) {
    int save_needed = !session_p->save_it_valid ||
                      !isEQ(session_p->save_it, session_p->undo_str->it);
    char save_ch = save_needed ? '*' : ' ';
-   
-   
+
+
    sprintf(status_line,"%s - LuEd File (%d) %s%c Line: %d, Col: %d, Sel: %d Cmd: %s",
           mode_str, id, filename, save_ch, row+1, col+1, sel_state, cmd_str);
    uint32_t status_len = strlen(status_line);

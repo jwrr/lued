@@ -1,7 +1,9 @@
-/* 
+/*
 MIT License
 
-Copyright (c) 2018 jwrr
+Copyright (c) 2018 JWRR.COM
+
+git clone https://github.com/jwrr/lued.git
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -78,7 +80,7 @@ int carr_readline_lua(char** line, const char* prmt) {
    *line = NULL;
    if isNULL(cmd_hist) cmd_hist = carrp_new();
    carr_t* c_line = NULL;
-   c_line = carr_readline(prmt,cmd_hist,hotkeys,repeatables,non_repeatables);
+   c_line = carr_readline(prmt,1,cmd_hist,hotkeys,repeatables,non_repeatables);
    if isNULL(c_line) return 0;
    carr_readline_postprocessor(c_line,1);
 
@@ -96,7 +98,7 @@ carr_t* io_hist = NULL; // *******
 
 const carr_t* carr_readline_io(const char* prmt, const char* hot) {
    if isNULL(io_hist) io_hist = carrp_new();
-   const carr_t* c_str = carr_readline(prmt, io_hist, hot, NULL, NULL);
+   const carr_t* c_str = carr_readline(prmt, 0, io_hist, hot, NULL, NULL);
    return c_str;
 }
 
@@ -110,7 +112,7 @@ int lua_io_read(lua_State *L) {
    } else {
       lua_pushstring(L, "");
    }
-   
+
    return 1;
 }
 
@@ -120,7 +122,7 @@ carr_t* find_hist = NULL; // *******
 
 carr_t* carr_readline_find(const char* prmt) {
    if isNULL(find_hist) find_hist = carrp_new();
-   carr_t* c_str = carr_readline(prmt, find_hist, NULL, NULL, NULL);
+   carr_t* c_str = carr_readline(prmt, 1, find_hist, NULL, NULL, NULL);
    return c_str;
 }
 
@@ -141,7 +143,7 @@ carr_t* replace_hist = NULL; // *******
 
 carr_t* carr_readline_replace(const char* prmt) {
    if isNULL(replace_hist) replace_hist = carrp_new();
-   carr_t* c_str = carr_readline(prmt, replace_hist, NULL, NULL, NULL);
+   carr_t* c_str = carr_readline(prmt, 1, replace_hist, NULL, NULL, NULL);
    return c_str;
 }
 
@@ -162,7 +164,7 @@ carr_t* open_files = NULL; // *******
 
 int carr_readline_open_files(const char* prmt) {
    if isNULL(open_files) open_files = carrp_new();
-   carr_t* c_str = carr_readline(prmt, open_files, NULL, NULL, NULL);
+   carr_t* c_str = carr_readline(prmt, 0, open_files, NULL, NULL, NULL);
    return c_str;
 }
 

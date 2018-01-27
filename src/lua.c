@@ -280,7 +280,7 @@ static int pushline(lua_State *L, int firstline) {
     lua_pushfstring(L, "return %s", b+1);  /* change it to `return' */
   else
     lua_pushstring(L, b);
-    
+
   lua_freeline(L, b);
   return 1;
 }

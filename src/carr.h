@@ -1,7 +1,9 @@
-/* 
+/*
 MIT License
 
-Copyright (c) 2018 jwrr
+Copyright (c) 2018 JWRR.COM
+
+git clone https://github.com/jwrr/lued.git
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +25,7 @@ SOFTWARE.
 */
 
 
-/// @file 
+/// @file
 /// @brief Header file for carr.h
 ///
 /// @main
@@ -58,7 +60,7 @@ carr_t* carr_dup(carr_t* dest, carr_t* src);
 carr_t* carr_free(carr_t* ca);
 carr_t* carr_free2d(carr_t* ca);
 int carr_isfirsti(const carr_t* ca);
-int carr_isleni(const carr_t* ca); 
+int carr_isleni(const carr_t* ca);
 void carr_firsti(carr_t* const ca) ;
 int carr_validi(const carr_t* const ca);
 int carr_validei(const carr_t* const ca, void* elem);
@@ -105,8 +107,8 @@ void carr_insert(carr_t* const ca, const void* arr, uint32_t const len, uint32_t
 void carr_insert2(carr_t* const ca, void** const arr, uint32_t const len, uint32_t const at);
 void carr_inserti(carr_t* const ca, const void* arr, uint32_t const len);
 
-#define for_carr(C) for (carr_firsti(C); carr_validi(C); carr_nexti(C)) 
-#define for_carr_cont(C) for ( ; carr_validi(C); carr_nexti(C)) 
+#define for_carr(C) for (carr_firsti(C); carr_validi(C); carr_nexti(C))
+#define for_carr_cont(C) for ( ; carr_validi(C); carr_nexti(C))
 
 #define foreach_carr(E,C) for (carr_firsti(C); carr_validei(C,E); carr_nexti(C))
 

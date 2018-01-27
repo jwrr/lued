@@ -1,7 +1,10 @@
-/* 
+/*
 MIT License
 
-Copyright (c) 2018 jwrr
+Copyright (c) 2018 Copyright (c) 2018 
+
+git clone https://github.com/jwrr/lued.git
+
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -170,7 +173,7 @@ static void getchar_until(carr_t* dest, const char* match) {
    }
 }
 
-carr_t* carr_readline(const char* prompt, carr_t* history, const char* hotkeys, const char* repeatables, const char* non_repeatables)
+carr_t* carr_readline(const char* prompt, int repeat_previous, carr_t* history, const char* hotkeys, const char* repeatables, const char* non_repeatables)
 {
    static int oneline_cmd = 0;
    static int repeat_oneline_cmd = 0;
@@ -250,10 +253,10 @@ carr_t* carr_readline(const char* prompt, carr_t* history, const char* hotkeys, 
          } else if isEQS(esc, ESC_DELETE) {
             if (screen_mode) {carr_inserti(line, "esc_delete", 0); break; }
             delete_char(line);
-         } else if (isEQS(esc, ESC_HOME) || isEQS(esc, ESC_HOME2) || isEQS(esc, ESC_HOME3)) {
+         } else if (isEQS(esc, ESC_HOME) || isEQS(esc, ESC_HOME2) || isEQS(esc, ESC_HOME3) || isEQS(esc, ESC_HOME4)) {
             if (screen_mode) {carr_inserti(line, "esc_home", 0); break; }
             cursor_home(line);
-         } else if (isEQS(esc, ESC_END) || isEQS(esc, ESC_END2) || isEQS(esc, ESC_END3)) {
+         } else if (isEQS(esc, ESC_END) || isEQS(esc, ESC_END2) || isEQS(esc, ESC_END3) || isEQS(esc, ESC_END4)) {
             if (screen_mode) {carr_inserti(line, "esc_end", 0); break; }
             cursor_end(line);
          } else if (isEQS(esc, ESC_PAGEUP) || isEQS(esc, ESC_PAGEUP2)) {
@@ -352,6 +355,7 @@ carr_t* carr_readline(const char* prompt, carr_t* history, const char* hotkeys, 
    // signal(SIGINT, SIG_DFL);
 
    if isZERO(carr_len(line)) {
+      if (!repeat_previous) return NULL;
       line = carr_free(line);
       if (carr_len(history)) {
          carr_get(history, carr_len(history) - 1, &line);

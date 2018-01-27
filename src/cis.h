@@ -1,7 +1,9 @@
-/* 
+/*
 MIT License
 
-Copyright (c) 2018 jwrr
+Copyright (c) 2018 JWRR.COM
+
+git clone https://github.com/jwrr/lued.git
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +25,8 @@ SOFTWARE.
 */
 
 
-/** 
- * @file 
+/**
+ * @file
  * @brief This file contains macros so that '==' is not required.
  *
  * @main
