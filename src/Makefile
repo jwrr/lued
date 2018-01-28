@@ -17,7 +17,7 @@ CC = gcc
 GDB_CFLAGS= -g
 VALGRIND_CFLAGS= -g
 LCOV_CFLAGS= -g -O0 -fprofile-arcs -ftest-coverage
-CFLAGS = -std=c99 -Wall $(INC) $(LCOV_CFLAGS)
+CFLAGS = -std=gnu99 -Wall $(INC) $(LCOV_CFLAGS)
 LFLAGS = -lgcov -fprofile-arcs
 LIBS =$(LUA_L)
 
