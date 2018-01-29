@@ -24,47 +24,46 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
 
-
-lua_mode = (lua_mode==nil) and 1 or 0
-g_auto_indent  = 1 -- indent the same as the previous line
-replace_tabs = 0 -- 4 -- replace tab with N spaces (does not remove existing tabs). 0 keeps tabs
-remove_trailing_spaces = 0 -- only removes on lines that are modified (use rats to remove all)
-highlight_trailing_spaces = 1
-enable_regex = 1 -- use with find commands: ctrl_F, (ff), find_reverse(fr)
-scope_indent = 2 -- use with indent_scope(is) command. change indent with si2 si3 si4...
-min_lines_from_top = 5
-min_lines_from_bot = 7
-page_size = 0.25
-enable_file_changed = true -- efc0, efc1. detect file change and prompt to reload
-case_sensitive = true -- cs0 cs1
-show_line_numbers = 0 -- ln (toggle_line_numbers) toggles on/off
-g_ctrl_c_max = 3 -- Quit when Ctrl+C is pounded several times with empty select buffer
-show_help = 1    -- 0 -- Show startup help
-
-global_buffer = ""
+  g_auto_indent            = true  -- Indent the same as the previous line
+  g_replace_tabs           = 0     -- 4 -- Replace tab with N spaces (does not remove existing tabs). 0 keeps tabs.
+  g_remove_trailing_spaces = false -- Only removes on lines that are modified. Use alt_Rats to remove all trailing spaces.
+  g_show_trailing_spaces   = true  -- Show trailing spaces in reverse video
+  g_enable_regex           = true  -- ALWAYS REGEX FOR NOW. use with find commands: ctrl_F, (ff), find_reverse(fr)
+  g_scope_indent           = 2     -- use with indent_scope(is) command. change indent with si2 si3 si4...
+  g_min_lines_from_top     = 5     -- scroll will try to keep at least 5 lines from the top
+  g_min_lines_from_bot     = 7     -- scroll will try to keep at least 7 lines from the bottom
+  g_page_size              = 0.25  -- this controls PgUp/PgDn speed. 0.25 is quarter page at a time.
+  g_enable_file_changed    = true  -- efc0, efc1. detect file change and prompt to reload
+  g_case_sensitive         = true  -- cs0 cs1
+  g_show_line_numbers      = false -- alt_LN (toggle_line_numbers) toggles on/off
+  g_ctrl_c_max             = 5     -- Quit when Ctrl+C is pounded several times with empty select buffer
+  g_show_help              = false -- Show startup help menu
+  g_double_speed           = 1     -- Increases scroll speed. 0 disables this feature. 2 or more goes even faster
+  g_lua_mode               = false -- set_lua_mode (Alt+LU) forces lua mode. LuEd automatically goes in and out of Lua mode as needed.
+  g_buffer                 = ""    -- The global buffer is used for cut and paste between multiple files.
 
 function toggle_line_numbers(dd)
-  show_line_numbers = show_line_numbers or 0
-  show_line_numbers = (show_line_numbers + 1) % 2
-  set_show_line_numbers(show_line_numbers)
+  g_show_line_numbers = not g_show_line_numbers
+  local show = 0;
+  if g_show_line_numbers then
+    show = 1;
+  end
+  set_show_line_numbers(show)
   disp(dd)
 end
 
 function set_auto_indent(dd)
-  val = 1
-  g_auto_indent = val
+  g_auto_indent = true
   disp(dd)
 end
 
 function clr_auto_indent(dd)
-  val =  0
-  g_auto_indent = val
+  g_auto_indent = false
   disp(dd)
 end
 
 function toggle_auto_indent(dd)
-  g_auto_indent = g_auto_indent or 0
-  g_auto_indent = (g_auto_indent + 1) % 2
+  g_auto_indent = not g_auto_indent
   disp(dd)
 end
 
@@ -80,49 +79,47 @@ end
 
 function set_replace_tabs(val,dd)
   val = val or 0
-  replace_tabs = val
+  g_replace_tabs = val
   disp(dd)
 end
 
-function set_remove_trailing_spaces(val,dd)
-  val = val or 0
-  remove_trailing_spaces = val
+function toggle_remove_trailing_spaces(dd)
+  g_remove_trailing_spaces = not g_remove_trailing_spaces
   disp(dd)
 end
 
-function set_highlight_trailing_spaces(val,dd)
-  val = val or 0
-  highlight_trailing_spaces = val
+function toggle_show_trailing_spaces(dd)
+  g_show_trailing_spaces = not g_show_trailing_spaces
   disp(dd)
 end
 
 function set_scope_indent(val,dd)
   val = val or 1
-  scope_indent = val
+  g_scope_indent = val
   disp(dd)
 end
 
 function set_min_lines_from_top(val,dd)
   if val==nil then val = 5 end
-  min_lines_from_top = val
+  g_min_lines_from_top = val
   disp(dd)
 end
 
 function set_min_lines_from_bot(val,dd)
   if val==nil then val = 7 end
-  min_lines_from_bot = val
+  g_min_lines_from_bot = val
   disp(dd)
 end
 
 function set_enable_file_changed(val,dd)
   val = val or 1
-  enable_file_changed = val==1 and true or false
+  g_enable_file_changed = val==1 and true or false
   disp(dd)
 end
 
 function set_case_sensitive(val,dd)
   val = val or 1
-  case_sensitive = val==1 and true or false
+  g_case_sensitive = val==1 and true or false
   disp(dd)
 end
 
@@ -190,8 +187,8 @@ function is_blankline(line)
 end
 
 
-function edit_mode(dd)
-  lua_mode = 0
+function set_edit_mode(dd)
+  g_lua_mode = false
   local keys = get_hotkeys()
   keys = "all" .. keys
   -- print ("KEYS1="..keys)
@@ -200,7 +197,7 @@ function edit_mode(dd)
 end
 
 function set_lua_mode(dd)
-  lua_mode = 1
+  g_lua_mode = true
   local keys = get_hotkeys()
   keys = string.gsub(keys,"(all)","")
   print ("KEYS2="..keys)
@@ -217,7 +214,7 @@ function remove_trailing_spaces(next_row,next_col,force,dd)
   local line_exists = line ~= nil
   local line_different = next_row==0 or line ~= saved_line
   local line_changed = row_changing and saved_exists and line_exists and line_different
-  local remove = force==true or remove_trailing_spaces==1 and line_changed==true
+  local remove = force==true or g_remove_trailing_spaces==true and line_changed==true
   if remove==true then
     local non_space = string.find(line,"%S")
     local last_nonspace = non_space==nil and 0 or string.find(line,"%S%s+$")
@@ -312,7 +309,7 @@ function leading_ws()
 end
 
 function indent_scope(str,dd)
-  str = str or string.rep(" ",scope_indent)
+  str = str or string.rep(" ",g_scope_indent)
   local dd2 = 1
   local r,c = get_cur_pos()
   local numlines = get_numlines()
@@ -399,7 +396,7 @@ end
 function disp(dd)
    dd = dd or 0
    local dd2 = 1
-   if enable_file_changed then
+   if g_enable_file_changed then
      local file_has_changed,mtime,ts = is_file_modified(0)
      if file_has_changed==1 then
        io.write("\n\n=======================================\n\n")
@@ -414,21 +411,32 @@ function disp(dd)
    local r,c = get_cur_pos()
    local pr,pc = get_page_pos()
    local tr,tc = get_termsize()
-   if (r-pr) < min_lines_from_top then
-     set_page_offset_percent(min_lines_from_top,dd2)
+   if (r-pr) < g_min_lines_from_top then
+     set_page_offset_percent(g_min_lines_from_top,dd2)
    end
-   if (pr+tr-r < min_lines_from_bot) then
-     set_page_offset_percent(-min_lines_from_bot,dd2)
+   if (pr+tr-r < g_min_lines_from_bot) then
+     set_page_offset_percent(-g_min_lines_from_bot,dd2)
    end
    if dd == 0 then
      g_command_count = g_command_count or 0
      g_command_count = g_command_count + 1
-     if lua_mode == nil then return end
-     display_screen(lua_mode,highlight_trailing_spaces)
+
+     if g_lua_mode == nil then return end
+     local show_trailing_spaces = 0;
+     if g_show_trailing_spaces then
+       show_trailing_spaces = 1
+     end
+     local lua_mode = 0
+     if g_lua_mode then
+       lua_mode = 1
+     end
+     display_screen(lua_mode,show_trailing_spaces)
    end
 end
 
 function char_left(n,dd)
+  local n_is_nil = n == nil or n == 0
+  --print ("999", n, n_is_nil); io.ad()
   n = n or 1
   local dd2 = 1
   for i=1,n do
@@ -440,24 +448,57 @@ function char_left(n,dd)
       local r,c = get_cur_pos()
       local len = get_line_len()
       c = math.min(c,len+1)
-      set_cur_pos(r,c-1)
+      c = c - 1
+      set_cur_pos(r,c)
+
+      if g_double_speed > 0 and n_is_nil then
+        if g_command_count == g_char_left_command_count then
+          g_scroll_speed = g_scroll_speed or 0
+          set_cur_pos(r,c-g_scroll_speed)
+          g_scroll_speed = g_double_speed
+        else
+          g_scroll_speed = 0
+        end
+        g_command_count = g_command_count or 1
+        g_char_left_command_count = g_command_count+1
+      else
+        g_scroll_speed = 0
+      end
+
     end
   end
   disp(dd)
 end
 
 function char_right(n,dd)
+  local n_is_nil = n == nil or n == 0
   n = n or 1
   local dd2 = 1
   for i=1,n do
-     if is_eof() then break end
-     if is_eol() then
-       line_down(1,dd2)
-       sol_classic(dd2)
-     else
-       local r,c = get_cur_pos()
-       set_cur_pos(r,c+1)
-     end
+    if is_eof() then break end
+    if is_eol() then
+      line_down(1,dd2)
+      sol_classic(dd2)
+    else
+      local r,c = get_cur_pos()
+      c = c + 1
+      set_cur_pos(r,c)
+
+      if g_double_speed > 0 and n_is_nil then
+        if g_command_count == g_char_right_command_count then
+          g_scroll_speed = g_scroll_speed or 0
+          set_cur_pos(r,c+g_scroll_speed)
+          g_scroll_speed = g_double_speed
+        else
+          g_scroll_speed = 0
+        end
+        g_command_count = g_command_count or 1
+        g_char_right_command_count = g_command_count+1
+      else
+        g_scroll_speed = 0
+      end
+
+    end
   end
   disp(dd)
 end
@@ -540,18 +581,18 @@ end
 
 function set_pagesize(val,dd)
   val = val or 0 -- zero is a special case.
-  page_size = val
+  g_page_size = val
   disp(dd)
 end
 
 function get_pagesize()
   rows, cols = get_termsize()
-  if page_size==nil or page_size==0 then
+  if g_page_size==nil or g_page_size==0 then
     return rows
-  elseif page_size < 1 then
-    return math.floor(rows*page_size*100 + 0.5) / 100;
+  elseif g_page_size < 1 then
+    return math.floor(rows*g_page_size*100 + 0.5) / 100;
   else
-    return page_size
+    return g_page_size
   end
 end
 
@@ -608,14 +649,15 @@ function last_line(dd)
     r2 = lastline - r - trows/2
   end
   line_down(r2,dd2)
-  goto_line(lastline, dd)
+  goto_line(lastline, dd2)
+  eol(dd)
 end
 
-function top(dd)
+function toggle_top(dd)
   if is_sof() then
-     last_line()
+     last_line(dd)
   else
-     first_line()
+     first_line(dd)
   end
 end
 
@@ -705,7 +747,7 @@ function find(str,dd)
   local r,c = get_cur_pos()
   local found,r2,c2 = find_str(str)
   if found==0 then
-    top(dd2)
+    first_line(dd2)
     found,r2,c2 = find_str(str)
     set_cur_pos(r,c)
   end
@@ -801,7 +843,7 @@ function find_reverse(str,dd)
   end
 
   local g_find_str2 = g_find_str
-  if not case_sensitive then
+  if not g_case_sensitive then
     g_find_str2 = string.lower(g_find_str)
   end
 
@@ -813,7 +855,7 @@ function find_reverse(str,dd)
   for k=numlines,1,-1 do
     i = (r+k-numlines) % numlines
     local line = get_line()
-    if not case_sensitive then
+    if not g_case_sensitive then
       line = string.lower(line)
     end
     local matches = find_all_on_line(line,g_find_str2)
@@ -846,7 +888,7 @@ function find_reverse_again(dd)
   local sel_str,sel_sr,sel_sc = get_sel_str()
   if sel_str~="" then
     set_cur_pos(sel_sr,sel_sc)
-    char_left(dd2)
+    char_left(1,dd2)
     g_find_str = sel_str
   end
   find_reverse(g_find_str,dd)
@@ -878,7 +920,7 @@ function find_forward(str,nowrap,search_all,replace,dd)
   end
 
   local g_find_str2 = g_find_str
-  if not case_sensitive then
+  if not g_case_sensitive then
     g_find_str2 = string.lower(g_find_str2)
   end
 
@@ -905,7 +947,7 @@ function find_forward(str,nowrap,search_all,replace,dd)
     if wrap==true and nowrap==true then break end
     set_cur_pos(i,1)
     local line = get_line()
-    if not case_sensitive then
+    if not g_case_sensitive then
       line = string.lower(line)
     end
     local matches = find_all_on_line(line,g_find_str2)
@@ -956,6 +998,7 @@ function find_and_replace(from,to,options,dd)
     replace_all = true
   end
 
+  local initial_r,initial_c = get_cur_pos()
   local r,c = get_cur_pos()
   repeat
     found = find_forward(str,true,false,true,dd2)
@@ -974,15 +1017,14 @@ function find_and_replace(from,to,options,dd)
       if resp=="y" or resp=="a" then
         ins_string(g_replace_str,dd2)
       elseif resp=="n" then
-        char_right(dd2)
+        char_right(1,dd2)
       else -- q or invalid response
         break
       end
 
     end
   until not found
---  io.read()
-  set_cur_pos(r,c)
+  set_cur_pos(initial_r,initial_c)
   disp(dd)
 end
 
@@ -1007,12 +1049,19 @@ end
 
 function find_forward_again(dd)
   local dd2 = 1
+  local initial_r,initial_c = get_cur_pos()
   local sel_str, sel_sr, sel_sc = get_sel_str()
   if sel_str~="" then
-    char_right(dd2)
+    char_right(1,dd2)
     g_find_str = sel_str
+    set_sel_off()
   end
-  return find_forward(g_find_str,false,false,false,dd)
+  local found = find_forward(g_find_str,false,false,false,dd2)
+  if not found then
+    set_cur_pos(initial_r,initial_c)
+  end
+  disp(dd)
+  return found
 end
 
 function find_selected_OLD(dd)
@@ -1081,17 +1130,19 @@ end
 
 function sel_all(dd)
   local dd2 = 1
-  if not is_sof() then
-    top(dd2)
-  end
+  first_line(dd2)
   set_sel_start()
-  top(dd2)
+  last_line(dd2)
   set_sel_end()
   disp(dd)
 end
 
 function sel_toggle(dd)
-  set_sel()
+  if is_sel_off()==1 then
+    set_sel_start()
+  else
+    set_sel_off()
+  end
   disp(dd)
 end
 
@@ -1135,7 +1186,7 @@ end
 function paste(dd)
   local dd2 = 1
   local auto_indent_save = g_auto_indent
-  g_auto_indent = 0
+  g_auto_indent = false
   del_sel(dd2)
   local pb = get_paste()
   ins_str(pb, dd)
@@ -1144,26 +1195,26 @@ end
 
 function global_cut(dd)
   cut(dd)
-  global_buffer = get_paste()
+  g_buffer = get_paste()
   disp(dd)
 end
 
 function global_cut_append(dd)
   cut(dd)
-  global_buffer = global_buffer .. get_paste()
+  g_buffer = g_buffer .. get_paste()
   disp(dd)
 end
 
 function global_copy(dd)
   local dd2 = 1
   copy(dd2)
-  global_buffer = get_paste()
+  g_buffer = get_paste()
   disp(dd)
 end
 
 function global_paste(dd)
   local dd2 = 1
-  set_paste(global_buffer)
+  set_paste(g_buffer)
   paste(dd2)
   disp(dd)
 end
@@ -1173,6 +1224,7 @@ function del_char(n,dd)
   local r,c = get_cur_pos()
   if is_sel_off()==1 then
     set_sel_start()
+    n = n or 1
     char_right(n, dd2)
     set_sel_end()
     set_cur_pos(r,c)
@@ -1276,6 +1328,7 @@ function del_backspace(n,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   if is_sel_off()==1 then
+    n = n or 1
     char_left(n, dd2)
     set_sel_start()
     set_cur_pos(r,c)
@@ -1331,7 +1384,7 @@ function ins_string(str, dd)
   local inhibit_cr = sel_state~=0 and sel_sr>1
   del_sel(dd2)
   if str == "\n" then
-    if g_auto_indent==1 and c~=1 then
+    if g_auto_indent==true and c~=1 then
       local line = get_line()
       local indent_str = line:match("^%s*") or ""
       if inhibit_cr then
@@ -1373,7 +1426,7 @@ function ins_str(str,dd)
 end
 
 function insert_tab(dd)
-  local t = (replace_tabs > 0) and string.rep(' ',replace_tabs) or "\t"
+  local t = (g_replace_tabs > 0) and string.rep(' ',g_replace_tabs) or "\t"
   ins_str(t,dd)
 end
 
@@ -1499,9 +1552,9 @@ function open_file(filename,dd)
   end
   if (filename~=nil and filename~="") then
     local fileid = lued_open(filename)
-    if filename then
+    if fileid~=nil and fileid~=0 then
        set_fileid(fileid)
-       top(dd2)
+       first_line(dd2)
     end
   end
   disp(dd)
@@ -1560,7 +1613,7 @@ function set_nameless_mark(dd)
   eol(dd2)
   set_sel_end()
   disp()
-  lued_prompt(" - Mark set on line# "..r..". Alt+MM returns to this line. Hit <Enter> to continue...","hit_cr")
+  lued_prompt(" - Mark set on line# "..r..". Alt+MM returns to this line. Press <Enter> to continue...","hit_cr")
   set_sel_off()
   disp()
 end
@@ -1649,8 +1702,18 @@ function mouse_event(str)
 end
 
 function relued(dd)
-  dofile("lua_scripts/lued.lua")
+  dofile("lued.lua")
   disp(dd)
+end
+
+function spare()
+  lued_prompt(" Undefined control character. Press <Enter> to continue...","hit_cr")
+  disp()
+end
+
+function dont_use()
+  lued_prompt(" Please do not use this control character. Press <Enter> to continue...","hit_cr")
+  disp()
 end
 
 function logo()
@@ -1701,12 +1764,12 @@ More Help
 
   local advanced_help = [[
 Control Keys
- Q (Quit),      W (Close),  E (Spare),       R (Replace),       T (Top)
- Y (Redo),      I (Tab),    O (Open File),   P (spare),
- A (Start Sel), S (Save),   D (Word Left),   F (Find),          G (Word Right)
- H (Find Back), J (Enter),  K (Select Word), L (Find Selected),
- Z (undo),      X (Cut),    C (Copy),        V (Paste),         B (Show Buffers)
- N (New),       M (Enter)
+ Q (Quit),      W (Close),    E (Spare),  R (Replace),    T (Spare)
+ Y (Redo),      U (Spare),    I (Tab),    O (Open File),  P (Spare)
+ A (Start Sel), S (Save),     D (Delete), F (Find),       G (Spare)
+ H (Find Back), J (Dont Use), K (Spare),  L (Spare),
+ Z (Undo),      X (Cut),      C (Copy),   V (Paste),      B (Show Buffers)
+ N (New),       M (Dont Use)
 
 Select Commands
 - Alt+z starts selecting
@@ -1829,20 +1892,23 @@ end
 
 -- key bindings
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
-set_hotkeys( ",a,b,B,c,d,e,ED,EE,EX,f,g"..
-             ",i,IS,k,l,LN,LU,m,MM,Mn,MN,Mp"..
-             ",ob,ol,om,oo,ot,ou,s,Sall,Sb,Se"..
-             ",Sn,Sp,sw,r,v,w,x,z,")
+  set_hotkeys( ",a,AI,B,c,d,e,ED,EE,EX,f,g,h"..
+               ",IS,k,l,LN,LU,m,MM,Mn,MN,Mp"..
+               ",ob,ol,om,oo,ot,ou,s,Sall,Sb,Se"..
+               ",Sn,Sp,sw,r,t,v,w,x,z,")
 
-set_repeatables(",ctrl_F,")
+  set_repeatables(",ctrl_F,")
 -- set_repeatables(",,")
-set_non_repeatables(",bo,sb,se,sl,sn,so,sp,sw,to,")
+  set_non_repeatables(",bo,sb,se,sl,sn,so,sp,sw,to,")
 
 -- alt-
 -- esc-
-b =   del_sol
-B =   buffer_prev
-c =   function(n)
+a =   sol -- hot
+AI =  toggle_auto_indent
+b =   select_open_file -- not hot
+b_squote = select_open_file
+B =   buffer_prev -- hot
+c =   function(n) -- hot
   local dd2 = 1
   local r = get_cur_pos()
   local sel_sr = r
@@ -1860,25 +1926,23 @@ c =   function(n)
   set_sel_start()
   set_cur_pos(r+1,1)
   set_sel_end()
-
   disp(dd)
 end
 
 -- c =   copy_line -- copy current line to paste buffer
-a =   sol
 C =   copy_line -- C5 copies 5 lines to paste buffer
 Ci =  function() set_case_sensitive(0) end -- used for find/search
 Cs =  set_case_sensitive -- used for find/search
 d =   del_backspace
 -- d =   del_line -- delete N lines (Alt+d12)
 e =   cut_eol
-ED =  edit_mode
+ED =  set_edit_mode
 Efc = set_enable_file_changed -- efc1 enables; efc0 disables
 EE =  exit_session -- save and close current session
 EX =  exit_all -- save and close all sessions
 f =   word_right
 g =   eol
-i =  toggle_auto_indent
+h = find_reverse_again
 I_squote = indent_scope
 IS =  indent_scope
 k = function() if is_sel_off()==1 then sel_word() else word_right() end end
@@ -1906,7 +1970,7 @@ Ratsall = remove_all_trailing_space_all_files
 Relued = relued -- reload lued script
 r =  find_reverse
 Rt =  set_replace_tabs -- rt0 rt4
-Rts = set_remove_trailing_spaces -- rts0 rts1
+Rts = toggle_remove_trailing_spaces
 s =   word_left
 -- S =  function(n) sol_classic(1); set_sel_start(1); line_down(n); end
 S = save_file
@@ -1918,6 +1982,7 @@ Si =  set_scope_indent -- si2 si3 si4
 Sn =  session_next
 Sow = skip_spaces
 Sw =  function() word_start(1); set_sel_start(); var_end(1); set_sel_end(); disp(); end
+t  =  toggle_top
 up =  line_up -- up23 moves up 23 lines
 v =   global_paste
 w =   del_eow
@@ -1941,35 +2006,35 @@ num_3 = sel_line
 
 ctrl_Q = quit_all
 ctrl_W = quit_session
-ctrl_E = sel_toggle        -- spare
+ctrl_E = spare
 ctrl_R = find_and_replace
-ctrl_T = top
+ctrl_T = spare
 
 ctrl_Y = redo_cmd
--- ctrl_U = session_next   -- SPARE
+ctrl_U = spare
 ctrl_I = insert_tab -- terminal <Tab> key (do not change)
 ctrl_O = open_file
-ctrl_P = sel_toggle        -- SPARE
+ctrl_P = spare
 
 ctrl_A = sel_all
 ctrl_S = save_file
 ctrl_D = del_char
 ctrl_F = find_forward
-ctrl_G = word_right  -- SPARE
+ctrl_G = spare
 
-ctrl_H = find_reverse_again  -- SPARE check if this is <backspace>
-ctrl_J = find_reverse_again  -- Same as ^M, <enter>
-ctrl_K = function() if is_sel_off()==1 then sel_word() else word_right() end end
-ctrl_L = goto_line
+ctrl_H = spare
+ctrl_J = dont_use  -- Same as <Enter>
+ctrl_K = spare
+ctrl_L = spare
 
 ctrl_Z = undo_cmd
 ctrl_X = global_cut
 ctrl_C = global_copy
 ctrl_V = paste
-ctrl_B = select_open_file
+ctrl_B = spare
 
 ctrl_N = new_file
-ctrl_M = new_line  -- terminal <CR> key (do not change)
+ctrl_M = dont_use -- Same as <Enter>
 
 -- These keys produce escape sequences (escape is not pressed)
 esc_backspace = del_backspace
@@ -1989,7 +2054,7 @@ esc_mouse = mouse_event
 esc_pastestart = bracket_paste_start
 esc_pastestop  = bracket_paste_stop
 
-edit_mode(0)
+set_edit_mode(0)
 if first_time == nil then
   local dd2 = 1
   first_time = 1
@@ -2004,7 +2069,7 @@ if first_time == nil then
   set_fileid(1,dd2)
   first_line(0)
   mouse(0)
-  if show_help==1 then help(1,0) end
+  if g_show_help==true then help(1,0) end
 end
 
 

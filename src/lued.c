@@ -1696,15 +1696,14 @@ int lued_main (int argc, char** argv)
       lued_open(LUED_SESSIONS,argv[i]);
    }
 
-   #define STRLEN 50
+   #define STRLEN 512
    char* home = getenv("HOME");
    char lued_paths[5][STRLEN];
-   safe_strncpy(lued_paths[0], "./lua_scripts/lued.lua", STRLEN);
-   safe_strncpy(lued_paths[1], "./lued.lua", STRLEN);
-   sprintf(lued_paths[2], "%s/lued.lua", home);
-   sprintf(lued_paths[3], "%s/.lua/lued.lua", home);
-
-   lued_paths[4][0] = '\0';
+   safe_strncpy(lued_paths[0], "./lued.lua", STRLEN);
+   sprintf(lued_paths[1], "%s/lued.lua", home);
+   sprintf(lued_paths[2], "%s/.lued/lued.lua", home);
+   lued_paths[3][0] = '\0';
+   
    printf("Searching for lued.lua...\n");
    int i = 0;
    for (i = 0; lued_paths[i][0]; i++) {
