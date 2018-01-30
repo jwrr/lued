@@ -9,9 +9,12 @@ OBJ = $(patsubst %.c, %.o, $(SRC))
 LUA=lua-5.2.4
 LUA_URL=https://www.lua.org/ftp
 LUA_PATH=./$(LUA)
+CARR=carr
+CARR_PATH=./$(CARR)
 #LUA_L=-llua5.2
 LUA_L=-L$(LUA_PATH)/install/lib -llua -lm -ldl
-INC=-I$(LUA_PATH)/install/include
+CARR_L=-L$(CARR_PATH)/install/lib -lcarr 
+INC=-I$(LUA_PATH)/install/include -I$(CARR_PATH)/install/include
 HEADERS = $(wildcard *.h)
 CC = gcc
 GDB_CFLAGS= -g
@@ -19,7 +22,7 @@ VALGRIND_CFLAGS= -g
 LCOV_CFLAGS= -g -O0 -fprofile-arcs -ftest-coverage
 CFLAGS = -std=gnu99 -Wall $(INC) $(LCOV_CFLAGS)
 LFLAGS = -lgcov -fprofile-arcs
-LIBS =$(LUA_L)
+LIBS =$(LUA_L) $(CARR_L)
 
 .PRECIOUS: $(OBJ)
 .PHONY: compile default all clean gdb dox push commit
