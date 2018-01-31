@@ -50,6 +50,6 @@ SOFTWARE.
 #include "carr_esc.h"
 #include "carr_readline.h"
 #include "carr_readline_lua.h"
-#include "cis.h"
+#include "carr_cis.h"
 #endif
 

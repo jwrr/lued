@@ -82,8 +82,8 @@ Multiple Files
 
 Installation
 ------------
-* cd src
 * make
+  * make will clone carr repo
   * make will use wget to download lua
 
 Trial Run
@@ -101,9 +101,3 @@ XTERM Work-arounds
 * Alt+V - Gnome Terminal provides many keyboard shortcuts (https://help.gnome.org/users/gnome-terminal/stable/adv-keyboard-shortcuts.html.en). Sometimes the Gnome bindings conflict with LuEd bindings.  For example, <kbd>Alt</kbd>+<kbd>V</kbd> opens the Gnome Terminal View Menu.  To disable Gnome's <kbd>Alt</kbd>+<kbd>V</kbd> behavior do the following: Edit > Keyboard Shortcuts..., and then unselect "Enable menu access keys".
 * Ctrl+S - Terminals usually stop when Ctrl+S (XOFF) is pressed and remain suspended until Ctrl+Q (XON) is presed.  This behavior may be confusing and a user may think the application is hung. The KDE Konsole terminal attempts to help by printing a warning message "Output has been suspended by pressing Ctrl+S. Press Ctrl+Q to resume". LuEd, and many other text editors, use stty to disable the Ctrl+S (XOFF) and Ctrl+Q (XON) behavior.  Unfortunately older versions of Konsole have a bug that incorrectly show the error message even when Ctrl+S (XOFF) is disabled.  Lued provides an alternative keyboard binding, <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd><kbd>Enter</kbd>, to work around this <a href="https://bugs.kde.org/show_bug.cgi?id=151966">Konsole bug</a>.
 
-
-* Ctrl+S - Terminals usually stop when Ctrl+S (XOFF) is pressed and remain suspended until Ctrl+Q (XON) is presed.  This behavior may be confusing and a user may think the application is hung. The KDE Konsole terminal attempts to help by printing a warning message "Output has been suspended by pressing Ctrl+S. Press Ctrl+Q to resume". LuEd, and many other text editors, use stty to disable the Ctrl+S (XOFF) and Ctrl+Q (XON) behavior.  Unfortunately older versions of Konsole have a bug that incorrectly show the error message even when Ctrl+S (XOFF) is disabled.  Lued provides an alternative keyboard binding, <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd><kbd>Enter</kbd>, to work around this <a href="https://bugs.kde.org/show_bug.cgi?id=151966">Konsole bug</a>.
-
-
-* Alt+V - Gnome Terminal provides many keyboard shortcuts (https://help.gnome.org/users/gnome-terminal/stable/adv-keyboard-shortcuts.html.en). Sometimes the Gnome bindings conflict with LuEd bindings.  For example, <kbd>Alt</kbd>+<kbd>V</kbd> opens the Gnome Terminal View Menu.  To disable Gnome's <kbd>Alt</kbd>+<kbd>V</kbd> behavior do the following: Edit > Keyboard Shortcuts..., and then unselect "Enable menu access keys".
-* Ctrl+S - Terminals usually stop when Ctrl+S (XOFF) is pressed and remain suspended until Ctrl+Q (XON) is presed.  This behavior may be confusing and a user may think the application is hung. The KDE Konsole terminal attempts to help by printing a warning message "Output has been suspended by pressing Ctrl+S. Press Ctrl+Q to resume". LuEd, and many other text editors, use stty to disable the Ctrl+S (XOFF) and Ctrl+Q (XON) behavior.  Unfortunately older versions of Konsole have a bug that incorrectly show the error message even when Ctrl+S (XOFF) is disabled.  Lued provides an alternative keyboard binding, <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd><kbd>Enter</kbd>, to work around this <a href="https://bugs.kde.org/show_bug.cgi?id=151966">Konsole bug</a>.
