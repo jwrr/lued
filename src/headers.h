@@ -43,9 +43,9 @@ SOFTWARE.
 #include <termios.h>
 #include <time.h>
 #include <unistd.h>
-#include "lua-5.2.4/install/include/lauxlib.h"
-#include "lua-5.2.4/install/include/lua.h"
-#include "lua-5.2.4/install/include/lualib.h"
+#include "lauxlib.h"
+#include "lua.h"
+#include "lualib.h"
 #include "carr.h"
 #include "carr_esc.h"
 #include "carr_readline.h"
