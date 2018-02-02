@@ -1556,6 +1556,22 @@ function open_file(filename,dd)
   disp(dd)
 end
 
+function open_filelist(filelist,dd)
+  local dd2 = 1
+  if filelist==nil then
+    filelist = lued_prompt(" Enter Filelist: ","open_file")
+  end
+  if (filelist~=nil and filelist~="") then
+    local file = io.open(filelist, "r");
+    if file~=nil then
+      for filename in file:lines() do
+        open_file(filename)
+      end
+    end
+  end
+  disp(dd)
+end
+
 function new_file(filename, dd)
   local dd2 = 1
   local fileid = lued_open("")
