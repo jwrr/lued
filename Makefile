@@ -1,4 +1,4 @@
-REPO_LIST=github.com/jwrr/carr/v0.1.0 lua.org/ftp/lua-5.2.4
+REPO_LIST=github.com/jwrr/carr/v0.1.0 www.lua.org/ftp/lua-5.2.4
 
 EXE=lued
 DOTA=liblued.a
@@ -12,7 +12,7 @@ DEPS = $(wildcard *.h)
 
 exe: install/bin/$(EXE)
 
-lua.org/ftp/lua-5.2.4:
+www.lua.org/ftp/lua-5.2.4:
 	mkdir -p $(shell dirname $@)
 	wget $@.tar.gz
 	tar zxvf $(shell basename $@).tar.gz -C $(shell dirname $@)
