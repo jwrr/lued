@@ -926,13 +926,6 @@ function find_forward(str,nowrap,search_all,replace,dd)
 
   if replace and (str==nil or str=="") then
     g_replace_str = replace_prompt()
-    if g_replace_str == "" then
-      disp(dd)
-      return
-    end
-
-
-
   end
 
   local r,c = get_cur_pos()
@@ -1895,7 +1888,7 @@ end
   set_hotkeys( ",a,AI,B,c,d,e,ED,EE,EX,f,g,h"..
                ",IS,k,l,LN,LU,m,MM,Mn,MN,Mp"..
                ",ob,ol,om,oo,ot,ou,s,Sall,Sb,Se"..
-               ",Sn,Sp,sw,r,t,v,w,x,z,")
+               ",Sn,Sp,sw,r,t,u,v,w,y,x,z,")
 
   set_repeatables(",ctrl_F,")
 -- set_repeatables(",,")
@@ -1982,12 +1975,14 @@ Si =  set_scope_indent -- si2 si3 si4
 Sn =  session_next
 Sow = skip_spaces
 Sw =  function() word_start(1); set_sel_start(); var_end(1); set_sel_end(); disp(); end
-t  =  toggle_top
-up =  line_up -- up23 moves up 23 lines
+t =   toggle_top
+u =   undo_cmd
+Up =  line_up -- up23 moves up 23 lines
 v =   global_paste
 w =   del_eow
 x =   del_line -- hotkey cut line
 X =   del_line -- Not hot key
+y =   redo_cmd
 z =   sel_toggle
 _colon_w = save_file
 _colon_wq = quit_session

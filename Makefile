@@ -7,7 +7,7 @@ OBJ=lued.o
 CC=gcc
 INC=-Iinstall/include
 CFLAGS=-std=gnu99 -Wall $(INC)
-LFLAGS= 
+LFLAGS=
 DEPS = $(wildcard *.h)
 
 exe: install/bin/$(EXE)
@@ -35,7 +35,7 @@ install/lib/$(DOTA): $(DOTA)
 	cp $(DOTA)  $@
 	mkdir -p install/include
 	cp src/lued.h install/include
- 
+
 $(EXE): install/lib/$(DOTA) main.o
 	$(CC) main.o $(LFLAGS) -o $@ $(LIBS)
 	mkdir -p install/bin
