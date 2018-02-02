@@ -1527,6 +1527,9 @@ function quit_session(force,dd)
     end
   end
   close_session()
+  if (numsessions==1) then
+    close_session()
+  end
   disp(dd)
 end
 
@@ -1885,10 +1888,10 @@ end
 
 -- key bindings
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
-  set_hotkeys( ",a,AI,B,c,d,e,ED,EE,EX,f,g,h"..
-               ",IS,k,l,LN,LU,m,MM,Mn,MN,Mp"..
+  set_hotkeys( ",/,,,.,a,AI,b,c,d,e,ED,EE,EX,f,g"..
+               ",IS,j,k,l,LN,LU,m,MM,Mn,MN,Mp"..
                ",ob,ol,om,oo,ot,ou,s,Sall,Sb,Se"..
-               ",Sn,Sp,sw,r,t,u,v,w,y,x,z,")
+               ",Sn,Sp,sw,r,t,v,w,y,x,z,")
 
   set_repeatables(",ctrl_F,")
 -- set_repeatables(",,")
@@ -1896,11 +1899,14 @@ end
 
 -- alt-
 -- esc-
-a =   sol -- hot
+
+_period_ = sel_toggle
+_slash_ =  find_forward
+a =   sel_all -- hot
 AI =  toggle_auto_indent
-b =   select_open_file -- not hot
-b_squote = select_open_file
-B =   buffer_prev -- hot
+b =   select_open_file -- hot
+-- b_squote = select_open_file
+B =   buffer_prev --not  hot
 c =   function(n) -- hot
   local dd2 = 1
   local r = get_cur_pos()
@@ -1933,9 +1939,9 @@ ED =  set_edit_mode
 Efc = set_enable_file_changed -- efc1 enables; efc0 disables
 EE =  exit_session -- save and close current session
 EX =  exit_all -- save and close all sessions
-f =   word_right
+f =   find_forward
 g =   eol
-h = find_reverse_again
+j = find_reverse_again
 I_squote = indent_scope
 IS =  indent_scope
 k = function() if is_sel_off()==1 then sel_word() else word_right() end end
@@ -1971,25 +1977,23 @@ Sb =  function() set_sel_start(); sol(); end
 Sall = search_all
 Saveall = save_all
 Se =  function() set_sel_start(); eol(); end
-Si =  set_scope_indent -- si2 si3 si4
+Si =  set_scope_indent -- Si2 Si3 Si4
 Sn =  session_next
 Sow = skip_spaces
 Sw =  function() word_start(1); set_sel_start(); var_end(1); set_sel_end(); disp(); end
 t =   toggle_top
-u =   undo_cmd
-Up =  line_up -- up23 moves up 23 lines
+Up =  line_up -- Up23 moves up 23 lines
 v =   global_paste
 w =   del_eow
 x =   del_line -- hotkey cut line
 X =   del_line -- Not hot key
 y =   redo_cmd
-z =   sel_toggle
+z =   undo_cmd
 _colon_w = save_file
 _colon_wq = quit_session
 
 f_squote = find
 _squote = find
-_fslash = find
 o_squote = open_file
 new_squote = new_file
 p_squote = set_paste_buffer
