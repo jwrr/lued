@@ -1,4 +1,5 @@
-REPO_LIST=github.com/jwrr/carr/v0.1.0 www.lua.org/ftp/lua-5.2.4
+#REPO_LIST=github.com/jwrr/carr/v0.1.0 www.lua.org/ftp/lua-5.2.4
+REPO_LIST=github.com/jwrr/carr/master www.lua.org/ftp/lua-5.2.4
 
 EXE=lued
 DOTA=liblued.a
@@ -11,6 +12,10 @@ LFLAGS=
 DEPS = $(wildcard *.h)
 
 exe: install/bin/$(EXE)
+
+recompile: install/bin/$(EXE)
+	make -C github.com/jwrr/carr/v0.1.0
+	cp -rf github.com/jwrr/carr/v0.1.0/install .
 
 www.lua.org/ftp/lua-5.2.4:
 	mkdir -p $(shell dirname $@)
@@ -40,7 +45,7 @@ $(EXE): install/lib/$(DOTA) main.o
 	$(CC) main.o $(LFLAGS) -o $@ $(LIBS)
 	mkdir -p install/bin
 
-install/bin/$(EXE): $(REPO_LIST) $(EXE)
+install/bin/$(EXE): $(REPO_LIST) install/lib/libcarr.a $(EXE)
 	mkdir -p install/bin
 	cp $(EXE) $@
 
