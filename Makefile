@@ -1,56 +1,62 @@
 #REPO_LIST=github.com/jwrr/carr/v0.1.0 www.lua.org/ftp/lua-5.2.4
-REPO_LIST=github.com/jwrr/carr/master www.lua.org/ftp/lua-5.2.4
+CARR_PATH=github.com/jwrr/carr/master
+LUA_PATH=www.lua.org/ftp/lua-5.2.4
+REPO_LIST=$(CARR_PATH) $(LUA_PATH)
 
 EXE=lued
-DOTA=liblued.a
 LIBS=-Linstall/lib  -llued -lcarr -llua -lm -ldl
-OBJ=lued.o
 CC=gcc
 INC=-Iinstall/include
 CFLAGS=-std=gnu99 -Wall $(INC)
 LFLAGS=
 DEPS = $(wildcard *.h)
 
+
 exe: install/bin/$(EXE)
 
-recompile: install/bin/$(EXE)
-	make -C github.com/jwrr/carr/v0.1.0
-	cp -rf github.com/jwrr/carr/v0.1.0/install .
+carr: install/lib/libcarr.a
+install/lib/libcarr.a: $(CARR_PATH)
+	make -C $(CARR_PATH)
+	cp -rf $(CARR_PATH)/install .
+$(CARR_PATH):
+	git clone --branch $(shell basename $@) https://$(shell dirname $@).git $@
 
-www.lua.org/ftp/lua-5.2.4:
+lua: install/lib/liblua.a
+install/lib/liblua.a: $(LUA_PATH)
+	make -C $(LUA_PATH) linux
+	make -C $(LUA_PATH) local
+	cp -rf $(LUA_PATH)/install .
+$(LUA_PATH):
 	mkdir -p $(shell dirname $@)
 	wget $@.tar.gz
 	tar zxvf $(shell basename $@).tar.gz -C $(shell dirname $@)
-	cd $@ && make linux && make local
-	cp -rf $@/install .
 
-github.com/jwrr/carr/v0.1.0:
-	git clone --branch $(shell basename $@) https://$(shell dirname $@).git $@
-	make -C $@
-	cp -rf $@/install .
-
-%.o: src/%.c $(DEPS)
+$(EXE).o: src/$(EXE).c $(DEPS) lua carr
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-$(DOTA): $(OBJ)
-	ar cr $@ $(OBJ)
+main.o: src/main.c $(EXE).o
+	$(CC) -c -o $@ $< $(CFLAGS)
 
-install/lib/$(DOTA): $(DOTA)
+lib$(EXE).a: $(EXE).o
+	ar cr $@ $(EXE).o
+
+install/lib/lib$(EXE).a: lib$(EXE).a
 	mkdir -p install/lib
-	cp $(DOTA)  $@
+	cp lib$(EXE).a  $@
 	mkdir -p install/include
 	cp src/lued.h install/include
 
-$(EXE): install/lib/$(DOTA) main.o
+$(EXE): install/lib/lib$(EXE).a main.o
 	$(CC) main.o $(LFLAGS) -o $@ $(LIBS)
 	mkdir -p install/bin
 
-install/bin/$(EXE): $(REPO_LIST) install/lib/libcarr.a $(EXE)
+install/bin/$(EXE): $(REPO_LIST) $(EXE)
 	mkdir -p install/bin
+	cp src/lued.lua install/bin
 	cp $(EXE) $@
 
 clean:
-	rm -rf *.o *.a $(EXE) *tar.gz*
+	rm -rf *.o *.a $(EXE) *tar.gz* install/lib/*
 
 clean_all: clean
 	rm -rf $(REPO_LIST) install
