@@ -723,7 +723,9 @@ function sol(dd)
   if not is_sof() then
     if is_sol() then
       line_up(1,dd2)
-      eol(dd2)
+      if not is_eol() then
+        eol(dd2)
+      end
     end
     local r,c = get_cur_pos()
     sol_classic(dd2)
