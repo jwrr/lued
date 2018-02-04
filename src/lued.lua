@@ -2075,6 +2075,7 @@ alt__squote = find
 alt_p_squote = set_paste_buffer
 alt_sa_squote = save_as
 
+ctrl__at_ = disp           -- Called when resuming from Ctrl+Z (fg at shell prompt)
 ctrl_Q = quit_all          -- alt_q
 ctrl_W = quit_session      -- alt_x
 ctrl_E = spare
