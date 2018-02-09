@@ -1734,7 +1734,10 @@ int lued_main (int argc, char** argv)
    }
 
    raw_on(); // FIXME
-   lua_interactive(L, 0, NULL);
+   char* my_argv[1];
+   my_argv[0] = NULL;
+
+   lua_interpreter(L, 0, my_argv);
    raw_off();
    printf("%s",ESC_NORMSCREEN);
 
