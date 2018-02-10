@@ -1504,7 +1504,7 @@ function cr_after(dd)
   end
 end
 
-function hot_squote(key, dd)
+function hot(key, dd)
   if key == nil then return end
   key = key .. ","
   local keys = get_hotkeys()
@@ -1514,7 +1514,7 @@ function hot_squote(key, dd)
   disp(dd)
 end
 
-function nohot_squote(key, dd)
+function nohot(key, dd)
   if not key then return end
   key = key .. ","
   local keys = get_hotkeys()
@@ -1981,97 +1981,93 @@ end
 
 -- key bindings
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
-  set_hotkeys( ",/,,,.,a,AI,b,c,CC,d,DA,DS,DF,DG,ED,EE,EX,f,FR,g"..
-               ",IS,j,k,l,LN,LU,m,MM,Mn,MN,Mp"..
-               ",o,OB,OL,OM,OO,OT,q,s,Sall,SA,SS,SD,SF,SG"..
-               ",Sn,Sp,sw,r,t,v,VV,w,y,x,z,")
+  set_hotkeys( ",Sn,Sp,sw,r,t,v,VV,w,y,x,z,")
 
   set_repeatables(",ctrl_F,")
 -- set_repeatables(",,")
-  set_non_repeatables(",alt_da,alt_dg,")
+  set_non_repeatables(",alt_d,alt_da,alt_dg,")
 
 -- alt-
 -- esc-
 
-alt__period_ = sel_toggle
-alt__slash_ =  find_forward
-alt_a =     sel_all -- hot
+alt__period_ = sel_toggle;          hot(".")
+alt__slash_ =  find_forward;        hot("/")
+alt_a =     sel_all;                hot("a")
 alt_Abort = set_ctrl_c_abort
-alt_AI =    toggle_auto_indent
-alt_b =     select_open_file -- hot
--- b_squote = select_open_file
-alt_B =     buffer_prev --not hot
-alt_c =     global_copy -- hot
-alt_C =     copy_line -- C5 copies 5 lines to paste buffer
-alt_CC =    copy_line2
+alt_AI =    toggle_auto_indent;     hot("AI")
+alt_b =     select_open_file;       hot("b")
+alt_B =     buffer_prev
+alt_c =     global_copy;            hot("c")
+alt_C =     copy_line                          -- C5 copies 5 lines to paste buffer
+alt_CC =    copy_line2;             hot("CC")
 alt_Ci =    function() set_case_sensitive(0) end -- used for find/search
 alt_Cs =    set_case_sensitive -- used for find/search
-alt_D =     del_line -- Alt+d42<enter> deletes 42 lines
+alt_D =     del_line -- Alt+d42<enter> deletes 42 lines. Alt+D$ deletes to end of file
+alt_D_dollar_ = function() del_line( get_numlines() ) end hot("D$")
 alt_DA =    del_sol
 -- FIXME alt_DS =  del_sow
-alt_d =     del_line
-alt_DF =    del_eow
-alt_DG =    cut_eol
-alt_ED =    set_edit_mode
+alt_d =     del_line;               hot("d")
+alt_e = function() del_eow(1) line_down() end hot("e")
+alt_DG =    cut_eol                 hot("DG")
+alt_ED =    set_edit_mode           hot("ED")
 alt_Efc =   set_enable_file_changed -- efc1 enables; efc0 disables
-alt_EE =    exit_session -- save and close current session
-alt_EX =    exit_all -- save and close all sessions
-alt_f =     find_forward
+--alt_EE =    exit_session -- save and close current session
+--alt_EX =    exit_all -- save and close all sessions
+alt_f =     find_forward            hot("f")
 alt_Flow =  set_ctrl_s_flow_control
-alt_FR =    find_and_replace
-alt_g =     eol
-alt_j =     find_reverse_again
+alt_FR =    find_and_replace        hot("FR")
+--alt_g =     eol
 alt_I_squote = indent_scope
-alt_IS =    indent_scope
-alt_k =     sel_word
-alt_l =     find_forward_again
-alt_LN =    toggle_line_numbers
-alt_LU =    set_lua_mode
+alt_IS =    indent_scope            hot("IS")
+alt_j =     find_reverse_again      hot("j")
+alt_k =     sel_word                hot("k")
+alt_l =     find_forward_again      hot("l")
+alt_LN =    toggle_line_numbers     hot("LN")
+alt_LU =    set_lua_mode            hot("LU")
 alt_M_squote = function(name) set_mark(name); disp() end
 alt_M_squote = function(name) goto_mark(name); disp() end
-alt_m =     set_nameless_mark
-alt_MM =    goto_nameless_mark_prev
-alt_Mn =    goto_nameless_mark_next MN = goto_nameless_mark_next
-alt_Mp =    goto_nameless_mark_prev
-alt_mlft =  set_min_lines_from_top
-alt_mlfb =  set_min_lines_from_bot
-alt_n =     new_file
-alt_o =     open_file
-alt_OB =    function() set_page_offset_percent(0.99,0) end -- align cursor to bottom
-alt_OL =    function() set_page_offset_percent(0.75,0) end -- align cursor to lower
-alt_OM =    function() set_page_offset_percent(0.5,0) end  -- align cursor to middle
-alt_OT =    function() set_page_offset_percent(0.01,0) end -- align cursor to top
-alt_OU =    function() set_page_offset_percent(0.25,0) end -- align cursor to upper
+alt_m =     set_nameless_mark       hot("m")
+alt_MM =    goto_nameless_mark_prev hot("MM")
+alt_Mn =    goto_nameless_mark_next hot("Mn")
+alt_MN =    goto_nameless_mark_next hot("MN")
+alt_Mp =    goto_nameless_mark_prev hot("Mp")
+alt_Mlft =  set_min_lines_from_top
+alt_Mlfb =  set_min_lines_from_bot
+alt_n =     new_file                hot("n")
+alt_o =     open_file               hot("o")
+alt_OB =    function() set_page_offset_percent(0.99,0) end hot("OB") -- align cursor to bottom
+alt_OL =    function() set_page_offset_percent(0.75,0) end hot("OL") -- align cursor to lower
+alt_OM =    function() set_page_offset_percent(0.5,0) end  hot("OM") -- align cursor to middle
+alt_OT =    function() set_page_offset_percent(0.01,0) end hot("OT") -- align cursor to top
+alt_OU =    function() set_page_offset_percent(0.25,0) end hot("OU") -- align cursor to upper
 --alt_oo =  cr_before   OO = cr_after
 alt_Ps =    set_pagesize -- used by page_up / page_down
-alt_q =     quit_all
+alt_q =     quit_all                hot("q")
+alt_r =     find_reverse            hot("r")
 alt_Ralt =  remove_all_leading_tabs
 alt_Rats =  remove_all_trailing_space
 alt_Ratsall = remove_all_trailing_space_all_files
 alt_Relued =  relued -- reload lued script
-alt_r =       find_reverse
-alt_Rt =      set_replace_tabs -- rt0 rt4
-alt_Rts =     toggle_remove_trailing_spaces
-alt_s =       save_file
--- S =        function(n) sol_classic(1); set_sel_start(1); line_down(n); end
-alt_SA =      function() set_sel_start(); sol(); end
-alt_Sall =    search_all
+alt_Rt =    set_replace_tabs -- rt0 rt4
+alt_Rts =   toggle_remove_trailing_spaces
+alt_s =     save_file               hot("s")
+alt_SA =    function() set_sel_start(); sol(); end hot("SA")
+alt_Sall =  search_all
 alt_Saveall = save_all
-alt_SI =      set_scope_indent -- Si2 Si3 Si4
-alt_SN =      session_next
-alt_SF =      function() set_sel_start(); var_end(1); set_sel_end(); disp(); end
-alt_SG =      function() set_sel_start(); eol(); set_sel_end(); end
+alt_SI =    set_scope_indent -- Si2 Si3 Si4
+alt_SN =    session_next            hot("SN")
+alt_SF =    function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("SF")
+alt_SG =    function() set_sel_start(); eol(); set_sel_end(); end hot("SG")
 alt_Suspend = set_ctrl_z_suspend
-alt_t =       toggle_top
-alt_Up =      line_up -- Up23 moves up 23 lines
-alt_v =       global_paste
-alt_VV =      paste
-alt_w =       quit_session
-alt_x =       global_cut -- hotkey cut line
-alt_y =       redo_cmd
-alt_z =       undo_cmd
-alt__colon_w = save_file
-alt__colon_wq = quit_session
+alt_t =     toggle_top            hot("t")
+alt_Up =    line_up -- Up23 moves up 23 lines
+alt_v =     global_paste          hot("v")
+alt_VV =    paste                 hot("VV")
+alt_w =     quit_session          hot("w")
+alt_x =     global_cut            hot("x")
+alt_y =     redo_cmd              hot("y")
+alt_z =     undo_cmd              hot("z")
+alt__colon_w = save_file          hot(":w")
 
 alt__squote = find
 alt_p_squote = set_paste_buffer
