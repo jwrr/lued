@@ -1527,8 +1527,10 @@ function save_file(dd)
   local r,c = get_cur_pos()
   local file_has_changed,mtime,ts = is_file_modified(1)
   if file_has_changed==1 then
+    local id = get_fileid()
+    local filename = get_filename(id)
     io.write("\n\n=======================================\n\n")
-    local overwrite = get_yesno("File has changed. Do you want to overwrite <y/n>?")=="Y"
+    local overwrite = get_yesno("File '" .. filename .. "' has changed. Do you want to overwrite <y/n>?")=="Y"
     if overwrite then
       save_session()
     end
@@ -1601,6 +1603,14 @@ function open_file(filename,dd)
   local dd2 = 1
   if filename==nil then
     filename = lued_prompt("Enter Filename: ","open_file")
+    local home = os.getenv("HOME")
+    filename = string.gsub(filename,"^~",home)
+    local env_name = string.match(filename,"%${?([%w_]+)}?")
+    while env_name ~= nil do
+      local env_value = os.getenv(env_name)
+      filename = string.gsub(filename, "%${?" .. env_name .. "}?", env_value)
+      env_name = string.match(filename,"%${?([%w_]+)}?")
+    end
   end
   if (filename~=nil and filename~="") then
     local fileid = lued_open(filename)
@@ -1961,6 +1971,9 @@ function select_open_file(filter)
       local hot = nil -- hot_range('a','z') .. hot_range('A','Z') .. ",-,_,"
       -- print (hot); io.read()
       new_id = lued_prompt("Enter File Id Number: ","select_open_file",hot)
+      if new_id==nil or new_id=="" then
+        new_id = id
+      end
       local new_id_int = tonumber(new_id)
       if new_id_int==nil then
         filter = new_id
@@ -1990,8 +2003,8 @@ end
 -- alt-
 -- esc-
 
-alt__period_ = sel_toggle;          hot(".")
-alt__slash_ =  find_forward;        hot("/")
+alt__period_ = sel_toggle;          hot(",.,")
+alt__slash_ =  find_forward;        hot(",/,")
 alt_a =     sel_all;                hot("a")
 alt_Abort = set_ctrl_c_abort
 alt_AI =    toggle_auto_indent;     hot("AI")
@@ -2006,8 +2019,8 @@ alt_D =     del_line -- Alt+d42<enter> deletes 42 lines. Alt+D$ deletes to end o
 alt_D_dollar_ = function() del_line( get_numlines() ) end hot("D$")
 alt_DA =    del_sol
 -- FIXME alt_DS =  del_sow
-alt_d =     del_line;               hot("d")
-alt_e = function() del_eow(1) line_down() end hot("e")
+alt_d =     del_line                hot("d")
+alt_e =     del_eow                 hot("e")
 alt_DG =    cut_eol                 hot("DG")
 alt_ED =    set_edit_mode           hot("ED")
 alt_Efc =   set_enable_file_changed -- efc1 enables; efc0 disables
