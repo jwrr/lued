@@ -43,7 +43,7 @@ SOFTWARE.
   g_ctrl_s_flow_control    = false -- Alt+Flow toggles this to enable/disable Ctrl+S / Ctrl+Q
   g_ctrl_c_abort           = false -- Alt+Abort toggles this to enable/disable Ctrl+C abort
   g_ctrl_z_suspend         = false -- Alt+Suspend toggles this to enable/disable Ctrl+Z suspect (fg at shell prompt resumes).
-
+  g_comment                = "--"  -- Alt+Co comments line. Alt+Noco removes comment marker
   g_buffer                 = ""    -- The global buffer is used for cut and paste between multiple files.
 
 function toggle_line_numbers(dd)
@@ -1992,6 +1992,30 @@ function select_open_file(filter)
   end
 end
 
+
+function comment(n,str,dd)
+  n = n or 1
+  if str~=nil then
+    g_comment = str or g_comment
+  end
+  local dd2 = 1
+  for i=1,n do
+    sol_classic(dd2)
+    ins_str(g_comment,dd2);
+    line_down(1,dd2)
+    sol_classic(dd2)
+  end
+  disp(dd)
+end
+
+function no_comment(n,dd)
+  n = n or 1
+  local dd2 = 1
+  sol_classic(dd2)
+  line_down(1,dd2)
+  sol_classic(dd)
+end
+
 -- key bindings
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
   set_hotkeys( ",Sn,Sp,sw,r,t,v,VV,w,y,x,z,")
@@ -2009,11 +2033,12 @@ alt_a =     sel_all;                hot("a")
 alt_Abort = set_ctrl_c_abort
 alt_AI =    toggle_auto_indent;     hot("AI")
 alt_b =     select_open_file;       hot("b")
-alt_B =     buffer_prev
+alt_B =     buffer_prev;            hot("B")
 alt_c =     global_copy;            hot("c")
 alt_C =     copy_line                          -- C5 copies 5 lines to paste buffer
 alt_CC =    copy_line2;             hot("CC")
 alt_Ci =    function() set_case_sensitive(0) end -- used for find/search
+alt_Co =    comment; -- Alt_Co comments line; Alt_Co5 comments 5 lines; Alt_Co(1,"#") sets comment marker  
 alt_Cs =    set_case_sensitive -- used for find/search
 alt_D =     del_line -- Alt+d42<enter> deletes 42 lines. Alt+D$ deletes to end of file
 alt_D_dollar_ = function() del_line( get_numlines() ) end hot("D$")
@@ -2047,6 +2072,7 @@ alt_Mp =    goto_nameless_mark_prev hot("Mp")
 alt_Mlft =  set_min_lines_from_top
 alt_Mlfb =  set_min_lines_from_bot
 alt_n =     new_file                hot("n")
+alt_Noco =  no_comment;
 alt_o =     open_file               hot("o")
 alt_OB =    function() set_page_offset_percent(0.99,0) end hot("OB") -- align cursor to bottom
 alt_OL =    function() set_page_offset_percent(0.75,0) end hot("OL") -- align cursor to lower
