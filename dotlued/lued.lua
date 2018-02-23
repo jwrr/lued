@@ -1619,9 +1619,114 @@ function pathifier(filename)
     return filename
 end
 
+function os_cmd(cmd)
+  local stream  = assert(io.popen(cmd, "r"))
+  local output_string  = assert(stream:read("*all"))
+  stream:close()
+  return output_string
+end
+
+function read_dir(glob)
+  glob = glob or "*"
+  local files = os_cmd("ls " .. glob)
+  return files
+end
+
+function get_longest_word(words)
+  local longest_word = "";
+  for word in words:gmatch("(%S+)") do
+    local len = word:len()
+    if (len > longest_word:len()) then
+      longest_word = word
+    end
+  end
+  return longest_word
+end
+
+function basename(full_path)
+  full_path = full_path or ""
+  local basename_str = full_path:match("[^/]+$") or ""
+  return basename_str
+end
+
+function dirname(full_path)
+  full_path = full_path or ""
+  local dirname_str  = full_path:match("^.*[/]") or ""
+--  if dirname_str:len() > 1 then
+--    dirname_str  = dirname_str:sub(1,-2)
+--  end
+  return dirname_str
+end
+
+function is_dir(filename)
+  local file_type = os_cmd("stat -c%F " .. filename) or ""
+  local is = false
+  if file_type:match("directory") then
+    is = true
+  end
+  return is
+end
+
+function ls_dir(glob)
+  glob = glob or lued_prompt("Enter path: ", "ls", "")
+  glob = glob or ""
+  
+  local contains_wildcard = glob:match("[*]") 
+  local path  = dirname(glob)
+  local globster = basename(glob)
+  if contains_wildcard==nil and is_dir(glob) then
+    path = glob
+    if path:match("[/]$")==nil then
+      path = path .. "/"
+    end
+    globster = ""
+  end
+ 
+  local filenames = read_dir(glob)
+  if filenames ~= "" then
+    print ("")
+    local str = "path: " .. path
+    if globster and globster~="" then
+      str = str .. " glob: " .. globster
+    end
+    print (str)
+    
+    local longest_filename = get_longest_word(filenames);
+    local col_width = longest_filename:len() + 2
+    local prepend_path = path~=nil and longest_filename:match("[/]")==nil
+    if (prepend_path) then
+      col_width = col_width + path:len()
+    end
+    local tr,tc = get_termsize()
+    local num_col_per_line = math.floor(tc / col_width)
+    local col_cnt = 0
+    local line = ""
+    for filename in filenames:gmatch("(%S+)") do
+      if prepend_path then
+        filename = path .. filename
+      end
+      local filename_len = filename:len()
+      local pad_len = col_width - filename_len
+      local spaces = string.rep(' ', pad_len);
+      line = line .. filename .. spaces
+      col_cnt = col_cnt + 1
+      if col_cnt == num_col_per_line then
+        print(line)
+        col_cnt = 0
+        line = ""
+      end
+    end
+    if line ~= "" then
+      print(line)
+    end
+  end
+end
+
+
 function open_file(filename,dd)
   local dd2 = 1
   if filename==nil then
+    ls_dir()
     filename = lued_prompt("Enter Filename: ","open_file")
     local home = os.getenv("HOME")
     filename = string.gsub(filename,"^~",home)
@@ -1802,7 +1907,7 @@ function mouse_event(str)
 end
 
 function relued(dd)
-  dofile("lued.lua")
+  dofile(pathifier("~/.lued/lued.lua"))
   disp(dd)
 end
 
@@ -1922,6 +2027,7 @@ More Help
   disp(dd)
 end
 
+
 function copy_line(n,dd)
   n = n or 1
   local dd2 = 1
@@ -1932,6 +2038,7 @@ function copy_line(n,dd)
   copy(dd2)
   sol_classic(dd)
 end
+
 
 function copy_line2(dd)
   local dd2 = 1
@@ -1954,9 +2061,11 @@ function copy_line2(dd)
   disp(dd)
 end
 
+
 function hit_cr()
   lued_prompt("Press <Enter> to continue...","hit_cr")
 end
+
 
 function select_open_file_menu(filter)
   local n = get_numsessions()
@@ -1980,6 +2089,7 @@ function select_open_file_menu(filter)
   if found_count > 1 then found_i = 0 end
   return found_i
 end
+
 
 function select_open_file(filter)
   local id = get_fileid()
@@ -2030,6 +2140,7 @@ function comment(n,str,dd)
   disp(dd)
 end
 
+
 function no_comment(n,dd)
   n = n or 1
   local dd2 = 1
@@ -2038,63 +2149,6 @@ function no_comment(n,dd)
   sol_classic(dd)
 end
 
-function os_cmd(cmd)
-  local stream  = assert(io.popen(cmd, "r"))
-  local output_string  = assert(stream:read("*all"))
-  stream:close()
-  return output_string
-end
-
-function read_dir(glob)
-  glob = glob or "*"
-  local files = os_cmd("ls " .. glob)
-  return files
-end
-
-function get_longest_word(words)
-  local longest_word = "";
-  for word in words:gmatch("(%S+)") do
-    local len = word:len()
-    if (len > longest_word:len()) then
-      longest_word = word
-    end
-  end
-  return longest_word
-end
-
-function ls_dir(glob)
-  if glob==nil then
-    glob = lued_prompt("Enter glob: ", "ls", "")
-  end
-  if glob==nil then
-    glob = ""
-  end
-  local filenames = read_dir(glob)
-  if filenames ~= "" then
-    print ("")
-    local longest_filename = get_longest_word(filenames);
-    local col_width = longest_filename:len() + 2
-    local tr,tc = get_termsize()
-    local num_col_per_line = math.floor(tc / col_width)
-    local col_cnt = 0
-    local line = ""
-    for filename in filenames:gmatch("(%S+)") do
-      local filename_len = filename:len()
-      local pad_len = col_width - filename_len
-      local spaces = string.rep(' ', pad_len);
-      line = line .. filename .. spaces
-      col_cnt = col_cnt + 1
-      if col_cnt == num_col_per_line then
-        print(line)
-        col_cnt = 0
-        line = ""
-      end
-    end
-    if line ~= "" then
-      print(line)
-    end
-  end
-end
 
 function load_plugins()
   g_plugin_path = pathifier(g_plugin_path)
@@ -2171,6 +2225,7 @@ alt_Mlfb =  set_min_lines_from_bot
 alt_n =     new_file                hot("n")
 alt_Noco =  no_comment;
 alt_o =     open_file               hot("o")
+alt_p =     ls_dir                  hot("p")
 alt_OB =    function() set_page_offset_percent(0.99,0) end hot("OB") -- align cursor to bottom
 alt_OL =    function() set_page_offset_percent(0.75,0) end hot("OL") -- align cursor to lower
 alt_OM =    function() set_page_offset_percent(0.5,0) end  hot("OM") -- align cursor to middle
@@ -2196,6 +2251,7 @@ alt_SF =    function() set_sel_start(); var_end(1); set_sel_end(); disp(); end h
 alt_SG =    function() set_sel_start(); eol(); set_sel_end(); end hot("SG")
 alt_Suspend = set_ctrl_z_suspend
 alt_t =     toggle_top            hot("t")
+alt_u =     function() set_page_offset_percent(0.10,0) end                hot("u")
 alt_Up =    line_up -- Up23 moves up 23 lines
 alt_v =     global_paste          hot("v")
 alt_VV =    paste                 hot("VV")
