@@ -44,7 +44,12 @@ SOFTWARE.
   g_ctrl_c_abort           = false -- Alt+Abort toggles this to enable/disable Ctrl+C abort
   g_ctrl_z_suspend         = false -- Alt+Suspend toggles this to enable/disable Ctrl+Z suspect (fg at shell prompt resumes).
   g_comment                = "--"  -- Alt+Co comments line. Alt+Noco removes comment marker
+  g_plugin_path            = "~/.lued/plugins" -- path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
+  g_pwd                    = "."   -- This is the current working directory and is changed by change_dir (alt_CD)
+
   g_buffer                 = ""    -- The global buffer is used for cut and paste between multiple files.
+
+-- require("lfs")
 
 function toggle_line_numbers(dd)
   g_show_line_numbers = not g_show_line_numbers
@@ -1074,11 +1079,15 @@ function find_and_replace(from,to,options,dd)
   disp(dd)
 end
 
-function search_all(str,dd)
+function search_all_files(str,dd)
   local dd2 = 1
   str = str or ""
+  local save_g_buffer_prev = g_buffer_prev;
   local match = find_forward(str,true,false,false,dd2)
   local start_session = get_fileid()
+  if not match then
+    save_g_buffer_prev = start_session
+  end
   while not match do
     local session_id = session_next(dd2)
     if session_id == start_session then break end
@@ -1090,6 +1099,7 @@ function search_all(str,dd)
       set_cur_pos(r,c)
     end
   end
+  g_buffer_prev = save_g_buffer_prev
   disp(dd)
 end
 
@@ -1599,6 +1609,17 @@ function quit_all(force, dd)
   end
 end
 
+function pathifier(filename)
+    filename = string.gsub(filename, "^~", os.getenv("HOME") )
+    local env_name = string.match(filename,"%${?([%w_]+)}?")
+    while env_name ~= nil do
+      local env_value = os.getenv(env_name)
+      filename = string.gsub(filename, "%${?" .. env_name .. "}?", env_value)
+      env_name = string.match(filename,"%${?([%w_]+)}?")
+    end
+    return filename
+end
+
 function open_file(filename,dd)
   local dd2 = 1
   if filename==nil then
@@ -1613,10 +1634,12 @@ function open_file(filename,dd)
     end
   end
   if (filename~=nil and filename~="") then
+    local prev = get_fileid()
     local fileid = lued_open(filename)
     if fileid~=nil and fileid~=0 then
-       set_fileid(fileid)
-       first_line(dd2)
+      g_buffer_prev = prev
+      set_fileid(fileid)
+      first_line(dd2)
     end
   end
   disp(dd)
@@ -2016,6 +2039,76 @@ function no_comment(n,dd)
   sol_classic(dd)
 end
 
+function os_cmd(cmd)
+  local stream  = assert(io.popen(cmd, "r"))
+  local output_string  = assert(stream:read("*all"))
+  stream:close()
+  return output_string
+end
+
+function read_dir(glob)
+  glob = glob or "*"
+  local files = os_cmd("ls " .. glob)
+  return files
+end
+
+function get_longest_word(words)
+  local longest_word = "";
+  for word in words:gmatch("(%S+)") do
+    local len = word:len()
+    if (len > longest_word:len()) then
+      longest_word = word
+    end
+  end
+  return longest_word
+end
+
+function ls_dir(glob)
+  if glob==nil then
+    glob = lued_prompt("Enter glob: ", "ls", "")
+  end
+  if glob==nil then
+    glob = ""
+  end
+  local filenames = read_dir(glob)
+  if filenames ~= "" then
+    print ("")
+    local longest_filename = get_longest_word(filenames);
+    local col_width = longest_filename:len() + 2
+    local tr,tc = get_termsize()
+    local num_col_per_line = math.floor(tc / col_width)
+    local col_cnt = 0
+    local line = ""
+    for filename in filenames:gmatch("(%S+)") do
+      local filename_len = filename:len()
+      local pad_len = col_width - filename_len
+      local spaces = string.rep(' ', pad_len);
+      line = line .. filename .. spaces
+      col_cnt = col_cnt + 1
+      if col_cnt == num_col_per_line then
+        print(line)
+        col_cnt = 0
+        line = ""
+      end
+    end
+    if line ~= "" then
+      print(line)
+    end
+  end
+end
+
+function load_plugins()
+  g_plugin_path = pathifier(g_plugin_path)
+  local plugins = read_dir(g_plugin_path .. "/*.lua")
+  for plugin in plugins:gmatch("(%S+)") do
+    if (plugin ~= "") then
+      --print ("plugin="..plugin)
+      dofile(plugin)
+    end
+  end
+end
+
+
 -- key bindings
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
   set_hotkeys( ",Sn,Sp,sw,r,t,v,VV,w,y,x,z,")
@@ -2037,12 +2130,15 @@ alt_B =     buffer_prev;            hot("B")
 alt_c =     global_copy;            hot("c")
 alt_C =     copy_line                          -- C5 copies 5 lines to paste buffer
 alt_CC =    copy_line2;             hot("CC")
+alt_Cd =    change_dir;             hot("Cd")
+alt_CD =    change_dir;             hot("CD")
 alt_Ci =    function() set_case_sensitive(0) end -- used for find/search
-alt_Co =    comment; -- Alt_Co comments line; Alt_Co5 comments 5 lines; Alt_Co(1,"#") sets comment marker  
+alt_Co =    comment; -- Alt_Co comments line; Alt_Co5 comments 5 lines; Alt_Co(1,"#") sets comment marker
 alt_Cs =    set_case_sensitive -- used for find/search
 alt_D =     del_line -- Alt+d42<enter> deletes 42 lines. Alt+D$ deletes to end of file
-alt_D_dollar_ = function() del_line( get_numlines() ) end hot("D$")
-alt_DA =    del_sol
+alt_D_dollar_ = function() del_line( get_numlines() ) end hot("D$") -- delete lines to end of file
+alt_Da =    del_sol
+alt_Dir =   ls_dir                  hot("Dir")
 -- FIXME alt_DS =  del_sow
 alt_d =     del_line                hot("d")
 alt_e =     del_eow                 hot("e")
@@ -2053,14 +2149,16 @@ alt_Efc =   set_enable_file_changed -- efc1 enables; efc0 disables
 --alt_EX =    exit_all -- save and close all sessions
 alt_f =     find_forward            hot("f")
 alt_Flow =  set_ctrl_s_flow_control
-alt_FR =    find_and_replace        hot("FR")
---alt_g =     eol
+alt_FR =    find_reverse            hot("FR")
+alt_g =     comment;                hot("g")
 alt_I_squote = indent_scope
 alt_IS =    indent_scope            hot("IS")
 alt_j =     find_reverse_again      hot("j")
 alt_k =     sel_word                hot("k")
 alt_l =     find_forward_again      hot("l")
 alt_LN =    toggle_line_numbers     hot("LN")
+alt_LS =    ls_dir                  hot("LS")
+alt_Ls =    ls_dir                  hot("Ls")
 alt_LU =    set_lua_mode            hot("LU")
 alt_M_squote = function(name) set_mark(name); disp() end
 alt_M_squote = function(name) goto_mark(name); disp() end
@@ -2082,7 +2180,7 @@ alt_OU =    function() set_page_offset_percent(0.25,0) end hot("OU") -- align cu
 --alt_oo =  cr_before   OO = cr_after
 alt_Ps =    set_pagesize -- used by page_up / page_down
 alt_q =     quit_all                hot("q")
-alt_r =     find_reverse            hot("r")
+alt_r =     find_and_replace        hot("r")
 alt_Ralt =  remove_all_leading_tabs
 alt_Rats =  remove_all_trailing_space
 alt_Ratsall = remove_all_trailing_space_all_files
@@ -2091,7 +2189,7 @@ alt_Rt =    set_replace_tabs -- rt0 rt4
 alt_Rts =   toggle_remove_trailing_spaces
 alt_s =     save_file               hot("s")
 alt_SA =    function() set_sel_start(); sol(); end hot("SA")
-alt_Sall =  search_all
+alt_Sall =  search_all_files
 alt_Saveall = save_all
 alt_SI =    set_scope_indent -- Si2 Si3 Si4
 alt_SN =    session_next            hot("SN")
@@ -2177,6 +2275,9 @@ if first_time == nil then
   mouse(0)
   if g_show_help==true then help(1,0) end
 end
+
+load_plugins()
+
 
 
 function walter()
