@@ -246,7 +246,6 @@ function set_edit_mode(dd)
   g_lua_mode = false
   local keys = get_hotkeys()
   keys = "all" .. keys
-  -- print ("KEYS1="..keys)
   set_hotkeys(keys)
   disp(dd)
 end
@@ -1516,7 +1515,7 @@ end
 
 function hot(key, dd)
   if key == nil then return end
-  key = key .. ","
+  key = "," .. key .. ","
   local keys = get_hotkeys()
   if not string.find(keys, key) then
     set_hotkeys(keys .. key)
