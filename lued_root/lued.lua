@@ -1681,37 +1681,53 @@ function dirname(full_path)
   return dirname_str
 end
 
-function is_dir(filename)
-  local file_type = os_cmd("stat -c%F " .. filename) or ""
-  local is = false
-  if file_type:match("directory") then
-    is = true
+function is_glob(filename)
+  filename = filename or     ""
+  local contains_wildcard = filename:match("[*]")
+  if filename:match("[*]") then
+    return true
   end
-  return is
+  return false
+end
+
+function is_dir(filename)
+  filename = filename or ""
+  if filename == "" then
+    return false
+  end
+  if is_glob(filename) then
+    return false
+  end
+  local file_type = os_cmd("stat -c%F " .. filename) or ""
+  if file_type:match("directory") then
+    return true
+  end
+  return false
 end
 
 function ls_dir(glob)
   ls_dir_hist_id = ls_dir_hist_id or get_hist_id()
-  glob = glob or lued_prompt(ls_dir_hist_id, "Enter path: ")
+  glob = glob or lued_prompt(ls_dir_hist_id, "Enter path, glob or filename: ")
   glob = glob or ""
 
-  local contains_wildcard = glob:match("[*]")
   local path  = dirname(glob)
-  local globster = basename(glob)
-  if contains_wildcard==nil and is_dir(glob) then
+  local globname = basename(glob)
+  if is_dir(glob) then
     path = glob
     if path:match("[/]$")==nil then
       path = path .. "/"
     end
-    globster = ""
+    globname = ""
   end
 
+  local file_count = 0
+  local return_filename = ""
   local filenames = read_dir(glob)
   if filenames ~= "" then
     print ("")
     local str = "path: " .. path
-    if globster and globster~="" then
-      str = str .. " glob: " .. globster
+    if globname and globname~="" then
+      str = str .. " glob: " .. globname
     end
     print (str)
 
@@ -1726,6 +1742,7 @@ function ls_dir(glob)
     local col_cnt = 0
     local line = ""
     for filename in filenames:gmatch("(%S+)") do
+      file_count = file_count + 1
       if prepend_path then
         filename = path .. filename
       end
@@ -1744,13 +1761,24 @@ function ls_dir(glob)
       print(line)
     end
   end
+  return glob
+end
+
+function cd_change_dir(dd)
+  local first_time = true
+  local tmp_path = ls_dir()
+  while (first_time and tmp_path=="") or is_glob(tmp_path) or is_dir(tmp_path) do
+    tmp_path = ls_dir()
+    first_time = false
+  end
+  disp(dd)
 end
 
 
 function open_file(filename,dd)
   local dd2 = 1
   if filename==nil then
-    ls_dir()
+    cd_change_dir(dd2) -- ls_dir()
     open_file_hist_id = open_file_hist_id or get_hist_id()
     filename = lued_prompt(open_file_hist_id, "Enter Filename: ")
     local home = os.getenv("HOME")
