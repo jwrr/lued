@@ -427,24 +427,31 @@ function hot_range(lower,upper)
   return hot
 end
 
-function lued_prompt(prompt,hist_id,hot)
+function lued_prompt(hist_id,prompt,hot)
   -- io.write(prompt)
   -- str = io.read()
-  hist_id = hist_id or ""
+  hist_id = hist_id or 0
   hot = hot or ""
-  str = io_read(prompt,hist_id,hot)
+  str = io_read(hist_id,prompt,hot)
   return str
 end
 
-function get_yesno(prompt,hist_id,default)
+function get_hist_id()
+  get_hist_id_cnt = get_hist_id_cnt or 0
+  get_hist_id_cnt = get_hist_id_cnt + 1
+  return get_hist_id_cnt;
+end
+
+function get_yesno(prompt,default)
   local yes = false
   local no = false
   local quit = false
   local all = false
   local valid_answer = false
   local answer = ""
+  get_yesno_hist_id = get_yesno_hist_id or get_hist_id()
   repeat
-    answer = lued_prompt(prompt .. " ")
+    answer = lued_prompt(get_yesno_hist_id,prompt .. " ")
     if default~=nil and answer==nil or answer=="" then answer = default end
     answer = string.upper(answer)
     yes = answer=="Y"
@@ -787,7 +794,8 @@ end
 function goto_line(n,dd)
   local r,c = get_cur_pos()
   if n == nil then
-    local n_str = lued_prompt("Goto Linenumber: ", "", "")
+    goto_line_hist_id = goto_line_hist_id or get_hist_id()
+    local n_str = lued_prompt(goto_line_hist_id,"Goto Linenumber: ")
     n = tonumber(n_str) or r
   end
   if n > r then
@@ -840,7 +848,10 @@ function find_prompt()
     end
 
     local prompt = " String to Find"..default_str..": "
-    str = find_read(prompt)
+
+    find_prompt_hist_id = find_prompt_hist_id or get_hist_id()
+    str = lued_prompt(find_prompt_hist_id, prompt)
+--    str = find_read(0,prompt)
     if str==nil or str=="" and g_find_str and g_find_str~="" then
       str = g_find_str
     else
@@ -860,7 +871,9 @@ function replace_prompt()
     end
 
     local prompt = " String to Replace"..default_str..": "
-    str = replace_read(prompt)
+    replace_prompt_hist_id = replace_prompt_hist_id or get_hist_id()
+    str = lued_prompt(replace_prompt_hist_id, prompt)
+--    str = replace_read(prompt)
     if str==nil or str=="" and g_replace_str and g_replace_str~="" then
       str = g_replace_str
     else
@@ -1067,7 +1080,8 @@ function find_and_replace(from,to,options,dd)
       if not replace_all then
         disp(0)
         r,c = get_cur_pos()
-        resp = lued_prompt("Replace <y/n/a/q>?", "", ",y,n,a,q,")
+        find_and_replace_hist_id = find_and_replace_hist_id or get_hist_id()
+        resp = lued_prompt(find_and_replace_hist_id,"Replace <y/n/a/q>?", ",y,n,a,q,")
         resp = string.lower( string.sub(resp,1,1) )
         resp = string.match(resp,"[ynaq]") or "q"
         replace_all = resp=="a"
@@ -1662,7 +1676,7 @@ function dirname(full_path)
   full_path = full_path or ""
   local dirname_str  = full_path:match("^.*[/]") or ""
 --  if dirname_str:len() > 1 then
---    dirname_str  = dirname_str:sub(1,-2)
+--    dirname_str  = dirname_str:sub(1,-2) -- remove trailing backslash
 --  end
   return dirname_str
 end
@@ -1677,10 +1691,11 @@ function is_dir(filename)
 end
 
 function ls_dir(glob)
-  glob = glob or lued_prompt("Enter path: ", "ls", "")
+  ls_dir_hist_id = ls_dir_hist_id or get_hist_id()
+  glob = glob or lued_prompt(ls_dir_hist_id, "Enter path: ")
   glob = glob or ""
-  
-  local contains_wildcard = glob:match("[*]") 
+
+  local contains_wildcard = glob:match("[*]")
   local path  = dirname(glob)
   local globster = basename(glob)
   if contains_wildcard==nil and is_dir(glob) then
@@ -1690,7 +1705,7 @@ function ls_dir(glob)
     end
     globster = ""
   end
- 
+
   local filenames = read_dir(glob)
   if filenames ~= "" then
     print ("")
@@ -1699,7 +1714,7 @@ function ls_dir(glob)
       str = str .. " glob: " .. globster
     end
     print (str)
-    
+
     local longest_filename = get_longest_word(filenames);
     local col_width = longest_filename:len() + 2
     local prepend_path = path~=nil and longest_filename:match("[/]")==nil
@@ -1736,7 +1751,8 @@ function open_file(filename,dd)
   local dd2 = 1
   if filename==nil then
     ls_dir()
-    filename = lued_prompt("Enter Filename: ","open_file")
+    open_file_hist_id = open_file_hist_id or get_hist_id()
+    filename = lued_prompt(open_file_hist_id, "Enter Filename: ")
     local home = os.getenv("HOME")
     filename = string.gsub(filename,"^~",home)
     local env_name = string.match(filename,"%${?([%w_]+)}?")
@@ -1761,7 +1777,8 @@ end
 function open_filelist(filelist,dd)
   local dd2 = 1
   if filelist==nil then
-    filelist = lued_prompt(" Enter Filelist: ","open_file")
+    open_filelist_hist_id = open_filelist_hist_id or get_hist_id()
+    filelist = lued_prompt(open_filelist_hist_id, " Enter Filelist: ")
   end
   if (filelist~=nil and filelist~="") then
     local file = io.open(filelist, "r");
@@ -1779,7 +1796,8 @@ function new_file(filename, dd)
   local fileid = lued_open("")
   if filename == nil then
     local default_filename = "lued_untitled_"..fileid..".txt"
-    filename = lued_prompt("Enter Filename (default: '"..default_filename.."'): ","new_file")
+    new_file_hist_id = new_file_hist_id or get_hist_id()
+    filename = lued_prompt(new_file_hist_id,  "Enter Filename (default: '"..default_filename.."'): ")
     if filename == nil or filename=="" then
       filename = default_filename
     end
@@ -1827,7 +1845,8 @@ function set_nameless_mark(dd)
   eol(dd2)
   set_sel_end()
   disp()
-  lued_prompt(" - Mark set on line# "..r..". Alt+MM returns to this line. Press <Enter> to continue...","hit_cr")
+  set_nameless_mark_hist_id = set_nameless_mark_hist_id or get_hist_id()
+  lued_prompt(set_nameless_mark_hist_id, " - Mark set on line# "..r..". Alt+MM returns to this line. Press <Enter> to continue...")
   set_sel_off()
   disp()
 end
@@ -1921,12 +1940,14 @@ function relued(dd)
 end
 
 function spare()
-  lued_prompt(" Undefined control character. Press <Enter> to continue...","hit_cr")
+  spare_hist_id = spare_hist_id or get_hist_id()
+  lued_prompt(spare_hist_id, " Undefined control character. Press <Enter> to continue...")
   disp()
 end
 
 function dont_use()
-  lued_prompt(" Please do not use this control character. Press <Enter> to continue...","hit_cr")
+  dont_use_hist_id = dont_use_hist_id or get_hist_id()
+  lued_prompt(dont_use_hist_id, " Please do not use this control character. Press <Enter> to continue...")
   disp()
 end
 
@@ -2072,7 +2093,8 @@ end
 
 
 function hit_cr()
-  lued_prompt("Press <Enter> to continue...","hit_cr")
+  hit_cr_hist_id = hit_cr_hist_id or get_hist_id()
+  lued_prompt(hit_cr_hist_id, "Press <Enter> to continue...")
 end
 
 
@@ -2111,7 +2133,8 @@ function select_open_file(filter)
     else
       local hot = nil -- hot_range('a','z') .. hot_range('A','Z') .. ",-,_,"
       -- print (hot); io.read()
-      new_id = lued_prompt("Enter File Id Number: ","select_open_file",hot)
+      select_open_file_hist_id = select_open_file_hist_id or get_hist_id()
+      new_id = lued_prompt(select_open_file_hist_id, "Enter File Id Number: ",hot)
       if new_id==nil or new_id=="" then
         new_id = id
       end

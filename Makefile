@@ -9,10 +9,16 @@ CC=gcc
 INC=-Iinstall/include
 CFLAGS=-std=gnu99 -Wall $(INC)
 LFLAGS=
-DEPS = $(wildcard *.h)
-
+DEPS=$(wildcard *.h)
+INSTALL_DIR=$(HOME)/.lued
 
 exe: install/bin/$(EXE)
+
+install: $(INSTALL_DIR)
+
+$(INSTALL_DIR): exe
+	cp install/bin/$(EXE) lued_root
+	ln -sf $(PWD)/lued_root $(INSTALL_DIR)
 
 carr: install/lib/libcarr.a
 install/lib/libcarr.a: $(CARR_PATH)
@@ -52,7 +58,6 @@ $(EXE): install/lib/lib$(EXE).a main.o
 
 install/bin/$(EXE): $(REPO_LIST) $(EXE)
 	mkdir -p install/bin
-	cp src/lued.lua install/bin
 	cp $(EXE) $@
 
 clean:

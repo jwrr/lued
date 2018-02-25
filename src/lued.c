@@ -1678,8 +1678,6 @@ int lued_main (int argc, char** argv)
    lua_reg(L, lua_close_session, "close_session");
    lua_reg(L, lua_undo, "undo");
    lua_reg(L, lua_redo, "redo");
-   lua_reg(L, lua_find_read, "find_read");
-   lua_reg(L, lua_replace_read, "replace_read");
    lua_reg(L, lua_is_file_modified, "is_file_modified");
    lua_reg(L, lua_set_show_line_numbers, "set_show_line_numbers");
    lua_reg(L, lua_io_read, "io_read");
