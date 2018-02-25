@@ -432,6 +432,7 @@ function lued_prompt(hist_id,prompt,hot)
   -- str = io.read()
   hist_id = hist_id or 0
   hot = hot or ""
+  io.write(" ")
   str = io_read(hist_id,prompt,hot)
   return str
 end
@@ -847,7 +848,7 @@ function find_prompt()
       default_str = " (default='"..g_find_str.."')"
     end
 
-    local prompt = " String to Find"..default_str..": "
+    local prompt = "String to Find"..default_str..": "
 
     find_prompt_hist_id = find_prompt_hist_id or get_hist_id()
     str = lued_prompt(find_prompt_hist_id, prompt)
@@ -870,7 +871,7 @@ function replace_prompt()
       default_str = " (default='"..g_replace_str.."')"
     end
 
-    local prompt = " String to Replace"..default_str..": "
+    local prompt = "String to Replace"..default_str..": "
     replace_prompt_hist_id = replace_prompt_hist_id or get_hist_id()
     str = lued_prompt(replace_prompt_hist_id, prompt)
 --    str = replace_read(prompt)
@@ -1806,7 +1807,7 @@ function open_filelist(filelist,dd)
   local dd2 = 1
   if filelist==nil then
     open_filelist_hist_id = open_filelist_hist_id or get_hist_id()
-    filelist = lued_prompt(open_filelist_hist_id, " Enter Filelist: ")
+    filelist = lued_prompt(open_filelist_hist_id, "Enter Filelist: ")
   end
   if (filelist~=nil and filelist~="") then
     local file = io.open(filelist, "r");
@@ -1874,7 +1875,7 @@ function set_nameless_mark(dd)
   set_sel_end()
   disp()
   set_nameless_mark_hist_id = set_nameless_mark_hist_id or get_hist_id()
-  lued_prompt(set_nameless_mark_hist_id, " - Mark set on line# "..r..". Alt+MM returns to this line. Press <Enter> to continue...")
+  lued_prompt(set_nameless_mark_hist_id, "Marker is now set on line# "..r..". Alt+MM returns to this line. Press <Enter> to continue...")
   set_sel_off()
   disp()
 end
@@ -1969,13 +1970,13 @@ end
 
 function spare()
   spare_hist_id = spare_hist_id or get_hist_id()
-  lued_prompt(spare_hist_id, " Undefined control character. Press <Enter> to continue...")
+  lued_prompt(spare_hist_id, "Undefined control character. Press <Enter> to continue...")
   disp()
 end
 
 function dont_use()
   dont_use_hist_id = dont_use_hist_id or get_hist_id()
-  lued_prompt(dont_use_hist_id, " Please do not use this control character. Press <Enter> to continue...")
+  lued_prompt(dont_use_hist_id, "Please do not use this control character. Press <Enter> to continue...")
   disp()
 end
 
