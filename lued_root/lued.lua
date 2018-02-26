@@ -1706,6 +1706,15 @@ function is_dir(filename)
   return false
 end
 
+function file_exists(filename)
+   local handle=io.open(filename,"r")
+   local exists = handle~=nil
+   if exists then
+     io.close(handle)
+   end
+   return exists
+end
+
 function ls_dir(glob)
   ls_dir_hist_id = ls_dir_hist_id or get_hist_id()
   glob = glob or lued_prompt(ls_dir_hist_id, "Enter path, glob or filename: ")
@@ -1765,21 +1774,70 @@ function ls_dir(glob)
   return glob
 end
 
-function cd_change_dir(dd)
-  local first_time = true
-  local tmp_path = ls_dir()
-  while (first_time and tmp_path=="") or is_glob(tmp_path) or is_dir(tmp_path) do
-    tmp_path = ls_dir()
-    first_time = false
+
+function chomp(str)
+  str = str or ""
+  return str:gsub("\n$","")
+end
+
+
+function exactly_one_file_matches(glob)
+  local filenames = read_dir(glob)
+  local _,count = filenames:gsub("%S+","")
+  if count==1 then
+    return chomp(filenames)
   end
+  return nil
+end
+
+
+function is_empty(str)
+  return str==nil or str==""
+end
+
+
+function cd_change_dir(dd)
+  local tmp_path = ""
+  tmp_path = ls_dir("")
+  repeat
+    local filename = exactly_one_file_matches(tmp_path)
+    if not is_empty(filename) then
+      return filename
+    end
+    tmp_path = ls_dir()
+  until tmp_path==""
   disp(dd)
+  return nil
+end
+
+
+function is_open(filename)
+  local dd2 = 1
+  filename = filename or ""
+  if is_empty(filename) then
+    return nil
+  end
+  local id = get_fileid()
+  local found = false
+  for i=1,get_numsessions() do
+    set_fileid(i)
+    found = filename == get_filename(i)
+    if found then
+      set_fileid(id,dd2)
+      return i
+    end
+  end
+  set_fileid(id,dd2)
+  return nil
 end
 
 
 function open_file(filename,dd)
   local dd2 = 1
   if filename==nil then
-    cd_change_dir(dd2) -- ls_dir()
+    filename = cd_change_dir(dd2) -- ls_dir()
+  end
+  if filename==nil then
     open_file_hist_id = open_file_hist_id or get_hist_id()
     filename = lued_prompt(open_file_hist_id, "Enter Filename: ")
     local home = os.getenv("HOME")
@@ -1791,7 +1849,11 @@ function open_file(filename,dd)
       env_name = string.match(filename,"%${?([%w_]+)}?")
     end
   end
-  if (filename~=nil and filename~="") then
+  local existing_fileid = is_open(filename)
+  if existing_fileid then
+     g_buffer_prev = get_fileid()
+    set_fileid(existing_fileid,dd2)
+  elseif filename~=nil and filename~="" and file_exists(filename) and not is_open(filename) then
     local prev = get_fileid()
     local fileid = lued_open(filename)
     if fileid~=nil and fileid~=0 then
