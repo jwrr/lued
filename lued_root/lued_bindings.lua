@@ -35,6 +35,8 @@ SOFTWARE.
 -- alt-
 -- esc-
 
+--alt__caret_  = del_sol:             hot("^")
+--alt__dollar_ = cut_eol;             hot("$")
 alt__period_ = sel_toggle;          hot(",.,")
 alt__slash_ =  find_forward;        hot(",/,")
 alt_a =     sel_all;                hot("a")
@@ -170,6 +172,8 @@ esc_up = line_up
 esc_down = line_down
 esc_left = char_left
 esc_right = char_right
+esc_shift_left = magic_left
+esc_shift_right = magic_right
 esc_home = sol
 esc_end = eol
 esc_pageup = page_up
