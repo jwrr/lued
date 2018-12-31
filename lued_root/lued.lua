@@ -24,22 +24,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
 
-  g_lued_root              = "~/.lued" -- path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
+  g_lued_root              = "~/.lued" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
   g_auto_indent            = true  -- Indent the same as the previous line
   g_replace_tabs           = 0     -- 4 -- Replace tab with N spaces (does not remove existing tabs). 0 keeps tabs.
   g_remove_trailing_spaces = false -- Only removes on lines that are modified. Use alt_Rats to remove all trailing spaces.
   g_show_trailing_spaces   = true  -- Show trailing spaces in reverse video
-  g_enable_regex           = true  -- ALWAYS REGEX FOR NOW. use with find commands: ctrl_F, (ff), find_reverse(fr)
-  g_scope_indent           = 2     -- use with indent_scope(is) command. change indent with si2 si3 si4...
-  g_min_lines_from_top     = 5     -- scroll will try to keep at least 5 lines from the top
-  g_min_lines_from_bot     = 7     -- scroll will try to keep at least 7 lines from the bottom
-  g_page_size              = 0.25  -- this controls PgUp/PgDn speed. 0.25 is quarter page at a time.
+  g_enable_regex           = true  -- ALWAYS REGEX FOR NOW. Use with find commands: ctrl_F, (ff), find_reverse(fr)
+  g_scope_indent           = 2     -- Use with indent_scope(is) command. change indent with si2 si3 si4...
+  g_min_lines_from_top     = 5     -- Scroll will try to keep at least 5 lines from the top
+  g_min_lines_from_bot     = 7     -- Scroll will try to keep at least 7 lines from the bottom
+  g_page_size              = 0.25  -- This controls PgUp/PgDn speed. 0.25 is quarter page at a time.
   g_enable_file_changed    = true  -- efc0, efc1. detect file change and prompt to reload
   g_case_sensitive         = true  -- cs0 cs1
   g_show_line_numbers      = false -- alt_LN (toggle_line_numbers) toggles on/off
   g_ctrl_c_max             = 5     -- Quit when Ctrl+C is pounded several times with empty select buffer
   g_show_help              = false -- Show startup help menu
-  g_double_speed           = 0     -- Increases scroll speed. 0 disables this feature. 2 or more goes even faster
+  g_double_speed           = 1     -- Increases scroll speed. 0 disables this feature. 2 or more goes even faster
   g_lua_mode               = false -- set_lua_mode (Alt+LU) forces lua mode. LuEd automatically goes in and out of Lua mode as needed.
   g_ctrl_s_flow_control    = false -- Alt+Flow toggles this to enable/disable Ctrl+S / Ctrl+Q
   g_ctrl_c_abort           = false -- Alt+Abort toggles this to enable/disable Ctrl+C abort

@@ -692,9 +692,17 @@ function line_down(n,dd)
   local r,c = get_cur_pos()
   local numlines = get_numlines()
   local r2 = r + n
---  if r2>numlines then
---    r2 = numlines
---  end
+
+  g_scroll_speed = n
+  if g_double_speed > 0 and not dd then
+    if g_command_count == g_line_down_command_count then
+      g_scroll_speed = g_double_speed + 1
+    end
+    g_command_count = g_command_count or 1
+    g_line_down_command_count = g_command_count + 1
+  end
+
+  r2 = r + g_scroll_speed
   remove_trailing_spaces(r2,c,false,dd2)
   disp(dd)
 end
@@ -704,6 +712,20 @@ function line_up(n,dd)
   n = n or 1
   local r,c = get_cur_pos()
   local r2 = (n >= r) and 1 or (r - n)
+
+  if g_double_speed > 0 and not dd then
+    if g_command_count == g_line_up_command_count then
+      g_scroll_speed = g_double_speed + 1
+    else
+      g_scroll_speed = 1
+    end
+    g_command_count = g_command_count or 1
+    g_line_up_command_count = g_command_count+1
+    r2 = (g_scroll_speed >= r) and 1 or (r - g_scroll_speed)
+  else
+    g_scroll_speed = 0
+  end
+
   remove_trailing_spaces(r2,c,false,dd2)
   disp(dd)
 end
@@ -736,6 +758,14 @@ function toggle_top(dd)
      last_line(dd)
   else
      first_line(dd)
+  end
+end
+
+function toggle_bottom(dd)
+  if is_eof() then
+     first_line(dd)
+  else
+     last_line(dd)
   end
 end
 
@@ -780,31 +810,31 @@ function session_sel(session_id,dd)
   if session_id then
     local fileid = get_fileid()
     if session_id ~= fileid then
-      g_buffer_prev = fileid
+      g_tab_prev = fileid
     end
     set_fileid(session_id)
   end
   disp(dd)
 end
 
-function session_next(dd)
+function tab_next(dd)
   local num_sessions = get_numsessions()
   local next_session = (get_fileid() % num_sessions)+1
   session_sel(next_session, dd)
   return get_fileid()
 end
 
-function buffer_prev(dd)
+function tab_prev(dd)
   local num_sessions = get_numsessions()
   local this_session = get_fileid()
-  if g_buffer_prev == nil and get_numsessions() > 1 then
+  if g_tab_prev == nil and get_numsessions() > 1 then
     if this_session < num_sessions then -- this handles case of 1 and other cases
-      g_buffer_prev = this_session + 1
+      g_tab_prev = this_session + 1
     else
-      g_buffer_prev = this_session - 1
+      g_tab_prev = this_session - 1
     end
   end
-  session_sel(g_buffer_prev, dd)
+  session_sel(g_tab_prev, dd)
 end
 
 function goto_line(n,dd)
@@ -1120,14 +1150,14 @@ end
 function search_all_files(str,dd)
   local dd2 = 1
   str = str or ""
-  local save_g_buffer_prev = g_buffer_prev;
+  local save_g_tab_prev = g_tab_prev;
   local match = find_forward(str,true,false,false,dd2)
   local start_session = get_fileid()
   if not match then
-    save_g_buffer_prev = start_session
+    save_g_tab_prev = start_session
   end
   while not match do
-    local session_id = session_next(dd2)
+    local session_id = tab_next(dd2)
     if session_id == start_session then break end
     local r,c = get_cur_pos()
     first_line(dd2)
@@ -1137,7 +1167,7 @@ function search_all_files(str,dd)
       set_cur_pos(r,c)
     end
   end
-  g_buffer_prev = save_g_buffer_prev
+  g_tab_prev = save_g_tab_prev
   disp(dd)
 end
 
@@ -1405,7 +1435,7 @@ function del_sol(dd)
   end
 end
 
-function del_line(n,dd)
+function cut_line(n,dd)
   n = n or 1
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -1413,12 +1443,12 @@ function del_line(n,dd)
   set_sel_start()
   line_down(n,dd2)
   set_sel_end()
-  if (g_command_count == g_del_line_command_count) then
+  if (g_command_count == g_cut_line_command_count) then
     global_cut_append(dd)
   else
     global_cut(dd)
   end
-  g_del_line_command_count = g_command_count
+  g_cut_line_command_count = g_command_count
 end
 
 function del_backspace(n,dd)
@@ -1866,13 +1896,13 @@ function open_file(filename,dd)
   end
   local existing_fileid = is_open(filename)
   if existing_fileid then
-     g_buffer_prev = get_fileid()
+     g_tab_prev = get_fileid()
     set_fileid(existing_fileid,dd2)
   elseif filename~=nil and filename~="" and file_exists(filename) and not is_open(filename) then
     local prev = get_fileid()
     local fileid = lued_open(filename)
     if fileid~=nil and fileid~=0 then
-      g_buffer_prev = prev
+      g_tab_prev = prev
       set_fileid(fileid)
       first_line(dd2)
     end
@@ -2204,10 +2234,10 @@ function hit_cr()
 end
 
 
-function select_open_file_menu(filter)
+function select_tab_menu(filter)
   local n = get_numsessions()
   print "\n"
-  print ("select_open_file (ss)")
+  print ("select_tab (t)")
   local id = get_fileid()
   local found_i = 0
   local found_count = 0
@@ -2228,19 +2258,19 @@ function select_open_file_menu(filter)
 end
 
 
-function select_open_file(filter)
+function select_tab(filter)
   local id = get_fileid()
   local new_id = id
   local found_i = 0
   repeat
-    found_i = select_open_file_menu(filter)
+    found_i = select_tab_menu(filter)
     if found_i ~= 0 then
       new_id = found_i
     else
       local hot = nil -- hot_range('a','z') .. hot_range('A','Z') .. ",-,_,"
       -- print (hot); io.read()
-      select_open_file_hist_id = select_open_file_hist_id or get_hist_id()
-      new_id = lued_prompt(select_open_file_hist_id, "Enter File Id Number: ",hot)
+      select_tab_hist_id = select_tab_hist_id or get_hist_id()
+      new_id = lued_prompt(select_tab_hist_id, "Enter File Id Number: ",hot)
       if new_id==nil or new_id=="" then
         new_id = id
       end
@@ -2262,12 +2292,22 @@ function select_open_file(filter)
   end
 end
 
+function set_comment(dd)
+  local dd2 = 1
+  goto_line_hist_id = goto_line_hist_id or get_hist_id()
+  local comment_str = lued_prompt(goto_line_hist_id,"Enter Comment String (Default = '"..g_comment.."'): ")
+  if comment_str~=nil and comment_str~="" then
+    g_comment = comment_str
+  end
+  disp(dd)
+end
 
 function comment(n,str,dd)
   n = n or 1
   if str~=nil then
-    g_comment = str or g_comment
+    g_comment = str
   end
+
   local dd2 = 1
   for i=1,n do
     sol_classic(dd2)
