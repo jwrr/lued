@@ -66,9 +66,11 @@ Moving Around
 -------------
 * The arrow keys move the cursor as expected.
 * <kbd>Alt</kbd>+<kbd>h</kbd> jumps to the end of the line.
+  * <kbd>End</kbd> also jumps to the end of the line.
 * <kbd>Alt</kbd>+<kbd>g</kbd> jumps to the beginning of the line.  When the line is indented
   the cursor moves to the first non-space of the line. If the cursor is on the first non-space then the
   cursor moves to the first character of the line.
+  * <kbd>Home</kbd> also jumps to the beginning  of the line.
 * <kbd>Shift</kbd>+<kbd>Right Arrow</kbd> moves a word to the left.
 * <kbd>Shift</kbd>+<kbd>Right Arrow</kbd> moves a word to the right.
 * <kbd>Shift</kbd>+<kbd>Down Arrow</kbd> moves down a partial page (the partial page size is configurable).
