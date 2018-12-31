@@ -155,7 +155,7 @@ Installation
 <a name="trial"></a>
 Trial Run
 ---------
-* lued TreasureIsland.txt
+* ./lued TreasureIsland.txt (courtesy of Project Guttenberg)
 
 <a name="keyboard"></a>
 Customize Keyboard Bindings
