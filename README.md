@@ -157,7 +157,7 @@ Installation
 <a name="trial"></a>
 Trial Run
 ---------
-* ./lued TreasureIsland.txt (courtesy of Project Guttenberg)
+* ./lued TreasureIsland.txt ## [courtesy of Project Guttenberg](https://www.gutenberg.org)
 
 <a name="keyboard"></a>
 Customize Keyboard Bindings
