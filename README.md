@@ -116,7 +116,7 @@ Find and Replace
 * <kbd>Alt</kbd>+<kbd>F</kbd> is the reverse find command.
 * <kbd>Alt</kbd>+<kbd>l</kbd> is the find next command.  If text is selected then the selected text will
   be searched for.
-* <kbd>Alt</kbd>+<kbd>l</kbd> finds the previous occurrence of the search string.
+* <kbd>Alt</kbd>+<kbd>j</kbd> finds the previous occurrence of the search string.
 * <kbd>Alt</kbd>+<kbd>r</kbd> is the find and replace command.
 * <kbd>Alt</kbd>+<kbd>Sall</kbd> searches all tabs.
 
