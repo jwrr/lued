@@ -172,6 +172,12 @@ function toggle_overtype(dd)
   disp(dd)
 end
 
+function toggle_doublespeed(dd)
+  g_double_speed = g_double_speed or 0
+  g_double_speed = (g_double_speed+1) % 2
+  disp(dd)
+end
+
 function is_sol()
   local r,c = get_cur_pos()
   return c <= 1

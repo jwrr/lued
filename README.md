@@ -47,8 +47,8 @@ Ctrl, Alt and Esc
 * To minimize clashes with the terminal window, Lued uses the <kbd>Alt</kbd> key for most of its commands.
 * All of the above <kbd>Ctrl</kbd> keystroke commands have an equivalent, similarly named <kbd>Alt</kbd> command.
 * Pressing <kbd>Esc</kbd> and then pressing a key is equivalent to simultaneously pressing <kbd>Alt</kbd> and
-the key.  Some keystrokes may be more comfortable with <kbd>Esc</kbd>, while others may be easier with <kbd>Alt</kbd>.
-Note, this behavior is a feature of the terminal and is not unique to Lued.
+  the key.  Some keystrokes may be more comfortable with <kbd>Esc</kbd>, while others may be easier with <kbd>Alt</kbd>.
+  Note, this behavior is a feature of the terminal and is not unique to Lued.
 
 <a name="files"></a>
 Working Multiple Files
@@ -65,27 +65,28 @@ Working Multiple Files
 Moving Around
 -------------
 * The arrow keys move the cursor as expected.
-* <kbd>Shift</kbd>+<kbd>Right Arrow</kbd> jumps to the end of the line.
-* <kbd>Shift</kbd>+<kbd>Left Arrow</kbd> jumps to the beginning of the line.  When the line is indented
+* <kbd>Alt</kbd>+<kbd>h</kbd> jumps to the end of the line.
+* <kbd>Alt</kbd>+<kbd>g</kbd> jumps to the beginning of the line.  When the line is indented
   the cursor moves to the first non-space of the line. If the cursor is on the first non-space then the
   cursor moves to the first character of the line.
-* <kbd>Alt</kbd>+<kbd>g</kbd> moves a word to the left.
-* <kbd>Alt</kbd>+<kbd>h</kbd> moves a word to the right.
+* <kbd>Shift</kbd>+<kbd>Right Arrow</kbd> moves a word to the left.
+* <kbd>Shift</kbd>+<kbd>Right Arrow</kbd> moves a word to the right.
 * <kbd>Shift</kbd>+<kbd>Down Arrow</kbd> moves down a partial page (the partial page size is configurable).
 * <kbd>Shift</kbd>+<kbd>Up Arrow</kbd> moves up a partial page.
 * <kbd>Alt</kbd>+<kbd>b</kbd> moves to the bottom, last line, of the file when the cursor is on the first line.
-Otherwise, it moves to the first line of the file.
+  Otherwise, it moves to the first line of the file.
 * <kbd>Alt</kbd>+<kbd>u</kbd> moves the cursor and the line it's on to the upper part of the screen.  This is
-useful when you're at the bottom of the screen and the text you're interested in is hidden on the next page.
+  useful when you're at the bottom of the screen and the text you're interested in is hidden on the next page.
 * <kbd>Alt</kbd>+<kbd>LL</kbd> inserts a line above the current line and indents appropriately.  This is
 useful when you want to add a line before the current line.
 * <kbd>Shift</kbd>+<kbd>Right Arrow</kbd>+<kbd>Enter</kbd> inserts a line after the current line and indents appropriately.
 * The Mouse Scroll Wheel quickly moves up and down in steps of five lines (the number of lines is configurable).
 * <i>DoubleSpeed</i> moves the cursor faster when using the arrow keys. After two moves in a direction, subsequent moves in that
-same direction advance two steps instead of one.
+  same direction advance two steps instead of one.
+  * <kbd>Alt</kbd>+<kbd>DS</kbd> turns on/off the Double-Speed feature.
 * <i>MagicMove</i> uses <kbd>Alt</kbd>+<kbd><</kbd> and <kbd>Alt</kbd>+<kbd>></kbd> to speed up movement on a line by log2.  The
-first step goes half the distance to the end (or beginning) of the line.  The second step goes half the distance again. If
-the cursor goes too far then use the other MagicMove key to go in the other direction.
+  first step goes half the distance to the end (or beginning) of the line.  The second step goes half the distance again. If
+  the cursor goes too far then use the other MagicMove key to go in the other direction.
 
 <a name="select"></a>
 Select, Copy, Cut, Delete and Paste
@@ -141,6 +142,8 @@ Mouse
 <a name="install"></a>
 Installation
 ------------
+* git clone https://github.com/jwrr/lued.git
+* cd lued
 * make install
   * make uses wget to download Lua 5.2.4 from https://www.lua.org/ftp
   * make clones the carr repo from https://github.com/jwrr/carr
@@ -152,8 +155,7 @@ Installation
 <a name="trial"></a>
 Trial Run
 ---------
-* lued
-* lued one or more filenames
+* lued TreasureIsland.txt
 
 <a name="keyboard"></a>
 Customize Keyboard Bindings

@@ -19,7 +19,10 @@ install: $(INSTALL_DIR)
 $(INSTALL_DIR): exe
 	cp install/bin/$(EXE) lued_root
 	ln -sf $(PWD)/lued_root $(INSTALL_DIR)
-	@echo "\nCopy 'lued' to your bin folder\n"
+	@echo ""
+	@echo "Try Lued>>> ./lued TreasureIsland.txt"
+	@echo "Copy 'lued' to your bin folder"
+	@echo ""
 
 carr: install/lib/libcarr.a
 install/lib/libcarr.a: $(CARR_PATH)
