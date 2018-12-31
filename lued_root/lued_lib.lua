@@ -694,7 +694,7 @@ function line_down(n,dd)
   local r2 = r + n
 
   g_scroll_speed = n
-  if g_double_speed > 0 and not dd then
+  if g_double_speed > 0 and not dd and n <= 1 then
     if g_command_count == g_line_down_command_count then
       g_scroll_speed = g_double_speed + 1
     end
@@ -713,7 +713,7 @@ function line_up(n,dd)
   local r,c = get_cur_pos()
   local r2 = (n >= r) and 1 or (r - n)
 
-  if g_double_speed > 0 and not dd then
+  if g_double_speed > 0 and n <= 1 then
     if g_command_count == g_line_up_command_count then
       g_scroll_speed = g_double_speed + 1
     else
