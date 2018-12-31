@@ -125,6 +125,16 @@ Trial Run
 * lued
 * lued one or more filenames
 
+Customize Keyboard Bindings
+---------------------------
+You can easily modify the keyboard bindings. The Lua file lued_bindings.lua contains the keyboard bindings.
+
+Extending Lued
+--------------
+You can write new Lued features and store them in the .lued/plugin directory.  Files in this directory
+are automatically read at startup. lued_lib.lua contains the default Lued commands an provides a
+reference for new features.
+
 XTERM Work-arounds
 ------------------
 * Alt+V - Gnome Terminal provides many keyboard shortcuts (https://help.gnome.org/users/gnome-terminal/stable/adv-keyboard-shortcuts.html.en).
