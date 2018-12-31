@@ -1,4 +1,6 @@
-# lued
+
+Lued
+====
 lua-based text editor
 
 Description
@@ -23,7 +25,7 @@ Table of Contents
 [Terminal Work-Arounds](#xterm)
 [TBD](#tbd)
 
-<a name="basic">
+<a name="basic"/>
 Basic Operations Work as Expected
 ---------------------------------
 * Open a file with 'lued filename.txt' and JUST START TYPING...
@@ -39,7 +41,7 @@ Basic Operations Work as Expected
 * <kbd>Ctrl</kbd>+<kbd>c</kbd>, <kbd>Ctrl</kbd>+<kbd>x</kbd> and <kbd>Ctrl</kbd>+<kbd>v</kbd> copy, cut and paste.
 * <kbd>Ctrl</kbd>+<kbd>q</kbd> quits the editor and <kbd>Ctrl</kbd>+<kbd>w</kbd> closes the document.
 
-<a name="ctrl">
+<a name="ctrl"/>
 Ctrl, Alt and Esc
 -----------------
 * To minimize clashes with the terminal window, Lued uses the <kbd>Alt</kbd> key for most of its commands.
@@ -48,7 +50,7 @@ Ctrl, Alt and Esc
 the key.  Some keystrokes may be more comfortable with <kbd>Esc</kbd>, while others may be easier with <kbd>Alt</kbd>.
 Note, this behavior is a feature of the terminal and is not unique to Lued.
 
-<a name="files">
+<a name="files"/>
 Working Multiple Files
 ----------------------
 * <kbd>Alt</kbd>+<kbd>o</kbd> opens another file. Each file is contained in a tab.
@@ -59,7 +61,7 @@ Working Multiple Files
 * <kbd>Alt</kbd>+<kbd>n</kbd> creates a new file.
 * <kbd>Alt</kbd>+<kbd>q</kbd> quits the editor and <kbd>Alt</kbd>+<kbd>w</kbd> closes the document.
 
-<a name="moving">
+<a name="moving"/>
 Moving Around
 -------------
 * The arrow keys move the cursor as expected.
@@ -85,7 +87,7 @@ same direction advance two steps instead of one.
 first step goes half the distance to the end (or beginning) of the line.  The second step goes half the distance again. If
 the cursor goes too far then use the other MagicMove key to go in the other direction.
 
-<a name="select">
+<a name="select"/>
 Select, Copy, Cut, Delete and Paste
 -----------------------------------
 * <kbd>Alt</kbd>+<kbd>k</kbd> selects the current word.
@@ -103,7 +105,7 @@ Select, Copy, Cut, Delete and Paste
   * If you start typing when a region is selected, the region will be deleted and replaced with the typing.
   * Press <kbd>Alt</kbd>+<kbd>.</kbd> to abort the selection.
 
-<a name="find">
+<a name="find"/>
 Find and Replace
 ----------------
 * <kbd>Alt</kbd>+<kbd>f</kbd> is the forward find command and presents a dialog to enter a search string.
@@ -115,7 +117,7 @@ Find and Replace
 * <kbd>Alt</kbd>+<kbd>r</kbd> is the find and replace command.
 * <kbd>Alt</kbd>+<kbd>Sall</kbd> searches all tabs.
 
-<a name="comments">
+<a name="comments"/>
 Comments
 --------
 * <kbd>Alt</kbd>+<kbd>CC</kbd> comments out the line and advances to the next line
@@ -128,7 +130,7 @@ Remove All Trailing Spaces
 * <kbd>Alt</kbd>+<kbd>Rats</kbd> removes all trailing spaces.
   * <kbd>Esc</kbd>+<kbd>Rats</kbd> is equivalent
 
-<a name="mouse">
+<a name="mouse"/>
 Mouse
 -----
 * Try the Scroll Wheel... It should work
@@ -136,7 +138,7 @@ Mouse
   * Left Mouse Button to select, Middle Mouse Button to paste at cursor. Or...
   * Left Mouse Button to select, Right Mouse Button to copy/paste to/from system buffer.
 
-<a name="install">
+<a name="install"/>
 Installation
 ------------
 * make install
@@ -147,25 +149,25 @@ Installation
   * make creates and populates ~/.lued
   * make prompts to add lued to path
 
-<a name="trial">
+<a name="trial"/>
 Trial Run
 ---------
 * lued
 * lued one or more filenames
 
-<a name="keyboard">
+<a name="keyboard"/>
 Customize Keyboard Bindings
 ---------------------------
 You can easily modify the keyboard bindings. The Lua file lued_bindings.lua contains the keyboard bindings.
 
-<a name="extending">
+<a name="extending"/>
 Extending Lued
 --------------
 You can write new Lued features and store them in the .lued/plugin directory.  Files in this directory
 are automatically read at startup. lued_lib.lua contains the default Lued commands an provides a
 reference for new features.
 
-<a name="xterm">
+<a name="xterm"/>
 Terminal Work-arounds
 ---------------------
 * Alt+V - Gnome Terminal provides many keyboard shortcuts (https://help.gnome.org/users/gnome-terminal/stable/adv-keyboard-shortcuts.html.en).
@@ -184,7 +186,7 @@ Terminal Work-arounds
   * Lued provides an alternative keyboard binding, <kbd>Alt</kbd>+<kbd>s</kbd><kbd>Enter</kbd>, to work around this
     <a href="https://bugs.kde.org/show_bug.cgi?id=151966">Konsole bug</a>.
 
-<a name="tbd">
+<a name="tbd"/>
 TBD
 ---
 * Indent Selection
@@ -192,3 +194,5 @@ TBD
 * Split screen
 * Document API for plugins
 * Syntax Highlighting
+
+
