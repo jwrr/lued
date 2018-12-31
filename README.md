@@ -123,7 +123,7 @@ Comments
 * <kbd>Alt</kbd>+<kbd>CC</kbd> comments out the line and advances to the next line
 * <kbd>Alt</kbd>+<kbd>CS</kbd> sets the comment to a custom string value.
 
-<a name="trailing">
+<a name="trailing"></a>
 Remove All Trailing Spaces
 --------------------------
 * Trailing whitespace is highlighted.
@@ -142,8 +142,8 @@ Mouse
 Installation
 ------------
 * make install
-  * make uses wget to download Lua 5.2 from https::/www.lua.org/ftp/lua-5.2.4
-  * make clones the carr repo from https:://github.com/jwrr/carr
+  * make uses wget to download Lua 5.2.4 from https://www.lua.org/ftp
+  * make clones the carr repo from https://github.com/jwrr/carr
     * carr provides support for large, dynamic arrays written in the C programming language.
   * make compiles the source code
   * make creates and populates ~/.lued
