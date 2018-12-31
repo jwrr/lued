@@ -9,8 +9,22 @@ Lued is an extensible, terminal-based text editor written in C and Lua.
 
 Table of Contents
 -----------------
+[Basic Operations](#basic)
+[Ctrl, Alt and Esc](#ctrl)
+[Working with Multiple Files](#files)
+[Moving Around](#moving)
+[Select, Copy, Cut, Delete and Paste](#select)
+[Find and Replace](#find)
+[Comments](#comments)
+[Trailing Whitespace](#trailing)
+[Using the Mouse](#mouse)
+[Installation](#install)
+[Trial Run](#trial)
+[Customize Keyboard](#keyboard)
+[Extending Lued](#extending)
+[Terminal Work-Arounds](#xterm)
+[TBD](#tbd)
 
-<a name="basic"/>
 Basic Operations Work as Expected
 ---------------------------------
 * Open a file with 'lued filename.txt' and JUST START TYPING...
