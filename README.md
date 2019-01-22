@@ -51,12 +51,12 @@ Ctrl, Alt and Esc
   Note, this behavior is a feature of the terminal and is not unique to Lued.
 
 <a name="files"></a>
-Working Multiple Files
+Working with Multiple Files
 ----------------------
 * <kbd>Alt</kbd>+<kbd>o</kbd> opens another file. Each file is contained in a tab.
 * <kbd>Alt</kbd>+<kbd>t</kbd> selects one of the open tabs.
-* <kbd>Alt</kbd>+<kbd>tt</kbd> switches to the next tab.
-* <kbd>Alt</kbd>+<kbd>ty</kbd> toggles between the last two tabs.
+* <kbd>Alt</kbd>+<kbd>=</kbd> walks through tabs.
+* <kbd>Alt</kbd>+<kbd>TT</kbd> Tab Toggle switches to previous tab.
 * <kbd>Alt</kbd>+<kbd>o</kbd> opens an existing file.
 * <kbd>Alt</kbd>+<kbd>n</kbd> creates a new file.
 * <kbd>Alt</kbd>+<kbd>q</kbd> quits the editor and <kbd>Alt</kbd>+<kbd>w</kbd> closes the document.

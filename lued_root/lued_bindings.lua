@@ -39,6 +39,7 @@ alt__caret_   = del_sol                 hot("^")
 alt__dollar_  = cut_eol                 hot("$")
 alt__period_  = sel_toggle;             hot(".")
 alt__slash_   = find_forward;           hot(",/,") -- FIXME make this regex
+alt__equal_   = tab_next;               hot("=")
 alt_a         = sel_all;                hot("a")
 alt_Abort     = set_ctrl_c_abort
 alt_AI        = toggle_auto_indent;     hot("AI")
@@ -111,8 +112,7 @@ alt_SF        = function() set_sel_start(); var_end(1); set_sel_end(); disp(); e
 alt_SG        = function() set_sel_start(); eol(); set_sel_end(); end hot("SG")
 alt_Suspend   = set_ctrl_z_suspend
 alt_t         = select_tab            hot("t")
-alt_TY        = tab_prev              hot("TY")
-alt_TT        = tab_next              hot("TT")
+alt_TT        = tab_prev              hot("TT")
 alt_u         = function() set_page_offset_percent(0.10,0) end   hot("u")
 alt_Up        = line_up -- Up23 moves up 23 lines
 alt_v         = global_paste          hot("v")
