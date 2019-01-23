@@ -43,7 +43,7 @@ alt__equal_   = tab_next;               hot("=")
 alt_a         = sel_all;                hot("a")
 alt_Abort     = set_ctrl_c_abort
 alt_AI        = toggle_auto_indent;     hot("AI")
-alt_b         = toggle_top              hot("b")
+alt_b         = toggle_bottom           hot("b")
 alt_c         = global_copy;            hot("c")
 alt_C         = comment                 -- C42<enter> comments 5 lines. CO changes comment
 alt_CC        = comment;                hot("CC")
