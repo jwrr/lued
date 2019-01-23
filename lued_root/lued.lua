@@ -39,7 +39,7 @@ SOFTWARE.
   g_show_line_numbers      = false -- alt_LN (toggle_line_numbers) toggles on/off
   g_ctrl_c_max             = 5     -- Quit when Ctrl+C is pounded several times with empty select buffer
   g_show_help              = false -- Show startup help menu
-  g_double_speed           = 1     -- Increases scroll speed. 0 disables this feature. 2 or more goes even faster
+  g_double_speed           = 0     -- Increases scroll speed. 1 enables this feature. 2 or more goes even faster
   g_lua_mode               = false -- set_lua_mode (Alt+LU) forces lua mode. LuEd automatically goes in and out of Lua mode as needed.
   g_ctrl_s_flow_control    = false -- Alt+Flow toggles this to enable/disable Ctrl+S / Ctrl+Q
   g_ctrl_c_abort           = false -- Alt+Abort toggles this to enable/disable Ctrl+C abort
