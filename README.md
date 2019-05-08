@@ -230,10 +230,14 @@ Terminal Work-arounds
 <a name="tbd"></a>
 TBD
 ---
+* Find - support non-regex
+* Find - handle invalid regex
+* Find - currently, misses back-to-back, misses current line in reverse
 * Indent Selection
 * Block Select, Cut, Copy, Move
 * Split screen
 * Document API for plugins
-* Syntax Highlighting
+* Exuberant Ctags
+* Syntax Highlighting (lpeg+scintillua lexers)
 
 
