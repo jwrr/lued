@@ -7,9 +7,9 @@ SET(INSTALL_PATH ${CMAKE_CURRENT_BINARY_DIR}/install)
 include(ExternalProject)
 
 ExternalProject_Add (prj_lua52
+  BUILD_IN_SOURCE 1
   DOWNLOAD_NO_PROGRESS 1
   URL http://www.lua.org/ftp/lua-5.2.4.tar.gz
-  BUILD_IN_SOURCE 1
   PREFIX ${EXTERN_PATH}/prj_lua52
   CONFIGURE_COMMAND ""
   BUILD_COMMAND make linux
@@ -18,9 +18,7 @@ ExternalProject_Add (prj_lua52
 
 ExternalProject_Add (prj_carr
   GIT_REPOSITORY https://github.com/jwrr/carr.git
-  UPDATE_COMMAND ""
   PREFIX ${EXTERN_PATH}/prj_carr
-  INSTALL_DIR ${INSTALL_PATH}
   CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH}
 )
 
