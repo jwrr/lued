@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 project(lued_prj) 
 
-SET(EXTERN_PATH ${CMAKE_CURRENT_BINARY_DIR}/extern)
-SET(INSTALL_PATH ${CMAKE_CURRENT_BINARY_DIR}/install)
+SET(EXTERN_PATH ${CMAKE_BINARY_DIR}/extern)
+SET(INSTALL_PATH ${CMAKE_BINARY_DIR}/install)
+SET(EXE_PATH ${CMAKE_SOURCE_DIR}/lued_root)
 
 include(ExternalProject)
 
@@ -22,7 +23,7 @@ ExternalProject_Add (prj_carr
   CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH}
 )
 
-set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${INSTALL_PATH}/bin)
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${EXE_PATH})
 include_directories(${INSTALL_PATH}/include)
 link_directories(${INSTALL_PATH}/lib)
 
