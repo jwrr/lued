@@ -1180,6 +1180,18 @@ end
 function find_forward_again(dd)
   local dd2 = 1
   local initial_r,initial_c = get_cur_pos()
+  local found = find_forward(g_find_str,false,false,false,dd2)
+  if not found then
+    set_cur_pos(initial_r,initial_c)
+  end
+  disp(dd)
+  return found
+end
+
+
+function find_forward_selected(dd)
+  local dd2 = 1
+  local initial_r,initial_c = get_cur_pos()
   local sel_str, sel_sr, sel_sc = get_sel_str()
   if sel_str~="" then
     char_right(1,dd2)
@@ -1193,6 +1205,7 @@ function find_forward_again(dd)
   disp(dd)
   return found
 end
+
 
 function find_selected_OLD(dd)
   local dd2 = 1
