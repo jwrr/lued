@@ -11,6 +11,7 @@ Table of Contents
 -----------------
 * [Basic Operations](#basic)
 * [Ctrl, Alt and Esc](#ctrl)
+* [Esc vs Alt](#esc-alt)
 * [Working with Multiple Files](#files)
 * [Moving Around](#moving)
 * [Select, Copy, Cut, Delete and Paste](#select)
@@ -50,6 +51,10 @@ Basic Operations Work as Expected
 <a name="ctrl"></a>
 Ctrl, Alt and Esc
 -----------------
+To minimize clashes with the terminal window, Lued uses the <kbd>Alt</kbd> key
+for most of its commands. All of the above <kbd>Ctrl</kbd> keystroke commands
+have an equivalent, similarly named <kbd>Alt</kbd> command.
+  
 By default Lued uses the <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and 
 <kbd>Ctrl</kbd>+<kbd>z</kbd> to undo.  This conflicts with expected terminal
 behavior where <kbd>Ctrl</kbd>+<kbd>c</kbd> kills the process and 
@@ -61,10 +66,6 @@ enables you to restore typical terminal behavior.
 * <kbd>Alt</kbd>+<kbd>.</kbd>+<kbd>c</kbd>+<kbd>Enter</kbd> enables Ctrl-c to
   Kill Lued.  All unsaved edits will be lost.
 
-To minimize clashes with the terminal window, Lued uses the <kbd>Alt</kbd> key
-for most of its commands. All of the above <kbd>Ctrl</kbd> keystroke commands
-have an equivalent, similarly named <kbd>Alt</kbd> command.
-  
   
 <a name="esc-alt"></a>
 Escape vs Alt
