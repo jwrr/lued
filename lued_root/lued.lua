@@ -35,7 +35,8 @@ SOFTWARE.
   g_min_lines_from_bot     = 7     -- Scroll will try to keep at least 7 lines from the bottom
   g_page_size              = 0.25  -- This controls PgUp/PgDn speed. 0.25 is quarter page at a time.
   g_enable_file_changed    = true  -- efc0, efc1. detect file change and prompt to reload
-  g_case_sensitive         = false -- cs0 cs1
+  g_case_sensitive         = false -- case sensitive search
+  g_plaintext              = true  -- plain text search. Set to true for regular expression pattern search
   g_show_line_numbers      = false -- alt_LN (toggle_line_numbers) toggles on/off
   g_ctrl_c_max             = 5     -- Quit when Ctrl+C is pounded several times with empty select buffer
   g_show_help              = false -- Show startup help menu

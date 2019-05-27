@@ -977,8 +977,9 @@ function find_all_on_line(line,str)
   local match_count = 0
   local line2 = line
   local str2 = str
+  g_plaintext = g_plaintext or false
   repeat
-    s,e = string.find(line2,str2,e)
+    s,e = string.find(line2,str2,e,g_plaintext)
     if s ~= nil then
       match_count = match_count + 1
       matchi[match_count] = s
