@@ -1585,6 +1585,44 @@ function indent(dd)
   end
 end
 
+function indent_selected(dd)
+  local dd2 = 1
+  local initial_row,initial_col = get_cur_pos()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local something_selected = sel_state~=0;
+  g_indent_char = g_indent_char or " "
+  if something_selected then
+    set_sel_off()
+    for row=sel_sr+1,sel_er do
+      set_cur_pos(row,1)
+      ins_str(g_indent_char,dd2)
+    end
+    set_cur_pos(sel_sr+1,sel_sc)
+    set_sel_start()
+    set_cur_pos(sel_er+1,sel_ec)
+  end
+  disp(dd)
+end
+
+function unindent_selected(dd)
+  local dd2 = 1
+  local initial_row,initial_col = get_cur_pos()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local something_selected = sel_state~=0;
+  g_indent_char = g_indent_char or " "
+  if something_selected then
+    set_sel_off()
+    for row=sel_sr+1,sel_er do
+      set_cur_pos(row,1)
+      del_char(1,dd2)
+    end
+    set_cur_pos(sel_sr+1,sel_sc)
+    set_sel_start()
+    set_cur_pos(sel_er+1,sel_ec)
+  end
+  disp(dd)
+end
+
 function ins_string(str, dd)
   local dd2 = 1
   local r,c = get_cur_pos()

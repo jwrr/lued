@@ -15,6 +15,7 @@ Table of Contents
 * [Moving Around](#moving)
 * [Select, Copy, Cut, Delete and Paste](#select)
 * [Find and Replace](#find)
+* [Indent Selection and Auto-Indent](#indent)
 * [Comments](#comments)
 * [Trailing Whitespace](#trailing)
 * [Using the Mouse](#mouse)
@@ -123,13 +124,13 @@ Select, Copy, Cut, Delete and Paste
     paste buffer, so the paste buffer will contain multiple lines. You can
     then <kbd>Alt</kbd>+<kbd>v</kbd> to restore the text, move to another
     location and <kbd>Alt</kbd>+<kbd>v</kbd> again, to duplicate the text.
-* <kbd>Alt</kbd>+<kbd>.</kbd> starts selecting text. Move the cursor to the
-  end of the selection and press <kbd>Alt</kbd>+<kbd>c</kbd> or
+* <kbd>Alt</kbd>+<kbd>+</kbd> starts selecting text. Move the
+  cursor to the end of the selection and press <kbd>Alt</kbd>+<kbd>c</kbd> or
   <kbd>Alt</kbd>+<kbd>x</kbd> to copy or cut the selection into the paste
-  buffer.
+  buffer. Press <kbd>Alt</kbd>+<kbd>+</kbd> to stop selecting.
   * If you start typing when a region is selected, the region will be deleted
     and replaced with the typing.
-  * Press <kbd>Alt</kbd>+<kbd>.</kbd> to abort the selection.
+  * Press <kbd>Alt</kbd>+<kbd>+</kbd> to abort the selection.
 
 <a name="find"></a>
 Find and Replace
@@ -143,11 +144,22 @@ Find and Replace
   <kbd>Alt</kbd>+<kbd>j</kbd>.
 * <kbd>Alt</kbd>+<kbd>H</kbd> finds the previous occurrence of the selected
   string.
-* <kbd>Alt</kbd>+<kbd>g</kbd> finds the next occurrence of the search string.  
+* <kbd>Alt</kbd>+<kbd>g</kbd> finds the next occurrence of the search string.
 * <kbd>Alt</kbd>+<kbd>G</kbd> finds the previous occurrence of the search
   string.
 * <kbd>Alt</kbd>+<kbd>r</kbd> is the find and replace command.
 * <kbd>Alt</kbd>+<kbd>Sall</kbd> searches all tabs.
+
+<a name="indent"></a>
+Indent Selection and Auto-Indent
+--------------------------------
+* <kbd>Alt</kbd>+<kbd>+</kbd> starts selection.
+* Move to one line beyond last line
+* <kbd>Alt</kbd>+<kbd>&gt;</kbd> to indent
+* <kbd>Alt</kbd>+<kbd>&lt;</kbd> to unindent
+
+Auto-indent is on by default.  Each line is indented the same as the previous
+line.
 
 <a name="comments"></a>
 Comments
@@ -232,10 +244,6 @@ Terminal Work-arounds
 <a name="tbd"></a>
 TBD
 ---
-* Find - support non-regex
-* Find - handle invalid regex
-* Find - currently, misses back-to-back, misses current line in reverse
-* Indent Selection
 * Block Select, Cut, Copy, Move
 * Split screen
 * Document API for plugins

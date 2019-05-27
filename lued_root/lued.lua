@@ -26,6 +26,7 @@ SOFTWARE.
 
   g_lued_root              = "~/.lued" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
   g_auto_indent            = true  -- Indent the same as the previous line
+  g_indent_char            = " "   -- Used in indent_selected
   g_replace_tabs           = 0     -- 4 -- Replace tab with N spaces (does not remove existing tabs). 0 keeps tabs.
   g_remove_trailing_spaces = false -- Only removes on lines that are modified. Use alt_Rats to remove all trailing spaces.
   g_show_trailing_spaces   = true  -- Show trailing spaces in reverse video

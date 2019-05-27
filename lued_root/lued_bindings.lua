@@ -37,9 +37,12 @@ SOFTWARE.
 
 alt__caret_   = del_sol                 hot("^")
 alt__dollar_  = cut_eol                 hot("$")
-alt__period_  = sel_toggle;             hot(".")
-alt__slash_   = find_forward;           hot(",/,") -- FIXME make this regex
-alt__equal_   = tab_next;               hot("=")
+alt__period_  = sel_toggle              hot(".")
+alt__slash_   = find_forward            hot(",/,") -- FIXME make this regex
+alt__equal_   = tab_next                hot("=")
+alt__gt_      = indent_selected         hot(">")
+alt__lt_      = unindent_selected       hot("<")
+alt__plus_    = sel_toggle              hot(",+,")
 alt_a         = sel_all;                hot("a")
 alt_Abort     = set_ctrl_c_abort
 alt_AI        = toggle_auto_indent;     hot("AI")
@@ -106,7 +109,7 @@ alt_Relued    = relued -- reload lued script
 alt_Rt        = set_replace_tabs -- rt0 rt4
 alt_Rts       = toggle_remove_trailing_spaces
 alt_s         = save_file               hot("s")
-alt_SA        = function() set_sel_start(); sol(); end hot("SA")
+alt_SA        = function() set_sel_start() sol() end
 alt_Sall      = search_all_files
 alt_Saveall   = save_all
 alt_Setcase   = function() set_case_sensitive(0) end -- used for find/search
@@ -127,8 +130,8 @@ alt_x         = global_cut            hot("x")
 alt_y         = redo_cmd              hot("y")
 alt_z         = undo_cmd              hot("z")
 alt__colon_w  = save_file             hot(":w")
-alt__lt_      = magic_left            hot(">")
-alt__gt_      = magic_right           hot("<")
+--alt__lt_      = magic_left            hot(">")
+--alt__gt_      = magic_right           hot("<")
 
 alt__squote   = find
 alt_p_squote  = set_paste_buffer
