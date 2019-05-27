@@ -65,6 +65,7 @@ alt_g         = find_forward_again;     hot("g")
 alt_G         = find_reverse_again;     hot("G")
 -- alt_h      = eol;                    hot("h")
 alt_h         = find_forward_selected;  hot("h")
+alt_H         = find_reverse_selected;  hot("H")
 -- alt_i      = spare;                  hot("i")  ####################
 alt_I_squote  = indent_scope
 alt_IS        = indent_scope            hot("IS")

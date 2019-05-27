@@ -75,13 +75,11 @@ Working with Multiple Files
 Moving Around
 -------------
 * The arrow keys move the cursor as expected.
-* <kbd>Alt</kbd>+<kbd>h</kbd> jumps to the end of the line.
-  * <kbd>End</kbd> also jumps to the end of the line.
-* <kbd>Alt</kbd>+<kbd>g</kbd> jumps to the beginning of the line. When the line
+* <kbd>End</kbd> jumps to the end of the line.
+* <kbd>Home</kbd> jumps to the beginning of the line. When the line
   is indented the cursor moves to the first non-space of the line. If the
   cursor is on the first non-space then the cursor moves to the first character
   of the line.
-  * <kbd>Home</kbd> also jumps to the beginning  of the line.
 * <kbd>Shift</kbd>+<kbd>Right Arrow</kbd> moves a word to the left.
 * <kbd>Shift</kbd>+<kbd>Right Arrow</kbd> moves a word to the right.
 * <kbd>Shift</kbd>+<kbd>Down Arrow</kbd> moves down a partial page (the partial
@@ -140,9 +138,13 @@ Find and Replace
   to enter a search string. Previous searches can be accessed quickly using
   the up arrow key.
 * <kbd>Alt</kbd>+<kbd>F</kbd> is the reverse find command.
-* <kbd>Alt</kbd>+<kbd>l</kbd> is the find next command.  If text is selected
-  then the selected text will be searched for.
-* <kbd>Alt</kbd>+<kbd>j</kbd> finds the previous occurrence of the search
+* <kbd>Alt</kbd>+<kbd>h</kbd> is the find selected command.  If text is selected
+  then the selected text will be searched for. A quick way to select a word is
+  <kbd>Alt</kbd>+<kbd>j</kbd>.
+* <kbd>Alt</kbd>+<kbd>H</kbd> finds the previous occurrence of the selected
+  string.
+* <kbd>Alt</kbd>+<kbd>g</kbd> finds the next occurrence of the search string.  
+* <kbd>Alt</kbd>+<kbd>G</kbd> finds the previous occurrence of the search
   string.
 * <kbd>Alt</kbd>+<kbd>r</kbd> is the find and replace command.
 * <kbd>Alt</kbd>+<kbd>Sall</kbd> searches all tabs.
