@@ -448,8 +448,10 @@ function get_yesno(prompt,default)
   return answer
 end
 
-function disp(dd)
+function disp(dd,center)
    dd = dd or 0
+   center = center or false
+
    local dd2 = 1
    if g_enable_file_changed then
      local file_has_changed,mtime,ts = is_file_modified(0)
@@ -466,12 +468,33 @@ function disp(dd)
    local r,c = get_cur_pos()
    local pr,pc = get_page_pos()
    local tr,tc = get_termsize()
+   local page_offset_changed = false
+   local half = math.floor(tr / 2)
+   
+   -- if center then dbg_prompt("CENTER") end
+
    if (r-pr) < g_min_lines_from_top then
-     set_page_offset_percent(g_min_lines_from_top,dd2)
+     local new_offset = g_min_lines_from_top
+     if center then
+       new_offset = half
+       dbg_prompt("new_offset1="..new_offset)
+     end
+     set_page_offset_percent(new_offset,dd2)
    end
    if (pr+tr-r < g_min_lines_from_bot) then
-     set_page_offset_percent(-g_min_lines_from_bot,dd2)
+     local new_offset = -g_min_lines_from_bot
+     if center then
+       new_offset = half
+     end
+     if center then dbg_prompt("new_offset2="..new_offset) end
+     set_page_offset_percent(new_offset,dd2)
    end
+
+   if center then
+     local new_offset = half
+     set_page_offset_percent(new_offset,dd2)
+   end
+ 
    if dd == 0 then
      g_command_count = g_command_count or 0
      g_command_count = g_command_count + 1
@@ -865,6 +888,10 @@ function get_sel_str()
   if sel_state~=0 then
     sel_str = get_str(sel_sr,sel_sc,sel_er,sel_ec)
   end
+  sel_sr = sel_sr + 1
+  sel_sc = sel_sc + 1
+  sel_er = sel_er + 1
+  sel_ec = sel_ec + 1
   return sel_str, sel_sr, sel_sc, sel_er, sel_ec
 end
 
@@ -881,7 +908,6 @@ function find(str,dd)
     remove_trailing_spaces(r2,c2,false,dd2)
     local pr,pc = get_page_pos()
     local tr,tc = get_termsize()
-    local third = math.floor(tr / 3)
     local lr = pr+tr
     local page_change = r2 > lr-third or r2 < pr+third
     if page_change==true then
@@ -889,6 +915,16 @@ function find(str,dd)
     end
   end
   disp(dd)
+end
+
+function dbg_prompt(dbg_str)
+  local str = ""
+  -- repeat
+    local prompt = "DBG> "..dbg_str..": "
+
+    find_prompt_hist_id = find_prompt_hist_id or get_hist_id()
+    str = lued_prompt(nil, prompt)
+  return str
 end
 
 function find_prompt()
@@ -980,9 +1016,9 @@ function find_reverse(str,dd)
 
   local r,c = get_cur_pos()
   local pr,pc = get_page_pos()
-  local local_page_offset = page_offset
   c = c-1
   local numlines = get_numlines()
+  local match_found = false
   for k=numlines,1,-1 do
     i = (r+k-numlines) % numlines
     local line = get_line()
@@ -993,15 +1029,9 @@ function find_reverse(str,dd)
     local maxc = i==r and c or string.len(line)+1
     local match_c = get_last_match(matches,maxc)
     for j=1,#matches do matches[j] = nil end
-    if match_c == nil then
-      if k==1 then
-        set_cur_pos(r,c+1)
-        set_page_pos(pr,pc)
-      else
-        set_cur_pos(i-1,1)
-      end
-    else
-      local match_str = string.match(line,g_find_str,match_c)
+    match_found = (match_c ~= nil)
+    if match_found then
+      local match_str = string.match(line,g_find_str2,match_c)
       local match_len = string.len(match_str)
       set_cur_pos(i,match_c)
       set_sel_start()
@@ -1009,21 +1039,52 @@ function find_reverse(str,dd)
       set_sel_end()
       set_cur_pos(i,match_c)
       break
+    else
+      if k==1 then
+        set_cur_pos(r,c+1)
+        set_page_pos(pr,pc)
+      else
+        set_cur_pos(i-1,1)
+      end
     end
   end
   disp(dd)
+  return match_found
 end
 
 function find_reverse_again(dd)
   local dd2 = 1
-  local sel_str,sel_sr,sel_sc = get_sel_str()
-  if sel_str~="" then
-    set_cur_pos(sel_sr,sel_sc)
-    char_left(1,dd2)
-    g_find_str = sel_str
+  local skip = g_find_str==nil or g_find_str==""
+  if not skip then
+    find_reverse(g_find_str,dd2)
   end
-  find_reverse(g_find_str,dd)
+  disp(dd)
 end
+
+function find_reverse_selected(dd)
+  local dd2 = 1
+  local initial_r,initial_c = get_cur_pos()
+  local pr,pc = get_page_pos()
+
+  local sel_str, sel_sr, sel_sc = get_sel_str()
+  local found = false
+  if sel_str~="" then
+    g_find_str = sel_str
+--  dbg_prompt("DBG sel_sr="..sel_sr.." initial_r="..initial_r)
+    set_cur_pos(sel_sr,sel_sc)
+    found = find_reverse(g_find_str,dd2)
+    if found then
+      local new_r,new_c = get_cur_pos()
+      local delta_r = initial_r - new_r
+    else
+      set_cur_pos(initial_r,initial_c)
+    end
+  end
+  local center = true
+  disp(dd, center)
+  return found
+end
+
 
 function get_first_match(matches, minc)
   if matches==nil then return end
