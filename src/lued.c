@@ -1708,7 +1708,12 @@ int lued_main (int argc, char** argv)
       if (file_exists(lued_paths[i])) break;
    }
    int err = luaL_dofile (L, lued_paths[i]);
-   if (err) fprintf(stderr,"Error1: luaL_dofile(L,%s);\n",lued_paths[i]);
+   if (err) {
+     fprintf(stderr,"\nERROR 1: luaL_dofile(L,%s);\n",lued_paths[i]);
+     fprintf(stderr,"EXITING LUED\n\nPress <Enter> to exit");
+     getchar();
+     return 1;
+   }
 
    if (*(arg_dofile->arr)) {
       char lua_cmd[512];
