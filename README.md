@@ -50,14 +50,29 @@ Basic Operations Work as Expected
 <a name="ctrl"></a>
 Ctrl, Alt and Esc
 -----------------
-* To minimize clashes with the terminal window, Lued uses the <kbd>Alt</kbd>
-  key for most of its commands.
-* All of the above <kbd>Ctrl</kbd> keystroke commands have an equivalent,
-  similarly named <kbd>Alt</kbd> command.
-* Pressing <kbd>Esc</kbd> and then pressing a key is equivalent to
-  simultaneously pressing <kbd>Alt</kbd> and the key.  Some keystrokes may be
-  more comfortable with <kbd>Esc</kbd>, while others may be easier with <kbd>Alt</kbd>.
-  Note, this behavior is a feature of the terminal and is not unique to Lued.
+By default Lued uses the <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and 
+<kbd>Ctrl</kbd>+<kbd>z</kbd> to undo.  This conflicts with expected terminal
+behavior where <kbd>Ctrl</kbd>+<kbd>c</kbd> kills the process and 
+<kbd>Ctrl</kbd>+<kbd>z</kbd> suspends the process.  The following commands
+enables you to restore typical terminal behavior.
+
+* <kbd>Alt</kbd>+<kbd>.</kbd>+<kbd>z</kbd>+<kbd>Enter</kbd> enables Ctrl-Z to
+  suspend Lued.  To resume Lued enter ```fg``` at the terminal prompt.
+* <kbd>Alt</kbd>+<kbd>.</kbd>+<kbd>c</kbd>+<kbd>Enter</kbd> enables Ctrl-c to
+  Kill Lued.  All unsaved edits will be lost.
+
+To minimize clashes with the terminal window, Lued uses the <kbd>Alt</kbd> key
+for most of its commands. All of the above <kbd>Ctrl</kbd> keystroke commands
+have an equivalent, similarly named <kbd>Alt</kbd> command.
+  
+  
+<a name="esc-alt"></a>
+Escape vs Alt
+-------------
+Pressing <kbd>Esc</kbd> and then pressing a key is equivalent to simultaneously
+pressing <kbd>Alt</kbd> and the key.  Some keystrokes may be more comfortable
+with <kbd>Esc</kbd>, while others may be easier with <kbd>Alt</kbd>. Note, this
+behavior is a feature of the terminal and is not unique to Lued.
 
 <a name="files"></a>
 Working with Multiple Files

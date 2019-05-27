@@ -84,6 +84,14 @@ function set_ctrl_z_suspend (bool, dd)
   disp(dd)
 end
 
+function toggle_ctrl_z_suspend (dd)
+  set_ctrl_z_suspend(not g_ctrl_z_suspend,dd)
+end
+
+function toggle_ctrl_c_abort (dd)
+  set_ctrl_c_abort(not g_ctrl_c_abort,dd)
+end
+
 
 function set_auto_indent(dd)
   g_auto_indent = true
