@@ -30,7 +30,6 @@ SOFTWARE.
   g_replace_tabs           = 0     -- 4 -- Replace tab with N spaces (does not remove existing tabs). 0 keeps tabs.
   g_remove_trailing_spaces = false -- Only removes on lines that are modified. Use alt_Rats to remove all trailing spaces.
   g_show_trailing_spaces   = true  -- Show trailing spaces in reverse video
-  g_enable_regex           = true  -- ALWAYS REGEX FOR NOW. Use with find commands: ctrl_F, (ff), find_reverse(fr)
   g_scope_indent           = 2     -- Use with indent_scope(is) command. change indent with si2 si3 si4...
   g_min_lines_from_top     = 5     -- Scroll will try to keep at least 5 lines from the top
   g_min_lines_from_bot     = 7     -- Scroll will try to keep at least 7 lines from the bottom
