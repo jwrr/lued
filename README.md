@@ -1,4 +1,3 @@
-
 Lued
 ====
 lua-based text editor
@@ -17,6 +16,7 @@ Table of Contents
 * [Select, Copy, Cut, Delete and Paste](#select)
 * [Find and Replace](#find)
 * [Indent Selection and Auto-Indent](#indent)
+* [Enable and Goto Line Numbers](#line-numbers)
 * [Comments](#comments)
 * [Trailing Whitespace](#trailing)
 * [Using the Mouse](#mouse)
@@ -54,10 +54,10 @@ Ctrl, Alt and Esc
 To minimize clashes with the terminal window, Lued uses the <kbd>Alt</kbd> key
 for most of its commands. All of the above <kbd>Ctrl</kbd> keystroke commands
 have an equivalent, similarly named <kbd>Alt</kbd> command.
-  
-By default Lued uses the <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and 
+
+By default Lued uses the <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and
 <kbd>Ctrl</kbd>+<kbd>z</kbd> to undo.  This conflicts with expected terminal
-behavior where <kbd>Ctrl</kbd>+<kbd>c</kbd> kills the process and 
+behavior where <kbd>Ctrl</kbd>+<kbd>c</kbd> kills the process and
 <kbd>Ctrl</kbd>+<kbd>z</kbd> suspends the process.  The following commands
 enables you to restore typical terminal behavior.
 
@@ -65,8 +65,9 @@ enables you to restore typical terminal behavior.
   suspend Lued.  To resume Lued enter ```fg``` at the terminal prompt.
 * <kbd>Alt</kbd>+<kbd>.</kbd>+<kbd>c</kbd>+<kbd>Enter</kbd> enables Ctrl-c to
   Kill Lued.  All unsaved edits will be lost.
+* **Note:** To **copy** and **undo** you can always use <kbd>Alt</kbd>+<kbd>c</kbd>
+  to copy and <kbd>Alt</kbd>+<kbd>z</kbd> to undo.
 
-  
 <a name="esc-alt"></a>
 Escape vs Alt
 -------------
@@ -177,6 +178,12 @@ Indent Selection and Auto-Indent
 Auto-indent is on by default.  Each line is indented the same as the previous
 line.
 
+<a name="line-numbers"></a>
+Line Numbers
+------------
+* <kbd>Alt</kbd>+<kbd>LN</kbd> toggles (turns off/on) the line numbers.
+* <kbd>Ctrl or Alt</kbd>+<kbd>l</kbd> goes to a specific line number.
+
 <a name="comments"></a>
 Comments
 --------
@@ -260,6 +267,7 @@ Terminal Work-arounds
 <a name="tbd"></a>
 TBD
 ---
+* Incremental Search
 * Block Select, Cut, Copy, Move
 * Split screen
 * Document API for plugins

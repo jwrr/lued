@@ -75,7 +75,7 @@ alt_IS        = indent_scope            hot("IS")
 -- alt_j      = find_reverse_again      hot("j")
 alt_j         = sel_word                hot("j")
 alt_k         = sel_word                hot("k")
-alt_l         = find_forward_again      hot("l")
+alt_l         = goto_line               hot("l")
 alt_LL        = cr_before               hot("LL")
 alt_LN        = toggle_line_numbers     hot("LN")
 alt_LS        = ls_dir                  hot("LS")
@@ -142,7 +142,7 @@ ctrl__at_      = disp           -- Called when resuming from Ctrl+Z (fg at shell
 ctrl_Q         = quit_all          -- alt_q
 ctrl_W         = quit_session      -- alt_x
 ctrl_E         = spare
-ctrl_R         = spare
+ctrl_R         = find_and_replace
 ctrl_T         = spare
 
 ctrl_Y         = redo_cmd          -- alt_z
@@ -155,12 +155,12 @@ ctrl_A         = sel_all           -- alt_a
 ctrl_S         = save_file         -- alt_s
 ctrl_D         = spare
 ctrl_F         = find_forward      -- alt_f
-ctrl_G         = spare
+ctrl_G         = find_forward_again
 
-ctrl_H         = spare
+ctrl_H         = find_forward_selected
 ctrl_J         = dont_use          -- Same as <Enter>
-ctrl_K         = spare
-ctrl_L         = spare
+ctrl_K         = sel_word
+ctrl_L         = goto_line
 
 ctrl_Z         = undo_cmd          -- alt_z
 ctrl_X         = global_cut        -- alt_x

@@ -890,6 +890,7 @@ function goto_line(n,dd)
   end
 end
 
+
 function get_sel_str()
   local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local sel_str = ""
