@@ -79,6 +79,8 @@ behavior is a feature of the terminal and is not unique to Lued.
 <a name="files"></a>
 Working with Multiple Files
 ----------------------
+* <kbd>Alt</kbd>+<kbd>S</kbd>+<kbd>Enter</kbd> Save As. Saves current file
+  with a new name.
 * <kbd>Alt</kbd>+<kbd>o</kbd> opens another file. Each file is contained in a
   tab.
 * <kbd>Alt</kbd>+<kbd>t</kbd> selects one of the open tabs.

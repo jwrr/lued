@@ -1748,6 +1748,11 @@ function save_file(dd)
 end
 
 function save_as(filename, dd)
+  if filename == nil then
+    save_as_hist_id = save_as_hist_id or get_hist_id()
+    filename = lued_prompt(save_as_hist_id,"filename: ")
+  end
+
   set_filename(filename)
   save_session()
   disp(dd)

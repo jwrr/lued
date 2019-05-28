@@ -109,6 +109,7 @@ alt_Relued    = relued -- reload lued script
 alt_Rt        = set_replace_tabs -- rt0 rt4
 alt_Rts       = toggle_remove_trailing_spaces
 alt_s         = save_file               hot("s")
+alt_S         = save_as
 alt_SA        = function() set_sel_start() sol() end
 alt_Sall      = search_all_files
 alt_Saveall   = save_all
