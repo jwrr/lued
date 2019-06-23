@@ -43,7 +43,17 @@ alt__equal_   = tab_next                hot("=")
 alt__gt_      = indent_selected         hot(">")
 alt__lt_      = unindent_selected       hot("<")
 alt__plus_    = sel_toggle              hot(",+,")
-alt_a         = align_selected          hot("a")
+alt_A         = align_selected
+alt_a         = align_delimiter
+alt_a_colon_  = function() align_delimiter(":") end
+alt_a_comma_  = function() align_delimiter(",") end
+alt_a_equal_  = function() align_delimiter("=") end
+alt_a_gt_     = function() align_delimiter(">") end
+alt_a_lt_     = function() align_delimiter("<") end
+alt_a_minus_  = function() align_delimiter("-") end
+alt_a_semi_   = function() align_delimiter(";") end
+alt_a_slash_  = function() align_delimiter("/") end
+
 alt_Abort     = set_ctrl_c_abort
 alt_AI        = toggle_auto_indent;     hot("AI")
 alt_b         = toggle_bottom           hot("b")

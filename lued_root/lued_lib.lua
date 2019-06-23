@@ -439,6 +439,42 @@ function align_selected(dd)
 end
 
 
+-- \brief Align delimiter in selected region
+function align_delimiter(align_delim,dd)
+  align_delim = align_delim or ":"
+  g_indent_char = g_indent_char or " "
+  g_indent_size = g_indent_size or 4
+  local dd2 = 1
+  local initial_row,initial_col = get_cur_pos()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local something_selected = sel_state~=0;
+
+  if something_selected then
+    set_sel_off()
+    set_cur_pos(sel_sr+1,1)
+    local delim_found,r,align_col = find_str(align_delim)
+    if delim_found and r==sel_sr+1 then
+      for row=sel_sr+1,sel_er do
+        set_cur_pos(row,1)
+        local f,r,c = find_str(delimiter,dd2)
+        if f and r==row and c<align_col then
+          local pad_size = align_col - c
+          local pad_str = string.rep(' ',pad_size)..align_delim
+          ins_string(pad_str,dd2)
+        end
+      end
+      set_cur_pos(initial_row,initial_col)
+    end
+    set_cur_pos(sel_sr+1,1)
+    set_sel_start()
+    set_cur_pos(sel_er+1,1)
+  end
+  disp(dd)
+end
+
+
+
+
 function reindent_selected(dd)
   g_indent_char = g_indent_char or " "
   g_indent_size = g_indent_size or 4
@@ -1009,7 +1045,7 @@ function find(str,dd)
     set_cur_pos(r,c)
   end
   if found ~= 0 then
-    remove_trailing_spaces(r2,c2,false,dd2)
+    -- remove_trailing_spaces(r2,c2,false,dd2)
     local pr,pc = get_page_pos()
     local tr,tc = get_termsize()
     local lr = pr+tr
