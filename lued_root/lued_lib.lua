@@ -410,6 +410,101 @@ function reindent(n,dd)
   disp(dd)
 end
 
+-- \brief Fix jagged left edges by making leading white space of all selected lines the same as first selected line.
+function align_selected(dd)
+  g_indent_char = g_indent_char or " "
+  g_indent_size = g_indent_size or 4
+  local dd2 = 1
+  local initial_row,initial_col = get_cur_pos()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local something_selected = sel_state~=0;
+
+  if something_selected then
+    set_sel_off()
+
+    set_cur_pos(sel_sr+1,1)
+    local ws1,ws1_len = leading_ws()
+
+    for row=sel_sr+1,sel_er do
+      set_cur_pos(row,1)
+--
+      local ws2,ws2_len = leading_ws()
+      del_char(ws2_len,dd2)
+      ins_str(ws1,dd2)
+--
+    end
+    set_cur_pos(initial_row,initial_col)
+  end
+  disp(dd)
+end
+
+
+function reindent_selected(dd)
+  g_indent_char = g_indent_char or " "
+  g_indent_size = g_indent_size or 4
+  local dd2 = 1
+  local initial_row,initial_col = get_cur_pos()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local something_selected = sel_state~=0;
+
+  if something_selected then
+    set_sel_off()
+
+    set_cur_pos(sel_sr,1)
+    local ws1,ws1_len = leading_ws()
+    local indent_level = 0;
+    local ws_len = ws1_len
+
+    for row=sel_sr+1,sel_er do
+      set_cur_pos(row,1)
+--
+      local ws2,ws2_len = leading_ws()
+      if ws2_len < ws1_len then break end
+      if ws2_len > ws_len then
+        indent_level = indent_level + 1
+      elseif ws2_len < ws_len then
+        indent_level = indent_level - 1
+      end
+      ws_len = ws2_len
+      local indent_str = ws1 .. string.rep(g_indent_char,g_indent_size*indent_level)
+      del_char(ws2_len,dd2)
+      ins_str(indent_str,dd2)
+--
+    end
+    set_cur_pos(initial_row,initial_col)
+  end
+  disp(dd)
+end
+
+
+function reindent_all(n,dd)
+  n = n or 3
+  local dd2 = 1
+  local ws1,ws1_len = leading_ws()
+  local r,c = get_cur_pos()
+  local numlines = get_numlines() - r
+  local indent_level = 0;
+  local ws_len = ws1_len
+  for i=1,numlines do
+    set_cur_pos(r+i,1)
+    local ws2,ws2_len = leading_ws()
+    if ws2_len < ws1_len then break end
+    if ws2_len > ws_len then
+      indent_level = indent_level + 1
+    elseif ws2_len < ws_len then
+      indent_level = indent_level - 1
+    end
+    ws_len = ws2_len
+    local indent_str = ws1 .. string.rep(" ",n*indent_level)
+    del_char(ws2_len,dd2)
+    ins_str(indent_str,dd2)
+  end
+  set_cur_pos(r,c)
+  disp(dd)
+end
+
+
+
 function hot_range(lower,upper)
   local hot = ""
   for ch=string.byte(lower),string.byte(upper) do
@@ -931,7 +1026,7 @@ function dbg_prompt(dbg_str)
   -- repeat
     local prompt = "DBG> "..dbg_str..": "
 
-    find_prompt_hist_id = find_prompt_hist_id or get_hist_id()
+    dbg_id = dgb_id or get_hist_id()
     str = lued_prompt(nil, prompt)
   return str
 end
@@ -1268,6 +1363,8 @@ function find_forward_selected(dd)
     char_right(1,dd2)
     g_find_str = sel_str
     set_sel_off()
+  else
+    g_find_str = sel_str
   end
   local found = find_forward(g_find_str,false,false,false,dd2)
   if not found then
@@ -1334,10 +1431,12 @@ function sel_line(n,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   local rlast = r + n - 1
-  set_cur_pos(r,1)
-  set_sel_start()
+  if is_sel_off()==1 then
+    set_cur_pos(r,1)
+    set_sel_start()
+  end
   set_cur_pos(rlast+1,1)
-  set_sel_end(dd2)
+  -- set_sel_end()
   set_cur_pos(rlast+1,1)
   disp(dd)
 end
@@ -1528,17 +1627,22 @@ end
 function cut_line(n,dd)
   n = n or 1
   local dd2 = 1
-  local r,c = get_cur_pos()
-  set_cur_pos(r,1)
-  set_sel_start()
-  line_down(n,dd2)
-  set_sel_end()
-  if (g_command_count == g_cut_line_command_count) then
-    global_cut_append(dd)
+
+  if is_sel_off()==1 then
+    local r,c = get_cur_pos()
+    set_cur_pos(r,1)
+    set_sel_start()
+    line_down(n,dd2)
+    set_sel_end()
+    if (g_command_count == g_cut_line_command_count) then
+      global_cut_append(dd)
+    else
+      global_cut(dd)
+    end
+    g_cut_line_command_count = g_command_count
   else
     global_cut(dd)
-  end
-  g_cut_line_command_count = g_command_count
+  end  
 end
 
 function del_backspace(n,dd)
@@ -1685,7 +1789,7 @@ function insert_tab(dd)
   ins_str(t,dd)
 end
 
-function cr_before(dd)
+function insert_cr_before(dd)
   local dd2 = 1
   sol_classic(dd2)
   ins_str("\n",dd2)
@@ -1693,22 +1797,29 @@ function cr_before(dd)
   indent(dd)
 end
 
-function cr_after(dd)
+function insert_cr_after(dd)
   local dd2 = 1
-  local line = get_line()
-  if is_blankline(line) then
-    if not is_eol() then eol(dd2) end
-    ins_str("\n",dd2)
-    ins_str("\n",dd2)
-    line_up(1,dd)
-  elseif is_eol() then
-    ins_str("\n",dd2)
-    ins_str("\n",dd)
-  else
-    eol(dd2)
-    ins_str("\n",dd)
-  end
+  if not is_eol() then eol(dd2) end
+  ins_str("\n",dd)
 end
+
+
+-- function insert_cr_after(dd)
+--   local dd2 = 1
+--   local line = get_line()
+--   if is_blankline(line) then
+--     if not is_eol() then eol(dd2) end
+--     ins_str("\n",dd2)
+--     ins_str("\n",dd2)
+--     line_up(1,dd)
+--   elseif is_eol() then
+--     ins_str("\n",dd2)
+--     ins_str("\n",dd)
+--   else
+--     eol(dd2)
+--     ins_str("\n",dd)
+--   end
+-- end
 
 function hot(key, dd)
   if key == nil then return end
@@ -2330,12 +2441,16 @@ end
 function copy_line(n,dd)
   n = n or 1
   local dd2 = 1
-  sol_classic(dd2)
-  set_sel_start()
-  line_down(n,dd)
-  set_sel_end()
-  copy(dd2)
-  sol_classic(dd)
+  if is_sel_off()==1 then
+    sol_classic(dd2)
+    set_sel_start()
+    line_down(n,dd)
+    set_sel_end()
+    global_copy(dd2)
+    sol_classic(dd)
+  else
+    global_copy(dd2)
+  end
 end
 
 
@@ -2425,6 +2540,7 @@ function select_tab(filter)
   end
 end
 
+
 function set_comment(dd)
   local dd2 = 1
   goto_line_hist_id = goto_line_hist_id or get_hist_id()
@@ -2433,6 +2549,41 @@ function set_comment(dd)
     g_comment = comment_str
   end
   disp(dd)
+end
+
+
+function join_lines(delim,n,dd)
+  delim = delim or " "
+  n = n or 1
+  local dd2 = 1
+  for i=1,n do
+    local r,c = get_cur_pos()
+    if not is_eol() then
+      eol(dd2)
+    end
+    del_char(dd2)
+    ins_str(delim,dd2);
+    set_cur_pos(r,c)
+  end
+  disp(dd)
+end
+
+
+function wrap_line(wrap_col,wrap_delim,dd)
+  wrap_col = wrap_col or 60
+  wrap_delim = wrap_delim or " "
+  local dd2 = 1
+  eol(dd2)
+  local r,c = get_cur_pos()
+  while c > wrap_col do
+    word_left(dd2)
+    r,c = get_cur_pos()
+  end
+  ins_string("\n",dd2)
+  if get_line_len() <= wrap_col then
+    join_lines(wrap_delim,dd2)
+  end
+  disp(dd)                                                            
 end
 
 function comment(n,str,dd)
@@ -2445,6 +2596,9 @@ function comment(n,str,dd)
   for i=1,n do
     sol_classic(dd2)
     ins_str(g_comment,dd2);
+    if not is_eol() then
+      ins_str(" ",dd2)
+    end 
     line_down(1,dd2)
     sol_classic(dd2)
   end
@@ -2469,6 +2623,26 @@ function load_plugins(plugin_path)
       dofile(plugin)
     end
   end
+end
+
+
+function sel_to_upper(dd)
+  local dd2 = 1
+  local sel_str, sel_sr, sel_sc = get_sel_str()
+  if sel_str ~= "" then
+    ins_string(string.upper(sel_str),dd2)
+  end
+  disp(dd)
+end
+
+
+function sel_to_lower(dd)
+  local dd2 = 1
+  local sel_str, sel_sr, sel_sc = get_sel_str()
+  if sel_str ~= "" then
+    ins_string(string.lower(sel_str),dd2)
+  end
+  disp(dd)
 end
 
 

@@ -267,13 +267,20 @@ Terminal Work-arounds
     <a href="https://bugs.kde.org/show_bug.cgi?id=151966">Konsole bug</a>.
 
 <a name="tbd"></a>
-TBD
+TBD 
 ---
-* Incremental Search
-* Block Select, Cut, Copy, Move
+* alt__period_xxx - change sets to toggles
+* Column/Block Select, Cut, Copy, Move
 * Split screen
 * Document API for plugins
 * Exuberant Ctags
 * Syntax Highlighting (lpeg+scintillua lexers)
-
-
+* aaaaaaaaaa
+* toggle find whole word, case sensitive, regex, incremental
+* Highlite closing brackets, parentheses
+* Improve Goto Label
+* CRASH REPORT when selecting and cursor moves above start
+* Enable binary search mode
+* Git Integration (init, push, pull, branch, stash, mark changes)
+* Embedded Terminal
+* ^`Lua repl
