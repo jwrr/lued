@@ -1335,25 +1335,33 @@ function find_and_replace(from,to,options,dd)
 
   local initial_r,initial_c = get_cur_pos()
   local r,c = get_cur_pos()
+  local resp = "y"
   repeat
 
     local test_str = ""
     found = find_forward(str,true,false,true,test_str,dd2)
     str = str or g_find_str
+    g_find_str = str
     if found then
-      local resp = "y"
+      resp = "y"
       if not replace_all then
         disp(0)
         r,c = get_cur_pos()
         find_and_replace_hist_id = find_and_replace_hist_id or get_hist_id()
-        resp = lued_prompt(find_and_replace_hist_id,"Replace <y/n/a/q>?", ",y,n,a,q,")
+        resp = lued_prompt(find_and_replace_hist_id,"Replace <y/n/a/q/h>?", ",y,n,a,q,h,")
+        -- Y = yes and goto next
+        -- N = no and goto next
+        -- A = replace all
+        -- Q = quit and return cursor to beginning
+        -- H = quit and HALT at current position 
         resp = string.lower( string.sub(resp,1,1) )
-        resp = string.match(resp,"[ynaq]") or "q"
+        resp = string.match(resp,"[ynaqh]") or "q"
         replace_all = resp=="a"
       end
 
-      if resp=="y" or resp=="a" then
+      if resp=="y" or resp=="a" or resp=="h" then
         ins_string(g_replace_str,dd2)
+        if resp=="h" then break end
       elseif resp=="n" then
         char_right(1,dd2)
       else -- q or invalid response
@@ -1362,9 +1370,18 @@ function find_and_replace(from,to,options,dd)
 
     end
   until not found
-  set_cur_pos(initial_r,initial_c)
+  if resp~="h" then
+    set_cur_pos(initial_r,initial_c)
+  end
   disp(dd)
 end
+
+
+function replace_again(dd)
+  local dd2 = 1
+  find_and_replace(g_find_str,g_replace_str,"",dd)
+end
+
 
 function search_all_files(str,dd)
   local dd2 = 1
