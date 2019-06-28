@@ -550,13 +550,14 @@ function hot_range(lower,upper)
   return hot
 end
 
-function lued_prompt(hist_id,prompt,hot)
+function lued_prompt(hist_id,prompt,hot,test_str)
   -- io.write(prompt)
   -- str = io.read()
   hist_id = hist_id or 0
+  prompt = prompt or "--> "
   hot = hot or ""
   io.write(" ")
-  str = io_read(hist_id,prompt,hot)
+  str = io_read(hist_id,prompt,hot,test_str)
   return str
 end
 
@@ -1067,7 +1068,9 @@ function dbg_prompt(dbg_str)
   return str
 end
 
-function find_prompt()
+
+function find_prompt(test_str)
+  test_str = test_str or ""
   local str = ""
   -- repeat
     local default_str = ""
@@ -1078,7 +1081,9 @@ function find_prompt()
     local prompt = "String to Find"..default_str..": "
 
     find_prompt_hist_id = find_prompt_hist_id or get_hist_id()
-    str = lued_prompt(find_prompt_hist_id, prompt)
+
+    local hot=""
+    str = lued_prompt(find_prompt_hist_id, prompt, hot, test_str)
 --    str = find_read(0,prompt)
     if str==nil or str=="" and g_find_str and g_find_str~="" then
       str = g_find_str
@@ -1089,6 +1094,7 @@ function find_prompt()
   if (str=="/*") then str = "/" .. "\\" .. "*" end
   return str
 end
+
 
 function replace_prompt()
   local str = ""
@@ -1239,10 +1245,13 @@ function get_first_match(matches, minc)
   return first_match
 end
 
-function find_forward(str,nowrap,search_all,replace,dd)
+function find_forward(str,nowrap,search_all,replace,test_str,dd)
+  test_str = test_str or ""
   local dd2 = 1
   local found = false
-  if str==nil or str=="" then
+  if test_str~="" then
+    g_find_str = find_prompt(test_str)
+  elseif str==nil or str=="" then
     g_find_str = find_prompt()
   else
     g_find_str = str
@@ -1327,7 +1336,9 @@ function find_and_replace(from,to,options,dd)
   local initial_r,initial_c = get_cur_pos()
   local r,c = get_cur_pos()
   repeat
-    found = find_forward(str,true,false,true,dd2)
+
+    local test_str = ""
+    found = find_forward(str,true,false,true,test_str,dd2)
     str = str or g_find_str
     if found then
       local resp = "y"
@@ -1359,7 +1370,8 @@ function search_all_files(str,dd)
   local dd2 = 1
   str = str or ""
   local save_g_tab_prev = g_tab_prev;
-  local match = find_forward(str,true,false,false,dd2)
+  local test_str = ""
+  local match = find_forward(str,true,false,false,test_str,dd2)
   local start_session = get_fileid()
   if not match then
     save_g_tab_prev = start_session
@@ -1370,7 +1382,8 @@ function search_all_files(str,dd)
     local r,c = get_cur_pos()
     first_line(dd2)
     sol_classic(dd2)
-    match = find_forward(g_find_str,true,true,false,dd2)
+    local test_str = ""
+    match = find_forward(g_find_str,true,true,false,test_str,dd2)
     if not match then -- restore cur_pos
       set_cur_pos(r,c)
     end
@@ -1382,7 +1395,8 @@ end
 function find_forward_again(dd)
   local dd2 = 1
   local initial_r,initial_c = get_cur_pos()
-  local found = find_forward(g_find_str,false,false,false,dd2)
+  local test_str = ""
+  local found = find_forward(g_find_str,false,false,false,test_str,dd2)
   if not found then
     set_cur_pos(initial_r,initial_c)
   end
@@ -1402,7 +1416,7 @@ function find_forward_selected(dd)
   else
     g_find_str = sel_str
   end
-  local found = find_forward(g_find_str,false,false,false,dd2)
+  local found = find_forward(g_find_str,false,false,false,sel_str,dd2)
   if not found then
     set_cur_pos(initial_r,initial_c)
   end
