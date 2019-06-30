@@ -35,7 +35,7 @@ SOFTWARE.
   g_min_lines_from_top     = 5     -- Scroll will try to keep at least 5 lines from the top
   g_min_lines_from_bot     = 7     -- Scroll will try to keep at least 7 lines from the bottom
   g_page_size              = 0.25  -- This controls PgUp/PgDn speed. 0.25 is quarter page at a time.
-  g_enable_file_changed    = true  -- efc0, efc1. detect file change and prompt to reload
+  g_enable_file_changed    = true  -- efc0, efc1. detect file change and prompt to reload FIXME
   g_find_case_sensitive    = false -- find uses case sensitive search
   g_find_whole_word        = false -- Find whole words
   g_find_plaintext         = true  -- plain text search. Set to true for regular expression pattern search

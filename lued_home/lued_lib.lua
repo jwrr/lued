@@ -152,9 +152,8 @@ function set_min_lines_from_bot(val,dd)
   disp(dd)
 end
 
-function set_enable_file_changed(val,dd)
-  val = val or 1
-  g_enable_file_changed = val==1 and true or false
+function toggle_enable_file_changed(dd)
+  g_enable_file_changed = not g_enable_file_changed
   disp(dd)
 end
 
@@ -597,6 +596,8 @@ function disp(dd,center)
    center = center or false
 
    local dd2 = 1
+   local r,c = get_cur_pos()
+   local pr,pc = get_page_pos()
    if g_enable_file_changed then
      local file_has_changed,mtime,ts = is_file_modified(0)
      if file_has_changed==1 then
@@ -606,11 +607,11 @@ function disp(dd,center)
        local reload = get_yesno(prompt)=="Y"
        if reload then
          reopen()
+       else
+         g_enable_file_changed = false -- stop telling me the file has changed. I don't care
        end
      end
    end
-   local r,c = get_cur_pos()
-   local pr,pc = get_page_pos()
    local tr,tc = get_termsize()
    local page_offset_changed = false
    local half = math.floor(tr / 2)
@@ -1299,7 +1300,6 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
 
   local r,c = get_cur_pos()
   local pr,pc = get_page_pos()
-  local local_page_offset = page_offset
   local numlines = get_numlines()
   local i = 0
   for k=1,numlines,1 do
@@ -2248,6 +2248,12 @@ function open_file(filename,dd)
   disp(dd)
 end
 
+function reopen_file(dd)
+  reopen()
+  g_enable_file_changed = true -- tell me when the file has changed.
+  disp(dd)
+end
+
 function open_filelist(filelist,dd)
   local dd2 = 1
   if filelist==nil then
@@ -2265,6 +2271,7 @@ function open_filelist(filelist,dd)
   disp(dd)
 end
 
+
 function new_file(filename, dd)
   local dd2 = 1
   local fileid = lued_open("")
@@ -2280,6 +2287,7 @@ function new_file(filename, dd)
   save_as(filename,dd)
 end
 
+
 function set_page_offset_percent(offset,dd)
   local tr,tc = get_termsize()
   local r,c = get_cur_pos()
@@ -2293,10 +2301,23 @@ function set_page_offset_percent(offset,dd)
   else
     if offset >= tc-1 then offset = tc-1 end
   end
+  offset = math.ceil(offset)
   set_page_offset(offset,0)
-  page_offset = offset
   if (dd==0) then disp(dd) end
 end
+
+
+function recenter(dd)
+  local dd2 = 1
+  local pr1,pc1 = get_page_pos()
+  set_page_offset_percent(0.10,dd2)
+  local pr2,pc2 = get_page_pos()
+  if pr2==pr1 then
+    set_page_offset_percent(0.50,dd2)
+  end
+  disp(dd)
+end
+
 
 function undo_cmd(dd)
   undo()
