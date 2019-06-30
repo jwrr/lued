@@ -158,9 +158,13 @@ function set_enable_file_changed(val,dd)
   disp(dd)
 end
 
-function set_case_sensitive(val,dd)
-  val = val or 1
-  g_case_sensitive = val==1 and true or false
+function toggle_find_case_sensitive(dd)
+  g_find_case_sensitive = not g_find_case_sensitive
+  disp(dd)
+end
+
+function toggle_find_whole_word(dd)
+  g_find_whole_word = not g_find_whole_word
   disp(dd)
 end
 
@@ -1121,14 +1125,37 @@ function find_all_on_line(line,str)
   local matchi = {}
   local s,e = 1,1
   local match_count = 0
-  local line2 = line
   local str2 = str
-  g_plaintext = g_plaintext or false
+  g_find_plaintext = g_find_plaintext or false
   repeat
-    s,e = string.find(line2,str2,e,g_plaintext)
+    s,e = string.find(line,str2,e,g_find_plaintext)
+        
     if s ~= nil then
-      match_count = match_count + 1
-      matchi[match_count] = s
+    
+      -- Lua Regex doesn't support word boundary detection. This  work-around 
+      -- checks if the found string starts and ends with a non-word (%W)
+      -- character.  A leading space is prepended to the string if the strring
+      -- is at the start of the line and a trailing space is appened if the
+      -- string is at the end of the line.
+      local is_whole_word = false
+      if g_find_whole_word then
+        local str = string.sub (line, s, e)
+        if s<2 then
+          str = " " .. str
+        else
+          str = string.sub(line,s-1,s-1) .. str
+        end
+        if e == string.len(line) then
+          str = str .. " "
+        else 
+          str = str .. string.sub(line,e+1,e+1)
+        end
+        is_whole_word = string.find(str,"^%W.+%W$")
+      end
+      if not g_find_whole_word or is_whole_word then
+        match_count = match_count + 1
+        matchi[match_count] = s
+      end
       e = e + 1
     end
   until (s == nil)
@@ -1157,7 +1184,7 @@ function find_reverse(str,dd)
   end
 
   local g_find_str2 = g_find_str
-  if not g_case_sensitive then
+  if not g_find_case_sensitive then
     g_find_str2 = string.lower(g_find_str)
   end
 
@@ -1169,7 +1196,7 @@ function find_reverse(str,dd)
   for k=numlines,1,-1 do
     i = (r+k-numlines) % numlines
     local line = get_line()
-    if not g_case_sensitive then
+    if not g_find_case_sensitive then
       line = string.lower(line)
     end
     local matches = find_all_on_line(line,g_find_str2)
@@ -1262,7 +1289,7 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
   end
 
   local g_find_str2 = g_find_str
-  if not g_case_sensitive then
+  if not g_find_case_sensitive then
     g_find_str2 = string.lower(g_find_str2)
   end
 
@@ -1282,7 +1309,7 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
     if wrap==true and nowrap==true then break end
     set_cur_pos(i,1)
     local line = get_line()
-    if not g_case_sensitive then
+    if not g_find_case_sensitive then
       line = string.lower(line)
     end
     local matches = find_all_on_line(line,g_find_str2)
@@ -2510,13 +2537,15 @@ function copy_line(n,dd)
   local dd2 = 1
   if is_sel_off()==1 then
     sol_classic(dd2)
+    local r1,c1 = get_cur_pos()
     set_sel_start()
     line_down(n,dd)
-    set_sel_end()
-    global_copy(dd2)
-    sol_classic(dd)
+    local r2,c2 = get_cur_pos()
+--    set_sel_end()
+    global_copy(dd)
+--    sol_classic(dd)
   else
-    global_copy(dd2)
+    global_copy(dd)
   end
 end
 

@@ -37,12 +37,17 @@ SOFTWARE.
 
 alt__caret_   = del_sol                 hot("^")
 alt__dollar_  = cut_eol                 hot("$")
-alt__period_  = sel_toggle              hot(".")
+-- alt__period_  = sel_toggle              hot(".")
 alt__slash_   = find_forward            hot(",/,") -- FIXME make this regex
 alt__equal_   = tab_next                hot("=")
 alt__gt_      = indent_selected         hot(">")
 alt__lt_      = unindent_selected       hot("<")
 alt__plus_    = sel_toggle              hot(",+,")
+alt__colon_w  = save_file               hot(":w")
+-- alt__comma_   = magic_left              hot(",")
+-- alt__period_  = magic_right             hot(",.,")
+
+
 alt_A         = align_selected
 alt_a         = align_delimiter
 alt_a_colon_  = function() align_delimiter(":") end
@@ -129,14 +134,10 @@ alt_S         = save_as
 alt_SA        = function() set_sel_start() sol() end
 alt_Sall      = search_all_files
 alt_Saveall   = save_all
-alt_Setcase   = function() set_case_sensitive(0) end -- used for find/search
-alt_Setcasei  = set_case_sensitive -- used for find/search
 alt_Setco     = set_comment           hot("Setco")
 alt_Seti      = set_scope_indent -- SI2 SI3 SI4
 alt_SF        = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("SF")
 alt_SG        = function() set_sel_start(); eol(); set_sel_end(); end hot("SG")
-alt__period_c = toggle_ctrl_c_abort
-alt__period_z = toggle_ctrl_z_suspend
 alt_t         = select_tab            hot("t")
 alt_TT        = tab_prev              hot("TT")
 alt_u         = function() set_page_offset_percent(0.10,0) end   hot("u")
@@ -147,10 +148,9 @@ alt_w         = quit_session          hot("w")
 alt_x         = global_cut            hot("x")
 alt_y         = redo_cmd              hot("y")
 alt_z         = undo_cmd              hot("z")
-alt__colon_w  = save_file             hot(":w")
---alt__lt_      = magic_left            hot(">")
---alt__gt_      = magic_right           hot("<")
 
+alt__period_c   = toggle_ctrl_c_abort
+alt__period_z   = toggle_ctrl_z_suspend
 alt__period_ind = toggle_auto_indent
 alt__period_ctc = set_ctrl_c_abort
 alt__period_cts = set_ctrl_s_flow_control
@@ -164,8 +164,8 @@ alt__period_lua = set_lua_mode
 alt__period_mlt = set_min_lines_from_top
 alt__period_mlb = set_min_lines_from_bot
 alt__period_tab = set_replace_tabs
-alt__period_cas = function() set_case_sensitive(0) end -- used for find/search
-alt__period_cai = set_case_sensitive -- used for find/search
+alt__period_fcs = toggle_find_case_sensitive
+alt__period_fww = toggle_find_whole_word
 alt__period_rts = toggle_remove_trailing_spaces
 
 
@@ -198,9 +198,9 @@ ctrl_K         = sel_word
 ctrl_L         = sel_line
 
 ctrl_Z         = undo_cmd          -- alt_z
-ctrl_X         = cut_line          -- global_cut        -- alt_x
-ctrl_C         = copy_line         -- alt_c
-ctrl_V         = global_paste      -- alt_v
+ctrl_X         = cut_line          -- global_cut
+ctrl_C         = copy_line    
+ctrl_V         = global_paste 
 ctrl_B         = spare
 
 ctrl_N         = new_file          -- alt_n

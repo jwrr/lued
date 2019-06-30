@@ -274,13 +274,15 @@ TBD
 * Split screen
 * Document API for plugins
 * Exuberant Ctags
-* Syntax Highlighting (lpeg+scintillua lexers)
 * aaaaaaaaaa
 * toggle find whole word, case sensitive, regex, incremental
-* Highlite closing brackets, parentheses
 * Improve Goto Label
 * CRASH REPORT when selecting and cursor moves above start
 * Enable binary search mode
 * Git Integration (init, push, pull, branch, stash, mark changes)
 * Embedded Terminal
 * ^`Lua repl
+* Update display_screen
+** highlight mixing of tabs and spaces
+** Syntax Highlighting (lpeg+scintillua lexers)
+** Highlite closing brackets, parentheses

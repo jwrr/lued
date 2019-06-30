@@ -36,8 +36,9 @@ SOFTWARE.
   g_min_lines_from_bot     = 7     -- Scroll will try to keep at least 7 lines from the bottom
   g_page_size              = 0.25  -- This controls PgUp/PgDn speed. 0.25 is quarter page at a time.
   g_enable_file_changed    = true  -- efc0, efc1. detect file change and prompt to reload
-  g_case_sensitive         = false -- case sensitive search
-  g_plaintext              = true  -- plain text search. Set to true for regular expression pattern search
+  g_find_case_sensitive    = false -- find uses case sensitive search
+  g_find_whole_word        = false -- Find whole words
+  g_find_plaintext         = true  -- plain text search. Set to true for regular expression pattern search
   g_show_line_numbers      = false -- alt_LN (toggle_line_numbers) toggles on/off
   g_ctrl_c_max             = 5     -- Quit when Ctrl+C is pounded several times with empty select buffer
   g_show_help              = false -- Show startup help menu
@@ -48,7 +49,6 @@ SOFTWARE.
   g_ctrl_z_suspend         = false -- Alt+Suspend toggles this to enable/disable Ctrl+Z suspect (fg at shell prompt resumes).
   g_comment                = "--"  -- Alt+Co comments line. Alt+Noco removes comment marker
   g_pwd                    = "."   -- This is the current working directory and is changed by change_dir (alt_CD)
-
 
 function pathifier(filename)
     filename = string.gsub(filename, "^~", os.getenv("HOME") )
