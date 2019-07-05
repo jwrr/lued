@@ -1,0 +1,9 @@
+mkdir build
+cd build
+cmake ..
+make
+cd ..
+ln -s $PWD/lued_home  ~/.lued
+cd lued_home
+echo "Try it with: ./lued README.md"
+
