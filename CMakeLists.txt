@@ -13,7 +13,7 @@ ExternalProject_Add (prj_lua52
   URL http://www.lua.org/ftp/lua-5.2.4.tar.gz
   PREFIX ${EXTERN_PATH}/prj_lua52
   CONFIGURE_COMMAND ""
-  BUILD_COMMAND make linux
+  BUILD_COMMAND make posix
   INSTALL_COMMAND make install INSTALL_TOP=${INSTALL_PATH}
 )
 
