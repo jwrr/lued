@@ -27,4 +27,4 @@ set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${EXE_PATH})
 include_directories(${INSTALL_PATH}/include)
 link_directories(${INSTALL_PATH}/lib)
 
-add_subdirectory(src)
+add_subdirectory(c_src)
