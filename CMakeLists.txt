@@ -3,7 +3,7 @@ project(lued_prj)
 
 SET(EXTERN_PATH ${CMAKE_BINARY_DIR}/extern)
 SET(INSTALL_PATH ${CMAKE_BINARY_DIR}/install)
-SET(EXE_PATH ${CMAKE_SOURCE_DIR}/lued_home)
+SET(EXE_PATH ${CMAKE_SOURCE_DIR})
 
 include(ExternalProject)
 
