@@ -1,5 +1,5 @@
 echo "ln -sf $PWD/lua_src  ~/.lued"
-ln -sf ~/.lued $PWD/lua_src
+ln -sf $PWD/lua_src ~/.lued
 echo " "
 echo "Try it with: ./lued README.md"
 echo "Add to path: cp lued ~/bin or any directory in path"
