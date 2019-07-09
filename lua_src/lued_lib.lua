@@ -2303,16 +2303,19 @@ function set_page_offset_percent(offset,dd)
   end
   offset = math.ceil(offset)
   set_page_offset(offset,0)
+  g_page_offset = offset
   if (dd==0) then disp(dd) end
 end
 
 
 function recenter(dd)
   local dd2 = 1
-  local pr1,pc1 = get_page_pos()
+  g_page_offset = g_page_offset or 0
+  local offset1 = g_page_offset
   set_page_offset_percent(0.10,dd2)
-  local pr2,pc2 = get_page_pos()
-  if pr2==pr1 then
+  local offset2 = g_page_offset
+  -- dbg_prompt("offset1="..offset1.." offset2="..offset2)
+  if offset1==offset2+1 then
     set_page_offset_percent(0.50,dd2)
   end
   disp(dd)
