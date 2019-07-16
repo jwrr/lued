@@ -1000,9 +1000,19 @@ end
 
 function tab_prev(dd)
   local num_sessions = get_numsessions()
+  local next_session = get_fileid()-1
+  if next_session<1 then
+    next_session = num_sessions
+  end
+  session_sel(next_session, dd)
+  return get_fileid()
+end
+
+function tab_toggle(dd)
+  local num_sessions = get_numsessions()
   local this_session = get_fileid()
   if g_tab_prev == nil and get_numsessions() > 1 then
-    if this_session < num_sessions then -- this handles case of 1 and other cases
+    if this_session < num_sessions then
       g_tab_prev = this_session + 1
     else
       g_tab_prev = this_session - 1
@@ -2611,7 +2621,9 @@ function select_tab_menu(filter)
   local found_count = 0
   for i=1,n do
     local is_changed = is_modified(i) and "* " or "  "
-    local is_current = i==id and "->" or "  "
+    g_tab_prev = g_tab_prev or 1
+    local is_current = i==g_tab_prev and "TT" or "  "
+    is_current = i==id and "->" or is_current
     local line = is_current..i..is_changed..get_filename(i)
     if filter==nil or string.find(line,filter) then
       if id==n and found_i==0 or id~=n and found_i <= id then
