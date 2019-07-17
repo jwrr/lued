@@ -76,8 +76,8 @@ if first_time == nil then
   if g_show_help==true then help(1,0) end
 end
 
-local bindings_file = pathifier(g_lued_root) .. "/lued_bindings.lua"
-dofile(bindings_file)
+g_bindings_file = pathifier(g_lued_root) .. "/lued_bindings.lua"
+dofile(g_bindings_file)
 load_plugins(g_lued_root .. "/plugins" )
 set_edit_mode(0)
 

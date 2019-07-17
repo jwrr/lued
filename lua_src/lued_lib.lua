@@ -2258,6 +2258,10 @@ function open_file(filename,dd)
   disp(dd)
 end
 
+function open_file_bindings(dd)
+  open_file(g_bindings_file,dd)
+end
+
 function reopen_file(dd)
   reopen()
   g_enable_file_changed = true -- tell me when the file has changed.

@@ -1,27 +1,10 @@
 --[[
-MIT License
+MIT License, Copyright (c) 2018-2019 JWRR.COM, See LICENSE file
+--]]
 
-Copyright (c) 2018 JWRR.COM
-
-git clone https://github.com/jwrr/lued.git
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+--[[
+  Get LUED
+  git clone https://github.com/jwr/lued
 --]]
 
 -- key bindings
@@ -32,8 +15,8 @@ SOFTWARE.
 -- set_repeatables(",,")
   set_non_repeatables(",alt_d,alt_da,alt_dg,")
 
--- alt-
--- esc-
+-- Pressing ALT plus KEY is the same as pressing ESC followed by KEY.
+-- This is a feature of terminals, not just LUED.
 
 alt__caret_   = del_sol                 hot("^")
 alt__dollar_  = cut_eol                 hot("$")
@@ -48,16 +31,16 @@ alt__colon_w  = save_file               hot(":w")
 -- alt__period_  = magic_right             hot(",.,")
 
 
-alt_A         = align_selected
 alt_a         = sol hot("a") -- align_delimiter
-alt_a_colon_  = function() align_delimiter(":") end
-alt_a_comma_  = function() align_delimiter(",") end
-alt_a_equal_  = function() align_delimiter("=") end
-alt_a_gt_     = function() align_delimiter(">") end
-alt_a_lt_     = function() align_delimiter("<") end
-alt_a_minus_  = function() align_delimiter("-") end
-alt_a_semi_   = function() align_delimiter(";") end
-alt_a_slash_  = function() align_delimiter("/") end
+alt_Align     = align_selected
+alt_A_colon_  = function() align_delimiter(":") end
+alt_A_comma_  = function() align_delimiter(",") end
+alt_A_equal_  = function() align_delimiter("=") end
+alt_A_gt_     = function() align_delimiter(">") end
+alt_A_lt_     = function() align_delimiter("<") end
+alt_A_minus_  = function() align_delimiter("-") end
+alt_A_semi_   = function() align_delimiter(";") end
+alt_A_slash_  = function() align_delimiter("/") end
 
 alt_Abort     = set_ctrl_c_abort
 alt_AI        = toggle_auto_indent;     hot("AI")
@@ -82,8 +65,9 @@ alt_Flow      = set_ctrl_s_flow_control
 alt_g         = find_forward_again;     hot("g")
 alt_G         = find_reverse_again;     hot("G")
 -- alt_h      = eol;                    hot("h")
-alt_h         = replace_again           hot("h")
-alt_H         = find_reverse_selected;  hot("H")
+alt_HH        = replace_again           hot("HH")
+alt_help      = open_file_bindings      hot("help")
+alt_hh        = find_reverse_selected;  hot("hh")
 -- alt_i      = spare;                  hot("i")  ####################
 alt_I_squote  = indent_scope
 alt_IS        = indent_scope            hot("IS")
