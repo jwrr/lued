@@ -58,4 +58,9 @@ git branch
 # Find branch that made a commit
 git name-rev 6acd7babe166b92332fcdd558589974b48c4dd7e
 
-
+# Remove Files from Git Repo History
+git filter-branch --force --index-filter \
+  "git rm --cached --ignore-unmatch bin/lued*" \
+  --prune-empty --tag-name-filter cat -- --all
+  
+git push origin --force --all
