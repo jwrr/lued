@@ -1819,32 +1819,15 @@ function del_word_multi(n,dd)
   cut(dd)
 end
 
-function cut_eol(dd)
-  local dd2 = 1
-  if is_eol() then
-    del_char(1,dd)
-  else
-    local r,c = get_cur_pos()
-    set_sel_start()
-    eol(dd2)
-    set_sel_end()
-    set_cur_pos(r,c)
-    cut(dd)
-  end
-end
-
 
 function del_eol(dd)
   local dd2 = 1
   if is_eol() then
     del_char(1,dd)
   else
-    local r,c = get_cur_pos()
-    set_sel_start()
-    eol(dd2)
+    sel_eol(dd2)
     set_sel_end()
-    set_cur_pos(r,c)
-    del_sel(dd)
+    cut(dd)
   end
 end
 
@@ -1856,10 +1839,7 @@ function del_sol(dd)
   elseif is_sol() then
     del_backspace(1,dd)
   else
-    local r,c = get_cur_pos()
-    sol(dd2) -- sol_classic(dd2)
-    set_sel_start()
-    set_cur_pos(r,c)
+    sel_sol(dd2)
     set_sel_end()
     cut(dd)
   end

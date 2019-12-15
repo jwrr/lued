@@ -15,7 +15,7 @@
 -- This is a feature of terminals, not just LUED.
 
 alt__caret_   = del_sol                 hot("^")
-alt__dollar_  = cut_eol                 hot("$")
+alt__dollar_  = del_eol                 hot("$")
 -- alt__period_  = sel_toggle              hot(".")
 alt__slash_   = find_forward            hot(",/,") -- FIXME make this regex
 alt__minus_   = tab_prev                hot(",-,")
@@ -43,8 +43,9 @@ alt_bb        = toggle_bottom           hot("bb")
 alt_cd        = cd_change_dir;          hot("cd")
 alt_cs        = set_comment             hot("cs")
 -- alt_d         = word_right hot("d") -- cut_line                hot("d")
+alt_da        = del_sol                 hot("da")
+alt_de        = del_eol                 hot("de")
 alt_D_dollar_ = function() cut_line( get_numlines() ) end -- delete lines to end of file
-alt_Dir       = ls_dir                  hot("Dir")
 alt_DS        = toggle_doublespeed      hot("DS")
 alt_e         = magic_right hot("e") -- del_eow                 hot("e")
 alt_EE        = del_eow hot("EE")
@@ -61,8 +62,6 @@ alt_IS        = indent_scope            hot("IS")
 -- alt_j      = find_reverse_again      hot("j")
 alt_jj        = join_lines              hot("jj")
 alt_kc        = comment                 hot("kc")
-alt_kk        = del_eol                 hot("kk")
-alt_kj        = del_sol                 hot("kj")
 alt_kl        = sel_to_lower            hot("kl")
 alt_ku        = sel_to_upper            hot("ku")
 
@@ -97,8 +96,8 @@ alt_Rts       = toggle_remove_trailing_spaces
 alt_ss        = sel_toggle hot("ss")
 alt_S         = save_as
 alt_sa        = sel_sol hot("sa")
--- alt_Saveall   = save_all
 alt_se        = function() set_sel_start(); eol(); set_sel_end() end hot("se")
+-- alt_Saveall   = save_all
 alt_Seti      = set_scope_indent -- SI2 SI3 SI4
 alt_sw        = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("sw")
 alt_tt        = select_tab hot("tt")
