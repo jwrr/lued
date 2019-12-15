@@ -1645,6 +1645,17 @@ function sel_line(n,dd)
 end
 
 
+function sel_sol(dd)
+  n = n or 1
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  set_cur_pos(r,1)
+  set_sel_start()
+  set_cur_pos(r,c)
+  disp(dd)
+end
+
+
 function sel_all(dd)
   local dd2 = 1
   first_line(dd2)
