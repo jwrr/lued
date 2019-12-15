@@ -2067,22 +2067,25 @@ function insert_cr_after(dd)
 end
 
 
--- function insert_cr_after(dd)
---   local dd2 = 1
---   local line = get_line()
---   if is_blankline(line) then
---     if not is_eol() then eol(dd2) end
---     ins_str("\n",dd2)
---     ins_str("\n",dd2)
---     line_up(1,dd)
---   elseif is_eol() then
---     ins_str("\n",dd2)
---     ins_str("\n",dd)
---   else
---     eol(dd2)
---     ins_str("\n",dd)
---   end
--- end
+function move_line_up(dd)
+  local dd2 = 1
+  cut_line(1,dd2)
+  line_up(1,dd2)
+  sol_classic(dd2)
+  paste(dd2)
+  sol_classic(dd2)
+  line_up(1,dd)
+end
+
+
+function move_line_down(dd)
+  local dd2 = 1
+  cut_line(1,dd2)
+  line_down(1,dd2)
+  sol_classic(dd2)
+  paste(dd2)
+  line_up(1,dd)
+end
 
 
 function hot(key, dd)
