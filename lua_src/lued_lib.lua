@@ -1639,7 +1639,6 @@ function sel_line(n,dd)
     set_sel_start()
   end
   set_cur_pos(rlast+1,1)
-  -- set_sel_end()
   set_cur_pos(rlast+1,1)
   disp(dd)
 end
@@ -1649,9 +1648,20 @@ function sel_sol(dd)
   n = n or 1
   local dd2 = 1
   local r,c = get_cur_pos()
-  set_cur_pos(r,1)
+  set_cur_pos(r,1,dd2)
   set_sel_start()
   set_cur_pos(r,c)
+  disp(dd)
+end
+
+
+function sel_eol(dd)
+  n = n or 1
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  set_cur_pos(r,c,dd2)
+  set_sel_start()
+  eol(dd2)
   disp(dd)
 end
 
