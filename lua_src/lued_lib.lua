@@ -1666,6 +1666,24 @@ function sel_eol(dd)
 end
 
 
+function sel_sof(dd)
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  first_line(dd2)
+  set_sel_start()
+  set_cur_pos(r,c,dd2)
+  disp(dd)
+end
+
+
+function sel_eof(dd)
+  local dd2 = 1
+  set_sel_start()
+  last_line(dd2)
+  disp(dd)
+end
+
+
 function sel_all(dd)
   local dd2 = 1
   first_line(dd2)
@@ -1673,6 +1691,29 @@ function sel_all(dd)
   last_line(dd2)
   set_sel_end()
   disp(dd)
+end
+
+
+function del_sof(dd)
+  local dd2 = 1
+  sel_sof(dd2)
+  set_sel_end()
+  cut(dd)
+end
+
+
+function del_eof(dd)
+  local dd2 = 1
+  sel_eof(dd2)
+  set_sel_end()
+  cut(dd)
+end
+
+
+function del_all(dd)
+  local dd2 = 1
+  sel_all(dd2)
+  cut(dd)
 end
 
 
