@@ -274,6 +274,7 @@ end
 
 
 function is_blankline(line)
+  line = line or get_line()
   local found = string.find(line,"^%s*$")
   local is = found~=nil
   return is
@@ -1611,20 +1612,19 @@ function var_start(dd)
 end
 
 
-function sel_word(n,dd)
-  n = n or 1
+function sel_word(dd)
   local dd2 = 1
-  word_start(dd2)
-  var_start(dd2)
-  if is_sel_off()==1 then set_sel_start() end
-  if n > 1 then
-    word_right(n-1, dd2)
+  if is_sel_off()==1 then
+    word_start(dd2)
+    var_start(dd2)
+    set_sel_start()
+  else
+    if is_blankline() then
+      line_down(1,dd2)
+    end
+    word_right(1, dd2)
   end
   skip_variable(dd2)
-  -- set_sel_end()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
-
-  -- set_cur_pos(r,c)
   disp(dd)
 end
 
