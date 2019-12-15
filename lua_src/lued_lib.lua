@@ -2374,7 +2374,7 @@ function set_nameless_mark(dd)
   set_sel_end()
   disp()
   set_nameless_mark_hist_id = set_nameless_mark_hist_id or get_hist_id()
-  lued_prompt(set_nameless_mark_hist_id, "Marker is now set on line# "..r..". Alt+MM returns to this line. Press <Enter> to continue...")
+  lued_prompt(set_nameless_mark_hist_id, "Marker is now set on line# "..r..". Alt+mp returns to this line. Press <Enter> to continue...")
   set_sel_off()
   disp()
 end
