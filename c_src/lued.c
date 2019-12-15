@@ -350,6 +350,14 @@ int lua_get_numlines(lua_State* L)
    return 1;
 }
 
+int get_save_needed(lued_t* session_p, bool* save_needed)
+{
+   if isNULL(session_p) return 1;
+   *save_needed = !session_p->save_it_valid ||
+                  !isEQ(session_p->save_it, session_p->undo_str->it);
+   return 0;
+}
+
 int get_numsessions(carr_t* all_sessions, uint32_t* numsessions)
 {
    *numsessions = 0;
@@ -721,7 +729,7 @@ int lua_is_sel_end(lua_State* L) {
    return 1;
 }
 
-static int set_sel_start(int only_if_off) {
+int set_sel_start(int only_if_off) {
    lued_t* session_p = NULL;
    carr_geti(LUED_SESSIONS, &session_p);
    if isNULL(session_p) return 0;
@@ -1449,6 +1457,15 @@ static const char* get_last_cmd() {
    return last_cmd->arr;
 }
 
+
+int lua_get_last_cmd(lua_State* L)
+{
+   const char* last_cmd = get_last_cmd();
+   lua_pushstring(L, last_cmd);
+   return 1;
+}
+
+
 static void clear_screen() {
    printf("%s%s", ESC_CLR_ALL, ESC_GOHOME);
 }
@@ -1631,6 +1648,9 @@ int lued_main (int argc, char** argv)
    // lua_pushcfunction(L, set_color);
    // lua_setglobal(L, "set_color");
    // lua_reg(L, lua_set_color, "set_color");
+
+
+   // Define the LUED API
    lua_reg(L, lua_lued_open, "lued_open");
    lua_reg(L, lua_reopen, "reopen");
    lua_reg(L, lua_get_numchar, "get_numchar");
@@ -1641,6 +1661,7 @@ int lued_main (int argc, char** argv)
    lua_reg(L, lua_get_page, "get_page");
    lua_reg(L, lua_set_cur_pos, "set_cur_pos");
    lua_reg(L, lua_get_cur_pos, "get_cur_pos");
+   lua_reg(L, lua_get_last_cmd, "get_last_cmd");
    lua_reg(L, lua_get_line, "get_line");
    lua_reg(L, lua_get_line_len, "get_line_len");
    lua_reg(L, lua_set_page_pos, "set_page_pos");
@@ -1682,13 +1703,15 @@ int lued_main (int argc, char** argv)
    lua_reg(L, lua_set_show_line_numbers, "set_show_line_numbers");
    lua_reg(L, lua_io_read, "io_read");
 
+   // Open all of the files listed on the command line.
+   // Open untitled file if no arguments listed
    LUED_SESSIONS = carr_new(0, sizeof(lued_t*));
 
    if (optind >= argc) { // (argc <= 1) {
       lued_open(LUED_SESSIONS,"untitled_0.txt");
    }
 
-//   for (int i = 1; i < argc; i++) {
+   //   for (int i = 1; i < argc; i++) {
    for (int i = optind; i < argc; i++) {
       // printf("argv[%d] = '%s'\n", i, argv[i]);
       lued_open(LUED_SESSIONS,argv[i]);
@@ -1697,24 +1720,36 @@ int lued_main (int argc, char** argv)
    #define STRLEN 512
    char* home = getenv("HOME");
    char lued_paths[5][STRLEN];
-   safe_strncpy(lued_paths[0], "./lued.lua", STRLEN);
-   sprintf(lued_paths[1], "%s/lued.lua", home);
-   sprintf(lued_paths[2], "%s/.lued/lued.lua", home);
-   lued_paths[3][0] = '\0';
    
+   // look in the current directory for lued.lua
+   safe_strncpy(lued_paths[0], "./lued.lua", STRLEN);
+   
+   // look in home for lued.lua
+   sprintf(lued_paths[1], "%s/lued.lua", home);
+   
+   // look in ~/.lued for lued.lua
+   sprintf(lued_paths[2], "%s/.lued/lued.lua", home);
+   
+   // Null-terminate the list
+   lued_paths[3][0] = '\0';
+
    printf("Searching for lued.lua...\n");
    int i = 0;
    for (i = 0; lued_paths[i][0]; i++) {
       if (file_exists(lued_paths[i])) break;
    }
+
+   // Run lued.lua.  If error then print diagnostic message and abort
    int err = luaL_dofile (L, lued_paths[i]);
    if (err) {
-     fprintf(stderr,"\nERROR 1: luaL_dofile(L,%s);\n",lued_paths[i]);
+     fprintf(stderr,"\nERROR %d: luaL_dofile(L,%s);\n",err,lued_paths[i]);
+     fprintf(stderr,"Error: %s\n", lua_tostring(L,-1));
      fprintf(stderr,"EXITING LUED\n\nPress <Enter> to exit");
      getchar();
      return 1;
    }
 
+   // Run lua dofile if specified on command line
    if (*(arg_dofile->arr)) {
       char lua_cmd[512];
       sprintf(lua_cmd, "%s",arg_dofile->arr);
@@ -1722,13 +1757,15 @@ int lued_main (int argc, char** argv)
       if (err) {fprintf(stderr,"Error2: luaL_dofile(L,%s);\n",lua_cmd); getchar();}
    }
 
+   // Run lua command if specified on command line
    if (*(arg_cmd->arr)) {
       char lua_cmd[512];
       sprintf(lua_cmd, "%s\n",arg_cmd->arr);
       int err = luaL_dostring(L,lua_cmd);
       if (err) fprintf(stderr,"Error: luaL_dostring(L,%s);\n",lua_cmd);
    }
-
+   
+   // Goto linenumber if specified on command line
    if (*(arg_linenumber->arr)) {
       char lua_cmd[512];
       sprintf(lua_cmd, "goto_line(%s)\n",arg_linenumber->arr);
@@ -1736,11 +1773,16 @@ int lued_main (int argc, char** argv)
       if (err) fprintf(stderr,"Error: luaL_dostring(L,%s);\n",lua_cmd);
    }
 
-   raw_on(); // FIXME
-   char* my_argv[1];
-   my_argv[0] = NULL;
+   // Turn on raw keyboard entry allowing most keystrokes to get to LUED
+   raw_on();
 
-   lua_interpreter(L, 0, my_argv);
+
+   // After the above initialization, LUED runs entirely from the lua interpreter
+   char* no_argv[1];
+   no_argv[0] = NULL;
+   lua_interpreter(L, 0, no_argv);
+
+   // Return screen to normal mode when user exits LUED
    raw_off();
    printf("%s",ESC_NORMSCREEN);
 

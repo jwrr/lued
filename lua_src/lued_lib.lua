@@ -1287,7 +1287,7 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
   test_str = test_str or ""
   local dd2 = 1
   local found = false
-  if test_str~="" then
+  if test_str ~= "" then
     g_find_str = find_prompt(test_str)
   elseif str==nil or str=="" then
     g_find_str = find_prompt()
@@ -1423,9 +1423,16 @@ end
 function search_all_files(str,dd)
   local dd2 = 1
   str = str or ""
+
+  local sel_str, sel_sr, sel_sc = get_sel_str()
+  if sel_str ~= "" then
+    g_find_str = sel_str
+    set_sel_off()
+  end
+  
   local save_g_tab_prev = g_tab_prev;
   local test_str = ""
-  local match = find_forward(str,true,false,false,test_str,dd2)
+  local match = find_forward(str,true,false,false,sel_str,dd2)
   local start_session = get_fileid()
   if not match then
     save_g_tab_prev = start_session
@@ -1436,19 +1443,23 @@ function search_all_files(str,dd)
     local r,c = get_cur_pos()
     first_line(dd2)
     sol_classic(dd2)
-    local test_str = ""
     match = find_forward(g_find_str,true,true,false,test_str,dd2)
     if not match then -- restore cur_pos
       set_cur_pos(r,c)
     end
   end
   g_tab_prev = save_g_tab_prev
+  g_search_all_files = true
   disp(dd)
+  return match
 end
 
 function find_forward_again(dd)
   local dd2 = 1
   local initial_r,initial_c = get_cur_pos()
+  if g_search_all_files then
+    return search_all_files(str,dd)
+  end
   local test_str = ""
   local found = find_forward(g_find_str,false,false,false,test_str,dd2)
   if not found then
@@ -1461,6 +1472,7 @@ end
 
 function find_forward_selected(dd)
   local dd2 = 1
+  g_search_all_files = false
   local initial_r,initial_c = get_cur_pos()
   local sel_str, sel_sr, sel_sc = get_sel_str()
   if sel_str~="" then

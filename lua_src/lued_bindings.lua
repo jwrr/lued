@@ -1,10 +1,6 @@
 --[[
-MIT License, Copyright (c) 2018-2019 JWRR.COM, See LICENSE file
---]]
-
---[[
-  Get LUED
-  git clone https://github.com/jwr/lued
+  MIT License, Copyright (c) 2018-2019 JWRR.COM, See LICENSE file
+  Get LUED git clone https://github.com/jwr/lued
 --]]
 
 -- key bindings
@@ -41,48 +37,40 @@ alt_A_lt_     = function() align_delimiter("<") end
 alt_A_minus_  = function() align_delimiter("-") end
 alt_A_semi_   = function() align_delimiter(";") end
 alt_A_slash_  = function() align_delimiter("/") end
-
+-- ================
 alt_Abort     = set_ctrl_c_abort
 alt_AI        = toggle_auto_indent;     hot("AI")
-alt_b         = toggle_bottom           hot("b")
-alt_c         = global_copy;            hot("c")
+alt_BB        = toggle_bottom           hot("BB")
 alt_C         = comment                 -- C42<enter> comments 5 lines. CO changes comment
 alt_CC        = comment;                hot("CC")
 alt_CD        = cd_change_dir;          hot("CD")
 alt_CS        = set_comment             hot("CS")
 alt_d         = word_right hot("d") -- cut_line                hot("d")
-alt_D         = cut_line -- Alt+D42<enter> deletes 42 lines. Alt+D$ deletes to end of file
 alt_D_dollar_ = function() cut_line( get_numlines() ) end -- delete lines to end of file
 alt_Dir       = ls_dir                  hot("Dir")
 alt_DS        = toggle_doublespeed      hot("DS")
 alt_e         = magic_right hot("e") -- del_eow                 hot("e")
-alt_E         = del_eow hot("E")
+alt_EE        = del_eow hot("EE")
 alt_ED        = set_edit_mode           hot("ED")
-alt_f         = eol hot("f") -- find_forward_again      hot("f")  -- make this non-regex
-alt_F         = find_reverse_again      hot("F")
-alt_Flow      = set_ctrl_s_flow_control
--- alt_g      = sol;                    hot("g")
-alt_g         = find_forward_again;     hot("g")
-alt_G         = find_reverse_again;     hot("G")
+alt_f         = find_forward_again;     hot("f")
+alt_FA        = search_all_files;       hot("FA")
+alt_FF        = find_reverse_again;     hot("FF")
 -- alt_h      = eol;                    hot("h")
 alt_HH        = replace_again           hot("HH")
-alt_help      = open_file_bindings      hot("help")
-alt_hh        = find_reverse_selected;  hot("hh")
+alt_Help      = open_file_bindings      hot("Help")
 -- alt_i      = spare;                  hot("i")  ####################
 alt_I_squote  = indent_scope
 alt_IS        = indent_scope            hot("IS")
 -- alt_j      = find_reverse_again      hot("j")
 alt_j         = join_lines              hot("j")
---alt_k       = sel_word                hot("k")
-alt_kc        = comment                 hot("kc")
-alt_kk        = del_eol                 hot("kk")
-alt_kj        = del_sol                 hot("kj")
-alt_kl        = sel_to_lower            hot("kl")
-alt_ku        = sel_to_upper            hot("ku")
+alt_KC        = comment                 hot("KC")
+alt_KK        = del_eol                 hot("KK")
+alt_KJ        = del_sol                 hot("KJ")
+alt_KL        = sel_to_lower            hot("KL")
+alt_KU        = sel_to_upper            hot("KU")
 
-alt_ll        = insert_cr_after         hot("ll") -- similar to vi's o
-alt_lk        = insert_cr_before        hot("lk") -- similar to vi's O
-alt_LL        = cr_before               hot("LL")
+alt_LL        = insert_cr_after         hot("LL") -- similar to vi's o
+alt_LK        = insert_cr_before        hot("LK") -- similar to vi's O
 alt_LN        = toggle_line_numbers     hot("LN")
 alt_LS        = ls_dir                  hot("LS")
 alt_Ls        = ls_dir                  hot("Ls")
@@ -93,7 +81,7 @@ alt_m         = set_nameless_mark       hot("m")
 alt_MM        = goto_nameless_mark_prev hot("MM")
 alt_Mn        = goto_nameless_mark_next hot("Mn")
 alt_MN        = goto_nameless_mark_next hot("MN")
-alt_Mp        = goto_nameless_mark_prev hot("Mp")
+alt_MP        = goto_nameless_mark_prev hot("MP")
 alt_Mlft      = set_min_lines_from_top
 alt_Mlfb      = set_min_lines_from_bot
 alt_n         = new_file                hot("n")
@@ -131,6 +119,7 @@ alt_Up        = line_up -- Up23 moves up 23 lines
 alt_v         = page_down hot("v") -- global_paste          hot("v")
 alt_VV        = paste                 hot("VV")
 alt_w         = magic_left hot("w") -- quit_session          hot("w")
+alt_WW        = del_sow hot("WW")
 alt_x         = global_cut            hot("x")
 alt_y         = redo_cmd              hot("y")
 alt_YY        = tab_next              hot("YY")
@@ -150,6 +139,8 @@ alt__period_num = toggle_line_numbers
 alt__period_lua = set_lua_mode
 alt__period_mlt = set_min_lines_from_top
 alt__period_mlb = set_min_lines_from_bot
+alt__period_sl  = toggle_status_line_on
+alt__period_slr = toggle_status_line_reverse
 alt__period_tab = set_replace_tabs
 alt__period_fcs = toggle_find_case_sensitive
 alt__period_fww = toggle_find_whole_word
@@ -163,7 +154,7 @@ alt_sa_squote = save_as
 ctrl__at_      = disp           -- Called when resuming from Ctrl+Z (fg at shell prompt)
 ctrl_Q         = quit_all          -- alt_q
 ctrl_W         = quit_session      -- alt_x
-ctrl_E         = spare
+ctrl_E         = eol
 ctrl_R         = spare
 ctrl_T         = spare
 
@@ -187,8 +178,8 @@ ctrl_L         = sel_line
 
 ctrl_Z         = undo_cmd          -- alt_z
 ctrl_X         = cut_line          -- global_cut
-ctrl_C         = copy_line    
-ctrl_V         = global_paste 
+ctrl_C         = copy_line
+ctrl_V         = global_paste
 ctrl_B         = spare
 
 ctrl_N         = new_file          -- alt_n

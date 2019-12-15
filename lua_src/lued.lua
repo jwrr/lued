@@ -24,7 +24,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
 
+  function expanduser(filename)
+    return string.gsub(filename, "^~", os.getenv("HOME") )
+  end
+
   g_lued_root              = "~/.lued" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
+  g_lued_root              = expanduser(g_lued_root)
+  g_bindings_file          = g_lued_root .. "/lued_bindings.lua"
   g_auto_indent            = true  -- Indent the same as the previous line
   g_indent_char            = " "   -- Used in indent_selected
   g_indent_size            = 7     -- Used in reindent_selected
@@ -49,35 +55,27 @@ SOFTWARE.
   g_ctrl_z_suspend         = false -- Alt+Suspend toggles this to enable/disable Ctrl+Z suspect (fg at shell prompt resumes).
   g_comment                = "--"  -- Alt+Co comments line. Alt+Noco removes comment marker
   g_pwd                    = "."   -- This is the current working directory and is changed by change_dir (alt_CD)
+  g_status_line_on         = true  -- Display status line when true, else do not display status line
+  g_status_line_reverse    = true  -- Status Line is in reverse video when true, else normal video
+  g_search_all_files       = false -- Search all files. set by search_all_files, cleared by 
 
-function pathifier(filename)
-    filename = string.gsub(filename, "^~", os.getenv("HOME") )
-    local env_name = string.match(filename,"%${?([%w_]+)}?")
-    while env_name ~= nil do
-      local env_value = os.getenv(env_name)
-      filename = string.gsub(filename, "%${?" .. env_name .. "}?", env_value)
-      env_name = string.match(filename,"%${?([%w_]+)}?")
-    end
-    return filename
-end
+dofile( g_lued_root .. "/lued_lib.lua" )
+dofile(g_bindings_file)
+load_plugins(g_lued_root .. "/plugins" )
 
-dofile( pathifier(g_lued_root) .. "/lued_lib.lua" )
-
-if first_time == nil then
+if g_first_time == nil then
   local dd2 = 1
-  first_time = 1
   set_ctrl_s_flow_control(false,dd2)
   set_ctrl_c_abort(false,dd2)
   set_ctrl_z_suspend(false,dd2)
   decset(1000)
   set_fileid(1,dd2)
-  first_line(0)
+--  set_cur_pos(1,1)
   mouse(0)
-  if g_show_help==true then help(1,0) end
+--  if g_show_help then help(1,0) end
 end
 
-g_bindings_file = pathifier(g_lued_root) .. "/lued_bindings.lua"
-dofile(g_bindings_file)
-load_plugins(g_lued_root .. "/plugins" )
 set_edit_mode(0)
+g_first_time = 1
+
 
