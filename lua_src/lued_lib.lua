@@ -1802,20 +1802,8 @@ end
 
 function del_word(n,dd)
   local dd2 = 1
-  local r,c = get_cur_pos()
-  word_start(dd2)
-  del_eow(dd)
-end
-
-
-function del_word_multi(n,dd)
-  local dd2 = 1
-  local r,c = get_cur_pos()
-  word_start(dd2)
-  set_sel_start()
-  word_right(n,dd2)
+  sel_word(dd2)
   set_sel_end()
-  set_cur_pos(r,c)
   cut(dd)
 end
 
@@ -2434,7 +2422,7 @@ function open_file_bindings(dd)
 end
 
 
-function reopen_file(dd)
+function reload_file(dd)
   reopen()
   g_enable_file_changed = true -- tell me when the file has changed.
   disp(dd)

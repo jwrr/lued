@@ -27,7 +27,6 @@ alt__colon_w  = save_file               hot(":w")
 -- alt__comma_   = magic_left              hot(",")
 -- alt__period_  = magic_right             hot(",.,")
 
-
 alt_aa        = sel_all hot("aa"); hot("aa")
 alt_Align     = align_selected
 alt_A_colon_  = function() align_delimiter(":") end
@@ -45,6 +44,7 @@ alt_cs        = set_comment             hot("cs")
 -- alt_d         = word_right hot("d") -- cut_line                hot("d")
 alt_da        = del_sol                 hot("da")
 alt_de        = del_eol                 hot("de")
+alt_dd        = del_word                hot("dd")
 alt_D_dollar_ = function() cut_line( get_numlines() ) end -- delete lines to end of file
 alt_DS        = toggle_doublespeed      hot("DS")
 alt_e         = magic_right hot("e") -- del_eow                 hot("e")
@@ -89,7 +89,7 @@ alt_ralt      = remove_all_leading_tabs
 alt_rats      = remove_all_trailing_space
 alt_ratsall   = remove_all_trailing_space_all_files
 alt_relued    = relued -- reload lued script
-alt_reopen    = reopen_file
+alt_rl        = reload_file hot("rl")
 alt_Rt        = set_replace_tabs -- rt0 rt4
 alt_Rts       = toggle_remove_trailing_spaces
 -- alt_s         = word_left hot("s") -- save_file               hot("s")
