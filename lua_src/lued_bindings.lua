@@ -104,13 +104,13 @@ alt_tt        = select_tab hot("tt")
 alt_tr        = tab_prev              hot("tr")
 alt_ty        = tab_next              hot("ty")
 alt_TT        = tab_toggle              hot("TT")
-alt_u         = recenter hot("u") -- function() set_page_offset_percent(0.10,0) end   hot("u")
 alt_Up        = line_up -- Up23 moves up 23 lines
 alt_w         = magic_left hot("w") -- quit_session          hot("w")
 alt_WW        = del_sow hot("WW")
 alt_x         = global_cut            hot("x")
 alt_y         = redo_cmd              hot("y")
 alt_z         = function() set_ctrl_z_suspend(true); undo_cmd() end  hot("z")
+alt_ZZ        = recenter hot("ZZ")
 
 alt__period_c   = toggle_ctrl_c_abort
 alt__period_ind = toggle_auto_indent
@@ -147,7 +147,7 @@ ctrl_R         = spare
 ctrl_T         = spare
 
 ctrl_Y         = redo_cmd          -- alt_z
-ctrl_U         = recenter
+ctrl_U         = spare
 
 ctrl_I         = insert_tab        -- terminal <Tab> key (do not change)
 ctrl_O         = open_file         -- alt_o
