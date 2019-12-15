@@ -26,8 +26,6 @@ SOFTWARE.
 
   g_buffer                 = ""    -- The global buffer is used for cut and paste between multiple files.
 
--- require("lfs")
-
 
 function toggle_line_numbers(dd)
   g_show_line_numbers = not g_show_line_numbers
@@ -38,6 +36,7 @@ function toggle_line_numbers(dd)
   set_show_line_numbers(show)
   disp(dd)
 end
+
 
 -- disable/enable ctrl+S ctrl+Q XON/XOFF Flow Control
 function set_ctrl_s_flow_control (bool, dd)
@@ -54,6 +53,7 @@ function set_ctrl_s_flow_control (bool, dd)
   disp(dd)
 end
 
+
 -- disable/enable ctrl+C abort
 function set_ctrl_c_abort (bool, dd)
   if bool==nil then
@@ -68,6 +68,7 @@ function set_ctrl_c_abort (bool, dd)
   end
   disp(dd)
 end
+
 
 -- disable/enable ctrl+Z suspend
 function set_ctrl_z_suspend (bool, dd)
@@ -88,9 +89,11 @@ function set_ctrl_z_suspend (bool, dd)
   disp(dd)
 end
 
+
 function toggle_ctrl_z_suspend (dd)
   set_ctrl_z_suspend(not g_ctrl_z_suspend,dd)
 end
+
 
 function toggle_ctrl_c_abort (dd)
   set_ctrl_c_abort(not g_ctrl_c_abort,dd)
@@ -102,25 +105,30 @@ function set_auto_indent(dd)
   disp(dd)
 end
 
+
 function clr_auto_indent(dd)
   g_auto_indent = false
   disp(dd)
 end
+
 
 function toggle_auto_indent(dd)
   g_auto_indent = not g_auto_indent
   disp(dd)
 end
 
+
 function bracket_paste_start(dd)
   g_bracket_paste = 1
   clr_auto_indent()
 end
 
+
 function bracket_paste_stop(dd)
   g_bracket_paste = 0
   set_auto_indent(dd)
 end
+
 
 function set_replace_tabs(val,dd)
   val = val or 0
@@ -128,15 +136,18 @@ function set_replace_tabs(val,dd)
   disp(dd)
 end
 
+
 function toggle_remove_trailing_spaces(dd)
   g_remove_trailing_spaces = not g_remove_trailing_spaces
   disp(dd)
 end
 
+
 function toggle_show_trailing_spaces(dd)
   g_show_trailing_spaces = not g_show_trailing_spaces
   disp(dd)
 end
+
 
 function set_scope_indent(val,dd)
   val = val or 1
@@ -144,11 +155,13 @@ function set_scope_indent(val,dd)
   disp(dd)
 end
 
+
 function set_min_lines_from_top(val,dd)
   if val==nil then val = 5 end
   g_min_lines_from_top = val
   disp(dd)
 end
+
 
 function set_min_lines_from_bot(val,dd)
   if val==nil then val = 7 end
@@ -156,24 +169,29 @@ function set_min_lines_from_bot(val,dd)
   disp(dd)
 end
 
+
 function toggle_enable_file_changed(dd)
   g_enable_file_changed = not g_enable_file_changed
   disp(dd)
 end
+
 
 function toggle_find_case_sensitive(dd)
   g_find_case_sensitive = not g_find_case_sensitive
   disp(dd)
 end
 
+
 function toggle_find_whole_word(dd)
   g_find_whole_word = not g_find_whole_word
   disp(dd)
 end
 
+
 function get_overtype()
   return g_overtype
 end
+
 
 function set_overtype(val,dd)
   val = val or 0
@@ -181,11 +199,13 @@ function set_overtype(val,dd)
   disp(dd)
 end
 
+
 function toggle_overtype(dd)
   g_overtype = g_overtype or 0
   g_overtype = (g_overtype+1) % 2
   disp(dd)
 end
+
 
 function toggle_doublespeed(dd)
   g_double_speed = g_double_speed or 0
@@ -193,10 +213,12 @@ function toggle_doublespeed(dd)
   disp(dd)
 end
 
+
 function is_sol()
   local r,c = get_cur_pos()
   return c <= 1
 end
+
 
 function is_eol()
   local r,c = get_cur_pos()
@@ -204,20 +226,24 @@ function is_eol()
   return c > len
 end
 
+
 function is_sof()
   local r,c = get_cur_pos()
   return c <= 1 and r <= 1
 end
+
 
 function is_space(line,pos)
   local is = string.match(line,"^%s",pos) and true or false
   return is
 end
 
+
 function is_word(line,pos)
   local is = string.match(line,"^[%w_]",pos) and true or false
   return is
 end
+
 
 function is_sow()
   local r,c = get_cur_pos()
@@ -227,11 +253,13 @@ function is_sow()
   return is
 end
 
+
 function is_lastline()
   local r,c = get_cur_pos()
   local num_lines = get_numlines()
   return r >= num_lines
 end
+
 
 function is_eof()
   local r,c = get_cur_pos()
@@ -239,9 +267,11 @@ function is_eof()
   return is_lastline() and is_eol()
 end
 
+
 function is_sel_on()
   return not (is_sel_off()==1)
 end
+
 
 function is_blankline(line)
   local found = string.find(line,"^%s*$")
@@ -258,6 +288,7 @@ function set_edit_mode(dd)
   disp(dd)
 end
 
+
 function set_lua_mode(dd)
   g_lua_mode = true
   local keys = get_hotkeys()
@@ -266,6 +297,7 @@ function set_lua_mode(dd)
   set_hotkeys(keys)
   disp(dd)
 end
+
 
 function remove_trailing_spaces(next_row,next_col,force,dd)
   local dd2 = 1
@@ -304,6 +336,7 @@ function remove_trailing_spaces(next_row,next_col,force,dd)
   disp(dd)
 end
 
+
 function remove_all_trailing_space(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -318,6 +351,7 @@ function remove_all_trailing_space(dd)
   disp(dd)
 end
 
+
 function remove_all_trailing_space_all_files(dd)
   local dd2 = 1
   local fileid = get_fileid()
@@ -328,6 +362,7 @@ function remove_all_trailing_space_all_files(dd)
   end
   session_sel(fileid,dd)
 end
+
 
 function remove_all_leading_tabs(tab_size,dd)
   tab_size = tab_size or  8
@@ -363,12 +398,14 @@ function remove_all_leading_tabs(tab_size,dd)
   disp(dd)
 end
 
+
 function leading_ws()
   local line = get_line()
   local ws = string.match(line,"^%s+") or ""
   local ws_len = string.len(ws)
   return ws, ws_len
 end
+
 
 function indent_scope(str,dd)
   str = str or string.rep(" ",g_scope_indent)
@@ -390,6 +427,7 @@ function indent_scope(str,dd)
   set_cur_pos(r,c)
   disp(dd)
 end
+
 
 function reindent(n,dd)
   n = n or 3
@@ -416,6 +454,7 @@ function reindent(n,dd)
   set_cur_pos(r,c)
   disp(dd)
 end
+
 
 -- \brief Fix jagged left edges by making leading white space of all selected lines the same as first selected line.
 function align_selected(dd)
@@ -478,8 +517,6 @@ function align_delimiter(align_delim,dd)
   end
   disp(dd)
 end
-
-
 
 
 function reindent_selected(dd)
@@ -547,7 +584,6 @@ function reindent_all(n,dd)
 end
 
 
-
 function hot_range(lower,upper)
   local hot = ""
   for ch=string.byte(lower),string.byte(upper) do
@@ -556,6 +592,7 @@ function hot_range(lower,upper)
   if hot ~= "" then hot = hot .. "," end
   return hot
 end
+
 
 function lued_prompt(hist_id,prompt,hot,test_str)
   -- io.write(prompt)
@@ -568,11 +605,13 @@ function lued_prompt(hist_id,prompt,hot,test_str)
   return str
 end
 
+
 function get_hist_id()
   get_hist_id_cnt = get_hist_id_cnt or 0
   get_hist_id_cnt = get_hist_id_cnt + 1
   return get_hist_id_cnt;
 end
+
 
 function get_yesno(prompt,default)
   local yes = false
@@ -594,6 +633,7 @@ function get_yesno(prompt,default)
   until (valid_answer)
   return answer
 end
+
 
 function disp(dd,center)
    dd = dd or 0
@@ -661,6 +701,7 @@ function disp(dd,center)
    end
 end
 
+
 function char_left(n,dd)
   local n_is_nil = n == nil or n == 0
   --print ("999", n, n_is_nil); io.ad()
@@ -697,6 +738,7 @@ function char_left(n,dd)
   disp(dd)
 end
 
+
 function char_right(n,dd)
   local n_is_nil = n == nil or n == 0
   n = n or 1
@@ -730,6 +772,7 @@ function char_right(n,dd)
   disp(dd)
 end
 
+
 function magic_left(dd)
   local r,c = get_cur_pos()
   g_magic_right = c
@@ -744,6 +787,7 @@ function magic_left(dd)
   disp(dd)
 end
 
+
 function magic_right(dd)
   local r,c = get_cur_pos()
   local len = get_line_len()
@@ -757,6 +801,7 @@ function magic_right(dd)
   set_cur_pos(r,next_c)
   disp(dd)
 end
+
 
 function word_left(n,dd)
   n = n or 1
@@ -779,6 +824,7 @@ function word_left(n,dd)
   disp(dd)
 end
 
+
 function word_end(dd)
   local r,c = get_cur_pos()
   local len = get_line_len()
@@ -789,10 +835,12 @@ function word_end(dd)
   disp(dd)
 end
 
+
 function skip_word(dd)
   local dd2 = 1
   word_end(dd2)
 end
+
 
 function var_end(dd)
   local r,c = get_cur_pos()
@@ -805,9 +853,11 @@ function var_end(dd)
   disp(dd)
 end
 
+
 function skip_variable(dd)
   var_end(dd)
 end
+
 
 function skip_spaces(dd)
   local line = get_line()
@@ -818,6 +868,7 @@ function skip_spaces(dd)
   set_cur_pos(r,c)
   disp(dd)
 end
+
 
 function word_right(n,dd)
   n = n or 1
@@ -835,11 +886,13 @@ function word_right(n,dd)
   disp(dd)
 end
 
+
 function set_pagesize(val,dd)
   val = val or 0 -- zero is a special case.
   g_page_size = val
   disp(dd)
 end
+
 
 function get_pagesize()
   rows, cols = get_termsize()
@@ -852,17 +905,20 @@ function get_pagesize()
   end
 end
 
+
 function page_up(n,dd)
   n = n or 1
   local pagesize = get_pagesize()
   line_up(n*pagesize,dd)
 end
 
+
 function page_down(n,dd)
   n = n or 1
   local pagesize = get_pagesize()
   line_down(n*pagesize, dd)
 end
+
 
 function line_down(n,dd)
   local dd2 = 1
@@ -884,6 +940,7 @@ function line_down(n,dd)
   remove_trailing_spaces(r2,c,false,dd2)
   disp(dd)
 end
+
 
 function line_up(n,dd)
   local dd2 = 1
@@ -908,12 +965,14 @@ function line_up(n,dd)
   disp(dd)
 end
 
+
 function first_line(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   line_up(r-1,dd2)
   sol_classic(dd)
 end
+
 
 function last_line(dd)
   local dd2 = 1
@@ -931,6 +990,7 @@ function last_line(dd)
   eol(dd)
 end
 
+
 function toggle_top(dd)
   if is_sof() then
      last_line(dd)
@@ -938,6 +998,7 @@ function toggle_top(dd)
      first_line(dd)
   end
 end
+
 
 function toggle_bottom(dd)
   if is_eof() then
@@ -947,11 +1008,13 @@ function toggle_bottom(dd)
   end
 end
 
+
 function sol_classic(dd)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
   disp(dd)
 end
+
 
 function sol(dd)
   local dd2 = 1
@@ -971,6 +1034,7 @@ function sol(dd)
   disp(dd)
 end
 
+
 function eol(dd)
   local dd2 = 1
   if not is_eof() then
@@ -984,6 +1048,7 @@ function eol(dd)
   disp(dd)
 end
 
+
 function session_sel(session_id,dd)
   if session_id then
     local fileid = get_fileid()
@@ -995,12 +1060,14 @@ function session_sel(session_id,dd)
   disp(dd)
 end
 
+
 function tab_next(dd)
   local num_sessions = get_numsessions()
   local next_session = (get_fileid() % num_sessions)+1
   session_sel(next_session, dd)
   return get_fileid()
 end
+
 
 function tab_prev(dd)
   local num_sessions = get_numsessions()
@@ -1011,6 +1078,7 @@ function tab_prev(dd)
   session_sel(next_session, dd)
   return get_fileid()
 end
+
 
 function tab_toggle(dd)
   local num_sessions = get_numsessions()
@@ -1024,6 +1092,7 @@ function tab_toggle(dd)
   end
   session_sel(g_tab_prev, dd)
 end
+
 
 function goto_line(n,dd)
   local r,c = get_cur_pos()
@@ -1055,6 +1124,7 @@ function get_sel_str()
   return sel_str, sel_sr, sel_sc, sel_er, sel_ec
 end
 
+
 function find(str,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -1076,6 +1146,7 @@ function find(str,dd)
   end
   disp(dd)
 end
+
 
 function dbg_prompt(dbg_str)
   local str = ""
@@ -1136,6 +1207,7 @@ function replace_prompt()
   return str
 end
 
+
 function find_all_on_line(line,str)
   local matchi = {}
   local s,e = 1,1
@@ -1177,6 +1249,7 @@ function find_all_on_line(line,str)
   return matchi
 end
 
+
 function get_last_match(matches, maxc)
   if matches==nil then return end
   local last_match
@@ -1187,6 +1260,7 @@ function get_last_match(matches, maxc)
   end
   return last_match
 end
+
 
 function find_reverse(str,dd)
   local dd2 = 1
@@ -1241,6 +1315,7 @@ function find_reverse(str,dd)
   return match_found
 end
 
+
 function find_reverse_again(dd)
   local dd2 = 1
   local skip = g_find_str==nil or g_find_str==""
@@ -1249,6 +1324,7 @@ function find_reverse_again(dd)
   end
   disp(dd)
 end
+
 
 function find_reverse_selected(dd)
   local dd2 = 1
@@ -1286,6 +1362,7 @@ function get_first_match(matches, minc)
   end
   return first_match
 end
+
 
 function find_forward(str,nowrap,search_all,replace,test_str,dd)
   test_str = test_str or ""
@@ -1357,6 +1434,7 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
   disp(dd)
   return found
 end
+
 
 function find_and_replace(from,to,options,dd)
   local dd2 = 1
@@ -1458,6 +1536,7 @@ function search_all_files(str,dd)
   return match
 end
 
+
 function find_forward_again(dd)
   local dd2 = 1
   local initial_r,initial_c = get_cur_pos()
@@ -1507,6 +1586,7 @@ function find_selected_OLD(dd)
   find(str,dd)
 end
 
+
 function word_start(dd)
   local r,c = get_cur_pos()
   local line = get_line()
@@ -1519,6 +1599,7 @@ function word_start(dd)
   end
 end
 
+
 function var_start(dd)
   local r,c = get_cur_pos()
   local line = get_line()
@@ -1528,6 +1609,7 @@ function var_start(dd)
   set_cur_pos(r, c3)
   disp(dd)
 end
+
 
 function sel_word(n,dd)
   n = n or 1
@@ -1546,6 +1628,7 @@ function sel_word(n,dd)
   disp(dd)
 end
 
+
 function sel_line(n,dd)
   n = n or 1
   local dd2 = 1
@@ -1561,6 +1644,7 @@ function sel_line(n,dd)
   disp(dd)
 end
 
+
 function sel_all(dd)
   local dd2 = 1
   first_line(dd2)
@@ -1569,6 +1653,7 @@ function sel_all(dd)
   set_sel_end()
   disp(dd)
 end
+
 
 function sel_toggle(dd)
   if is_sel_off()==1 then
@@ -1579,10 +1664,12 @@ function sel_toggle(dd)
   disp(dd)
 end
 
+
 function del_sel(dd)
   delete_selected()
   disp(dd)
 end
+
 
 function cut(dd)
   if is_sel_off()==1 then
@@ -1592,6 +1679,7 @@ function cut(dd)
     del_sel(dd)
   end
 end
+
 
 function copy(dd)
   if is_sel_off()==1 then
@@ -1611,10 +1699,12 @@ function copy(dd)
   end
 end
 
+
 function set_paste_buffer(str,dd)
   set_paste(str)
   disp(dd)
 end
+
 
 function paste(dd)
   local dd2 = 1
@@ -1626,17 +1716,20 @@ function paste(dd)
   g_auto_indent = auto_indent_save
 end
 
+
 function global_cut(dd)
   cut(dd)
   g_buffer = get_paste()
   disp(dd)
 end
 
+
 function global_cut_append(dd)
   cut(dd)
   g_buffer = g_buffer .. get_paste()
   disp(dd)
 end
+
 
 function global_copy(dd)
   local dd2 = 1
@@ -1645,12 +1738,14 @@ function global_copy(dd)
   disp(dd)
 end
 
+
 function global_paste(dd)
   local dd2 = 1
   set_paste(g_buffer)
   paste(dd2)
   disp(dd)
 end
+
 
 function del_char(n,dd)
   local dd2 = 1
@@ -1668,6 +1763,7 @@ function del_char(n,dd)
   end
 end
 
+
 function del_eow(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -1682,12 +1778,14 @@ function del_eow(dd)
   cut(dd)
 end
 
+
 function del_word(n,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   word_start(dd2)
   del_eow(dd)
 end
+
 
 function del_word_multi(n,dd)
   local dd2 = 1
@@ -1714,6 +1812,7 @@ function cut_eol(dd)
   end
 end
 
+
 function del_eol(dd)
   local dd2 = 1
   if is_eol() then
@@ -1727,6 +1826,7 @@ function del_eol(dd)
     del_sel(dd)
   end
 end
+
 
 function del_sol(dd)
   local dd2 = 1
@@ -1743,6 +1843,7 @@ function del_sol(dd)
     cut(dd)
   end
 end
+
 
 function cut_line(n,dd)
   n = n or 1
@@ -1765,6 +1866,7 @@ function cut_line(n,dd)
   end  
 end
 
+
 function del_backspace(n,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -1781,6 +1883,7 @@ function del_backspace(n,dd)
   end
 end
 
+
 function del_backword(n,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -1790,6 +1893,7 @@ function del_backword(n,dd)
   set_cur_pos(r,c)
   del_sel(dd)
 end
+
 
 function indent1(n, ch, dd)
   local dd2 = 1
@@ -1801,6 +1905,7 @@ function indent1(n, ch, dd)
   set_cur_pos(r,c+n)
   disp(dd)
 end
+
 
 function indent(dd)
   local dd2 = 1
@@ -1817,6 +1922,7 @@ function indent(dd)
     disp(dd)
   end
 end
+
 
 function indent_selected(dd)
   local dd2 = 1
@@ -1837,6 +1943,7 @@ function indent_selected(dd)
   disp(dd)
 end
 
+
 function unindent_selected(dd)
   local dd2 = 1
   local initial_row,initial_col = get_cur_pos()
@@ -1855,6 +1962,7 @@ function unindent_selected(dd)
   end
   disp(dd)
 end
+
 
 function ins_string(str, dd)
   local dd2 = 1
@@ -1885,6 +1993,7 @@ function ins_string(str, dd)
   disp(dd)
 end
 
+
 function overtype_string(str,dd)
   local dd2 = 1
   for c in string.gmatch(str,".") do
@@ -1896,6 +2005,7 @@ function overtype_string(str,dd)
   disp(dd)
 end
 
+
 function ins_str(str,dd)
   if g_overtype==1 then
     overtype_string(str,dd)
@@ -1904,10 +2014,12 @@ function ins_str(str,dd)
   end
 end
 
+
 function insert_tab(dd)
   local t = (g_replace_tabs > 0) and string.rep(' ',g_replace_tabs) or "\t"
   ins_str(t,dd)
 end
+
 
 function insert_cr_before(dd)
   local dd2 = 1
@@ -1916,6 +2028,7 @@ function insert_cr_before(dd)
   line_up(1,dd2)
   indent(dd)
 end
+
 
 function insert_cr_after(dd)
   local dd2 = 1
@@ -1941,6 +2054,7 @@ end
 --   end
 -- end
 
+
 function hot(key, dd)
   if key == nil then return end
   key = "," .. key .. ","
@@ -1951,6 +2065,7 @@ function hot(key, dd)
   disp(dd)
 end
 
+
 function nohot(key, dd)
   if not key then return end
   key = key .. ","
@@ -1959,6 +2074,7 @@ function nohot(key, dd)
   set_hotkeys(keys)
   disp(dd)
 end
+
 
 function save_file(dd)
   local r,c = get_cur_pos()
@@ -1978,6 +2094,7 @@ function save_file(dd)
   disp(dd)
 end
 
+
 function save_as(filename, dd)
   if filename == nil then
     save_as_hist_id = save_as_hist_id or get_hist_id()
@@ -1988,6 +2105,7 @@ function save_as(filename, dd)
   save_session()
   disp(dd)
 end
+
 
 function save_all(dd)
   local dd2 = 1
@@ -2002,11 +2120,13 @@ function save_all(dd)
   session_sel(fileid,dd)
 end
 
+
 function exit_session(dd)
   save_session()
   close_session()
   disp(dd)
 end
+
 
 function exit_all(dd)
   local dd2 = 1
@@ -2014,6 +2134,7 @@ function exit_all(dd)
      exit_session(dd2)
   end
 end
+
 
 function quit_session(force,dd)
   force = force or false
@@ -2033,6 +2154,7 @@ function quit_session(force,dd)
   disp(dd)
 end
 
+
 function quit_all(force, dd)
   local dd2 = 1
   force = force or false
@@ -2040,6 +2162,7 @@ function quit_all(force, dd)
      quit_session(force, dd2)
   end
 end
+
 
 function pathifier(filename)
     filename = string.gsub(filename, "^~", os.getenv("HOME") )
@@ -2052,6 +2175,7 @@ function pathifier(filename)
     return filename
 end
 
+
 function os_cmd(cmd)
   local stream  = assert(io.popen(cmd, "r"))
   local output_string  = assert(stream:read("*all"))
@@ -2059,11 +2183,13 @@ function os_cmd(cmd)
   return output_string
 end
 
+
 function read_dir(glob)
   glob = glob or "*"
   local files = os_cmd("ls " .. glob)
   return files
 end
+
 
 function get_longest_word(words)
   local longest_word = "";
@@ -2076,11 +2202,13 @@ function get_longest_word(words)
   return longest_word
 end
 
+
 function basename(full_path)
   full_path = full_path or ""
   local basename_str = full_path:match("[^/]+$") or ""
   return basename_str
 end
+
 
 function dirname(full_path)
   full_path = full_path or ""
@@ -2091,6 +2219,7 @@ function dirname(full_path)
   return dirname_str
 end
 
+
 function is_glob(filename)
   filename = filename or     ""
   local contains_wildcard = filename:match("[*]")
@@ -2099,6 +2228,7 @@ function is_glob(filename)
   end
   return false
 end
+
 
 function is_dir(filename)
   filename = filename or ""
@@ -2115,6 +2245,7 @@ function is_dir(filename)
   return false
 end
 
+
 function file_exists(filename)
    local handle=io.open(filename,"r")
    local exists = handle~=nil
@@ -2124,10 +2255,15 @@ function file_exists(filename)
    return exists
 end
 
+
 function ls_dir(glob)
   ls_dir_hist_id = ls_dir_hist_id or get_hist_id()
-  glob = glob or lued_prompt(ls_dir_hist_id, "Enter path, glob or filename: ")
+  glob = glob or lued_prompt(ls_dir_hist_id, "Enter path, glob or filename. ctrl-A selects All: ")
   glob = glob or ""
+  
+  if glob == "ctrl_A" then
+    return glob
+  end
 
   local path  = dirname(glob)
   local globname = basename(glob)
@@ -2152,7 +2288,7 @@ function ls_dir(glob)
 
     local longest_filename = get_longest_word(filenames);
     local col_width = longest_filename:len() + 2
-    local prepend_path = path~=nil and longest_filename:match("[/]")==nil
+    local prepend_path = path ~= nil and longest_filename:match("[/]")==nil
     if (prepend_path) then
       col_width = col_width + path:len()
     end
@@ -2208,11 +2344,23 @@ end
 function cd_change_dir(dd)
   local tmp_path = ""
   tmp_path = ls_dir("")
+  local previous = tmp_path
+  local filename = ""
   repeat
-    local filename = exactly_one_file_matches(tmp_path)
+    if tmp_path == "ctrl_A" then -- select all
+      if is_dir(previous) then
+        previous = previous .. "/*"
+      end
+      local filenames = read_dir(previous)
+
+      return filenames
+    end
+    
+    filename = exactly_one_file_matches(tmp_path)
     if not is_empty(filename) then
       return filename
     end
+    previous = tmp_path
     tmp_path = ls_dir()
   until tmp_path==""
   disp(dd)
@@ -2241,48 +2389,56 @@ function is_open(filename)
 end
 
 
-function open_file(filename,dd)
+function open_file(filenames,dd)
   local dd2 = 1
-  if filename==nil then
-    filename = cd_change_dir(dd2) -- ls_dir()
+  if filenames==nil then
+    filenames = cd_change_dir(dd2)   
   end
-  if filename==nil then
+  if filenames==nil then
     open_file_hist_id = open_file_hist_id or get_hist_id()
-    filename = lued_prompt(open_file_hist_id, "Enter Filename: ")
+    filenames = lued_prompt(open_file_hist_id, "Enter Filename: ")
     local home = os.getenv("HOME")
-    filename = string.gsub(filename,"^~",home)
-    local env_name = string.match(filename,"%${?([%w_]+)}?")
+    filenames = string.gsub(filenames,"^~",home)
+    local env_name = string.match(filenames,"%${?([%w_]+)}?")
     while env_name ~= nil do
       local env_value = os.getenv(env_name)
-      filename = string.gsub(filename, "%${?" .. env_name .. "}?", env_value)
-      env_name = string.match(filename,"%${?([%w_]+)}?")
+      filenames = string.gsub(filenames, "%${?" .. env_name .. "}?", env_value)
+      env_name = string.match(filenames,"%${?([%w_]+)}?")
     end
   end
-  local existing_fileid = is_open(filename)
-  if existing_fileid then
-     g_tab_prev = get_fileid()
-    set_fileid(existing_fileid,dd2)
-  elseif filename~=nil and filename~="" and file_exists(filename) and not is_open(filename) then
-    local prev = get_fileid()
-    local fileid = lued_open(filename)
-    if fileid~=nil and fileid~=0 then
-      g_tab_prev = prev
-      set_fileid(fileid)
-      first_line(dd2)
+  
+  local filename_list,count = filenames:gmatch("(%S+)")  
+  
+  for filename1 in filename_list do
+    local existing_fileid = is_open(filename1)
+    if existing_fileid then
+       g_tab_prev = get_fileid()
+      set_fileid(existing_fileid,dd2)
+    elseif filename1~=nil and filename1~="" and file_exists(filename1) and not is_dir(filename1) and not is_open(filename1) then
+      local prev = get_fileid()
+      local fileid = lued_open(filename1)
+      if fileid~=nil and fileid~=0 then
+        g_tab_prev = prev
+        set_fileid(fileid)
+        first_line(dd2)
+      end
     end
   end
   disp(dd)
 end
 
+
 function open_file_bindings(dd)
   open_file(g_bindings_file,dd)
 end
+
 
 function reopen_file(dd)
   reopen()
   g_enable_file_changed = true -- tell me when the file has changed.
   disp(dd)
 end
+
 
 function open_filelist(filelist,dd)
   local dd2 = 1
