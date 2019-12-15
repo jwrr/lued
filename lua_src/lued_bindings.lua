@@ -89,11 +89,12 @@ alt_Rt        = set_replace_tabs -- rt0 rt4
 alt_Rts       = toggle_remove_trailing_spaces
 alt_ss        = sel_toggle hot("ss")
 alt_S         = save_as
-alt_sa        = sel_sol hot("sa")
-alt_se        = function() set_sel_start(); eol(); set_sel_end() end hot("se")
-alt_sf        = sel_sof hot("sf")
-alt_sg        = sel_eof hot("sg")
-alt_sh        = sel_all hot("sh")
+alt_sa        = sel_sol    hot("sa")
+alt_sb        = sel_block  hot("sb")
+alt_se        = sel_eol    hot("se")
+alt_sf        = sel_sof    hot("sf")
+alt_sg        = sel_eof    hot("sg")
+alt_sh        = sel_all    hot("sh")
 
 -- alt_Saveall   = save_all
 alt_Seti      = set_scope_indent -- SI2 SI3 SI4

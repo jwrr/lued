@@ -1644,11 +1644,33 @@ function sel_line(n,dd)
 end
 
 
-function sel_sol(dd)
-  n = n or 1
+function sel_block(dd)
   local dd2 = 1
+  local save_find_str = g_find_str
+  set_sel_off()
+
+  g_find_str = "}"
   local r,c = get_cur_pos()
-  set_cur_pos(r,1,dd2)
+  find_forward_again(dd2)
+  char_left(1,dd2)
+  local r2,c2 = get_cur_pos()
+  
+  g_find_str = "{"
+  set_cur_pos(r,c)
+  find_reverse_again(dd2)
+  char_right(1,dd2)
+  set_sel_start()
+  set_cur_pos(r2,c2)
+  set_sel_end()
+  
+  g_find_str = save_find_str
+  disp(dd)
+end
+
+
+function sel_sol(dd)
+  local r,c = get_cur_pos()
+  set_cur_pos(r,1)
   set_sel_start()
   set_cur_pos(r,c)
   disp(dd)
@@ -1656,13 +1678,8 @@ end
 
 
 function sel_eol(dd)
-  n = n or 1
-  local dd2 = 1
-  local r,c = get_cur_pos()
-  set_cur_pos(r,c,dd2)
   set_sel_start()
-  eol(dd2)
-  disp(dd)
+  eol(dd)
 end
 
 
@@ -1671,16 +1688,14 @@ function sel_sof(dd)
   local r,c = get_cur_pos()
   first_line(dd2)
   set_sel_start()
-  set_cur_pos(r,c,dd2)
+  set_cur_pos(r,c)
   disp(dd)
 end
 
 
 function sel_eof(dd)
-  local dd2 = 1
   set_sel_start()
-  last_line(dd2)
-  disp(dd)
+  last_line(dd)
 end
 
 
