@@ -71,15 +71,19 @@ end
 
 -- disable/enable ctrl+Z suspend
 function set_ctrl_z_suspend (bool, dd)
+  local change = true
   if bool==nil then
     g_ctrl_z_suspend = not g_ctrl_z_suspend
   else
+    change = (g_ctrl_z_suspend ~= bool)
     g_ctrl_z_suspend = bool
   end
-  if g_ctrl_z_suspend==true then
-    os.execute("stty susp ^Z")
-  else
-    os.execute("stty susp undef")
+  if change then
+    if g_ctrl_z_suspend==true then
+      os.execute("stty susp ^Z")
+    else
+      os.execute("stty susp undef")
+    end
   end
   disp(dd)
 end

@@ -50,9 +50,9 @@ SOFTWARE.
   g_show_help              = false -- Show startup help menu
   g_double_speed           = 0     -- Increases scroll speed. 1 enables this feature. 2 or more goes even faster
   g_lua_mode               = false -- set_lua_mode (Alt+LU) forces lua mode. LuEd automatically goes in and out of Lua mode as needed.
-  g_ctrl_s_flow_control    = false -- Alt+Flow toggles this to enable/disable Ctrl+S / Ctrl+Q
-  g_ctrl_c_abort           = false -- Alt+Abort toggles this to enable/disable Ctrl+C abort
-  g_ctrl_z_suspend         = false -- Alt+Suspend toggles this to enable/disable Ctrl+Z suspect (fg at shell prompt resumes).
+  g_ctrl_s_flow_control    = true  -- Alt+Flow toggles this to enable/disable Ctrl+S / Ctrl+Q
+  g_ctrl_c_abort           = true  -- Alt+Abort toggles this to enable/disable Ctrl+C abort
+  g_ctrl_z_suspend         = true  -- Alt+Suspend toggles this to enable/disable Ctrl+Z suspect (fg at shell prompt resumes).
   g_comment                = "--"  -- Alt+Co comments line. Alt+Noco removes comment marker
   g_pwd                    = "."   -- This is the current working directory and is changed by change_dir (alt_CD)
   g_status_line_on         = true  -- Display status line when true, else do not display status line
