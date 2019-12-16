@@ -32,8 +32,8 @@ SOFTWARE.
   g_lued_root              = expanduser(g_lued_root)
   g_bindings_file          = g_lued_root .. "/lued_bindings.lua"
   g_auto_indent            = true  -- Indent the same as the previous line
-  g_indent_char            = " "   -- Used in indent_selected
-  g_indent_size            = 7     -- Used in reindent_selected
+  g_indent_char            = " "   -- Used in indent_selected. Typically a space or tab
+  g_indent_size            = 2     -- Used in reindent_selected
   g_replace_tabs           = 0     -- 4 -- Replace tab with N spaces (does not remove existing tabs). 0 keeps tabs.
   g_remove_trailing_spaces = false -- Only removes on lines that are modified. Use alt_Rats to remove all trailing spaces.
   g_show_trailing_spaces   = true  -- Show trailing spaces in reverse video

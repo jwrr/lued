@@ -7,9 +7,9 @@
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
 --  set_hotkeys( ",Sn,Sp,sw,v,VV,w,y,x,z,")
 
-  set_repeatables(",ctrl_F,")
+  set_repeatables(",alt_cc,alt_ii,alt_jj,")
 -- set_repeatables(",,")
-  set_non_repeatables(",alt_d,alt_da,alt_dg,")
+--  set_non_repeatables(",alt_jj,")
 
 -- Pressing ALT plus KEY is the same as pressing ESC followed by KEY.
 -- This is a feature of terminals, not just LUED.
@@ -38,6 +38,7 @@ alt_A_semi_   = function() align_delimiter(";") end
 alt_A_slash_  = function() align_delimiter("/") end
 -- ================
 alt_bb        = toggle_bottom           hot("bb")
+alt_cc        = comment                 hot("cc")
 alt_cd        = cd_change_dir;          hot("cd")
 alt_cs        = set_comment             hot("cs")
 alt_da        = del_sol                 hot("da")
@@ -47,21 +48,17 @@ alt_df        = del_sof hot("df")
 alt_dg        = del_eof hot("dg")
 alt_dh        = del_all hot("dh")
 alt_dw        = del_eow                 hot("dw")
-alt_D_dollar_ = function() cut_line( get_numlines() ) end -- delete lines to end of file
 alt_DS        = toggle_doublespeed      hot("DS")
 alt_e         = magic_right hot("e") -- del_eow                 hot("e")
 alt_ED        = set_edit_mode           hot("ED")
 alt_f         = find_forward_again;     hot("f")
 alt_FA        = search_all_files;       hot("FA")
 alt_FF        = find_reverse_again;     hot("FF")
--- alt_h      = eol;                    hot("h")
-alt_HH        = replace_again           hot("HH")
-alt_Help      = open_file_bindings      hot("Help")
-alt_I_squote  = indent_scope
-alt_IS        = indent_scope            hot("IS")
--- alt_j      = find_reverse_again      hot("j")
+alt_hh        = replace_again           hot("hh")
+alt_help      = open_file_bindings      hot("help")
+alt_ii        = indent1                 hot("ii")
+alt_is        = set_indent_size         hot("is")
 alt_jj        = join_lines              hot("jj")
-alt_kc        = comment                 hot("kc")
 alt_kl        = sel_to_lower            hot("kl")
 alt_ku        = sel_to_upper            hot("ku")
 

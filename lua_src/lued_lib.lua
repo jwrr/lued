@@ -1940,14 +1940,22 @@ function del_backword(n,dd)
 end
 
 
-function indent1(n, ch, dd)
+function indent1(n, ch, goto_next, dd)
   local dd2 = 1
-  n = n or 4 -- indent_size
+  n = n or g_indent_size
+  ch = ch or g_indent_char
+  goto_next = goto_next or true
+  
   local spaces = string.rep(ch,n)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
   ins_str(spaces,dd2)
-  set_cur_pos(r,c+n)
+  if goto_next then
+    line_down(1,dd2)
+    sol_classic(dd2)
+  else
+    set_cur_pos(r,c+n)
+  end
   disp(dd)
 end
 
@@ -1956,7 +1964,7 @@ function indent(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   if r==1 then
-     indent1(dd)
+     indent1(g_indent_size, g_indent_char, false, dd)
   else
     line_up(1,dd2)
     local line = get_line()
@@ -2903,6 +2911,17 @@ function set_comment(dd)
   local comment_str = lued_prompt(goto_line_hist_id,"Enter Comment String (Default = '"..g_comment.."'): ")
   if comment_str~=nil and comment_str~="" then
     g_comment = comment_str
+  end
+  disp(dd)
+end
+
+
+function set_indent_size(dd)
+  local dd2 = 1
+  goto_line_hist_id = goto_line_hist_id or get_hist_id()
+  local  indent_size = lued_prompt(goto_line_hist_id,"Enter Indent Size (Default = '"..g_indent_size.."'): ")
+  if indent_size ~= nil and tonumber(indent_size) > 0 then
+    g_indent_size = indent_size
   end
   disp(dd)
 end
