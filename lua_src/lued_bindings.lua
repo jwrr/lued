@@ -7,9 +7,11 @@
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
 --  set_hotkeys( ",Sn,Sp,sw,v,VV,w,y,x,z,")
 
+-- cc=comment, ii=indent, jj-join
   set_repeatables(",alt_cc,alt_ii,alt_jj,")
 -- set_repeatables(",,")
 --  set_non_repeatables(",alt_jj,")
+
 
 -- Pressing ALT plus KEY is the same as pressing ESC followed by KEY.
 -- This is a feature of terminals, not just LUED.
