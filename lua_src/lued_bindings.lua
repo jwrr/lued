@@ -8,7 +8,7 @@
 --  set_hotkeys( ",Sn,Sp,sw,v,VV,w,y,x,z,")
 
 -- cc=comment, ii=indent, jj-join
-  set_repeatables(",alt_cc,alt_ii,alt_jj,")
+  set_repeatables(",alt_cc,alt_ii,alt_jj,alt_uu,")
 -- set_repeatables(",,")
 --  set_non_repeatables(",alt_jj,")
 
@@ -23,8 +23,8 @@ alt__slash_   = find_forward            hot(",/,") -- FIXME make this regex
 alt__minus_   = tab_prev                hot(",-,")
 alt__equal_   = tab_next                hot("=")
 alt__plus_    = tab_prev                hot(",+,")
-alt__gt_      = indent_selected         hot(">")
-alt__lt_      = unindent_selected       hot("<")
+--alt__gt_      = indent_selected         hot(">")
+--alt__lt_      = unindent_selected       hot("<")
 alt__colon_w  = save_file               hot(":w")
 -- alt__comma_   = magic_left              hot(",")
 -- alt__period_  = magic_right             hot(",.,")
@@ -58,7 +58,7 @@ alt_FA        = search_all_files;       hot("FA")
 alt_FF        = find_reverse_again;     hot("FF")
 alt_hh        = replace_again           hot("hh")
 alt_help      = open_file_bindings      hot("help")
-alt_ii        = indent1                 hot("ii")
+alt_ii        = indent_selected         hot("ii")
 alt_is        = set_indent_size         hot("is")
 alt_jj        = join_lines              hot("jj")
 alt_kl        = sel_to_lower            hot("kl")
@@ -100,6 +100,7 @@ alt_Seti      = set_scope_indent -- SI2 SI3 SI4
 alt_sw        = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("sw")
 alt_tt        = select_tab hot("tt")
 alt_TT        = tab_toggle              hot("TT")
+alt_uu        = unindent_selected       hot("uu")
 alt_Up        = line_up -- Up23 moves up 23 lines
 alt_w         = magic_left hot("w") -- quit_session          hot("w")
 alt_WW        = del_sow hot("WW")

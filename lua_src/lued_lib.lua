@@ -1960,11 +1960,32 @@ function indent1(n, ch, goto_next, dd)
 end
 
 
+function unindent1(n, ch, goto_next, dd)
+  local dd2 = 1
+  n = n or g_indent_size
+  ch = ch or g_indent_char
+  goto_next = goto_next or true
+  
+  local spaces = string.rep(ch,n)
+  local r,c = get_cur_pos()
+  set_cur_pos(r,1)
+  del_char(n,dd2)
+  if goto_next then
+    line_down(1,dd2)
+    sol_classic(dd2)
+  else
+    set_cur_pos(r,c-n)
+  end
+  disp(dd)
+end
+
+
 function indent(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
+  local goto_next_line = false
   if r==1 then
-     indent1(g_indent_size, g_indent_char, false, dd)
+     indent1(g_indent_size, g_indent_char, goto_next_line, dd)
   else
     line_up(1,dd2)
     local line = get_line()
@@ -1992,6 +2013,9 @@ function indent_selected(dd)
     set_cur_pos(sel_sr+1,sel_sc)
     set_sel_start()
     set_cur_pos(sel_er+1,sel_ec)
+  else
+    local goto_next_line = true
+    indent1(g_indent_size, g_indent_char, goto_next_line, dd2)
   end
   disp(dd)
 end
@@ -2012,6 +2036,9 @@ function unindent_selected(dd)
     set_cur_pos(sel_sr+1,sel_sc)
     set_sel_start()
     set_cur_pos(sel_er+1,sel_ec)
+  else
+    local goto_next_line = true
+    unindent1(g_indent_size, g_indent_char, goto_next_line, dd2)
   end
   disp(dd)
 end
