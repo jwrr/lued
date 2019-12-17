@@ -29,7 +29,7 @@ alt__colon_w  = save_file               hot(":w")
 -- alt__comma_   = magic_left              hot(",")
 -- alt__period_  = magic_right             hot(",.,")
 
-alt_Align     = align_selected
+alt_as        = align_selected1         hot("as") 
 alt_A_colon_  = function() align_delimiter(":") end
 alt_A_comma_  = function() align_delimiter(",") end
 alt_A_equal_  = function() align_delimiter("=") end

@@ -458,7 +458,7 @@ end
 
 
 -- \brief Fix jagged left edges by making leading white space of all selected lines the same as first selected line.
-function align_selected(dd)
+function align_selected1(dd)
   g_indent_char = g_indent_char or " "
   g_indent_size = g_indent_size or 4
   local dd2 = 1
@@ -472,7 +472,35 @@ function align_selected(dd)
     set_cur_pos(sel_sr+1,1)
     local ws1,ws1_len = leading_ws()
 
-    for row=sel_sr+1,sel_er do
+    for row=sel_sr+2,sel_er do
+      set_cur_pos(row,1)
+--
+      local ws2,ws2_len = leading_ws()
+      del_char(ws2_len,dd2)
+      ins_str(ws1,dd2)
+--
+    end
+    set_cur_pos(initial_row,initial_col)
+  end
+  disp(dd)
+end
+
+
+function align_selected2(dd)
+  g_indent_char = g_indent_char or " "
+  g_indent_size = g_indent_size or 4
+  local dd2 = 1
+  local initial_row,initial_col = get_cur_pos()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local something_selected = sel_state~=0;
+
+  if something_selected then
+    set_sel_off()
+
+    set_cur_pos(sel_sr+1,1)
+    local ws1,ws1_len = leading_ws()
+
+    for row=sel_sr+2,sel_er do
       set_cur_pos(row,1)
 --
       local ws2,ws2_len = leading_ws()
