@@ -8,7 +8,7 @@
 --  set_hotkeys( ",Sn,Sp,sw,v,VV,w,y,x,z,")
 
 -- cc=comment, ii=indent, jj-join
-  set_repeatables(",alt_cc,alt_ii,alt_jj,alt_uu,")
+  set_repeatables(",alt_cc,alt_CC,alt_ff,alt_FF,alt_ii,alt_jj,alt_uu,")
 -- set_repeatables(",,")
 --  set_non_repeatables(",alt_jj,")
 
@@ -23,11 +23,9 @@ alt__slash_   = find_forward            hot(",/,") -- FIXME make this regex
 alt__minus_   = tab_prev                hot(",-,")
 alt__equal_   = tab_next                hot("=")
 alt__plus_    = tab_prev                hot(",+,")
---alt__gt_      = indent_selected         hot(">")
---alt__lt_      = unindent_selected       hot("<")
 alt__colon_w  = save_file               hot(":w")
--- alt__comma_   = magic_left              hot(",")
--- alt__period_  = magic_right             hot(",.,")
+alt__gt_      = halfsy_right            hot(",>,")
+alt__lt_      = halfsy_left             hot(",<,")
 
 alt_as        = align_selected1         hot("as") 
 alt_A_colon_  = function() align_delimiter(":") end
@@ -41,19 +39,19 @@ alt_A_slash_  = function() align_delimiter("/") end
 -- ================
 alt_bb        = toggle_bottom           hot("bb")
 alt_cc        = comment                 hot("cc")
+alt_CC        = no_comment              hot("CC")
 alt_cd        = cd_change_dir;          hot("cd")
 alt_cs        = set_comment             hot("cs")
 alt_da        = del_sol                 hot("da")
 alt_de        = del_eol                 hot("de")
 alt_dd        = del_word                hot("dd")
-alt_df        = del_sof hot("df")
-alt_dg        = del_eof hot("dg")
-alt_dh        = del_all hot("dh")
+alt_df        = del_sof                 hot("df")
+alt_dg        = del_eof                 hot("dg")
+alt_dh        = del_all                 hot("dh")
 alt_dw        = del_eow                 hot("dw")
 alt_DS        = toggle_doublespeed      hot("DS")
-alt_e         = magic_right hot("e") -- del_eow                 hot("e")
 alt_ED        = set_edit_mode           hot("ED")
-alt_f         = find_forward_again;     hot("f")
+alt_ff        = find_forward_again;     hot("ff")
 alt_FA        = search_all_files;       hot("FA")
 alt_FF        = find_reverse_again;     hot("FF")
 alt_hh        = replace_again           hot("hh")
@@ -76,8 +74,7 @@ alt_M_squote  = function(name) goto_mark(name); disp() end
 alt_mm        = set_nameless_mark       hot("mm")
 alt_mp        = goto_nameless_mark_prev hot("mp")
 alt_mn        = goto_nameless_mark_next hot("mn")
-alt_n         = new_file                hot("n")
-alt_Noco      = no_comment
+alt_nn        = new_file                hot("nn")
 alt_qq        = wrap_line               hot("qq")
 alt_ralt      = remove_all_leading_tabs
 alt_rats      = remove_all_trailing_space
@@ -102,7 +99,6 @@ alt_tt        = select_tab hot("tt")
 alt_TT        = tab_toggle              hot("TT")
 alt_uu        = unindent_selected       hot("uu")
 alt_Up        = line_up -- Up23 moves up 23 lines
-alt_w         = magic_left hot("w") -- quit_session          hot("w")
 alt_WW        = del_sow hot("WW")
 alt_x         = global_cut            hot("x")
 alt_y         = redo_cmd              hot("y")

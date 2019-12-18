@@ -802,31 +802,31 @@ function char_right(n,dd)
 end
 
 
-function magic_left(dd)
+function halfsy_left(dd)
   local r,c = get_cur_pos()
-  g_magic_right = c
-  if g_command_count ~= g_magic_command_count or g_magic_left==nil then
-    g_magic_left = 1
+  g_halfsy_right = c
+  if g_command_count ~= g_halfsy_command_count or g_halfsy_left==nil then
+    g_halfsy_left = 1
   end
   g_command_count = g_command_count or 1
-  g_magic_command_count = g_command_count+1
-  local next_c = c - math.ceil( (c-g_magic_left) / 2)
+  g_halfsy_command_count = g_command_count+1
+  local next_c = c - math.ceil( (c-g_halfsy_left) / 2)
   set_cur_pos(r,next_c)
-  g_magic_right = c
+  g_halfsy_right = c
   disp(dd)
 end
 
 
-function magic_right(dd)
+function halfsy_right(dd)
   local r,c = get_cur_pos()
   local len = get_line_len()
-  g_magic_left = c
-  if g_command_count ~= g_magic_command_count or g_magic_right==nil then
-    g_magic_right = len+1
+  g_halfsy_left = c
+  if g_command_count ~= g_halfsy_command_count or g_halfsy_right==nil then
+    g_halfsy_right = len+1
   end
   g_command_count = g_command_count or 1
-  g_magic_command_count = g_command_count+1
-  local next_c = c + math.ceil( (g_magic_right-c) / 2)
+  g_halfsy_command_count = g_command_count+1
+  local next_c = c + math.ceil( (g_halfsy_right-c) / 2)
   set_cur_pos(r,next_c)
   disp(dd)
 end
@@ -2620,6 +2620,9 @@ end
 
 
 function undo_cmd(dd)
+  local last_cmd = get_last_cmd()
+--  dbg_prompt("last_cmd="..last_cmd.."xxx")
+  -- set_ctrl_z_suspend(true);
   undo()
   disp(dd)
 end

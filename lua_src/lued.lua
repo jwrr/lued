@@ -76,6 +76,5 @@ if g_first_time == nil then
 end
 
 set_edit_mode(0)
-g_first_time = 1
-
+g_first_time = 1  -- this is really 'not first time'
 
