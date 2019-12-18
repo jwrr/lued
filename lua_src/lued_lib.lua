@@ -3039,12 +3039,12 @@ function comment(n,str,dd)
 end
 
 
-function no_comment(n,dd)
-  n = n or 1
+function uncomment(dd)
   local dd2 = 1
+  local comment_len = string.len(g_comment)
   sol_classic(dd2)
-  line_down(1,dd2)
-  sol_classic(dd)
+  del_char(comment_len+1,dd2)
+  line_down(1,dd)
 end
 
 

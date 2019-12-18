@@ -39,7 +39,7 @@ alt_A_slash_  = function() align_delimiter("/") end
 -- ================
 alt_bb        = toggle_bottom           hot("bb")
 alt_cc        = comment                 hot("cc")
-alt_CC        = no_comment              hot("CC")
+alt_CC        = uncomment               hot("CC")
 alt_cd        = cd_change_dir;          hot("cd")
 alt_cs        = set_comment             hot("cs")
 alt_da        = del_sol                 hot("da")
