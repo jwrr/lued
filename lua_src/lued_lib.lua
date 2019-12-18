@@ -3019,23 +3019,45 @@ function wrap_line(wrap_col,wrap_delim,dd)
   disp(dd)                                                            
 end
 
-function comment(n,str,dd)
-  n = n or 1
-  if str~=nil then
-    g_comment = str
-  end
 
+function foreach_selected(fn, dd)
   local dd2 = 1
-  for i=1,n do
-    sol_classic(dd2)
-    ins_str(g_comment,dd2);
-    if not is_eol() then
-      ins_str(" ",dd2)
-    end 
-    line_down(1,dd2)
-    sol_classic(dd2)
+  if is_sel_on() then
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+    set_sel_off()
+    sel_sr = sel_sr + 1
+    sel_er = sel_er + 1
+    set_cur_pos(sel_sr,1)
+    local r,c = get_cur_pos()
+    while r<sel_er do
+      fn(dd2)
+      r,c = get_cur_pos()
+    end
+    set_cur_pos(sel_sr,1)
+    set_sel_start()
+    set_cur_pos(sel_er,1)
+  else
+    fn(dd2)
   end
   disp(dd)
+end
+
+
+function comment(dd)
+  local dd2 = 1
+  sol_classic(dd2)
+  ins_str(g_comment,dd2);
+  if not is_eol() then
+    ins_str(" ",dd2)
+  end 
+  line_down(1,dd2)
+  sol_classic(dd2)
+  disp(dd)
+end
+
+
+function comment_selected(dd)
+  foreach_selected(comment, dd)
 end
 
 
@@ -3045,6 +3067,11 @@ function uncomment(dd)
   sol_classic(dd2)
   del_char(comment_len+1,dd2)
   line_down(1,dd)
+end
+
+
+function uncomment_selected(dd)
+  foreach_selected(uncomment, dd)
 end
 
 
