@@ -233,9 +233,17 @@ function is_sof()
   return c <= 1 and r <= 1
 end
 
-
+-- Two modes are supported. When line string is passed in the char at `pos` is
+-- checked. When line is nil then the char under the cursor is checked. 
 function is_space(line,pos)
-  local is = string.match(line,"^%s",pos) and true or false
+  local is;
+  if line then
+    is = string.match(line,"^%s",pos) and true or false
+  else
+    local ch = get_char()
+    -- dbg_prompt ("is_space="..ch.."xxx")
+    is = string.match(ch,"^%s",1) and true or false
+  end
   return is
 end
 
@@ -482,11 +490,11 @@ function align_delimiter_of_next_line(delim, dd)
   g_align_delimiter_of_next_line = g_align_delimiter_of_next_line or "="
   delim = delim or "="
   local dd2 = 1
-  local line = get_line()
   local delim_pos1 = string.find( get_line(), g_align_delimiter_of_next_line, 1, true)
   if delim_pos1 then
     line_down(1,dd2)
-    local delim_pos2 = string.find( get_line(), g_align_delimiter_of_next_line, 1, true)
+    local line = get_line() or ""
+    local delim_pos2 = string.find( line, g_align_delimiter_of_next_line, 1, true)
     if delim_pos2 then
       local r,c = get_cur_pos()
       set_cur_pos(r,delim_pos2)
@@ -496,7 +504,12 @@ function align_delimiter_of_next_line(delim, dd)
         ins_str(ws, dd2)
       elseif delta < 0 then
         delta = -1 * delta
-        del_backspace(delta,dd2)
+        for i = 1, delta do
+          if is_sol() then break end
+          char_left(1,dd2)
+          if not is_space() then break end
+          del_char(1,dd2)
+        end
       end
     end
   end
@@ -504,9 +517,16 @@ function align_delimiter_of_next_line(delim, dd)
 end
 
 
+function get_char()
+  local r,c = get_cur_pos()
+  return string.sub( get_line() , c, c)
+end
+
+
 -- \brief Align delimiter in selected region
 function align_delimiter_selected(delim, dd)
-  g_align_delimiter_of_next_line = delim
+  align_delimiter_selected_hist_id = align_delimiter_selected_hist_id or get_hist_id()
+  g_align_delimiter_of_next_line = delim or lued_prompt(align_delimiter_selected_hist_id, "Enter string to align: ") or "="
   foreach_selected(align_delimiter_of_next_line, dd)
 end
 
@@ -765,7 +785,6 @@ end
 
 function char_left(n,dd)
   local n_is_nil = n == nil or n == 0
-  --print ("999", n, n_is_nil); io.ad()
   n = n or 1
   local dd2 = 1
   for i=1,n do
