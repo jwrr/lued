@@ -87,6 +87,7 @@ function set_ctrl_z_suspend (bool, dd)
     end
   end
   disp(dd)
+  return change
 end
 
 
@@ -2662,6 +2663,20 @@ function redo_cmd(dd)
   redo()
   disp(dd)
 end
+
+
+function alt_z_wrapper(dd)
+  local dd2 = 1;
+  if g_ctrl_z_suspend then
+    undo_cmd(dd2)
+  else
+    set_ctrl_z_suspend(true)
+  end
+  disp(dd)
+end
+
+
+
 
 function set_nameless_mark(dd)
   local dd2 = 1

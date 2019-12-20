@@ -103,8 +103,9 @@ alt_Up        = line_up -- Up23 moves up 23 lines
 alt_WW        = del_sow hot("WW")
 alt_x         = global_cut            hot("x")
 alt_y         = redo_cmd              hot("y")
-alt_z         = function() set_ctrl_z_suspend(true); undo_cmd() end  hot("z")
-alt_ZZ        = recenter hot("ZZ")
+alt_z         = alt_z_wrapper         hot("z")
+alt_ZZ        = recenter              hot("ZZ")
+
 
 alt__period_c   = toggle_ctrl_c_abort
 alt__period_ind = toggle_auto_indent
