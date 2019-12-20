@@ -457,6 +457,7 @@ function reindent(n,dd)
 end
 
 
+-- \brief Make next line's leading whitespace the same as current line's leading whitespace.
 function align_start_of_next_line(dd)
   local dd2 = 1
   local ws1,ws1_len = leading_ws()
@@ -475,8 +476,77 @@ function align_selected(dd)
 end
 
 
+-- \brief Align delimiter of next line with the same delimiter on current line
+function align_delimiter_of_next_line(delim, dd)
+  g_align_delimiter_of_next_line = g_align_delimiter_of_next_line or "="
+  delim = delim or "="
+  local dd2 = 1
+  local line = get_line()
+  local delim_pos1 = string.find( get_line(), g_align_delimiter_of_next_line, 1, true)
+  if delim_pos1 then
+    line_down(1,dd2)
+    local delim_pos2 = string.find( get_line(), g_align_delimiter_of_next_line, 1, true)
+    if delim_pos2 then
+      local r,c = get_cur_pos()
+      set_cur_pos(r,delim_pos2)
+      local delta = delim_pos1 - delim_pos2
+      if delta > 0 then
+        local ws = string.rep(" ", delta)
+        ins_str(ws, dd2)
+      elseif delta < 0 then
+        delta = -1 * delta
+        del_backspace(delta,dd2)
+      end
+    end
+  end
+  disp(dd)
+end
+
+
+-- \brief Align delimiter in selected region
+function align_delimiter_selected(delim, dd)
+  g_align_delimiter_of_next_line = delim
+  foreach_selected(align_delimiter_of_next_line, dd)
+end
+
+
 -- \brief Align delimiter in selected region
 function align_delimiter(align_delim,dd)
+  align_delim = align_delim or ":"
+  g_indent_char = g_indent_char or " "
+  g_indent_size = g_indent_size or 4
+  local dd2 = 1
+  local initial_row,initial_col = get_cur_pos()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local something_selected = sel_state~=0;
+
+  if something_selected then
+    set_sel_off()
+    set_cur_pos(sel_sr+1,1)
+    local delim_found,r,align_col = find_str(align_delim)
+    if delim_found and r==sel_sr+1 then
+      for row=sel_sr+1,sel_er do
+        set_cur_pos(row,1)
+        local f,r,c = find_str(delimiter,dd2)
+        if f and r==row and c<align_col then
+          local pad_size = align_col - c
+          local pad_str = string.rep(' ',pad_size)..align_delim
+          ins_string(pad_str,dd2)
+        end
+      end
+      set_cur_pos(initial_row,initial_col)
+    end
+    set_cur_pos(sel_sr+1,1)
+    set_sel_start()
+    set_cur_pos(sel_er+1,1)
+  end
+  disp(dd)
+end
+
+
+
+-- \brief Align delimiter in selected region
+function align_delimiterxxx(align_delim,dd)
   align_delim = align_delim or ":"
   g_indent_char = g_indent_char or " "
   g_indent_size = g_indent_size or 4

@@ -8,7 +8,8 @@
 --  set_hotkeys( ",Sn,Sp,sw,v,VV,w,y,x,z,")
 
 -- cc=comment, ii=indent, jj-join
-  set_repeatables(",alt_cc,alt_CC,alt_ff,alt_FF,alt_ii,alt_jj,alt_uu,")
+  set_repeatables(",alt_as,a:,,a=,a>,a<,a-,a;,a/,alt_cc,alt_CC,alt_ff,alt_FF,alt_ii,alt_jj,alt_uu,")
+
 -- set_repeatables(",,")
 --  set_non_repeatables(",alt_jj,")
 
@@ -27,15 +28,16 @@ alt__colon_w  = save_file               hot(":w")
 alt__gt_      = halfsy_right            hot(",>,")
 alt__lt_      = halfsy_left             hot(",<,")
 
+alt_aa        = align_delimiter_of_next_line          hot("aa") 
 alt_as        = align_selected          hot("as") 
-alt_a_colon_  = function() align_delimiter(":") end
-alt_a_comma_  = function() align_delimiter(",") end
-alt_a_equal_  = function() align_delimiter("=") end
-alt_a_gt_     = function() align_delimiter(">") end
-alt_a_lt_     = function() align_delimiter("<") end
-alt_a_minus_  = function() align_delimiter("-") end
-alt_a_semi_   = function() align_delimiter(";") end
-alt_a_slash_  = function() align_delimiter("/") end
+alt_a_colon_  = function() align_delimiter_selected(":") end hot("a:")
+alt_a_comma_  = function() align_delimiter_selected(",") end -- hot("a,")
+alt_a_equal_  = function() align_delimiter_selected("=") end hot("a=")
+alt_a_gt_     = function() align_delimiter_selected(">") end hot("a>")
+alt_a_lt_     = function() align_delimiter_selected("<") end hot("a<")
+alt_a_minus_  = function() align_delimiter_selected("-") end hot("a-")
+alt_a_semi_   = function() align_delimiter_selected(";") end hot("a;")
+alt_a_slash_  = function() align_delimiter_selected("/") end hot("a/")
 -- ================
 alt_bb        = toggle_bottom           hot("bb")
 alt_cc        = comment_selected        hot("cc")
