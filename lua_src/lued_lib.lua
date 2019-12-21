@@ -485,6 +485,29 @@ function align_selected(dd)
 end
 
 
+function replace_line(newline,dd)
+  newline = newline or ""
+  local dd2 = 1
+  local line = get_line() or ""
+  if newline ~= line then
+    sol_classic(dd2)
+    ins_str(newline,dd2);
+    del_eol(dd2);
+  end
+  disp(dd)
+end
+
+
+function get_next_line()
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  set_cur_pos(r+1,c)
+  local next_line = get_line()
+  set_cur_pos(r,c)
+  return next_line
+end
+
+
 -- \brief Align delimiter of next line with the same delimiter on current line
 function align_delimiter_of_next_line(delim, dd)
   g_align_delimiter_of_next_line = g_align_delimiter_of_next_line or "="
@@ -528,75 +551,6 @@ function align_delimiter_selected(delim, dd)
   align_delimiter_selected_hist_id = align_delimiter_selected_hist_id or get_hist_id()
   g_align_delimiter_of_next_line = delim or lued_prompt(align_delimiter_selected_hist_id, "Enter string to align: ") or "="
   foreach_selected(align_delimiter_of_next_line, dd)
-end
-
-
--- \brief Align delimiter in selected region
-function align_delimiter(align_delim,dd)
-  align_delim = align_delim or ":"
-  g_indent_char = g_indent_char or " "
-  g_indent_size = g_indent_size or 4
-  local dd2 = 1
-  local initial_row,initial_col = get_cur_pos()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
-  local something_selected = sel_state~=0;
-
-  if something_selected then
-    set_sel_off()
-    set_cur_pos(sel_sr+1,1)
-    local delim_found,r,align_col = find_str(align_delim)
-    if delim_found and r==sel_sr+1 then
-      for row=sel_sr+1,sel_er do
-        set_cur_pos(row,1)
-        local f,r,c = find_str(delimiter,dd2)
-        if f and r==row and c<align_col then
-          local pad_size = align_col - c
-          local pad_str = string.rep(' ',pad_size)..align_delim
-          ins_string(pad_str,dd2)
-        end
-      end
-      set_cur_pos(initial_row,initial_col)
-    end
-    set_cur_pos(sel_sr+1,1)
-    set_sel_start()
-    set_cur_pos(sel_er+1,1)
-  end
-  disp(dd)
-end
-
-
-
--- \brief Align delimiter in selected region
-function align_delimiterxxx(align_delim,dd)
-  align_delim = align_delim or ":"
-  g_indent_char = g_indent_char or " "
-  g_indent_size = g_indent_size or 4
-  local dd2 = 1
-  local initial_row,initial_col = get_cur_pos()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
-  local something_selected = sel_state~=0;
-
-  if something_selected then
-    set_sel_off()
-    set_cur_pos(sel_sr+1,1)
-    local delim_found,r,align_col = find_str(align_delim)
-    if delim_found and r==sel_sr+1 then
-      for row=sel_sr+1,sel_er do
-        set_cur_pos(row,1)
-        local f,r,c = find_str(delimiter,dd2)
-        if f and r==row and c<align_col then
-          local pad_size = align_col - c
-          local pad_str = string.rep(' ',pad_size)..align_delim
-          ins_string(pad_str,dd2)
-        end
-      end
-      set_cur_pos(initial_row,initial_col)
-    end
-    set_cur_pos(sel_sr+1,1)
-    set_sel_start()
-    set_cur_pos(sel_er+1,1)
-  end
-  disp(dd)
 end
 
 
