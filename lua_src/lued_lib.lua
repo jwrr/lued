@@ -559,7 +559,7 @@ function reindent_selected(dd)
   g_indent_size = g_indent_size or 4
   local dd2 = 1
   local initial_row,initial_col = get_cur_pos()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel() -- TESTME reindent_selected
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local something_selected = sel_state~=0;
 
   if something_selected then
@@ -697,7 +697,7 @@ function display_status_in_lua(lua_mode)
   local row,col = get_cur_pos()
   local trow,tcol = get_termsize()
   
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()  -- TESTME display_status
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   
   local stay_selected = ((row == sel_er) and (col == sel_ec)) or
                         ((row == sel_sr) and (col == sel_sc))
@@ -1213,7 +1213,7 @@ end
 
 
 function get_sel_str()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel() -- TESTME get_sel_str
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local sel_str = ""
   if sel_state~=0 then
     sel_str = get_str(sel_sr,sel_sc,sel_er,sel_ec)
@@ -2086,7 +2086,7 @@ end
 function indent_selected(dd)
   local dd2 = 1
   local initial_row,initial_col = get_cur_pos()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()  -- TESTME indent_selected
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local something_selected = sel_state~=0;
   g_indent_char = g_indent_char or " "
   if something_selected then
@@ -2109,7 +2109,7 @@ end
 function unindent_selected(dd)
   local dd2 = 1
   local initial_row,initial_col = get_cur_pos()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()  -- TESTME unindent_selected
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local something_selected = sel_state~=0;
   g_indent_char = g_indent_char or " "
   if something_selected then
@@ -2132,7 +2132,7 @@ end
 function ins_string(str, dd)
   local dd2 = 1
   local r,c = get_cur_pos()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel() -- TESTME ins_string
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local first_line = sel_sr<=1
   local inhibit_cr = sel_state~=0 and not first_line
   del_sel(dd2)
@@ -3073,7 +3073,7 @@ end
 function foreach_selected(fn, dd)
   local dd2 = 1
   if is_sel_on() then
-    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel() -- TESTME foreach_selected
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
     set_sel_off()
     set_cur_pos(sel_sr,1)
     local r,c = get_cur_pos()
