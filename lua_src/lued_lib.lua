@@ -559,7 +559,7 @@ function reindent_selected(dd)
   g_indent_size = g_indent_size or 4
   local dd2 = 1
   local initial_row,initial_col = get_cur_pos()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel() -- TESTME reindent_selected
   local something_selected = sel_state~=0;
 
   if something_selected then
@@ -570,7 +570,7 @@ function reindent_selected(dd)
     local indent_level = 0;
     local ws_len = ws1_len
 
-    for row=sel_sr+1,sel_er do
+    for row=sel_sr,sel_er-1 do
       set_cur_pos(row,1)
 --
       local ws2,ws2_len = leading_ws()
@@ -697,11 +697,7 @@ function display_status_in_lua(lua_mode)
   local row,col = get_cur_pos()
   local trow,tcol = get_termsize()
   
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
-  sel_sr = sel_sr + 1
-  sel_er = sel_er + 1
-  sel_sc = sel_sc + 1
-  sel_ec = sel_ec + 1
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()  -- TESTME display_status
   
   local stay_selected = ((row == sel_er) and (col == sel_ec)) or
                         ((row == sel_sr) and (col == sel_sc))
@@ -731,12 +727,12 @@ end
 
 
 function display_page_in_lua(lua_mode, highlight_trailing_spaces)
-  local row,col = get_page_pos()
+  local row,col = get_page_pos() -- FIXME -1 to adjust from c to lua
   local text = ""
   if g_first_time == nil then
-    text = get_page(row,highlight_trailing_spaces,1)
+    text = get_page(row-1,highlight_trailing_spaces,1)
   else
-    text = get_page(row,highlight_trailing_spaces,0)
+    text = get_page(row-1,highlight_trailing_spaces,0)
   end
   io.write (text)
 end
@@ -1217,15 +1213,11 @@ end
 
 
 function get_sel_str()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel() -- TESTME get_sel_str
   local sel_str = ""
   if sel_state~=0 then
     sel_str = get_str(sel_sr,sel_sc,sel_er,sel_ec)
   end
-  sel_sr = sel_sr + 1
-  sel_sc = sel_sc + 1
-  sel_er = sel_er + 1
-  sel_ec = sel_ec + 1
   return sel_str, sel_sr, sel_sc, sel_er, sel_ec
 end
 
@@ -2005,9 +1997,11 @@ end
 
 function del_backspace(n,dd)
   local dd2 = 1
-  local r,c = get_cur_pos()
-  if is_sel_off()==1 then
+  if is_sof() then
+    disp(dd)
+  elseif is_sel_off()==1 then
     n = n or 1
+    local r,c = get_cur_pos()
     char_left(n, dd2)
     set_sel_start()
     set_cur_pos(r,c)
@@ -2092,18 +2086,18 @@ end
 function indent_selected(dd)
   local dd2 = 1
   local initial_row,initial_col = get_cur_pos()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()  -- TESTME indent_selected
   local something_selected = sel_state~=0;
   g_indent_char = g_indent_char or " "
   if something_selected then
     set_sel_off()
-    for row=sel_sr+1,sel_er do
+    for row=sel_sr,sel_er-1 do
       set_cur_pos(row,1)
       ins_str(g_indent_char,dd2)
     end
-    set_cur_pos(sel_sr+1,sel_sc)
+    set_cur_pos(sel_sr,sel_sc)
     set_sel_start()
-    set_cur_pos(sel_er+1,sel_ec)
+    set_cur_pos(sel_er,sel_ec)
   else
     local goto_next_line = true
     indent1(g_indent_size, g_indent_char, goto_next_line, dd2)
@@ -2115,18 +2109,18 @@ end
 function unindent_selected(dd)
   local dd2 = 1
   local initial_row,initial_col = get_cur_pos()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()  -- TESTME unindent_selected
   local something_selected = sel_state~=0;
   g_indent_char = g_indent_char or " "
   if something_selected then
     set_sel_off()
-    for row=sel_sr+1,sel_er do
+    for row=sel_sr,sel_er-1 do
       set_cur_pos(row,1)
       del_char(1,dd2)
     end
-    set_cur_pos(sel_sr+1,sel_sc)
+    set_cur_pos(sel_sr,sel_sc)
     set_sel_start()
-    set_cur_pos(sel_er+1,sel_ec)
+    set_cur_pos(sel_er,sel_ec)
   else
     local goto_next_line = true
     unindent1(g_indent_size, g_indent_char, goto_next_line, dd2)
@@ -2138,8 +2132,9 @@ end
 function ins_string(str, dd)
   local dd2 = 1
   local r,c = get_cur_pos()
-  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
-  local inhibit_cr = sel_state~=0 and sel_sr>1
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel() -- TESTME ins_string
+  local first_line = sel_sr<=1
+  local inhibit_cr = sel_state~=0 and not first_line
   del_sel(dd2)
   if str == "\n" then
     if g_auto_indent==true and c~=1 then
@@ -2716,7 +2711,7 @@ function set_nameless_mark(dd)
   g_nameless_stack = g_nameless_stack + 1
   local r,c = get_cur_pos()
   sol_classic(dd2)
-  set_sel_start()
+  set_Gstart()
   eol(dd2)
   set_sel_end()
   disp()
@@ -3078,10 +3073,8 @@ end
 function foreach_selected(fn, dd)
   local dd2 = 1
   if is_sel_on() then
-    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel() -- TESTME foreach_selected
     set_sel_off()
-    sel_sr = sel_sr + 1
-    sel_er = sel_er + 1
     set_cur_pos(sel_sr,1)
     local r,c = get_cur_pos()
     while r<sel_er do

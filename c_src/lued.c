@@ -816,10 +816,10 @@ int lua_get_sel(lua_State* L) {
       get_sel(session_p, &sel_state, &sel_sr, &sel_sc, &sel_er, &sel_ec);
    }
    lua_pushnumber(L, sel_state);
-   lua_pushnumber(L, sel_sr);
-   lua_pushnumber(L, sel_sc);
-   lua_pushnumber(L, sel_er);
-   lua_pushnumber(L, sel_ec);
+   lua_pushnumber(L, sel_sr+1); // adjust from 0-based c to 1-based lua
+   lua_pushnumber(L, sel_sc+1);
+   lua_pushnumber(L, sel_er+1);
+   lua_pushnumber(L, sel_ec+1);
    return 5;
 }
 
@@ -1089,7 +1089,7 @@ int lua_get_str(lua_State* L) {
    uint32_t sc = lua_tonumber(L, 2);
    uint32_t er = lua_tonumber(L, 3);
    uint32_t ec = lua_tonumber(L, 4);
-   const char* str = get_str(LUED_SESSIONS, sr, sc, er, ec);
+   const char* str = get_str(LUED_SESSIONS, sr-1, sc-1, er-1, ec-1); // adjust from 1-based lua to 0-based c
    lua_pushstring(L, str);
    return 1;
 }
