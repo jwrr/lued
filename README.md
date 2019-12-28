@@ -267,7 +267,7 @@ Terminal Work-arounds
     <a href="https://bugs.kde.org/show_bug.cgi?id=151966">Konsole bug</a>.
 
 <a name="tbd"></a>
-TBD 
+TBD
 ---
 * alt__period_xxx - change sets to toggles
 * Column/Block Select, Cut, Copy, Move
@@ -286,3 +286,11 @@ TBD
 ** highlight mixing of tabs and spaces
 ** Syntax Highlighting (lpeg+scintillua lexers)
 ** Highlite closing brackets, parentheses
+** After Ctrl-Z, console's cut-n-paste has extraneous esc codes before and after the text.
+   Fix: change settings back-to normal. On first keypress change settings back to what Lued needs.
+** Save session. Option: with/without history.
+** Should each file tab be in its own process?
+** Change reindent_selected, indent_selected, unindent_selected to use foreach_selected
+
+
+ 

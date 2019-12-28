@@ -670,6 +670,71 @@ function get_yesno(prompt,default)
 end
 
 
+function esc_clear_screen()
+  local ESC = string.char(27)
+  local ESC_CLR_ALL  = ESC .. "[2J"
+  local ESC_GO_HOME  = ESC .. "[H"
+  io.write(ESC_CLR_ALL .. ESC_GO_HOME)
+end
+
+
+function esc_rev(str)
+  local ESC = string.char(27)
+  local ESC_REVERSE  = ESC .. "[7m"
+  local ESC_NORMAL   = ESC .. "[0m"
+  return ESC_REVERSE .. str .. ESC_NORMAL
+end
+
+
+function display_status_in_lua(lua_mode)
+
+  esc_clear_screen()
+  set_sel_end(0)
+  if not g_status_line_on then return end
+  local id = get_fileid()
+  local filename = get_filename(id)
+  local save_needed = is_modified()
+  local row,col = get_cur_pos()
+  local trow,tcol = get_termsize()
+  
+  local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+  sel_sr = sel_sr + 1
+  sel_er = sel_er + 1
+  sel_sc = sel_sc + 1
+  sel_ec = sel_ec + 1
+  
+  local stay_selected = ((row == sel_er) and (col == sel_ec)) or
+                        ((row == sel_sr) and (col == sel_sc))
+  if (not stay_selected) then
+    set_sel_off()
+  end
+
+  local mode_str = lua_mode and "LUA MODE" or "ED MODE"
+  local cmd_str = get_last_cmd() or ""
+  local max_cmd_len = 20
+  cmd_str = string.sub(cmd_str,1,max_cmd_len)
+  local pad_len = max_cmd_len - string.len(cmd_str);
+  cmd_str = cmd_str .. string.rep(" ",pad_len)
+
+  local save_str = save_needed and "*" or " "
+  local stay_selected_int = stay_selected and 1 or 0
+
+  local status_line = string.format(
+          "%s - LuEd File (%d) %s%s Line: %d, Col: %d, Sel: %d Cmd: %s - sr=%d sc=%d er=%d ec=%d, staysel=%d\n",
+          mode_str, id, filename, save_str, row, col, sel_state, cmd_str, sel_sr, sel_sc, sel_er, sel_ec, stay_selected_int);
+  status_line = string.sub(status_line,1,tcol);
+  
+  if g_status_line_reverse then
+    status_line = esc_rev(status_line)
+  end
+  
+  io.write(status_line)
+
+--   printf(ESC_REVERSE"%s"ESC_NORMAL, status_line);
+
+end
+
+
 function disp(dd,center)
    dd = dd or 0
    center = center or false
@@ -724,15 +789,13 @@ function disp(dd,center)
      g_command_count = g_command_count + 1
 
      if g_lua_mode == nil then return end
-     local show_trailing_spaces = 0;
-     if g_show_trailing_spaces then
-       show_trailing_spaces = 1
-     end
      local lua_mode = 0
      if g_lua_mode then
        lua_mode = 1
      end
-     display_screen(lua_mode,show_trailing_spaces)
+     display_status_in_lua(lua_mode)
+     -- display_status(lua_mode)
+     display_text(lua_mode,g_show_trailing_spaces)
    end
 end
 
@@ -1605,19 +1668,6 @@ function find_forward_selected(dd)
   end
   disp(dd)
   return found
-end
-
-
-function find_selected_OLD(dd)
-  local dd2 = 1
-  local str
-  if is_sel_off()==1 then
-    str = ""
-  else
-    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
-    str = get_str(sel_sr,sel_sc,sel_er,sel_ec)
-  end
-  find(str,dd)
 end
 
 
@@ -2890,28 +2940,6 @@ function copy_line(n,dd)
   else
     global_copy(dd)
   end
-end
-
-
-function copy_line2(dd)
-  local dd2 = 1
-  local r = get_cur_pos()
-  local sel_sr = r
-  set_cur_pos(r,1)
-  if is_sel_on() then
-    _,sel_sr = get_sel()
-    sel_sr = sel_sr + 1
-    set_cur_pos(sel_sr,1)
-  end
-  set_sel_start()
-  set_cur_pos(r+1,1)
-  set_sel_end()
-  global_copy(dd2)
-  set_cur_pos(sel_sr,1)
-  set_sel_start()
-  set_cur_pos(r+1,1)
-  set_sel_end()
-  disp(dd)
 end
 
 

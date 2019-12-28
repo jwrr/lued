@@ -667,6 +667,7 @@ int luedc_get_page(lued_t* l, uint32_t from_row, uint32_t num_rows,
    return dest_len;
 }
 
+
 char* get_page(uint32_t from_row, int highlight_trailing_spaces) {
    size_t num_row;
    size_t col;
@@ -768,7 +769,9 @@ static int set_sel_end(int update_state) {
 
 int lua_set_sel_end(lua_State* L) {
    if isNULL(L) return 0;
-   set_sel_end(1);
+   uint32_t num_arg = lua_gettop(L);
+   const int end_val = num_arg ? lua_tonumber(L,1) : 1;
+   set_sel_end(end_val);
    return 0;
 }
 
@@ -1511,9 +1514,7 @@ exit(0);
 }
 */
 
-static int display_screen(int lua_mode, int highlight_trailing_spaces) {
-
-
+static int display_status(int lua_mode) {
    uint32_t row, col;
    get_cur_pos(&row, &col);
    uint32_t id = get_fileid()+1; // +1 converts to lua
@@ -1556,6 +1557,21 @@ static int display_screen(int lua_mode, int highlight_trailing_spaces) {
    status_line[tcol] = '\0';
    printf(ESC_REVERSE"%s"ESC_NORMAL, status_line);
    printf("\n");
+   return 0;
+}
+
+
+static int lua_display_status(lua_State* L) {
+   int lua_mode = lua_tonumber(L,1);
+   int highlight_trailing_spaces = lua_tonumber(L,2);
+   display_status(lua_mode);
+   return 0;
+}
+
+
+static int display_text(int lua_mode, int highlight_trailing_spaces) {
+   uint32_t row, col;
+   get_cur_pos(&row, &col);   
    get_page_pos(&row, &col);
    char* text = get_page(row,highlight_trailing_spaces); // text must be freed
    printf("%s",text);
@@ -1564,12 +1580,14 @@ static int display_screen(int lua_mode, int highlight_trailing_spaces) {
    return 0;
 }
 
-static int lua_display_screen(lua_State* L) {
+
+static int lua_display_text(lua_State* L) {
    int lua_mode = lua_tonumber(L,1);
    int highlight_trailing_spaces = lua_tonumber(L,2);
-   display_screen(lua_mode,highlight_trailing_spaces);
+   display_text(lua_mode,highlight_trailing_spaces);
    return 0;
 }
+
 
 int file_exists(const char* filename)
 {
@@ -1672,7 +1690,8 @@ int lued_main (int argc, char** argv)
    lua_reg(L, lua_get_filename, "get_filename");
    lua_reg(L, lua_set_fileid, "set_fileid");
    lua_reg(L, lua_get_fileid, "get_fileid");
-   lua_reg(L, lua_display_screen, "display_screen");
+   lua_reg(L, lua_display_status, "display_status");
+   lua_reg(L, lua_display_text, "display_text");
    lua_reg(L, lua_clear_screen, "clear_screen");
    lua_reg(L, lua_find_str, "find_str");
    lua_reg(L, lua_is_sel_end, "is_sel_end");
