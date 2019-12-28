@@ -721,17 +721,24 @@ function display_status_in_lua(lua_mode)
 
   local status_line = string.format(
           "%s - LuEd File (%d) %s%s Line: %d, Col: %d, Sel: %d Cmd: %s - sr=%d sc=%d er=%d ec=%d, staysel=%d\n",
-          mode_str, id, filename, save_str, row, col, sel_state, cmd_str, sel_sr, sel_sc, sel_er, sel_ec, stay_selected_int);
-  status_line = string.sub(status_line,1,tcol);
-  
+          mode_str, id, filename, save_str, row, col, sel_state, cmd_str, sel_sr, sel_sc, sel_er, sel_ec, stay_selected_int)
+  status_line = string.sub(status_line,1,tcol)
   if g_status_line_reverse then
     status_line = esc_rev(status_line)
   end
-  
   io.write(status_line)
+end
 
---   printf(ESC_REVERSE"%s"ESC_NORMAL, status_line);
 
+function display_page_in_lua(lua_mode, highlight_trailing_spaces)
+  local row,col = get_page_pos()
+  local text = ""
+  if g_first_time == nil then
+    text = get_page(row,highlight_trailing_spaces,1)
+  else
+    text = get_page(row,highlight_trailing_spaces,0)
+  end
+  io.write (text)
 end
 
 
@@ -794,8 +801,9 @@ function disp(dd,center)
        lua_mode = 1
      end
      display_status_in_lua(lua_mode)
+     display_page_in_lua(lua_mode,g_show_trailing_spaces)
      -- display_status(lua_mode)
-     display_text(lua_mode,g_show_trailing_spaces)
+     -- display_text(lua_mode,g_show_trailing_spaces)
    end
 end
 
