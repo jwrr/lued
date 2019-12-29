@@ -60,10 +60,10 @@ SOFTWARE.
   g_search_all_files       = false -- Search all files. set by search_all_files, cleared by 
 
 dofile( g_lued_root .. "/lued_lib.lua" )
-dofile(g_bindings_file)
-load_plugins(g_lued_root .. "/plugins" )
+dofile( g_bindings_file)
+load_plugins( g_lued_root .. "/plugins" )
 
-if g_first_time == nil then
+-- if g_first_time == nil then
   local dd2 = 1
   set_ctrl_s_flow_control(false,dd2)
   set_ctrl_c_abort(false,dd2)
@@ -71,10 +71,10 @@ if g_first_time == nil then
   decset(1000)
   set_fileid(1,dd2)
 --  set_cur_pos(1,1)
-  mouse(0)
+  mouse_config(0)
 --  if g_show_help then help(1,0) end
-end
+-- end
 
 set_edit_mode(0)
-g_first_time = 1  -- this is really 'not first time'
 
+disp()

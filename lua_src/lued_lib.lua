@@ -690,7 +690,7 @@ function display_status_in_lua(lua_mode)
 
   esc_clear_screen()
   set_sel_end(0)
-  if not g_status_line_on then return end
+  -- if not g_status_line_on then return end
   local id = get_fileid()
   local filename = get_filename(id)
   local save_needed = is_modified()
@@ -727,13 +727,9 @@ end
 
 
 function display_page_in_lua(lua_mode, highlight_trailing_spaces)
+  display_status_in_lua(lua_mode)
   local row,col = get_page_pos() -- FIXME -1 to adjust from c to lua
-  local text = ""
-  if g_first_time == nil then
-    text = get_page(row-1,highlight_trailing_spaces,1)
-  else
-    text = get_page(row-1,highlight_trailing_spaces,0)
-  end
+  local text = get_page(row-1,highlight_trailing_spaces)
   io.write (text)
 end
 
@@ -796,7 +792,6 @@ function disp(dd,center)
      if g_lua_mode then
        lua_mode = 1
      end
-     display_status_in_lua(lua_mode)
      display_page_in_lua(lua_mode,g_show_trailing_spaces)
      -- display_status(lua_mode)
      -- display_text(lua_mode,g_show_trailing_spaces)
@@ -2755,7 +2750,7 @@ function decrst(val)
   io.write( csi .. "?" .. val .. "l" )
 end
 
-function mouse(val)
+function mouse_config(val)
   if val==nil then
     if g_decset==nil or g_decset==0 then
       val = 1000
@@ -2774,6 +2769,7 @@ function mouse(val)
   end
   g_decset = val;
 end
+
 
 function mouse_event(str)
   local dd2 = 0

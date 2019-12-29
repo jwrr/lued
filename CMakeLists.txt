@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 project(lued_prj)
 
+set (CMAKE_BUILD_TYPE Debug)
+
+
 SET(EXTERN_PATH ${CMAKE_BINARY_DIR}/extern)
 SET(INSTALL_PATH ${CMAKE_BINARY_DIR}/install)
 SET(EXE_PATH ${CMAKE_SOURCE_DIR})

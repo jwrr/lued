@@ -1514,7 +1514,7 @@ exit(0);
 }
 */
 
-static int display_status(int lua_mode) {
+static int display_status_depricated(int lua_mode) {
    uint32_t row, col;
    get_cur_pos(&row, &col);
    uint32_t id = get_fileid()+1; // +1 converts to lua
@@ -1561,15 +1561,15 @@ static int display_status(int lua_mode) {
 }
 
 
-static int lua_display_status(lua_State* L) {
+static int lua_display_statusx(lua_State* L) {
    int lua_mode = lua_tonumber(L,1);
    int highlight_trailing_spaces = lua_tonumber(L,2);
-   display_status(lua_mode);
+   display_status_depricated(lua_mode);
    return 0;
 }
 
 
-static int display_text(int lua_mode, int highlight_trailing_spaces) {
+static int display_text_depricated(int lua_mode, int highlight_trailing_spaces) {
    uint32_t row, col;
    get_cur_pos(&row, &col);   
    get_page_pos(&row, &col);
@@ -1581,10 +1581,10 @@ static int display_text(int lua_mode, int highlight_trailing_spaces) {
 }
 
 
-static int lua_display_text(lua_State* L) {
+static int lua_display_textx(lua_State* L) {
    int lua_mode = lua_tonumber(L,1);
    int highlight_trailing_spaces = lua_tonumber(L,2);
-   display_text(lua_mode,highlight_trailing_spaces);
+   display_text_depricated(lua_mode,highlight_trailing_spaces);
    return 0;
 }
 
@@ -1594,6 +1594,23 @@ int file_exists(const char* filename)
    FILE* fileid = fopen(filename, "r");
    if (fileid) fclose(fileid);
    return (fileid != NULL);
+}
+
+
+void lued_atstart() {
+   printf("%s",ESC_ALTSCREEN);
+   // printf("%s",ESC_MOUSEENABLE);
+   // printf("%s",ESC_MOUSETRACK); // only needed for 1001, 1002
+   printf("%s",ESC_PASTEON);
+}
+
+
+void lued_atexit() {
+   printf("\e[?1000l");
+   printf("%s",ESC_NORMSCREEN);
+   printf("%s",ESC_PASTEOFF);
+   raw_off();
+   system("stty sane");
 }
 
 
@@ -1635,113 +1652,33 @@ static int lued_args(int argc, char** argv, carr_t* dofile, carr_t* cmd, carr_t*
 }
 
 
-void lued_atexit() {
-   printf("\e[?1000l");
-   printf("%s",ESC_NORMSCREEN);
-   printf("%s",ESC_PASTEOFF);
-   raw_off();
-   system("stty sane");
-}
-
-int lued_main (int argc, char** argv)
-{
-   carr_t* arg_dofile = carrs_new();
-   carr_t* arg_cmd    = carrs_new();
-   carr_t* arg_linenumber = carrs_new();
-   int optind = lued_args(argc, argv, arg_dofile, arg_cmd, arg_linenumber);
-   // exit(0);
-
-   // const carr_t* cargs = carr_arg(argc, argv, "-d 1 -e 1 -l 1");
-
-
-   atexit(lued_atexit);
-   printf("%s",ESC_ALTSCREEN);
-   // printf("%s",ESC_MOUSEENABLE);
-   // printf("%s",ESC_MOUSETRACK); // only needed for 1001, 1002
-   printf("%s",ESC_PASTEON);
-
-   lua_State *L = luaL_newstate();
-   luaL_openlibs(L);
-
-   // lua_pushcfunction(L, set_color);
-   // lua_setglobal(L, "set_color");
-   // lua_reg(L, lua_set_color, "set_color");
-
-
-   // Define the LUED API
-   lua_reg(L, lua_lued_open, "lued_open");
-   lua_reg(L, lua_reopen, "reopen");
-   lua_reg(L, lua_get_numchar, "get_numchar");
-   lua_reg(L, lua_get_numlines, "get_numlines");
-   lua_reg(L, lua_get_numsessions, "get_numsessions");
-   lua_reg(L, lua_set_mark, "set_mark");
-   lua_reg(L, lua_goto_mark, "goto_mark");
-   lua_reg(L, lua_get_page, "get_page");
-   lua_reg(L, lua_set_cur_pos, "set_cur_pos");
-   lua_reg(L, lua_get_cur_pos, "get_cur_pos");
-   lua_reg(L, lua_get_last_cmd, "get_last_cmd");
-   lua_reg(L, lua_get_line, "get_line");
-   lua_reg(L, lua_get_line_len, "get_line_len");
-   lua_reg(L, lua_set_page_pos, "set_page_pos");
-   lua_reg(L, lua_get_page_pos, "get_page_pos");
-   lua_reg(L, lua_set_page_offset, "set_page_offset");
-   lua_reg(L, lua_get_termsize, "get_termsize");
-   lua_reg(L, lua_set_filename, "set_filename");
-   lua_reg(L, lua_get_filename, "get_filename");
-   lua_reg(L, lua_set_fileid, "set_fileid");
-   lua_reg(L, lua_get_fileid, "get_fileid");
-   lua_reg(L, lua_display_status, "display_status");
-   lua_reg(L, lua_display_text, "display_text");
-   lua_reg(L, lua_clear_screen, "clear_screen");
-   lua_reg(L, lua_find_str, "find_str");
-   lua_reg(L, lua_is_sel_end, "is_sel_end");
-   lua_reg(L, lua_is_sel_off, "is_sel_off");
-   lua_reg(L, lua_set_sel, "set_sel");
-   lua_reg(L, lua_set_sel_start, "set_sel_start");
-   lua_reg(L, lua_set_sel_end, "set_sel_end");
-   lua_reg(L, lua_set_sel_off, "set_sel_off");
-   lua_reg(L, lua_get_sel, "get_sel");
-   lua_reg(L, lua_delete_selected, "delete_selected"); // undo-able
-   lua_reg(L, lua_insert_str, "insert_str"); // undo-able
-   lua_reg(L, lua_get_char, "get_char");
-   lua_reg(L, lua_set_hotkeys, "set_hotkeys");
-   lua_reg(L, lua_get_hotkeys, "get_hotkeys");
-   lua_reg(L, lua_set_repeatables, "set_repeatables");
-   lua_reg(L, lua_get_repeatables, "get_repeatables");
-   lua_reg(L, lua_set_non_repeatables, "set_non_repeatables");
-   lua_reg(L, lua_get_non_repeatables, "get_non_repeatabless");
-   lua_reg(L, lua_save_session, "save_session");
-   lua_reg(L, lua_is_modified, "is_modified");
-   lua_reg(L, lua_get_str, "get_str");
-   lua_reg(L, lua_set_paste, "set_paste");
-   lua_reg(L, lua_get_paste, "get_paste");
-   lua_reg(L, lua_close_session, "close_session");
-   lua_reg(L, lua_undo, "undo");
-   lua_reg(L, lua_redo, "redo");
-   lua_reg(L, lua_is_file_modified, "is_file_modified");
-   lua_reg(L, lua_set_show_line_numbers, "set_show_line_numbers");
-   lua_reg(L, lua_io_read, "io_read");
+static carr_t* lued_init_sessions(int argc, char* argv[], int optind) {
 
    // Open all of the files listed on the command line.
    // Open untitled file if no arguments listed
-   LUED_SESSIONS = carr_new(0, sizeof(lued_t*));
+   carr_t* all_sessions = carr_new(0, sizeof(lued_t*));
 
    if (optind >= argc) { // (argc <= 1) {
-      lued_open(LUED_SESSIONS,"untitled_0.txt");
-   }
+      lued_open(all_sessions,"untitled_0.txt");
+   } else {
 
-   //   for (int i = 1; i < argc; i++) {
-   for (int i = optind; i < argc; i++) {
-      // printf("argv[%d] = '%s'\n", i, argv[i]);
-      lued_open(LUED_SESSIONS,argv[i]);
-   }
+      //   for (int i = 1; i < argc; i++) {
+      for (int i = optind; i < argc; i++) {
+         // printf("argv[%d] = '%s'\n", i, argv[i]);
+         lued_open(all_sessions,argv[i]);
+      }
+  }
+  return all_sessions;
+}
 
-   #define STRLEN 512
+
+#define STRLEN 512
+bool find_script (char* script_path, int maxlen) {
    char* home = getenv("HOME");
-   char lued_paths[5][STRLEN];
+   char lued_paths[5][maxlen];
    
    // look in the current directory for lued.lua
-   safe_strncpy(lued_paths[0], "./lued.lua", STRLEN);
+   safe_strncpy(lued_paths[0], "./lued.lua", maxlen);
    
    // look in home for lued.lua
    sprintf(lued_paths[1], "%s/lued.lua", home);
@@ -1753,48 +1690,150 @@ int lued_main (int argc, char** argv)
    lued_paths[3][0] = '\0';
 
    printf("Searching for lued.lua...\n");
-   int i = 0;
-   for (i = 0; lued_paths[i][0]; i++) {
-      if (file_exists(lued_paths[i])) break;
+   bool script_found = 0;
+   script_path[0] = '\0';
+   for (int i = 0; lued_paths[i][0]; i++) {
+      if (file_exists(lued_paths[i])) {
+         script_found = 1;
+         safe_strncpy(script_path, lued_paths[i], maxlen);
+         break;
+      }
    }
+   
+   if isFALSE(script_found) {
+      printf("Error - could not find lued.lua in current, home, or ~/.lued\n");
+   }
+   
+   return script_found;
+}
+
+
+lua_State* lued_reg () {
+  lua_State *L = luaL_newstate();
+  luaL_openlibs(L);
+
+  // lua_pushcfunction(L, set_color);
+  // lua_setglobal(L, "set_color");
+  // lua_reg(L, lua_set_color, "set_color");
+
+
+  // Define the LUED API
+  lua_reg(L, lua_lued_open, "lued_open");
+  lua_reg(L, lua_reopen, "reopen");
+  lua_reg(L, lua_get_numchar, "get_numchar");
+  lua_reg(L, lua_get_numlines, "get_numlines");
+  lua_reg(L, lua_get_numsessions, "get_numsessions");
+  lua_reg(L, lua_set_mark, "set_mark");
+  lua_reg(L, lua_goto_mark, "goto_mark");
+  lua_reg(L, lua_get_page, "get_page");
+  lua_reg(L, lua_set_cur_pos, "set_cur_pos");
+  lua_reg(L, lua_get_cur_pos, "get_cur_pos");
+  lua_reg(L, lua_get_last_cmd, "get_last_cmd");
+  lua_reg(L, lua_get_line, "get_line");
+  lua_reg(L, lua_get_line_len, "get_line_len");
+  lua_reg(L, lua_set_page_pos, "set_page_pos");
+  lua_reg(L, lua_get_page_pos, "get_page_pos");
+  lua_reg(L, lua_set_page_offset, "set_page_offset");
+  lua_reg(L, lua_get_termsize, "get_termsize");
+  lua_reg(L, lua_set_filename, "set_filename");
+  lua_reg(L, lua_get_filename, "get_filename");
+  lua_reg(L, lua_set_fileid, "set_fileid");
+  lua_reg(L, lua_get_fileid, "get_fileid");
+//  lua_reg(L, lua_display_status, "display_status");
+//  lua_reg(L, lua_display_text, "display_text");
+  lua_reg(L, lua_clear_screen, "clear_screen");
+  lua_reg(L, lua_find_str, "find_str");
+  lua_reg(L, lua_is_sel_end, "is_sel_end");
+  lua_reg(L, lua_is_sel_off, "is_sel_off");
+  lua_reg(L, lua_set_sel, "set_sel");
+  lua_reg(L, lua_set_sel_start, "set_sel_start");
+  lua_reg(L, lua_set_sel_end, "set_sel_end");
+  lua_reg(L, lua_set_sel_off, "set_sel_off");
+  lua_reg(L, lua_get_sel, "get_sel");
+  lua_reg(L, lua_delete_selected, "delete_selected"); // undo-able
+  lua_reg(L, lua_insert_str, "insert_str"); // undo-able
+  lua_reg(L, lua_get_char, "get_char");
+  lua_reg(L, lua_set_hotkeys, "set_hotkeys");
+  lua_reg(L, lua_get_hotkeys, "get_hotkeys");
+  lua_reg(L, lua_set_repeatables, "set_repeatables");
+  lua_reg(L, lua_get_repeatables, "get_repeatables");
+  lua_reg(L, lua_set_non_repeatables, "set_non_repeatables");
+  lua_reg(L, lua_get_non_repeatables, "get_non_repeatabless");
+  lua_reg(L, lua_save_session, "save_session");
+  lua_reg(L, lua_is_modified, "is_modified");
+  lua_reg(L, lua_get_str, "get_str");
+  lua_reg(L, lua_set_paste, "set_paste");
+  lua_reg(L, lua_get_paste, "get_paste");
+  lua_reg(L, lua_close_session, "close_session");
+  lua_reg(L, lua_undo, "undo");
+  lua_reg(L, lua_redo, "redo");
+  lua_reg(L, lua_is_file_modified, "is_file_modified");
+  lua_reg(L, lua_set_show_line_numbers, "set_show_line_numbers");
+  lua_reg(L, lua_io_read, "io_read");
+  return L;
+}
+
+
+int lued_main (int argc, char** argv)
+{
+   lued_atstart();
+   atexit(lued_atexit);
+
+   lua_State *L = lued_reg();
+
+   char script_path[STRLEN];
+   const bool script_found = find_script(script_path, STRLEN);
 
    // Run lued.lua.  If error then print diagnostic message and abort
-   int err = luaL_dofile (L, lued_paths[i]);
+   const int err = luaL_dofile (L, script_path);
    if (err) {
-     fprintf(stderr,"\nERROR %d: luaL_dofile(L,%s);\n",err,lued_paths[i]);
+     fprintf(stderr,"\nERROR %d: luaL_dofile(L,%s);\n", err, script_path);
      fprintf(stderr,"Error: %s\n", lua_tostring(L,-1));
      fprintf(stderr,"EXITING LUED\n\nPress <Enter> to exit");
      getchar();
      return 1;
    }
 
+   carr_t* arg_dofile = carrs_new();
+   carr_t* arg_cmd    = carrs_new();
+   carr_t* arg_linenumber = carrs_new();
+   const int optind = lued_args(argc, argv, arg_dofile, arg_cmd, arg_linenumber);
+   // const carr_t* cargs = carr_arg(argc, argv, "-d 1 -e 1 -l 1");
+   LUED_SESSIONS = lued_init_sessions(argc, argv, optind);
+
    // Run lua dofile if specified on command line
    if (*(arg_dofile->arr)) {
-      char lua_cmd[512];
+      char lua_cmd[STRLEN];
       sprintf(lua_cmd, "%s",arg_dofile->arr);
-      int err = luaL_dofile(L,lua_cmd);
-      if (err) {fprintf(stderr,"Error2: luaL_dofile(L,%s);\n",lua_cmd); getchar();}
+      const int err = luaL_dofile(L,lua_cmd);
+      if (err) { fprintf(stderr, "Error2: luaL_dofile(L,%s);\n", lua_cmd); getchar(); }
    }
 
    // Run lua command if specified on command line
    if (*(arg_cmd->arr)) {
-      char lua_cmd[512];
+      char lua_cmd[STRLEN];
       sprintf(lua_cmd, "%s\n",arg_cmd->arr);
-      int err = luaL_dostring(L,lua_cmd);
-      if (err) fprintf(stderr,"Error: luaL_dostring(L,%s);\n",lua_cmd);
+      const int err = luaL_dostring(L, lua_cmd);
+      if (err) fprintf(stderr, "Error: luaL_dostring(L,%s);\n", lua_cmd);
    }
    
    // Goto linenumber if specified on command line
    if (*(arg_linenumber->arr)) {
-      char lua_cmd[512];
+      char lua_cmd[STRLEN];
       sprintf(lua_cmd, "goto_line(%s)\n",arg_linenumber->arr);
-      int err = luaL_dostring(L,lua_cmd);
-      if (err) fprintf(stderr,"Error: luaL_dostring(L,%s);\n",lua_cmd);
+      const int err = luaL_dostring(L, lua_cmd);
+      if (err) fprintf(stderr, "Error: luaL_dostring(L,%s);\n", lua_cmd);
+   }
+
+   {
+      char lua_cmd[STRLEN];
+      sprintf(lua_cmd, "first_line()\n");
+      const int err = luaL_dostring(L, lua_cmd);
+      if (err) fprintf(stderr, "Error: luaL_dostring(L,%s);\n", lua_cmd);
    }
 
    // Turn on raw keyboard entry allowing most keystrokes to get to LUED
    raw_on();
-
 
    // After the above initialization, LUED runs entirely from the lua interpreter
    char* no_argv[1];
@@ -1803,7 +1842,7 @@ int lued_main (int argc, char** argv)
 
    // Return screen to normal mode when user exits LUED
    raw_off();
-   printf("%s",ESC_NORMSCREEN);
+   printf("%s", ESC_NORMSCREEN);
 
    lua_close(L);
    return 0;
