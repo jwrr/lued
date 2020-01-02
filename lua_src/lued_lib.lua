@@ -1933,6 +1933,26 @@ function del_eow(dd)
   cut(dd)
 end
 
+-- spaces from cursor to start of next word.  If cursor is not over a space then
+-- go to next line and then delete the spaces.
+function del_spaces(dd)
+  local dd2 = 1
+  if not is_space() then
+    line_down(1,dd2)
+  end
+  local r,c = get_cur_pos()
+  set_sel_start()
+  skip_spaces(dd2)
+  set_sel_end()
+--  set_cur_pos(r,c)
+  cut(dd)
+end
+
+
+function del_spaces_selected(dd)
+  foreach_selected(del_spaces, dd)
+end
+
 
 function del_word(n,dd)
   local dd2 = 1
@@ -1987,6 +2007,21 @@ function cut_line(n,dd)
   else
     global_cut(dd)
   end  
+end
+
+
+function paste_line_before(dd)
+  local dd2 = 1
+  sol_classic(dd2)
+  global_paste(dd)
+end
+    
+
+function paste_line_after(dd)
+  local dd2 = 1
+  line_down(dd2)
+  paste_line_before(dd2)
+  line_up(dd)
 end
 
 
@@ -2198,24 +2233,76 @@ function insert_cr_after(dd)
 end
 
 
-function move_line_up(dd)
+function swap_line_with_prev(dd)
   local dd2 = 1
   cut_line(1,dd2)
   line_up(1,dd2)
-  sol_classic(dd2)
-  paste(dd2)
-  sol_classic(dd2)
+  paste_line_before(dd)
+end
+
+
+function swap_line_with_next(dd)
+  local dd2 = 1
+  cut_line(1,dd2)
+  line_down(1,dd2)
+  paste_line_before(dd2)
+  line_up(2,dd)
+end
+
+
+function bubble_line_up(dd)
+  local dd2 = 1
+  swap_line_with_prev(dd2)
   line_up(1,dd)
 end
 
 
-function move_line_down(dd)
+function set_sel_from_to(sel_sr,sel_sc,sel_er,sel_ec,dd)
   local dd2 = 1
-  cut_line(1,dd2)
-  line_down(1,dd2)
-  sol_classic(dd2)
-  paste(dd2)
-  line_up(1,dd)
+  set_cur_pos(sel_sr,sel_sc)
+  set_sel_start()
+  set_cur_pos(sel_er,sel_ec)
+  set_sel_end()
+  disp(dd)
+end
+
+
+function bubble_selected_lines_up(dd)
+  local dd2 = 1
+  if is_sel_on() then
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+    if sel_sr > 1 then
+      global_cut(dd2)
+      line_up(1,dd2)
+      paste_line_before(dd)
+      set_sel_from_to(sel_sr-1, 1, sel_er-1, 1, dd)
+    end
+    disp(dd)
+  else
+    bubble_line_up(dd)
+  end
+end
+
+
+function bubble_line_down(dd)
+  local dd2 = 1
+  swap_line_with_next(dd2)
+  line_down(1,dd)
+end
+
+
+function bubble_selected_lines_down(dd)
+  local dd2 = 1
+  if is_sel_on() then
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+    global_cut(dd2)
+    line_down(1,dd2)
+    paste_line_before(dd)
+    set_sel_from_to(sel_sr+1, 1, sel_er+1, 1, dd)
+    disp(dd)
+  else
+    bubble_line_down(dd)
+  end
 end
 
 
@@ -2706,7 +2793,7 @@ function set_nameless_mark(dd)
   g_nameless_stack = g_nameless_stack + 1
   local r,c = get_cur_pos()
   sol_classic(dd2)
-  set_Gstart()
+  set_start()
   eol(dd2)
   set_sel_end()
   disp()
@@ -3066,20 +3153,30 @@ function wrap_line(wrap_col,wrap_delim,dd)
 end
 
 
+--  foreach_selected(align_start_of_next_line, dd)
+--  foreach_selected(align_delimiter_of_next_line, dd)
+--  foreach_selected(del_spaces, dd)
+--  foreach_selected(bubble_line_up,dd)
+--  foreach_selected(comment, dd)
+--  foreach_selected(uncomment, dd)
+
+
 function foreach_selected(fn, dd)
   local dd2 = 1
   if is_sel_on() then
-    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
-    set_sel_off()
-    set_cur_pos(sel_sr,1)
     local r,c = get_cur_pos()
-    while r<sel_er do
+    set_sel_off()
+    set_cur_pos(sel_sr,c)
+    local r,c = get_cur_pos()
+    local r_last = sel_er
+    while r<r_last do
+      set_cur_pos(r,c)
       fn(dd2)
-      r,c = get_cur_pos()
+      r = r + 1
     end
-    set_cur_pos(sel_sr,1)
+    set_cur_pos(sel_sr,c)
     set_sel_start()
-    set_cur_pos(sel_er,1)
+    set_cur_pos(sel_er,c)
   else
     fn(dd2)
   end
