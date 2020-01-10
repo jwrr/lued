@@ -335,7 +335,7 @@ function remove_trailing_spaces(next_row,next_col,force,dd)
     local numlines = get_numlines()
     if next_row > numlines then
       next_row = numlines
-      eol(dd2);
+      move_to_eol(dd2);
     end
     if (next_row ~= row) then
       saved_line = get_line()
@@ -471,7 +471,7 @@ function align_start_of_next_line(dd)
   local dd2 = 1
   local ws1,ws1_len = leading_ws()
   move_down_n_lines(1,dd2)
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   local ws2,ws2_len = leading_ws()
   del_char(ws2_len,dd2)
   ins_str(ws1,dd2)
@@ -490,7 +490,7 @@ function replace_line(newline,dd)
   local dd2 = 1
   local line = get_line() or ""
   if newline ~= line then
-    sol_classic(dd2)
+    move_to_sol_classic(dd2)
     ins_str(newline,dd2);
     del_eol(dd2);
   end
@@ -807,7 +807,7 @@ function move_left_n_char(n,dd)
     if is_sof() then break end
     if is_sol() then
       move_up_n_lines(1,dd2)
-      if not is_eol() then eol(dd2) end
+      if not is_eol() then move_to_eol(dd2) end
     else
       local r,c = get_cur_pos()
       local len = get_line_len()
@@ -849,7 +849,7 @@ function move_right_n_char(n,dd)
     if is_eof() then break end
     if is_eol() then
       move_down_n_lines(1,dd2)
-      sol_classic(dd2)
+      move_to_sol_classic(dd2)
     else
       local r,c = get_cur_pos()
       c = c + 1
@@ -911,14 +911,14 @@ function halfsy_right(dd)
 end
 
 
-function word_left(n,dd)
+function move_left_n_words(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
     if is_sof() then break end
     if is_sol() then
       move_up_n_lines(1,dd2)
-      eol(dd2)
+      move_to_eol(dd2)
       break
     end
     local line = get_line()
@@ -978,13 +978,13 @@ function skip_spaces(dd)
 end
 
 
-function word_right(n,dd)
+function move_right_n_words(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
     if is_eol() then
       move_down_n_lines(1, dd2)
-      sol(dd2)
+      move_to_sol(dd2)
     else
       skip_word(dd2)
       move_right_n_char(1,dd2)
@@ -1014,14 +1014,14 @@ function get_pagesize()
 end
 
 
-function page_up(n,dd)
+function move_up_n_pages(n,dd)
   n = n or 1
   local pagesize = get_pagesize()
   move_up_n_lines(n*pagesize,dd)
 end
 
 
-function page_down(n,dd)
+function move_down_n_pages(n,dd)
   n = n or 1
   local pagesize = get_pagesize()
   move_down_n_lines(n*pagesize, dd)
@@ -1090,7 +1090,7 @@ function move_to_first_line(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   move_up_n_lines(r-1,dd2)
-  sol_classic(dd)
+  move_to_sol_classic(dd)
 end
 first_line = move_to_first_line
 
@@ -1108,7 +1108,7 @@ function move_to_last_line(dd)
   end
   move_down_n_lines(r2,dd2)
   move_to_line(lastline, dd2)
-  eol(dd)
+  move_to_eol(dd)
 end
 
 
@@ -1130,24 +1130,24 @@ function toggle_bottom(dd)
 end
 
 
-function sol_classic(dd)
+function move_to_sol_classic(dd)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
   disp(dd)
 end
 
 
-function sol(dd)
+function move_to_sol(dd)
   local dd2 = 1
   if not is_sof() then
     if is_sol() then
       move_up_n_lines(1,dd2)
       if not is_eol() then
-        eol(dd2)
+        move_to_eol(dd2)
       end
     end
     local r,c = get_cur_pos()
-    sol_classic(dd2)
+    move_to_sol_classic(dd2)
     skip_spaces(dd2)
     local r2,c2 = get_cur_pos()
     if (c2 == c) then set_cur_pos(r,1) end
@@ -1156,7 +1156,7 @@ function sol(dd)
 end
 
 
-function eol(dd)
+function move_to_eol(dd)
   local dd2 = 1
   if not is_eof() then
     if is_eol() then
@@ -1641,7 +1641,7 @@ function search_all_files(str,dd)
     if session_id == start_session then break end
     local r,c = get_cur_pos()
     move_to_first_line(dd2)
-    sol_classic(dd2)
+    move_to_sol_classic(dd2)
     match = find_forward(g_find_str,true,true,false,test_str,dd2)
     if not match then -- restore cur_pos
       set_cur_pos(r,c)
@@ -1695,9 +1695,9 @@ function word_start(dd)
   local r,c = get_cur_pos()
   local line = get_line()
   if is_space(line,c) then
-    word_right(1,dd)
+    move_right_n_words(1,dd)
   elseif not is_sow(line,c) then
-    word_left(1,dd)
+    move_left_n_words(1,dd)
   else
     disp(dd)
   end
@@ -1725,7 +1725,7 @@ function sel_word(dd)
     if is_blankline() then
       move_down_n_lines(1,dd2)
     end
-    word_right(1, dd2)
+    move_right_n_words(1, dd2)
   end
   skip_variable(dd2)
   disp(dd)
@@ -1782,7 +1782,7 @@ end
 
 function sel_eol(dd)
   set_sel_start()
-  eol(dd)
+  move_to_eol(dd)
 end
 
 
@@ -1958,6 +1958,7 @@ function del_eow(dd)
   cut(dd)
 end
 
+
 -- spaces from cursor to start of next word.  If cursor is not over a space then
 -- go to next line and then delete the spaces.
 function del_spaces(dd)
@@ -2037,7 +2038,7 @@ end
 
 function paste_line_before(dd)
   local dd2 = 1
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   global_paste(dd)
 end
     
@@ -2073,7 +2074,7 @@ function del_backword(n,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   set_sel_start()
-  word_left(n,dd2)
+  move_left_n_words(n,dd2)
   set_sel_end()
   set_cur_pos(r,c)
   del_sel(dd)
@@ -2092,7 +2093,7 @@ function indent1(n, ch, goto_next, dd)
   ins_str(spaces,dd2)
   if goto_next then
     move_down_n_lines(1,dd2)
-    sol_classic(dd2)
+    move_to_sol_classic(dd2)
   else
     set_cur_pos(r,c+n)
   end
@@ -2112,7 +2113,7 @@ function unindent1(n, ch, goto_next, dd)
   del_char(n,dd2)
   if goto_next then
     move_down_n_lines(1,dd2)
-    sol_classic(dd2)
+    move_to_sol_classic(dd2)
   else
     set_cur_pos(r,c-n)
   end
@@ -2244,7 +2245,7 @@ end
 
 function insert_cr_before(dd)
   local dd2 = 1
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   ins_str("\n",dd2)
   move_up_n_lines(1,dd2)
   indent(dd)
@@ -2253,7 +2254,7 @@ end
 
 function insert_cr_after(dd)
   local dd2 = 1
-  if not is_eol() then eol(dd2) end
+  if not is_eol() then move_to_eol(dd2) end
   ins_str("\n",dd)
 end
 
@@ -2817,9 +2818,9 @@ function set_nameless_mark(dd)
   set_mark("nameless_" .. g_nameless_stack)
   g_nameless_stack = g_nameless_stack + 1
   local r,c = get_cur_pos()
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   set_start()
-  eol(dd2)
+  move_to_eol(dd2)
   set_sel_end()
   disp()
   set_nameless_mark_hist_id = set_nameless_mark_hist_id or get_hist_id()
@@ -3040,14 +3041,14 @@ function copy_line(n,dd)
   n = n or 1
   local dd2 = 1
   if is_sel_off()==1 then
-    sol_classic(dd2)
+    move_to_sol_classic(dd2)
     local r1,c1 = get_cur_pos()
     set_sel_start()
     move_down_n_lines(n,dd)
     local r2,c2 = get_cur_pos()
 --    set_sel_end()
     global_copy(dd)
---    sol_classic(dd)
+--    move_to_sol_classic(dd)
   else
     global_copy(dd)
   end
@@ -3100,7 +3101,8 @@ function select_tab(filter)
       select_tab_hist_id = select_tab_hist_id or get_hist_id()
       new_id = lued_prompt(select_tab_hist_id, "Enter File Id Number: ",hot)
       if new_id==nil or new_id=="" then
-        new_id = id
+        tab_toggle(dd)
+        return
       end
       local new_id_int = tonumber(new_id)
       if new_id_int==nil then
@@ -3150,7 +3152,7 @@ function join_lines(delim,n,dd)
   for i=1,n do
     local r,c = get_cur_pos()
     if not is_eol() then
-      eol(dd2)
+      move_to_eol(dd2)
     end
     del_char(dd2)
     ins_str(delim,dd2);
@@ -3164,10 +3166,10 @@ function wrap_line(wrap_col,wrap_delim,dd)
   wrap_col = wrap_col or 60
   wrap_delim = wrap_delim or " "
   local dd2 = 1
-  eol(dd2)
+  move_to_eol(dd2)
   local r,c = get_cur_pos()
   while c > wrap_col do
-    word_left(dd2)
+    move_left_n_words(dd2)
     r,c = get_cur_pos()
   end
   ins_string("\n",dd2)
@@ -3211,13 +3213,13 @@ end
 
 function comment(dd)
   local dd2 = 1
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   ins_str(g_comment,dd2);
   if not is_eol() then
     ins_str(" ",dd2)
   end 
   move_down_n_lines(1,dd2)
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   disp(dd)
 end
 
@@ -3230,7 +3232,7 @@ end
 function uncomment(dd)
   local dd2 = 1
   local comment_len = string.len(g_comment)
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   local line = get_line()
   if string.find(line,g_comment,1,true) == 1 then
     del_char(comment_len+1,dd2)
@@ -3289,6 +3291,7 @@ g_ctag_address = {}
 
 function read_ctag_file(dd)
   local file = io.open("tags", "r");
+  if file == nil then return; end
   for line in file:lines() do
     line = line:gsub(';"\t.*','') -- Remove comment
     local fields = split_string(line, '\t')
