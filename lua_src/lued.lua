@@ -40,6 +40,10 @@ SOFTWARE.
   g_scope_indent           = 2     -- Use with indent_scope(is) command. change indent with si2 si3 si4...
   g_min_lines_from_top     = 5     -- Scroll will try to keep at least 5 lines from the top
   g_min_lines_from_bot     = 7     -- Scroll will try to keep at least 7 lines from the bottom
+  g_move_down_n_lines      = 8     -- move this many lines when not specified
+  g_move_up_n_lines        = 4     -- move this many lines when not specified
+  g_move_right_n_char      = 8     -- move this many char when not specified
+  g_move_left_n_char       = 4     -- move this many char when not specified
   g_page_size              = 0.25  -- This controls PgUp/PgDn speed. 0.25 is quarter page at a time.
   g_enable_file_changed    = true  -- efc0, efc1. detect file change and prompt to reload FIXME
   g_find_case_sensitive    = false -- find uses case sensitive search
@@ -59,12 +63,14 @@ SOFTWARE.
   g_status_line_reverse    = true  -- Status Line is in reverse video when true, else normal video
   g_search_all_files       = false -- Search all files. set by search_all_files, cleared by 
 
-dofile( g_lued_root .. "/lued_lib.lua" )
-dofile( g_bindings_file)
-load_plugins( g_lued_root .. "/plugins" )
+  dofile( g_lued_root .. "/lued_lib.lua" )
+  dofile( g_bindings_file)
+  load_plugins( g_lued_root .. "/plugins" )
+
 
 -- if g_first_time == nil then
   local dd2 = 1
+  read_ctag_file(dd2)
   set_ctrl_s_flow_control(false,dd2)
   set_ctrl_c_abort(false,dd2)
   set_ctrl_z_suspend(false,dd2)

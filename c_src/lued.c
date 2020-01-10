@@ -25,8 +25,6 @@ SOFTWARE.
 */
 
 
-
-
 #include "headers.h"
 #include <getopt.h>
 
@@ -37,7 +35,6 @@ SOFTWARE.
 #define LUED_SELONBLK 4
 
 carr_t* LUED_SESSIONS;
-
 
 static lued_t* get_session(carr_t* all_sessions) {
    if isNULL(all_sessions) return NULL;

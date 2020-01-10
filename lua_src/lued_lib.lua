@@ -470,7 +470,7 @@ end
 function align_start_of_next_line(dd)
   local dd2 = 1
   local ws1,ws1_len = leading_ws()
-  line_down(1,dd2)
+  move_down_n_lines(1,dd2)
   sol_classic(dd2)
   local ws2,ws2_len = leading_ws()
   del_char(ws2_len,dd2)
@@ -515,7 +515,7 @@ function align_delimiter_of_next_line(delim, dd)
   local dd2 = 1
   local delim_pos1 = string.find( get_line(), g_align_delimiter_of_next_line, 1, true)
   if delim_pos1 then
-    line_down(1,dd2)
+    move_down_n_lines(1,dd2)
     local line = get_line() or ""
     local delim_pos2 = string.find( line, g_align_delimiter_of_next_line, 1, true)
     if delim_pos2 then
@@ -529,7 +529,7 @@ function align_delimiter_of_next_line(delim, dd)
         delta = -1 * delta
         for i = 1, delta do
           if is_sol() then break end
-          char_left(1,dd2)
+          move_left_n_char(1,dd2)
           if not is_space() then break end
           del_char(1,dd2)
         end
@@ -799,14 +799,14 @@ function disp(dd,center)
 end
 
 
-function char_left(n,dd)
+function move_left_n_char(n,dd)
   local n_is_nil = n == nil or n == 0
   n = n or 1
   local dd2 = 1
   for i=1,n do
     if is_sof() then break end
     if is_sol() then
-      line_up(1,dd2)
+      move_up_n_lines(1,dd2)
       if not is_eol() then eol(dd2) end
     else
       local r,c = get_cur_pos()
@@ -816,7 +816,7 @@ function char_left(n,dd)
       set_cur_pos(r,c)
 
       if g_double_speed > 0 and n_is_nil then
-        if g_command_count == g_char_left_command_count then
+        if g_command_count == g_move_left_n_char_command_count then
           g_scroll_speed = g_scroll_speed or 0
           set_cur_pos(r,c-g_scroll_speed)
           g_scroll_speed = g_double_speed
@@ -824,7 +824,7 @@ function char_left(n,dd)
           g_scroll_speed = 0
         end
         g_command_count = g_command_count or 1
-        g_char_left_command_count = g_command_count+1
+        g_move_left_n_char_command_count = g_command_count+1
       else
         g_scroll_speed = 0
       end
@@ -835,14 +835,20 @@ function char_left(n,dd)
 end
 
 
-function char_right(n,dd)
+function set_move_left_n_char(n,dd)
+  g_move_left_n_char = n or g_move_left_n_char
+  move_left_n_char(g_move_left_n_char,dd)
+end
+
+
+function move_right_n_char(n,dd)
   local n_is_nil = n == nil or n == 0
   n = n or 1
   local dd2 = 1
   for i=1,n do
     if is_eof() then break end
     if is_eol() then
-      line_down(1,dd2)
+      move_down_n_lines(1,dd2)
       sol_classic(dd2)
     else
       local r,c = get_cur_pos()
@@ -850,7 +856,7 @@ function char_right(n,dd)
       set_cur_pos(r,c)
 
       if g_double_speed > 0 and n_is_nil then
-        if g_command_count == g_char_right_command_count then
+        if g_command_count == g_move_right_n_char_command_count then
           g_scroll_speed = g_scroll_speed or 0
           set_cur_pos(r,c+g_scroll_speed)
           g_scroll_speed = g_double_speed
@@ -858,7 +864,7 @@ function char_right(n,dd)
           g_scroll_speed = 0
         end
         g_command_count = g_command_count or 1
-        g_char_right_command_count = g_command_count+1
+        g_move_right_n_char_command_count = g_command_count+1
       else
         g_scroll_speed = 0
       end
@@ -866,6 +872,12 @@ function char_right(n,dd)
     end
   end
   disp(dd)
+end
+
+
+function set_move_right_n_char(n,dd)
+  g_move_right_n_char = n or g_move_right_n_char
+  move_right_n_char(g_move_right_n_char,dd)
 end
 
 
@@ -905,7 +917,7 @@ function word_left(n,dd)
   for i=1,n do
     if is_sof() then break end
     if is_sol() then
-      line_up(1,dd2)
+      move_up_n_lines(1,dd2)
       eol(dd2)
       break
     end
@@ -971,11 +983,11 @@ function word_right(n,dd)
   local dd2 = 1
   for i=1,n do
     if is_eol() then
-      line_down(1, dd2)
+      move_down_n_lines(1, dd2)
       sol(dd2)
     else
       skip_word(dd2)
-      char_right(1,dd2)
+      move_right_n_char(1,dd2)
       skip_spaces(dd2)
     end
   end
@@ -1005,18 +1017,18 @@ end
 function page_up(n,dd)
   n = n or 1
   local pagesize = get_pagesize()
-  line_up(n*pagesize,dd)
+  move_up_n_lines(n*pagesize,dd)
 end
 
 
 function page_down(n,dd)
   n = n or 1
   local pagesize = get_pagesize()
-  line_down(n*pagesize, dd)
+  move_down_n_lines(n*pagesize, dd)
 end
 
 
-function line_down(n,dd)
+function move_down_n_lines(n,dd)
   local dd2 = 1
   n = n or 1
   local r,c = get_cur_pos()
@@ -1025,11 +1037,11 @@ function line_down(n,dd)
 
   g_scroll_speed = n
   if g_double_speed > 0 and not dd and n <= 1 then
-    if g_command_count == g_line_down_command_count then
+    if g_command_count == g_move_down_n_lines_command_count then
       g_scroll_speed = g_double_speed + 1
     end
     g_command_count = g_command_count or 1
-    g_line_down_command_count = g_command_count + 1
+    g_move_down_n_lines_command_count = g_command_count + 1
   end
 
   r2 = r + g_scroll_speed
@@ -1038,20 +1050,26 @@ function line_down(n,dd)
 end
 
 
-function line_up(n,dd)
+function set_move_down_n_lines(val,dd)
+  g_move_down_n_lines = val or g_move_down_n_lines
+  move_down_n_lines(g_move_down_n_lines, dd)
+end
+
+
+function move_up_n_lines(n,dd)
   local dd2 = 1
   n = n or 1
   local r,c = get_cur_pos()
   local r2 = (n >= r) and 1 or (r - n)
 
   if g_double_speed > 0 and n <= 1 then
-    if g_command_count == g_line_up_command_count then
+    if g_command_count == g_move_up_n_lines_command_count then
       g_scroll_speed = g_double_speed + 1
     else
       g_scroll_speed = 1
     end
     g_command_count = g_command_count or 1
-    g_line_up_command_count = g_command_count+1
+    g_move_up_n_lines_command_count = g_command_count+1
     r2 = (g_scroll_speed >= r) and 1 or (r - g_scroll_speed)
   else
     g_scroll_speed = 0
@@ -1062,15 +1080,22 @@ function line_up(n,dd)
 end
 
 
-function first_line(dd)
-  local dd2 = 1
-  local r,c = get_cur_pos()
-  line_up(r-1,dd2)
-  sol_classic(dd)
+function set_move_up_n_lines(val,dd)
+  g_move_up_n_lines = val or g_move_up_n_lines
+  move_up_n_lines(g_move_up_n_lines, dd)
 end
 
 
-function last_line(dd)
+function move_to_first_line(dd)
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  move_up_n_lines(r-1,dd2)
+  sol_classic(dd)
+end
+first_line = move_to_first_line
+
+
+function move_to_last_line(dd)
   local dd2 = 1
   local lastline = get_numlines()
   local trows, tcols = get_termsize()
@@ -1081,26 +1106,26 @@ function last_line(dd)
   else
     r2 = lastline - r - trows/2
   end
-  line_down(r2,dd2)
-  goto_line(lastline, dd2)
+  move_down_n_lines(r2,dd2)
+  move_to_line(lastline, dd2)
   eol(dd)
 end
 
 
 function toggle_top(dd)
   if is_sof() then
-     last_line(dd)
+     move_to_last_line(dd)
   else
-     first_line(dd)
+     move_to_first_line(dd)
   end
 end
 
 
 function toggle_bottom(dd)
   if is_eof() then
-     first_line(dd)
+     move_to_first_line(dd)
   else
-     last_line(dd)
+     move_to_last_line(dd)
   end
 end
 
@@ -1116,7 +1141,7 @@ function sol(dd)
   local dd2 = 1
   if not is_sof() then
     if is_sol() then
-      line_up(1,dd2)
+      move_up_n_lines(1,dd2)
       if not is_eol() then
         eol(dd2)
       end
@@ -1135,7 +1160,7 @@ function eol(dd)
   local dd2 = 1
   if not is_eof() then
     if is_eol() then
-      line_down(1,dd2)
+      move_down_n_lines(1,dd2)
     end
     local r,c = get_cur_pos()
     line_len = get_line_len()
@@ -1190,17 +1215,17 @@ function tab_toggle(dd)
 end
 
 
-function goto_line(n,dd)
+function move_to_line(n,dd)
   local r,c = get_cur_pos()
   if n == nil then
-    goto_line_hist_id = goto_line_hist_id or get_hist_id()
-    local n_str = lued_prompt(goto_line_hist_id,"Goto Linenumber: ")
+    move_to_line_hist_id = move_to_line_hist_id or get_hist_id()
+    local n_str = lued_prompt(move_to_line_hist_id,"Goto Linenumber: ")
     n = tonumber(n_str) or r
   end
   if n > r then
-    line_down(n-r,dd)
+    move_down_n_lines(n-r,dd)
   elseif (n < r) then
-    line_up(r-n,dd)
+    move_up_n_lines(r-n,dd)
   else
     disp(dd)
   end
@@ -1222,7 +1247,7 @@ function find(str,dd)
   local r,c = get_cur_pos()
   local found,r2,c2 = find_str(str)
   if found==0 then
-    first_line(dd2)
+    move_to_first_line(dd2)
     found,r2,c2 = find_str(str)
     set_cur_pos(r,c)
   end
@@ -1455,7 +1480,7 @@ function get_first_match(matches, minc)
   return first_match
 end
 
-
+-- found = find_forward(str,true,false,false,'',dd2)
 function find_forward(str,nowrap,search_all,replace,test_str,dd)
   test_str = test_str or ""
   local dd2 = 1
@@ -1512,7 +1537,7 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
         set_cur_pos(i+1,1)
       end
     else
-      local match_str = string.match(line,g_find_str2,match_c)
+      local match_str = string.match(line,g_find_str2,match_c) or ""
       local match_len = string.len(match_str)
       set_cur_pos(i,match_c)
       set_sel_start()
@@ -1574,7 +1599,7 @@ function find_and_replace(from,to,options,dd)
         ins_string(g_replace_str,dd2)
         if resp=="h" then break end
       elseif resp=="n" then
-        char_right(1,dd2)
+        move_right_n_char(1,dd2)
       else -- q or invalid response
         break
       end
@@ -1615,7 +1640,7 @@ function search_all_files(str,dd)
     local session_id = tab_next(dd2)
     if session_id == start_session then break end
     local r,c = get_cur_pos()
-    first_line(dd2)
+    move_to_first_line(dd2)
     sol_classic(dd2)
     match = find_forward(g_find_str,true,true,false,test_str,dd2)
     if not match then -- restore cur_pos
@@ -1651,7 +1676,7 @@ function find_forward_selected(dd)
   local initial_r,initial_c = get_cur_pos()
   local sel_str, sel_sr, sel_sc = get_sel_str()
   if sel_str~="" then
-    char_right(1,dd2)
+    move_right_n_char(1,dd2)
     g_find_str = sel_str
     set_sel_off()
   else
@@ -1698,7 +1723,7 @@ function sel_word(dd)
     set_sel_start()
   else
     if is_blankline() then
-      line_down(1,dd2)
+      move_down_n_lines(1,dd2)
     end
     word_right(1, dd2)
   end
@@ -1730,13 +1755,13 @@ function sel_block(dd)
   g_find_str = "}"
   local r,c = get_cur_pos()
   find_forward_again(dd2)
-  char_left(1,dd2)
+  move_left_n_char(1,dd2)
   local r2,c2 = get_cur_pos()
   
   g_find_str = "{"
   set_cur_pos(r,c)
   find_reverse_again(dd2)
-  char_right(1,dd2)
+  move_right_n_char(1,dd2)
   set_sel_start()
   set_cur_pos(r2,c2)
   set_sel_end()
@@ -1764,7 +1789,7 @@ end
 function sel_sof(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
-  first_line(dd2)
+  move_to_first_line(dd2)
   set_sel_start()
   set_cur_pos(r,c)
   disp(dd)
@@ -1773,15 +1798,15 @@ end
 
 function sel_eof(dd)
   set_sel_start()
-  last_line(dd)
+  move_to_last_line(dd)
 end
 
 
 function sel_all(dd)
   local dd2 = 1
-  first_line(dd2)
+  move_to_first_line(dd2)
   set_sel_start()
-  last_line(dd2)
+  move_to_last_line(dd2)
   set_sel_end()
   disp(dd)
 end
@@ -1908,7 +1933,7 @@ function del_char(n,dd)
   if is_sel_off()==1 then
     set_sel_start()
     n = n or 1
-    char_right(n, dd2)
+    move_right_n_char(n, dd2)
     set_sel_end()
     set_cur_pos(r,c)
     del_sel(dd)
@@ -1938,7 +1963,7 @@ end
 function del_spaces(dd)
   local dd2 = 1
   if not is_space() then
-    line_down(1,dd2)
+    move_down_n_lines(1,dd2)
   end
   local r,c = get_cur_pos()
   set_sel_start()
@@ -1996,7 +2021,7 @@ function cut_line(n,dd)
     local r,c = get_cur_pos()
     set_cur_pos(r,1)
     set_sel_start()
-    line_down(n,dd2)
+    move_down_n_lines(n,dd2)
     set_sel_end()
     if (g_command_count == g_cut_line_command_count) then
       global_cut_append(dd)
@@ -2019,9 +2044,9 @@ end
 
 function paste_line_after(dd)
   local dd2 = 1
-  line_down(dd2)
+  move_down_n_lines(dd2)
   paste_line_before(dd2)
-  line_up(dd)
+  move_up_n_lines(dd)
 end
 
 
@@ -2032,7 +2057,7 @@ function del_backspace(n,dd)
   elseif is_sel_off()==1 then
     n = n or 1
     local r,c = get_cur_pos()
-    char_left(n, dd2)
+    move_left_n_char(n, dd2)
     set_sel_start()
     set_cur_pos(r,c)
     set_sel_end()
@@ -2066,7 +2091,7 @@ function indent1(n, ch, goto_next, dd)
   set_cur_pos(r,1)
   ins_str(spaces,dd2)
   if goto_next then
-    line_down(1,dd2)
+    move_down_n_lines(1,dd2)
     sol_classic(dd2)
   else
     set_cur_pos(r,c+n)
@@ -2086,7 +2111,7 @@ function unindent1(n, ch, goto_next, dd)
   set_cur_pos(r,1)
   del_char(n,dd2)
   if goto_next then
-    line_down(1,dd2)
+    move_down_n_lines(1,dd2)
     sol_classic(dd2)
   else
     set_cur_pos(r,c-n)
@@ -2102,7 +2127,7 @@ function indent(dd)
   if r==1 then
      indent1(g_indent_size, g_indent_char, goto_next_line, dd)
   else
-    line_up(1,dd2)
+    move_up_n_lines(1,dd2)
     local line = get_line()
     local indent_str = line:match("^%s*") or ""
     set_cur_pos(r,1)
@@ -2221,7 +2246,7 @@ function insert_cr_before(dd)
   local dd2 = 1
   sol_classic(dd2)
   ins_str("\n",dd2)
-  line_up(1,dd2)
+  move_up_n_lines(1,dd2)
   indent(dd)
 end
 
@@ -2236,7 +2261,7 @@ end
 function swap_line_with_prev(dd)
   local dd2 = 1
   cut_line(1,dd2)
-  line_up(1,dd2)
+  move_up_n_lines(1,dd2)
   paste_line_before(dd)
 end
 
@@ -2244,16 +2269,16 @@ end
 function swap_line_with_next(dd)
   local dd2 = 1
   cut_line(1,dd2)
-  line_down(1,dd2)
+  move_down_n_lines(1,dd2)
   paste_line_before(dd2)
-  line_up(2,dd)
+  move_up_n_lines(2,dd)
 end
 
 
 function bubble_line_up(dd)
   local dd2 = 1
   swap_line_with_prev(dd2)
-  line_up(1,dd)
+  move_up_n_lines(1,dd)
 end
 
 
@@ -2273,7 +2298,7 @@ function bubble_selected_lines_up(dd)
     local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
     if sel_sr > 1 then
       global_cut(dd2)
-      line_up(1,dd2)
+      move_up_n_lines(1,dd2)
       paste_line_before(dd)
       set_sel_from_to(sel_sr-1, 1, sel_er-1, 1, dd)
     end
@@ -2287,7 +2312,7 @@ end
 function bubble_line_down(dd)
   local dd2 = 1
   swap_line_with_next(dd2)
-  line_down(1,dd)
+  move_down_n_lines(1,dd)
 end
 
 
@@ -2296,7 +2321,7 @@ function bubble_selected_lines_down(dd)
   if is_sel_on() then
     local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
     global_cut(dd2)
-    line_down(1,dd2)
+    move_down_n_lines(1,dd2)
     paste_line_before(dd)
     set_sel_from_to(sel_sr+1, 1, sel_er+1, 1, dd)
     disp(dd)
@@ -2671,7 +2696,7 @@ function open_file(filenames,dd)
       if fileid~=nil and fileid~=0 then
         g_tab_prev = prev
         set_fileid(fileid)
-        first_line(dd2)
+        move_to_first_line(dd2)
       end
     end
   end
@@ -2878,9 +2903,9 @@ function mouse_event(str)
       -- set_sel_end()
     end
   elseif Cb==64 then
-    line_up(2,dd2)
+    move_up_n_lines(2,dd2)
   elseif Cb==65 then
-    line_down(2,dd2)
+    move_down_n_lines(2,dd2)
   else
     dd2 = 1
   end
@@ -3018,7 +3043,7 @@ function copy_line(n,dd)
     sol_classic(dd2)
     local r1,c1 = get_cur_pos()
     set_sel_start()
-    line_down(n,dd)
+    move_down_n_lines(n,dd)
     local r2,c2 = get_cur_pos()
 --    set_sel_end()
     global_copy(dd)
@@ -3098,8 +3123,8 @@ end
 
 function set_comment(dd)
   local dd2 = 1
-  goto_line_hist_id = goto_line_hist_id or get_hist_id()
-  local comment_str = lued_prompt(goto_line_hist_id,"Enter Comment String (Default = '"..g_comment.."'): ")
+  set_comment_hist_id = set_comment_hist_id or get_hist_id()
+  local comment_str = lued_prompt(set_comment_hist_id,"Enter Comment String (Default = '"..g_comment.."'): ")
   if comment_str~=nil and comment_str~="" then
     g_comment = comment_str
   end
@@ -3109,8 +3134,8 @@ end
 
 function set_indent_size(dd)
   local dd2 = 1
-  goto_line_hist_id = goto_line_hist_id or get_hist_id()
-  local  indent_size = lued_prompt(goto_line_hist_id,"Enter Indent Size (Default = '"..g_indent_size.."'): ")
+  set_indent_size_hist_id = set_indent_size_hist_id or get_hist_id()
+  local  indent_size = lued_prompt(set_indent_size_hist_id,"Enter Indent Size (Default = '"..g_indent_size.."'): ")
   if indent_size ~= nil and tonumber(indent_size) > 0 then
     g_indent_size = indent_size
   end
@@ -3191,7 +3216,7 @@ function comment(dd)
   if not is_eol() then
     ins_str(" ",dd2)
   end 
-  line_down(1,dd2)
+  move_down_n_lines(1,dd2)
   sol_classic(dd2)
   disp(dd)
 end
@@ -3210,7 +3235,7 @@ function uncomment(dd)
   if string.find(line,g_comment,1,true) == 1 then
     del_char(comment_len+1,dd2)
   end
-  line_down(1,dd)
+  move_down_n_lines(1,dd)
 end
 
 
@@ -3249,4 +3274,73 @@ function sel_to_lower(dd)
   disp(dd)
 end
 
+
+function split_string (str, delimiter)
+  delimiter = delimiter or "%s"
+  local t={}
+  for field in string.gmatch(str, "([^"..delimiter.."]+)") do
+    table.insert(t, field)
+  end
+  return t
+end
+
+g_ctag_file = {}
+g_ctag_address = {}
+
+function read_ctag_file(dd)
+  local file = io.open("tags", "r");
+  for line in file:lines() do
+    line = line:gsub(';"\t.*','') -- Remove comment
+    local fields = split_string(line, '\t')
+    local name = fields[1] or ""
+    g_ctag_file[name] = fields[2] or ""
+    g_ctag_address[name] = fields[3] or ""
+  end
+  disp(dd)
+end
+
+
+function is_number(str)
+  return (tonumber(str) ~= nil)
+end
+
+function move_to_ctag(dd)
+  local dd2=1
+  if is_sel_off()==1 then
+    sel_word(dd2)
+    set_sel_end()
+  end
+  local sel_str, sel_sr, sel_sc = get_sel_str()
+
+  local file = g_ctag_file[sel_str]
+  local address = g_ctag_address[sel_str]
+
+  g_ctag_r, g_ctag_c = get_cur_pos()
+  g_ctag_id = get_fileid()
+  
+  open_file(file, dd2)
+  move_to_first_line(dd2)
+  if is_number(address) then
+    move_to_line(tonumber(address), dd2)
+  else
+    address = address:sub(3,-3) -- remove '/^' and '$/'
+--     dbg_prompt("file="..file.." address="..address)
+     local found = find_forward(address,true,false,false,address,dd2)
+  end
+  disp(dd)
+end
+alt_move_to_ctag = move_to_ctag
+
+
+function move_back_from_ctag(dd)
+  if g_ctag_r==nil then
+    disp(dd)
+    return
+  end
+  local dd2 = 1
+  session_sel(g_ctag_id,dd2)
+  set_cur_pos(g_ctag_r, g_ctag_c)
+  g_ctag_r = nil
+  disp(dd)
+end
 

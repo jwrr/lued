@@ -7,7 +7,7 @@
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
 --  set_hotkeys( ",Sn,Sp,sw,v,VV,w,y,x,z,")
 
-  set_repeatables(",alt_aa,alt_as,alt_bd,alt_bu,alt_cc,alt_cr,alt_ff,alt_FF,alt_ii,alt_jj,alt_uu,")
+  set_repeatables(",alt_aa,alt_as,alt_bd,alt_bu,alt_cc,alt_cr,alt_d,alt_ff,alt_FF,alt_ii,alt_jj,alt_rr,alt_uu,")
   set_repeatables(",alt_pk,alt_pl,alt_sn,alt_sp,")
 
 -- set_repeatables(",,")
@@ -43,15 +43,17 @@ alt_as           = align_selected          hot("as")
 alt_bb           = toggle_bottom              hot("bb")
 alt_bd           = bubble_selected_lines_down hot("bd") -- line sinks to bottom of file
 alt_bu           = bubble_selected_lines_up   hot("bu") -- line floats to top of file
+alt_cb           = move_back_from_ctag        hot("cb") -- ctag back
 alt_cc           = comment_selected        hot("cc")
 alt_cr           = uncomment_selected      hot("cr") -- comment remove
 alt_cd           = cd_change_dir;          hot("cd")
 alt_cs           = set_comment             hot("cs")
+alt_ct           = move_to_ctag            hot("ct") -- ctag
 -- alt_d            = del_char   -- delete N characters. alt_d8<Enter> deletes 8 char
-alt_d            = line_down   -- Move N lines down. alt_d42<Enter> moves down 42 lines
+alt_d            = set_move_down_n_lines   -- Move N lines down. alt_d42<Enter> moves down 42 lines
+alt_dd           = set_move_down_n_lines   hot("dd")
 alt_da           = del_sol                 hot("da")
 alt_de           = del_eol                 hot("de")
-alt_dd           = del_word                hot("dd")
 alt_df           = del_sof                 hot("df")
 alt_dg           = del_eof                 hot("dg")
 alt_dh           = del_all                 hot("dh")
@@ -69,7 +71,7 @@ alt_is           = set_indent_size         hot("is")
 alt_jj           = join_lines              hot("jj")
 alt_kl           = sel_to_lower            hot("kl")
 alt_ku           = sel_to_upper            hot("ku")
-alt_l            = char_left -- Move N char left.  alt_l42<Enter> moves 42 char to the left
+alt_l            = move_left_n_char -- Move N char left.  alt_l42<Enter> moves 42 char to the left
 alt_ll           = insert_cr_after         hot("ll") -- similar to vi's o
 alt_lk           = insert_cr_before        hot("lk") -- similar to vi's O
 alt_ln           = toggle_line_numbers     hot("ln") -- show line numbers
@@ -84,11 +86,13 @@ alt_nn           = new_file                hot("nn")
 alt_pl           = paste_line_after        hot("pl")
 alt_pk           = paste_line_before       hot("pk")
 alt_qq           = wrap_line               hot("qq")
-alt_r            = char_right -- Move N char right.  alt_r42<Enter> moves 42 char to the right
+alt_r            = set_move_right_n_char -- Move N char right.  alt_r42<Enter> moves 42 char to the right
+alt_rr           = set_move_right_n_char   hot("rr")
 alt_ralt         = remove_all_leading_tabs
 alt_rats         = remove_all_trailing_space
 alt_ratsall      = remove_all_trailing_space_all_files
 alt_relued       = relued -- reload lued script
+alt_read_tags    = read_ctag_file
 alt_rl           = reload_file             hot("rl")
 alt_rt           = set_replace_tabs -- rt0 rt4
 alt_SA           = save_as                 hot("SA")
@@ -107,8 +111,9 @@ alt_Seti         = set_scope_indent -- SI2 SI3 SI4
 -- alt_sw           = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("sw")
 alt_tt           = select_tab              hot("tt")  -- Select file tab from list of open files
 alt_TT           = tab_toggle              hot("TT")  -- Toggle to previous file tab
-alt_u            = line_up   -- Move N lines up. alt_u42<Enter> moves up 42 lines
-alt_uu           = unindent_selected       hot("uu")
+alt_u            = set_move_up_n_lines   -- Move N lines up. alt_u42<Enter> moves up 42 lines
+alt_uu           = set_move_up_n_lines    hot("uu")  -- Move N lines up. alt_u42<Enter> moves up 42 lines
+alt_ui           = unindent_selected       hot("ui")
 alt_WW           = del_sow hot("WW")
 alt_x            = global_cut              hot("x")
 alt_y            = redo_cmd                hot("y")
@@ -160,7 +165,7 @@ ctrl_A           = sol               -- alt_a
 ctrl_S           = save_file         -- alt_s
 ctrl_D           = sel_word
 ctrl_F           = find_forward_selected -- alt_f find_forward_again
-ctrl_G           = goto_line
+ctrl_G           = move_to_line
 
 ctrl_H           = find_and_replace
 ctrl_J           = dont_use          -- Same as <Enter>
@@ -181,10 +186,10 @@ esc_backspace    = del_backspace
 esc_insert       = toggle_overtype
 esc_delete       = del_char
 esc_shift_delete = cut_line
-esc_up           = line_up
-esc_down         = line_down
-esc_left         = char_left
-esc_right        = char_right
+esc_up           = move_up_n_lines
+esc_down         = move_down_n_lines
+esc_left         = move_left_n_char
+esc_right        = move_right_n_char
 esc_shift_left   = word_left
 esc_shift_right  = word_right
 esc_home         = sol
