@@ -2171,6 +2171,9 @@ createstdfile	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static void cr
 createstrobj	build/extern/prj_lua52/src/prj_lua52/src/lstring.c	/^static TString *createstrobj (lua_State *L, const char *str, size_t l,$/;"	f	file:
 cstr_test	build/extern/prj_carr/src/prj_carr/test/test_src/cstr_test.c	/^int cstr_test(const int argc, char* argv[])$/;"	f
 cstra_new	build/extern/prj_carr/src/prj_carr/src/carr.c	/^carr_t* cstra_new(uint32_t const max_size, const char* const init_str)$/;"	f
+ctag_move_back_from_tag	lua_src/plugins/ctags.lua	/^function ctag_move_back_from_tag(dd)$/;"	f
+ctag_move_to_tag	lua_src/plugins/ctags.lua	/^function ctag_move_to_tag(dd)$/;"	f
+ctag_read_file	lua_src/plugins/ctags.lua	/^function ctag_read_file(tagfile, dd)$/;"	f
 ctb	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	64;"	d
 ctest_eqi	build/extern/prj_carr/src/prj_carr/test/test_src/ctest.c	/^void ctest_eqi(ctest_type* test, const int actual, const int expect, const char* description)$/;"	f
 ctest_eqs	build/extern/prj_carr/src/prj_carr/test/test_src/ctest.c	/^void ctest_eqs(ctest_type* test, const char* const actual, const char* const expect, const char* description)$/;"	f
@@ -2235,6 +2238,7 @@ del_char	lua_src/lued_lib.lua	/^function del_char(n,dd)$/;"	f
 del_eof	lua_src/lued_lib.lua	/^function del_eof(dd)$/;"	f
 del_eol	lua_src/lued_lib.lua	/^function del_eol(dd)$/;"	f
 del_eow	lua_src/lued_lib.lua	/^function del_eow(dd)$/;"	f
+del_mark_to_cursor	lua_src/lued_lib.lua	/^function del_mark_to_cursor(dd)$/;"	f
 del_sel	lua_src/lued_lib.lua	/^function del_sel(dd)$/;"	f
 del_sof	lua_src/lued_lib.lua	/^function del_sof(dd)$/;"	f
 del_sol	lua_src/lued_lib.lua	/^function del_sol(dd)$/;"	f
@@ -2278,6 +2282,7 @@ dummy	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  L_Umaxalign dummy; 
 dummynode	build/extern/prj_lua52/src/prj_lua52/src/ltable.c	67;"	d	file:
 dummynode_	build/extern/prj_lua52/src/prj_lua52/src/ltable.c	/^static const Node dummynode_ = {$/;"	v	file:
 dumping	build/extern/prj_lua52/src/prj_lua52/src/luac.c	/^static int dumping=1;			\/* dump bytecodes? *\/$/;"	v	file:
+duplicate_line	lua_src/lued_lib.lua	/^function duplicate_line(dd)$/;"	f
 dyd	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^  Dyndata dyd;  \/* dynamic structures used by the parser *\/$/;"	m	struct:SParser	file:
 dyd	build/extern/prj_lua52/src/prj_lua52/src/llex.h	/^  struct Dyndata *dyd;  \/* dynamic structures used by the parser *\/$/;"	m	struct:LexState	typeref:struct:LexState::Dyndata
 elem_size	build/extern/prj_carr/src/prj_carr/src/carr.h	/^   uint32_t    elem_size;$/;"	m	struct:carr_struct
@@ -2290,7 +2295,6 @@ entersweep	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static int enterswee
 env	build/extern/prj_lua52/src/prj_lua52/doc/contents.html	/^<H3><A NAME="env">environment<BR>variables<\/A><\/H3>$/;"	a
 env	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^    struct Table *env;$/;"	m	struct:Udata::__anon10	typeref:struct:Udata::__anon10::Table
 envn	build/extern/prj_lua52/src/prj_lua52/src/llex.h	/^  TString *envn;  \/* environment variable name *\/$/;"	m	struct:LexState
-eol	lua_src/lued_lib.lua	/^function eol(dd)$/;"	f
 ephemeron	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  GCObject *ephemeron;  \/* list of ephemeron tables (weak keys) *\/$/;"	m	struct:global_State
 eq_event	build/extern/prj_lua52/src/prj_lua52/doc/manual.html	/^     function eq_event (op1, op2)$/;"	f
 eqshrstr	build/extern/prj_lua52/src/prj_lua52/src/lstring.h	34;"	d
@@ -2474,6 +2478,7 @@ get_fileid	c_src/lued.c	/^static uint32_t get_fileid() {$/;"	f	file:
 get_filename	c_src/lued.c	/^void get_filename(uint32_t id, char* filename, size_t n) {$/;"	f
 get_first_match	lua_src/lued_lib.lua	/^function get_first_match(matches, minc)$/;"	f
 get_hist_id	lua_src/lued_lib.lua	/^function get_hist_id()$/;"	f
+get_indent_len	lua_src/lued_lib.lua	/^function get_indent_len()$/;"	f
 get_last_cmd	c_src/lued.c	/^static const char* get_last_cmd() {$/;"	f	file:
 get_last_match	lua_src/lued_lib.lua	/^function get_last_match(matches, maxc)$/;"	f
 get_line	c_src/lued.c	/^static const char* get_line(carr_t* all_sessions) {$/;"	f	file:
@@ -2547,8 +2552,8 @@ gnext	build/extern/prj_lua52/src/prj_lua52/src/ltable.h	16;"	d
 gnode	build/extern/prj_lua52/src/prj_lua52/src/ltable.h	13;"	d
 gnodelast	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	94;"	d	file:
 goto_mark	c_src/lued.c	/^static int goto_mark(carr_t* all_sessions, const char* name) {$/;"	f	file:
-goto_nameless_mark_next	lua_src/lued_lib.lua	/^function goto_nameless_mark_next()$/;"	f
-goto_nameless_mark_prev	lua_src/lued_lib.lua	/^function goto_nameless_mark_prev()$/;"	f
+goto_nameless_mark_next	lua_src/lued_lib.lua	/^function goto_nameless_mark_next(dd)$/;"	f
+goto_nameless_mark_prev	lua_src/lued_lib.lua	/^function goto_nameless_mark_prev(dd)$/;"	f
 gotostat	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void gotostat (LexState *ls, int pc) {$/;"	f	file:
 gray	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  GCObject *gray;  \/* list of gray objects *\/$/;"	m	struct:global_State
 gray2black	build/extern/prj_lua52/src/prj_lua52/src/lgc.h	115;"	d
@@ -3995,16 +4000,21 @@ mode	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^  const char *mode;$/;"	m	
 modinit	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static void modinit (lua_State *L, const char *modname) {$/;"	f	file:
 mouse_config	lua_src/lued_lib.lua	/^function mouse_config(val)$/;"	f
 mouse_event	lua_src/lued_lib.lua	/^function mouse_event(str)$/;"	f
-move_back_from_ctag	lua_src/lued_lib.lua	/^function move_back_from_ctag(dd)$/;"	f
 move_down_n_lines	lua_src/lued_lib.lua	/^function move_down_n_lines(n,dd)$/;"	f
+move_down_n_pages	lua_src/lued_lib.lua	/^function move_down_n_pages(n,dd)$/;"	f
 move_left_n_char	lua_src/lued_lib.lua	/^function move_left_n_char(n,dd)$/;"	f
+move_left_n_words	lua_src/lued_lib.lua	/^function move_left_n_words(n,dd)$/;"	f
 move_marks	c_src/lued.c	/^static void move_marks(lued_t* session_p, uint32_t row, int32_t delta) {$/;"	f	file:
 move_right_n_char	lua_src/lued_lib.lua	/^function move_right_n_char(n,dd)$/;"	f
-move_to_ctag	lua_src/lued_lib.lua	/^function move_to_ctag(dd)$/;"	f
+move_right_n_words	lua_src/lued_lib.lua	/^function move_right_n_words(n,dd)$/;"	f
+move_to_eol	lua_src/lued_lib.lua	/^function move_to_eol(dd)$/;"	f
 move_to_first_line	lua_src/lued_lib.lua	/^function move_to_first_line(dd)$/;"	f
 move_to_last_line	lua_src/lued_lib.lua	/^function move_to_last_line(dd)$/;"	f
 move_to_line	lua_src/lued_lib.lua	/^function move_to_line(n,dd)$/;"	f
+move_to_sol	lua_src/lued_lib.lua	/^function move_to_sol(dd)$/;"	f
+move_to_sol_classic	lua_src/lued_lib.lua	/^function move_to_sol_classic(dd)$/;"	f
 move_up_n_lines	lua_src/lued_lib.lua	/^function move_up_n_lines(n,dd)$/;"	f
+move_up_n_pages	lua_src/lued_lib.lua	/^function move_up_n_pages(n,dd)$/;"	f
 movegotosout	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void movegotosout (FuncState *fs, BlockCnt *bl) {$/;"	f	file:
 moveto	build/extern/prj_lua52/src/prj_lua52/src/lapi.c	/^static void moveto (lua_State *L, TValue *fr, int idx) {$/;"	f	file:
 mt	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  struct Table *mt[LUA_NUMTAGS];  \/* metatables for basic types *\/$/;"	m	struct:global_State	typeref:struct:global_State::Table
@@ -4132,9 +4142,7 @@ p	build/extern/prj_lua52/src/prj_lua52/src/lzio.h	/^  const char *p;		\/* curren
 p_end	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^  const char *p_end;  \/* end ('\\0') of pattern *\/$/;"	m	struct:MatchState	file:
 pack	build/extern/prj_lua52/src/prj_lua52/src/ltablib.c	/^static int pack (lua_State *L) {$/;"	f	file:
 page_col	c_src/lued.h	/^   uint32_t page_col;$/;"	m	struct:lued_struct
-page_down	lua_src/lued_lib.lua	/^function page_down(n,dd)$/;"	f
 page_row	c_src/lued.h	/^   uint32_t page_row;$/;"	m	struct:lued_struct
-page_up	lua_src/lued_lib.lua	/^function page_up(n,dd)$/;"	f
 pairsmeta	build/extern/prj_lua52/src/prj_lua52/src/lbaselib.c	/^static int pairsmeta (lua_State *L, const char *method, int iszero,$/;"	f	file:
 panic	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^static int panic (lua_State *L) {$/;"	f	file:
 panic	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  lua_CFunction panic;  \/* to be called in unprotected errors *\/$/;"	m	struct:global_State
@@ -4417,7 +4425,6 @@ rawtsvalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	156;"	d
 rawuvalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	158;"	d
 read_all	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static void read_all (lua_State *L, FILE *f) {$/;"	f	file:
 read_chars	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static int read_chars (lua_State *L, FILE *f, size_t n) {$/;"	f	file:
-read_ctag_file	lua_src/lued_lib.lua	/^function read_ctag_file(dd)$/;"	f
 read_dir	lua_src/lued_lib.lua	/^function read_dir(glob)$/;"	f
 read_line	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static int read_line (lua_State *L, FILE *f, int chop) {$/;"	f	file:
 read_long_string	build/extern/prj_lua52/src/prj_lua52/src/llex.c	/^static void read_long_string (LexState *ls, SemInfo *seminfo, int sep) {$/;"	f	file:
@@ -4508,7 +4515,9 @@ sel_end_col	c_src/lued.h	/^   uint32_t sel_end_col;$/;"	m	struct:lued_struct
 sel_end_row	c_src/lued.h	/^   uint32_t sel_end_row;$/;"	m	struct:lued_struct
 sel_eof	lua_src/lued_lib.lua	/^function sel_eof(dd)$/;"	f
 sel_eol	lua_src/lued_lib.lua	/^function sel_eol(dd)$/;"	f
+sel_indentation	lua_src/lued_lib.lua	/^function sel_indentation(dd)$/;"	f
 sel_line	lua_src/lued_lib.lua	/^function sel_line(n,dd)$/;"	f
+sel_mark_to_cursor	lua_src/lued_lib.lua	/^function sel_mark_to_cursor(dd)$/;"	f
 sel_sof	lua_src/lued_lib.lua	/^function sel_sof(dd)$/;"	f
 sel_sol	lua_src/lued_lib.lua	/^function sel_sol(dd)$/;"	f
 sel_start_col	c_src/lued.h	/^   uint32_t sel_start_col;$/;"	m	struct:lued_struct
@@ -4646,8 +4655,6 @@ skip_variable	lua_src/lued_lib.lua	/^function skip_variable(dd)$/;"	f
 skip_word	lua_src/lued_lib.lua	/^function skip_word(dd)$/;"	f
 skipcomment	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^static int skipcomment (LoadF *lf, int *cp) {$/;"	f	file:
 skipnoopstat	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void skipnoopstat (LexState *ls) {$/;"	f	file:
-sol	lua_src/lued_lib.lua	/^function sol(dd)$/;"	f
-sol_classic	lua_src/lued_lib.lua	/^function sol_classic(dd)$/;"	f
 sort	build/extern/prj_lua52/src/prj_lua52/src/ltablib.c	/^static int sort (lua_State *L) {$/;"	f	file:
 sort_comp	build/extern/prj_lua52/src/prj_lua52/src/ltablib.c	/^static int sort_comp (lua_State *L, int a, int b) {$/;"	f	file:
 source	build/extern/prj_carr/src/prj_carr/src/lua.h	/^  const char *source;	\/* (S) *\/$/;"	m	struct:lua_Debug
@@ -4924,8 +4931,6 @@ what	build/install/include/lua.h	/^  const char *what;	\/* (S) 'Lua', 'C', 'main
 whilestat	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void whilestat (LexState *ls, int line) {$/;"	f	file:
 white2gray	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	62;"	d	file:
 word_end	lua_src/lued_lib.lua	/^function word_end(dd)$/;"	f
-word_left	lua_src/lued_lib.lua	/^function word_left(n,dd)$/;"	f
-word_right	lua_src/lued_lib.lua	/^function word_right(n,dd)$/;"	f
 word_start	lua_src/lued_lib.lua	/^function word_start(dd)$/;"	f
 wrap_line	lua_src/lued_lib.lua	/^function wrap_line(wrap_col,wrap_delim,dd)$/;"	f
 writer	build/extern/prj_lua52/src/prj_lua52/src/ldump.c	/^ lua_Writer writer;$/;"	m	struct:__anon19	file:

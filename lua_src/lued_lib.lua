@@ -223,8 +223,7 @@ end
 
 function is_eol()
   local r,c = get_cur_pos()
-  local len = get_line_len()
-  return c > len
+  return c > get_line_len()
 end
 
 
@@ -1771,6 +1770,39 @@ function sel_block(dd)
 end
 
 
+function get_indent_len()
+  local line = get_line()
+  local leading_ws = string.match(line,"^%s+") or ""
+  local leading_ws_len = string.len(leading_ws)
+  return leading_ws_len 
+end
+
+
+function sel_indentation(dd)
+  local dd2 = 1
+  local indent_len = get_indent_len()
+
+  local r,c = get_cur_pos()
+  local r1,c1 = r,c
+  repeat
+    r1,c1 = get_cur_pos()
+    if r1==1 then break end
+    move_up_n_lines(1,dd2)
+  until (get_indent_len() < indent_len)
+
+  local lastline = get_numlines()
+  set_cur_pos(r,c)
+  repeat
+    r2,c2 = get_cur_pos()
+    if r2==lastline then break end
+    move_down_n_lines(2,dd2)
+  until (get_indent_len() < indent_len)
+  set_sel_from_to(r1, 1, r2+1, 1, dd2 )
+--  set_cur_pos(r,c)
+  disp(dd)
+end
+
+
 function sel_sol(dd)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
@@ -2810,8 +2842,6 @@ function alt_z_wrapper(dd)
 end
 
 
-
-
 function set_nameless_mark(dd)
   local dd2 = 1
   g_nameless_stack = g_nameless_stack or 0
@@ -2819,7 +2849,7 @@ function set_nameless_mark(dd)
   g_nameless_stack = g_nameless_stack + 1
   local r,c = get_cur_pos()
   move_to_sol_classic(dd2)
-  set_start()
+  set_sel_start()
   move_to_eol(dd2)
   set_sel_end()
   disp()
@@ -2829,20 +2859,55 @@ function set_nameless_mark(dd)
   disp()
 end
 
-function goto_nameless_mark_prev()
+
+function goto_nameless_mark_prev(dd)
   g_nameless_stack = g_nameless_stack or 1
   if g_nameless_stack==0 then g_nameless_stack = 1 end
   g_nameless_stack = g_nameless_stack - 1
   goto_mark("nameless_" .. g_nameless_stack)
-  disp()
+  disp(dd)
 end
 
-function goto_nameless_mark_next()
+function sel_mark_to_cursor(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  goto_nameless_mark_prev(dd2)
+  local r2,c2 = get_cur_pos()
+  
+  if (r1 < r2) then
+    -- do nothing
+  elseif (r1 > r2) then
+  elseif (c1 < c2) then
+    -- do nothing
+  elseif (c1 > c2) then
+    r1,r2 = r2,r1
+    c1,c2 = c2,c1
+  else
+    disp(dd)
+    return
+  end
+
+  set_cur_pos(r1,c1)
+  set_sel_start()
+  set_cur_pos(r2,c2)
+  set_sel_end()
+  disp(dd)
+end
+
+
+function del_mark_to_cursor(dd)
+  local dd2 = 1
+  sel_mark_to_cursor(dd2)
+  del_sel(dd)
+end
+
+
+function goto_nameless_mark_next(dd)
   g_nameless_stack = g_nameless_stack or 0
   g_nameless_stack = g_nameless_stack + 1
   local found = goto_mark("nameless_" .. g_nameless_stack)
   if not found then g_nameless_stack = g_nameless_stack - 1 end
-  disp()
+  disp(dd)
 end
 
 function decset(val)
@@ -3054,6 +3119,14 @@ function copy_line(n,dd)
   end
 end
 
+function duplicate_line(dd)
+  local dd2 = 1
+  cut_line(1,dd2)
+  global_paste(dd2)
+  global_paste(dd2)
+  move_up_n_lines(1,dd)
+end
+
 
 function hit_cr()
   hit_cr_hist_id = hit_cr_hist_id or get_hist_id()
@@ -3193,6 +3266,7 @@ function foreach_selected(fn, dd)
   if is_sel_on() then
     local r,c = get_cur_pos()
     set_sel_off()
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()  
     set_cur_pos(sel_sr,c)
     local r,c = get_cur_pos()
     local r_last = sel_er
@@ -3286,64 +3360,9 @@ function split_string (str, delimiter)
   return t
 end
 
-g_ctag_file = {}
-g_ctag_address = {}
-
-function read_ctag_file(dd)
-  local file = io.open("tags", "r");
-  if file == nil then return; end
-  for line in file:lines() do
-    line = line:gsub(';"\t.*','') -- Remove comment
-    local fields = split_string(line, '\t')
-    local name = fields[1] or ""
-    g_ctag_file[name] = fields[2] or ""
-    g_ctag_address[name] = fields[3] or ""
-  end
-  disp(dd)
-end
-
 
 function is_number(str)
   return (tonumber(str) ~= nil)
 end
 
-function move_to_ctag(dd)
-  local dd2=1
-  if is_sel_off()==1 then
-    sel_word(dd2)
-    set_sel_end()
-  end
-  local sel_str, sel_sr, sel_sc = get_sel_str()
-
-  local file = g_ctag_file[sel_str]
-  local address = g_ctag_address[sel_str]
-
-  g_ctag_r, g_ctag_c = get_cur_pos()
-  g_ctag_id = get_fileid()
-  
-  open_file(file, dd2)
-  move_to_first_line(dd2)
-  if is_number(address) then
-    move_to_line(tonumber(address), dd2)
-  else
-    address = address:sub(3,-3) -- remove '/^' and '$/'
---     dbg_prompt("file="..file.." address="..address)
-     local found = find_forward(address,true,false,false,address,dd2)
-  end
-  disp(dd)
-end
-alt_move_to_ctag = move_to_ctag
-
-
-function move_back_from_ctag(dd)
-  if g_ctag_r==nil then
-    disp(dd)
-    return
-  end
-  local dd2 = 1
-  session_sel(g_ctag_id,dd2)
-  set_cur_pos(g_ctag_r, g_ctag_c)
-  g_ctag_r = nil
-  disp(dd)
-end
 

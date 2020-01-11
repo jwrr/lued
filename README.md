@@ -269,20 +269,21 @@ Terminal Work-arounds
 <a name="tbd"></a>
 TBD
 ---
-* alt__period_xxx - change sets to toggles
+* Update display_screen - done
+* Exuberant Ctags - done
+* alt__period_xxx - change sets to toggles - done
+* Enable binary search mode - done (alt+>, alt+<) - done
+
 * Column/Block Select, Cut, Copy, Move
 * Split screen
 * Document API for plugins
-* Exuberant Ctags
 * aaaaaaaaaa
 * toggle find whole word, case sensitive, regex, incremental
 * Improve Goto Label
 * CRASH REPORT when selecting and cursor moves above start
-* Enable binary search mode
 * Git Integration (init, push, pull, branch, stash, mark changes)
 * Embedded Terminal
 * ^`Lua repl
-* Update display_screen
 ** highlight mixing of tabs and spaces
 ** Syntax Highlighting (lpeg+scintillua lexers)
 ** Highlite closing brackets, parentheses
@@ -291,6 +292,17 @@ TBD
 ** Save session. Option: with/without history.
 ** Should each file tab be in its own process?
 ** Change reindent_selected, indent_selected, unindent_selected to use foreach_selected
-
-
+* Create movetab plug in. move_tab_up, move_tab_down, move_tab_to_first, move_tab_to_last, move_tab_to_n
+* Jump to Matching Bracket. Ctrl+M
+* Select Content in Brackets Sublime Ctrl+shift+M
+* Block Comment. Sublime Ctrl+Shift+/
+* Paste and Indent Ctrl+Shift+V
+* Auto Complete
+* Incremental Search
+* Select from Mark to cursor. Sublime Ctrl+KA
+* Delete from Mark to cursor. Sublime Ctrl+KW
+* Clear Mark. Sublime Ctrl+KG
+* Bringup Clipboafd. Sublime Ctrl+KV
+* Sort Selected. Sublime f9
+* Swap two words.
  

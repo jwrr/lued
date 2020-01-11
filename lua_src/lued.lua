@@ -64,13 +64,12 @@ SOFTWARE.
   g_search_all_files       = false -- Search all files. set by search_all_files, cleared by 
 
   dofile( g_lued_root .. "/lued_lib.lua" )
-  dofile( g_bindings_file)
   load_plugins( g_lued_root .. "/plugins" )
+  dofile( g_bindings_file)
 
 
 -- if g_first_time == nil then
   local dd2 = 1
-  read_ctag_file(dd2)
   set_ctrl_s_flow_control(false,dd2)
   set_ctrl_c_abort(false,dd2)
   set_ctrl_z_suspend(false,dd2)
