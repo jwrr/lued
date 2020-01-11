@@ -2737,6 +2737,41 @@ function open_file(filenames,dd)
 end
 
 
+function ls_recursive(path,filter)
+  path = path or "."
+  filter = filter or ""
+  local filenames_str = os_cmd("find "..path.." -type f -iname '*"..filter.."*'")
+  local filenames_table = {}
+  for filename in filenames_str:gmatch('[^\n]+') do
+    table.insert(filenames_table, filename)
+  end
+  return filenames_table
+end
+ 
+ 
+function open_file_selected(dd)
+  local dd2 = 1
+  local file_filter = ""
+  if is_sel_on() then
+    local sel_str, sel_sr, sel_sc = get_sel_str()
+    file_filter = sel_str
+  else
+    open_file_selected_hist_id = open_file_selected_hist_id or get_hist_id()
+    file_filter = lued_prompt(open_file_selected_hist_id, "Enter Partial Filename: ")
+  end
+  local filenames_table = ls_recursive(".", file_filter)
+  print("")
+  for i, f in pairs(filenames_table) do
+    print(i..": "..f)
+  end
+  local filename = nil
+  if #filenames_table == 1 then
+    filename = filenames_table[1]
+  end
+  open_file(filename,dd)
+end
+
+
 function open_file_bindings(dd)
   open_file(g_bindings_file,dd)
 end

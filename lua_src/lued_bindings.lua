@@ -160,7 +160,7 @@ ctrl_U           = spare
 
 ctrl_I           = insert_tab        -- terminal <Tab> key (do not change)
 ctrl_O           = open_file         -- Similar to Word Ctrl+O
-ctrl_P           = open_file         -- Similar to Sublime Ctrl+P
+ctrl_P           = open_file_selected -- Similar to Sublime Ctrl+P
   local sel_str, sel_sr, sel_
 ctrl_A           = sel_all           -- Similar to Sublime Ctrl+A. Select All Entire File.
 ctrl_S           = save_file         -- Similar to Sublime Ctrl+S. Save File.
