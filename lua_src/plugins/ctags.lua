@@ -45,6 +45,7 @@ function ctag_read_file(tagfile, dd)
   disp(dd)
 end
 
+
 -- Jump to the definition of the symbol under the cursor
 function ctag_move_to_tag(dd)
   local dd2=1
@@ -57,8 +58,12 @@ function ctag_move_to_tag(dd)
   local file = g_ctag_file[sel_str]
   local address = g_ctag_address[sel_str]
 
+  -- save current position in jump stack
   g_ctag_r, g_ctag_c = get_cur_pos()
   g_ctag_id = get_fileid()
+  if not dd then
+    push_jump_stack(g_jump_back_stack, g_ctag_id, g_ctag_r, g_ctag_c)
+  end
   
   open_file(file, dd2)
   move_to_first_line(dd2)
@@ -68,6 +73,9 @@ function ctag_move_to_tag(dd)
     address = address:sub(3,-3) -- remove '/^' and '$/'
 --     dbg_prompt("file="..file.." address="..address)
      local found = find_forward(address,true,false,false,address,dd2)
+     move_to_sol(dd2)
+     
+     find_forward(sel_str,true,false,false,sel_str,dd2)
   end
   disp(dd)
 end

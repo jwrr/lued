@@ -1241,27 +1241,29 @@ function get_sel_str()
 end
 
 
-function find(str,dd)
-  local dd2 = 1
-  local r,c = get_cur_pos()
-  local found,r2,c2 = find_str(str)
-  if found==0 then
-    move_to_first_line(dd2)
-    found,r2,c2 = find_str(str)
-    set_cur_pos(r,c)
-  end
-  if found ~= 0 then
-    -- remove_trailing_spaces(r2,c2,false,dd2)
-    local pr,pc = get_page_pos()
-    local tr,tc = get_termsize()
-    local lr = pr+tr
-    local page_change = r2 > lr-third or r2 < pr+third
-    if page_change==true then
-      set_page_offset_percent(third,dd2)
-    end
-  end
-  disp(dd)
-end
+-- Not used anymore FIXME DELETE ME
+-- function find(str,dd)
+--   local dd2 = 1
+--   local r,c = get_cur_pos()
+--   local found,r2,c2 = find_str(str)
+--   if found==0 then
+--     move_to_first_line(dd2)
+--
+--     found,r2,c2 = find_str(str)
+--     set_cur_pos(r,c)
+--   end
+--   if found ~= 0 then
+--     -- remove_trailing_spaces(r2,c2,false,dd2)
+--     local pr,pc = get_page_pos()
+--     local tr,tc = get_termsize()
+--     local lr = pr+tr
+--     local page_change = r2 > lr-third or r2 < pr+third
+--     if page_change==true then
+--       set_page_offset_percent(third,dd2)
+--     end
+--   end
+--   disp(dd)
+-- end
 
 
 function dbg_prompt(dbg_str)
@@ -1321,6 +1323,64 @@ function replace_prompt()
     end
   -- until str and str ~= ""
   return str
+end
+
+
+g_jump_back_stack = {}
+g_jump_forward_stack = {}
+function push_jump_stack(stack, fileid, row, col)
+  local entry = {fileid, row, col}
+  table.insert(stack, entry)
+end
+
+
+function pop_jump_stack(stack)
+  if #stack == 0 then
+    return 0, 0, 0
+  end
+  local entry = stack[#stack] or {0,0,0}
+  table.remove(stack)
+  local fileid = entry[1] or 0
+  local row = entry[2] or 0
+  local col = entry[3] or 0
+  return fileid, row, col
+end
+
+
+function jump_back(dd)
+  local dd2 = 1
+  
+  local fileid = get_fileid()
+  local r, c = get_cur_pos()
+  push_jump_stack(g_jump_forward_stack, fileid, r, c)
+  
+  
+  local fileid, row, col = pop_jump_stack(g_jump_back_stack)
+  if fileid ~= get_fileid() then
+    session_sel(fileid, dd2)
+  end
+  if row ~= 0 then
+    set_cur_pos(row, col)
+  end
+  disp(dd)
+end
+
+
+function jump_forward(dd)
+  local dd2 = 1
+  
+  local fileid = get_fileid()
+  local r, c = get_cur_pos()
+  push_jump_stack(g_jump_back_stack, fileid, r, c)
+  
+  local fileid, row, col = pop_jump_stack(g_jump_forward_stack)
+  if fileid ~= get_fileid() then
+    session_sel(fileid, dd2)
+  end
+  if row ~= 0 then
+    set_cur_pos(row, col)
+  end
+  disp(dd)
 end
 
 
@@ -1410,6 +1470,12 @@ function find_reverse(str,dd)
     for j=1,#matches do matches[j] = nil end
     match_found = (match_c ~= nil)
     if match_found then
+      local cfileid = get_fileid()
+      local cr, cc = get_cur_pos()
+      if not dd then
+        push_jump_stack(g_jump_back_stack, cfileid, cr, cc)
+      end
+      
       local match_str = string.match(line,g_find_str2,match_c)
       local match_len = string.len(match_str)
       set_cur_pos(i,match_c)
@@ -1483,6 +1549,10 @@ end
 function find_forward(str,nowrap,search_all,replace,test_str,dd)
   test_str = test_str or ""
   local dd2 = 1
+
+  local cfileid = get_fileid()
+  local cr, cc = get_cur_pos()
+
   local found = false
   if test_str ~= "" then
     g_find_str = find_prompt(test_str)
@@ -1536,6 +1606,8 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
         set_cur_pos(i+1,1)
       end
     else
+      push_jump_stack(g_jump_back_stack, cfileid, cr, cc)
+
       local match_str = string.match(line,g_find_str2,match_c) or ""
       local match_len = string.len(match_str)
       set_cur_pos(i,match_c)
@@ -2368,7 +2440,7 @@ function hot(key, dd)
   if key == nil then return end
   key = "," .. key .. ","
   local keys = get_hotkeys()
-  if not string.find(keys, key) then
+  if not string.find(keys, key, 1, true) then
     set_hotkeys(keys .. key)
   end
   disp(dd)

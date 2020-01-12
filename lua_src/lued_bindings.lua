@@ -22,7 +22,8 @@ alt__caret_      = del_sol                 hot("^")
 alt__dollar_     = del_eol                 hot("$")
 -- alt__period_  = sel_toggle              hot(".")
 alt__slash_      = find_forward            hot(",/,") -- FIXME make this regex
-alt__minus_      = tab_prev                hot(",-,") -- Similar to Sublime Ctrl+Shift+Tab
+alt__minus_      = jump_back               hot(",-,") -- Similar to Sublime jump_back
+alt__            = jump_forward            hot(",_,") -- Similar to Sublime jump_forward
 alt__equal_      = tab_next                hot("=")   -- Similar to Sublime Ctrl+Tab
 alt__plus_       = tab_prev                hot(",+,")
 alt__colon_w     = save_file               hot(":w")
@@ -37,9 +38,9 @@ alt_bd           = bubble_selected_lines_down hot("bd") -- line sinks to bottom 
 alt_bu           = bubble_selected_lines_up   hot("bu") -- line floats to top of file. Similar to sublime Ctrl+Shift+Up
 
 -- plugin bindings: ctag
-alt_cb = ctag_move_back_from_tag; hot("cb") -- ctag back
-alt_ct = ctag_move_to_tag;        hot("ct") -- ctag jump. Similar Sublime Ctrl+R
-alt_cr = ctag_read_file;          hot("cr") -- ctag read
+alt_cb = ctag_move_back_from_tag  hot("cb") -- ctag back
+alt_ct = ctag_move_to_tag         hot("ct") -- ctag jump. Similar Sublime Ctrl+R
+alt_cr = ctag_read_file           hot("cr") -- ctag read
 
 alt_cc           = comment_selected        hot("cc") -- Similar to Sublime Ctrl+/. Comment Line
 alt_cu           = uncomment_selected      hot("cu") -- comment remove
@@ -55,9 +56,12 @@ alt_dw           = del_eow                 hot("dw") -- Similar to Sublime Ctrl+
 alt_DW           = del_backword            hot("DW") -- Similar to Sublime Ctrl+Backspace
 
 alt_ed           = set_edit_mode           hot("ed")
-alt_fa           = search_all_files;       hot("fa")  -- Similar to Sublime Ctrl+Shift+F. search all open files for match
-alt_ff           = find_forward_again;     hot("ff")  -- Similar to Sublime F3. Find next occurrence of search text.
-alt_FF           = find_reverse_again;     hot("FF")  -- Similar to Sublime Shift+F3. Find previous occurrence.
+alt_fa           = search_all_files        hot("fa")  -- Similar to Sublime Ctrl+Shift+F. search all open files for match
+alt_fb           = find_back               hot("fb")  -- find back. return to position before find operation.
+alt_ff           = find_forward_again      hot("ff")  -- Similar to Sublime F3. Find next occurrence of search text.
+alt_FF           = find_reverse_again      hot("FF")  -- Similar to Sublime Shift+F3. Find previous occurrence.
+alt_fw           = find_whole_word         hot("fw")  -- find whole word
+alt_FW           = find_reverse_whole_word hot("FW")  -- find reverse whold word
 alt_hh           = replace_again           hot("hh")
 alt_he           = open_file_bindings      hot("he")
 alt_ii           = indent_selected         hot("ii")
@@ -144,10 +148,7 @@ alt__period_fcs  = toggle_find_case_sensitive
 alt__period_fww  = toggle_find_whole_word
 alt__period_rts  = toggle_remove_trailing_spaces
 
-
-alt__squote      = find
 alt_p_squote     = set_paste_buffer
-alt_sa_squote    = save_as
 
 ctrl__at_        = disp              -- Called when resuming from Ctrl+Z (fg at shell prompt)
 ctrl_Q           = quit_all          -- Similar to Sublime Ctrl-Q. Quit / Exit
