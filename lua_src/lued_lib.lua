@@ -1388,37 +1388,22 @@ function find_all_on_line(line,str)
   local matchi = {}
   local s,e = 1,1
   local match_count = 0
-  local str2 = str
   g_find_plaintext = g_find_plaintext or false
+  
+  find_plaintext = g_find_plaintext and not g_find_whole_word
+
+
+  if g_find_whole_word then
+    str2 = "%f[%w_]" .. str .. "%f[^%w_]"
+  else
+    str2 = str 
+  end
+
   repeat
-    s,e = string.find(line,str2,e,g_find_plaintext)
-        
+    s,e = string.find(line,str2,e,find_plaintext)   
     if s ~= nil then
-    
-      -- Lua Regex doesn't support word boundary detection. This  work-around 
-      -- checks if the found string starts and ends with a non-word (%W)
-      -- character.  A leading space is prepended to the string if the strring
-      -- is at the start of the line and a trailing space is appened if the
-      -- string is at the end of the line.
-      local is_whole_word = false
-      if g_find_whole_word then
-        local str = string.sub (line, s, e)
-        if s<2 then
-          str = " " .. str
-        else
-          str = string.sub(line,s-1,s-1) .. str
-        end
-        if e == string.len(line) then
-          str = str .. " "
-        else 
-          str = str .. string.sub(line,e+1,e+1)
-        end
-        is_whole_word = string.find(str,"^%W.+%W$")
-      end
-      if not g_find_whole_word or is_whole_word then
-        match_count = match_count + 1
-        matchi[match_count] = s
-      end
+     match_count = match_count + 1
+     matchi[match_count] = s
       e = e + 1
     end
   until (s == nil)

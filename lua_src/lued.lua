@@ -27,7 +27,7 @@ SOFTWARE.
   function expanduser(filename)
     return string.gsub(filename, "^~", os.getenv("HOME") )
   end
-
+ 
   g_lued_root              = "~/.lued" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
   g_lued_root              = expanduser(g_lued_root)
   g_bindings_file          = g_lued_root .. "/lued_bindings.lua"
@@ -62,7 +62,7 @@ SOFTWARE.
   g_status_line_on         = true  -- Display status line when true, else do not display status line
   g_status_line_reverse    = true  -- Status Line is in reverse video when true, else normal video
   g_search_all_files       = false -- Search all files. set by search_all_files, cleared by 
-
+  
   dofile( g_lued_root .. "/lued_lib.lua" )
   load_plugins( g_lued_root .. "/plugins" )
   dofile( g_bindings_file)

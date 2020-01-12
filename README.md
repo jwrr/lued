@@ -273,6 +273,11 @@ TBD
 * Exuberant Ctags - done
 * alt__period_xxx - change sets to toggles - done
 * Enable binary search mode - done (alt+>, alt+<) - done
+* alt-- - return back to position when find (or ctag) was called. make it a stack - done
+* move line numbers from c to lua. - done
+* alt_fw - toggle find whole word -done
+* alt_fc - toggle find case sensitive - done
+
 
 * Column/Block Select, Cut, Copy, Move
 * Split screen
@@ -305,9 +310,5 @@ TBD
 * Bringup Clipboard. Sublime Ctrl+KV
 * Sort Selected. Sublime f9
 * Swap two words.
-* fb - return back to position when find was called. make it a stack
-* fw - find whole word
-* cb - ctag back. make it a stack.
-* move line numbers from c to lua.
 * map save to save_as, for review mode. lued -review file.txt
  
