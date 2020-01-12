@@ -772,23 +772,24 @@ int lua_set_sel_end(lua_State* L) {
    return 0;
 }
 
-static int set_sel() {
-   lued_t* session_p = NULL;
-   carr_geti(LUED_SESSIONS, &session_p);
-   if isNULL(session_p) return 0;
-   if (session_p->sel_state < LUED_SELON) {
-      set_sel_start(0);
-   } else {
-      set_sel_end(1);
-   }
-   return 0;
-}
-
-int lua_set_sel(lua_State* L) {
-   if isNULL(L) return 0;
-   set_sel();
-   return 0;
-}
+// MOVED TO LUA
+// static int set_sel() {
+//    lued_t* session_p = NULL;
+//    carr_geti(LUED_SESSIONS, &session_p);
+//    if isNULL(session_p) return 0;
+//    if (session_p->sel_state < LUED_SELON) {
+//       set_sel_start(0);
+//    } else {
+//       set_sel_end(1);
+//    }
+//    return 0;
+// }
+//
+// int lua_set_sel(lua_State* L) {
+//    if isNULL(L) return 0;
+//    set_sel();
+//    return 0;
+// }
 
 static void set_sel_off(carr_t* all_sessions) {
    lued_t* session = get_session(all_sessions);
@@ -820,74 +821,76 @@ int lua_get_sel(lua_State* L) {
    return 5;
 }
 
-int find_string(const lued_t* l, uint32_t fr, uint32_t fc, const char* s,
-                int mode, uint32_t* r, uint32_t* c, int* found)
-{
-   if (!isNULL(found)) *found = 0;
-   if isNULL(l) return 1;
-   if isNULL(l->text) return 0;
-   if (!isNULL(s) && !isZERO(*s)) {
-      l->find_str->len = 0;
-      l->find_str->it = 0;
-      carr_inserti(l->find_str, s, 0);
-   }
-   const char* search_str = l->find_str->arr;
-   if (isNULL(search_str) || isZERO(*search_str)) return 0;
-   carr_t* carr_lines = l->text;
-   carr_t* carr_line;
-   for (uint32_t line_number = fr; line_number <= carr_lines->len; line_number++) {
-      carr_get(carr_lines, line_number, &carr_line);
-      if isNULL(carr_line) continue;
-      char* p = carr_line->arr;
-      if isEQ(line_number, fr) {
-         if (fc >= carr_line->len) continue;
-         p += fc;
-      }
-      char* const px = strstr(p, search_str);
-      if isNULL(px) continue;
-      // printf("carr_line->arr=%p, p=%p, px=%p\n", carr_line->arr, p, px);
-
-      if (!isNULL(r)) *r = line_number;
-      if (!isNULL(c)) *c = (px - carr_line->arr);
-      if (!isNULL(found)) *found = 1;
-      set_cur_pos(*r, *c);
-      set_sel_start(0);
-      set_cur_pos(*r, *c + strlen(search_str));
-      set_sel_end(1);
-      set_cur_pos(fr,fc);
-      return 0;
-   }
-   if (!isNULL(found)) *found = 0;
-   return 0;
-}
-
-static int find_str(const char* str, int mode, uint32_t* r, uint32_t* c) {
-   lued_t* session_p = NULL;
-   carr_geti(LUED_SESSIONS, &session_p);
-   if isNULL(session_p) return 0;
-   carr_t* text_p = session_p->text;
-   if isNULL(text_p) return 0;
-   carr_t* line_p = NULL;
-   carr_geti(text_p, &line_p);
-   if isNULL(line_p) return 0;
-   uint32_t from_row, from_col;
-   get_cur_pos(&from_row, &from_col);
-   from_col++;
-   int found = 0;
-   find_string(session_p, from_row, from_col, str, mode, r, c, &found);
-   return found;
-}
-
-int lua_find_str(lua_State* L) {
-   if isNULL(L) return 0;
-   const char* str = lua_tostring(L, 1);
-   uint32_t r, c;
-   int found = find_str(str, 0, &r, &c);
-   lua_pushnumber(L, found);
-   lua_pushnumber(L, r+1);
-   lua_pushnumber(L, c+1);
-   return 3;
-}
+// Moved to Lua
+// int find_string(const lued_t* l, uint32_t fr, uint32_t fc, const char* s,
+//                 int mode, uint32_t* r, uint32_t* c, int* found)
+// {
+//    if (!isNULL(found)) *found = 0;
+//    if isNULL(l) return 1;
+//    if isNULL(l->text) return 0;
+//    if (!isNULL(s) && !isZERO(*s)) {
+//       l->find_str->len = 0;
+//       l->find_str->it = 0;
+//       carr_inserti(l->find_str, s, 0);
+//    }
+//    const char* search_str = l->find_str->arr;
+//    if (isNULL(search_str) || isZERO(*search_str)) return 0;
+//    carr_t* carr_lines = l->text;
+//    carr_t* carr_line;
+//    for (uint32_t line_number = fr; line_number <= carr_lines->len; line_number++) {
+//       carr_get(carr_lines, line_number, &carr_line);
+//       if isNULL(carr_line) continue;
+//       char* p = carr_line->arr;
+//       if isEQ(line_number, fr) {
+//          if (fc >= carr_line->len) continue;
+//          p += fc;
+//       }
+//       char* const px = strstr(p, search_str);
+//       if isNULL(px) continue;
+//       // printf("carr_line->arr=%p, p=%p, px=%p\n", carr_line->arr, p, px);
+//
+//       if (!isNULL(r)) *r = line_number;
+//       if (!isNULL(c)) *c = (px - carr_line->arr);
+//       if (!isNULL(found)) *found = 1;
+//       set_cur_pos(*r, *c);
+//       set_sel_start(0);
+//       set_cur_pos(*r, *c + strlen(search_str));
+//       set_sel_end(1);
+//       set_cur_pos(fr,fc);
+//       return 0;
+//    }
+//    if (!isNULL(found)) *found = 0;
+//    return 0;
+// }
+//
+// Moved to Lua
+// static int find_str(const char* str, int mode, uint32_t* r, uint32_t* c) {
+//    lued_t* session_p = NULL;
+//    carr_geti(LUED_SESSIONS, &session_p);
+//    if isNULL(session_p) return 0;
+//    carr_t* text_p = session_p->text;
+//    if isNULL(text_p) return 0;
+//    carr_t* line_p = NULL;
+//    carr_geti(text_p, &line_p);
+//    if isNULL(line_p) return 0;
+//    uint32_t from_row, from_col;
+//    get_cur_pos(&from_row, &from_col);
+//    from_col++;
+//    int found = 0;
+//    find_string(session_p, from_row, from_col, str, mode, r, c, &found);
+//    return found;
+// }
+//
+// int lua_find_str(lua_State* L) {
+//    if isNULL(L) return 0;
+//    const char* str = lua_tostring(L, 1);
+//    uint32_t r, c;
+//    int found = find_str(str, 0, &r, &c);
+//    lua_pushnumber(L, found);
+//    lua_pushnumber(L, r+1);
+//    lua_pushnumber(L, c+1);
+//    return 3;
+// }
 
 static void set_fileid(uint32_t id) {
    if isNULL(LUED_SESSIONS) return;
@@ -1465,15 +1468,15 @@ int lua_get_last_cmd(lua_State* L)
    return 1;
 }
 
-
-static void clear_screen() {
-   printf("%s%s", ESC_CLR_ALL, ESC_GOHOME);
-}
-
-static int lua_clear_screen(lua_State* L) {
-   clear_screen();
-   return 0;
-}
+// moved to lua
+// static void clear_screen() {
+//    printf("%s%s", ESC_CLR_ALL, ESC_GOHOME);
+// }
+//
+// static int lua_clear_screen(lua_State* L) {
+//    clear_screen();
+//    return 0;
+// }
 
 static int is_modified(carr_t* all_sessions, uint32_t session_id) {
    lued_t* session_p = NULL;
@@ -1511,79 +1514,80 @@ exit(0);
 }
 */
 
-static int display_status_depricated(int lua_mode) {
-   uint32_t row, col;
-   get_cur_pos(&row, &col);
-   uint32_t id = get_fileid()+1; // +1 converts to lua
-   char filename[100];
-   get_filename(id-1,filename, sizeof(filename));
-   clear_screen();
-   set_sel_end(0);
-   lued_t* session_p = NULL;
-   carr_geti(LUED_SESSIONS, &session_p);
-   if isNULL(session_p) return 0;
-   uint32_t sel_state, sel_sr, sel_sc, sel_er, sel_ec;
-   get_sel(session_p, &sel_state, &sel_sr, &sel_sc, &sel_er, &sel_ec);
-   if (sel_state) {
-      int stay_selected =  (isEQ(row, sel_er) && isEQ(col, sel_ec)) ||
-                           (isEQ(row, sel_sr) && isEQ(col, sel_sc));
-      if (!stay_selected) {
-         set_sel_off(LUED_SESSIONS);
-      }
-   }
-   const char* mode_str = lua_mode ? "LUA MODE" : "ED MODE";
-   const char* cmd = get_last_cmd();
-   const uint32_t cmd_len = cmd ? strlen(cmd) : 0;
-   const char* null_str = "";
-   const char* cmd_str = (cmd && cmd_len<20) ? cmd : null_str;
-   char status_line[1024];
-   size_t trow, tcol;
-   trow = tcol = 0;
-   get_termsize(&trow, &tcol);
-   int save_needed = !session_p->save_it_valid ||
-                     !isEQ(session_p->save_it, session_p->undo_str->it);
-   char save_ch = save_needed ? '*' : ' ';
-
-
-   sprintf(status_line,"%s - LuEd File (%d) %s%c Line: %d, Col: %d, Sel: %d Cmd: %s",
-          mode_str, id, filename, save_ch, row+1, col+1, sel_state, cmd_str);
-   uint32_t status_len = strlen(status_line);
-   for (int i = status_len; i <= tcol; i++) {
-      status_line[i] = ' ';
-   }
-   status_line[tcol] = '\0';
-   printf(ESC_REVERSE"%s"ESC_NORMAL, status_line);
-   printf("\n");
-   return 0;
-}
-
-
-static int lua_display_statusx(lua_State* L) {
-   int lua_mode = lua_tonumber(L,1);
-   int highlight_trailing_spaces = lua_tonumber(L,2);
-   display_status_depricated(lua_mode);
-   return 0;
-}
-
-
-static int display_text_depricated(int lua_mode, int highlight_trailing_spaces) {
-   uint32_t row, col;
-   get_cur_pos(&row, &col);   
-   get_page_pos(&row, &col);
-   char* text = get_page(row,highlight_trailing_spaces); // text must be freed
-   printf("%s",text);
-   free(text);
-   fflush(stdout);
-   return 0;
-}
-
-
-static int lua_display_textx(lua_State* L) {
-   int lua_mode = lua_tonumber(L,1);
-   int highlight_trailing_spaces = lua_tonumber(L,2);
-   display_text_depricated(lua_mode,highlight_trailing_spaces);
-   return 0;
-}
+// MOVED TO LUA
+// static int display_status_depricated(int lua_mode) {
+//    uint32_t row, col;
+//    get_cur_pos(&row, &col);
+//    uint32_t id = get_fileid()+1; // +1 converts to lua
+//    char filename[100];
+//    get_filename(id-1,filename, sizeof(filename));
+//    clear_screen();
+//    set_sel_end(0);
+//    lued_t* session_p = NULL;
+//    carr_geti(LUED_SESSIONS, &session_p);
+//    if isNULL(session_p) return 0;
+//    uint32_t sel_state, sel_sr, sel_sc, sel_er, sel_ec;
+//    get_sel(session_p, &sel_state, &sel_sr, &sel_sc, &sel_er, &sel_ec);
+//    if (sel_state) {
+//       int stay_selected =  (isEQ(row, sel_er) && isEQ(col, sel_ec)) ||
+//                            (isEQ(row, sel_sr) && isEQ(col, sel_sc));
+//       if (!stay_selected) {
+//          set_sel_off(LUED_SESSIONS);
+//       }
+//    }
+//    const char* mode_str = lua_mode ? "LUA MODE" : "ED MODE";
+//    const char* cmd = get_last_cmd();
+//    const uint32_t cmd_len = cmd ? strlen(cmd) : 0;
+//    const char* null_str = "";
+//    const char* cmd_str = (cmd && cmd_len<20) ? cmd : null_str;
+//    char status_line[1024];
+//    size_t trow, tcol;
+//    trow = tcol = 0;
+//    get_termsize(&trow, &tcol);
+//    int save_needed = !session_p->save_it_valid ||
+//                      !isEQ(session_p->save_it, session_p->undo_str->it);
+//    char save_ch = save_needed ? '*' : ' ';
+//
+//
+//    sprintf(status_line,"%s - LuEd File (%d) %s%c Line: %d, Col: %d, Sel: %d Cmd: %s",
+//           mode_str, id, filename, save_ch, row+1, col+1, sel_state, cmd_str);
+//    uint32_t status_len = strlen(status_line);
+//    for (int i = status_len; i <= tcol; i++) {
+//       status_line[i] = ' ';
+//    }
+//    status_line[tcol] = '\0';
+//    printf(ESC_REVERSE"%s"ESC_NORMAL, status_line);
+//    printf("\n");
+//    return 0;
+// }
+//
+//
+// static int lua_display_statusx(lua_State* L) {
+//    int lua_mode = lua_tonumber(L,1);
+//    int highlight_trailing_spaces = lua_tonumber(L,2);
+//    display_status_depricated(lua_mode);
+//    return 0;
+// }
+//
+//
+// static int display_text_depricated(int lua_mode, int highlight_trailing_spaces) {
+//    uint32_t row, col;
+//    get_cur_pos(&row, &col);   
+//    get_page_pos(&row, &col);
+//    char* text = get_page(row,highlight_trailing_spaces); // text must be freed
+//    printf("%s",text);
+//    free(text);
+//    fflush(stdout);
+//    return 0;
+// }
+//
+//
+// static int lua_display_textx(lua_State* L) {
+//    int lua_mode = lua_tonumber(L,1);
+//    int highlight_trailing_spaces = lua_tonumber(L,2);
+//    display_text_depricated(lua_mode,highlight_trailing_spaces);
+//    return 0;
+// }
 
 
 int file_exists(const char* filename)
@@ -1717,6 +1721,8 @@ lua_State* lued_reg () {
   // Define the LUED API
   lua_reg(L, lua_lued_open, "lued_open");
   lua_reg(L, lua_reopen, "reopen");
+  lua_reg(L, lua_save_session, "save_session");
+  lua_reg(L, lua_close_session, "close_session");
   lua_reg(L, lua_get_numchar, "get_numchar");
   lua_reg(L, lua_get_numlines, "get_numlines");
   lua_reg(L, lua_get_numsessions, "get_numsessions");
@@ -1738,11 +1744,11 @@ lua_State* lued_reg () {
   lua_reg(L, lua_get_fileid, "get_fileid");
 //  lua_reg(L, lua_display_status, "display_status");
 //  lua_reg(L, lua_display_text, "display_text");
-  lua_reg(L, lua_clear_screen, "clear_screen");
-  lua_reg(L, lua_find_str, "find_str");
+//  lua_reg(L, lua_clear_screen, "clear_screen");
+//  lua_reg(L, lua_find_str, "find_str");
+//  lua_reg(L, lua_set_sel, "set_sel");
   lua_reg(L, lua_is_sel_end, "is_sel_end");
   lua_reg(L, lua_is_sel_off, "is_sel_off");
-  lua_reg(L, lua_set_sel, "set_sel");
   lua_reg(L, lua_set_sel_start, "set_sel_start");
   lua_reg(L, lua_set_sel_end, "set_sel_end");
   lua_reg(L, lua_set_sel_off, "set_sel_off");
@@ -1756,12 +1762,10 @@ lua_State* lued_reg () {
   lua_reg(L, lua_get_repeatables, "get_repeatables");
   lua_reg(L, lua_set_non_repeatables, "set_non_repeatables");
   lua_reg(L, lua_get_non_repeatables, "get_non_repeatabless");
-  lua_reg(L, lua_save_session, "save_session");
   lua_reg(L, lua_is_modified, "is_modified");
   lua_reg(L, lua_get_str, "get_str");
   lua_reg(L, lua_set_paste, "set_paste");
   lua_reg(L, lua_get_paste, "get_paste");
-  lua_reg(L, lua_close_session, "close_session");
   lua_reg(L, lua_undo, "undo");
   lua_reg(L, lua_redo, "redo");
   lua_reg(L, lua_is_file_modified, "is_file_modified");
