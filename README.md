@@ -302,7 +302,12 @@ TBD
 * Select from Mark to cursor. Sublime Ctrl+KA
 * Delete from Mark to cursor. Sublime Ctrl+KW
 * Clear Mark. Sublime Ctrl+KG
-* Bringup Clipboafd. Sublime Ctrl+KV
+* Bringup Clipboard. Sublime Ctrl+KV
 * Sort Selected. Sublime f9
 * Swap two words.
+* fb - return back to position when find was called. make it a stack
+* fw - find whole word
+* cb - ctag back. make it a stack.
+* move line numbers from c to lua.
+* map save to save_as, for review mode. lued -review file.txt
  
