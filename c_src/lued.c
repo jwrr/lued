@@ -588,6 +588,8 @@ int luedc_get_page(lued_t* l, uint32_t from_row, uint32_t num_rows,
       bool turn_selon = false;
       uint32_t turn_selon_at = 0;
       uint32_t turn_seloff_at = 0;
+      
+      uint32_t current_line_len = carr_len(line);
       if (selon) {
          if ((sel_sr < line_number) && (line_number < sel_er)) {
             turn_selon = true;
@@ -595,7 +597,7 @@ int luedc_get_page(lued_t* l, uint32_t from_row, uint32_t num_rows,
          } else if ((sel_sr < line_number) && isEQ(line_number, sel_er) && (sel_ec > 0)) {
             turn_selon = true;
             turn_selon_at = 0;
-         } else if (isEQ(sel_sr, line_number) && (sel_er > sel_sr || sel_ec > 0)) {
+         } else if (isEQ(sel_sr, line_number) && (sel_er > sel_sr || sel_ec > 0) && (sel_sc < current_line_len) ) {
             turn_selon = true;
             turn_selon_at = sel_sc;
          }
@@ -628,6 +630,7 @@ int luedc_get_page(lued_t* l, uint32_t from_row, uint32_t num_rows,
          src_ptr += src_len;
          offset = src_ptr - line->arr;
       }
+      
       if (isEQ(line_number, carr_i(text)) && (offset <= carr_i(line)) ) {
          uint32_t len_part1 = carr_i(line) - offset;
          uint32_t max_size = min(dest_size, dest_len+len_part1+1);
