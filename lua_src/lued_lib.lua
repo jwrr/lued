@@ -2048,8 +2048,8 @@ function del_eow(dd)
 end
 
 
--- spaces from cursor to start of next word.  If cursor is not over a space then
--- go to next line and then delete the spaces.
+-- Remove spaces from cursor to start of next word.  If cursor is not over a
+-- space then go to next line and then delete the spaces.
 function del_spaces(dd)
   local dd2 = 1
   if not is_space() then
@@ -2326,10 +2326,36 @@ function ins_str(str,dd)
 end
 
 
-function insert_tab(dd)
+function insert_tab1(dd)
   local t = (g_replace_tabs > 0) and string.rep(' ',g_replace_tabs) or "\t"
   ins_str(t,dd)
 end
+
+
+function insert_tab2(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_up_n_lines(1,dd2)
+--  move_right_n_char(1,dd2)
+  move_right_n_words(1,dd2)
+  local r2,c2 = get_cur_pos()
+  set_cur_pos(r1,c1)
+  if (c2 > c1) then
+    while is_space() do
+      del_char(1,dd2)
+    end
+    local num_spaces_to_insert = c2 - c1
+    local t = string.rep(" ",num_spaces_to_insert) or " "
+    ins_str(t,dd2)
+  end
+  disp(dd)
+end
+
+
+function insert_tab2_selected(dd)
+  foreach_selected(insert_tab2, dd)
+end
+
 
 
 function insert_cr_before(dd)

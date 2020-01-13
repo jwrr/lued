@@ -277,7 +277,8 @@ TBD
 * move line numbers from c to lua. - done
 * alt_fw - toggle find whole word -done
 * alt_fc - toggle find case sensitive - done
-
+* alt-bb goto bottom of file. alt+BB goto beginning of file. - done.
+* tab (ctrl+I) - align with previous line's next non-whitespace. - done
 
 * Column/Block Select, Cut, Copy, Move
 * Split screen
@@ -311,4 +312,7 @@ TBD
 * Sort Selected. Sublime f9
 * Swap two words.
 * map save to save_as, for review mode. lued -review file.txt
- 
+* move file has changed checking from C to Lua
+* alt-n - clean up prompt to read empty file.
+* mouse paste - remove trailing comma (if it's there)
+

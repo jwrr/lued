@@ -34,6 +34,7 @@ alt_aa           = align_delimiter_selected hot("aa")
 alt_as           = align_selected          hot("as")
 
 alt_bb           = toggle_bottom              hot("bb")
+alt_BB           = toggle_bottom              hot("BB")
 alt_bd           = bubble_selected_lines_down hot("bd") -- line sinks to bottom of file. Similar to sublime Ctrl+Shift+Down
 alt_bu           = bubble_selected_lines_up   hot("bu") -- line floats to top of file. Similar to sublime Ctrl+Shift+Up
 
@@ -157,7 +158,7 @@ ctrl_T           = spare
 ctrl_Y           = redo_cmd          -- Similar to Sublime Ctrl+Y
 ctrl_U           = spare
 
-ctrl_I           = insert_tab        -- terminal <Tab> key (do not change)
+ctrl_I           = insert_tab2       -- terminal <Tab> key (do not change)
 ctrl_O           = open_file         -- Similar to Word Ctrl+O
 ctrl_P           = open_file_selected -- Similar to Sublime Ctrl+P
   local sel_str, sel_sr, sel_
