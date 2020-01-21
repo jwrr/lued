@@ -158,7 +158,7 @@ ctrl_T           = spare
 ctrl_Y           = redo_cmd          -- Similar to Sublime Ctrl+Y
 ctrl_U           = spare
 
-ctrl_I           = insert_tab2       -- terminal <Tab> key (do not change)
+ctrl_I           = insert_tab        -- terminal <Tab> key (do not change)
 ctrl_O           = open_file         -- Similar to Word Ctrl+O
 ctrl_P           = open_file_selected -- Similar to Sublime Ctrl+P
   local sel_str, sel_sr, sel_

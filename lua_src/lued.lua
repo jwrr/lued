@@ -62,7 +62,8 @@ SOFTWARE.
   g_status_line_on         = true  -- Display status line when true, else do not display status line
   g_status_line_reverse    = true  -- Status Line is in reverse video when true, else normal video
   g_search_all_files       = false -- Search all files. set by search_all_files, cleared by 
-  
+  g_tab_classic            = false -- Select classic tab or better tab
+    
   dofile( g_lued_root .. "/lued_lib.lua" )
   load_plugins( g_lued_root .. "/plugins" )
   dofile( g_bindings_file)

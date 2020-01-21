@@ -2326,13 +2326,17 @@ function ins_str(str,dd)
 end
 
 
-function insert_tab1(dd)
+function insert_tab_classic(dd)
   local t = (g_replace_tabs > 0) and string.rep(' ',g_replace_tabs) or "\t"
   ins_str(t,dd)
 end
 
 
-function insert_tab2(dd)
+function insert_tab(dd)
+  if g_tab_classic then
+    insert_tab_classic(dd)
+    return
+  end
   local dd2 = 1
   local r1,c1 = get_cur_pos()
   move_up_n_lines(1,dd2)
@@ -2352,8 +2356,8 @@ function insert_tab2(dd)
 end
 
 
-function insert_tab2_selected(dd)
-  foreach_selected(insert_tab2, dd)
+function insert_tab_selected(dd)
+  foreach_selected(insert_tab, dd)
 end
 
 
