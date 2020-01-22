@@ -279,6 +279,9 @@ TBD
 * alt_fc - toggle find case sensitive - done
 * alt-bb goto bottom of file. alt+BB goto beginning of file. - done.
 * tab (ctrl+I) - align with previous line's next non-whitespace. - done
+* alt_c qwe - done
+* alt_s qwe - done
+* alt_x qwe - done
 
 * Column/Block Select, Cut, Copy, Move
 * Split screen
@@ -318,8 +321,7 @@ TBD
 * alt_de - delete to end. when at end then go down 1 line and delete to end.
 * alt_incr. go down one line and increment count. If number then replace number. if blank line the duplicate line and incr.
 * alt_decr
-* alt_c qwe
-* alt_s qwe sol word eol line
-* alt_d qwe
-* alt_x qwe
-* alt_f 
+* ctrl_h Case Sensitive Replace. 'Hello' 'Hi' replaces 'hello' with 'hi', 'Hello' with 'Hi'
+
+
+

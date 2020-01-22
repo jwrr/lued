@@ -52,12 +52,6 @@ alt_cu           = uncomment_selected      hot("cu") -- comment remove
 alt_cw           = copy_word               hot("cw") -- comment remove
 
 alt_dd           = duplicate_line          hot("dd") -- Similar to Sublime Ctrl+Shift+D
-alt_dq           = del_sol                 hot("dq") -- Similar to Sublime Ctrl_K+<Backspace>
-alt_de           = del_eol                 hot("de") -- Similar to Sublime Ctrl+KK
-alt_dm           = del_mark_to_cursor      hot("dm") -- 
-alt_ds           = del_spaces_selected     hot("ds") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
-alt_dw           = del_eow                 hot("dw") -- Similar to Sublime Ctrl+KW
-alt_DW           = del_backword            hot("DW") -- Similar to Sublime Ctrl+Backspace
 
 alt_ed           = set_edit_mode           hot("ed")
 alt_fa           = search_all_files        hot("fa")  -- Similar to Sublime Ctrl+Shift+F. search all open files for match
@@ -110,11 +104,11 @@ alt_sb           = sel_inside_braces       hot("sb")
 alt_se           = sel_eol                 hot("se")
 alt_sq           = sel_sof                 hot("sq")
 alt_sg           = sel_eof                 hot("sg")
-alt_sw           = sel_word                hot("sw")
 alt_sm           = sel_mark_to_cursor      hot("sm") -- Similar to Sublime Ctrl+K
 alt_sn           = swap_line_with_next     hot("sn")
 alt_sp           = swap_line_with_prev     hot("sp")
 alt_ss           = sel_toggle              hot("ss") -- Similar to Sublime <ESC>.  Toggle on/off selection.
+alt_sw           = sel_word                hot("sw")
 
 -- alt_Saveall   = save_all
 alt_Seti         = set_scope_indent -- SI2 SI3 SI4
@@ -122,12 +116,21 @@ alt_Seti         = set_scope_indent -- SI2 SI3 SI4
 alt_tt           = select_tab              hot("tt")  -- Select file tab from list of open files.
 alt_TT           = tab_toggle              hot("TT")  -- Toggle to previous file tab
 alt_u            = set_move_up_n_lines   -- Move N lines up. alt_u42<Enter> moves up 42 lines
-alt_uu           = set_move_up_n_lines    hot("uu")  -- Move N lines up. alt_u42<Enter> moves up 42 lines
+alt_uu           = set_move_up_n_lines     hot("uu")  -- Move N lines up. alt_u42<Enter> moves up 42 lines
 alt_ui           = unindent_selected       hot("ui")
 alt_ww           = move_right_n_words      hot("ww") -- Similar to Sublime Ctrl+right_arrow.  Move right one word.
 alt_WW           = move_left_n_words       hot("WW") -- Similar to Sublime Ctrl+left_arrow. Move left one word.
 alt_wq           = move_to_sol             hot("wq") -- Similar to Sublime <Home>. Move to Start of Line.
 alt_we           = move_to_eol             hot("we") -- Similar to Sublime <End>. Move to End of Line.
+
+alt_xq           = del_sol                 hot("xq") -- Similar to Sublime Ctrl_K+<Backspace>
+alt_xe           = del_eol                 hot("xe") -- Similar to Sublime Ctrl+KK
+alt_xm           = del_mark_to_cursor      hot("xm") -- 
+alt_xs           = del_spaces_selected     hot("xs") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
+alt_xw           = del_word                hot("xw") -- Delete word under cursor
+alt_xx           = del_eow                 hot("xx") -- Similar to Sublime Ctrl+KW
+alt_XX           = del_backword            hot("XX") -- Similar to Sublime Ctrl+Backspace
+
 alt_z            = alt_z_wrapper           hot("z")  -- Similar to Sublime Ctrl-z. Undo. After alt-z is used, ctrl-z becomes unix suspend command.
 
 

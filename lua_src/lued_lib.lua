@@ -248,7 +248,13 @@ end
 
 
 function is_word(line,pos)
-  local is = string.match(line,"^[%w_]",pos) and true or false
+  local is;
+  if line then
+    is = string.match(line,"^[%w_]",pos) and true or false
+  else
+    local ch = get_char()
+    is =  string.match(ch,"^[%w_]",1) and true or false
+  end
   return is
 end
 
@@ -2071,9 +2077,16 @@ end
 
 function del_word(n,dd)
   local dd2 = 1
-  sel_word(dd2)
-  set_sel_end()
-  cut(dd)
+  if is_word() then
+    sel_word(dd2)
+    set_sel_end()
+    cut(dd)
+  else
+    while not is_word() do
+      del_char(1,dd2)
+    end
+    disp(dd)
+  end
 end
 
 
