@@ -1803,7 +1803,7 @@ function sel_line(n,dd)
 end
 
 
-function sel_block(dd)
+function sel_inside_braces(dd)
   local dd2 = 1
   local save_find_str = g_find_str
   set_sel_off()
@@ -3224,6 +3224,134 @@ More Help
 end
 
 
+function copy_word(dd)
+  local dd2 = 1
+  sel_word(dd2)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_sol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  move_to_sol(dd2)
+  set_sel_start()
+  set_cur_pos(r1,c1)
+  global_copy(dd)
+end
+
+
+function copy_eol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  set_sel_start()
+  move_to_eol(dd2)
+  global_copy(dd2)
+  set_cur_pos(r1,c1)
+  disp(dd)
+end
+
+
 function copy_line(n,dd)
   n = n or 1
   local dd2 = 1
@@ -3240,6 +3368,7 @@ function copy_line(n,dd)
     global_copy(dd)
   end
 end
+
 
 function duplicate_line(dd)
   local dd2 = 1

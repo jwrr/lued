@@ -313,6 +313,13 @@ TBD
 * Swap two words.
 * map save to save_as, for review mode. lued -review file.txt
 * move file has changed checking from C to Lua
-* alt-n - clean up prompt to read empty file.
+* alt_n - clean up prompt to read empty file.
 * mouse paste - remove trailing comma (if it's there)
-
+* alt_de - delete to end. when at end then go down 1 line and delete to end.
+* alt_incr. go down one line and increment count. If number then replace number. if blank line the duplicate line and incr.
+* alt_decr
+* alt_c qwe
+* alt_s qwe sol word eol line
+* alt_d qwe
+* alt_x qwe
+* alt_f 

@@ -44,9 +44,12 @@ alt_ct = ctag_move_to_tag         hot("ct") -- ctag jump. Similar Sublime Ctrl+R
 alt_cr = ctag_read_file           hot("cr") -- ctag read
 
 alt_cc           = comment_selected        hot("cc") -- Similar to Sublime Ctrl+/. Comment Line
-alt_cu           = uncomment_selected      hot("cu") -- comment remove
 alt_cd           = cd_change_dir;          hot("cd")
+alt_ce           = copy_eol                hot("ce") -- copy current pos to eol
+alt_cq           = copy_sol                hot("cq") -- copy sol to current pos
 alt_cs           = set_comment             hot("cs")
+alt_cu           = uncomment_selected      hot("cu") -- comment remove
+alt_cw           = copy_word               hot("cw") -- comment remove
 
 alt_dd           = duplicate_line          hot("dd") -- Similar to Sublime Ctrl+Shift+D
 alt_dq           = del_sol                 hot("dq") -- Similar to Sublime Ctrl_K+<Backspace>
@@ -103,10 +106,11 @@ alt_rt           = set_replace_tabs -- rt0 rt4
 alt_sa           = save_as                 hot("sa") -- Similar to Sublime Ctrl+Shift+S. File Save as.
 alt_si           = sel_indentation         hot("si") -- Similar to Sublime Ctrl+shift+J.  Select lines with the indentation.
 alt_sq           = sel_sol                 hot("sq")
-alt_sb           = sel_block               hot("sb")
+alt_sb           = sel_inside_braces       hot("sb") 
 alt_se           = sel_eol                 hot("se")
-alt_sf           = sel_sof                 hot("sf")
+alt_sq           = sel_sof                 hot("sq")
 alt_sg           = sel_eof                 hot("sg")
+alt_sw           = sel_word                hot("sw")
 alt_sm           = sel_mark_to_cursor      hot("sm") -- Similar to Sublime Ctrl+K
 alt_sn           = swap_line_with_next     hot("sn")
 alt_sp           = swap_line_with_prev     hot("sp")
