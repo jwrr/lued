@@ -33,8 +33,8 @@ alt__lt_         = halfsy_left             hot(",<,") -- Move back half the dist
 alt_aa           = align_delimiter_selected hot("aa")
 alt_as           = align_selected          hot("as")
 
-alt_bb           = toggle_bottom              hot("bb")
-alt_BB           = toggle_bottom              hot("BB")
+alt_bb           = toggle_bottom              hot("bb") -- Goto bottom of file
+alt_BB           = toggle_top                 hot("BB") -- Goto top of file
 alt_bd           = bubble_selected_lines_down hot("bd") -- line sinks to bottom of file. Similar to sublime Ctrl+Shift+Down
 alt_bu           = bubble_selected_lines_up   hot("bu") -- line floats to top of file. Similar to sublime Ctrl+Shift+Up
 
