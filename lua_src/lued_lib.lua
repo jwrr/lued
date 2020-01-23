@@ -2093,12 +2093,19 @@ end
 function del_eol(dd)
   local dd2 = 1
   if is_eol() then
-    del_char(1,dd)
-  else
+    move_down_n_lines(1,dd2)
+  end
+  if not is_eol() then
     sel_eol(dd2)
     set_sel_end()
-    cut(dd)
+    cut(dd2)
   end
+  disp(dd)
+end
+
+
+function del_eol_selected(dd)
+  foreach_selected(del_eol, dd)
 end
 
 

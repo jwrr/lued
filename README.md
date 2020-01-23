@@ -282,6 +282,8 @@ TBD
 * alt_c qwe - done
 * alt_s qwe - done
 * alt_x qwe - done
+* mouse paste - remove trailing comma (if it's there) - done
+* alt_de - delete to end. when at end then go down 1 line and delete to end. - done
 
 * Column/Block Select, Cut, Copy, Move
 * Split screen
@@ -307,7 +309,7 @@ TBD
 * Block Comment. Sublime Ctrl+Shift+/
 * Paste and Indent Ctrl+Shift+V
 * Auto Complete
-* Incremental Search
+* Incremental Search  alt; 
 * Select from Mark to cursor. Sublime Ctrl+KA
 * Delete from Mark to cursor. Sublime Ctrl+KW
 * Clear Mark. Sublime Ctrl+KG
@@ -317,8 +319,6 @@ TBD
 * map save to save_as, for review mode. lued -review file.txt
 * move file has changed checking from C to Lua
 * alt_n - clean up prompt to read empty file.
-* mouse paste - remove trailing comma (if it's there)
-* alt_de - delete to end. when at end then go down 1 line and delete to end.
 * alt_incr. go down one line and increment count. If number then replace number. if blank line the duplicate line and incr.
 * alt_decr
 * ctrl_h Case Sensitive Replace. 'Hello' 'Hi' replaces 'hello' with 'hi', 'Hello' with 'Hi'
