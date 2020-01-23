@@ -38,6 +38,7 @@ SOFTWARE.
   g_remove_trailing_spaces = false -- Only removes on lines that are modified. Use alt_Rats to remove all trailing spaces.
   g_show_trailing_spaces   = true  -- Show trailing spaces in reverse video
   g_scope_indent           = 2     -- Use with indent_scope(is) command. change indent with si2 si3 si4...
+  g_mouse_remove_trailing_comma = true -- Some terminals include comma if it is next to selected work. Which is rarely what you want.
   g_min_lines_from_top     = 5     -- Scroll will try to keep at least 5 lines from the top
   g_min_lines_from_bot     = 7     -- Scroll will try to keep at least 7 lines from the bottom
   g_move_down_n_lines      = 8     -- move this many lines when not specified

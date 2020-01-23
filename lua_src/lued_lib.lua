@@ -3085,6 +3085,14 @@ end
 
 
 function mouse_event(str)
+  str = str or ""
+  if g_mouse_remove_trailing_comma then
+    local last_pos = #str-1
+    local last_char = string.sub(str, last_pos, last_pos)
+    if last_char == "," then
+      str = string.sub(str, 1, last_pos)
+    end
+  end
   local dd2 = 0
   local Cb = string.byte(str,1) - 32
   local Cx = string.byte(str,2) - 32
@@ -3103,9 +3111,9 @@ function mouse_event(str)
       set_cur_pos(pr+Cy-2,Cx)
       -- set_sel_end()
     end
-  elseif Cb==64 then
+  elseif Cb==64 then  -- scroll wheel forward
     move_up_n_lines(2,dd2)
-  elseif Cb==65 then
+  elseif Cb==65 then  -- scroll wheel backward
     move_down_n_lines(2,dd2)
   else
     dd2 = 1
