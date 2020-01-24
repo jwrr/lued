@@ -1721,7 +1721,7 @@ SParser	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^struct SParser {  \/* d
 SRC	c_src/Makefile	/^SRC = $(wildcard *.c)$/;"	m
 SS	build/extern/prj_lua52/src/prj_lua52/src/luac.c	375;"	d	file:
 STEPMULADJ	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	44;"	d	file:
-STRLEN	c_src/lued.c	1672;"	d	file:
+STRLEN	c_src/lued.c	1679;"	d	file:
 SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	build/c_src/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	build/extern/prj_carr/src/prj_carr-build/Makefile	/^SUFFIXES =$/;"	m
@@ -1878,33 +1878,102 @@ adjust_assign	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void a
 adjust_varargs	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^static StkId adjust_varargs (lua_State *L, Proto *p, int actual) {$/;"	f	file:
 adjustlocalvars	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void adjustlocalvars (LexState *ls, int nvars) {$/;"	f	file:
 adjustresults	build/extern/prj_lua52/src/prj_lua52/src/lapi.h	17;"	d
+align_delimiter_of_next_line	.lued/lued_lib.lua	/^function align_delimiter_of_next_line(delim, dd)$/;"	f
 align_delimiter_of_next_line	lua_src/lued_lib.lua	/^function align_delimiter_of_next_line(delim, dd)$/;"	f
+align_delimiter_of_next_line	tmp/.lued/lued_lib.lua	/^function align_delimiter_of_next_line(delim, dd)$/;"	f
+align_delimiter_of_next_line	tmp/lua_src/lued_lib.lua	/^function align_delimiter_of_next_line(delim, dd)$/;"	f
+align_delimiter_selected	.lued/lued_lib.lua	/^function align_delimiter_selected(delim, dd)$/;"	f
 align_delimiter_selected	lua_src/lued_lib.lua	/^function align_delimiter_selected(delim, dd)$/;"	f
+align_delimiter_selected	tmp/.lued/lued_lib.lua	/^function align_delimiter_selected(delim, dd)$/;"	f
+align_delimiter_selected	tmp/lua_src/lued_lib.lua	/^function align_delimiter_selected(delim, dd)$/;"	f
+align_selected	.lued/lued_lib.lua	/^function align_selected(dd)$/;"	f
 align_selected	lua_src/lued_lib.lua	/^function align_selected(dd)$/;"	f
+align_selected	tmp/.lued/lued_lib.lua	/^function align_selected(dd)$/;"	f
+align_selected	tmp/lua_src/lued_lib.lua	/^function align_selected(dd)$/;"	f
+align_start_of_next_line	.lued/lued_lib.lua	/^function align_start_of_next_line(dd)$/;"	f
 align_start_of_next_line	lua_src/lued_lib.lua	/^function align_start_of_next_line(dd)$/;"	f
+align_start_of_next_line	tmp/.lued/lued_lib.lua	/^function align_start_of_next_line(dd)$/;"	f
+align_start_of_next_line	tmp/lua_src/lued_lib.lua	/^function align_start_of_next_line(dd)$/;"	f
 all_hist	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^carr_t* all_hist = NULL;$/;"	v
 allgc	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  GCObject *allgc;  \/* list of all collectable objects *\/$/;"	m	struct:global_State
 allowhook	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  lu_byte allowhook;$/;"	m	struct:lua_State
 allweak	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  GCObject *allweak;  \/* list of all-weak tables *\/$/;"	m	struct:global_State
+alt_D_dollar_ 	.lued/lued_bindings_nedit.lua	/^alt_D_dollar_ = function() cut_line( get_numlines() ) end -- delete lines to end of file$/;"	f
 alt_D_dollar_ 	lua_src/lued_bindings_nedit.lua	/^alt_D_dollar_ = function() cut_line( get_numlines() ) end -- delete lines to end of file$/;"	f
+alt_D_dollar_ 	tmp/.lued/lued_bindings_nedit.lua	/^alt_D_dollar_ = function() cut_line( get_numlines() ) end -- delete lines to end of file$/;"	f
+alt_D_dollar_ 	tmp/lua_src/lued_bindings_nedit.lua	/^alt_D_dollar_ = function() cut_line( get_numlines() ) end -- delete lines to end of file$/;"	f
+alt_M_squote  	.lued/lued_bindings_nedit.lua	/^alt_M_squote  = function(name) goto_mark(name); disp() end$/;"	f
+alt_M_squote  	.lued/lued_bindings_nedit.lua	/^alt_M_squote  = function(name) set_mark(name); disp() end$/;"	f
 alt_M_squote  	lua_src/lued_bindings_nedit.lua	/^alt_M_squote  = function(name) goto_mark(name); disp() end$/;"	f
 alt_M_squote  	lua_src/lued_bindings_nedit.lua	/^alt_M_squote  = function(name) set_mark(name); disp() end$/;"	f
+alt_M_squote  	tmp/.lued/lued_bindings_nedit.lua	/^alt_M_squote  = function(name) goto_mark(name); disp() end$/;"	f
+alt_M_squote  	tmp/.lued/lued_bindings_nedit.lua	/^alt_M_squote  = function(name) set_mark(name); disp() end$/;"	f
+alt_M_squote  	tmp/lua_src/lued_bindings_nedit.lua	/^alt_M_squote  = function(name) goto_mark(name); disp() end$/;"	f
+alt_M_squote  	tmp/lua_src/lued_bindings_nedit.lua	/^alt_M_squote  = function(name) set_mark(name); disp() end$/;"	f
+alt_M_squote     	.lued/lued_bindings.lua	/^alt_M_squote     = function(name) goto_mark(name); disp() end$/;"	f
+alt_M_squote     	.lued/lued_bindings.lua	/^alt_M_squote     = function(name) set_mark(name); disp() end$/;"	f
 alt_M_squote     	lua_src/lued_bindings.lua	/^alt_M_squote     = function(name) goto_mark(name); disp() end$/;"	f
 alt_M_squote     	lua_src/lued_bindings.lua	/^alt_M_squote     = function(name) set_mark(name); disp() end$/;"	f
+alt_M_squote     	tmp/.lued/lued_bindings.lua	/^alt_M_squote     = function(name) goto_mark(name); disp() end$/;"	f
+alt_M_squote     	tmp/.lued/lued_bindings.lua	/^alt_M_squote     = function(name) set_mark(name); disp() end$/;"	f
+alt_M_squote     	tmp/lua_src/lued_bindings.lua	/^alt_M_squote     = function(name) goto_mark(name); disp() end$/;"	f
+alt_M_squote     	tmp/lua_src/lued_bindings.lua	/^alt_M_squote     = function(name) set_mark(name); disp() end$/;"	f
+alt_OB        	.lued/lued_bindings_nedit.lua	/^alt_OB        = function() set_page_offset_percent(0.99,0) end hot("OB") -- align cursor to bottom$/;"	f
 alt_OB        	lua_src/lued_bindings_nedit.lua	/^alt_OB        = function() set_page_offset_percent(0.99,0) end hot("OB") -- align cursor to bottom$/;"	f
+alt_OB        	tmp/.lued/lued_bindings_nedit.lua	/^alt_OB        = function() set_page_offset_percent(0.99,0) end hot("OB") -- align cursor to bottom$/;"	f
+alt_OB        	tmp/lua_src/lued_bindings_nedit.lua	/^alt_OB        = function() set_page_offset_percent(0.99,0) end hot("OB") -- align cursor to bottom$/;"	f
+alt_OL        	.lued/lued_bindings_nedit.lua	/^alt_OL        = function() set_page_offset_percent(0.75,0) end hot("OL") -- align cursor to lower$/;"	f
 alt_OL        	lua_src/lued_bindings_nedit.lua	/^alt_OL        = function() set_page_offset_percent(0.75,0) end hot("OL") -- align cursor to lower$/;"	f
+alt_OL        	tmp/.lued/lued_bindings_nedit.lua	/^alt_OL        = function() set_page_offset_percent(0.75,0) end hot("OL") -- align cursor to lower$/;"	f
+alt_OL        	tmp/lua_src/lued_bindings_nedit.lua	/^alt_OL        = function() set_page_offset_percent(0.75,0) end hot("OL") -- align cursor to lower$/;"	f
+alt_OM        	.lued/lued_bindings_nedit.lua	/^alt_OM        = function() set_page_offset_percent(0.5,0) end  hot("OM") -- align cursor to middle$/;"	f
 alt_OM        	lua_src/lued_bindings_nedit.lua	/^alt_OM        = function() set_page_offset_percent(0.5,0) end  hot("OM") -- align cursor to middle$/;"	f
+alt_OM        	tmp/.lued/lued_bindings_nedit.lua	/^alt_OM        = function() set_page_offset_percent(0.5,0) end  hot("OM") -- align cursor to middle$/;"	f
+alt_OM        	tmp/lua_src/lued_bindings_nedit.lua	/^alt_OM        = function() set_page_offset_percent(0.5,0) end  hot("OM") -- align cursor to middle$/;"	f
+alt_OT        	.lued/lued_bindings_nedit.lua	/^alt_OT        = function() set_page_offset_percent(0.01,0) end hot("OT") -- align cursor to top$/;"	f
 alt_OT        	lua_src/lued_bindings_nedit.lua	/^alt_OT        = function() set_page_offset_percent(0.01,0) end hot("OT") -- align cursor to top$/;"	f
+alt_OT        	tmp/.lued/lued_bindings_nedit.lua	/^alt_OT        = function() set_page_offset_percent(0.01,0) end hot("OT") -- align cursor to top$/;"	f
+alt_OT        	tmp/lua_src/lued_bindings_nedit.lua	/^alt_OT        = function() set_page_offset_percent(0.01,0) end hot("OT") -- align cursor to top$/;"	f
+alt_OU        	.lued/lued_bindings_nedit.lua	/^alt_OU        = function() set_page_offset_percent(0.25,0) end hot("OU") -- align cursor to upper$/;"	f
 alt_OU        	lua_src/lued_bindings_nedit.lua	/^alt_OU        = function() set_page_offset_percent(0.25,0) end hot("OU") -- align cursor to upper$/;"	f
+alt_OU        	tmp/.lued/lued_bindings_nedit.lua	/^alt_OU        = function() set_page_offset_percent(0.25,0) end hot("OU") -- align cursor to upper$/;"	f
+alt_OU        	tmp/lua_src/lued_bindings_nedit.lua	/^alt_OU        = function() set_page_offset_percent(0.25,0) end hot("OU") -- align cursor to upper$/;"	f
+alt_SA        	.lued/lued_bindings_nedit.lua	/^alt_SA        = function() set_sel_start() sol() end$/;"	f
 alt_SA        	lua_src/lued_bindings_nedit.lua	/^alt_SA        = function() set_sel_start() sol() end$/;"	f
+alt_SA        	tmp/.lued/lued_bindings_nedit.lua	/^alt_SA        = function() set_sel_start() sol() end$/;"	f
+alt_SA        	tmp/lua_src/lued_bindings_nedit.lua	/^alt_SA        = function() set_sel_start() sol() end$/;"	f
+alt_SF        	.lued/lued_bindings_nedit.lua	/^alt_SF        = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("SF")$/;"	f
 alt_SF        	lua_src/lued_bindings_nedit.lua	/^alt_SF        = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("SF")$/;"	f
+alt_SF        	tmp/.lued/lued_bindings_nedit.lua	/^alt_SF        = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("SF")$/;"	f
+alt_SF        	tmp/lua_src/lued_bindings_nedit.lua	/^alt_SF        = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("SF")$/;"	f
+alt_SG        	.lued/lued_bindings_nedit.lua	/^alt_SG        = function() set_sel_start(); eol(); set_sel_end(); end hot("SG")$/;"	f
 alt_SG        	lua_src/lued_bindings_nedit.lua	/^alt_SG        = function() set_sel_start(); eol(); set_sel_end(); end hot("SG")$/;"	f
+alt_SG        	tmp/.lued/lued_bindings_nedit.lua	/^alt_SG        = function() set_sel_start(); eol(); set_sel_end(); end hot("SG")$/;"	f
+alt_SG        	tmp/lua_src/lued_bindings_nedit.lua	/^alt_SG        = function() set_sel_start(); eol(); set_sel_end(); end hot("SG")$/;"	f
+alt_Setcase   	.lued/lued_bindings_nedit.lua	/^alt_Setcase   = function() set_case_sensitive(0) end -- used for find\/search$/;"	f
 alt_Setcase   	lua_src/lued_bindings_nedit.lua	/^alt_Setcase   = function() set_case_sensitive(0) end -- used for find\/search$/;"	f
+alt_Setcase   	tmp/.lued/lued_bindings_nedit.lua	/^alt_Setcase   = function() set_case_sensitive(0) end -- used for find\/search$/;"	f
+alt_Setcase   	tmp/lua_src/lued_bindings_nedit.lua	/^alt_Setcase   = function() set_case_sensitive(0) end -- used for find\/search$/;"	f
+alt__period_cas 	.lued/lued_bindings_nedit.lua	/^alt__period_cas = function() set_case_sensitive(0) end -- used for find\/search$/;"	f
 alt__period_cas 	lua_src/lued_bindings_nedit.lua	/^alt__period_cas = function() set_case_sensitive(0) end -- used for find\/search$/;"	f
+alt__period_cas 	tmp/.lued/lued_bindings_nedit.lua	/^alt__period_cas = function() set_case_sensitive(0) end -- used for find\/search$/;"	f
+alt__period_cas 	tmp/lua_src/lued_bindings_nedit.lua	/^alt__period_cas = function() set_case_sensitive(0) end -- used for find\/search$/;"	f
+alt_u         	.lued/lued_bindings_nedit.lua	/^alt_u         = function() set_page_offset_percent(0.10,0) end   hot("u")$/;"	f
 alt_u         	lua_src/lued_bindings_nedit.lua	/^alt_u         = function() set_page_offset_percent(0.10,0) end   hot("u")$/;"	f
+alt_u         	tmp/.lued/lued_bindings_nedit.lua	/^alt_u         = function() set_page_offset_percent(0.10,0) end   hot("u")$/;"	f
+alt_u         	tmp/lua_src/lued_bindings_nedit.lua	/^alt_u         = function() set_page_offset_percent(0.10,0) end   hot("u")$/;"	f
+alt_vhdl_function 	.lued/plugins/verilog.lua	/^alt_vhdl_function = vhdl_function$/;"	f
+alt_vhdl_function 	.lued/plugins/vhdl.lua	/^alt_vhdl_function = vhdl_function$/;"	f
 alt_vhdl_function 	lua_src/plugins/verilog.lua	/^alt_vhdl_function = vhdl_function$/;"	f
 alt_vhdl_function 	lua_src/plugins/vhdl.lua	/^alt_vhdl_function = vhdl_function$/;"	f
+alt_vhdl_function 	tmp/.lued/plugins/verilog.lua	/^alt_vhdl_function = vhdl_function$/;"	f
+alt_vhdl_function 	tmp/.lued/plugins/vhdl.lua	/^alt_vhdl_function = vhdl_function$/;"	f
+alt_vhdl_function 	tmp/lua_src/plugins/verilog.lua	/^alt_vhdl_function = vhdl_function$/;"	f
+alt_vhdl_function 	tmp/lua_src/plugins/vhdl.lua	/^alt_vhdl_function = vhdl_function$/;"	f
+alt_z_wrapper	.lued/lued_lib.lua	/^function alt_z_wrapper(dd)$/;"	f
 alt_z_wrapper	lua_src/lued_lib.lua	/^function alt_z_wrapper(dd)$/;"	f
+alt_z_wrapper	tmp/.lued/lued_lib.lua	/^function alt_z_wrapper(dd)$/;"	f
+alt_z_wrapper	tmp/lua_src/lued_lib.lua	/^function alt_z_wrapper(dd)$/;"	f
 anchor_token	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void anchor_token (LexState *ls) {$/;"	f	file:
 andaux	build/extern/prj_lua52/src/prj_lua52/src/lbitlib.c	/^static b_uint andaux (lua_State *L) {$/;"	f	file:
 api_check	build/extern/prj_lua52/src/prj_lua52/src/llimits.h	85;"	d
@@ -1956,7 +2025,10 @@ base	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^      StkId base;  \/* 
 base_ci	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  CallInfo base_ci;  \/* CallInfo for first level (C calling Lua) *\/$/;"	m	struct:lua_State
 base_funcs	build/extern/prj_lua52/src/prj_lua52/src/lbaselib.c	/^static const luaL_Reg base_funcs[] = {$/;"	v	file:
 basehookcount	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  int basehookcount;$/;"	m	struct:lua_State
+basename	.lued/lued_lib.lua	/^function basename(full_path)$/;"	f
 basename	lua_src/lued_lib.lua	/^function basename(full_path)$/;"	f
+basename	tmp/.lued/lued_lib.lua	/^function basename(full_path)$/;"	f
+basename	tmp/lua_src/lued_lib.lua	/^function basename(full_path)$/;"	f
 bit2mask	build/extern/prj_lua52/src/prj_lua52/src/lgc.h	80;"	d
 bitlib	build/extern/prj_lua52/src/prj_lua52/src/lbitlib.c	/^static const luaL_Reg bitlib[] = {$/;"	v	file:
 bitmask	build/extern/prj_lua52/src/prj_lua52/src/lgc.h	79;"	d
@@ -1966,13 +2038,31 @@ block	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void block (Le
 block_follow	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static int block_follow (LexState *ls, int withuntil) {$/;"	f	file:
 body	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void body (LexState *ls, expdesc *e, int ismethod, int line) {$/;"	f	file:
 boolK	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static int boolK (FuncState *fs, int b) {$/;"	f	file:
+bracket_paste_start	.lued/lued_lib.lua	/^function bracket_paste_start(dd)$/;"	f
 bracket_paste_start	lua_src/lued_lib.lua	/^function bracket_paste_start(dd)$/;"	f
+bracket_paste_start	tmp/.lued/lued_lib.lua	/^function bracket_paste_start(dd)$/;"	f
+bracket_paste_start	tmp/lua_src/lued_lib.lua	/^function bracket_paste_start(dd)$/;"	f
+bracket_paste_stop	.lued/lued_lib.lua	/^function bracket_paste_stop(dd)$/;"	f
 bracket_paste_stop	lua_src/lued_lib.lua	/^function bracket_paste_stop(dd)$/;"	f
+bracket_paste_stop	tmp/.lued/lued_lib.lua	/^function bracket_paste_stop(dd)$/;"	f
+bracket_paste_stop	tmp/lua_src/lued_lib.lua	/^function bracket_paste_stop(dd)$/;"	f
 breaklabel	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void breaklabel (LexState *ls) {$/;"	f	file:
+bubble_line_down	.lued/lued_lib.lua	/^function bubble_line_down(dd)$/;"	f
 bubble_line_down	lua_src/lued_lib.lua	/^function bubble_line_down(dd)$/;"	f
+bubble_line_down	tmp/.lued/lued_lib.lua	/^function bubble_line_down(dd)$/;"	f
+bubble_line_down	tmp/lua_src/lued_lib.lua	/^function bubble_line_down(dd)$/;"	f
+bubble_line_up	.lued/lued_lib.lua	/^function bubble_line_up(dd)$/;"	f
 bubble_line_up	lua_src/lued_lib.lua	/^function bubble_line_up(dd)$/;"	f
+bubble_line_up	tmp/.lued/lued_lib.lua	/^function bubble_line_up(dd)$/;"	f
+bubble_line_up	tmp/lua_src/lued_lib.lua	/^function bubble_line_up(dd)$/;"	f
+bubble_selected_lines_down	.lued/lued_lib.lua	/^function bubble_selected_lines_down(dd)$/;"	f
 bubble_selected_lines_down	lua_src/lued_lib.lua	/^function bubble_selected_lines_down(dd)$/;"	f
+bubble_selected_lines_down	tmp/.lued/lued_lib.lua	/^function bubble_selected_lines_down(dd)$/;"	f
+bubble_selected_lines_down	tmp/lua_src/lued_lib.lua	/^function bubble_selected_lines_down(dd)$/;"	f
+bubble_selected_lines_up	.lued/lued_lib.lua	/^function bubble_selected_lines_up(dd)$/;"	f
 bubble_selected_lines_up	lua_src/lued_lib.lua	/^function bubble_selected_lines_up(dd)$/;"	f
+bubble_selected_lines_up	tmp/.lued/lued_lib.lua	/^function bubble_selected_lines_up(dd)$/;"	f
+bubble_selected_lines_up	tmp/lua_src/lued_lib.lua	/^function bubble_selected_lines_up(dd)$/;"	f
 buff	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^  char buff[LUAL_BUFFERSIZE];  \/* area for reading file *\/$/;"	m	struct:LoadF	file:
 buff	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^  Mbuffer buff;  \/* dynamic structure used by the scanner *\/$/;"	m	struct:SParser	file:
 buff	build/extern/prj_lua52/src/prj_lua52/src/llex.h	/^  Mbuffer *buff;  \/* buffer for tokens *\/$/;"	m	struct:LexState
@@ -2077,7 +2167,10 @@ cast_byte	build/extern/prj_lua52/src/prj_lua52/src/llimits.h	95;"	d
 cast_int	build/extern/prj_lua52/src/prj_lua52/src/llimits.h	97;"	d
 cast_num	build/extern/prj_lua52/src/prj_lua52/src/llimits.h	96;"	d
 cast_uchar	build/extern/prj_lua52/src/prj_lua52/src/llimits.h	98;"	d
+cd_change_dir	.lued/lued_lib.lua	/^function cd_change_dir(dd)$/;"	f
 cd_change_dir	lua_src/lued_lib.lua	/^function cd_change_dir(dd)$/;"	f
+cd_change_dir	tmp/.lued/lued_lib.lua	/^function cd_change_dir(dd)$/;"	f
+cd_change_dir	tmp/lua_src/lued_lib.lua	/^function cd_change_dir(dd)$/;"	f
 changes	build/extern/prj_lua52/src/prj_lua52/doc/readme.html	/^<H2><A NAME="changes">Changes since Lua 5.1<\/A><\/H2>$/;"	a
 changewhite	build/extern/prj_lua52/src/prj_lua52/src/lgc.h	114;"	d
 check	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void check (LexState *ls, int c) {$/;"	f	file:
@@ -2109,14 +2202,16 @@ checktype	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	132;"	d
 checktype	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	364;"	d
 checktype	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	366;"	d
 checkupval	build/extern/prj_lua52/src/prj_lua52/src/ldblib.c	/^static int checkupval (lua_State *L, int argf, int argnup) {$/;"	f	file:
+chomp	.lued/lued_lib.lua	/^function chomp(str)$/;"	f
 chomp	lua_src/lued_lib.lua	/^function chomp(str)$/;"	f
+chomp	tmp/.lued/lued_lib.lua	/^function chomp(str)$/;"	f
+chomp	tmp/lua_src/lued_lib.lua	/^function chomp(str)$/;"	f
 ci	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  CallInfo *ci;  \/* call info for current function *\/$/;"	m	struct:lua_State
 ci_func	build/extern/prj_lua52/src/prj_lua52/src/ldebug.h	21;"	d
 cl	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  union Closure cl;$/;"	m	union:GCObject	typeref:union:GCObject::Closure
 clCvalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	162;"	d
 clLvalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	161;"	d
 classend	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static const char *classend (MatchState *ms, const char *p) {$/;"	f	file:
-clear_screen	c_src/lued.c	/^static void clear_screen() {$/;"	f	file:
 clearkeys	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void clearkeys (global_State *g, GCObject *l, GCObject *f) {$/;"	f	file:
 clearvalues	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void clearvalues (global_State *g, GCObject *l, GCObject *f) {$/;"	f	file:
 close_func	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void close_func (LexState *ls) {$/;"	f	file:
@@ -2127,7 +2222,10 @@ closef	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.h	/^  lua_CFunction clos
 closef	build/install/include/lauxlib.h	/^  lua_CFunction closef;  \/* to close stream (NULL for closed streams) *\/$/;"	m	struct:luaL_Stream
 closegoto	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void closegoto (LexState *ls, int g, Labeldesc *label) {$/;"	f	file:
 closelistfield	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void closelistfield (FuncState *fs, struct ConsControl *cc) {$/;"	f	file:
+clr_auto_indent	.lued/lued_lib.lua	/^function clr_auto_indent(dd)$/;"	f
 clr_auto_indent	lua_src/lued_lib.lua	/^function clr_auto_indent(dd)$/;"	f
+clr_auto_indent	tmp/.lued/lued_lib.lua	/^function clr_auto_indent(dd)$/;"	f
+clr_auto_indent	tmp/lua_src/lued_lib.lua	/^function clr_auto_indent(dd)$/;"	f
 clvalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	160;"	d
 cmd_hist	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^carr_t* cmd_hist = NULL; \/\/ *******$/;"	v
 co_funcs	build/extern/prj_lua52/src/prj_lua52/src/lcorolib.c	/^static const luaL_Reg co_funcs[] = {$/;"	v	file:
@@ -2143,8 +2241,14 @@ collectargs	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static int col
 collectargs	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static int collectargs (char **argv, int *args) {$/;"	f	file:
 collectvalidlines	build/extern/prj_lua52/src/prj_lua52/src/ldebug.c	/^static void collectvalidlines (lua_State *L, Closure *f) {$/;"	f	file:
 combine	build/extern/prj_lua52/src/prj_lua52/src/luac.c	/^static const Proto* combine(lua_State* L, int n)$/;"	f	file:
+comment	.lued/lued_lib.lua	/^function comment(dd)$/;"	f
 comment	lua_src/lued_lib.lua	/^function comment(dd)$/;"	f
+comment	tmp/.lued/lued_lib.lua	/^function comment(dd)$/;"	f
+comment	tmp/lua_src/lued_lib.lua	/^function comment(dd)$/;"	f
+comment_selected	.lued/lued_lib.lua	/^function comment_selected(dd)$/;"	f
 comment_selected	lua_src/lued_lib.lua	/^function comment_selected(dd)$/;"	f
+comment_selected	tmp/.lued/lued_lib.lua	/^function comment_selected(dd)$/;"	f
+comment_selected	tmp/lua_src/lued_lib.lua	/^function comment_selected(dd)$/;"	f
 computesizes	build/extern/prj_lua52/src/prj_lua52/src/ltable.c	/^static int computesizes (int nums[], int *narray) {$/;"	f	file:
 concat_event	build/extern/prj_lua52/src/prj_lua52/doc/manual.html	/^     function concat_event (op1, op2)$/;"	f
 cond	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static int cond (LexState *ls) {$/;"	f	file:
@@ -2158,8 +2262,20 @@ constfolding	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static int const
 constructor	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void constructor (LexState *ls, expdesc *t) {$/;"	f	file:
 contents	build/extern/prj_lua52/src/prj_lua52/doc/contents.html	/^<H2><A NAME="contents">Contents<\/A><\/H2>$/;"	a
 convergeephemerons	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void convergeephemerons (global_State *g) {$/;"	f	file:
+copy	.lued/lued_lib.lua	/^function copy(dd)$/;"	f
 copy	lua_src/lued_lib.lua	/^function copy(dd)$/;"	f
+copy	tmp/.lued/lued_lib.lua	/^function copy(dd)$/;"	f
+copy	tmp/lua_src/lued_lib.lua	/^function copy(dd)$/;"	f
+copy_eol	.lued/lued_lib.lua	/^function copy_eol(dd)$/;"	f
+copy_eol	lua_src/lued_lib.lua	/^function copy_eol(dd)$/;"	f
+copy_line	.lued/lued_lib.lua	/^function copy_line(n,dd)$/;"	f
 copy_line	lua_src/lued_lib.lua	/^function copy_line(n,dd)$/;"	f
+copy_line	tmp/.lued/lued_lib.lua	/^function copy_line(n,dd)$/;"	f
+copy_line	tmp/lua_src/lued_lib.lua	/^function copy_line(n,dd)$/;"	f
+copy_sol	.lued/lued_lib.lua	/^function copy_sol(dd)$/;"	f
+copy_sol	lua_src/lued_lib.lua	/^function copy_sol(dd)$/;"	f
+copy_word	.lued/lued_lib.lua	/^function copy_word(dd)$/;"	f
+copy_word	lua_src/lued_lib.lua	/^function copy_word(dd)$/;"	f
 correctstack	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^static void correctstack (lua_State *L, TValue *oldstack) {$/;"	f	file:
 count_char	c_src/lued.c	/^size_t count_char(const char* str, const int start, const int end) {$/;"	f
 countint	build/extern/prj_lua52/src/prj_lua52/src/ltable.c	/^static int countint (const TValue *key, int *nums) {$/;"	f	file:
@@ -2171,9 +2287,18 @@ createstdfile	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static void cr
 createstrobj	build/extern/prj_lua52/src/prj_lua52/src/lstring.c	/^static TString *createstrobj (lua_State *L, const char *str, size_t l,$/;"	f	file:
 cstr_test	build/extern/prj_carr/src/prj_carr/test/test_src/cstr_test.c	/^int cstr_test(const int argc, char* argv[])$/;"	f
 cstra_new	build/extern/prj_carr/src/prj_carr/src/carr.c	/^carr_t* cstra_new(uint32_t const max_size, const char* const init_str)$/;"	f
+ctag_move_back_from_tag	.lued/plugins/ctags.lua	/^function ctag_move_back_from_tag(dd)$/;"	f
 ctag_move_back_from_tag	lua_src/plugins/ctags.lua	/^function ctag_move_back_from_tag(dd)$/;"	f
+ctag_move_back_from_tag	tmp/.lued/plugins/ctags.lua	/^function ctag_move_back_from_tag(dd)$/;"	f
+ctag_move_back_from_tag	tmp/lua_src/plugins/ctags.lua	/^function ctag_move_back_from_tag(dd)$/;"	f
+ctag_move_to_tag	.lued/plugins/ctags.lua	/^function ctag_move_to_tag(dd)$/;"	f
 ctag_move_to_tag	lua_src/plugins/ctags.lua	/^function ctag_move_to_tag(dd)$/;"	f
+ctag_move_to_tag	tmp/.lued/plugins/ctags.lua	/^function ctag_move_to_tag(dd)$/;"	f
+ctag_move_to_tag	tmp/lua_src/plugins/ctags.lua	/^function ctag_move_to_tag(dd)$/;"	f
+ctag_read_file	.lued/plugins/ctags.lua	/^function ctag_read_file(tagfile, dd)$/;"	f
 ctag_read_file	lua_src/plugins/ctags.lua	/^function ctag_read_file(tagfile, dd)$/;"	f
+ctag_read_file	tmp/.lued/plugins/ctags.lua	/^function ctag_read_file(tagfile, dd)$/;"	f
+ctag_read_file	tmp/lua_src/plugins/ctags.lua	/^function ctag_read_file(tagfile, dd)$/;"	f
 ctb	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	64;"	d
 ctest_eqi	build/extern/prj_carr/src/prj_carr/test/test_src/ctest.c	/^void ctest_eqi(ctest_type* test, const int actual, const int expect, const char* description)$/;"	f
 ctest_eqs	build/extern/prj_carr/src/prj_carr/test/test_src/ctest.c	/^void ctest_eqs(ctest_type* test, const char* const actual, const char* const expect, const char* description)$/;"	f
@@ -2203,8 +2328,14 @@ cursor_left	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static void
 cursor_right	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static void cursor_right(carr_t* line, size_t n) {$/;"	f	file:
 cursor_row	c_src/lued.h	/^   uint32_t cursor_row;$/;"	m	struct:lued_struct
 customization	build/extern/prj_lua52/src/prj_lua52/doc/readme.html	/^<H3><A NAME="customization">Customization<\/A><\/H3>$/;"	a
+cut	.lued/lued_lib.lua	/^function cut(dd)$/;"	f
 cut	lua_src/lued_lib.lua	/^function cut(dd)$/;"	f
+cut	tmp/.lued/lued_lib.lua	/^function cut(dd)$/;"	f
+cut	tmp/lua_src/lued_lib.lua	/^function cut(dd)$/;"	f
+cut_line	.lued/lued_lib.lua	/^function cut_line(n,dd)$/;"	f
 cut_line	lua_src/lued_lib.lua	/^function cut_line(n,dd)$/;"	f
+cut_line	tmp/.lued/lued_lib.lua	/^function cut_line(n,dd)$/;"	f
+cut_line	tmp/lua_src/lued_lib.lua	/^function cut_line(n,dd)$/;"	f
 d_	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	307;"	d
 d_	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	318;"	d
 data	build/extern/prj_lua52/src/prj_lua52/src/ldump.c	/^ void* data;$/;"	m	struct:__anon19	file:
@@ -2225,41 +2356,116 @@ db_setuservalue	build/extern/prj_lua52/src/prj_lua52/src/ldblib.c	/^static int d
 db_traceback	build/extern/prj_lua52/src/prj_lua52/src/ldblib.c	/^static int db_traceback (lua_State *L) {$/;"	f	file:
 db_upvalueid	build/extern/prj_lua52/src/prj_lua52/src/ldblib.c	/^static int db_upvalueid (lua_State *L) {$/;"	f	file:
 db_upvaluejoin	build/extern/prj_lua52/src/prj_lua52/src/ldblib.c	/^static int db_upvaluejoin (lua_State *L) {$/;"	f	file:
+dbg_prompt	.lued/lued_lib.lua	/^function dbg_prompt(dbg_str)$/;"	f
 dbg_prompt	lua_src/lued_lib.lua	/^function dbg_prompt(dbg_str)$/;"	f
+dbg_prompt	tmp/.lued/lued_lib.lua	/^function dbg_prompt(dbg_str)$/;"	f
+dbg_prompt	tmp/lua_src/lued_lib.lua	/^function dbg_prompt(dbg_str)$/;"	f
 dblib	build/extern/prj_lua52/src/prj_lua52/src/ldblib.c	/^static const luaL_Reg dblib[] = {$/;"	v	file:
 deadvalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	168;"	d
 decpoint	build/extern/prj_lua52/src/prj_lua52/src/llex.h	/^  char decpoint;  \/* locale decimal point *\/$/;"	m	struct:LexState
+decrst	.lued/lued_lib.lua	/^function decrst(val)$/;"	f
 decrst	lua_src/lued_lib.lua	/^function decrst(val)$/;"	f
+decrst	tmp/.lued/lued_lib.lua	/^function decrst(val)$/;"	f
+decrst	tmp/lua_src/lued_lib.lua	/^function decrst(val)$/;"	f
+decset	.lued/lued_lib.lua	/^function decset(val)$/;"	f
 decset	lua_src/lued_lib.lua	/^function decset(val)$/;"	f
+decset	tmp/.lued/lued_lib.lua	/^function decset(val)$/;"	f
+decset	tmp/lua_src/lued_lib.lua	/^function decset(val)$/;"	f
+del_all	.lued/lued_lib.lua	/^function del_all(dd)$/;"	f
 del_all	lua_src/lued_lib.lua	/^function del_all(dd)$/;"	f
+del_all	tmp/.lued/lued_lib.lua	/^function del_all(dd)$/;"	f
+del_all	tmp/lua_src/lued_lib.lua	/^function del_all(dd)$/;"	f
+del_backspace	.lued/lued_lib.lua	/^function del_backspace(n,dd)$/;"	f
 del_backspace	lua_src/lued_lib.lua	/^function del_backspace(n,dd)$/;"	f
+del_backspace	tmp/.lued/lued_lib.lua	/^function del_backspace(n,dd)$/;"	f
+del_backspace	tmp/lua_src/lued_lib.lua	/^function del_backspace(n,dd)$/;"	f
+del_backword	.lued/lued_lib.lua	/^function del_backword(n,dd)$/;"	f
 del_backword	lua_src/lued_lib.lua	/^function del_backword(n,dd)$/;"	f
+del_backword	tmp/.lued/lued_lib.lua	/^function del_backword(n,dd)$/;"	f
+del_backword	tmp/lua_src/lued_lib.lua	/^function del_backword(n,dd)$/;"	f
+del_char	.lued/lued_lib.lua	/^function del_char(n,dd)$/;"	f
 del_char	lua_src/lued_lib.lua	/^function del_char(n,dd)$/;"	f
+del_char	tmp/.lued/lued_lib.lua	/^function del_char(n,dd)$/;"	f
+del_char	tmp/lua_src/lued_lib.lua	/^function del_char(n,dd)$/;"	f
+del_eof	.lued/lued_lib.lua	/^function del_eof(dd)$/;"	f
 del_eof	lua_src/lued_lib.lua	/^function del_eof(dd)$/;"	f
+del_eof	tmp/.lued/lued_lib.lua	/^function del_eof(dd)$/;"	f
+del_eof	tmp/lua_src/lued_lib.lua	/^function del_eof(dd)$/;"	f
+del_eol	.lued/lued_lib.lua	/^function del_eol(dd)$/;"	f
 del_eol	lua_src/lued_lib.lua	/^function del_eol(dd)$/;"	f
+del_eol	tmp/.lued/lued_lib.lua	/^function del_eol(dd)$/;"	f
+del_eol	tmp/lua_src/lued_lib.lua	/^function del_eol(dd)$/;"	f
+del_eol_selected	.lued/lued_lib.lua	/^function del_eol_selected(dd)$/;"	f
+del_eol_selected	lua_src/lued_lib.lua	/^function del_eol_selected(dd)$/;"	f
+del_eow	.lued/lued_lib.lua	/^function del_eow(dd)$/;"	f
 del_eow	lua_src/lued_lib.lua	/^function del_eow(dd)$/;"	f
+del_eow	tmp/.lued/lued_lib.lua	/^function del_eow(dd)$/;"	f
+del_eow	tmp/lua_src/lued_lib.lua	/^function del_eow(dd)$/;"	f
+del_mark_to_cursor	.lued/lued_lib.lua	/^function del_mark_to_cursor(dd)$/;"	f
 del_mark_to_cursor	lua_src/lued_lib.lua	/^function del_mark_to_cursor(dd)$/;"	f
+del_mark_to_cursor	tmp/.lued/lued_lib.lua	/^function del_mark_to_cursor(dd)$/;"	f
+del_mark_to_cursor	tmp/lua_src/lued_lib.lua	/^function del_mark_to_cursor(dd)$/;"	f
+del_sel	.lued/lued_lib.lua	/^function del_sel(dd)$/;"	f
 del_sel	lua_src/lued_lib.lua	/^function del_sel(dd)$/;"	f
+del_sel	tmp/.lued/lued_lib.lua	/^function del_sel(dd)$/;"	f
+del_sel	tmp/lua_src/lued_lib.lua	/^function del_sel(dd)$/;"	f
+del_sof	.lued/lued_lib.lua	/^function del_sof(dd)$/;"	f
 del_sof	lua_src/lued_lib.lua	/^function del_sof(dd)$/;"	f
+del_sof	tmp/.lued/lued_lib.lua	/^function del_sof(dd)$/;"	f
+del_sof	tmp/lua_src/lued_lib.lua	/^function del_sof(dd)$/;"	f
+del_sol	.lued/lued_lib.lua	/^function del_sol(dd)$/;"	f
 del_sol	lua_src/lued_lib.lua	/^function del_sol(dd)$/;"	f
+del_sol	tmp/.lued/lued_lib.lua	/^function del_sol(dd)$/;"	f
+del_sol	tmp/lua_src/lued_lib.lua	/^function del_sol(dd)$/;"	f
+del_spaces	.lued/lued_lib.lua	/^function del_spaces(dd)$/;"	f
 del_spaces	lua_src/lued_lib.lua	/^function del_spaces(dd)$/;"	f
+del_spaces	tmp/.lued/lued_lib.lua	/^function del_spaces(dd)$/;"	f
+del_spaces	tmp/lua_src/lued_lib.lua	/^function del_spaces(dd)$/;"	f
+del_spaces_selected	.lued/lued_lib.lua	/^function del_spaces_selected(dd)$/;"	f
 del_spaces_selected	lua_src/lued_lib.lua	/^function del_spaces_selected(dd)$/;"	f
+del_spaces_selected	tmp/.lued/lued_lib.lua	/^function del_spaces_selected(dd)$/;"	f
+del_spaces_selected	tmp/lua_src/lued_lib.lua	/^function del_spaces_selected(dd)$/;"	f
+del_word	.lued/lued_lib.lua	/^function del_word(n,dd)$/;"	f
 del_word	lua_src/lued_lib.lua	/^function del_word(n,dd)$/;"	f
+del_word	tmp/.lued/lued_lib.lua	/^function del_word(n,dd)$/;"	f
+del_word	tmp/lua_src/lued_lib.lua	/^function del_word(n,dd)$/;"	f
 delete_char	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static void delete_char(carr_t* line) {$/;"	f	file:
 delete_selected	c_src/lued.c	/^static void delete_selected(carr_t* all_sessions) {$/;"	f	file:
+dig_down	.lued/plugins/ascii_art.lua	/^function dig_down(n,dd)$/;"	f
 dig_down	lua_src/plugins/ascii_art.lua	/^function dig_down(n,dd)$/;"	f
+dig_down	tmp/.lued/plugins/ascii_art.lua	/^function dig_down(n,dd)$/;"	f
+dig_down	tmp/lua_src/plugins/ascii_art.lua	/^function dig_down(n,dd)$/;"	f
+dig_left	.lued/plugins/ascii_art.lua	/^function dig_left(n,dd)$/;"	f
 dig_left	lua_src/plugins/ascii_art.lua	/^function dig_left(n,dd)$/;"	f
+dig_left	tmp/.lued/plugins/ascii_art.lua	/^function dig_left(n,dd)$/;"	f
+dig_left	tmp/lua_src/plugins/ascii_art.lua	/^function dig_left(n,dd)$/;"	f
+dig_right	.lued/plugins/ascii_art.lua	/^function dig_right(n,dd)$/;"	f
 dig_right	lua_src/plugins/ascii_art.lua	/^function dig_right(n,dd)$/;"	f
+dig_right	tmp/.lued/plugins/ascii_art.lua	/^function dig_right(n,dd)$/;"	f
+dig_right	tmp/lua_src/plugins/ascii_art.lua	/^function dig_right(n,dd)$/;"	f
+dig_up	.lued/plugins/ascii_art.lua	/^function dig_up(n,dd)$/;"	f
 dig_up	lua_src/plugins/ascii_art.lua	/^function dig_up(n,dd)$/;"	f
+dig_up	tmp/.lued/plugins/ascii_art.lua	/^function dig_up(n,dd)$/;"	f
+dig_up	tmp/lua_src/plugins/ascii_art.lua	/^function dig_up(n,dd)$/;"	f
+dirname	.lued/lued_lib.lua	/^function dirname(full_path)$/;"	f
 dirname	lua_src/lued_lib.lua	/^function dirname(full_path)$/;"	f
+dirname	tmp/.lued/lued_lib.lua	/^function dirname(full_path)$/;"	f
+dirname	tmp/lua_src/lued_lib.lua	/^function dirname(full_path)$/;"	f
 discharge2anyreg	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static void discharge2anyreg (FuncState *fs, expdesc *e) {$/;"	f	file:
 discharge2reg	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static void discharge2reg (FuncState *fs, expdesc *e, int reg) {$/;"	f	file:
 dischargejpc	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static void dischargejpc (FuncState *fs) {$/;"	f	file:
+disp	.lued/lued_lib.lua	/^function disp(dd,center)$/;"	f
 disp	lua_src/lued_lib.lua	/^function disp(dd,center)$/;"	f
+disp	tmp/.lued/lued_lib.lua	/^function disp(dd,center)$/;"	f
+disp	tmp/lua_src/lued_lib.lua	/^function disp(dd,center)$/;"	f
+display_page_in_lua	.lued/lued_lib.lua	/^function display_page_in_lua(lua_mode, highlight_trailing_spaces)$/;"	f
 display_page_in_lua	lua_src/lued_lib.lua	/^function display_page_in_lua(lua_mode, highlight_trailing_spaces)$/;"	f
-display_status_depricated	c_src/lued.c	/^static int display_status_depricated(int lua_mode) {$/;"	f	file:
+display_page_in_lua	tmp/.lued/lued_lib.lua	/^function display_page_in_lua(lua_mode, highlight_trailing_spaces)$/;"	f
+display_page_in_lua	tmp/lua_src/lued_lib.lua	/^function display_page_in_lua(lua_mode, highlight_trailing_spaces)$/;"	f
+display_status_in_lua	.lued/lued_lib.lua	/^function display_status_in_lua(lua_mode)$/;"	f
 display_status_in_lua	lua_src/lued_lib.lua	/^function display_status_in_lua(lua_mode)$/;"	f
-display_text_depricated	c_src/lued.c	/^static int display_text_depricated(int lua_mode, int highlight_trailing_spaces) {$/;"	f	file:
+display_status_in_lua	tmp/.lued/lued_lib.lua	/^function display_status_in_lua(lua_mode)$/;"	f
+display_status_in_lua	tmp/lua_src/lued_lib.lua	/^function display_status_in_lua(lua_mode)$/;"	f
 doargs	build/extern/prj_lua52/src/prj_lua52/src/luac.c	/^static int doargs(int argc, char* argv[])$/;"	f	file:
 docall	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static int docall (lua_State *L, int narg, int nres) {$/;"	f	file:
 docall	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static int docall (lua_State *L, int narg, int nres) {$/;"	f	file:
@@ -2270,7 +2476,10 @@ dojump	build/extern/prj_lua52/src/prj_lua52/src/lvm.c	502;"	d	file:
 dolibrary	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static int dolibrary (lua_State *L, const char *name) {$/;"	f	file:
 dolibrary	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static int dolibrary (lua_State *L, const char *name) {$/;"	f	file:
 donextjump	build/extern/prj_lua52/src/prj_lua52/src/lvm.c	508;"	d	file:
+dont_use	.lued/lued_lib.lua	/^function dont_use()$/;"	f
 dont_use	lua_src/lued_lib.lua	/^function dont_use()$/;"	f
+dont_use	tmp/.lued/lued_lib.lua	/^function dont_use()$/;"	f
+dont_use	tmp/lua_src/lued_lib.lua	/^function dont_use()$/;"	f
 dooptions	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static void dooptions (lua_State *L, int n) {$/;"	f	file:
 dostring	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static int dostring (lua_State *L, const char *s, const char *name) {$/;"	f	file:
 dostring	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static int dostring (lua_State *L, const char *s, const char *name) {$/;"	f	file:
@@ -2282,7 +2491,10 @@ dummy	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  L_Umaxalign dummy; 
 dummynode	build/extern/prj_lua52/src/prj_lua52/src/ltable.c	67;"	d	file:
 dummynode_	build/extern/prj_lua52/src/prj_lua52/src/ltable.c	/^static const Node dummynode_ = {$/;"	v	file:
 dumping	build/extern/prj_lua52/src/prj_lua52/src/luac.c	/^static int dumping=1;			\/* dump bytecodes? *\/$/;"	v	file:
+duplicate_line	.lued/lued_lib.lua	/^function duplicate_line(dd)$/;"	f
 duplicate_line	lua_src/lued_lib.lua	/^function duplicate_line(dd)$/;"	f
+duplicate_line	tmp/.lued/lued_lib.lua	/^function duplicate_line(dd)$/;"	f
+duplicate_line	tmp/lua_src/lued_lib.lua	/^function duplicate_line(dd)$/;"	f
 dyd	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^  Dyndata dyd;  \/* dynamic structures used by the parser *\/$/;"	m	struct:SParser	file:
 dyd	build/extern/prj_lua52/src/prj_lua52/src/llex.h	/^  struct Dyndata *dyd;  \/* dynamic structures used by the parser *\/$/;"	m	struct:LexState	typeref:struct:LexState::Dyndata
 elem_size	build/extern/prj_carr/src/prj_carr/src/carr.h	/^   uint32_t    elem_size;$/;"	m	struct:carr_struct
@@ -2306,20 +2518,38 @@ errorJmp	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  struct lua_longjm
 error_expected	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static l_noret error_expected (LexState *ls, int token) {$/;"	f	file:
 errorlimit	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static l_noret errorlimit (FuncState *fs, int limit, const char *what) {$/;"	f	file:
 esc_append	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static void esc_append(char* str, size_t* i, char c) {$/;"	f	file:
+esc_clear_screen	.lued/lued_lib.lua	/^function esc_clear_screen()$/;"	f
 esc_clear_screen	lua_src/lued_lib.lua	/^function esc_clear_screen()$/;"	f
+esc_clear_screen	tmp/.lued/lued_lib.lua	/^function esc_clear_screen()$/;"	f
+esc_clear_screen	tmp/lua_src/lued_lib.lua	/^function esc_clear_screen()$/;"	f
+esc_rev	.lued/lued_lib.lua	/^function esc_rev(str)$/;"	f
 esc_rev	lua_src/lued_lib.lua	/^function esc_rev(str)$/;"	f
+esc_rev	tmp/.lued/lued_lib.lua	/^function esc_rev(str)$/;"	f
+esc_rev	tmp/lua_src/lued_lib.lua	/^function esc_rev(str)$/;"	f
 escerror	build/extern/prj_lua52/src/prj_lua52/src/llex.c	/^static void escerror (LexState *ls, int *c, int n, const char *msg) {$/;"	f	file:
 event	build/extern/prj_carr/src/prj_carr/src/lua.h	/^  int event;$/;"	m	struct:lua_Debug
 event	build/extern/prj_lua52/src/prj_lua52/src/lua.h	/^  int event;$/;"	m	struct:lua_Debug
 event	build/install/include/lua.h	/^  int event;$/;"	m	struct:lua_Debug
+exactly_one_file_matches	.lued/lued_lib.lua	/^function exactly_one_file_matches(glob)$/;"	f
 exactly_one_file_matches	lua_src/lued_lib.lua	/^function exactly_one_file_matches(glob)$/;"	f
+exactly_one_file_matches	tmp/.lued/lued_lib.lua	/^function exactly_one_file_matches(glob)$/;"	f
+exactly_one_file_matches	tmp/lua_src/lued_lib.lua	/^function exactly_one_file_matches(glob)$/;"	f
 exists	build/extern/prj_carr/src/prj_carr/src/carr_arg.h	/^   int     exists; \/\/ boolean$/;"	m	struct:carr_arg_struct
 exists	build/install/include/carr_arg.h	/^   int     exists; \/\/ boolean$/;"	m	struct:carr_arg_struct
+exit_all	.lued/lued_lib.lua	/^function exit_all(dd)$/;"	f
 exit_all	lua_src/lued_lib.lua	/^function exit_all(dd)$/;"	f
+exit_all	tmp/.lued/lued_lib.lua	/^function exit_all(dd)$/;"	f
+exit_all	tmp/lua_src/lued_lib.lua	/^function exit_all(dd)$/;"	f
+exit_session	.lued/lued_lib.lua	/^function exit_session(dd)$/;"	f
 exit_session	lua_src/lued_lib.lua	/^function exit_session(dd)$/;"	f
+exit_session	tmp/.lued/lued_lib.lua	/^function exit_session(dd)$/;"	f
+exit_session	tmp/lua_src/lued_lib.lua	/^function exit_session(dd)$/;"	f
 exp1	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static int exp1 (LexState *ls) {$/;"	f	file:
 exp2reg	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static void exp2reg (FuncState *fs, expdesc *e, int reg) {$/;"	f	file:
+expanduser	.lued/lued.lua	/^  function expanduser(filename)$/;"	f
 expanduser	lua_src/lued.lua	/^  function expanduser(filename)$/;"	f
+expanduser	tmp/.lued/lued.lua	/^  function expanduser(filename)$/;"	f
+expanduser	tmp/lua_src/lued.lua	/^  function expanduser(filename)$/;"	f
 expdesc	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^typedef struct expdesc {$/;"	s
 expdesc	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^} expdesc;$/;"	t	typeref:struct:expdesc
 expkind	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^} expkind;$/;"	t	typeref:enum:__anon5
@@ -2354,28 +2584,58 @@ fatal	build/extern/prj_lua52/src/prj_lua52/src/luac.c	/^static void fatal(const 
 field	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void field (LexState *ls, struct ConsControl *cc) {$/;"	f	file:
 fieldargs	build/extern/prj_lua52/src/prj_lua52/src/lbitlib.c	/^static int fieldargs (lua_State *L, int farg, int *width) {$/;"	f	file:
 fieldsel	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void fieldsel (LexState *ls, expdesc *v) {$/;"	f	file:
+file_exists	.lued/lued_lib.lua	/^function file_exists(filename)$/;"	f
 file_exists	c_src/lued.c	/^int file_exists(const char* filename)$/;"	f
 file_exists	lua_src/lued_lib.lua	/^function file_exists(filename)$/;"	f
+file_exists	tmp/.lued/lued_lib.lua	/^function file_exists(filename)$/;"	f
+file_exists	tmp/lua_src/lued_lib.lua	/^function file_exists(filename)$/;"	f
 filename	c_src/lued.h	/^   char*    filename;$/;"	m	struct:lued_struct
+fill_screen	.lued/plugins/ascii_art.lua	/^function fill_screen(ch,r,c)$/;"	f
 fill_screen	lua_src/plugins/ascii_art.lua	/^function fill_screen(ch,r,c)$/;"	f
+fill_screen	tmp/.lued/plugins/ascii_art.lua	/^function fill_screen(ch,r,c)$/;"	f
+fill_screen	tmp/lua_src/plugins/ascii_art.lua	/^function fill_screen(ch,r,c)$/;"	f
 filterpc	build/extern/prj_lua52/src/prj_lua52/src/ldebug.c	/^static int filterpc (int pc, int jmptarget) {$/;"	f	file:
 finalreport	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static void finalreport (lua_State *L, int status) {$/;"	f	file:
 finalreport	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static void finalreport (lua_State *L, int status) {$/;"	f	file:
-find	lua_src/lued_lib.lua	/^function find(str,dd)$/;"	f
+find_all_on_line	.lued/lued_lib.lua	/^function find_all_on_line(line,str)$/;"	f
 find_all_on_line	lua_src/lued_lib.lua	/^function find_all_on_line(line,str)$/;"	f
+find_all_on_line	tmp/.lued/lued_lib.lua	/^function find_all_on_line(line,str)$/;"	f
+find_all_on_line	tmp/lua_src/lued_lib.lua	/^function find_all_on_line(line,str)$/;"	f
+find_and_replace	.lued/lued_lib.lua	/^function find_and_replace(from,to,options,dd)$/;"	f
 find_and_replace	lua_src/lued_lib.lua	/^function find_and_replace(from,to,options,dd)$/;"	f
+find_and_replace	tmp/.lued/lued_lib.lua	/^function find_and_replace(from,to,options,dd)$/;"	f
+find_and_replace	tmp/lua_src/lued_lib.lua	/^function find_and_replace(from,to,options,dd)$/;"	f
+find_forward	.lued/lued_lib.lua	/^function find_forward(str,nowrap,search_all,replace,test_str,dd)$/;"	f
 find_forward	lua_src/lued_lib.lua	/^function find_forward(str,nowrap,search_all,replace,test_str,dd)$/;"	f
+find_forward	tmp/.lued/lued_lib.lua	/^function find_forward(str,nowrap,search_all,replace,test_str,dd)$/;"	f
+find_forward	tmp/lua_src/lued_lib.lua	/^function find_forward(str,nowrap,search_all,replace,test_str,dd)$/;"	f
+find_forward_again	.lued/lued_lib.lua	/^function find_forward_again(dd)$/;"	f
 find_forward_again	lua_src/lued_lib.lua	/^function find_forward_again(dd)$/;"	f
+find_forward_again	tmp/.lued/lued_lib.lua	/^function find_forward_again(dd)$/;"	f
+find_forward_again	tmp/lua_src/lued_lib.lua	/^function find_forward_again(dd)$/;"	f
+find_forward_selected	.lued/lued_lib.lua	/^function find_forward_selected(dd)$/;"	f
 find_forward_selected	lua_src/lued_lib.lua	/^function find_forward_selected(dd)$/;"	f
+find_forward_selected	tmp/.lued/lued_lib.lua	/^function find_forward_selected(dd)$/;"	f
+find_forward_selected	tmp/lua_src/lued_lib.lua	/^function find_forward_selected(dd)$/;"	f
 find_mark	c_src/lued.c	/^static int find_mark(const carr_t* mark_names, const char* name, uint32_t* mark_i) {$/;"	f	file:
+find_prompt	.lued/lued_lib.lua	/^function find_prompt(test_str)$/;"	f
 find_prompt	lua_src/lued_lib.lua	/^function find_prompt(test_str)$/;"	f
+find_prompt	tmp/.lued/lued_lib.lua	/^function find_prompt(test_str)$/;"	f
+find_prompt	tmp/lua_src/lued_lib.lua	/^function find_prompt(test_str)$/;"	f
+find_reverse	.lued/lued_lib.lua	/^function find_reverse(str,dd)$/;"	f
 find_reverse	lua_src/lued_lib.lua	/^function find_reverse(str,dd)$/;"	f
+find_reverse	tmp/.lued/lued_lib.lua	/^function find_reverse(str,dd)$/;"	f
+find_reverse	tmp/lua_src/lued_lib.lua	/^function find_reverse(str,dd)$/;"	f
+find_reverse_again	.lued/lued_lib.lua	/^function find_reverse_again(dd)$/;"	f
 find_reverse_again	lua_src/lued_lib.lua	/^function find_reverse_again(dd)$/;"	f
+find_reverse_again	tmp/.lued/lued_lib.lua	/^function find_reverse_again(dd)$/;"	f
+find_reverse_again	tmp/lua_src/lued_lib.lua	/^function find_reverse_again(dd)$/;"	f
+find_reverse_selected	.lued/lued_lib.lua	/^function find_reverse_selected(dd)$/;"	f
 find_reverse_selected	lua_src/lued_lib.lua	/^function find_reverse_selected(dd)$/;"	f
+find_reverse_selected	tmp/.lued/lued_lib.lua	/^function find_reverse_selected(dd)$/;"	f
+find_reverse_selected	tmp/lua_src/lued_lib.lua	/^function find_reverse_selected(dd)$/;"	f
 find_script	c_src/lued.c	/^bool find_script (char* script_path, int maxlen) {$/;"	f
-find_str	c_src/lued.c	/^static int find_str(const char* str, int mode, uint32_t* r, uint32_t* c) {$/;"	f	file:
 find_str	c_src/lued.h	/^   carr_t*  find_str; \/\/ 1d carr array of char;$/;"	m	struct:lued_struct
-find_string	c_src/lued.c	/^int find_string(const lued_t* l, uint32_t fr, uint32_t fc, const char* s,$/;"	f
 find_trailing_space	c_src/lued.c	/^static int find_trailing_space(carr_t* line, uint32_t* col) {$/;"	f	file:
 findfield	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^static int findfield (lua_State *L, int objidx, int level) {$/;"	f	file:
 findfile	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static const char *findfile (lua_State *L, const char *name,$/;"	f	file:
@@ -2404,8 +2664,13 @@ for_carr_cont	build/install/include/carr.h	111;"	d
 forbody	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void forbody (LexState *ls, int base, int line, int nvars, int isnum) {$/;"	f	file:
 foreach_carr	build/extern/prj_carr/src/prj_carr/src/carr.h	113;"	d
 foreach_carr	build/install/include/carr.h	113;"	d
+foreach_selected	.lued/lued_lib.lua	/^function foreach_selected(fn, dd)$/;"	f
 foreach_selected	lua_src/lued_lib.lua	/^function foreach_selected(fn, dd)$/;"	f
+foreach_selected	tmp/.lued/lued_lib.lua	/^function foreach_selected(fn, dd)$/;"	f
+foreach_selected	tmp/lua_src/lued_lib.lua	/^function foreach_selected(fn, dd)$/;"	f
 forlist	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void forlist (LexState *ls, TString *indexname) {$/;"	f	file:
+format_lines	.lued/bindings2md.lua	/^function format_lines(line_array)$/;"	f
+format_lines	lua_src/bindings2md.lua	/^function format_lines(line_array)$/;"	f
 fornum	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void fornum (LexState *ls, TString *varname, int line) {$/;"	f	file:
 forstat	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void forstat (LexState *ls, int line) {$/;"	f	file:
 frealloc	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  lua_Alloc frealloc;  \/* function to reallocate memory *\/$/;"	m	struct:global_State
@@ -2467,8 +2732,11 @@ getF	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^static const char *get
 getOpMode	build/extern/prj_lua52/src/prj_lua52/src/lopcodes.h	274;"	d
 getS	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^static const char *getS (lua_State *L, void *ud, size_t *size) {$/;"	f	file:
 get_carr_line	c_src/lued.c	/^static carr_t* get_carr_line(carr_t* all_sessions) {$/;"	f	file:
+get_char	.lued/lued_lib.lua	/^function get_char()$/;"	f
 get_char	c_src/lued.c	/^static char get_char(carr_t* all_sessions) {$/;"	f	file:
 get_char	lua_src/lued_lib.lua	/^function get_char()$/;"	f
+get_char	tmp/.lued/lued_lib.lua	/^function get_char()$/;"	f
+get_char	tmp/lua_src/lued_lib.lua	/^function get_char()$/;"	f
 get_cmd_hist	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^carr_t* get_cmd_hist() {$/;"	f
 get_cur_pos	c_src/lued.c	/^static void get_cur_pos(uint32_t* row, uint32_t* col) {$/;"	f	file:
 get_cursor_position	c_src/lued.c	/^static int get_cursor_position(lued_t* l, uint32_t* r, uint32_t* c) {$/;"	f	file:
@@ -2476,36 +2744,66 @@ get_equalTM	build/extern/prj_lua52/src/prj_lua52/src/lvm.c	/^static const TValue
 get_file_modified	c_src/lued.c	/^static time_t get_file_modified(const char* filename) {$/;"	f	file:
 get_fileid	c_src/lued.c	/^static uint32_t get_fileid() {$/;"	f	file:
 get_filename	c_src/lued.c	/^void get_filename(uint32_t id, char* filename, size_t n) {$/;"	f
+get_first_match	.lued/lued_lib.lua	/^function get_first_match(matches, minc)$/;"	f
 get_first_match	lua_src/lued_lib.lua	/^function get_first_match(matches, minc)$/;"	f
+get_first_match	tmp/.lued/lued_lib.lua	/^function get_first_match(matches, minc)$/;"	f
+get_first_match	tmp/lua_src/lued_lib.lua	/^function get_first_match(matches, minc)$/;"	f
+get_hist_id	.lued/lued_lib.lua	/^function get_hist_id()$/;"	f
 get_hist_id	lua_src/lued_lib.lua	/^function get_hist_id()$/;"	f
+get_hist_id	tmp/.lued/lued_lib.lua	/^function get_hist_id()$/;"	f
+get_hist_id	tmp/lua_src/lued_lib.lua	/^function get_hist_id()$/;"	f
+get_indent_len	.lued/lued_lib.lua	/^function get_indent_len()$/;"	f
 get_indent_len	lua_src/lued_lib.lua	/^function get_indent_len()$/;"	f
+get_indent_len	tmp/.lued/lued_lib.lua	/^function get_indent_len()$/;"	f
+get_indent_len	tmp/lua_src/lued_lib.lua	/^function get_indent_len()$/;"	f
 get_last_cmd	c_src/lued.c	/^static const char* get_last_cmd() {$/;"	f	file:
+get_last_match	.lued/lued_lib.lua	/^function get_last_match(matches, maxc)$/;"	f
 get_last_match	lua_src/lued_lib.lua	/^function get_last_match(matches, maxc)$/;"	f
+get_last_match	tmp/.lued/lued_lib.lua	/^function get_last_match(matches, maxc)$/;"	f
+get_last_match	tmp/lua_src/lued_lib.lua	/^function get_last_match(matches, maxc)$/;"	f
 get_line	c_src/lued.c	/^static const char* get_line(carr_t* all_sessions) {$/;"	f	file:
 get_line_len	c_src/lued.c	/^static uint32_t get_line_len() {$/;"	f	file:
+get_longest_word	.lued/lued_lib.lua	/^function get_longest_word(words)$/;"	f
 get_longest_word	lua_src/lued_lib.lua	/^function get_longest_word(words)$/;"	f
+get_longest_word	tmp/.lued/lued_lib.lua	/^function get_longest_word(words)$/;"	f
+get_longest_word	tmp/lua_src/lued_lib.lua	/^function get_longest_word(words)$/;"	f
+get_next_line	.lued/lued_lib.lua	/^function get_next_line()$/;"	f
 get_next_line	lua_src/lued_lib.lua	/^function get_next_line()$/;"	f
+get_next_line	tmp/.lued/lued_lib.lua	/^function get_next_line()$/;"	f
+get_next_line	tmp/lua_src/lued_lib.lua	/^function get_next_line()$/;"	f
 get_number_or_comma	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^static char *get_number_or_comma(char* str) {$/;"	f	file:
 get_numchar	c_src/lued.c	/^uint32_t get_numchar(lued_t* session_p)$/;"	f
 get_numlines	c_src/lued.c	/^int get_numlines(lued_t* l, uint32_t* numlines)$/;"	f
 get_numsessions	c_src/lued.c	/^int get_numsessions(carr_t* all_sessions, uint32_t* numsessions)$/;"	f
+get_overtype	.lued/lued_lib.lua	/^function get_overtype()$/;"	f
 get_overtype	lua_src/lued_lib.lua	/^function get_overtype()$/;"	f
+get_overtype	tmp/.lued/lued_lib.lua	/^function get_overtype()$/;"	f
+get_overtype	tmp/lua_src/lued_lib.lua	/^function get_overtype()$/;"	f
 get_page	c_src/lued.c	/^char* get_page(uint32_t from_row, int highlight_trailing_spaces) {$/;"	f
 get_page_pos	c_src/lued.c	/^static void get_page_pos(uint32_t* row, uint32_t* col) {$/;"	f	file:
 get_page_position	c_src/lued.c	/^static int get_page_position(lued_t* l, uint32_t* r, uint32_t* c) {$/;"	f	file:
+get_pagesize	.lued/lued_lib.lua	/^function get_pagesize()$/;"	f
 get_pagesize	lua_src/lued_lib.lua	/^function get_pagesize()$/;"	f
+get_pagesize	tmp/.lued/lued_lib.lua	/^function get_pagesize()$/;"	f
+get_pagesize	tmp/lua_src/lued_lib.lua	/^function get_pagesize()$/;"	f
 get_paste	c_src/lued.c	/^static const char* get_paste(carr_t* all_sessions) {$/;"	f	file:
 get_prompt	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static const char *get_prompt (lua_State *L, int firstline) {$/;"	f	file:
 get_prompt	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static const char *get_prompt (lua_State *L, int firstline) {$/;"	f	file:
 get_save_needed	c_src/lued.c	/^int get_save_needed(lued_t* session_p, bool* save_needed)$/;"	f
 get_sel	c_src/lued.c	/^static int get_sel(lued_t* l, uint32_t* sel_st,$/;"	f	file:
+get_sel_str	.lued/lued_lib.lua	/^function get_sel_str()$/;"	f
 get_sel_str	lua_src/lued_lib.lua	/^function get_sel_str()$/;"	f
+get_sel_str	tmp/.lued/lued_lib.lua	/^function get_sel_str()$/;"	f
+get_sel_str	tmp/lua_src/lued_lib.lua	/^function get_sel_str()$/;"	f
 get_session	c_src/lued.c	/^static lued_t* get_session(carr_t* all_sessions) {$/;"	f	file:
 get_str	c_src/lued.c	/^static const char* get_str(carr_t* all_sessions, uint32_t sr, uint32_t sc, uint32_t er, uint32_t ec) {$/;"	f	file:
 get_termsize	c_src/lued.c	/^static int get_termsize(size_t* row, size_t* col)$/;"	f	file:
 get_text	c_src/lued.c	/^static carr_t* get_text(carr_t* all_sessions) {$/;"	f	file:
 get_word	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^static char *get_word(char* str) {$/;"	f	file:
+get_yesno	.lued/lued_lib.lua	/^function get_yesno(prompt,default)$/;"	f
 get_yesno	lua_src/lued_lib.lua	/^function get_yesno(prompt,default)$/;"	f
+get_yesno	tmp/.lued/lued_lib.lua	/^function get_yesno(prompt,default)$/;"	f
+get_yesno	tmp/lua_src/lued_lib.lua	/^function get_yesno(prompt,default)$/;"	f
 getarg	build/extern/prj_lua52/src/prj_lua52/src/lopcodes.h	93;"	d
 getargs	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static int getargs (lua_State *L, char **argv, int n) {$/;"	f	file:
 getargs	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static int getargs (lua_State *L, char **argv, int n) {$/;"	f	file:
@@ -2542,18 +2840,36 @@ globalL	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static lua_State *
 globalL	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static lua_State *globalL = NULL;$/;"	v	file:
 global_State	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^typedef struct global_State {$/;"	s
 global_State	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^} global_State;$/;"	t	typeref:struct:global_State
+global_copy	.lued/lued_lib.lua	/^function global_copy(dd)$/;"	f
 global_copy	lua_src/lued_lib.lua	/^function global_copy(dd)$/;"	f
+global_copy	tmp/.lued/lued_lib.lua	/^function global_copy(dd)$/;"	f
+global_copy	tmp/lua_src/lued_lib.lua	/^function global_copy(dd)$/;"	f
+global_cut	.lued/lued_lib.lua	/^function global_cut(dd)$/;"	f
 global_cut	lua_src/lued_lib.lua	/^function global_cut(dd)$/;"	f
+global_cut	tmp/.lued/lued_lib.lua	/^function global_cut(dd)$/;"	f
+global_cut	tmp/lua_src/lued_lib.lua	/^function global_cut(dd)$/;"	f
+global_cut_append	.lued/lued_lib.lua	/^function global_cut_append(dd)$/;"	f
 global_cut_append	lua_src/lued_lib.lua	/^function global_cut_append(dd)$/;"	f
+global_cut_append	tmp/.lued/lued_lib.lua	/^function global_cut_append(dd)$/;"	f
+global_cut_append	tmp/lua_src/lued_lib.lua	/^function global_cut_append(dd)$/;"	f
+global_paste	.lued/lued_lib.lua	/^function global_paste(dd)$/;"	f
 global_paste	lua_src/lued_lib.lua	/^function global_paste(dd)$/;"	f
+global_paste	tmp/.lued/lued_lib.lua	/^function global_paste(dd)$/;"	f
+global_paste	tmp/lua_src/lued_lib.lua	/^function global_paste(dd)$/;"	f
 gmatch	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static int gmatch (lua_State *L) {$/;"	f	file:
 gmatch_aux	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static int gmatch_aux (lua_State *L) {$/;"	f	file:
 gnext	build/extern/prj_lua52/src/prj_lua52/src/ltable.h	16;"	d
 gnode	build/extern/prj_lua52/src/prj_lua52/src/ltable.h	13;"	d
 gnodelast	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	94;"	d	file:
 goto_mark	c_src/lued.c	/^static int goto_mark(carr_t* all_sessions, const char* name) {$/;"	f	file:
+goto_nameless_mark_next	.lued/lued_lib.lua	/^function goto_nameless_mark_next(dd)$/;"	f
 goto_nameless_mark_next	lua_src/lued_lib.lua	/^function goto_nameless_mark_next(dd)$/;"	f
+goto_nameless_mark_next	tmp/.lued/lued_lib.lua	/^function goto_nameless_mark_next(dd)$/;"	f
+goto_nameless_mark_next	tmp/lua_src/lued_lib.lua	/^function goto_nameless_mark_next(dd)$/;"	f
+goto_nameless_mark_prev	.lued/lued_lib.lua	/^function goto_nameless_mark_prev(dd)$/;"	f
 goto_nameless_mark_prev	lua_src/lued_lib.lua	/^function goto_nameless_mark_prev(dd)$/;"	f
+goto_nameless_mark_prev	tmp/.lued/lued_lib.lua	/^function goto_nameless_mark_prev(dd)$/;"	f
+goto_nameless_mark_prev	tmp/lua_src/lued_lib.lua	/^function goto_nameless_mark_prev(dd)$/;"	f
 gotostat	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void gotostat (LexState *ls, int pc) {$/;"	f	file:
 gray	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  GCObject *gray;  \/* list of gray objects *\/$/;"	m	struct:global_State
 gray2black	build/extern/prj_lua52/src/prj_lua52/src/lgc.h	115;"	d
@@ -2563,8 +2879,14 @@ gt	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^  Labellist gt;  \/* lis
 gval	build/extern/prj_lua52/src/prj_lua52/src/ltable.h	15;"	d
 h	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^  Table *h;  \/* table to find (and reuse) elements in `k' *\/$/;"	m	struct:FuncState
 h	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  struct Table h;$/;"	m	union:GCObject	typeref:struct:GCObject::Table
+halfsy_left	.lued/lued_lib.lua	/^function halfsy_left(dd)$/;"	f
 halfsy_left	lua_src/lued_lib.lua	/^function halfsy_left(dd)$/;"	f
+halfsy_left	tmp/.lued/lued_lib.lua	/^function halfsy_left(dd)$/;"	f
+halfsy_left	tmp/lua_src/lued_lib.lua	/^function halfsy_left(dd)$/;"	f
+halfsy_right	.lued/lued_lib.lua	/^function halfsy_right(dd)$/;"	f
 halfsy_right	lua_src/lued_lib.lua	/^function halfsy_right(dd)$/;"	f
+halfsy_right	tmp/.lued/lued_lib.lua	/^function halfsy_right(dd)$/;"	f
+halfsy_right	tmp/lua_src/lued_lib.lua	/^function halfsy_right(dd)$/;"	f
 handle_luainit	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static int handle_luainit (lua_State *L) {$/;"	f	file:
 handle_luainit	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static int handle_luainit (lua_State *L) {$/;"	f	file:
 handle_script	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static int handle_script (lua_State *L, char **argv, int n) {$/;"	f	file:
@@ -2587,17 +2909,32 @@ hashpow2	build/extern/prj_lua52/src/prj_lua52/src/ltable.c	51;"	d	file:
 hashstr	build/extern/prj_lua52/src/prj_lua52/src/ltable.c	53;"	d	file:
 hasjumps	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	29;"	d	file:
 hasmultret	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	35;"	d	file:
+help	.lued/lued_lib.lua	/^function help(n,dd)$/;"	f
 help	lua_src/lued_lib.lua	/^function help(n,dd)$/;"	f
+help	tmp/.lued/lued_lib.lua	/^function help(n,dd)$/;"	f
+help	tmp/lua_src/lued_lib.lua	/^function help(n,dd)$/;"	f
+hi	.lued/plugins/ascii_art.lua	/^function hi()$/;"	f
 hi	lua_src/plugins/ascii_art.lua	/^function hi()$/;"	f
+hi	tmp/.lued/plugins/ascii_art.lua	/^function hi()$/;"	f
+hi	tmp/lua_src/plugins/ascii_art.lua	/^function hi()$/;"	f
 history_next	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static void history_next(carr_t* history, carr_t* line) {$/;"	f	file:
 history_prev	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static void history_prev(carr_t* history, carr_t* line) {$/;"	f	file:
+hit_cr	.lued/lued_lib.lua	/^function hit_cr()$/;"	f
 hit_cr	lua_src/lued_lib.lua	/^function hit_cr()$/;"	f
+hit_cr	tmp/.lued/lued_lib.lua	/^function hit_cr()$/;"	f
+hit_cr	tmp/lua_src/lued_lib.lua	/^function hit_cr()$/;"	f
 hook	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  lua_Hook hook;$/;"	m	struct:lua_State
 hookcount	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  int hookcount;$/;"	m	struct:lua_State
 hookf	build/extern/prj_lua52/src/prj_lua52/src/ldblib.c	/^static void hookf (lua_State *L, lua_Debug *ar) {$/;"	f	file:
 hookmask	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  lu_byte hookmask;$/;"	m	struct:lua_State
+hot	.lued/lued_lib.lua	/^function hot(key, dd)$/;"	f
 hot	lua_src/lued_lib.lua	/^function hot(key, dd)$/;"	f
+hot	tmp/.lued/lued_lib.lua	/^function hot(key, dd)$/;"	f
+hot	tmp/lua_src/lued_lib.lua	/^function hot(key, dd)$/;"	f
+hot_range	.lued/lued_lib.lua	/^function hot_range(lower,upper)$/;"	f
 hot_range	lua_src/lued_lib.lua	/^function hot_range(lower,upper)$/;"	f
+hot_range	tmp/.lued/lued_lib.lua	/^function hot_range(lower,upper)$/;"	f
+hot_range	tmp/lua_src/lued_lib.lua	/^function hot_range(lower,upper)$/;"	f
 hotkeys	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^char hotkeys[LUA_MAXINPUT] = "";$/;"	v
 hvalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	164;"	d
 iABC	build/extern/prj_lua52/src/prj_lua52/src/lopcodes.h	/^enum OpMode {iABC, iABx, iAsBx, iAx};  \/* basic instruction format *\/$/;"	e	enum:OpMode
@@ -2617,15 +2954,33 @@ in_array	build/extern/prj_carr/src/prj_carr/src/carr.c	/^int in_array(void* need
 inclinenumber	build/extern/prj_lua52/src/prj_lua52/src/llex.c	/^static void inclinenumber (LexState *ls) {$/;"	f	file:
 incomplete	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static int incomplete (lua_State *L, int status) {$/;"	f	file:
 incomplete	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static int incomplete (lua_State *L, int status) {$/;"	f	file:
+incr	.lued/plugins/verilog.lua	/^  function incr(slv :std_logic_vector) return std_logic_vector is$/;"	f
+incr	.lued/plugins/vhdl.lua	/^  function incr(slv :std_logic_vector) return std_logic_vector is$/;"	f
 incr	lua_src/plugins/verilog.lua	/^  function incr(slv :std_logic_vector) return std_logic_vector is$/;"	f
 incr	lua_src/plugins/vhdl.lua	/^  function incr(slv :std_logic_vector) return std_logic_vector is$/;"	f
+incr	tmp/.lued/plugins/verilog.lua	/^  function incr(slv :std_logic_vector) return std_logic_vector is$/;"	f
+incr	tmp/.lued/plugins/vhdl.lua	/^  function incr(slv :std_logic_vector) return std_logic_vector is$/;"	f
+incr	tmp/lua_src/plugins/verilog.lua	/^  function incr(slv :std_logic_vector) return std_logic_vector is$/;"	f
+incr	tmp/lua_src/plugins/vhdl.lua	/^  function incr(slv :std_logic_vector) return std_logic_vector is$/;"	f
 incr_top	build/extern/prj_lua52/src/prj_lua52/src/ldo.h	20;"	d
 incstep	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void incstep (lua_State *L) {$/;"	f	file:
 ind	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^    } ind;$/;"	m	union:expdesc::__anon6	typeref:struct:expdesc::__anon6::__anon7
+indent	.lued/lued_lib.lua	/^function indent(dd)$/;"	f
 indent	lua_src/lued_lib.lua	/^function indent(dd)$/;"	f
+indent	tmp/.lued/lued_lib.lua	/^function indent(dd)$/;"	f
+indent	tmp/lua_src/lued_lib.lua	/^function indent(dd)$/;"	f
+indent1	.lued/lued_lib.lua	/^function indent1(n, ch, goto_next, dd)$/;"	f
 indent1	lua_src/lued_lib.lua	/^function indent1(n, ch, goto_next, dd)$/;"	f
+indent1	tmp/.lued/lued_lib.lua	/^function indent1(n, ch, goto_next, dd)$/;"	f
+indent1	tmp/lua_src/lued_lib.lua	/^function indent1(n, ch, goto_next, dd)$/;"	f
+indent_scope	.lued/lued_lib.lua	/^function indent_scope(str,dd)$/;"	f
 indent_scope	lua_src/lued_lib.lua	/^function indent_scope(str,dd)$/;"	f
+indent_scope	tmp/.lued/lued_lib.lua	/^function indent_scope(str,dd)$/;"	f
+indent_scope	tmp/lua_src/lued_lib.lua	/^function indent_scope(str,dd)$/;"	f
+indent_selected	.lued/lued_lib.lua	/^function indent_selected(dd)$/;"	f
 indent_selected	lua_src/lued_lib.lua	/^function indent_selected(dd)$/;"	f
+indent_selected	tmp/.lued/lued_lib.lua	/^function indent_selected(dd)$/;"	f
+indent_selected	tmp/lua_src/lued_lib.lua	/^function indent_selected(dd)$/;"	f
 index	build/extern/prj_lua52/src/prj_lua52/doc/contents.html	/^<H2><A NAME="index">Index<\/A><\/H2>$/;"	a
 index2addr	build/extern/prj_lua52/src/prj_lua52/src/lapi.c	/^static TValue *index2addr (lua_State *L, int idx) {$/;"	f	file:
 info	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^    int info;  \/* for generic use *\/$/;"	m	union:expdesc::__anon6
@@ -2651,15 +3006,34 @@ init_registry	build/extern/prj_lua52/src/prj_lua52/src/lstate.c	/^static void in
 initb	build/extern/prj_carr/src/prj_carr/src/lauxlib.h	/^  char initb[LUAL_BUFFERSIZE];  \/* initial buffer *\/$/;"	m	struct:luaL_Buffer
 initb	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.h	/^  char initb[LUAL_BUFFERSIZE];  \/* initial buffer *\/$/;"	m	struct:luaL_Buffer
 initb	build/install/include/lauxlib.h	/^  char initb[LUAL_BUFFERSIZE];  \/* initial buffer *\/$/;"	m	struct:luaL_Buffer
+ins_str	.lued/lued_lib.lua	/^function ins_str(str,dd)$/;"	f
 ins_str	lua_src/lued_lib.lua	/^function ins_str(str,dd)$/;"	f
+ins_str	tmp/.lued/lued_lib.lua	/^function ins_str(str,dd)$/;"	f
+ins_str	tmp/lua_src/lued_lib.lua	/^function ins_str(str,dd)$/;"	f
+ins_string	.lued/lued_lib.lua	/^function ins_string(str, dd)$/;"	f
 ins_string	lua_src/lued_lib.lua	/^function ins_string(str, dd)$/;"	f
+ins_string	tmp/.lued/lued_lib.lua	/^function ins_string(str, dd)$/;"	f
+ins_string	tmp/lua_src/lued_lib.lua	/^function ins_string(str, dd)$/;"	f
 insert_char	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static void insert_char(carr_t* line, char c) {$/;"	f	file:
+insert_cr_after	.lued/lued_lib.lua	/^function insert_cr_after(dd)$/;"	f
 insert_cr_after	lua_src/lued_lib.lua	/^function insert_cr_after(dd)$/;"	f
+insert_cr_after	tmp/.lued/lued_lib.lua	/^function insert_cr_after(dd)$/;"	f
+insert_cr_after	tmp/lua_src/lued_lib.lua	/^function insert_cr_after(dd)$/;"	f
+insert_cr_before	.lued/lued_lib.lua	/^function insert_cr_before(dd)$/;"	f
 insert_cr_before	lua_src/lued_lib.lua	/^function insert_cr_before(dd)$/;"	f
+insert_cr_before	tmp/.lued/lued_lib.lua	/^function insert_cr_before(dd)$/;"	f
+insert_cr_before	tmp/lua_src/lued_lib.lua	/^function insert_cr_before(dd)$/;"	f
 insert_prefix	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static void insert_prefix(carr_t* line, char* str, uint32_t strlen) {$/;"	f	file:
 insert_str	c_src/lued.c	/^static void insert_str(carr_t* all_sessions, const char* str, int enable_push_undo) {$/;"	f	file:
 insert_string	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static void insert_string(carr_t* line, char* str, uint32_t max_len) {$/;"	f	file:
+insert_tab	.lued/lued_lib.lua	/^function insert_tab(dd)$/;"	f
 insert_tab	lua_src/lued_lib.lua	/^function insert_tab(dd)$/;"	f
+insert_tab	tmp/.lued/lued_lib.lua	/^function insert_tab(dd)$/;"	f
+insert_tab	tmp/lua_src/lued_lib.lua	/^function insert_tab(dd)$/;"	f
+insert_tab_classic	.lued/lued_lib.lua	/^function insert_tab_classic(dd)$/;"	f
+insert_tab_classic	lua_src/lued_lib.lua	/^function insert_tab_classic(dd)$/;"	f
+insert_tab_selected	.lued/lued_lib.lua	/^function insert_tab_selected(dd)$/;"	f
+insert_tab_selected	lua_src/lued_lib.lua	/^function insert_tab_selected(dd)$/;"	f
 inspectstat	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	234;"	d	file:
 inspectstat	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	240;"	d	file:
 instack	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  lu_byte instack;  \/* whether it is in stack *\/$/;"	m	struct:Upvaldesc
@@ -2706,28 +3080,73 @@ isZERO	build/extern/prj_carr/src/prj_carr/src/carr_cis.h	42;"	d
 isZERO	build/extern/prj_carr/src/prj_carr/test/cis.h	42;"	d
 isZERO	build/extern/prj_carr/src/prj_carr/test/test.h	16;"	d
 isZERO	build/install/include/carr_cis.h	42;"	d
+is_blankline	.lued/lued_lib.lua	/^function is_blankline(line)$/;"	f
 is_blankline	lua_src/lued_lib.lua	/^function is_blankline(line)$/;"	f
+is_blankline	tmp/.lued/lued_lib.lua	/^function is_blankline(line)$/;"	f
+is_blankline	tmp/lua_src/lued_lib.lua	/^function is_blankline(line)$/;"	f
+is_dir	.lued/lued_lib.lua	/^function is_dir(filename)$/;"	f
 is_dir	lua_src/lued_lib.lua	/^function is_dir(filename)$/;"	f
+is_dir	tmp/.lued/lued_lib.lua	/^function is_dir(filename)$/;"	f
+is_dir	tmp/lua_src/lued_lib.lua	/^function is_dir(filename)$/;"	f
+is_empty	.lued/lued_lib.lua	/^function is_empty(str)$/;"	f
 is_empty	lua_src/lued_lib.lua	/^function is_empty(str)$/;"	f
+is_empty	tmp/.lued/lued_lib.lua	/^function is_empty(str)$/;"	f
+is_empty	tmp/lua_src/lued_lib.lua	/^function is_empty(str)$/;"	f
+is_eof	.lued/lued_lib.lua	/^function is_eof()$/;"	f
 is_eof	lua_src/lued_lib.lua	/^function is_eof()$/;"	f
+is_eof	tmp/.lued/lued_lib.lua	/^function is_eof()$/;"	f
+is_eof	tmp/lua_src/lued_lib.lua	/^function is_eof()$/;"	f
+is_eol	.lued/lued_lib.lua	/^function is_eol()$/;"	f
 is_eol	lua_src/lued_lib.lua	/^function is_eol()$/;"	f
+is_eol	tmp/.lued/lued_lib.lua	/^function is_eol()$/;"	f
+is_eol	tmp/lua_src/lued_lib.lua	/^function is_eol()$/;"	f
 is_file_modified	c_src/lued.c	/^static int is_file_modified(lued_t* session_p, int use_save_mtime) {$/;"	f	file:
+is_glob	.lued/lued_lib.lua	/^function is_glob(filename)$/;"	f
 is_glob	lua_src/lued_lib.lua	/^function is_glob(filename)$/;"	f
+is_glob	tmp/.lued/lued_lib.lua	/^function is_glob(filename)$/;"	f
+is_glob	tmp/lua_src/lued_lib.lua	/^function is_glob(filename)$/;"	f
 is_inlist	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static int is_inlist(const char* keylist, const carr_t* line) {$/;"	f	file:
 is_inrange	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^static int is_inrange(char ch, char lower, char upper) {$/;"	f	file:
+is_lastline	.lued/lued_lib.lua	/^function is_lastline()$/;"	f
 is_lastline	lua_src/lued_lib.lua	/^function is_lastline()$/;"	f
+is_lastline	tmp/.lued/lued_lib.lua	/^function is_lastline()$/;"	f
+is_lastline	tmp/lua_src/lued_lib.lua	/^function is_lastline()$/;"	f
 is_modified	c_src/lued.c	/^static int is_modified(carr_t* all_sessions, uint32_t session_id) {$/;"	f	file:
+is_number	.lued/lued_lib.lua	/^function is_number(str)$/;"	f
 is_number	lua_src/lued_lib.lua	/^function is_number(str)$/;"	f
+is_number	tmp/.lued/lued_lib.lua	/^function is_number(str)$/;"	f
+is_number	tmp/lua_src/lued_lib.lua	/^function is_number(str)$/;"	f
+is_open	.lued/lued_lib.lua	/^function is_open(filename)$/;"	f
 is_open	lua_src/lued_lib.lua	/^function is_open(filename)$/;"	f
+is_open	tmp/.lued/lued_lib.lua	/^function is_open(filename)$/;"	f
+is_open	tmp/lua_src/lued_lib.lua	/^function is_open(filename)$/;"	f
 is_sel_end	c_src/lued.c	/^static int is_sel_end(carr_t* all_sessions) {$/;"	f	file:
 is_sel_off	c_src/lued.c	/^static int is_sel_off(carr_t* all_sessions) {$/;"	f	file:
+is_sel_on	.lued/lued_lib.lua	/^function is_sel_on()$/;"	f
 is_sel_on	lua_src/lued_lib.lua	/^function is_sel_on()$/;"	f
+is_sel_on	tmp/.lued/lued_lib.lua	/^function is_sel_on()$/;"	f
+is_sel_on	tmp/lua_src/lued_lib.lua	/^function is_sel_on()$/;"	f
+is_sof	.lued/lued_lib.lua	/^function is_sof()$/;"	f
 is_sof	lua_src/lued_lib.lua	/^function is_sof()$/;"	f
+is_sof	tmp/.lued/lued_lib.lua	/^function is_sof()$/;"	f
+is_sof	tmp/lua_src/lued_lib.lua	/^function is_sof()$/;"	f
+is_sol	.lued/lued_lib.lua	/^function is_sol()$/;"	f
 is_sol	lua_src/lued_lib.lua	/^function is_sol()$/;"	f
+is_sol	tmp/.lued/lued_lib.lua	/^function is_sol()$/;"	f
+is_sol	tmp/lua_src/lued_lib.lua	/^function is_sol()$/;"	f
+is_sow	.lued/lued_lib.lua	/^function is_sow()$/;"	f
 is_sow	lua_src/lued_lib.lua	/^function is_sow()$/;"	f
+is_sow	tmp/.lued/lued_lib.lua	/^function is_sow()$/;"	f
+is_sow	tmp/lua_src/lued_lib.lua	/^function is_sow()$/;"	f
+is_space	.lued/lued_lib.lua	/^function is_space(line,pos)$/;"	f
 is_space	lua_src/lued_lib.lua	/^function is_space(line,pos)$/;"	f
+is_space	tmp/.lued/lued_lib.lua	/^function is_space(line,pos)$/;"	f
+is_space	tmp/lua_src/lued_lib.lua	/^function is_space(line,pos)$/;"	f
 is_vararg	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  lu_byte is_vararg;$/;"	m	struct:Proto
+is_word	.lued/lued_lib.lua	/^function is_word(line,pos)$/;"	f
 is_word	lua_src/lued_lib.lua	/^function is_word(line,pos)$/;"	f
+is_word	tmp/.lued/lued_lib.lua	/^function is_word(line,pos)$/;"	f
+is_word	tmp/lua_src/lued_lib.lua	/^function is_word(line,pos)$/;"	f
 isblack	build/extern/prj_lua52/src/prj_lua52/src/lgc.h	100;"	d
 iscleared	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static int iscleared (global_State *g, const TValue *o) {$/;"	f	file:
 isclosed	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	127;"	d	file:
@@ -2757,8 +3176,19 @@ isvararg	build/install/include/lua.h	/^  char isvararg;        \/* (u) *\/$/;"	m
 iswhite	build/extern/prj_lua52/src/prj_lua52/src/lgc.h	99;"	d
 it	build/extern/prj_carr/src/prj_carr/src/carr.h	/^   uint32_t    it;$/;"	m	struct:carr_struct
 it	build/install/include/carr.h	/^   uint32_t    it;$/;"	m	struct:carr_struct
+join_lines	.lued/lued_lib.lua	/^function join_lines(delim,n,dd)$/;"	f
 join_lines	lua_src/lued_lib.lua	/^function join_lines(delim,n,dd)$/;"	f
+join_lines	tmp/.lued/lued_lib.lua	/^function join_lines(delim,n,dd)$/;"	f
+join_lines	tmp/lua_src/lued_lib.lua	/^function join_lines(delim,n,dd)$/;"	f
 jpc	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^  int jpc;  \/* list of pending jumps to `pc' *\/$/;"	m	struct:FuncState
+jump_back	.lued/lued_lib.lua	/^function jump_back(dd)$/;"	f
+jump_back	lua_src/lued_lib.lua	/^function jump_back(dd)$/;"	f
+jump_back	tmp/.lued/lued_lib.lua	/^function jump_back(dd)$/;"	f
+jump_back	tmp/lua_src/lued_lib.lua	/^function jump_back(dd)$/;"	f
+jump_forward	.lued/lued_lib.lua	/^function jump_forward(dd)$/;"	f
+jump_forward	lua_src/lued_lib.lua	/^function jump_forward(dd)$/;"	f
+jump_forward	tmp/.lued/lued_lib.lua	/^function jump_forward(dd)$/;"	f
+jump_forward	tmp/lua_src/lued_lib.lua	/^function jump_forward(dd)$/;"	f
 jumponcond	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static int jumponcond (FuncState *fs, expdesc *e, int cond) {$/;"	f	file:
 just_a_number	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^static int just_a_number(carr_t* str) {$/;"	f	file:
 k	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  TValue *k;  \/* constants used by the function *\/$/;"	m	struct:Proto
@@ -2839,7 +3269,10 @@ ldo_c	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	12;"	d	file:
 ldo_h	build/extern/prj_lua52/src/prj_lua52/src/ldo.h	8;"	d
 ldump_c	build/extern/prj_lua52/src/prj_lua52/src/ldump.c	9;"	d	file:
 le_event	build/extern/prj_lua52/src/prj_lua52/doc/manual.html	/^     function le_event (op1, op2)$/;"	f
+leading_ws	.lued/lued_lib.lua	/^function leading_ws()$/;"	f
 leading_ws	lua_src/lued_lib.lua	/^function leading_ws()$/;"	f
+leading_ws	tmp/.lued/lued_lib.lua	/^function leading_ws()$/;"	f
+leading_ws	tmp/lua_src/lued_lib.lua	/^function leading_ws()$/;"	f
 leaveblock	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void leaveblock (FuncState *fs) {$/;"	f	file:
 leavelevel	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	337;"	d	file:
 left	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^  lu_byte left;  \/* left priority for each binary operator *\/$/;"	m	struct:__anon18	file:
@@ -2860,6 +3293,8 @@ library	build/extern/prj_lua52/src/prj_lua52/doc/contents.html	/^<H3><A NAME="li
 libsize	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^static int libsize (const luaL_Reg *l) {$/;"	f	file:
 license	build/extern/prj_lua52/src/prj_lua52/doc/readme.html	/^<H2><A NAME="license">License<\/A><\/H2>$/;"	a
 line	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^  int line;  \/* line where it appeared *\/$/;"	m	struct:Labeldesc
+line_starts_with	.lued/bindings2md.lua	/^function line_starts_with(line,str)$/;"	f
+line_starts_with	lua_src/bindings2md.lua	/^function line_starts_with(line,str)$/;"	f
 linedefined	build/extern/prj_carr/src/prj_carr/src/lua.h	/^  int linedefined;	\/* (S) *\/$/;"	m	struct:lua_Debug
 linedefined	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  int linedefined;$/;"	m	struct:Proto
 linedefined	build/extern/prj_lua52/src/prj_lua52/src/lua.h	/^  int linedefined;	\/* (S) *\/$/;"	m	struct:lua_Debug
@@ -2905,7 +3340,10 @@ lmem_h	build/extern/prj_lua52/src/prj_lua52/src/lmem.h	8;"	d
 lmemfind	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static const char *lmemfind (const char *s1, size_t l1,$/;"	f	file:
 lmod	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	577;"	d
 load_aux	build/extern/prj_lua52/src/prj_lua52/src/lbaselib.c	/^static int load_aux (lua_State *L, int status, int envidx) {$/;"	f	file:
+load_plugins	.lued/lued_lib.lua	/^function load_plugins(plugin_path)$/;"	f
 load_plugins	lua_src/lued_lib.lua	/^function load_plugins(plugin_path)$/;"	f
+load_plugins	tmp/.lued/lued_lib.lua	/^function load_plugins(plugin_path)$/;"	f
+load_plugins	tmp/lua_src/lued_lib.lua	/^function load_plugins(plugin_path)$/;"	f
 loadedlibs	build/extern/prj_lua52/src/prj_lua52/src/linit.c	/^static const luaL_Reg loadedlibs[] = {$/;"	v	file:
 loadfunc	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static int loadfunc (lua_State *L, const char *filename, const char *modname) {$/;"	f	file:
 loadlib_c	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	24;"	d	file:
@@ -2916,7 +3354,10 @@ lobject_h	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	9;"	d
 localfunc	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void localfunc (LexState *ls) {$/;"	f	file:
 localstat	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void localstat (LexState *ls) {$/;"	f	file:
 locvars	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  LocVar *locvars;  \/* information about local variables (debug information) *\/$/;"	m	struct:Proto
+logo	.lued/lued_lib.lua	/^function logo()$/;"	f
 logo	lua_src/lued_lib.lua	/^function logo()$/;"	f
+logo	tmp/.lued/lued_lib.lua	/^function logo()$/;"	f
+logo	tmp/lua_src/lued_lib.lua	/^function logo()$/;"	f
 lookahead	build/extern/prj_lua52/src/prj_lua52/src/llex.h	/^  Token lookahead;  \/* look ahead token *\/$/;"	m	struct:LexState
 lopcodes_c	build/extern/prj_lua52/src/prj_lua52/src/lopcodes.c	8;"	d	file:
 lopcodes_h	build/extern/prj_lua52/src/prj_lua52/src/lopcodes.h	8;"	d
@@ -2924,7 +3365,14 @@ loslib_c	build/extern/prj_lua52/src/prj_lua52/src/loslib.c	14;"	d	file:
 lparser_c	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	10;"	d	file:
 lparser_h	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	8;"	d
 ls	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^  struct LexState *ls;  \/* lexical state *\/$/;"	m	struct:FuncState	typeref:struct:FuncState::LexState
+ls_dir	.lued/lued_lib.lua	/^function ls_dir(glob)$/;"	f
 ls_dir	lua_src/lued_lib.lua	/^function ls_dir(glob)$/;"	f
+ls_dir	tmp/.lued/lued_lib.lua	/^function ls_dir(glob)$/;"	f
+ls_dir	tmp/lua_src/lued_lib.lua	/^function ls_dir(glob)$/;"	f
+ls_recursive	.lued/lued_lib.lua	/^function ls_recursive(path,filter)$/;"	f
+ls_recursive	lua_src/lued_lib.lua	/^function ls_recursive(path,filter)$/;"	f
+ls_recursive	tmp/.lued/lued_lib.lua	/^function ls_recursive(path,filter)$/;"	f
+ls_recursive	tmp/lua_src/lued_lib.lua	/^function ls_recursive(path,filter)$/;"	f
 lsizenode	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  lu_byte lsizenode;  \/* log2 of size of `node' array *\/$/;"	m	struct:Table
 lstate_c	build/extern/prj_lua52/src/prj_lua52/src/lstate.c	11;"	d	file:
 lstate_h	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	8;"	d
@@ -3417,7 +3865,6 @@ lua_callk	build/extern/prj_lua52/src/prj_lua52/src/lapi.c	/^LUA_API void lua_cal
 lua_checkmode	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	39;"	d	file:
 lua_checkstack	build/extern/prj_lua52/src/prj_lua52/doc/manual.html	/^<hr><h3><a name="lua_checkstack"><code>lua_checkstack<\/code><\/a><\/h3><p>$/;"	a
 lua_checkstack	build/extern/prj_lua52/src/prj_lua52/src/lapi.c	/^LUA_API int lua_checkstack (lua_State *L, int size) {$/;"	f
-lua_clear_screen	c_src/lued.c	/^static int lua_clear_screen(lua_State* L) {$/;"	f	file:
 lua_close	build/extern/prj_lua52/src/prj_lua52/doc/manual.html	/^<hr><h3><a name="lua_close"><code>lua_close<\/code><\/a><\/h3><p>$/;"	a
 lua_close	build/extern/prj_lua52/src/prj_lua52/src/lstate.c	/^LUA_API void lua_close (lua_State *L) {$/;"	f
 lua_close_session	c_src/lued.c	/^int lua_close_session(lua_State* L) {$/;"	f
@@ -3433,8 +3880,6 @@ lua_cpcall	build/install/include/luaconf.h	265;"	d
 lua_createtable	build/extern/prj_lua52/src/prj_lua52/doc/manual.html	/^<hr><h3><a name="lua_createtable"><code>lua_createtable<\/code><\/a><\/h3><p>$/;"	a
 lua_createtable	build/extern/prj_lua52/src/prj_lua52/src/lapi.c	/^LUA_API void lua_createtable (lua_State *L, int narray, int nrec) {$/;"	f
 lua_delete_selected	c_src/lued.c	/^static int lua_delete_selected(lua_State* L) {$/;"	f	file:
-lua_display_statusx	c_src/lued.c	/^static int lua_display_statusx(lua_State* L) {$/;"	f	file:
-lua_display_textx	c_src/lued.c	/^static int lua_display_textx(lua_State* L) {$/;"	f	file:
 lua_dump	build/extern/prj_lua52/src/prj_lua52/doc/manual.html	/^<hr><h3><a name="lua_dump"><code>lua_dump<\/code><\/a><\/h3><p>$/;"	a
 lua_dump	build/extern/prj_lua52/src/prj_lua52/src/lapi.c	/^LUA_API int lua_dump (lua_State *L, lua_Writer writer, void *data) {$/;"	f
 lua_equal	build/extern/prj_carr/src/prj_carr/src/luaconf.h	297;"	d
@@ -3442,7 +3887,6 @@ lua_equal	build/extern/prj_lua52/src/prj_lua52/src/luaconf.h	297;"	d
 lua_equal	build/install/include/luaconf.h	297;"	d
 lua_error	build/extern/prj_lua52/src/prj_lua52/doc/manual.html	/^<hr><h3><a name="lua_error"><code>lua_error<\/code><\/a><\/h3><p>$/;"	a
 lua_error	build/extern/prj_lua52/src/prj_lua52/src/lapi.c	/^LUA_API int lua_error (lua_State *L) {$/;"	f
-lua_find_str	c_src/lued.c	/^int lua_find_str(lua_State* L) {$/;"	f
 lua_freeline	build/extern/prj_carr/src/prj_carr/src/lua.h	423;"	d
 lua_freeline	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	75;"	d	file:
 lua_freeline	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	83;"	d	file:
@@ -3699,7 +4143,6 @@ lua_set_page_offset	c_src/lued.c	/^static int lua_set_page_offset(lua_State* L) 
 lua_set_page_pos	c_src/lued.c	/^static int lua_set_page_pos(lua_State* L)$/;"	f	file:
 lua_set_paste	c_src/lued.c	/^int lua_set_paste(lua_State *L) {$/;"	f
 lua_set_repeatables	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^int lua_set_repeatables(lua_State *L) {$/;"	f
-lua_set_sel	c_src/lued.c	/^int lua_set_sel(lua_State* L) {$/;"	f
 lua_set_sel_end	c_src/lued.c	/^int lua_set_sel_end(lua_State* L) {$/;"	f
 lua_set_sel_off	c_src/lued.c	/^int lua_set_sel_off(lua_State* L) {$/;"	f
 lua_set_sel_start	c_src/lued.c	/^int lua_set_sel_start(lua_State* L) {$/;"	f
@@ -3890,7 +4333,10 @@ lued_init_sessions	c_src/lued.c	/^static carr_t* lued_init_sessions(int argc, ch
 lued_insertx	c_src/lued.c	/^int lued_insertx(lued_t* l, uint32_t row, uint32_t col, char* str)$/;"	f
 lued_main	c_src/lued.c	/^int lued_main (int argc, char** argv)$/;"	f
 lued_open	c_src/lued.c	/^lued_t* lued_open(carr_t* all_sessions, const char* filename)$/;"	f
+lued_prompt	.lued/lued_lib.lua	/^function lued_prompt(hist_id,prompt,hot,test_str)$/;"	f
 lued_prompt	lua_src/lued_lib.lua	/^function lued_prompt(hist_id,prompt,hot,test_str)$/;"	f
+lued_prompt	tmp/.lued/lued_lib.lua	/^function lued_prompt(hist_id,prompt,hot,test_str)$/;"	f
+lued_prompt	tmp/lua_src/lued_lib.lua	/^function lued_prompt(hist_id,prompt,hot,test_str)$/;"	f
 lued_reg	c_src/lued.c	/^lua_State* lued_reg () {$/;"	f
 lued_struct	c_src/lued.h	/^typedef struct lued_struct {$/;"	s
 lued_t	c_src/lued.h	/^} lued_t;$/;"	t	typeref:struct:lued_struct
@@ -3998,23 +4444,73 @@ min_expand	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static const cha
 mode	build/extern/prj_carr/src/prj_carr/test/test_src/ctest.h	/^   uint32_t mode;$/;"	m	struct:ctest_struct
 mode	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^  const char *mode;$/;"	m	struct:SParser	file:
 modinit	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static void modinit (lua_State *L, const char *modname) {$/;"	f	file:
+mouse_config	.lued/lued_lib.lua	/^function mouse_config(val)$/;"	f
 mouse_config	lua_src/lued_lib.lua	/^function mouse_config(val)$/;"	f
+mouse_config	tmp/.lued/lued_lib.lua	/^function mouse_config(val)$/;"	f
+mouse_config	tmp/lua_src/lued_lib.lua	/^function mouse_config(val)$/;"	f
+mouse_event	.lued/lued_lib.lua	/^function mouse_event(str)$/;"	f
 mouse_event	lua_src/lued_lib.lua	/^function mouse_event(str)$/;"	f
+mouse_event	tmp/.lued/lued_lib.lua	/^function mouse_event(str)$/;"	f
+mouse_event	tmp/lua_src/lued_lib.lua	/^function mouse_event(str)$/;"	f
+move_down_n_lines	.lued/lued_lib.lua	/^function move_down_n_lines(n,dd)$/;"	f
 move_down_n_lines	lua_src/lued_lib.lua	/^function move_down_n_lines(n,dd)$/;"	f
+move_down_n_lines	tmp/.lued/lued_lib.lua	/^function move_down_n_lines(n,dd)$/;"	f
+move_down_n_lines	tmp/lua_src/lued_lib.lua	/^function move_down_n_lines(n,dd)$/;"	f
+move_down_n_pages	.lued/lued_lib.lua	/^function move_down_n_pages(n,dd)$/;"	f
 move_down_n_pages	lua_src/lued_lib.lua	/^function move_down_n_pages(n,dd)$/;"	f
+move_down_n_pages	tmp/.lued/lued_lib.lua	/^function move_down_n_pages(n,dd)$/;"	f
+move_down_n_pages	tmp/lua_src/lued_lib.lua	/^function move_down_n_pages(n,dd)$/;"	f
+move_left_fast	lua_src/lued_lib.lua	/^function move_left_fast(dd)$/;"	f
+move_left_n_char	.lued/lued_lib.lua	/^function move_left_n_char(n,dd)$/;"	f
 move_left_n_char	lua_src/lued_lib.lua	/^function move_left_n_char(n,dd)$/;"	f
+move_left_n_char	tmp/.lued/lued_lib.lua	/^function move_left_n_char(n,dd)$/;"	f
+move_left_n_char	tmp/lua_src/lued_lib.lua	/^function move_left_n_char(n,dd)$/;"	f
+move_left_n_words	.lued/lued_lib.lua	/^function move_left_n_words(n,dd)$/;"	f
 move_left_n_words	lua_src/lued_lib.lua	/^function move_left_n_words(n,dd)$/;"	f
+move_left_n_words	tmp/.lued/lued_lib.lua	/^function move_left_n_words(n,dd)$/;"	f
+move_left_n_words	tmp/lua_src/lued_lib.lua	/^function move_left_n_words(n,dd)$/;"	f
 move_marks	c_src/lued.c	/^static void move_marks(lued_t* session_p, uint32_t row, int32_t delta) {$/;"	f	file:
+move_right_fast	lua_src/lued_lib.lua	/^function move_right_fast(dd)$/;"	f
+move_right_n_char	.lued/lued_lib.lua	/^function move_right_n_char(n,dd)$/;"	f
 move_right_n_char	lua_src/lued_lib.lua	/^function move_right_n_char(n,dd)$/;"	f
+move_right_n_char	tmp/.lued/lued_lib.lua	/^function move_right_n_char(n,dd)$/;"	f
+move_right_n_char	tmp/lua_src/lued_lib.lua	/^function move_right_n_char(n,dd)$/;"	f
+move_right_n_words	.lued/lued_lib.lua	/^function move_right_n_words(n,dd)$/;"	f
 move_right_n_words	lua_src/lued_lib.lua	/^function move_right_n_words(n,dd)$/;"	f
+move_right_n_words	tmp/.lued/lued_lib.lua	/^function move_right_n_words(n,dd)$/;"	f
+move_right_n_words	tmp/lua_src/lued_lib.lua	/^function move_right_n_words(n,dd)$/;"	f
+move_to_eol	.lued/lued_lib.lua	/^function move_to_eol(dd)$/;"	f
 move_to_eol	lua_src/lued_lib.lua	/^function move_to_eol(dd)$/;"	f
+move_to_eol	tmp/.lued/lued_lib.lua	/^function move_to_eol(dd)$/;"	f
+move_to_eol	tmp/lua_src/lued_lib.lua	/^function move_to_eol(dd)$/;"	f
+move_to_first_line	.lued/lued_lib.lua	/^function move_to_first_line(dd)$/;"	f
 move_to_first_line	lua_src/lued_lib.lua	/^function move_to_first_line(dd)$/;"	f
+move_to_first_line	tmp/.lued/lued_lib.lua	/^function move_to_first_line(dd)$/;"	f
+move_to_first_line	tmp/lua_src/lued_lib.lua	/^function move_to_first_line(dd)$/;"	f
+move_to_last_line	.lued/lued_lib.lua	/^function move_to_last_line(dd)$/;"	f
 move_to_last_line	lua_src/lued_lib.lua	/^function move_to_last_line(dd)$/;"	f
+move_to_last_line	tmp/.lued/lued_lib.lua	/^function move_to_last_line(dd)$/;"	f
+move_to_last_line	tmp/lua_src/lued_lib.lua	/^function move_to_last_line(dd)$/;"	f
+move_to_line	.lued/lued_lib.lua	/^function move_to_line(n,dd)$/;"	f
 move_to_line	lua_src/lued_lib.lua	/^function move_to_line(n,dd)$/;"	f
+move_to_line	tmp/.lued/lued_lib.lua	/^function move_to_line(n,dd)$/;"	f
+move_to_line	tmp/lua_src/lued_lib.lua	/^function move_to_line(n,dd)$/;"	f
+move_to_sol	.lued/lued_lib.lua	/^function move_to_sol(dd)$/;"	f
 move_to_sol	lua_src/lued_lib.lua	/^function move_to_sol(dd)$/;"	f
+move_to_sol	tmp/.lued/lued_lib.lua	/^function move_to_sol(dd)$/;"	f
+move_to_sol	tmp/lua_src/lued_lib.lua	/^function move_to_sol(dd)$/;"	f
+move_to_sol_classic	.lued/lued_lib.lua	/^function move_to_sol_classic(dd)$/;"	f
 move_to_sol_classic	lua_src/lued_lib.lua	/^function move_to_sol_classic(dd)$/;"	f
+move_to_sol_classic	tmp/.lued/lued_lib.lua	/^function move_to_sol_classic(dd)$/;"	f
+move_to_sol_classic	tmp/lua_src/lued_lib.lua	/^function move_to_sol_classic(dd)$/;"	f
+move_up_n_lines	.lued/lued_lib.lua	/^function move_up_n_lines(n,dd)$/;"	f
 move_up_n_lines	lua_src/lued_lib.lua	/^function move_up_n_lines(n,dd)$/;"	f
+move_up_n_lines	tmp/.lued/lued_lib.lua	/^function move_up_n_lines(n,dd)$/;"	f
+move_up_n_lines	tmp/lua_src/lued_lib.lua	/^function move_up_n_lines(n,dd)$/;"	f
+move_up_n_pages	.lued/lued_lib.lua	/^function move_up_n_pages(n,dd)$/;"	f
 move_up_n_pages	lua_src/lued_lib.lua	/^function move_up_n_pages(n,dd)$/;"	f
+move_up_n_pages	tmp/.lued/lued_lib.lua	/^function move_up_n_pages(n,dd)$/;"	f
+move_up_n_pages	tmp/lua_src/lued_lib.lua	/^function move_up_n_pages(n,dd)$/;"	f
 movegotosout	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void movegotosout (FuncState *fs, BlockCnt *bl) {$/;"	f	file:
 moveto	build/extern/prj_lua52/src/prj_lua52/src/lapi.c	/^static void moveto (lua_State *L, TValue *fr, int idx) {$/;"	f	file:
 mt	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  struct Table *mt[LUA_NUMTAGS];  \/* metatables for basic types *\/$/;"	m	struct:global_State	typeref:struct:global_State::Table
@@ -4047,7 +4543,10 @@ namewhat	build/extern/prj_carr/src/prj_carr/src/lua.h	/^  const char *namewhat;	
 namewhat	build/extern/prj_lua52/src/prj_lua52/src/lua.h	/^  const char *namewhat;	\/* (n) 'global', 'local', 'field', 'method' *\/$/;"	m	struct:lua_Debug
 namewhat	build/install/include/lua.h	/^  const char *namewhat;	\/* (n) 'global', 'local', 'field', 'method' *\/$/;"	m	struct:lua_Debug
 need_value	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static int need_value (FuncState *fs, int list) {$/;"	f	file:
+new_file	.lued/lued_lib.lua	/^function new_file(filename, dd)$/;"	f
 new_file	lua_src/lued_lib.lua	/^function new_file(filename, dd)$/;"	f
+new_file	tmp/.lued/lued_lib.lua	/^function new_file(filename, dd)$/;"	f
+new_file	tmp/lua_src/lued_lib.lua	/^function new_file(filename, dd)$/;"	f
 new_localvar	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void new_localvar (LexState *ls, TString *name) {$/;"	f	file:
 new_localvarliteral	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	194;"	d	file:
 new_localvarliteral_	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void new_localvarliteral_ (LexState *ls, const char *name, size_t sz) {$/;"	f	file:
@@ -4074,7 +4573,10 @@ node	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  Node *node;$/;"	m	st
 noenv	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static int noenv (lua_State *L) {$/;"	f	file:
 noextrachars	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	347;"	d	file:
 noextrachars	build/extern/prj_lua52/src/prj_lua52/src/lua.c	345;"	d	file:
+nohot	.lued/lued_lib.lua	/^function nohot(key, dd)$/;"	f
 nohot	lua_src/lued_lib.lua	/^function nohot(key, dd)$/;"	f
+nohot	tmp/.lued/lued_lib.lua	/^function nohot(key, dd)$/;"	f
+nohot	tmp/lua_src/lued_lib.lua	/^function nohot(key, dd)$/;"	f
 non_repeatables	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^char non_repeatables[LUA_MAXINPUT] = ",bo,sb,se,sl,sw,to,";$/;"	v
 nospecials	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static int nospecials (const char *p, size_t l) {$/;"	f	file:
 novariant	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	121;"	d
@@ -4109,9 +4611,22 @@ objtypename	build/extern/prj_lua52/src/prj_lua52/src/ltm.h	47;"	d
 old_allowhook	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^      lu_byte old_allowhook;$/;"	m	struct:CallInfo::__anon2::__anon4
 old_errfunc	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^      ptrdiff_t old_errfunc;$/;"	m	struct:CallInfo::__anon2::__anon4
 oldpc	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  const Instruction *oldpc;  \/* last pc traced *\/$/;"	m	struct:lua_State
+open_file	.lued/lued_lib.lua	/^function open_file(filenames,dd)$/;"	f
 open_file	lua_src/lued_lib.lua	/^function open_file(filenames,dd)$/;"	f
+open_file	tmp/.lued/lued_lib.lua	/^function open_file(filenames,dd)$/;"	f
+open_file	tmp/lua_src/lued_lib.lua	/^function open_file(filenames,dd)$/;"	f
+open_file_bindings	.lued/lued_lib.lua	/^function open_file_bindings(dd)$/;"	f
 open_file_bindings	lua_src/lued_lib.lua	/^function open_file_bindings(dd)$/;"	f
+open_file_bindings	tmp/.lued/lued_lib.lua	/^function open_file_bindings(dd)$/;"	f
+open_file_bindings	tmp/lua_src/lued_lib.lua	/^function open_file_bindings(dd)$/;"	f
+open_file_selected	.lued/lued_lib.lua	/^function open_file_selected(dd)$/;"	f
+open_file_selected	lua_src/lued_lib.lua	/^function open_file_selected(dd)$/;"	f
+open_file_selected	tmp/.lued/lued_lib.lua	/^function open_file_selected(dd)$/;"	f
+open_file_selected	tmp/lua_src/lued_lib.lua	/^function open_file_selected(dd)$/;"	f
+open_filelist	.lued/lued_lib.lua	/^function open_filelist(filelist,dd)$/;"	f
 open_filelist	lua_src/lued_lib.lua	/^function open_filelist(filelist,dd)$/;"	f
+open_filelist	tmp/.lued/lued_lib.lua	/^function open_filelist(filelist,dd)$/;"	f
+open_filelist	tmp/lua_src/lued_lib.lua	/^function open_filelist(filelist,dd)$/;"	f
 open_func	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void open_func (LexState *ls, FuncState *fs, BlockCnt *bl) {$/;"	f	file:
 opencheck	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static void opencheck (lua_State *L, const char *fname, const char *mode) {$/;"	f	file:
 openupval	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  GCObject *openupval;  \/* list of open upvalues in this stack *\/$/;"	m	struct:lua_State
@@ -4119,7 +4634,10 @@ opmode	build/extern/prj_lua52/src/prj_lua52/src/lopcodes.c	62;"	d	file:
 option	build/extern/prj_carr/src/prj_carr/src/carr_arg.h	/^   carr_t* option; \/\/ 1d carr$/;"	m	struct:carr_arg_struct
 option	build/install/include/carr_arg.h	/^   carr_t* option; \/\/ 1d carr$/;"	m	struct:carr_arg_struct
 os_clock	build/extern/prj_lua52/src/prj_lua52/src/loslib.c	/^static int os_clock (lua_State *L) {$/;"	f	file:
+os_cmd	.lued/lued_lib.lua	/^function os_cmd(cmd)$/;"	f
 os_cmd	lua_src/lued_lib.lua	/^function os_cmd(cmd)$/;"	f
+os_cmd	tmp/.lued/lued_lib.lua	/^function os_cmd(cmd)$/;"	f
+os_cmd	tmp/lua_src/lued_lib.lua	/^function os_cmd(cmd)$/;"	f
 os_date	build/extern/prj_lua52/src/prj_lua52/src/loslib.c	/^static int os_date (lua_State *L) {$/;"	f	file:
 os_difftime	build/extern/prj_lua52/src/prj_lua52/src/loslib.c	/^static int os_difftime (lua_State *L) {$/;"	f	file:
 os_execute	build/extern/prj_lua52/src/prj_lua52/src/loslib.c	/^static int os_execute (lua_State *L) {$/;"	f	file:
@@ -4133,7 +4651,10 @@ os_tmpname	build/extern/prj_lua52/src/prj_lua52/src/loslib.c	/^static int os_tmp
 other	build/extern/prj_lua52/src/prj_lua52/doc/readme.html	/^<H3><A NAME="other">Building Lua on other systems<\/A><\/H3>$/;"	a
 otherwhite	build/extern/prj_lua52/src/prj_lua52/src/lgc.h	110;"	d
 output	build/extern/prj_lua52/src/prj_lua52/src/luac.c	/^static const char* output=Output;	\/* actual output file name *\/$/;"	v	file:
+overtype_string	.lued/lued_lib.lua	/^function overtype_string(str,dd)$/;"	f
 overtype_string	lua_src/lued_lib.lua	/^function overtype_string(str,dd)$/;"	f
+overtype_string	tmp/.lued/lued_lib.lua	/^function overtype_string(str,dd)$/;"	f
+overtype_string	tmp/lua_src/lued_lib.lua	/^function overtype_string(str,dd)$/;"	f
 p	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  struct Proto **p;  \/* functions defined inside the function *\/$/;"	m	struct:Proto	typeref:struct:Proto::Proto
 p	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  struct Proto *p;$/;"	m	struct:LClosure	typeref:struct:LClosure::Proto
 p	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  void *p;         \/* light userdata *\/$/;"	m	union:Value
@@ -4147,13 +4668,25 @@ pairsmeta	build/extern/prj_lua52/src/prj_lua52/src/lbaselib.c	/^static int pairs
 panic	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^static int panic (lua_State *L) {$/;"	f	file:
 panic	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  lua_CFunction panic;  \/* to be called in unprotected errors *\/$/;"	m	struct:global_State
 parlist	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void parlist (LexState *ls) {$/;"	f	file:
+paste	.lued/lued_lib.lua	/^function paste(dd)$/;"	f
 paste	lua_src/lued_lib.lua	/^function paste(dd)$/;"	f
+paste	tmp/.lued/lued_lib.lua	/^function paste(dd)$/;"	f
+paste	tmp/lua_src/lued_lib.lua	/^function paste(dd)$/;"	f
+paste_line_after	.lued/lued_lib.lua	/^function paste_line_after(dd)$/;"	f
 paste_line_after	lua_src/lued_lib.lua	/^function paste_line_after(dd)$/;"	f
+paste_line_after	tmp/.lued/lued_lib.lua	/^function paste_line_after(dd)$/;"	f
+paste_line_after	tmp/lua_src/lued_lib.lua	/^function paste_line_after(dd)$/;"	f
+paste_line_before	.lued/lued_lib.lua	/^function paste_line_before(dd)$/;"	f
 paste_line_before	lua_src/lued_lib.lua	/^function paste_line_before(dd)$/;"	f
+paste_line_before	tmp/.lued/lued_lib.lua	/^function paste_line_before(dd)$/;"	f
+paste_line_before	tmp/lua_src/lued_lib.lua	/^function paste_line_before(dd)$/;"	f
 paste_str	c_src/lued.h	/^   carr_t*  paste_str; \/\/ 1d carr array of char;$/;"	m	struct:lued_struct
 patchlistaux	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static void patchlistaux (FuncState *fs, int list, int vtarget, int reg,$/;"	f	file:
 patchtestreg	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static int patchtestreg (FuncState *fs, int node, int reg) {$/;"	f	file:
+pathifier	.lued/lued_lib.lua	/^function pathifier(filename)$/;"	f
 pathifier	lua_src/lued_lib.lua	/^function pathifier(filename)$/;"	f
+pathifier	tmp/.lued/lued_lib.lua	/^function pathifier(filename)$/;"	f
+pathifier	tmp/lua_src/lued_lib.lua	/^function pathifier(filename)$/;"	f
 pc	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^  int pc;  \/* next position to code (equivalent to `ncode') *\/$/;"	m	struct:FuncState
 pc	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^  int pc;  \/* position in code *\/$/;"	m	struct:Labeldesc
 pcRel	build/extern/prj_lua52/src/prj_lua52/src/ldebug.h	14;"	d
@@ -4379,6 +4912,10 @@ pk_funcs	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static const luaL_
 pmain	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static int pmain (lua_State *L) {$/;"	f	file:
 pmain	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static int pmain (lua_State *L) {$/;"	f	file:
 pmain	build/extern/prj_lua52/src/prj_lua52/src/luac.c	/^static int pmain(lua_State* L)$/;"	f	file:
+pop_jump_stack	.lued/lued_lib.lua	/^function pop_jump_stack(stack)$/;"	f
+pop_jump_stack	lua_src/lued_lib.lua	/^function pop_jump_stack(stack)$/;"	f
+pop_jump_stack	tmp/.lued/lued_lib.lua	/^function pop_jump_stack(stack)$/;"	f
+pop_jump_stack	tmp/lua_src/lued_lib.lua	/^function pop_jump_stack(stack)$/;"	f
 posrelat	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static size_t posrelat (ptrdiff_t pos, size_t len) {$/;"	f	file:
 preinit_state	build/extern/prj_lua52/src/prj_lua52/src/lstate.c	/^static void preinit_state (lua_State *L, global_State *g) {$/;"	f	file:
 preloadedlibs	build/extern/prj_lua52/src/prj_lua52/src/linit.c	/^static const luaL_Reg preloadedlibs[] = {$/;"	v	file:
@@ -4402,6 +4939,10 @@ propagateall	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void propag
 propagatelist	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void propagatelist (global_State *g, GCObject *l) {$/;"	f	file:
 propagatemark	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void propagatemark (global_State *g) {$/;"	f	file:
 push_captures	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static int push_captures (MatchState *ms, const char *s, const char *e) {$/;"	f	file:
+push_jump_stack	.lued/lued_lib.lua	/^function push_jump_stack(stack, fileid, row, col)$/;"	f
+push_jump_stack	lua_src/lued_lib.lua	/^function push_jump_stack(stack, fileid, row, col)$/;"	f
+push_jump_stack	tmp/.lued/lued_lib.lua	/^function push_jump_stack(stack, fileid, row, col)$/;"	f
+push_jump_stack	tmp/lua_src/lued_lib.lua	/^function push_jump_stack(stack, fileid, row, col)$/;"	f
 push_onecapture	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static void push_onecapture (MatchState *ms, int i, const char *s,$/;"	f	file:
 push_undo	c_src/lued.c	/^static void push_undo(carr_t* all_sessions, char cmd, uint32_t row, uint32_t col,$/;"	f	file:
 pushclosure	build/extern/prj_lua52/src/prj_lua52/src/lvm.c	/^static void pushclosure (lua_State *L, Proto *p, UpVal **encup, StkId base,$/;"	f	file:
@@ -4413,8 +4954,14 @@ pushline	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static int pushline (l
 pushnexttemplate	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static const char *pushnexttemplate (lua_State *L, const char *path) {$/;"	f	file:
 pushstr	build/extern/prj_lua52/src/prj_lua52/src/lobject.c	/^static void pushstr (lua_State *L, const char *str, size_t l) {$/;"	f	file:
 pvalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	155;"	d
+quit_all	.lued/lued_lib.lua	/^function quit_all(force, dd)$/;"	f
 quit_all	lua_src/lued_lib.lua	/^function quit_all(force, dd)$/;"	f
+quit_all	tmp/.lued/lued_lib.lua	/^function quit_all(force, dd)$/;"	f
+quit_all	tmp/lua_src/lued_lib.lua	/^function quit_all(force, dd)$/;"	f
+quit_session	.lued/lued_lib.lua	/^function quit_session(force,dd)$/;"	f
 quit_session	lua_src/lued_lib.lua	/^function quit_session(force,dd)$/;"	f
+quit_session	tmp/.lued/lued_lib.lua	/^function quit_session(force,dd)$/;"	f
+quit_session	tmp/lua_src/lued_lib.lua	/^function quit_session(force,dd)$/;"	f
 r	build/extern/prj_lua52/src/prj_lua52/doc/manual.html	/^     function r() return 1,2,3 end$/;"	f
 r	build/extern/prj_lua52/src/prj_lua52/src/llex.h	/^  lua_Number r;$/;"	m	union:__anon17
 raw_off	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^void raw_off() { set_flag(1, ICANON | ECHO); }$/;"	f
@@ -4425,7 +4972,10 @@ rawtsvalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	156;"	d
 rawuvalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	158;"	d
 read_all	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static void read_all (lua_State *L, FILE *f) {$/;"	f	file:
 read_chars	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static int read_chars (lua_State *L, FILE *f, size_t n) {$/;"	f	file:
+read_dir	.lued/lued_lib.lua	/^function read_dir(glob)$/;"	f
 read_dir	lua_src/lued_lib.lua	/^function read_dir(glob)$/;"	f
+read_dir	tmp/.lued/lued_lib.lua	/^function read_dir(glob)$/;"	f
+read_dir	tmp/lua_src/lued_lib.lua	/^function read_dir(glob)$/;"	f
 read_line	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static int read_line (lua_State *L, FILE *f, int chop) {$/;"	f	file:
 read_long_string	build/extern/prj_lua52/src/prj_lua52/src/llex.c	/^static void read_long_string (LexState *ls, SemInfo *seminfo, int sep) {$/;"	f	file:
 read_number	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static int read_number (lua_State *L, FILE *f) {$/;"	f	file:
@@ -4438,32 +4988,74 @@ reader	build/extern/prj_lua52/src/prj_lua52/src/lzio.h	/^  lua_Reader reader;		\
 readhexa	build/extern/prj_lua52/src/prj_lua52/src/lobject.c	/^static lua_Number readhexa (const char **s, lua_Number r, int *count) {$/;"	f	file:
 readhexaesc	build/extern/prj_lua52/src/prj_lua52/src/llex.c	/^static int readhexaesc (LexState *ls) {$/;"	f	file:
 reallymarkobject	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void reallymarkobject (global_State *g, GCObject *o) {$/;"	f	file:
+recenter	.lued/lued_lib.lua	/^function recenter(dd)$/;"	f
 recenter	lua_src/lued_lib.lua	/^function recenter(dd)$/;"	f
+recenter	tmp/.lued/lued_lib.lua	/^function recenter(dd)$/;"	f
+recenter	tmp/lua_src/lued_lib.lua	/^function recenter(dd)$/;"	f
 recfield	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void recfield (LexState *ls, struct ConsControl *cc) {$/;"	f	file:
 recover	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^static int recover (lua_State *L, int status) {$/;"	f	file:
 redo	c_src/lued.c	/^static void redo(carr_t* all_sessions) {$/;"	f	file:
+redo_cmd	.lued/lued_lib.lua	/^function redo_cmd(dd)$/;"	f
 redo_cmd	lua_src/lued_lib.lua	/^function redo_cmd(dd)$/;"	f
+redo_cmd	tmp/.lued/lued_lib.lua	/^function redo_cmd(dd)$/;"	f
+redo_cmd	tmp/lua_src/lued_lib.lua	/^function redo_cmd(dd)$/;"	f
 registerlocalvar	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static int registerlocalvar (LexState *ls, TString *varname) {$/;"	f	file:
 rehash	build/extern/prj_lua52/src/prj_lua52/src/ltable.c	/^static void rehash (lua_State *L, Table *t, const TValue *ek) {$/;"	f	file:
+reindent	.lued/lued_lib.lua	/^function reindent(n,dd)$/;"	f
 reindent	lua_src/lued_lib.lua	/^function reindent(n,dd)$/;"	f
+reindent	tmp/.lued/lued_lib.lua	/^function reindent(n,dd)$/;"	f
+reindent	tmp/lua_src/lued_lib.lua	/^function reindent(n,dd)$/;"	f
+reindent_all	.lued/lued_lib.lua	/^function reindent_all(n,dd)$/;"	f
 reindent_all	lua_src/lued_lib.lua	/^function reindent_all(n,dd)$/;"	f
+reindent_all	tmp/.lued/lued_lib.lua	/^function reindent_all(n,dd)$/;"	f
+reindent_all	tmp/lua_src/lued_lib.lua	/^function reindent_all(n,dd)$/;"	f
+reindent_selected	.lued/lued_lib.lua	/^function reindent_selected(dd)$/;"	f
 reindent_selected	lua_src/lued_lib.lua	/^function reindent_selected(dd)$/;"	f
+reindent_selected	tmp/.lued/lued_lib.lua	/^function reindent_selected(dd)$/;"	f
+reindent_selected	tmp/lua_src/lued_lib.lua	/^function reindent_selected(dd)$/;"	f
+reload_file	.lued/lued_lib.lua	/^function reload_file(dd)$/;"	f
 reload_file	lua_src/lued_lib.lua	/^function reload_file(dd)$/;"	f
+reload_file	tmp/.lued/lued_lib.lua	/^function reload_file(dd)$/;"	f
+reload_file	tmp/lua_src/lued_lib.lua	/^function reload_file(dd)$/;"	f
+relued	.lued/lued_lib.lua	/^function relued(dd)$/;"	f
 relued	lua_src/lued_lib.lua	/^function relued(dd)$/;"	f
+relued	tmp/.lued/lued_lib.lua	/^function relued(dd)$/;"	f
+relued	tmp/lua_src/lued_lib.lua	/^function relued(dd)$/;"	f
 remarkupvals	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void remarkupvals (global_State *g) {$/;"	f	file:
+remove_all_leading_tabs	.lued/lued_lib.lua	/^function remove_all_leading_tabs(tab_size,dd)$/;"	f
 remove_all_leading_tabs	lua_src/lued_lib.lua	/^function remove_all_leading_tabs(tab_size,dd)$/;"	f
+remove_all_leading_tabs	tmp/.lued/lued_lib.lua	/^function remove_all_leading_tabs(tab_size,dd)$/;"	f
+remove_all_leading_tabs	tmp/lua_src/lued_lib.lua	/^function remove_all_leading_tabs(tab_size,dd)$/;"	f
+remove_all_trailing_space	.lued/lued_lib.lua	/^function remove_all_trailing_space(dd)$/;"	f
 remove_all_trailing_space	lua_src/lued_lib.lua	/^function remove_all_trailing_space(dd)$/;"	f
+remove_all_trailing_space	tmp/.lued/lued_lib.lua	/^function remove_all_trailing_space(dd)$/;"	f
+remove_all_trailing_space	tmp/lua_src/lued_lib.lua	/^function remove_all_trailing_space(dd)$/;"	f
+remove_all_trailing_space_all_files	.lued/lued_lib.lua	/^function remove_all_trailing_space_all_files(dd)$/;"	f
 remove_all_trailing_space_all_files	lua_src/lued_lib.lua	/^function remove_all_trailing_space_all_files(dd)$/;"	f
+remove_all_trailing_space_all_files	tmp/.lued/lued_lib.lua	/^function remove_all_trailing_space_all_files(dd)$/;"	f
+remove_all_trailing_space_all_files	tmp/lua_src/lued_lib.lua	/^function remove_all_trailing_space_all_files(dd)$/;"	f
+remove_trailing_spaces	.lued/lued_lib.lua	/^function remove_trailing_spaces(next_row,next_col,force,dd)$/;"	f
 remove_trailing_spaces	lua_src/lued_lib.lua	/^function remove_trailing_spaces(next_row,next_col,force,dd)$/;"	f
+remove_trailing_spaces	tmp/.lued/lued_lib.lua	/^function remove_trailing_spaces(next_row,next_col,force,dd)$/;"	f
+remove_trailing_spaces	tmp/lua_src/lued_lib.lua	/^function remove_trailing_spaces(next_row,next_col,force,dd)$/;"	f
 removeentry	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void removeentry (Node *n) {$/;"	f	file:
 removevalues	build/extern/prj_lua52/src/prj_lua52/src/lcode.c	/^static void removevalues (FuncState *fs, int list) {$/;"	f	file:
 removevars	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void removevars (FuncState *fs, int tolevel) {$/;"	f	file:
 reopen	c_src/lued.c	/^lued_t* reopen(carr_t* all_sessions)$/;"	f
 repeatables	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^char repeatables[LUA_MAXINPUT] = ",ctrl_F,";$/;"	v
 repeatstat	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void repeatstat (LexState *ls, int line) {$/;"	f	file:
+replace_again	.lued/lued_lib.lua	/^function replace_again(dd)$/;"	f
 replace_again	lua_src/lued_lib.lua	/^function replace_again(dd)$/;"	f
+replace_again	tmp/.lued/lued_lib.lua	/^function replace_again(dd)$/;"	f
+replace_again	tmp/lua_src/lued_lib.lua	/^function replace_again(dd)$/;"	f
+replace_line	.lued/lued_lib.lua	/^function replace_line(newline,dd)$/;"	f
 replace_line	lua_src/lued_lib.lua	/^function replace_line(newline,dd)$/;"	f
+replace_line	tmp/.lued/lued_lib.lua	/^function replace_line(newline,dd)$/;"	f
+replace_line	tmp/lua_src/lued_lib.lua	/^function replace_line(newline,dd)$/;"	f
+replace_prompt	.lued/lued_lib.lua	/^function replace_prompt()$/;"	f
 replace_prompt	lua_src/lued_lib.lua	/^function replace_prompt()$/;"	f
+replace_prompt	tmp/.lued/lued_lib.lua	/^function replace_prompt()$/;"	f
+replace_prompt	tmp/lua_src/lued_lib.lua	/^function replace_prompt()$/;"	f
 report	build/extern/prj_carr/src/prj_carr/src/lua_hacked.c	/^static int report (lua_State *L, int status) {$/;"	f	file:
 report	build/extern/prj_lua52/src/prj_lua52/src/lua.c	/^static int report (lua_State *L, int status) {$/;"	f	file:
 resetbit	build/extern/prj_lua52/src/prj_lua52/src/lgc.h	82;"	d
@@ -4489,10 +5081,19 @@ safe_strncpy	build/extern/prj_carr/src/prj_carr/test/cis.h	52;"	d
 safe_strncpy	build/extern/prj_carr/src/prj_carr/test/test.h	22;"	d
 safe_strncpy	build/install/include/carr_cis.h	52;"	d
 save	build/extern/prj_lua52/src/prj_lua52/src/llex.c	/^static void save (LexState *ls, int c) {$/;"	f	file:
+save_all	.lued/lued_lib.lua	/^function save_all(dd)$/;"	f
 save_all	lua_src/lued_lib.lua	/^function save_all(dd)$/;"	f
+save_all	tmp/.lued/lued_lib.lua	/^function save_all(dd)$/;"	f
+save_all	tmp/lua_src/lued_lib.lua	/^function save_all(dd)$/;"	f
 save_and_next	build/extern/prj_lua52/src/prj_lua52/src/llex.c	46;"	d	file:
+save_as	.lued/lued_lib.lua	/^function save_as(filename, dd)$/;"	f
 save_as	lua_src/lued_lib.lua	/^function save_as(filename, dd)$/;"	f
+save_as	tmp/.lued/lued_lib.lua	/^function save_as(filename, dd)$/;"	f
+save_as	tmp/lua_src/lued_lib.lua	/^function save_as(filename, dd)$/;"	f
+save_file	.lued/lued_lib.lua	/^function save_file(dd)$/;"	f
 save_file	lua_src/lued_lib.lua	/^function save_file(dd)$/;"	f
+save_file	tmp/.lued/lued_lib.lua	/^function save_file(dd)$/;"	f
+save_file	tmp/lua_src/lued_lib.lua	/^function save_file(dd)$/;"	f
 save_it	c_src/lued.h	/^   uint32_t save_it;$/;"	m	struct:lued_struct
 save_it_valid	c_src/lued.h	/^   uint32_t save_it_valid; \/\/ save_it goes invalid when it < save_it$/;"	m	struct:lued_struct
 save_mtime	c_src/lued.h	/^   time_t   save_mtime;$/;"	m	struct:lued_struct
@@ -4500,7 +5101,10 @@ save_session	c_src/lued.c	/^int save_session(lued_t* session_p)$/;"	f
 savedpc	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^      const Instruction *savedpc;$/;"	m	struct:CallInfo::__anon2::__anon3
 savestack	build/extern/prj_lua52/src/prj_lua52/src/ldo.h	22;"	d
 scanformat	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static const char *scanformat (lua_State *L, const char *strfrmt, char *form) {$/;"	f	file:
+search_all_files	.lued/lued_lib.lua	/^function search_all_files(str,dd)$/;"	f
 search_all_files	lua_src/lued_lib.lua	/^function search_all_files(str,dd)$/;"	f
+search_all_files	tmp/.lued/lued_lib.lua	/^function search_all_files(str,dd)$/;"	f
+search_all_files	tmp/lua_src/lued_lib.lua	/^function search_all_files(str,dd)$/;"	f
 searcher_C	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static int searcher_C (lua_State *L) {$/;"	f	file:
 searcher_Croot	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static int searcher_Croot (lua_State *L) {$/;"	f	file:
 searcher_Lua	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static int searcher_Lua (lua_State *L) {$/;"	f	file:
@@ -4509,65 +5113,178 @@ searchpath	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static const cha
 searchupvalue	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static int searchupvalue (FuncState *fs, TString *name) {$/;"	f	file:
 searchvar	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static int searchvar (FuncState *fs, TString *n) {$/;"	f	file:
 seed	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  unsigned int seed;  \/* randomized seed for hashes *\/$/;"	m	struct:global_State
+sel_all	.lued/lued_lib.lua	/^function sel_all(dd)$/;"	f
 sel_all	lua_src/lued_lib.lua	/^function sel_all(dd)$/;"	f
-sel_block	lua_src/lued_lib.lua	/^function sel_block(dd)$/;"	f
+sel_all	tmp/.lued/lued_lib.lua	/^function sel_all(dd)$/;"	f
+sel_all	tmp/lua_src/lued_lib.lua	/^function sel_all(dd)$/;"	f
+sel_block	tmp/.lued/lued_lib.lua	/^function sel_block(dd)$/;"	f
+sel_block	tmp/lua_src/lued_lib.lua	/^function sel_block(dd)$/;"	f
 sel_end_col	c_src/lued.h	/^   uint32_t sel_end_col;$/;"	m	struct:lued_struct
 sel_end_row	c_src/lued.h	/^   uint32_t sel_end_row;$/;"	m	struct:lued_struct
+sel_eof	.lued/lued_lib.lua	/^function sel_eof(dd)$/;"	f
 sel_eof	lua_src/lued_lib.lua	/^function sel_eof(dd)$/;"	f
+sel_eof	tmp/.lued/lued_lib.lua	/^function sel_eof(dd)$/;"	f
+sel_eof	tmp/lua_src/lued_lib.lua	/^function sel_eof(dd)$/;"	f
+sel_eol	.lued/lued_lib.lua	/^function sel_eol(dd)$/;"	f
 sel_eol	lua_src/lued_lib.lua	/^function sel_eol(dd)$/;"	f
+sel_eol	tmp/.lued/lued_lib.lua	/^function sel_eol(dd)$/;"	f
+sel_eol	tmp/lua_src/lued_lib.lua	/^function sel_eol(dd)$/;"	f
+sel_indentation	.lued/lued_lib.lua	/^function sel_indentation(dd)$/;"	f
 sel_indentation	lua_src/lued_lib.lua	/^function sel_indentation(dd)$/;"	f
+sel_indentation	tmp/.lued/lued_lib.lua	/^function sel_indentation(dd)$/;"	f
+sel_indentation	tmp/lua_src/lued_lib.lua	/^function sel_indentation(dd)$/;"	f
+sel_inside_braces	.lued/lued_lib.lua	/^function sel_inside_braces(dd)$/;"	f
+sel_inside_braces	lua_src/lued_lib.lua	/^function sel_inside_braces(dd)$/;"	f
+sel_line	.lued/lued_lib.lua	/^function sel_line(n,dd)$/;"	f
 sel_line	lua_src/lued_lib.lua	/^function sel_line(n,dd)$/;"	f
+sel_line	tmp/.lued/lued_lib.lua	/^function sel_line(n,dd)$/;"	f
+sel_line	tmp/lua_src/lued_lib.lua	/^function sel_line(n,dd)$/;"	f
+sel_mark_to_cursor	.lued/lued_lib.lua	/^function sel_mark_to_cursor(dd)$/;"	f
 sel_mark_to_cursor	lua_src/lued_lib.lua	/^function sel_mark_to_cursor(dd)$/;"	f
+sel_mark_to_cursor	tmp/.lued/lued_lib.lua	/^function sel_mark_to_cursor(dd)$/;"	f
+sel_mark_to_cursor	tmp/lua_src/lued_lib.lua	/^function sel_mark_to_cursor(dd)$/;"	f
+sel_sof	.lued/lued_lib.lua	/^function sel_sof(dd)$/;"	f
 sel_sof	lua_src/lued_lib.lua	/^function sel_sof(dd)$/;"	f
+sel_sof	tmp/.lued/lued_lib.lua	/^function sel_sof(dd)$/;"	f
+sel_sof	tmp/lua_src/lued_lib.lua	/^function sel_sof(dd)$/;"	f
+sel_sol	.lued/lued_lib.lua	/^function sel_sol(dd)$/;"	f
 sel_sol	lua_src/lued_lib.lua	/^function sel_sol(dd)$/;"	f
+sel_sol	tmp/.lued/lued_lib.lua	/^function sel_sol(dd)$/;"	f
+sel_sol	tmp/lua_src/lued_lib.lua	/^function sel_sol(dd)$/;"	f
 sel_start_col	c_src/lued.h	/^   uint32_t sel_start_col;$/;"	m	struct:lued_struct
 sel_start_row	c_src/lued.h	/^   uint32_t sel_start_row;$/;"	m	struct:lued_struct
 sel_state	c_src/lued.h	/^   uint32_t sel_state; \/\/ 0=idle, 1=sel, 2=freeze, 3=blk_sel, 4=blk_freeze$/;"	m	struct:lued_struct
+sel_to_lower	.lued/lued_lib.lua	/^function sel_to_lower(dd)$/;"	f
 sel_to_lower	lua_src/lued_lib.lua	/^function sel_to_lower(dd)$/;"	f
+sel_to_lower	tmp/.lued/lued_lib.lua	/^function sel_to_lower(dd)$/;"	f
+sel_to_lower	tmp/lua_src/lued_lib.lua	/^function sel_to_lower(dd)$/;"	f
+sel_to_upper	.lued/lued_lib.lua	/^function sel_to_upper(dd)$/;"	f
 sel_to_upper	lua_src/lued_lib.lua	/^function sel_to_upper(dd)$/;"	f
+sel_to_upper	tmp/.lued/lued_lib.lua	/^function sel_to_upper(dd)$/;"	f
+sel_to_upper	tmp/lua_src/lued_lib.lua	/^function sel_to_upper(dd)$/;"	f
+sel_toggle	.lued/lued_lib.lua	/^function sel_toggle(dd)$/;"	f
 sel_toggle	lua_src/lued_lib.lua	/^function sel_toggle(dd)$/;"	f
+sel_toggle	tmp/.lued/lued_lib.lua	/^function sel_toggle(dd)$/;"	f
+sel_toggle	tmp/lua_src/lued_lib.lua	/^function sel_toggle(dd)$/;"	f
+sel_word	.lued/lued_lib.lua	/^function sel_word(dd)$/;"	f
 sel_word	lua_src/lued_lib.lua	/^function sel_word(dd)$/;"	f
+sel_word	tmp/.lued/lued_lib.lua	/^function sel_word(dd)$/;"	f
+sel_word	tmp/lua_src/lued_lib.lua	/^function sel_word(dd)$/;"	f
+select_tab	.lued/lued_lib.lua	/^function select_tab(filter)$/;"	f
 select_tab	lua_src/lued_lib.lua	/^function select_tab(filter)$/;"	f
+select_tab	tmp/.lued/lued_lib.lua	/^function select_tab(filter)$/;"	f
+select_tab	tmp/lua_src/lued_lib.lua	/^function select_tab(filter)$/;"	f
+select_tab_menu	.lued/lued_lib.lua	/^function select_tab_menu(filter)$/;"	f
 select_tab_menu	lua_src/lued_lib.lua	/^function select_tab_menu(filter)$/;"	f
+select_tab_menu	tmp/.lued/lued_lib.lua	/^function select_tab_menu(filter)$/;"	f
+select_tab_menu	tmp/lua_src/lued_lib.lua	/^function select_tab_menu(filter)$/;"	f
 semerror	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static l_noret semerror (LexState *ls, const char *msg) {$/;"	f	file:
 seminfo	build/extern/prj_lua52/src/prj_lua52/src/llex.h	/^  SemInfo seminfo;$/;"	m	struct:Token
 separatetobefnz	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static void separatetobefnz (lua_State *L, int all) {$/;"	f	file:
+session_sel	.lued/lued_lib.lua	/^function session_sel(session_id,dd)$/;"	f
 session_sel	lua_src/lued_lib.lua	/^function session_sel(session_id,dd)$/;"	f
+session_sel	tmp/.lued/lued_lib.lua	/^function session_sel(session_id,dd)$/;"	f
+session_sel	tmp/lua_src/lued_lib.lua	/^function session_sel(session_id,dd)$/;"	f
 set2	build/extern/prj_lua52/src/prj_lua52/src/ltablib.c	/^static void set2 (lua_State *L, int i, int j) {$/;"	f	file:
+set_auto_indent	.lued/lued_lib.lua	/^function set_auto_indent(dd)$/;"	f
 set_auto_indent	lua_src/lued_lib.lua	/^function set_auto_indent(dd)$/;"	f
+set_auto_indent	tmp/.lued/lued_lib.lua	/^function set_auto_indent(dd)$/;"	f
+set_auto_indent	tmp/lua_src/lued_lib.lua	/^function set_auto_indent(dd)$/;"	f
+set_comment	.lued/lued_lib.lua	/^function set_comment(dd)$/;"	f
 set_comment	lua_src/lued_lib.lua	/^function set_comment(dd)$/;"	f
+set_comment	tmp/.lued/lued_lib.lua	/^function set_comment(dd)$/;"	f
+set_comment	tmp/lua_src/lued_lib.lua	/^function set_comment(dd)$/;"	f
+set_ctrl_c_abort 	.lued/lued_lib.lua	/^function set_ctrl_c_abort (bool, dd)$/;"	f
 set_ctrl_c_abort 	lua_src/lued_lib.lua	/^function set_ctrl_c_abort (bool, dd)$/;"	f
+set_ctrl_c_abort 	tmp/.lued/lued_lib.lua	/^function set_ctrl_c_abort (bool, dd)$/;"	f
+set_ctrl_c_abort 	tmp/lua_src/lued_lib.lua	/^function set_ctrl_c_abort (bool, dd)$/;"	f
+set_ctrl_s_flow_control 	.lued/lued_lib.lua	/^function set_ctrl_s_flow_control (bool, dd)$/;"	f
 set_ctrl_s_flow_control 	lua_src/lued_lib.lua	/^function set_ctrl_s_flow_control (bool, dd)$/;"	f
+set_ctrl_s_flow_control 	tmp/.lued/lued_lib.lua	/^function set_ctrl_s_flow_control (bool, dd)$/;"	f
+set_ctrl_s_flow_control 	tmp/lua_src/lued_lib.lua	/^function set_ctrl_s_flow_control (bool, dd)$/;"	f
+set_ctrl_z_suspend 	.lued/lued_lib.lua	/^function set_ctrl_z_suspend (bool, dd)$/;"	f
 set_ctrl_z_suspend 	lua_src/lued_lib.lua	/^function set_ctrl_z_suspend (bool, dd)$/;"	f
+set_ctrl_z_suspend 	tmp/.lued/lued_lib.lua	/^function set_ctrl_z_suspend (bool, dd)$/;"	f
+set_ctrl_z_suspend 	tmp/lua_src/lued_lib.lua	/^function set_ctrl_z_suspend (bool, dd)$/;"	f
 set_cur_pos	c_src/lued.c	/^static int set_cur_pos(uint32_t row, uint32_t col) {$/;"	f	file:
 set_cursor_position	c_src/lued.c	/^int set_cursor_position(lued_t* l, uint32_t r, uint32_t c)$/;"	f
+set_edit_mode	.lued/lued_lib.lua	/^function set_edit_mode(dd)$/;"	f
 set_edit_mode	lua_src/lued_lib.lua	/^function set_edit_mode(dd)$/;"	f
+set_edit_mode	tmp/.lued/lued_lib.lua	/^function set_edit_mode(dd)$/;"	f
+set_edit_mode	tmp/lua_src/lued_lib.lua	/^function set_edit_mode(dd)$/;"	f
 set_env	build/extern/prj_lua52/src/prj_lua52/src/loadlib.c	/^static void set_env (lua_State *L) {$/;"	f	file:
 set_fileid	c_src/lued.c	/^static void set_fileid(uint32_t id) {$/;"	f	file:
 set_filename	c_src/lued.c	/^void set_filename(lued_t* session_p, const char* filename) {$/;"	f
 set_flag	build/extern/prj_carr/src/prj_carr/src/carr_readline.c	/^static void set_flag(int tru, tcflag_t FLAG)$/;"	f	file:
+set_indent_size	.lued/lued_lib.lua	/^function set_indent_size(dd)$/;"	f
 set_indent_size	lua_src/lued_lib.lua	/^function set_indent_size(dd)$/;"	f
+set_indent_size	tmp/.lued/lued_lib.lua	/^function set_indent_size(dd)$/;"	f
+set_indent_size	tmp/lua_src/lued_lib.lua	/^function set_indent_size(dd)$/;"	f
+set_lua_mode	.lued/lued_lib.lua	/^function set_lua_mode(dd)$/;"	f
 set_lua_mode	lua_src/lued_lib.lua	/^function set_lua_mode(dd)$/;"	f
+set_lua_mode	tmp/.lued/lued_lib.lua	/^function set_lua_mode(dd)$/;"	f
+set_lua_mode	tmp/lua_src/lued_lib.lua	/^function set_lua_mode(dd)$/;"	f
 set_mark	c_src/lued.c	/^static void set_mark(carr_t* all_sessions, const char* name) {$/;"	f	file:
+set_min_lines_from_bot	.lued/lued_lib.lua	/^function set_min_lines_from_bot(val,dd)$/;"	f
 set_min_lines_from_bot	lua_src/lued_lib.lua	/^function set_min_lines_from_bot(val,dd)$/;"	f
+set_min_lines_from_bot	tmp/.lued/lued_lib.lua	/^function set_min_lines_from_bot(val,dd)$/;"	f
+set_min_lines_from_bot	tmp/lua_src/lued_lib.lua	/^function set_min_lines_from_bot(val,dd)$/;"	f
+set_min_lines_from_top	.lued/lued_lib.lua	/^function set_min_lines_from_top(val,dd)$/;"	f
 set_min_lines_from_top	lua_src/lued_lib.lua	/^function set_min_lines_from_top(val,dd)$/;"	f
+set_min_lines_from_top	tmp/.lued/lued_lib.lua	/^function set_min_lines_from_top(val,dd)$/;"	f
+set_min_lines_from_top	tmp/lua_src/lued_lib.lua	/^function set_min_lines_from_top(val,dd)$/;"	f
+set_move_down_n_lines	.lued/lued_lib.lua	/^function set_move_down_n_lines(val,dd)$/;"	f
 set_move_down_n_lines	lua_src/lued_lib.lua	/^function set_move_down_n_lines(val,dd)$/;"	f
+set_move_down_n_lines	tmp/.lued/lued_lib.lua	/^function set_move_down_n_lines(val,dd)$/;"	f
+set_move_down_n_lines	tmp/lua_src/lued_lib.lua	/^function set_move_down_n_lines(val,dd)$/;"	f
+set_move_left_n_char	.lued/lued_lib.lua	/^function set_move_left_n_char(n,dd)$/;"	f
 set_move_left_n_char	lua_src/lued_lib.lua	/^function set_move_left_n_char(n,dd)$/;"	f
+set_move_left_n_char	tmp/.lued/lued_lib.lua	/^function set_move_left_n_char(n,dd)$/;"	f
+set_move_left_n_char	tmp/lua_src/lued_lib.lua	/^function set_move_left_n_char(n,dd)$/;"	f
+set_move_right_n_char	.lued/lued_lib.lua	/^function set_move_right_n_char(n,dd)$/;"	f
 set_move_right_n_char	lua_src/lued_lib.lua	/^function set_move_right_n_char(n,dd)$/;"	f
+set_move_right_n_char	tmp/.lued/lued_lib.lua	/^function set_move_right_n_char(n,dd)$/;"	f
+set_move_right_n_char	tmp/lua_src/lued_lib.lua	/^function set_move_right_n_char(n,dd)$/;"	f
+set_move_up_n_lines	.lued/lued_lib.lua	/^function set_move_up_n_lines(val,dd)$/;"	f
 set_move_up_n_lines	lua_src/lued_lib.lua	/^function set_move_up_n_lines(val,dd)$/;"	f
+set_move_up_n_lines	tmp/.lued/lued_lib.lua	/^function set_move_up_n_lines(val,dd)$/;"	f
+set_move_up_n_lines	tmp/lua_src/lued_lib.lua	/^function set_move_up_n_lines(val,dd)$/;"	f
+set_nameless_mark	.lued/lued_lib.lua	/^function set_nameless_mark(dd)$/;"	f
 set_nameless_mark	lua_src/lued_lib.lua	/^function set_nameless_mark(dd)$/;"	f
+set_nameless_mark	tmp/.lued/lued_lib.lua	/^function set_nameless_mark(dd)$/;"	f
+set_nameless_mark	tmp/lua_src/lued_lib.lua	/^function set_nameless_mark(dd)$/;"	f
+set_overtype	.lued/lued_lib.lua	/^function set_overtype(val,dd)$/;"	f
 set_overtype	lua_src/lued_lib.lua	/^function set_overtype(val,dd)$/;"	f
+set_overtype	tmp/.lued/lued_lib.lua	/^function set_overtype(val,dd)$/;"	f
+set_overtype	tmp/lua_src/lued_lib.lua	/^function set_overtype(val,dd)$/;"	f
 set_page_offset	c_src/lued.c	/^static void set_page_offset(carr_t* all_sessions, uint32_t delta_row, uint32_t delta_col) {$/;"	f	file:
+set_page_offset_percent	.lued/lued_lib.lua	/^function set_page_offset_percent(offset,dd)$/;"	f
 set_page_offset_percent	lua_src/lued_lib.lua	/^function set_page_offset_percent(offset,dd)$/;"	f
+set_page_offset_percent	tmp/.lued/lued_lib.lua	/^function set_page_offset_percent(offset,dd)$/;"	f
+set_page_offset_percent	tmp/lua_src/lued_lib.lua	/^function set_page_offset_percent(offset,dd)$/;"	f
 set_page_pos	c_src/lued.c	/^static void set_page_pos(uint32_t row, uint32_t col) {$/;"	f	file:
+set_pagesize	.lued/lued_lib.lua	/^function set_pagesize(val,dd)$/;"	f
 set_pagesize	lua_src/lued_lib.lua	/^function set_pagesize(val,dd)$/;"	f
+set_pagesize	tmp/.lued/lued_lib.lua	/^function set_pagesize(val,dd)$/;"	f
+set_pagesize	tmp/lua_src/lued_lib.lua	/^function set_pagesize(val,dd)$/;"	f
 set_paste	c_src/lued.c	/^static const char* set_paste(carr_t* all_sessions, const char* str) {$/;"	f	file:
+set_paste_buffer	.lued/lued_lib.lua	/^function set_paste_buffer(str,dd)$/;"	f
 set_paste_buffer	lua_src/lued_lib.lua	/^function set_paste_buffer(str,dd)$/;"	f
+set_paste_buffer	tmp/.lued/lued_lib.lua	/^function set_paste_buffer(str,dd)$/;"	f
+set_paste_buffer	tmp/lua_src/lued_lib.lua	/^function set_paste_buffer(str,dd)$/;"	f
+set_replace_tabs	.lued/lued_lib.lua	/^function set_replace_tabs(val,dd)$/;"	f
 set_replace_tabs	lua_src/lued_lib.lua	/^function set_replace_tabs(val,dd)$/;"	f
+set_replace_tabs	tmp/.lued/lued_lib.lua	/^function set_replace_tabs(val,dd)$/;"	f
+set_replace_tabs	tmp/lua_src/lued_lib.lua	/^function set_replace_tabs(val,dd)$/;"	f
+set_scope_indent	.lued/lued_lib.lua	/^function set_scope_indent(val,dd)$/;"	f
 set_scope_indent	lua_src/lued_lib.lua	/^function set_scope_indent(val,dd)$/;"	f
-set_sel	c_src/lued.c	/^static int set_sel() {$/;"	f	file:
+set_scope_indent	tmp/.lued/lued_lib.lua	/^function set_scope_indent(val,dd)$/;"	f
+set_scope_indent	tmp/lua_src/lued_lib.lua	/^function set_scope_indent(val,dd)$/;"	f
 set_sel_end	c_src/lued.c	/^static int set_sel_end(int update_state) {$/;"	f	file:
+set_sel_from_to	.lued/lued_lib.lua	/^function set_sel_from_to(sel_sr,sel_sc,sel_er,sel_ec,dd)$/;"	f
 set_sel_from_to	lua_src/lued_lib.lua	/^function set_sel_from_to(sel_sr,sel_sc,sel_er,sel_ec,dd)$/;"	f
+set_sel_from_to	tmp/.lued/lued_lib.lua	/^function set_sel_from_to(sel_sr,sel_sc,sel_er,sel_ec,dd)$/;"	f
+set_sel_from_to	tmp/lua_src/lued_lib.lua	/^function set_sel_from_to(sel_sr,sel_sc,sel_er,sel_ec,dd)$/;"	f
 set_sel_off	c_src/lued.c	/^static void set_sel_off(carr_t* all_sessions) {$/;"	f	file:
 set_sel_start	c_src/lued.c	/^int set_sel_start(int only_if_off) {$/;"	f
 set_show_line_numbers	c_src/lued.c	/^static void set_show_line_numbers(lued_t* session_p, uint32_t val) {$/;"	f	file:
@@ -4650,11 +5367,22 @@ sizeudata	build/extern/prj_lua52/src/prj_lua52/src/lstring.h	17;"	d
 sizeupvalues	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  int sizeupvalues;  \/* size of 'upvalues' *\/$/;"	m	struct:Proto
 skipBOM	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^static int skipBOM (LoadF *lf) {$/;"	f	file:
 skip_sep	build/extern/prj_lua52/src/prj_lua52/src/llex.c	/^static int skip_sep (LexState *ls) {$/;"	f	file:
+skip_spaces	.lued/lued_lib.lua	/^function skip_spaces(dd)$/;"	f
 skip_spaces	lua_src/lued_lib.lua	/^function skip_spaces(dd)$/;"	f
+skip_spaces	tmp/.lued/lued_lib.lua	/^function skip_spaces(dd)$/;"	f
+skip_spaces	tmp/lua_src/lued_lib.lua	/^function skip_spaces(dd)$/;"	f
+skip_variable	.lued/lued_lib.lua	/^function skip_variable(dd)$/;"	f
 skip_variable	lua_src/lued_lib.lua	/^function skip_variable(dd)$/;"	f
+skip_variable	tmp/.lued/lued_lib.lua	/^function skip_variable(dd)$/;"	f
+skip_variable	tmp/lua_src/lued_lib.lua	/^function skip_variable(dd)$/;"	f
+skip_word	.lued/lued_lib.lua	/^function skip_word(dd)$/;"	f
 skip_word	lua_src/lued_lib.lua	/^function skip_word(dd)$/;"	f
+skip_word	tmp/.lued/lued_lib.lua	/^function skip_word(dd)$/;"	f
+skip_word	tmp/lua_src/lued_lib.lua	/^function skip_word(dd)$/;"	f
 skipcomment	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^static int skipcomment (LoadF *lf, int *cp) {$/;"	f	file:
 skipnoopstat	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void skipnoopstat (LexState *ls) {$/;"	f	file:
+slurp_file_into_array	.lued/bindings2md.lua	/^function slurp_file_into_array(filename)$/;"	f
+slurp_file_into_array	lua_src/bindings2md.lua	/^function slurp_file_into_array(filename)$/;"	f
 sort	build/extern/prj_lua52/src/prj_lua52/src/ltablib.c	/^static int sort (lua_State *L) {$/;"	f	file:
 sort_comp	build/extern/prj_lua52/src/prj_lua52/src/ltablib.c	/^static int sort_comp (lua_State *L, int a, int b) {$/;"	f	file:
 source	build/extern/prj_carr/src/prj_carr/src/lua.h	/^  const char *source;	\/* (S) *\/$/;"	m	struct:lua_Debug
@@ -4662,10 +5390,16 @@ source	build/extern/prj_lua52/src/prj_lua52/src/llex.h	/^  TString *source;  \/*
 source	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  TString  *source;  \/* used for debug information *\/$/;"	m	struct:Proto
 source	build/extern/prj_lua52/src/prj_lua52/src/lua.h	/^  const char *source;	\/* (S) *\/$/;"	m	struct:lua_Debug
 source	build/install/include/lua.h	/^  const char *source;	\/* (S) *\/$/;"	m	struct:lua_Debug
+spare	.lued/lued_lib.lua	/^function spare()$/;"	f
 spare	lua_src/lued_lib.lua	/^function spare()$/;"	f
+spare	tmp/.lued/lued_lib.lua	/^function spare()$/;"	f
+spare	tmp/lua_src/lued_lib.lua	/^function spare()$/;"	f
 special_char	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^static void special_char(carr_t* str) {$/;"	f	file:
 split_lines	c_src/lued.c	/^static carr_t* split_lines(const char* str, const char* delim) {$/;"	f	file:
+split_string 	.lued/lued_lib.lua	/^function split_string (str, delimiter)$/;"	f
 split_string 	lua_src/lued_lib.lua	/^function split_string (str, delimiter)$/;"	f
+split_string 	tmp/.lued/lued_lib.lua	/^function split_string (str, delimiter)$/;"	f
+split_string 	tmp/lua_src/lued_lib.lua	/^function split_string (str, delimiter)$/;"	f
 src_end	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^  const char *src_end;  \/* end ('\\0') of source string *\/$/;"	m	struct:MatchState	file:
 src_init	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^  const char *src_init;  \/* init of source string *\/$/;"	m	struct:MatchState	file:
 stack	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  StkId stack;  \/* stack base *\/$/;"	m	struct:lua_State
@@ -4673,7 +5407,10 @@ stack_init	build/extern/prj_lua52/src/prj_lua52/src/lstate.c	/^static void stack
 stack_last	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  StkId stack_last;  \/* last free slot in the stack *\/$/;"	m	struct:lua_State
 stackinuse	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^static int stackinuse (lua_State *L) {$/;"	f	file:
 stacksize	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  int stacksize;$/;"	m	struct:lua_State
+start_aa	.lued/plugins/ascii_art.lua	/^function start_aa(dd)$/;"	f
 start_aa	lua_src/plugins/ascii_art.lua	/^function start_aa(dd)$/;"	f
+start_aa	tmp/.lued/plugins/ascii_art.lua	/^function start_aa(dd)$/;"	f
+start_aa	tmp/lua_src/plugins/ascii_art.lua	/^function start_aa(dd)$/;"	f
 start_capture	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static const char *start_capture (MatchState *ms, const char *s,$/;"	f	file:
 startpc	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  int startpc;  \/* first point where variable is active *\/$/;"	m	struct:LocVar
 statement	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void statement (LexState *ls) {$/;"	f	file:
@@ -4682,7 +5419,10 @@ status	build/extern/prj_lua52/src/prj_lua52/src/ldo.c	/^  volatile int status;  
 status	build/extern/prj_lua52/src/prj_lua52/src/ldump.c	/^ int status;$/;"	m	struct:__anon19	file:
 status	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^      lu_byte status;$/;"	m	struct:CallInfo::__anon2::__anon4
 status	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  lu_byte status;$/;"	m	struct:lua_State
+stop_aa	.lued/plugins/ascii_art.lua	/^function stop_aa()$/;"	f
 stop_aa	lua_src/plugins/ascii_art.lua	/^function stop_aa()$/;"	f
+stop_aa	tmp/.lued/plugins/ascii_art.lua	/^function stop_aa()$/;"	f
+stop_aa	tmp/lua_src/plugins/ascii_art.lua	/^function stop_aa()$/;"	f
 str	c_src/lued.h	/^   carr_t*  str; \/\/ 1d carr array of char;$/;"	m	struct:lued_struct
 str_byte	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static int str_byte (lua_State *L) {$/;"	f	file:
 str_char	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static int str_char (lua_State *L) {$/;"	f	file:
@@ -4709,8 +5449,14 @@ subexpr	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static BinOpr subex
 subst	build/extern/prj_carr/src/prj_carr/src/carr_readline_lua.c	/^static size_t subst(char* from, const char* to, carr_t* c_str) {$/;"	f	file:
 suffixedexp	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void suffixedexp (LexState *ls, expdesc *v) {$/;"	f	file:
 svalue	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	425;"	d
+swap_line_with_next	.lued/lued_lib.lua	/^function swap_line_with_next(dd)$/;"	f
 swap_line_with_next	lua_src/lued_lib.lua	/^function swap_line_with_next(dd)$/;"	f
+swap_line_with_next	tmp/.lued/lued_lib.lua	/^function swap_line_with_next(dd)$/;"	f
+swap_line_with_next	tmp/lua_src/lued_lib.lua	/^function swap_line_with_next(dd)$/;"	f
+swap_line_with_prev	.lued/lued_lib.lua	/^function swap_line_with_prev(dd)$/;"	f
 swap_line_with_prev	lua_src/lued_lib.lua	/^function swap_line_with_prev(dd)$/;"	f
+swap_line_with_prev	tmp/.lued/lued_lib.lua	/^function swap_line_with_prev(dd)$/;"	f
+swap_line_with_prev	tmp/lua_src/lued_lib.lua	/^function swap_line_with_prev(dd)$/;"	f
 swapextra	build/extern/prj_lua52/src/prj_lua52/src/ldebug.c	/^static void swapextra (lua_State *L) {$/;"	f	file:
 sweepfin	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  GCObject **sweepfin;  \/* current position of sweep in list 'finobj' *\/$/;"	m	struct:global_State
 sweepgc	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  GCObject **sweepgc;  \/* current position of sweep in list 'allgc' *\/$/;"	m	struct:global_State
@@ -4726,10 +5472,19 @@ t	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^  expdesc *t;  \/* table 
 t	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^      lu_byte t;  \/* table (register or upvalue) *\/$/;"	m	struct:expdesc::__anon6::__anon7
 t	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^  int t;  \/* patch list of `exit when true' *\/$/;"	m	struct:expdesc
 tab_funcs	build/extern/prj_lua52/src/prj_lua52/src/ltablib.c	/^static const luaL_Reg tab_funcs[] = {$/;"	v	file:
+tab_next	.lued/lued_lib.lua	/^function tab_next(dd)$/;"	f
 tab_next	lua_src/lued_lib.lua	/^function tab_next(dd)$/;"	f
+tab_next	tmp/.lued/lued_lib.lua	/^function tab_next(dd)$/;"	f
+tab_next	tmp/lua_src/lued_lib.lua	/^function tab_next(dd)$/;"	f
+tab_prev	.lued/lued_lib.lua	/^function tab_prev(dd)$/;"	f
 tab_prev	lua_src/lued_lib.lua	/^function tab_prev(dd)$/;"	f
+tab_prev	tmp/.lued/lued_lib.lua	/^function tab_prev(dd)$/;"	f
+tab_prev	tmp/lua_src/lued_lib.lua	/^function tab_prev(dd)$/;"	f
 tab_size	c_src/lued.c	/^size_t tab_size(const char* str, size_t offset) {$/;"	f
+tab_toggle	.lued/lued_lib.lua	/^function tab_toggle(dd)$/;"	f
 tab_toggle	lua_src/lued_lib.lua	/^function tab_toggle(dd)$/;"	f
+tab_toggle	tmp/.lued/lued_lib.lua	/^function tab_toggle(dd)$/;"	f
+tab_toggle	tmp/lua_src/lued_lib.lua	/^function tab_toggle(dd)$/;"	f
 tag2tt	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	340;"	d
 tag_error	build/extern/prj_lua52/src/prj_lua52/src/lauxlib.c	/^static void tag_error (lua_State *L, int narg, int tag) {$/;"	f	file:
 tconcat	build/extern/prj_lua52/src/prj_lua52/src/ltablib.c	/^static int tconcat (lua_State *L) {$/;"	f	file:
@@ -4751,19 +5506,58 @@ tinsert	build/extern/prj_lua52/src/prj_lua52/src/ltablib.c	/^static int tinsert 
 tmname	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  TString *tmname[TM_N];  \/* array with tag-method names *\/$/;"	m	struct:global_State
 tobefnz	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  GCObject *tobefnz;  \/* list of userdata to be GC *\/$/;"	m	struct:global_State
 tofile	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	/^static FILE *tofile (lua_State *L) {$/;"	f	file:
+toggle_auto_indent	.lued/lued_lib.lua	/^function toggle_auto_indent(dd)$/;"	f
 toggle_auto_indent	lua_src/lued_lib.lua	/^function toggle_auto_indent(dd)$/;"	f
+toggle_auto_indent	tmp/.lued/lued_lib.lua	/^function toggle_auto_indent(dd)$/;"	f
+toggle_auto_indent	tmp/lua_src/lued_lib.lua	/^function toggle_auto_indent(dd)$/;"	f
+toggle_bottom	.lued/lued_lib.lua	/^function toggle_bottom(dd)$/;"	f
 toggle_bottom	lua_src/lued_lib.lua	/^function toggle_bottom(dd)$/;"	f
+toggle_bottom	tmp/.lued/lued_lib.lua	/^function toggle_bottom(dd)$/;"	f
+toggle_bottom	tmp/lua_src/lued_lib.lua	/^function toggle_bottom(dd)$/;"	f
+toggle_ctrl_c_abort 	.lued/lued_lib.lua	/^function toggle_ctrl_c_abort (dd)$/;"	f
 toggle_ctrl_c_abort 	lua_src/lued_lib.lua	/^function toggle_ctrl_c_abort (dd)$/;"	f
+toggle_ctrl_c_abort 	tmp/.lued/lued_lib.lua	/^function toggle_ctrl_c_abort (dd)$/;"	f
+toggle_ctrl_c_abort 	tmp/lua_src/lued_lib.lua	/^function toggle_ctrl_c_abort (dd)$/;"	f
+toggle_ctrl_z_suspend 	.lued/lued_lib.lua	/^function toggle_ctrl_z_suspend (dd)$/;"	f
 toggle_ctrl_z_suspend 	lua_src/lued_lib.lua	/^function toggle_ctrl_z_suspend (dd)$/;"	f
+toggle_ctrl_z_suspend 	tmp/.lued/lued_lib.lua	/^function toggle_ctrl_z_suspend (dd)$/;"	f
+toggle_ctrl_z_suspend 	tmp/lua_src/lued_lib.lua	/^function toggle_ctrl_z_suspend (dd)$/;"	f
+toggle_doublespeed	.lued/lued_lib.lua	/^function toggle_doublespeed(dd)$/;"	f
 toggle_doublespeed	lua_src/lued_lib.lua	/^function toggle_doublespeed(dd)$/;"	f
+toggle_doublespeed	tmp/.lued/lued_lib.lua	/^function toggle_doublespeed(dd)$/;"	f
+toggle_doublespeed	tmp/lua_src/lued_lib.lua	/^function toggle_doublespeed(dd)$/;"	f
+toggle_enable_file_changed	.lued/lued_lib.lua	/^function toggle_enable_file_changed(dd)$/;"	f
 toggle_enable_file_changed	lua_src/lued_lib.lua	/^function toggle_enable_file_changed(dd)$/;"	f
+toggle_enable_file_changed	tmp/.lued/lued_lib.lua	/^function toggle_enable_file_changed(dd)$/;"	f
+toggle_enable_file_changed	tmp/lua_src/lued_lib.lua	/^function toggle_enable_file_changed(dd)$/;"	f
+toggle_find_case_sensitive	.lued/lued_lib.lua	/^function toggle_find_case_sensitive(dd)$/;"	f
 toggle_find_case_sensitive	lua_src/lued_lib.lua	/^function toggle_find_case_sensitive(dd)$/;"	f
+toggle_find_case_sensitive	tmp/.lued/lued_lib.lua	/^function toggle_find_case_sensitive(dd)$/;"	f
+toggle_find_case_sensitive	tmp/lua_src/lued_lib.lua	/^function toggle_find_case_sensitive(dd)$/;"	f
+toggle_find_whole_word	.lued/lued_lib.lua	/^function toggle_find_whole_word(dd)$/;"	f
 toggle_find_whole_word	lua_src/lued_lib.lua	/^function toggle_find_whole_word(dd)$/;"	f
+toggle_find_whole_word	tmp/.lued/lued_lib.lua	/^function toggle_find_whole_word(dd)$/;"	f
+toggle_find_whole_word	tmp/lua_src/lued_lib.lua	/^function toggle_find_whole_word(dd)$/;"	f
+toggle_line_numbers	.lued/lued_lib.lua	/^function toggle_line_numbers(dd)$/;"	f
 toggle_line_numbers	lua_src/lued_lib.lua	/^function toggle_line_numbers(dd)$/;"	f
+toggle_line_numbers	tmp/.lued/lued_lib.lua	/^function toggle_line_numbers(dd)$/;"	f
+toggle_line_numbers	tmp/lua_src/lued_lib.lua	/^function toggle_line_numbers(dd)$/;"	f
+toggle_overtype	.lued/lued_lib.lua	/^function toggle_overtype(dd)$/;"	f
 toggle_overtype	lua_src/lued_lib.lua	/^function toggle_overtype(dd)$/;"	f
+toggle_overtype	tmp/.lued/lued_lib.lua	/^function toggle_overtype(dd)$/;"	f
+toggle_overtype	tmp/lua_src/lued_lib.lua	/^function toggle_overtype(dd)$/;"	f
+toggle_remove_trailing_spaces	.lued/lued_lib.lua	/^function toggle_remove_trailing_spaces(dd)$/;"	f
 toggle_remove_trailing_spaces	lua_src/lued_lib.lua	/^function toggle_remove_trailing_spaces(dd)$/;"	f
+toggle_remove_trailing_spaces	tmp/.lued/lued_lib.lua	/^function toggle_remove_trailing_spaces(dd)$/;"	f
+toggle_remove_trailing_spaces	tmp/lua_src/lued_lib.lua	/^function toggle_remove_trailing_spaces(dd)$/;"	f
+toggle_show_trailing_spaces	.lued/lued_lib.lua	/^function toggle_show_trailing_spaces(dd)$/;"	f
 toggle_show_trailing_spaces	lua_src/lued_lib.lua	/^function toggle_show_trailing_spaces(dd)$/;"	f
+toggle_show_trailing_spaces	tmp/.lued/lued_lib.lua	/^function toggle_show_trailing_spaces(dd)$/;"	f
+toggle_show_trailing_spaces	tmp/lua_src/lued_lib.lua	/^function toggle_show_trailing_spaces(dd)$/;"	f
+toggle_top	.lued/lued_lib.lua	/^function toggle_top(dd)$/;"	f
 toggle_top	lua_src/lued_lib.lua	/^function toggle_top(dd)$/;"	f
+toggle_top	tmp/.lued/lued_lib.lua	/^function toggle_top(dd)$/;"	f
+toggle_top	tmp/lua_src/lued_lib.lua	/^function toggle_top(dd)$/;"	f
 token	build/extern/prj_lua52/src/prj_lua52/src/llex.h	/^  int token;$/;"	m	struct:Token
 tolstream	build/extern/prj_lua52/src/prj_lua52/src/liolib.c	125;"	d	file:
 tonumber	build/extern/prj_lua52/src/prj_lua52/src/lvm.h	18;"	d
@@ -4834,12 +5628,21 @@ ud	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  void *ud;         \/* a
 udata2finalize	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	/^static GCObject *udata2finalize (global_State *g) {$/;"	f	file:
 udatatypename	build/extern/prj_lua52/src/prj_lua52/src/ltm.c	/^static const char udatatypename[] = "userdata";$/;"	v	file:
 unbound_search	build/extern/prj_lua52/src/prj_lua52/src/ltable.c	/^static int unbound_search (Table *t, unsigned int j) {$/;"	f	file:
+uncomment	.lued/lued_lib.lua	/^function uncomment(dd)$/;"	f
 uncomment	lua_src/lued_lib.lua	/^function uncomment(dd)$/;"	f
+uncomment	tmp/.lued/lued_lib.lua	/^function uncomment(dd)$/;"	f
+uncomment	tmp/lua_src/lued_lib.lua	/^function uncomment(dd)$/;"	f
+uncomment_selected	.lued/lued_lib.lua	/^function uncomment_selected(dd)$/;"	f
 uncomment_selected	lua_src/lued_lib.lua	/^function uncomment_selected(dd)$/;"	f
+uncomment_selected	tmp/.lued/lued_lib.lua	/^function uncomment_selected(dd)$/;"	f
+uncomment_selected	tmp/lua_src/lued_lib.lua	/^function uncomment_selected(dd)$/;"	f
 undefgoto	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static l_noret undefgoto (LexState *ls, Labeldesc *gt) {$/;"	f	file:
 undo	c_src/lued.c	/^static void undo(carr_t* all_sessions) {$/;"	f	file:
+undo_cmd	.lued/lued_lib.lua	/^function undo_cmd(dd)$/;"	f
 undo_cmd	c_src/lued.h	/^   carr_t*  undo_cmd; \/\/ 1d carr array of char$/;"	m	struct:lued_struct
 undo_cmd	lua_src/lued_lib.lua	/^function undo_cmd(dd)$/;"	f
+undo_cmd	tmp/.lued/lued_lib.lua	/^function undo_cmd(dd)$/;"	f
+undo_cmd	tmp/lua_src/lued_lib.lua	/^function undo_cmd(dd)$/;"	f
 undo_col	c_src/lued.h	/^   carr_t*  undo_col; \/\/ 1d carr array of uint32_t$/;"	m	struct:lued_struct
 undo_end_col	c_src/lued.h	/^   carr_t*  undo_end_col; \/\/ 1d carr array of uint32_t$/;"	m	struct:lued_struct
 undo_end_row	c_src/lued.h	/^   carr_t*  undo_end_row; \/\/ 1d carr array of uint32_t$/;"	m	struct:lued_struct
@@ -4847,8 +5650,14 @@ undo_row	c_src/lued.h	/^   carr_t*  undo_row; \/\/ 1d carr array of uint32_t$/;"
 undo_start_col	c_src/lued.h	/^   carr_t*  undo_start_col; \/\/ 1d carr array of uint32_t$/;"	m	struct:lued_struct
 undo_start_row	c_src/lued.h	/^   carr_t*  undo_start_row; \/\/ 1d carr array of uint32_t$/;"	m	struct:lued_struct
 undo_str	c_src/lued.h	/^   carr_t*  undo_str; \/\/ 2d carr array of char$/;"	m	struct:lued_struct
+unindent1	.lued/lued_lib.lua	/^function unindent1(n, ch, goto_next, dd)$/;"	f
 unindent1	lua_src/lued_lib.lua	/^function unindent1(n, ch, goto_next, dd)$/;"	f
+unindent1	tmp/.lued/lued_lib.lua	/^function unindent1(n, ch, goto_next, dd)$/;"	f
+unindent1	tmp/lua_src/lued_lib.lua	/^function unindent1(n, ch, goto_next, dd)$/;"	f
+unindent_selected	.lued/lued_lib.lua	/^function unindent_selected(dd)$/;"	f
 unindent_selected	lua_src/lued_lib.lua	/^function unindent_selected(dd)$/;"	f
+unindent_selected	tmp/.lued/lued_lib.lua	/^function unindent_selected(dd)$/;"	f
+unindent_selected	tmp/lua_src/lued_lib.lua	/^function unindent_selected(dd)$/;"	f
 unlinkupval	build/extern/prj_lua52/src/prj_lua52/src/lfunc.c	/^static void unlinkupval (UpVal *uv) {$/;"	f	file:
 unm_event	build/extern/prj_lua52/src/prj_lua52/doc/manual.html	/^     function unm_event (op)$/;"	f
 unmakemask	build/extern/prj_lua52/src/prj_lua52/src/ldblib.c	/^static char *unmakemask (int mask, char *smask) {$/;"	f	file:
@@ -4869,24 +5678,78 @@ v	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^  expdesc v;  \/* last li
 v	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^  expdesc v;  \/* variable (global, local, upvalue, or indexed) *\/$/;"	m	struct:LHS_assign	file:
 v_	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	306;"	d
 v_	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	317;"	d
+v_case	.lued/plugins/verilog.lua	/^function v_case(dd)$/;"	f
 v_case	lua_src/plugins/verilog.lua	/^function v_case(dd)$/;"	f
+v_case	tmp/.lued/plugins/verilog.lua	/^function v_case(dd)$/;"	f
+v_case	tmp/lua_src/plugins/verilog.lua	/^function v_case(dd)$/;"	f
+v_function	.lued/plugins/verilog.lua	/^function v_function(dd)$/;"	f
 v_function	lua_src/plugins/verilog.lua	/^function v_function(dd)$/;"	f
+v_function	tmp/.lued/plugins/verilog.lua	/^function v_function(dd)$/;"	f
+v_function	tmp/lua_src/plugins/verilog.lua	/^function v_function(dd)$/;"	f
+v_inst	.lued/plugins/verilog.lua	/^function v_inst(dd)$/;"	f
 v_inst	lua_src/plugins/verilog.lua	/^function v_inst(dd)$/;"	f
+v_inst	tmp/.lued/plugins/verilog.lua	/^function v_inst(dd)$/;"	f
+v_inst	tmp/lua_src/plugins/verilog.lua	/^function v_inst(dd)$/;"	f
+v_inst_selected	.lued/plugins/verilog.lua	/^function v_inst_selected(dd)$/;"	f
 v_inst_selected	lua_src/plugins/verilog.lua	/^function v_inst_selected(dd)$/;"	f
+v_inst_selected	tmp/.lued/plugins/verilog.lua	/^function v_inst_selected(dd)$/;"	f
+v_inst_selected	tmp/lua_src/plugins/verilog.lua	/^function v_inst_selected(dd)$/;"	f
+v_package	.lued/plugins/verilog.lua	/^function v_package(dd)$/;"	f
 v_package	lua_src/plugins/verilog.lua	/^function v_package(dd)$/;"	f
+v_package	tmp/.lued/plugins/verilog.lua	/^function v_package(dd)$/;"	f
+v_package	tmp/lua_src/plugins/verilog.lua	/^function v_package(dd)$/;"	f
+v_proc	.lued/plugins/verilog.lua	/^function v_proc(dd)$/;"	f
 v_proc	lua_src/plugins/verilog.lua	/^function v_proc(dd)$/;"	f
+v_proc	tmp/.lued/plugins/verilog.lua	/^function v_proc(dd)$/;"	f
+v_proc	tmp/lua_src/plugins/verilog.lua	/^function v_proc(dd)$/;"	f
+v_proc_all	.lued/plugins/verilog.lua	/^function v_proc_all(dd)$/;"	f
 v_proc_all	lua_src/plugins/verilog.lua	/^function v_proc_all(dd)$/;"	f
+v_proc_all	tmp/.lued/plugins/verilog.lua	/^function v_proc_all(dd)$/;"	f
+v_proc_all	tmp/lua_src/plugins/verilog.lua	/^function v_proc_all(dd)$/;"	f
+v_signed	.lued/plugins/verilog.lua	/^function v_signed(dd)$/;"	f
 v_signed	lua_src/plugins/verilog.lua	/^function v_signed(dd)$/;"	f
+v_signed	tmp/.lued/plugins/verilog.lua	/^function v_signed(dd)$/;"	f
+v_signed	tmp/lua_src/plugins/verilog.lua	/^function v_signed(dd)$/;"	f
+v_sl	.lued/plugins/verilog.lua	/^function v_sl(dd)$/;"	f
 v_sl	lua_src/plugins/verilog.lua	/^function v_sl(dd)$/;"	f
+v_sl	tmp/.lued/plugins/verilog.lua	/^function v_sl(dd)$/;"	f
+v_sl	tmp/lua_src/plugins/verilog.lua	/^function v_sl(dd)$/;"	f
+v_slv	.lued/plugins/verilog.lua	/^function v_slv(dd)$/;"	f
 v_slv	lua_src/plugins/verilog.lua	/^function v_slv(dd)$/;"	f
+v_slv	tmp/.lued/plugins/verilog.lua	/^function v_slv(dd)$/;"	f
+v_slv	tmp/lua_src/plugins/verilog.lua	/^function v_slv(dd)$/;"	f
+v_slv_array	.lued/plugins/verilog.lua	/^function v_slv_array(dd)$/;"	f
 v_slv_array	lua_src/plugins/verilog.lua	/^function v_slv_array(dd)$/;"	f
+v_slv_array	tmp/.lued/plugins/verilog.lua	/^function v_slv_array(dd)$/;"	f
+v_slv_array	tmp/lua_src/plugins/verilog.lua	/^function v_slv_array(dd)$/;"	f
+v_slv_incr	.lued/plugins/verilog.lua	/^function v_slv_incr(dd)$/;"	f
 v_slv_incr	lua_src/plugins/verilog.lua	/^function v_slv_incr(dd)$/;"	f
+v_slv_incr	tmp/.lued/plugins/verilog.lua	/^function v_slv_incr(dd)$/;"	f
+v_slv_incr	tmp/lua_src/plugins/verilog.lua	/^function v_slv_incr(dd)$/;"	f
+v_tb	.lued/plugins/verilog.lua	/^function v_tb(dd)$/;"	f
 v_tb	lua_src/plugins/verilog.lua	/^function v_tb(dd)$/;"	f
+v_tb	tmp/.lued/plugins/verilog.lua	/^function v_tb(dd)$/;"	f
+v_tb	tmp/lua_src/plugins/verilog.lua	/^function v_tb(dd)$/;"	f
+v_template	.lued/plugins/verilog.lua	/^function v_template(dd)$/;"	f
 v_template	lua_src/plugins/verilog.lua	/^function v_template(dd)$/;"	f
+v_template	tmp/.lued/plugins/verilog.lua	/^function v_template(dd)$/;"	f
+v_template	tmp/lua_src/plugins/verilog.lua	/^function v_template(dd)$/;"	f
+v_type_record	.lued/plugins/verilog.lua	/^function v_type_record(dd)$/;"	f
 v_type_record	lua_src/plugins/verilog.lua	/^function v_type_record(dd)$/;"	f
+v_type_record	tmp/.lued/plugins/verilog.lua	/^function v_type_record(dd)$/;"	f
+v_type_record	tmp/lua_src/plugins/verilog.lua	/^function v_type_record(dd)$/;"	f
+v_type_slv_array	.lued/plugins/verilog.lua	/^function v_type_slv_array(dd)$/;"	f
 v_type_slv_array	lua_src/plugins/verilog.lua	/^function v_type_slv_array(dd)$/;"	f
+v_type_slv_array	tmp/.lued/plugins/verilog.lua	/^function v_type_slv_array(dd)$/;"	f
+v_type_slv_array	tmp/lua_src/plugins/verilog.lua	/^function v_type_slv_array(dd)$/;"	f
+v_type_state	.lued/plugins/verilog.lua	/^function v_type_state(dd)$/;"	f
 v_type_state	lua_src/plugins/verilog.lua	/^function v_type_state(dd)$/;"	f
+v_type_state	tmp/.lued/plugins/verilog.lua	/^function v_type_state(dd)$/;"	f
+v_type_state	tmp/lua_src/plugins/verilog.lua	/^function v_type_state(dd)$/;"	f
+v_unsigned	.lued/plugins/verilog.lua	/^function v_unsigned(dd)$/;"	f
 v_unsigned	lua_src/plugins/verilog.lua	/^function v_unsigned(dd)$/;"	f
+v_unsigned	tmp/.lued/plugins/verilog.lua	/^function v_unsigned(dd)$/;"	f
+v_unsigned	tmp/lua_src/plugins/verilog.lua	/^function v_unsigned(dd)$/;"	f
 val_	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	113;"	d
 val_	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	327;"	d
 val_	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	328;"	d
@@ -4894,45 +5757,120 @@ valiswhite	build/extern/prj_lua52/src/prj_lua52/src/lgc.h	117;"	d
 value	build/extern/prj_carr/src/prj_carr/src/carr_arg.h	/^   carr_t* value;  \/\/ 1d carr$/;"	m	struct:carr_arg_struct
 value	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^    TValue value;  \/* the value (when closed) *\/$/;"	m	union:UpVal::__anon11
 value	build/install/include/carr_arg.h	/^   carr_t* value;  \/\/ 1d carr$/;"	m	struct:carr_arg_struct
+var_end	.lued/lued_lib.lua	/^function var_end(dd)$/;"	f
 var_end	lua_src/lued_lib.lua	/^function var_end(dd)$/;"	f
+var_end	tmp/.lued/lued_lib.lua	/^function var_end(dd)$/;"	f
+var_end	tmp/lua_src/lued_lib.lua	/^function var_end(dd)$/;"	f
+var_start	.lued/lued_lib.lua	/^function var_start(dd)$/;"	f
 var_start	lua_src/lued_lib.lua	/^function var_start(dd)$/;"	f
+var_start	tmp/.lued/lued_lib.lua	/^function var_start(dd)$/;"	f
+var_start	tmp/lua_src/lued_lib.lua	/^function var_start(dd)$/;"	f
 varname	build/extern/prj_lua52/src/prj_lua52/src/lobject.h	/^  TString *varname;$/;"	m	struct:LocVar
 version	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  const lua_Number *version;  \/* pointer to version number *\/$/;"	m	struct:global_State
+vhdl_case	.lued/plugins/vhdl.lua	/^function vhdl_case(dd)$/;"	f
 vhdl_case	lua_src/plugins/vhdl.lua	/^function vhdl_case(dd)$/;"	f
+vhdl_case	tmp/.lued/plugins/vhdl.lua	/^function vhdl_case(dd)$/;"	f
+vhdl_case	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_case(dd)$/;"	f
+vhdl_function	.lued/plugins/vhdl.lua	/^function vhdl_function(dd)$/;"	f
 vhdl_function	lua_src/plugins/vhdl.lua	/^function vhdl_function(dd)$/;"	f
+vhdl_function	tmp/.lued/plugins/vhdl.lua	/^function vhdl_function(dd)$/;"	f
+vhdl_function	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_function(dd)$/;"	f
+vhdl_inst	.lued/plugins/vhdl.lua	/^function vhdl_inst(dd)$/;"	f
 vhdl_inst	lua_src/plugins/vhdl.lua	/^function vhdl_inst(dd)$/;"	f
+vhdl_inst	tmp/.lued/plugins/vhdl.lua	/^function vhdl_inst(dd)$/;"	f
+vhdl_inst	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_inst(dd)$/;"	f
+vhdl_inst_selected	.lued/plugins/vhdl.lua	/^function vhdl_inst_selected(dd)$/;"	f
 vhdl_inst_selected	lua_src/plugins/vhdl.lua	/^function vhdl_inst_selected(dd)$/;"	f
+vhdl_inst_selected	tmp/.lued/plugins/vhdl.lua	/^function vhdl_inst_selected(dd)$/;"	f
+vhdl_inst_selected	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_inst_selected(dd)$/;"	f
+vhdl_package	.lued/plugins/vhdl.lua	/^function vhdl_package(dd)$/;"	f
 vhdl_package	lua_src/plugins/vhdl.lua	/^function vhdl_package(dd)$/;"	f
+vhdl_package	tmp/.lued/plugins/vhdl.lua	/^function vhdl_package(dd)$/;"	f
+vhdl_package	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_package(dd)$/;"	f
+vhdl_proc	.lued/plugins/vhdl.lua	/^function vhdl_proc(dd)$/;"	f
 vhdl_proc	lua_src/plugins/vhdl.lua	/^function vhdl_proc(dd)$/;"	f
+vhdl_proc	tmp/.lued/plugins/vhdl.lua	/^function vhdl_proc(dd)$/;"	f
+vhdl_proc	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_proc(dd)$/;"	f
+vhdl_proc_all	.lued/plugins/vhdl.lua	/^function vhdl_proc_all(dd)$/;"	f
 vhdl_proc_all	lua_src/plugins/vhdl.lua	/^function vhdl_proc_all(dd)$/;"	f
+vhdl_proc_all	tmp/.lued/plugins/vhdl.lua	/^function vhdl_proc_all(dd)$/;"	f
+vhdl_proc_all	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_proc_all(dd)$/;"	f
+vhdl_signed	.lued/plugins/vhdl.lua	/^function vhdl_signed(dd)$/;"	f
 vhdl_signed	lua_src/plugins/vhdl.lua	/^function vhdl_signed(dd)$/;"	f
+vhdl_signed	tmp/.lued/plugins/vhdl.lua	/^function vhdl_signed(dd)$/;"	f
+vhdl_signed	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_signed(dd)$/;"	f
+vhdl_sl	.lued/plugins/vhdl.lua	/^function vhdl_sl(dd)$/;"	f
 vhdl_sl	lua_src/plugins/vhdl.lua	/^function vhdl_sl(dd)$/;"	f
+vhdl_sl	tmp/.lued/plugins/vhdl.lua	/^function vhdl_sl(dd)$/;"	f
+vhdl_sl	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_sl(dd)$/;"	f
+vhdl_slv	.lued/plugins/vhdl.lua	/^function vhdl_slv(dd)$/;"	f
 vhdl_slv	lua_src/plugins/vhdl.lua	/^function vhdl_slv(dd)$/;"	f
+vhdl_slv	tmp/.lued/plugins/vhdl.lua	/^function vhdl_slv(dd)$/;"	f
+vhdl_slv	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_slv(dd)$/;"	f
+vhdl_slv_array	.lued/plugins/vhdl.lua	/^function vhdl_slv_array(dd)$/;"	f
 vhdl_slv_array	lua_src/plugins/vhdl.lua	/^function vhdl_slv_array(dd)$/;"	f
+vhdl_slv_array	tmp/.lued/plugins/vhdl.lua	/^function vhdl_slv_array(dd)$/;"	f
+vhdl_slv_array	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_slv_array(dd)$/;"	f
+vhdl_slv_incr	.lued/plugins/vhdl.lua	/^function vhdl_slv_incr(dd)$/;"	f
 vhdl_slv_incr	lua_src/plugins/vhdl.lua	/^function vhdl_slv_incr(dd)$/;"	f
+vhdl_slv_incr	tmp/.lued/plugins/vhdl.lua	/^function vhdl_slv_incr(dd)$/;"	f
+vhdl_slv_incr	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_slv_incr(dd)$/;"	f
+vhdl_tb	.lued/plugins/vhdl.lua	/^function vhdl_tb(dd)$/;"	f
 vhdl_tb	lua_src/plugins/vhdl.lua	/^function vhdl_tb(dd)$/;"	f
+vhdl_tb	tmp/.lued/plugins/vhdl.lua	/^function vhdl_tb(dd)$/;"	f
+vhdl_tb	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_tb(dd)$/;"	f
+vhdl_template	.lued/plugins/vhdl.lua	/^function vhdl_template(dd)$/;"	f
 vhdl_template	lua_src/plugins/vhdl.lua	/^function vhdl_template(dd)$/;"	f
+vhdl_template	tmp/.lued/plugins/vhdl.lua	/^function vhdl_template(dd)$/;"	f
+vhdl_template	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_template(dd)$/;"	f
+vhdl_type_record	.lued/plugins/vhdl.lua	/^function vhdl_type_record(dd)$/;"	f
 vhdl_type_record	lua_src/plugins/vhdl.lua	/^function vhdl_type_record(dd)$/;"	f
+vhdl_type_record	tmp/.lued/plugins/vhdl.lua	/^function vhdl_type_record(dd)$/;"	f
+vhdl_type_record	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_type_record(dd)$/;"	f
+vhdl_type_slv_array	.lued/plugins/vhdl.lua	/^function vhdl_type_slv_array(dd)$/;"	f
 vhdl_type_slv_array	lua_src/plugins/vhdl.lua	/^function vhdl_type_slv_array(dd)$/;"	f
+vhdl_type_slv_array	tmp/.lued/plugins/vhdl.lua	/^function vhdl_type_slv_array(dd)$/;"	f
+vhdl_type_slv_array	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_type_slv_array(dd)$/;"	f
+vhdl_type_state	.lued/plugins/vhdl.lua	/^function vhdl_type_state(dd)$/;"	f
 vhdl_type_state	lua_src/plugins/vhdl.lua	/^function vhdl_type_state(dd)$/;"	f
+vhdl_type_state	tmp/.lued/plugins/vhdl.lua	/^function vhdl_type_state(dd)$/;"	f
+vhdl_type_state	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_type_state(dd)$/;"	f
+vhdl_unsigned	.lued/plugins/vhdl.lua	/^function vhdl_unsigned(dd)$/;"	f
 vhdl_unsigned	lua_src/plugins/vhdl.lua	/^function vhdl_unsigned(dd)$/;"	f
+vhdl_unsigned	tmp/.lued/plugins/vhdl.lua	/^function vhdl_unsigned(dd)$/;"	f
+vhdl_unsigned	tmp/lua_src/plugins/vhdl.lua	/^function vhdl_unsigned(dd)$/;"	f
 vkisinreg	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	38;"	d
 vkisvar	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	37;"	d
 vmcase	build/extern/prj_lua52/src/prj_lua52/src/lvm.c	531;"	d	file:
 vmcasenb	build/extern/prj_lua52/src/prj_lua52/src/lvm.c	532;"	d	file:
 vmdispatch	build/extern/prj_lua52/src/prj_lua52/src/lvm.c	530;"	d	file:
 vt	build/extern/prj_lua52/src/prj_lua52/src/lparser.h	/^      lu_byte vt;  \/* whether 't' is register (VLOCAL) or upvalue (VUPVAL) *\/$/;"	m	struct:expdesc::__anon6::__anon7
+walter	.lued/plugins/ascii_art.lua	/^function walter()$/;"	f
 walter	lua_src/plugins/ascii_art.lua	/^function walter()$/;"	f
+walter	tmp/.lued/plugins/ascii_art.lua	/^function walter()$/;"	f
+walter	tmp/lua_src/plugins/ascii_art.lua	/^function walter()$/;"	f
+walter2	.lued/plugins/ascii_art.lua	/^function walter2(str,n)$/;"	f
 walter2	lua_src/plugins/ascii_art.lua	/^function walter2(str,n)$/;"	f
+walter2	tmp/.lued/plugins/ascii_art.lua	/^function walter2(str,n)$/;"	f
+walter2	tmp/lua_src/plugins/ascii_art.lua	/^function walter2(str,n)$/;"	f
 weak	build/extern/prj_lua52/src/prj_lua52/src/lstate.h	/^  GCObject *weak;  \/* list of tables with weak values *\/$/;"	m	struct:global_State
 what	build/extern/prj_carr/src/prj_carr/src/lua.h	/^  const char *what;	\/* (S) 'Lua', 'C', 'main', 'tail' *\/$/;"	m	struct:lua_Debug
 what	build/extern/prj_lua52/src/prj_lua52/src/lua.h	/^  const char *what;	\/* (S) 'Lua', 'C', 'main', 'tail' *\/$/;"	m	struct:lua_Debug
 what	build/install/include/lua.h	/^  const char *what;	\/* (S) 'Lua', 'C', 'main', 'tail' *\/$/;"	m	struct:lua_Debug
 whilestat	build/extern/prj_lua52/src/prj_lua52/src/lparser.c	/^static void whilestat (LexState *ls, int line) {$/;"	f	file:
 white2gray	build/extern/prj_lua52/src/prj_lua52/src/lgc.c	62;"	d	file:
+word_end	.lued/lued_lib.lua	/^function word_end(dd)$/;"	f
 word_end	lua_src/lued_lib.lua	/^function word_end(dd)$/;"	f
+word_end	tmp/.lued/lued_lib.lua	/^function word_end(dd)$/;"	f
+word_end	tmp/lua_src/lued_lib.lua	/^function word_end(dd)$/;"	f
+word_start	.lued/lued_lib.lua	/^function word_start(dd)$/;"	f
 word_start	lua_src/lued_lib.lua	/^function word_start(dd)$/;"	f
+word_start	tmp/.lued/lued_lib.lua	/^function word_start(dd)$/;"	f
+word_start	tmp/lua_src/lued_lib.lua	/^function word_start(dd)$/;"	f
+wrap_line	.lued/lued_lib.lua	/^function wrap_line(wrap_col,wrap_delim,dd)$/;"	f
 wrap_line	lua_src/lued_lib.lua	/^function wrap_line(wrap_col,wrap_delim,dd)$/;"	f
+wrap_line	tmp/.lued/lued_lib.lua	/^function wrap_line(wrap_col,wrap_delim,dd)$/;"	f
+wrap_line	tmp/lua_src/lued_lib.lua	/^function wrap_line(wrap_col,wrap_delim,dd)$/;"	f
 writer	build/extern/prj_lua52/src/prj_lua52/src/ldump.c	/^ lua_Writer writer;$/;"	m	struct:__anon19	file:
 writer	build/extern/prj_lua52/src/prj_lua52/src/lstrlib.c	/^static int writer (lua_State *L, const void* b, size_t size, void* B) {$/;"	f	file:
 writer	build/extern/prj_lua52/src/prj_lua52/src/luac.c	/^static int writer(lua_State* L, const void* p, size_t size, void* u)$/;"	f	file:

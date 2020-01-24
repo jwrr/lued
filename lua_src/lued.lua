@@ -43,8 +43,8 @@ SOFTWARE.
   g_min_lines_from_bot     = 7     -- Scroll will try to keep at least 7 lines from the bottom
   g_move_down_n_lines      = 8     -- move this many lines when not specified
   g_move_up_n_lines        = 4     -- move this many lines when not specified
-  g_move_right_n_char      = 8     -- move this many char when not specified
-  g_move_left_n_char       = 4     -- move this many char when not specified
+  g_move_right_n_char      = 10    -- move this many char when not specified
+  g_move_left_n_char       = 3     -- move this many char when not specified
   g_page_size              = 0.25  -- This controls PgUp/PgDn speed. 0.25 is quarter page at a time.
   g_enable_file_changed    = true  -- efc0, efc1. detect file change and prompt to reload FIXME
   g_find_case_sensitive    = false -- find uses case sensitive search

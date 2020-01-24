@@ -17,8 +17,6 @@ end
 
 
 function format_lines(line_array)
-  print "<table>"
-  print "<tr><th>Key Binding</th><th>Description</th></tr>"
   
   local section_count = 0
   for i=1,#line_array do
@@ -26,16 +24,27 @@ function format_lines(line_array)
     if line_starts_with(l,"--#") then
       l = string.sub(l, 3, #l) -- remove first two char (start of comment)
       if section_count > 0 then
-        print("<\table>")
+        print("</table>")
       end
       section_count = section_count + 1
       print(l)
       print("<table>")
     elseif line_starts_with(l, "ctrl") or line_starts_with(l, "alt") then
-      l = string.gsub(l, "ctrl_", "`K'Ctrl+")
-      l = string.gsub(l, "alt_", "`K'Alt+")
-      l = string.gsub(l, "%s*=[^-]*[-][-]%s*", "</td><td>")
-      print("<tr><td>"..l.."</td></tr>")
+      l = string.gsub(l, "^ctrl_", "`k'Ctrl+")
+      l = string.gsub(l, "^alt_", "`k'Alt+")
+      l = string.gsub(l, "_period_", ".")
+      l = string.gsub(l, "_at_", "@")
+      l = string.gsub(l, "_equal_", "=")
+      l = string.gsub(l, "_plus_", "+")
+      l = string.gsub(l, "_gt_", ">")
+      l = string.gsub(l, "_lt_", "<")
+      l = string.gsub(l, "_caret_", "^")
+      l = string.gsub(l, "_dollar_", "$")
+      l = string.gsub(l, "_slash_", "//")
+      l = string.gsub(l, "_colon_", ":")
+      l = string.gsub(l, "_plus_", "+")
+      l = string.gsub(l, "%s*=.*[-][-]%s*", "</td><td>")
+      print("<tr><td>"..l.." </td></tr>")
     end
   end
   
@@ -45,7 +54,6 @@ end
 
 
 filename = "lued_bindings.lua"
-print ("hello")
 
 local line_array = slurp_file_into_array(filename)
 

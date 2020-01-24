@@ -846,6 +846,11 @@ function set_move_left_n_char(n,dd)
 end
 
 
+function move_left_fast(dd)
+  move_left_n_char(g_move_left_n_char,dd)
+end
+
+
 function move_right_n_char(n,dd)
   local n_is_nil = n == nil or n == 0
   n = n or 1
@@ -877,6 +882,11 @@ function move_right_n_char(n,dd)
     end
   end
   disp(dd)
+end
+
+
+function move_right_fast(dd)
+  move_right_n_char(g_move_right_n_char,dd)
 end
 
 
