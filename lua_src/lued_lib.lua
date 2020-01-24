@@ -24,7 +24,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
 
-  g_buffer                 = ""    -- The global buffer is used for cut and paste between multiple files.
+g_buffer                 = ""    -- The global buffer is used for cut and paste between multiple files.
+
+function init_lued(lued_path, bindings_file)
+  load_plugins( lued_path .. "/plugins" )
+  dofile( bindings_file)
+
+  local dd2 = 1
+  set_ctrl_s_flow_control(false,dd2)
+  set_ctrl_c_abort(false,dd2)
+  set_ctrl_z_suspend(false,dd2)
+  decset(1000)
+  set_fileid(1,dd2)
+--  set_cur_pos(1,1)
+  mouse_config(0)
+--  if g_show_help then help(1,0) end
+-- end
+
+  set_edit_mode(0)
+  disp()
+end
 
 
 function toggle_line_numbers(dd)

@@ -24,13 +24,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
 
-  function expanduser(filename)
+
+  function expand_path(filename)
     return string.gsub(filename, "^~", os.getenv("HOME") )
   end
  
   g_lued_root              = "~/.lued" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
-  g_lued_root              = expanduser(g_lued_root)
+  g_lued_root              = expand_path(g_lued_root)
   g_bindings_file          = g_lued_root .. "/lued_bindings.lua"
+
   g_auto_indent            = true  -- Indent the same as the previous line
   g_indent_char            = " "   -- Used in indent_selected. Typically a space or tab
   g_indent_size            = 2     -- Used in reindent_selected
@@ -64,24 +66,9 @@ SOFTWARE.
   g_status_line_reverse    = true  -- Status Line is in reverse video when true, else normal video
   g_search_all_files       = false -- Search all files. set by search_all_files, cleared by 
   g_tab_classic            = false -- Select classic tab or better tab
-    
+
   dofile( g_lued_root .. "/lued_lib.lua" )
-  load_plugins( g_lued_root .. "/plugins" )
-  dofile( g_bindings_file)
+  init_lued(g_lued_root, g_bindings_file)
+    
 
 
--- if g_first_time == nil then
-  local dd2 = 1
-  set_ctrl_s_flow_control(false,dd2)
-  set_ctrl_c_abort(false,dd2)
-  set_ctrl_z_suspend(false,dd2)
-  decset(1000)
-  set_fileid(1,dd2)
---  set_cur_pos(1,1)
-  mouse_config(0)
---  if g_show_help then help(1,0) end
--- end
-
-set_edit_mode(0)
-
-disp()
