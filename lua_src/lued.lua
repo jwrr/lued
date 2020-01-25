@@ -28,15 +28,13 @@ SOFTWARE.
   function expand_path(filename)
     return string.gsub(filename, "^~", os.getenv("HOME") )
   end
- 
+
   g_lued_root              = "~/.lued" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
   g_lued_root              = expand_path(g_lued_root)
   g_bindings_file          = g_lued_root .. "/lued_bindings.lua"
-
   g_auto_indent            = true  -- Indent the same as the previous line
   g_indent_char            = " "   -- Used in indent_selected. Typically a space or tab
   g_indent_size            = 2     -- Used in reindent_selected
-  g_replace_tabs           = 0     -- 4 -- Replace tab with N spaces (does not remove existing tabs). 0 keeps tabs.
   g_remove_trailing_spaces = false -- Only removes on lines that are modified. Use alt_Rats to remove all trailing spaces.
   g_show_trailing_spaces   = true  -- Show trailing spaces in reverse video
   g_scope_indent           = 2     -- Use with indent_scope(is) command. change indent with si2 si3 si4...
@@ -64,11 +62,15 @@ SOFTWARE.
   g_pwd                    = "."   -- This is the current working directory and is changed by change_dir (alt_CD)
   g_status_line_on         = true  -- Display status line when true, else do not display status line
   g_status_line_reverse    = true  -- Status Line is in reverse video when true, else normal video
-  g_search_all_files       = false -- Search all files. set by search_all_files, cleared by 
+  g_search_all_files       = false -- Search all files. set by search_all_files, cleared by
   g_tab_classic            = false -- Select classic tab or better tab
+  g_replace_tabs           = 0     -- 4 -- Replace tab with N spaces (does not remove existing tabs). 0 keeps tabs.
+  g_tab_size               = 8     -- Tab size
+  g_incr_step              = 1     -- step size for incr command
+  g_decr_step              = 1     -- step size for incr command
 
   dofile( g_lued_root .. "/lued_lib.lua" )
   init_lued(g_lued_root, g_bindings_file)
-    
+
 
 

@@ -150,9 +150,9 @@ function bracket_paste_stop(dd)
 end
 
 
-function set_replace_tabs(val,dd)
+function set_tab_size(val,dd)
   val = val or 0
-  g_replace_tabs = val
+  g_tab_size = val
   disp(dd)
 end
 
@@ -2376,7 +2376,7 @@ end
 
 
 function insert_tab_classic(dd)
-  local t = (g_replace_tabs > 0) and string.rep(' ',g_replace_tabs) or "\t"
+  local t = (g_tab_size > 0) and string.rep(' ',g_tab_size) or "\t"
   ins_str(t,dd)
 end
 
@@ -2400,6 +2400,8 @@ function insert_tab(dd)
     local num_spaces_to_insert = c2 - c1
     local t = string.rep(" ",num_spaces_to_insert) or " "
     ins_str(t,dd2)
+  else
+    insert_tab_classic(dd2)
   end
   disp(dd)
 end
@@ -3673,4 +3675,78 @@ function is_number(str)
   return (tonumber(str) ~= nil)
 end
 
+
+function get_word(dd)
+  local dd2 = 1
+  sel_word(dd2)
+  set_sel_end(dd2)
+  local sel_str, sel_sr, sel_sc, sel_er, sel_ec = get_sel_str()
+  disp(dd)
+  return sel_str
+end
+
+
+function is_digit(ch)
+  ch = ch or get_char()
+  return ( string.match(ch, "%d") )
+end
+
+
+function sel_number(dd)
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  local line = get_line()
+  local c1 = c
+  local c2 = c
+  if is_digit( string.sub(line,c,c) ) then
+    while is_digit( string.sub(line,c1-1,c1-1) ) do c1 = c1 - 1; end
+    while is_digit( string.sub(line,c2+1,c2+1) ) do c2 = c2 + 1; end
+    set_sel_from_to(r,c1,r,c2+1,dd2)
+  else
+    set_sel_off(dd2)
+  end
+end  
+
+
+function get_number(dd)
+  local dd2 = 1
+  sel_number(dd2)
+  if is_sel_off() then
+    disp(dd)
+    return nil
+  end
+  local sel_str, sel_sr, sel_sc = get_sel_str()
+  disp(dd)
+  return sel_str
+end  
+
+-- go down 1 line and replace number with increment
+function incr(step_size, dd)
+  g_incr_step = g_incr_step or 1
+  step_size = step_size or g_incr_step
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  local tmp_str = get_number(dd2)
+  if tmp_str == nil then
+    disp(dd)
+    return
+  end
+  local num = tonumber( tmp_str ) + step_size
+  local num_str = tostring ( num )
+  set_cur_pos(r,c)
+  move_down_n_lines(1,dd2)
+  sel_number(dd2)
+  if is_sel_on() then
+    ins_str(num_str,dd2)
+    set_cur_pos(r+1, c)
+  end
+  disp(dd)  
+end
+
+-- go down 1 line replace number with decrement
+function decr(step_size,dd)
+  g_decr_step = g_decr_step or 1
+  step_size = step_size or g_decr_step
+  incr(-1*step_size,dd)
+end
 

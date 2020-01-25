@@ -12,7 +12,7 @@
 --  set_repeatables(",alt_pk,alt_pl,alt_sn,alt_sp,")
 
 -- set_repeatables(",,")
---  set_non_repeatables(",alt_jj,")
+set_non_repeatables(",alt_jj,alt_we,")
 
 -- Pressing ALT plus KEY is the same as pressing ESC followed by KEY.
 -- This is a feature of terminals, not just LUED.
@@ -171,6 +171,10 @@ alt_ratsall      = remove_all_trailing_space_all_files  -- Remove all trailing s
 -- Ctrl-Z Commands
 alt_z            = alt_z_wrapper           hot("z")  -- Similar to Sublime Ctrl-z. Undo. After alt-z is used, ctrl-z becomes unix suspend command.
 
+
+-- Increment / Decrement
+alt_incr         = incr                    hot("incr") -- Read number at current position, go down a line, and replace number with incremented value.
+alt_decr         = decr                    hot("decr") -- Decrement next line's index.
 
 --## Configuration Commands
 -- Setting keystroke combinations start with period ('.')
