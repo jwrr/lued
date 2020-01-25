@@ -288,6 +288,7 @@ TBD
 * alt_decr - done
 * alt_sm - Select from Mark to cursor. Sublime Ctrl+KA - done
 * alt_xm - Delete from Mark to cursor. Sublime Ctrl+KW - done
+* Swap two words. alt_bl, alt_br - done
 
 * Column/Block Select, Cut, Copy, Move
 * Split screen
@@ -317,7 +318,6 @@ TBD
 * Clear Mark. Sublime Ctrl+KG
 * Bringup Clipboard. Sublime Ctrl+KV
 * Sort Selected. Sublime f9
-* Swap two words.
 * map save to save_as, for review mode. lued -review file.txt
 * move file has changed checking from C to Lua
 * alt_n - clean up prompt to read empty file.

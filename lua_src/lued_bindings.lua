@@ -7,9 +7,7 @@
 -- set_hotkeys(",1,2,3,df,dg,dh,dd,ds,da,")
 --  set_hotkeys( ",Sn,Sp,sw,v,VV,w,y,x,z,")
 
--- set_repeatables(",alt_aa,")
---  set_repeatables(",alt_aa,alt_as,alt_bd,alt_bu,alt_cc,alt_cr,alt_d,alt_ff,alt_FF,alt_ii,alt_jj,,alt_uu,")
---  set_repeatables(",alt_pk,alt_pl,alt_sn,alt_sp,")
+--  set_repeatables(",alt_uu,")
 
 -- set_repeatables(",,")
 set_non_repeatables(",alt_jj,alt_we,")
@@ -124,7 +122,9 @@ alt__            = jump_forward            hot(",_,") -- Jump forward to next po
 alt_sn           = swap_line_with_next     hot("sn") -- Swap current line with next line. Similar to Sublime Ctrl+DOWN arrow
 alt_sp           = swap_line_with_prev     hot("sp") -- Swap current line with prev line. Similar to Sublime Ctrl+UP arrow
 alt_bd           = bubble_selected_lines_down hot("bd") -- line sinks to bottom of file. Similar to sublime Ctrl+Shift+Down
-alt_bu           = bubble_selected_lines_up   hot("bu") -- line floats to top of file. Similar to sublime Ctrl+Shift+Up
+alt_bu           = bubble_selected_lines_up   hot("bu") -- line floats to top of file. Similar to Sublime Ctrl+Shift+Up
+alt_bl           = bubble_word_left           hot("bl") -- swap current word with prev word. Similar to Sublime move_word_left
+alt_br           = bubble_word_right          hot("br") -- swap current word with next word. Similar to Sublime move_word_right
 
 --## Indent and Align Commands
 alt_ii           = indent_selected         hot("ii")  -- Indented selected lines one space

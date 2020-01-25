@@ -2502,6 +2502,32 @@ function bubble_selected_lines_down(dd)
 end
 
 
+function bubble_word_right(dd)
+  local dd2 = 1
+  sel_word(dd2)
+  skip_spaces(dd2)
+  set_sel_end()
+  del_word(1,dd2)
+  move_right_n_words(1,dd2)
+  paste(dd2)
+  move_left_n_words(1,dd2)
+  disp(dd)
+end
+
+
+function bubble_word_left(dd)
+  local dd2 = 1
+  sel_word(dd2)
+  skip_spaces(dd2)
+  set_sel_end()
+  del_word(1,dd2)
+  move_left_n_words(1,dd2)
+  paste(dd2)
+  move_left_n_words(1,dd2)
+  disp(dd)
+end
+
+
 function hot(key, dd)
   if key == nil then return end
   key = "," .. key .. ","
