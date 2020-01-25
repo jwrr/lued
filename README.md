@@ -286,6 +286,8 @@ TBD
 * alt_de - delete to end. when at end then go down 1 line and delete to end. - done
 * alt_incr. go down one line and increment count. If number then replace number. if blank line the duplicate line and incr. - done
 * alt_decr - done
+* alt_sm - Select from Mark to cursor. Sublime Ctrl+KA - done
+* alt_xm - Delete from Mark to cursor. Sublime Ctrl+KW - done
 
 * Column/Block Select, Cut, Copy, Move
 * Split screen
@@ -320,8 +322,6 @@ TBD
 * move file has changed checking from C to Lua
 * alt_n - clean up prompt to read empty file.
 * ctrl_h Case Sensitive Replace. 'Hello' 'Hi' replaces 'hello' with 'hi', 'Hello' with 'Hi'
-* Select from Mark to cursor. Sublime Ctrl+KA
-* Delete from Mark to cursor. Sublime Ctrl+KW
 
 
 
