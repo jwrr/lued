@@ -1,3 +1,7 @@
+
+
+## lued expects scripts and plugins to be in ~/.lued
+## create a sym link from lua_src to ~/.lued
 echo "ln -sf $PWD/lua_src  ~/.lued"
 ln -sf $PWD/lua_src ~/.lued
 echo " "

@@ -1,8 +1,49 @@
+#!/usr/bin/bash
+
+
+#git clone https://github.com/jwrr/lued.git
+#cd lued
+
+## Clone lua if it hasn't been done yet.
+if [ -d "src/lua/src" ]; then
+  echo "Skipping clone... lua_5.2 exists"
+else
+  echo "Clone lua_5.2"
+  pushd src/lua
+  git clone https://github.com/lua/lua.git --single-branch --branch v5-2 src
+  cd src
+  git apply ../0001-Minor-changes-to-embed-lua-into-lued.patch
+  popd
+fi
+
+## Clone large array library (carr) if it hasn't been done yet.
+if [ -d "src/carr/src" ]; then
+  echo "Skipping clone... carr exists"
+else
+  echo "Clone carr"
+  pushd src
+  git clone https://github.com/jwrr/carr.git
+  cd carr/src
+  rm lua_hacked.c lua.h
+  popd
+fi
+
+# Create new build directory
+rm -rf build/*
 mkdir build
-cd build
+
+## Build lued executable by running cmake and make
+pushd build
 cmake ..
 make
-cd ..
-echo " "
-echo "Next Step: ./INSTALL"
+popd
+
+## Copy lued executable to top directory
+if [ -f build/lued ]; then
+  echo "lued executable successfully compiled in current directory"
+  cp build/lued .
+else 
+  echo "ERROR - lued failed to build"
+fi
+
 
