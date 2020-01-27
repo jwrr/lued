@@ -29,7 +29,7 @@ SOFTWARE.
     return string.gsub(filename, "^~", os.getenv("HOME") )
   end
 
-  g_lued_root              = "~/.lued" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
+  g_lued_root              = "~/.lued/lua_src" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
   g_lued_root              = expand_path(g_lued_root)
   g_bindings_file          = g_lued_root .. "/lued_bindings.lua"
   g_auto_indent            = true  -- Indent the same as the previous line

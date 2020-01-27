@@ -1682,16 +1682,16 @@ bool find_script (char* script_path, int maxlen) {
    char lued_paths[5][maxlen];
    
    // look in the current directory for lued.lua
-   safe_strncpy(lued_paths[0], "./lued.lua", maxlen);
+   // safe_strncpy(lued_paths[0], "./lued.lua", maxlen);
    
    // look in home for lued.lua
-   sprintf(lued_paths[1], "%s/lued.lua", home);
+   // sprintf(lued_paths[1], "%s/lued.lua", home);
    
    // look in ~/.lued for lued.lua
-   sprintf(lued_paths[2], "%s/.lued/lued.lua", home);
+   sprintf(lued_paths[0], "%s/.lued/lua_src/lued.lua", home);
    
    // Null-terminate the list
-   lued_paths[3][0] = '\0';
+   lued_paths[1][0] = '\0';
 
    printf("Searching for lued.lua...\n");
    bool script_found = 0;
@@ -1705,7 +1705,7 @@ bool find_script (char* script_path, int maxlen) {
    }
    
    if isFALSE(script_found) {
-      printf("Error - could not find lued.lua in current, home, or ~/.lued\n");
+      printf("Error - could not find lued.lua ~/.lued/lua_src\n");
    }
    
    return script_found;

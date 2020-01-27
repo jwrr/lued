@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 
 #git clone https://github.com/jwrr/lued.git
@@ -10,7 +10,8 @@ if [ -d "src/lua/src" ]; then
 else
   echo "Clone lua_5.2"
   pushd src/lua
-  git clone https://github.com/lua/lua.git --single-branch --branch v5-2 src
+  # git clone https://github.com/lua/lua.git --single-branch --branch v5-2 src
+  git clone https://github.com/lua/lua.git --branch v5-2 src
   cd src
   git apply ../0001-Minor-changes-to-embed-lua-into-lued.patch
   popd
