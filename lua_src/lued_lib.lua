@@ -689,6 +689,9 @@ function get_yesno(prompt,default)
     quit = answer=="Q"
     all = answer=="A"
     valid_answer = yes or no or quit or all
+    if not valid_answer then
+      io.write("'"..answer.."' is not valid. ")
+    end
   until (valid_answer)
   return answer
 end
@@ -2613,26 +2616,36 @@ function quit_session(force,dd)
   force = force or false
   local not_saved_yet = is_modified()
   local numsessions = get_numsessions()
+  local what_should_i_do = "Y"
   if not force and not_saved_yet==1 and numsessions>0 then
     local id = get_fileid()
-    local prompt = "Save '" .. get_filename(id) .. "' <y/n>?";
-    if get_yesno(prompt)=="Y" then
+    prompt = "Save '" .. get_filename(id) .. "' <y/n/a for abort (don't quit)>?";
+    what_should_i_do = get_yesno(prompt, "A")
+    if what_should_i_do=="Y" then
       save_session()
     end
   end
-  close_session()
-  if (numsessions==1) then
+  local abort = what_should_i_do=="A"
+  if not abort then
     close_session()
+    if (numsessions==1) then
+      close_session()
+    end
   end
   disp(dd)
+  return abort
 end
 
 
 function quit_all(force, dd)
   local dd2 = 1
   force = force or false
-  while (true) do
-     quit_session(force, dd2)
+  local abort = false
+  while (not abort) do
+     abort = quit_session(force, dd2)
+  end
+  if abort then
+    disp(dd)
   end
 end
 
