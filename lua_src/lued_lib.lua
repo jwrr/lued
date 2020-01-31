@@ -768,12 +768,20 @@ function disp(dd,center)
    local dd2 = 1
    local r,c = get_cur_pos()
    local pr,pc = get_page_pos()
+   
    if g_enable_file_changed then
-     local file_has_changed,mtime,ts = is_file_modified(0)
+   
+     local id = get_fileid()
+     local filename = get_filename(id)
+     local file_has_changed = false
+     local mtime, ts
+     if file_exists(filename) then
+       file_has_changed,mtime,ts = is_file_modified(0)
+     end
+   
      if file_has_changed==1 then
        io.write("\n\n=======================================\n\n")
-       local id = get_fileid()
-       local prompt = "File '" .. get_filename(id) .. "' has changed. Do you want to reload <y/n>?"
+       local prompt = "File '" .. filename .. "' has changed. Do you want to reload <y/n>?"
        local reload = get_yesno(prompt)=="Y"
        if reload then
          reopen()
@@ -2554,7 +2562,15 @@ end
 
 function save_file(dd)
   local r,c = get_cur_pos()
-  local file_has_changed,mtime,ts = is_file_modified(1)
+
+  local id = get_fileid()
+  local filename = get_filename(id)
+  local file_has_changed = false
+  local mtime, ts
+  if file_exists(filename) then
+    file_has_changed,mtime,ts = is_file_modified(1)
+   end
+
   if file_has_changed==1 then
     local id = get_fileid()
     local filename = get_filename(id)
