@@ -3537,13 +3537,16 @@ function select_tab(filter)
       local hot = nil -- hot_range('a','z') .. hot_range('A','Z') .. ",-,_,"
       -- print (hot); io.read()
       select_tab_hist_id = select_tab_hist_id or get_hist_id()
-      new_id = lued_prompt(select_tab_hist_id, "Enter File Id Number: ",hot)
+      new_id = lued_prompt(select_tab_hist_id, "Enter File Id Number, 'tt' or portion of filename: ",hot)
       if new_id==nil or new_id=="" then
         tab_toggle(dd)
         return
       end
       local new_id_int = tonumber(new_id)
-      if new_id_int==nil then
+      if new_id == 'tt' then
+        new_id = g_tab_prev
+        found_i = g_tab_prev
+      elseif new_id_int==nil then
         filter = new_id
       elseif new_id_int==0 then
         new_id = id
