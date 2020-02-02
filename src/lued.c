@@ -190,6 +190,7 @@ static int set_cur_pos(uint32_t row, uint32_t col) {
    return 0;
 }
 
+int first_move = 1;
 static int lua_set_cur_pos(lua_State* L) {
    if isNULL(L) return 0;
    double rdouble = lua_tonumber(L, 1);
@@ -197,6 +198,9 @@ static int lua_set_cur_pos(lua_State* L) {
    uint32_t r = (rdouble < 1) ? 1 : rdouble;
    uint32_t c = (cdouble < 1) ? 1 : cdouble;
    set_cur_pos(r-1, c-1);
+   if (r>1 || c>1) {
+     first_move = 0;
+   }
    return 0;
 }
 
@@ -667,24 +671,24 @@ int luedc_get_page(lued_t* l, uint32_t from_row, uint32_t num_rows,
    return dest_len;
 }
 
-
-char* get_page(uint32_t from_row, int highlight_trailing_spaces) {
-   size_t num_row;
-   size_t col;
-   get_termsize(&num_row, &col);
-   num_row--;
-
-   lued_t* session_p = NULL;
-   carr_geti(LUED_SESSIONS, &session_p);
-   if isNULL(session_p) return NULL;
-
-   uint32_t len = luedc_get_page(session_p, from_row, num_row, NULL, 0, 0) + 20000; // 12*num_row + 1;
-   char* str = malloc(len);
-   if isNULL(str) return NULL;
-
-   luedc_get_page(session_p, from_row, num_row, str, len, highlight_trailing_spaces);
-   return str;
-}
+// DEPRICATED
+// char* get_page(uint32_t from_row, int highlight_trailing_spaces) {
+//    size_t num_row;
+//    size_t col;
+//    get_termsize(&num_row, &col);
+//    num_row--;
+//
+//    lued_t* session_p = NULL;
+//    carr_geti(LUED_SESSIONS, &session_p);
+//    if isNULL(session_p) return NULL;
+//
+//    uint32_t len = luedc_get_page(session_p, from_row, num_row, NULL, 0, 0) + 20000; // 12*num_row + 1;
+//    char* str = malloc(len);
+//    if isNULL(str) return NULL;
+//
+//    luedc_get_page(session_p, from_row, num_row, str, len, highlight_trailing_spaces);
+//    return str;
+// }
 
 int lua_get_page(lua_State* L)
 {
@@ -693,6 +697,9 @@ int lua_get_page(lua_State* L)
    size_t num_rows = 0;
    size_t col = 0;
    get_termsize(&num_rows, &col);
+   if (first_move) {
+     num_rows--;
+   }
    lued_t* session_p = NULL;
    carr_geti(LUED_SESSIONS, &session_p);
    uint32_t len = luedc_get_page(session_p, from_row, num_rows, NULL, 0, highlight_trailing_spaces);

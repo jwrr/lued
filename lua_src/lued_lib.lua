@@ -714,7 +714,6 @@ end
 
 
 function display_status_in_lua(lua_mode)
-
   esc_clear_screen()
   set_sel_end(0)
   -- if not g_status_line_on then return end
