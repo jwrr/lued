@@ -61,9 +61,8 @@ function ctag_move_to_tag(dd)
   -- save current position in jump stack
   g_ctag_r, g_ctag_c = get_cur_pos()
   g_ctag_id = get_fileid()
-  if not dd then
-    push_jump_stack(g_jump_back_stack, g_ctag_id, g_ctag_r, g_ctag_c)
-  end
+  push_jump_stack(g_find_jump_back_stack, g_ctag_id, g_ctag_r, g_ctag_c)
+  push_jump_stack(g_ctag_jump_back_stack, g_ctag_id, g_ctag_r, g_ctag_c)
   
   open_file(file, dd2)
   move_to_first_line(dd2)
@@ -80,6 +79,7 @@ function ctag_move_to_tag(dd)
   disp(dd)
 end
 
+
 -- Return back to the original file location
 function ctag_move_back_from_tag(dd)
   if g_ctag_r==nil then
@@ -92,6 +92,19 @@ function ctag_move_back_from_tag(dd)
   g_ctag_r = nil
   disp(dd)
 end
+
+
+g_ctag_jump_back_stack = {}
+g_ctag_jump_forward_stack = {}
+function ctag_jump_back(dd)
+  jump_back(g_ctag_jump_back_stack, g_ctag_jump_forward_stack, dd)
+end
+
+
+function ctag_jump_forward(dd)
+  jump_forward(g_ctag_jump_back_stack, g_ctag_jump_forward_stack, dd)
+end
+
 
 -- ctag key bindings
 -- alt_cb = ctag_move_back_from_tag; hot("cb") -- ctag back

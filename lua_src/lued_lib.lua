@@ -252,7 +252,7 @@ function is_sof()
 end
 
 -- Two modes are supported. When line string is passed in the char at `pos` is
--- checked. When line is nil then the char under the cursor is checked. 
+-- checked. When line is nil then the char under the cursor is checked.
 function is_space(line,pos)
   local is;
   if line then
@@ -722,9 +722,9 @@ function display_status_in_lua(lua_mode)
   local save_needed = is_modified()
   local row,col = get_cur_pos()
   local trow,tcol = get_termsize()
-  
+
   local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
-  
+
   local stay_selected = ((row == sel_er) and (col == sel_ec)) or
                         ((row == sel_sr) and (col == sel_sc))
   if (not stay_selected) then
@@ -767,9 +767,9 @@ function disp(dd,center)
    local dd2 = 1
    local r,c = get_cur_pos()
    local pr,pc = get_page_pos()
-   
+
    if g_enable_file_changed then
-   
+
      local id = get_fileid()
      local filename = get_filename(id)
      local file_has_changed = false
@@ -777,7 +777,7 @@ function disp(dd,center)
      if file_exists(filename) then
        file_has_changed,mtime,ts = is_file_modified(0)
      end
-   
+
      if file_has_changed==1 then
        io.write("\n\n=======================================\n\n")
        local prompt = "File '" .. filename .. "' has changed. Do you want to reload <y/n>?"
@@ -792,7 +792,7 @@ function disp(dd,center)
    local tr,tc = get_termsize()
    local page_offset_changed = false
    local half = math.floor(tr / 2)
-   
+
    -- if center then dbg_prompt("CENTER") end
 
    if (r-pr) < g_min_lines_from_top then
@@ -816,7 +816,7 @@ function disp(dd,center)
      local new_offset = half
      set_page_offset_percent(new_offset,dd2)
    end
- 
+
    if dd == 0 then
      g_command_count = g_command_count or 0
      g_command_count = g_command_count + 1
@@ -1371,8 +1371,8 @@ function replace_prompt()
 end
 
 
-g_jump_back_stack = {}
-g_jump_forward_stack = {}
+g_find_jump_back_stack = {}
+g_find_jump_forward_stack = {}
 function push_jump_stack(stack, fileid, row, col)
   local entry = {fileid, row, col}
   table.insert(stack, entry)
@@ -1392,15 +1392,15 @@ function pop_jump_stack(stack)
 end
 
 
-function jump_back(dd)
+function jump_back(jump_back_stack, jump_forward_stack, dd)
   local dd2 = 1
-  
+
   local fileid = get_fileid()
   local r, c = get_cur_pos()
-  push_jump_stack(g_jump_forward_stack, fileid, r, c)
-  
-  
-  local fileid, row, col = pop_jump_stack(g_jump_back_stack)
+  push_jump_stack(jump_forward_stack, fileid, r, c)
+
+
+  local fileid, row, col = pop_jump_stack(jump_back_stack)
   if fileid ~= get_fileid() then
     session_sel(fileid, dd2)
   end
@@ -1411,14 +1411,14 @@ function jump_back(dd)
 end
 
 
-function jump_forward(dd)
+function jump_forward(jump_back_stack, jump_forward_stack, dd)
   local dd2 = 1
-  
+
   local fileid = get_fileid()
   local r, c = get_cur_pos()
-  push_jump_stack(g_jump_back_stack, fileid, r, c)
-  
-  local fileid, row, col = pop_jump_stack(g_jump_forward_stack)
+  push_jump_stack(jump_back_stack, fileid, r, c)
+
+  local fileid, row, col = pop_jump_stack(jump_forward_stack)
   if fileid ~= get_fileid() then
     session_sel(fileid, dd2)
   end
@@ -1426,6 +1426,16 @@ function jump_forward(dd)
     set_cur_pos(row, col)
   end
   disp(dd)
+end
+
+
+function find_jump_back(dd)
+  jump_back(g_find_jump_back_stack, g_find_jump_forward_stack, dd)
+end
+
+
+function find_jump_forward(dd)
+  jump_back(g_find_jump_back_stack, g_find_jump_forward_stack, dd)
 end
 
 
@@ -1434,18 +1444,18 @@ function find_all_on_line(line,str)
   local s,e = 1,1
   local match_count = 0
   g_find_plaintext = g_find_plaintext or false
-  
+
   find_plaintext = g_find_plaintext and not g_find_whole_word
 
 
   if g_find_whole_word then
     str2 = "%f[%w_]" .. str .. "%f[^%w_]"
   else
-    str2 = str 
+    str2 = str
   end
 
   repeat
-    s,e = string.find(line,str2,e,find_plaintext)   
+    s,e = string.find(line,str2,e,find_plaintext)
     if s ~= nil then
      match_count = match_count + 1
      matchi[match_count] = s
@@ -1503,9 +1513,9 @@ function find_reverse(str,dd)
       local cfileid = get_fileid()
       local cr, cc = get_cur_pos()
       if not dd then
-        push_jump_stack(g_jump_back_stack, cfileid, cr, cc)
+        push_jump_stack(g_find_jump_back_stack, cfileid, cr, cc)
       end
-      
+
       local match_str = string.match(line,g_find_str2,match_c)
       local match_len = string.len(match_str)
       set_cur_pos(i,match_c)
@@ -1636,7 +1646,7 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
         set_cur_pos(i+1,1)
       end
     else
-      push_jump_stack(g_jump_back_stack, cfileid, cr, cc)
+      push_jump_stack(g_find_jump_back_stack, cfileid, cr, cc)
 
       local match_str = string.match(line,g_find_str2,match_c) or ""
       local match_len = string.len(match_str)
@@ -1690,7 +1700,7 @@ function find_and_replace(from,to,options,dd)
         -- N = no and goto next
         -- A = replace all
         -- Q = quit and return cursor to beginning
-        -- H = quit and HALT at current position 
+        -- H = quit and HALT at current position
         resp = string.lower( string.sub(resp,1,1) )
         resp = string.match(resp,"[ynaqh]") or "q"
         replace_all = resp=="a"
@@ -1729,7 +1739,7 @@ function search_all_files(str,dd)
     g_find_str = sel_str
     set_sel_off()
   end
-  
+
   local save_g_tab_prev = g_tab_prev;
   local test_str = ""
   local match = find_forward(str,true,false,false,sel_str,dd2)
@@ -1858,7 +1868,7 @@ function sel_inside_braces(dd)
   find_forward_again(dd2)
   move_left_n_char(1,dd2)
   local r2,c2 = get_cur_pos()
-  
+
   g_find_str = "{"
   set_cur_pos(r,c)
   find_reverse_again(dd2)
@@ -1866,7 +1876,7 @@ function sel_inside_braces(dd)
   set_sel_start()
   set_cur_pos(r2,c2)
   set_sel_end()
-  
+
   g_find_str = save_find_str
   disp(dd)
 end
@@ -1876,7 +1886,7 @@ function get_indent_len()
   local line = get_line()
   local leading_ws = string.match(line,"^%s+") or ""
   local leading_ws_len = string.len(leading_ws)
-  return leading_ws_len 
+  return leading_ws_len
 end
 
 
@@ -2180,7 +2190,7 @@ function cut_line(n,dd)
     g_cut_line_command_count = g_command_count
   else
     global_cut(dd)
-  end  
+  end
 end
 
 
@@ -2189,7 +2199,7 @@ function paste_line_before(dd)
   move_to_sol_classic(dd2)
   global_paste(dd)
 end
-    
+
 
 function paste_line_after(dd)
   local dd2 = 1
@@ -2234,7 +2244,7 @@ function indent1(n, ch, goto_next, dd)
   n = n or g_indent_size
   ch = ch or g_indent_char
   goto_next = goto_next or true
-  
+
   local spaces = string.rep(ch,n)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
@@ -2254,7 +2264,7 @@ function unindent1(n, ch, goto_next, dd)
   n = n or g_indent_size
   ch = ch or g_indent_char
   goto_next = goto_next or true
-  
+
   local spaces = string.rep(ch,n)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
@@ -2761,7 +2771,7 @@ function ls_dir(glob)
   ls_dir_hist_id = ls_dir_hist_id or get_hist_id()
   glob = glob or lued_prompt(ls_dir_hist_id, "Enter path, glob or filename. ctrl-A selects All: ")
   glob = glob or ""
-  
+
   if glob == "ctrl_A" then
     return glob
   end
@@ -2856,7 +2866,7 @@ function cd_change_dir(dd)
 
       return filenames
     end
-    
+
     filename = exactly_one_file_matches(tmp_path)
     if not is_empty(filename) then
       return filename
@@ -2893,7 +2903,7 @@ end
 function open_file(filenames,dd)
   local dd2 = 1
   if filenames==nil then
-    filenames = cd_change_dir(dd2)   
+    filenames = cd_change_dir(dd2)
   end
   if filenames==nil then
     open_file_hist_id = open_file_hist_id or get_hist_id()
@@ -2907,9 +2917,9 @@ function open_file(filenames,dd)
       env_name = string.match(filenames,"%${?([%w_]+)}?")
     end
   end
-  
-  local filename_list,count = filenames:gmatch("(%S+)")  
-  
+
+  local filename_list,count = filenames:gmatch("(%S+)")
+
   for filename1 in filename_list do
     local existing_fileid = is_open(filename1)
     if existing_fileid then
@@ -2939,8 +2949,8 @@ function ls_recursive(path,filter)
   end
   return filenames_table
 end
- 
- 
+
+
 function open_file_selected(dd)
   local dd2 = 1
   local file_filter = ""
@@ -3100,7 +3110,7 @@ function sel_mark_to_cursor(dd)
   local r1,c1 = get_cur_pos()
   goto_nameless_mark_prev(dd2)
   local r2,c2 = get_cur_pos()
-  
+
   if (r1 < r2) then
     -- do nothing
   elseif (r1 > r2) then
@@ -3616,7 +3626,7 @@ function wrap_line(wrap_col,wrap_delim,dd)
   if get_line_len() <= wrap_col then
     join_lines(wrap_delim,dd2)
   end
-  disp(dd)                                                            
+  disp(dd)
 end
 
 
@@ -3633,7 +3643,7 @@ function foreach_selected(fn, dd)
   if is_sel_on() then
     local r,c = get_cur_pos()
     set_sel_off()
-    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()  
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
     set_cur_pos(sel_sr,c)
     local r,c = get_cur_pos()
     local r_last = sel_er
@@ -3658,7 +3668,7 @@ function comment(dd)
   ins_str(g_comment,dd2);
   if not is_eol() then
     ins_str(" ",dd2)
-  end 
+  end
   move_down_n_lines(1,dd2)
   move_to_sol_classic(dd2)
   disp(dd)
@@ -3762,7 +3772,7 @@ function sel_number(dd)
   else
     set_sel_off(dd2)
   end
-end  
+end
 
 
 function get_number(dd)
@@ -3775,7 +3785,7 @@ function get_number(dd)
   local sel_str, sel_sr, sel_sc = get_sel_str()
   disp(dd)
   return sel_str
-end  
+end
 
 -- go down 1 line and replace number with increment
 function incr(step_size, dd)
@@ -3797,7 +3807,7 @@ function incr(step_size, dd)
     ins_str(num_str,dd2)
     set_cur_pos(r+1, c)
   end
-  disp(dd)  
+  disp(dd)
 end
 
 -- go down 1 line replace number with decrement

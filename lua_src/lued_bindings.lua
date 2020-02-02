@@ -87,6 +87,7 @@ alt_rr           = move_right_n_char       hot("rr")  -- Move predefined numbed 
 alt_cb           = ctag_move_back_from_tag  hot("cb") -- ctag back
 alt_cf           = ctag_move_forward_in_stack hot("cf") -- ctag forward in stack 
 alt_ct           = ctag_move_to_tag         hot("ct") -- ctag jump. Similar Sublime Ctrl+R
+alt_CT           = ctag_jump_back           hot("CT") -- ctag jump back.
 alt_cr           = ctag_read_file           hot("cr") -- ctag read
 alt_cx           = ctag_delete_history      hot("cx") -- ctag delete history
 
@@ -115,8 +116,8 @@ alt_FF           = find_reverse_again      hot("FF")  -- Similar to Sublime Shif
 alt_fc           = toggle_find_case_sensitive  hot("fc")  -- toggle find case sensitive
 alt_fw           = toggle_find_whole_word  hot("fw")  -- toggle find whole word
 alt_hh           = replace_again           hot("hh")  -- Replace again.
-alt__minus_      = jump_back               hot(",-,") -- Jump back to previous position before Find. Similar to Sublime jump_back.
-alt__            = jump_forward            hot(",_,") -- Jump forward to next position in jump stack. Similar to Sublime jump_forward.
+alt__minus_      = find_jump_back          hot(",-,") -- Jump back to previous position before Find. Similar to Sublime jump_back.
+alt__            = find_jump_forward       hot(",_,") -- Jump forward to next position in jump stack. Similar to Sublime jump_forward.
 
 --## Line Swap Commands
 alt_sn           = swap_line_with_next     hot("sn") -- Swap current line with next line. Similar to Sublime Ctrl+DOWN arrow
@@ -160,8 +161,8 @@ alt_ll           = insert_cr_after         hot("ll") -- Goto to end of line and 
 alt_lk           = insert_cr_before        hot("lk") -- Goto beginning of line and insert new line. similar to vi's O. Similar to Sublime Ctrl+Shift+Enter
 
 --## Page Up / Down Commands
-alt_pp           = move_down_n_pages       hot("pp") -- Similar to Sublime <PageDown>, move down one page
-alt_PP           = move_up_n_pages         hot("PP") -- Similar to Sublime <PageUP>, move up one page
+alt_pp           = move_down_n_pages       hot("pp") -- Similar to Sublime <PageDown> (or ctrl+u in vintage mode) , move down half page
+alt_PP           = move_up_n_pages         hot("PP") -- Similar to Sublime <PageUP> (or ctrl+d in vintage mode), move up half page
 
 --## Remove Tabs and Spaces
 alt_ralt         = remove_all_leading_tabs              -- Replace all leading tabs with spaces at start of line
