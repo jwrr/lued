@@ -10,7 +10,7 @@
 --  set_repeatables(",alt_uu,")
 
 -- set_repeatables(",,")
-set_non_repeatables(",alt_jj,alt_we,")
+set_non_repeatables(",alt_ee,alt_EE,")
 
 -- Pressing ALT plus KEY is the same as pressing ESC followed by KEY.
 -- This is a feature of terminals, not just LUED.
@@ -72,8 +72,8 @@ alt_BB           = toggle_top              hot("BB")  -- Goto top of file. Simil
 
 alt_ww           = move_right_n_words      hot("ww")  -- Move right one word. Similar to Sublime Ctrl+right_arrow.
 alt_WW           = move_left_n_words       hot("WW")  -- Move left one word. Similar to Sublime Ctrl+left_arrow.
-alt_wq           = move_to_sol             hot("wq")  -- Move to Start of Line. Similar to Sublime <Home>.
-alt_we           = move_to_eol             hot("we")  -- Move to End of Line. Similar to Sublime <End>.
+alt_ee           = move_to_eol             hot("ee")  -- Move to End of Line. Similar to Sublime <End>.
+alt_EE           = move_to_sol             hot("EE")  -- Move to Start of Line. Similar to Sublime <Home>.
 alt__gt_         = halfsy_right            hot(",>,") -- Move right half the distance
 alt__lt_         = halfsy_left             hot(",<,") -- Move left half the distance
 alt_u            = set_move_up_n_lines                -- Move N lines up. alt_u42<Enter> moves up 42 lines
@@ -231,7 +231,7 @@ alt_jj           = join_lines              hot("jj") -- Similar to Sublime Ctrl+
 alt_ln           = toggle_line_numbers     hot("ln")  -- show line numbers
 alt_ls           = ls_dir                  hot("ls") -- unix ls command. dos dir command
 alt_LU           = set_lua_mode            hot("LU") -- Change to LUA mode. You rarely want to be in lua mode.
-alt_wl           = wrap_line               hot("wl") -- Wrap line at cursor. Subsequent lines end at previous line.
+alt_qq           = wrap_line               hot("qq") -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
 alt_relued       = relued                            -- Reload lued script
 alt_rl           = reload_file             hot("rl") -- Reload current file
 alt_sa           = save_as                 hot("sa") -- Similar to Sublime Ctrl+Shift+S. File Save as.
