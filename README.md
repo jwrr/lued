@@ -293,6 +293,7 @@ TBD
 * ctrl_T - Transpose two words (alt_bl). Similar to Sublime ctrl+T - done
 * ctrl_H - J = fix Jagged edge after replace. - done
 * insert_tab - if previous line is blank then check two lines above - done
+* alt_ku/kl - if not selected then toupper/tolower the current char and move right - done
 
 * Column/Block Select, Cut, Copy, Move
 * Split screen
@@ -326,5 +327,4 @@ TBD
 * move file has changed checking from C to Lua
 * alt_n - clean up prompt to read empty file.
 
-* alt_ku/kl - if not selected then toupper/tolower the current char and move right
 

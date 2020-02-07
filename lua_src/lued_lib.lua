@@ -1849,6 +1849,13 @@ function var_start(dd)
 end
 
 
+function sel_n_char(n,dd)
+  n = n or 1
+  set_sel_start()
+  move_right_n_char(n, dd)
+end
+
+
 function sel_word(dd)
   local dd2 = 1
   if is_sel_off()==1 then
@@ -3737,6 +3744,10 @@ end
 
 function sel_to_upper(dd)
   local dd2 = 1
+  if not is_sel_on() then
+    sel_n_char(1,dd2)
+    set_sel_end()
+  end
   local sel_str, sel_sr, sel_sc = get_sel_str()
   if sel_str ~= "" then
     ins_string(string.upper(sel_str),dd2)
@@ -3747,6 +3758,10 @@ end
 
 function sel_to_lower(dd)
   local dd2 = 1
+  if not is_sel_on() then
+    sel_n_char(1,dd2)
+    set_sel_end()
+  end
   local sel_str, sel_sr, sel_sc = get_sel_str()
   if sel_str ~= "" then
     ins_string(string.lower(sel_str),dd2)
