@@ -289,6 +289,9 @@ TBD
 * alt_sm - Select from Mark to cursor. Sublime Ctrl+KA - done
 * alt_xm - Delete from Mark to cursor. Sublime Ctrl+KW - done
 * Swap two words. alt_bl, alt_br - done
+* ctrl_H Case Sensitive Replace. 'Hello' 'Hi' replaces 'hello' with 'hi', 'Hello' with 'Hi' - done
+* ctrl_T - Transpose two words (alt_bl). Similar to Sublime ctrl+T - done
+* ctrl_H - J = fix Jagged edge after replace. - done
 
 * Column/Block Select, Cut, Copy, Move
 * Split screen
@@ -321,7 +324,7 @@ TBD
 * map save to save_as, for review mode. lued -review file.txt
 * move file has changed checking from C to Lua
 * alt_n - clean up prompt to read empty file.
-* ctrl_h Case Sensitive Replace. 'Hello' 'Hi' replaces 'hello' with 'hi', 'Hello' with 'Hi'
 
-
+* alt_ku/kl - if not selected then toupper/tolower the current char and move right
+* insert_tab - if previous line is blank then check two lines above
 

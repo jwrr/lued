@@ -21,7 +21,7 @@ ctrl_Q           = quit_all          -- Quit or Exit. Similar to Sublime Ctrl-Q.
 ctrl_W           = quit_session      -- Close window or tab. Similar to Sublime Ctrl-W.
 ctrl_E           = move_left_fast    -- Move left defined number (8) of char
 ctrl_R           = move_right_fast   -- Move right defined number (4) of char
-ctrl_T           = spare             -- Spare
+ctrl_T           = bubble_word_left  -- Move current word left. Similar to Sublime Ctrl+T
 ctrl_Y           = redo_cmd          -- Redo (undo undo). Similar to Sublime Ctrl+Y
 ctrl_U           = spare             -- Spare
 
