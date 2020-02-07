@@ -1707,7 +1707,20 @@ function find_and_replace(from,to,options,dd)
       end
 
       if resp=="y" or resp=="a" or resp=="h" then
-        ins_string(g_replace_str,dd2)
+        g_replace_str = g_replace_str or ""
+        local to = g_replace_str
+        local to_is_lower = to == to:lower()
+        if not to_is_lower then
+          local sel_str, sel_sr, sel_sc = get_sel_str()
+          local from_is_lower = sel_str == sel_str:lower()
+          local from_is_upper = sel_str == sel_str:upper()
+          if from_is_lower then
+            to = to:lower()
+          elseif from_is_upper then
+            to = to:upper()
+          end
+        end 
+        ins_string(to, dd2)
         if resp=="h" then break end
       elseif resp=="n" then
         move_right_n_char(1,dd2)
