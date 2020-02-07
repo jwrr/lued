@@ -1695,18 +1695,19 @@ function find_and_replace(from,to,options,dd)
         disp(0)
         r,c = get_cur_pos()
         find_and_replace_hist_id = find_and_replace_hist_id or get_hist_id()
-        resp = lued_prompt(find_and_replace_hist_id,"Replace <y/n/a/q/h>?", ",y,n,a,q,h,")
+        resp = lued_prompt(find_and_replace_hist_id,"Replace <y/n/j/a/q/s>?", ",y,n,j,a,q,s,")
         -- Y = yes and goto next
         -- N = no and goto next
-        -- A = replace all
+        -- J = Jagged. Yes + Fix jagged alignment after replace
+        -- A = replace All
         -- Q = quit and return cursor to beginning
-        -- H = quit and HALT at current position
+        -- S = Stop (Yes, quit and Stop at current position)
         resp = string.lower( string.sub(resp,1,1) )
-        resp = string.match(resp,"[ynaqh]") or "q"
+        resp = string.match(resp,"[ynjaqs]") or "q"
         replace_all = resp=="a"
       end
 
-      if resp=="y" or resp=="a" or resp=="h" then
+      if resp=="y" or resp=="j" or resp=="a" or resp=="s" then
         g_replace_str = g_replace_str or ""
         local to = g_replace_str
         local to_is_lower = to == to:lower()
@@ -1721,7 +1722,10 @@ function find_and_replace(from,to,options,dd)
           end
         end 
         ins_string(to, dd2)
-        if resp=="h" then break end
+        if resp=="j" then
+          insert_tab(dd2)
+        end
+        if resp=="s" then break end
       elseif resp=="n" then
         move_right_n_char(1,dd2)
       else -- q or invalid response
@@ -1730,7 +1734,7 @@ function find_and_replace(from,to,options,dd)
 
     end
   until not found
-  if resp~="h" then
+  if resp~="s" then
     set_cur_pos(initial_r,initial_c)
   end
   disp(dd)
