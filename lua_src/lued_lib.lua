@@ -287,6 +287,12 @@ function is_sow()
 end
 
 
+function is_firstline()
+  local r,c = get_cur_pos()
+  return r <= 1
+end
+
+
 function is_lastline()
   local r,c = get_cur_pos()
   local num_lines = get_numlines()
@@ -2417,7 +2423,7 @@ function insert_tab_classic(dd)
   ins_str(t,dd)
 end
 
-
+-- align cursor with previous line's next 'column'
 function insert_tab(dd)
   if g_tab_classic then
     insert_tab_classic(dd)
@@ -2425,8 +2431,12 @@ function insert_tab(dd)
   end
   local dd2 = 1
   local r1,c1 = get_cur_pos()
-  move_up_n_lines(1,dd2)
---  move_right_n_char(1,dd2)
+
+  repeat
+    if is_firstline() then break end
+    move_up_n_lines(1,dd2)
+  until not is_blankline()
+
   move_right_n_words(1,dd2)
   local r2,c2 = get_cur_pos()
   set_cur_pos(r1,c1)
