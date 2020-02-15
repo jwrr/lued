@@ -1754,6 +1754,20 @@ function replace_again(dd)
 end
 
 
+function paste_and_find_forward(dd)
+  local dd2 = 1
+  global_paste(dd2)
+  find_forward_again(dd)
+end
+
+
+function paste_and_find_reverse(dd)
+  local dd2 = 1
+  global_paste(dd2)
+  find_reverse_again(dd)
+end
+
+
 function search_all_files(str,dd)
   local dd2 = 1
   str = str or ""

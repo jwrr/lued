@@ -303,7 +303,9 @@ TBD
 * alt_d50 - delete 50 char - done
 * alt_p10 - go down N (10) lines. set alt_pp page size to 10. - done
 * alt_P10 - go up N (10) lines. set alt_PP page size to N. - done
-* fix ctrl_H - case problem
+* fix ctrl_H - case sensitive replace problem - done
+* alt_vv - paste and find next. alt_VV - paste and find prev. - done
+
 
 * Column/Block Select, Cut, Copy, Move
 * Split screen
@@ -342,4 +344,6 @@ TBD
 ctrl_F - Use the currently opened file as the starting directory.
 del_sol_in_region. 
 esc_space goes into lua mode. any other esc seq exists lua mode
+
+
 

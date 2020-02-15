@@ -116,7 +116,9 @@ alt_ff           = find_forward_again      hot("ff")  -- Similar to Sublime F3. 
 alt_FF           = find_reverse_again      hot("FF")  -- Similar to Sublime Shift+F3. Find previous occurrence.
 alt_fc           = toggle_find_case_sensitive  hot("fc")  -- toggle find case sensitive
 alt_fw           = toggle_find_whole_word  hot("fw")  -- toggle find whole word
-alt_hh           = replace_again           hot("hh")  -- Replace again.
+alt_hh           = replace_again           hot("hh")  -- Find and Replace again.
+alt_vv           = paste_and_find_forward  hot("vv")  -- Paste and Find Next
+alt_VV           = paste_and_find_reverse  hot("VV")  -- Paste and Find Prev
 alt__minus_      = find_jump_back          hot(",-,") -- Jump back to previous position before Find. Similar to Sublime jump_back.
 alt__            = find_jump_forward       hot(",_,") -- Jump forward to next position in jump stack. Similar to Sublime jump_forward.
 
