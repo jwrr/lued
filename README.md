@@ -305,7 +305,7 @@ TBD
 * alt_P10 - go up N (10) lines. set alt_PP page size to N. - done
 * fix ctrl_H - case sensitive replace problem - done
 * alt_vv - paste and find next. alt_VV - paste and find prev. - done
-
+* alt_FR - Find in Reverse - done
 
 * Column/Block Select, Cut, Copy, Move
 * Split screen
@@ -341,7 +341,7 @@ TBD
 * move file has changed checking from C to Lua
 * alt_n - clean up prompt to read empty file.
 <TAB> - If prev line is shorter than current pos then continuue searching up
-ctrl_F - Use the currently opened file as the starting directory.
+ctrl_O - Use the currently opened file as the starting directory.
 del_sol_in_region. 
 esc_space goes into lua mode. any other esc seq exists lua mode
 

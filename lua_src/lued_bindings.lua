@@ -114,6 +114,7 @@ alt_fa           = search_all_files        hot("fa")  -- Similar to Sublime Ctrl
 alt_fb           = find_back               hot("fb")  -- find back. return to position before find operation.
 alt_ff           = find_forward_again      hot("ff")  -- Similar to Sublime F3. Find next occurrence of search text.
 alt_FF           = find_reverse_again      hot("FF")  -- Similar to Sublime Shift+F3. Find previous occurrence.
+alt_FR           = find_reverse_selected   hot("FR")  -- Find previous occurrence.
 alt_fc           = toggle_find_case_sensitive  hot("fc")  -- toggle find case sensitive
 alt_fw           = toggle_find_whole_word  hot("fw")  -- toggle find whole word
 alt_hh           = replace_again           hot("hh")  -- Find and Replace again.
