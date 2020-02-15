@@ -50,15 +50,15 @@ ctrl_M           = dont_use          -- Do Not Use.
 
 
 --## File Tab Commands
-alt_tt           = select_tab              hot("tt")  -- Select file tab from list of open files.
+alt_tt           = select_tab              hot("tt")  -- Select file tab from list of open files. Similar to Sublime Command+T
 alt_TT           = tab_toggle              hot("TT")  -- Toggle to previous file tab
-alt__equal_      = tab_next                hot("=")   -- Change to next file tab. Similar to Sublime next_view Ctrl+Tab.
-alt__plus_       = tab_prev                hot(",+,") -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab.
+alt__equal_      = tab_next                hot("=")   -- Change to next file tab. Similar to Sublime next_view Ctrl+Tab or Command+Shift+].
+alt__plus_       = tab_prev                hot(",+,") -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[.
 
 --## Select Commands
 alt_si           = sel_indentation         hot("si") -- Similar to Sublime Ctrl+shift+J.  Select lines with the indentation.
 alt_sq           = sel_sol                 hot("sq") -- Select from cursor to start of line
-alt_sb           = sel_inside_braces       hot("sb") -- Select inside curly brace
+alt_sb           = sel_inside_braces       hot("sb") -- Select inside curly brace. Similar to Sublime Ctrl+Command+M
 alt_se           = sel_eol                 hot("se") -- Select from cursor to end of line
 alt_sq           = sel_sof                 hot("sq") -- Select from cursor to start of file
 alt_sg           = sel_eof                 hot("sg") -- Select from cursor to end of file
@@ -95,15 +95,16 @@ alt_cx           = ctag_delete_history      hot("cx") -- ctag delete history
 alt_ce           = copy_eol                hot("ce") -- copy current pos to eol
 alt_cq           = copy_sol                hot("cq") -- copy sol to current pos
 alt_cw           = copy_word               hot("cw") -- copy word
-alt_dd           = duplicate_line          hot("dd") -- Similar to Sublime Ctrl+Shift+D
+alt_DD           = duplicate_line          hot("DD") -- Similar to Sublime Ctrl+Shift+D
 
-alt_xq           = del_sol                 hot("xq") -- Similar to Sublime Ctrl_K+<Backspace>
-alt_xe           = del_eol                 hot("xe") -- Similar to Sublime Ctrl+KK
-alt_xm           = del_mark_to_cursor      hot("xm") -- Delete from mark (alt+mm) to cursor
-alt_xs           = del_spaces_selected     hot("xs") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
+alt_d            = del_char                          -- del N char
+alt_DE           = del_sol                 hot("DE") -- Similar to Sublime Ctrl_K+<Backspace>
+alt_de           = del_eol                 hot("de") -- Similar to Sublime Ctrl+KK
+alt_dm           = del_mark_to_cursor      hot("xm") -- Delete from mark (alt+mm) to cursor
+alt_ds           = del_spaces_selected     hot("xs") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
 alt_xw           = del_word                hot("xw") -- Delete word under cursor
-alt_xx           = del_eow                 hot("xx") -- Similar to Sublime Ctrl+KW
-alt_XX           = del_backword            hot("XX") -- Similar to Sublime Ctrl+Backspace
+alt_dw           = del_eow                 hot("dw") -- Similar to Sublime Ctrl+KW
+alt_DW           = del_sow                 hot("DW") -- Similar to Sublime Ctrl+Backspace
 
 alt_pl           = paste_line_after        hot("pl") -- Paste line after current line
 alt_pk           = paste_line_before       hot("pk") -- Past line before current line
@@ -161,6 +162,8 @@ alt_ll           = insert_cr_after         hot("ll") -- Goto to end of line and 
 alt_lk           = insert_cr_before        hot("lk") -- Goto beginning of line and insert new line. similar to vi's O. Similar to Sublime Ctrl+Shift+Enter
 
 --## Page Up / Down Commands
+alt_p            = move_down_n_lines                 -- Move down N lines
+alt_P            = move_up_n_lines                   -- Move up N lines
 alt_pp           = move_down_n_pages       hot("pp") -- Similar to Sublime <PageDown> (or ctrl+u in vintage mode) , move down half page
 alt_PP           = move_up_n_pages         hot("PP") -- Similar to Sublime <PageUP> (or ctrl+d in vintage mode), move up half page
 

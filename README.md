@@ -295,6 +295,16 @@ TBD
 * insert_tab - if previous line is blank then check two lines above - done
 * alt_ku/kl - if not selected then toupper/tolower the current char and move right - done
 
+* ctrl_H - j. goto end of word and then tab - done
+* alt_dw del to end of word. alt_DW delete to begining of word - done
+* alt_de delete to end of line. alt_DE delete to beginning of line.
+* change alt_dd to alt_DD - duplicate line (sublime ctrl+shift+D). alt_dd becomes delete word - done
+* alt_x's -> alt_d's - done
+* alt_d50 - delete 50 char - done
+* alt_p10 - go down N (10) lines. set alt_pp page size to 10. - done
+* alt_P10 - go up N (10) lines. set alt_PP page size to N. - done
+* fix ctrl_H - case problem
+
 * Column/Block Select, Cut, Copy, Move
 * Split screen
 * Document API for plugins
@@ -322,9 +332,14 @@ TBD
 * Incremental Search  alt; 
 * Clear Mark. Sublime Ctrl+KG
 * Bringup Clipboard. Sublime Ctrl+KV
+
+
 * Sort Selected. Sublime f9
 * map save to save_as, for review mode. lued -review file.txt
 * move file has changed checking from C to Lua
 * alt_n - clean up prompt to read empty file.
-
+<TAB> - If prev line is shorter than current pos then continuue searching up
+ctrl_F - Use the currently opened file as the starting directory.
+del_sol_in_region. 
+esc_space goes into lua mode. any other esc seq exists lua mode
 

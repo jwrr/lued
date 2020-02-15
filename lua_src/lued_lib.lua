@@ -1717,7 +1717,8 @@ function find_and_replace(from,to,options,dd)
         g_replace_str = g_replace_str or ""
         local to = g_replace_str
         local to_is_lower = to == to:lower()
-        if not to_is_lower then
+        local to_is_upper = to == to:upper()
+        if not to_is_lower and not to_is_upper then
           local sel_str, sel_sr, sel_sc = get_sel_str()
           local from_is_lower = sel_str == sel_str:lower()
           local from_is_upper = sel_str == sel_str:upper()
@@ -1726,7 +1727,7 @@ function find_and_replace(from,to,options,dd)
           elseif from_is_upper then
             to = to:upper()
           end
-        end 
+        end
         ins_string(to, dd2)
         if resp=="j" then
           insert_tab(dd2)
@@ -2118,18 +2119,39 @@ function del_char(n,dd)
 end
 
 
+function del_sow(dd)
+  local dd2 = 1
+  move_left_n_char(1,dd2)
+  if not is_word() then
+    while not is_word() do
+      del_char(1,dd2)
+      move_left_n_char(1,dd2)
+    end
+    move_right_n_char(1,dd2)
+  else
+    while is_word() do
+      del_char(1,dd2)
+      move_left_n_char(1,dd2)
+    end
+    move_right_n_char(1,dd2)
+  end
+  disp(dd)
+end
+
+
 function del_eow(dd)
   local dd2 = 1
-  local r,c = get_cur_pos()
-  set_sel_start()
-  skip_spaces(dd2)
-  local r2,c2 = get_cur_pos()
-  if r2==r and c2==c then
-    var_end(dd2)
+  
+  if not is_word() then
+    while not is_word() do
+      del_char(1,dd2)
+    end
+  else
+    while is_word() do
+      del_char(1,dd2)
+    end
   end
-  set_sel_end()
-  set_cur_pos(r,c)
-  cut(dd)
+  disp(dd)
 end
 
 
@@ -2439,14 +2461,22 @@ function insert_tab(dd)
   local dd2 = 1
   local r1,c1 = get_cur_pos()
 
+  local done = false
   repeat
     if is_firstline() then break end
     move_up_n_lines(1,dd2)
-  until not is_blankline()
+    local len = get_line_len()
+    local short_line = (len < c1)
+    done = not short_line
+  until done
 
   move_right_n_words(1,dd2)
   local r2,c2 = get_cur_pos()
   set_cur_pos(r1,c1)
+  while not is_space() do
+    move_right_n_char(1,dd2)
+  end
+  r1,c1 = get_cur_pos()
   if (c2 > c1) then
     while is_space() do
       del_char(1,dd2)
