@@ -45,7 +45,7 @@ SOFTWARE.
   g_move_up_n_lines        = 4     -- move this many lines when not specified
   g_move_right_n_char      = 10    -- move this many char when not specified
   g_move_left_n_char       = 3     -- move this many char when not specified
-  g_page_size              = 0.25  -- This controls PgUp/PgDn speed. 0.25 is quarter page at a time.
+  g_page_size              = 0.5  -- This controls PgUp/PgDn speed. 0.5 is halfs page at a time.
   g_enable_file_changed    = true  -- efc0, efc1. detect file change and prompt to reload FIXME
   g_find_case_sensitive    = false -- find uses case sensitive search
   g_find_whole_word        = false -- Find whole words
@@ -71,6 +71,7 @@ SOFTWARE.
   g_decr_step              = 1     -- step size for incr command
 
   dofile( g_lued_root .. "/lued_lib.lua" )
+  dofile( g_lued_root .. "/lued_version.lua" )
   init_lued(g_lued_root, g_bindings_file)
 
 

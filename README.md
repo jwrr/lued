@@ -310,7 +310,8 @@ TBD
 * <TAB> - If prev line is shorter than current pos then continuue searching up - done
 * alt_sa - save as. prompt for overwrite? if file exists - done
 * esc+review = Toggle Review Mode. In review mode save maps to save_as.
-* Bug Fix - ctrl_D with one word on line causes hang. Did not range check index in Lua code. it when negative and never stopped decrementing.
+* Bug Fix - ctrl_D with one word on line causes hang. Did not range check index in Lua code. it when negative and never stopped decrementing. - done
+* Add version
 
 ==========================
 
