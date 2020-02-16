@@ -2677,7 +2677,26 @@ end
 function save_as(filename, dd)
   if filename == nil then
     save_as_hist_id = save_as_hist_id or get_hist_id()
-    filename = lued_prompt(save_as_hist_id,"filename: ")
+    local done = false
+    repeat
+      filename = lued_prompt(save_as_hist_id,"filename: ")
+      if file_exists(filename) then
+        local response = get_yesno
+        local prompt = "File '" .. filename .. "' exists. Overwrite <y/n/a for abort (don't save)>?";
+        local what_should_i_do = get_yesno(prompt, "N")
+        if what_should_i_do == "N" then
+          disp(dd)
+          done = false
+        elseif what_should_i_do == "Y" then
+          done = true
+        else -- abort
+          disp(dd)
+          return
+        end
+      else
+        done = true
+      end
+    until done    
   end
 
   set_filename(filename)
@@ -2722,7 +2741,7 @@ function quit_session(force,dd)
   local what_should_i_do = "Y"
   if not force and not_saved_yet==1 and numsessions>0 then
     local id = get_fileid()
-    prompt = "Save '" .. get_filename(id) .. "' <y/n/a for abort (don't quit)>?";
+    local prompt = "Save '" .. get_filename(id) .. "' <y/n/a for abort (don't quit)>?";
     what_should_i_do = get_yesno(prompt, "A")
     if what_should_i_do=="Y" then
       save_session()

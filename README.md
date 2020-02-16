@@ -307,8 +307,8 @@ TBD
 * alt_vv - paste and find next. alt_VV - paste and find prev. - done
 * alt_FR - Find in Reverse - done
 * alt_dd deletes word - done
+* <TAB> - If prev line is shorter than current pos then continuue searching up - done
 
-* Column/Block Select, Cut, Copy, Move
 * Split screen
 * Document API for plugins
 * aaaaaaaaaa
@@ -326,26 +326,28 @@ TBD
 ** Save session. Option: with/without history.
 ** Should each file tab be in its own process?
 ** Change reindent_selected, indent_selected, unindent_selected to use foreach_selected
-* Create movetab plug in. move_tab_up, move_tab_down, move_tab_to_first, move_tab_to_last, move_tab_to_n
 * Jump to Matching Bracket. Ctrl+M
 * Select Content in Brackets Sublime Ctrl+shift+M
 * Block Comment. Sublime Ctrl+Shift+/
 * Paste and Indent Ctrl+Shift+V
 * Auto Complete
-* Incremental Search  alt; 
 * Clear Mark. Sublime Ctrl+KG
 * Bringup Clipboard. Sublime Ctrl+KV
+* Create movetab plug in. move_tab_up, move_tab_down, move_tab_to_first, move_tab_to_last, move_tab_to_n
+  allows user to re-arrange the order of the file tabs.
 
 
-* Sort Selected. Sublime f9
 * map save to save_as, for review mode. lued -review file.txt
 * move file has changed checking from C to Lua
 * alt_n - clean up prompt to read empty file.
 del_sol_in_region. 
 esc_space goes into lua mode. any other esc seq exists lua mode
+
+* ctrl_O - Use the currently opened file as the starting directory.
+* Column/Block/Rectangle Select, Cut, Copy, Move
+* Sort Selected. Sublime f9
+* display without wrapping long lines.
+* Incremental Search  alt_ii (change indent to alt_in)
+  Implement as either find_selected + one char OR find_previous + one char
 * Bug - ctrl_D with one word on line causes hang
-
-ctrl_O - Use the currently opened file as the starting directory.
-<TAB> - If prev line is shorter than current pos then continuue searching up
-
-
+* alt_sa - save as. prompt for overwrite? if file exists
