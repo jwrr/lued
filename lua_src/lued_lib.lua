@@ -988,8 +988,14 @@ function move_left_n_words(n,dd)
     local line = get_line()
     local r,c = get_cur_pos()
 --    while is_space(line,c-1) do c = c - 1 end -- back through spaces
-    while not is_word(line,c-1) do c = c - 1 end -- back through spaces
-    while is_word(line,c-1) do c = c - 1 end -- back through alphanums
+    while not is_word(line,c-1) do
+      if c == 1 then break end 
+      c = c - 1 
+    end -- back through spaces
+    while is_word(line,c-1) do 
+      if c == 1 then break end
+      c = c - 1
+    end -- back through alphanums
     -- while not is_space(line,c-1) do c = c - 1 end -- back through alphanums
     set_cur_pos(r,c)
   end

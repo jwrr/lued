@@ -310,6 +310,7 @@ TBD
 * <TAB> - If prev line is shorter than current pos then continuue searching up - done
 * alt_sa - save as. prompt for overwrite? if file exists - done
 * esc+review = Toggle Review Mode. In review mode save maps to save_as.
+* Bug Fix - ctrl_D with one word on line causes hang. Did not range check index in Lua code. it when negative and never stopped decrementing.
 
 ==========================
 
@@ -352,5 +353,4 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * display without wrapping long lines.
 * Incremental Search  alt_ii (change indent to alt_in)
   Implement as either find_selected + one char OR find_previous + one char
-* Bug - ctrl_D with one word on line causes hang
 
