@@ -239,6 +239,7 @@ alt_ls           = ls_dir                  hot("ls") -- unix ls command. dos dir
 alt_LU           = set_lua_mode            hot("LU") -- Change to LUA mode. You rarely want to be in lua mode.
 alt_qq           = wrap_line               hot("qq") -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
 alt_relued       = relued                            -- Reload lued script
+alt_review       = toggle_review_mode                -- review mode prevents saving file
 alt_rl           = reload_file             hot("rl") -- Reload current file
 alt_sa           = save_as                 hot("sa") -- Similar to Sublime Ctrl+Shift+S. File Save as.
 alt_Seti         = set_scope_indent                  -- Set Scope Indent SI2 SI3 SI4

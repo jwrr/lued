@@ -308,6 +308,10 @@ TBD
 * alt_FR - Find in Reverse - done
 * alt_dd deletes word - done
 * <TAB> - If prev line is shorter than current pos then continuue searching up - done
+* alt_sa - save as. prompt for overwrite? if file exists - done
+* esc+review = Toggle Review Mode. In review mode save maps to save_as.
+
+==========================
 
 * Split screen
 * Document API for plugins
@@ -337,7 +341,6 @@ TBD
   allows user to re-arrange the order of the file tabs.
 
 
-* map save to save_as, for review mode. lued -review file.txt
 * move file has changed checking from C to Lua
 * alt_n - clean up prompt to read empty file.
 del_sol_in_region. 
@@ -350,4 +353,4 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * Incremental Search  alt_ii (change indent to alt_in)
   Implement as either find_selected + one char OR find_previous + one char
 * Bug - ctrl_D with one word on line causes hang
-* alt_sa - save as. prompt for overwrite? if file exists
+

@@ -57,6 +57,13 @@ function toggle_line_numbers(dd)
 end
 
 
+function toggle_review_mode(dd)
+  g_review_mode = g_review_mode or false
+  g_review_mode = not g_review_mode
+  disp(dd)
+end
+
+
 -- disable/enable ctrl+S ctrl+Q XON/XOFF Flow Control
 function set_ctrl_s_flow_control (bool, dd)
   if bool==nil then
@@ -738,6 +745,13 @@ function display_status_in_lua(lua_mode)
   end
 
   local mode_str = lua_mode and "LUA MODE" or "ED MODE"
+  g_review_mode = g_review_mode or false
+  if g_review_mode then
+    mode_str = "REVIEW MODE"
+  else
+    mode_str = "EDIT MODE"
+  end
+  
   local cmd_str = get_last_cmd() or ""
   local max_cmd_len = 20
   cmd_str = string.sub(cmd_str,1,max_cmd_len)
@@ -2648,8 +2662,11 @@ end
 
 
 function save_file(dd)
-  local r,c = get_cur_pos()
+  if g_review_mode then
+    save_as(nil, dd)
+  end
 
+  local r,c = get_cur_pos()
   local id = get_fileid()
   local filename = get_filename(id)
   local file_has_changed = false
@@ -2679,7 +2696,7 @@ function save_as(filename, dd)
     save_as_hist_id = save_as_hist_id or get_hist_id()
     local done = false
     repeat
-      filename = lued_prompt(save_as_hist_id,"filename: ")
+      filename = lued_prompt(save_as_hist_id,"Save As Filename: ")
       if file_exists(filename) then
         local response = get_yesno
         local prompt = "File '" .. filename .. "' exists. Overwrite <y/n/a for abort (don't save)>?";
