@@ -1,3 +1,4 @@
+
 -- vhdl.lua
 
 -- Instantiates VHDL entity.
@@ -38,7 +39,7 @@ function vhdl_inst(dd)
   end
 
   line_down(1,dd2)
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
 
   disp(dd)  
 end
@@ -95,7 +96,7 @@ end rtl;
 ]===]
 
   local dd2 = 1
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   ins_str(str,dd)
 end
 
@@ -125,10 +126,10 @@ end package;
 ]===]
 
   local dd2 = 1
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   ins_str(str,dd)
-  line_up(30,dd2)
-  eol(dd)
+  move_up_n_lines(30,dd2)
+  move_to_eol(dd)
 end
 
 
@@ -202,7 +203,7 @@ end sim;
 
   local dd2 = 1
   local r,c = get_cur_pos()
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   ins_str(str,dd)
   set_cur_pos(r,c)
   disp(dd)
@@ -231,10 +232,10 @@ function vhdl_proc(dd)
 ]===]
 
   local dd2 = 1
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   ins_str(str,dd)
-  line_up(4,dd2)
-  eol(dd)
+  move_up_n_lines(4,dd2)
+  move_to_eol(dd)
 end
 
 
@@ -253,10 +254,10 @@ function vhdl_proc_all(dd)
 ]===]
 
   local dd2 = 1
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   ins_str(str,dd)
-  line_up(3,dd2)
-  eol(dd)
+  move_up_n_lines(3,dd2)
+  move_to_eol(dd)
 end
 
 
@@ -275,27 +276,31 @@ function vhdl_function(dd)
 ]===]
 
   local dd2 = 1
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   ins_str(str,dd)
-  line_up(3,dd2)
-  eol(dd)
+  move_up_n_lines(3,dd2)
+  move_to_eol(dd)
 end
 
 
-
+function alt_oth (dd) ins_str("(others => '0');\n",dd); end
+function alt_ooth (dd) ins_str("others => (others => '0'));\n",dd); end
 
 -- =============================================================================
 -- Insert signal sl : std_logic;
 
 function vhdl_sl(dd)
-
-  local str = "signal sl : std_logic;"
-
   local dd2 = 1
-  ins_str(str,dd2)
-  sol(dd2)
-  word_right(1,dd2)
-  sel_word(dd)
+
+--   local str = "signal sl : std_logic;"
+--   ins_str(str,dd2)
+--   move_to_sol(dd2)
+--   move_right_n_words(1,dd2)
+--   sel_word(dd)
+
+  ins_str(" std_logic;\n",dd)
+
+
 end
 
 
@@ -303,14 +308,18 @@ end
 -- Insert signal slv : std_logic_vector(FIXME downto 0);
 
 function vhdl_slv(dd)
-
-  local str = "signal slv : std_logic_vector(FIXME downto 0);"
-
   local dd2 = 1
-  ins_str(str,dd2)
-  sol(dd2)
-  word_right(1,dd2)
-  sel_word(dd)
+
+--   local str = "signal slv : std_logic_vector(FIXME downto 0);"
+--   ins_str(str,dd2)
+--   move_to_sol(dd2)
+--   move_right_n_words(1,dd2)
+--   sel_word(dd)
+
+  ins_str(" std_logic_vector( N downto 0);", dd2)
+  move_left_n_words(3,dd2);
+  sel_word(dd2);
+  disp(dd)
 end
 
 
@@ -324,8 +333,8 @@ function vhdl_slv_array(dd)
 
   local dd2 = 1
   ins_str(str,dd2)
-  sol(dd2)
-  word_right(1,dd2)
+  move_to_sol(dd2)
+  move_right_n_words(1,dd2)
   sel_word(dd)
 end
 
@@ -339,8 +348,8 @@ function vhdl_unsigned(dd)
 
   local dd2 = 1
   ins_str(str,dd2)
-  sol(dd2)
-  word_right(1,dd2)
+  move_to_sol(dd2)
+  move_right_n_words(1,dd2)
   sel_word(dd)
 end
 
@@ -354,8 +363,8 @@ function vhdl_signed(dd)
 
   local dd2 = 1
   ins_str(str,dd2)
-  sol(dd2)
-  word_right(1,dd2)
+  move_to_sol(dd2)
+  move_right_n_words(1,dd2)
   sel_word(dd)
 end
 
@@ -369,7 +378,7 @@ function vhdl_slv_incr(dd)
 
   local dd2 = 1
   ins_str(str,dd2)
-  sol(dd2)
+  move_to_sol(dd2)
   sel_word(dd)
 end
 
@@ -383,8 +392,8 @@ function vhdl_type_state(dd)
 
   local dd2 = 1
   ins_str(str,dd2)
-  sol(dd2)
-  word_right(1,dd2)
+  move_to_sol(dd2)
+  move_right_n_words(1,dd2)
   sel_word(dd)
 end
 
@@ -418,8 +427,8 @@ function vhdl_type_slv_array(dd)
 
   local dd2 = 1
   ins_str(str,dd2)
-  sol(dd2)
-  word_right(1,dd2)
+  move_to_sol(dd2)
+  move_right_n_words(1,dd2)
   sel_word(dd2)
   set_sel_end()
   disp(dd)
@@ -445,11 +454,11 @@ function vhdl_case(dd)
 ]]
 
   local dd2 = 1
-  sol_classic(dd2)
+  move_to_sol_classic(dd2)
   ins_str(str,dd2)
-  line_up(9,dd2)
-  sol(dd2)
-  word_right(1,dd2)
+  move_up_n_lines(9,dd2)
+  move_to_sol(dd2)
+  move_right_n_words(1,dd2)
   sel_word(dd)
 end
 
@@ -463,12 +472,12 @@ alt_vhdl_proc_all = vhdl_proc_all
 alt_vhdl_template = vhdl_template
 alt_vhdl_package = vhdl_package
 alt_vhdl_tb = vhdl_tb
-alt_vhdl_sl  = vhdl_sl
-alt_vhdl_slv = vhdl_slv
-alt_vhdl_unsigned = vhdl_unsigned
-alt_vhdl_signed = vhdl_signed
-alt_vhdl_slv_array = vhdl_slv_array
-alt_vhdl_slv_incr = vhdl_slv_incr
+alt_sl  = vhdl_sl
+alt_slv = vhdl_slv
+alt_unsigned = vhdl_unsigned
+alt_signed = vhdl_signed
+alt_slv_array = vhdl_slv_array
+alt_slv_incr = vhdl_slv_incr
 alt_vhdl_case = vhdl_case
 alt_vhdl_type_state = vhdl_type_state
 alt_vhdl_type_record = vhdl_type_record
