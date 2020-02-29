@@ -1763,6 +1763,7 @@ function find_and_replace(from,to,options,dd)
   until not found
   if resp~="s" then
     set_cur_pos(initial_r,initial_c)
+    recenter(dd2)
   end
   disp(dd)
 end
