@@ -2499,16 +2499,19 @@ function insert_tab(dd)
   repeat
     if is_firstline() then break end
     move_up_n_lines(1,dd2)
-    local len = get_line_len()
+    local     len = get_line_len()
     local short_line = (len < c1)
     done = not short_line
   until done
-
   move_right_n_words(1,dd2)
   local r2,c2 = get_cur_pos()
+ 
   set_cur_pos(r1,c1)
-  while not is_space() do
-    move_right_n_char(1,dd2)
+  if not is_eol() then
+    while not is_space() do
+      if is_sol() then break end
+      move_left_n_char(1,dd2)
+    end
   end
   r1,c1 = get_cur_pos()
   if (c2 > c1) then
