@@ -232,7 +232,7 @@ alt__colon_w     = save_file               hot(":w")  -- Save File. Similar to V
 
 alt_cd           = cd_change_dir;          hot("cd")  -- Change directory
 alt_ed           = set_edit_mode           hot("ed")  -- Change to EDIT mode. You almost always want to be in EDIT mode.
-alt_he           = open_file_bindings      hot("he")  -- Help. Open lued_bindings.lua
+alt_help         = open_file_bindings      hot("help")  -- Help. Open lued_bindings.lua
 alt_jj           = join_lines              hot("jj") -- Similar to Sublime Ctrl+J. Join lines.
 alt_ln           = toggle_line_numbers     hot("ln")  -- show line numbers
 alt_ls           = ls_dir                  hot("ls") -- unix ls command. dos dir command
