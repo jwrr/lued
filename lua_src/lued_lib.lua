@@ -840,6 +840,9 @@ function disp(dd,center)
    if dd == 0 then
      g_command_count = g_command_count or 0
      g_command_count = g_command_count + 1
+     
+     g_prev_pos = g_cur_pos or nil;
+     g_cur_pos = get_cur_pos();
 
      if g_lua_mode == nil then return end
      local lua_mode = 0
@@ -3178,6 +3181,20 @@ function recenter(dd)
 end
 
 
+function move_down_and_repeat(dd)
+  local dd2 = 1
+  if g_prev_pos ~= nil then
+    local prev_r, prev_c = g_prev_pos;
+    local prev_cmd = get_last_cmd() or ""
+    set_cur_pos(prev_r, prev_c);
+    move_down_n_lines(1,dd2)
+    
+    
+  end
+  disp(dd)
+end
+
+
 function undo_cmd(dd)
   local last_cmd = get_last_cmd()
 --  dbg_prompt("last_cmd="..last_cmd.."xxx")
@@ -3639,9 +3656,9 @@ function select_tab_menu(filter)
   local id = get_fileid()
   local found_i = 0
   local found_count = 0
+  g_tab_prev = g_tab_prev or 1
   for i=1,n do
     local is_changed = is_modified(i) and "* " or "  "
-    g_tab_prev = g_tab_prev or 1
     local is_current = i==g_tab_prev and "TT" or "  "
     is_current = i==id and "->" or is_current
     local line = is_current..i..is_changed..get_filename(i)
@@ -3689,7 +3706,7 @@ function select_tab(filter)
       end
     end
   until found_i > 0
-  if (new_id~=id) then
+  if (tonumber(new_id)~=id) then
     session_sel(new_id)
   else
     disp()

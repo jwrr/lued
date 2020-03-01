@@ -311,13 +311,18 @@ TBD
 * alt_sa - save as. prompt for overwrite? if file exists - done
 * esc+review = Toggle Review Mode. In review mode save maps to save_as.
 * Bug Fix - ctrl_D with one word on line causes hang. Did not range check index in Lua code. it when negative and never stopped decrementing. - done
-* Add version
+* Add version - done
+* Fix <TAB> if in middle of word, go to beginning of word before tabbing current word left - done
+* Fix alt_ds hotkey not hot - done
+* Change alt_he to alt_help - done
+* Center screen (alt_kc) after last find and replace (ctrl_H) - done
+* Fix Change_File_Tab (alt_tt) to not update last tab when tab doesn't change - done
+
 
 ==========================
 
 * Split screen
 * Document API for plugins
-* aaaaaaaaaa
 * toggle find whole word, case sensitive, regex, incremental
 * Improve Goto Label
 * CRASH REPORT when selecting and cursor moves above start
@@ -343,8 +348,7 @@ TBD
   allows user to re-arrange the order of the file tabs.
 
 
-* move file has changed checking from C to Lua
-* alt_n - clean up prompt to read empty file.
+* move 'file has changed' checking from C to Lua
 del_sol_in_region. 
 esc_space goes into lua mode. any other esc seq exists lua mode
 
@@ -352,6 +356,50 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * Column/Block/Rectangle Select, Cut, Copy, Move
 * Sort Selected. Sublime f9
 * display without wrapping long lines.
-* Incremental Search  alt_ii (change indent to alt_in)
+* Incremental Search alt_ii (change indent to alt_in)
   Implement as either find_selected + one char OR find_previous + one char
+
+
+* delete spaces in selection for alignment
+*wrap text at 72
+
+** Add global g_stop_at_line_boundary to enable/disable this feature.
+
+
+* Change delete_n_char (alt_dN) to goto next line on repeat
+** This is useful for deleting multline lines of same text
+** alt_da/DA delete again goes to next/prev line and repetes delete
+** Similar to delete_to_eol (alt_de) behavior
+** Similar to delete_spaces (alt_ds) behavior
+* Add delete_to_match (alt_df) to delete to find match
+* Add support for macros (alt_mm)
+* Enhance File open (ctrl_O) to perform partial match file open (ctrl_P) if file not found
+* Add command alt_pwd to display current working directory
+* Add command alt_os to get shell prompt
+* Add command alt_lua to get to lua repl
+* Enhance alt_tt to open file (ctrl_p) if file is not open
+* Enhance ctrl_f to find without qualifiers (alt_fw,alt_fc) if not found
+* Add List Tabs (Open Files - Alt_tt) alphabetically
+* Add List Tabs (Open Files - Alt_tt) by most recent
+* Find (ctrl_F, alt_ff alt_FF) ignore comments (alt_fc)
+
+* alt_mm - toggle mouse between up/down and left/right
+* alt_mN - change mouse step size
+* alt_MM - toggle between stepsize of N and 1
+
+
+
+# Subject Line
+## Keep subject brief and meaningful
+## Use imperative mode
+### Subject should answer What will change if I apply this commit? If applied, this commit will ...
+### Common imperative verbs: Add, Remove, Update, Fix, Refactor, Polish, Rework
+## Separate subject from body with a blank line
+## Capitalize first letter subject line
+## Do not end subject line with period
+# Body
+## Explain what and why vs how
+## Keep lines less than 72 char
+## Resolves: #123
+## See also: #456 #789
 
