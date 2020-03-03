@@ -3649,6 +3649,30 @@ function hit_cr()
 end
 
 
+function save_session_file(dd)
+  local n = get_numsessions()
+  local id = get_fileid()
+  local seshfile = io.open("session.lued","w")
+  for i=1,n do
+    local is_changed = is_modified(i) and "* " or "  "
+    local is_current = i==g_tab_prev and "TT" or "  "
+    is_current = i==id and "->" or is_current
+--  local line = is_current..i..is_changed..get_filename(i)
+    local line = get_filename(i)
+    seshfile:write(line.."\n")
+  end
+  seshfile:close()
+  disp(dd)
+end
+
+
+function load_session_file(dd)
+  local sesh_file = io.open("session.lued","r")
+  local all_files = sesh_file:read("*all")
+  open_file(all_files, dd)
+end
+
+
 function select_tab_menu(filter)
   local n = get_numsessions()
   print "\n"

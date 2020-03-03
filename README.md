@@ -317,6 +317,7 @@ TBD
 * Change alt_he to alt_help - done
 * Center screen (alt_kc) after last find and replace (ctrl_H) - done
 * Fix Change_File_Tab (alt_tt) to not update last tab when tab doesn't change - done
+* Add session support (alt_SaveSession, alt_LoadSession)
 
 
 ==========================
@@ -387,7 +388,10 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * alt_mN - change mouse step size
 * alt_MM - toggle between stepsize of N and 1
 
-
+* alt_db/DB delete to bottom/beginning of file - done
+* alt_dl/DL delete to end/start of line - done
+* add support for double ctrl-K hot.
+* ctrl_H - when done with find and replace return page to original offset
 
 # Subject Line
 ## Keep subject brief and meaningful

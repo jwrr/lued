@@ -98,8 +98,10 @@ alt_cw           = copy_word               hot("cw") -- copy word
 alt_DD           = duplicate_line          hot("DD") -- Similar to Sublime Ctrl+Shift+D
 
 alt_d            = del_char                          -- del N char
-alt_DE           = del_sol                 hot("DE") -- Similar to Sublime Ctrl_K+<Backspace>
+alt_db           = del_eof                 hot("db")
+alt_DB           = del_sof                 hot("DB")
 alt_de           = del_eol                 hot("de") -- Similar to Sublime Ctrl+KK
+alt_DE           = del_sol                 hot("DE") -- Similar to Sublime Ctrl_K+<Backspace>
 alt_dm           = del_mark_to_cursor      hot("dm") -- Delete from mark (alt+mm) to cursor
 alt_ds           = del_spaces_selected     hot("ds") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
 alt_dd           = del_word                hot("dd") -- Delete word under cursor
@@ -242,6 +244,8 @@ alt_relued       = relued                            -- Reload lued script
 alt_review       = toggle_review_mode                -- review mode prevents saving file
 alt_rl           = reload_file             hot("rl") -- Reload current file
 alt_sa           = save_as                 hot("sa") -- Similar to Sublime Ctrl+Shift+S. File Save as.
+alt_SaveSession  = save_session_file
+alt_LoadSession  = load_session_file
 alt_Seti         = set_scope_indent                  -- Set Scope Indent SI2 SI3 SI4
 -- alt_sw           = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("sw")
 
