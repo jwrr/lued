@@ -1,6 +1,10 @@
 
 -- vhdl.lua
 
+--[[
+  vhdl_inst
+--]]
+
 -- Instantiates VHDL entity.
 --   1. Copy+paste the entity
 --   2. Place cursor on the entity line.
@@ -38,7 +42,7 @@ function vhdl_inst(dd)
     end
   end
 
-  line_down(1,dd2)
+  movd_down_n_lines(1,dd2)
   move_to_sol_classic(dd2)
 
   disp(dd)  
@@ -462,6 +466,28 @@ function vhdl_case(dd)
   sel_word(dd)
 end
 
+
+function vhdl_help()
+  local str = [[
+alt_vhdl_inst           = vhdl_inst_selected
+alt_vhdl_proc           = vhdl_proc
+alt_vhdl_proc_all       = vhdl_proc_all
+alt_vhdl_template = vhdl_template
+alt_vhdl_package = vhdl_package
+alt_vhdl_tb = vhdl_tb
+alt_sl  = vhdl_sl
+alt_slv = vhdl_slv
+alt_unsigned = vhdl_unsigned
+alt_signed = vhdl_signed
+alt_slv_array = vhdl_slv_array
+alt_slv_incr = vhdl_slv_incr
+alt_vhdl_case = vhdl_case
+alt_vhdl_type_state = vhdl_type_state
+alt_vhdl_type_record = vhdl_type_record
+alt_vhdl_type_slv_array = vhdl_type_slv_array
+alt_vhdl_function = vhdl_function
+  ]]
+end
 
 -- =============================================================================
 -- KEYBOARD BINDINGS

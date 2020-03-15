@@ -138,7 +138,7 @@ alt_ii           = indent_selected         hot("ii")  -- Indented selected lines
 alt_ui           = unindent_selected       hot("ui")  -- Unindent selected lines one space
 alt_ir           = reindent_selected       hot("ir")  -- Reindents selected per defined indent size
 alt_is           = set_indent_size         hot("is")  -- Set indent size
-alt_aa           = align_delimiter_selected hot("aa") -- Align char on current line with previous line
+alt_al           = align_cur_char;         hot("al") -- Align char on next line with current line
 alt_af           = align_selected          hot("af")  -- Align first char on next line with current line. If lines selected then align all lines with first line.
 
 --## Center Cursor Commands

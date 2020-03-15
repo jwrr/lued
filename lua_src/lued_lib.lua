@@ -262,10 +262,11 @@ end
 -- checked. When line is nil then the char under the cursor is checked.
 function is_space(line,pos)
   local is;
-  if line then
+  if line and line ~= "" then
     is = string.match(line,"^%s",pos) and true or false
   else
-    local ch = get_char()
+    local offset = pos
+    local ch = get_char(offset)
     -- dbg_prompt ("is_space="..ch.."xxx")
     is = string.match(ch,"^%s",1) and true or false
   end
@@ -577,9 +578,13 @@ function align_delimiter_of_next_line(delim, dd)
 end
 
 
-function get_char()
+function get_char(offset)
+  offset = offset or 0
   local r,c = get_cur_pos()
-  return string.sub( get_line() , c, c)
+  local pos = c + offset
+  pos = math.max(1, pos)
+  pos = math.min(get_line_len(), pos)
+  return string.sub( get_line() , pos, pos)
 end
 
 
@@ -590,10 +595,47 @@ function align_delimiter_selected(delim, dd)
   foreach_selected(align_delimiter_of_next_line, dd)
 end
 
+function align_cur_char(dd)
+  local dd2 = 1
+  local cur_char = get_char()
+  local r1,c1 = get_cur_pos()
+  move_down_n_lines(1,dd2)
+  move_to_sol_classic(dd2)
+  found = find_forward(cur_char,true,false,true,"",dd2)
+  if not found then
+    disp(dd)
+    return
+  end
+
+  set_sel_off()
+  local r2,c2 = get_cur_pos();
+  local done = c2 == c1
+  local cnt = 0
+  while not done do
+    if c2 < c1 then
+      ins_str(" ",dd2)
+    else
+      if is_sol() or not is_space("",-1) then
+        done = true
+      else      
+        del_backspace(1,dd2)
+        if not is_space("",-1) then
+          ins_str(" ",dd2)
+          done = true
+        end
+      end
+    end
+    r2,c2 = get_cur_pos();
+    cnt = cnt + 1
+    done = done or (c2 == c1) or (cnt > 200)
+  end
+  disp(dd)
+end
+
 
 function reindent_selected(dd)
-  g_indent_char = g_indent_char or " "
-  g_indent_size = g_indent_size or 4
+  g_indent_char    = g_indent_char or " "
+  g_indent_size    = g_indent_size or 4
   local dd2 = 1
   local initial_row,initial_col = get_cur_pos()
   local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
