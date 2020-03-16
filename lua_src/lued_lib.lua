@@ -2540,31 +2540,40 @@ function insert_tab(dd)
   end
   local dd2 = 1
   local r1,c1 = get_cur_pos()
+  local len = get_line_len()
+  local r2 = r1
+  local c2 = math.min(len+1,c1)
 
+  set_cur_pos(r2,c2)
   local done = false
   repeat
     if is_firstline() then break end
     move_up_n_lines(1,dd2)
-    local     len = get_line_len()
-    local short_line = (len < c1)
+    local len = get_line_len()
+    local short_line = (len <= c2)
     done = not short_line
   until done
-  move_right_n_words(1,dd2)
-  local r2,c2 = get_cur_pos()
- 
-  set_cur_pos(r1,c1)
   if not is_eol() then
+    move_right_n_words(1,dd2)
+  end
+  local r3,c3 = get_cur_pos()
+ 
+  set_cur_pos(r2,c2)
+  
+  if not is_eol() then
+    -- goto beginning of word
     while not is_space() do
       if is_sol() then break end
       move_left_n_char(1,dd2)
     end
   end
+  
   r1,c1 = get_cur_pos()
-  if (c2 > c1) then
-    while is_space() do
+  if (c3 > c2) then
+    while is_space() and not is_eol() do
       del_char(1,dd2)
     end
-    local num_spaces_to_insert = c2 - c1
+    local num_spaces_to_insert = c3 - c2
     local t = string.rep(" ",num_spaces_to_insert) or " "
     ins_str(t,dd2)
   else

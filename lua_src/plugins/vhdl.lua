@@ -19,33 +19,47 @@ function vhdl_inst(dd)
   local dd2 = 1
   local line = get_line()
   local newline = {}
-  
+
+  local next_line = get_next_line() or "" -- peek ahead for close paren
+  local paren_start = string.find(next_line, "^%s*%)%s*;",1) or 0
+  local comma = (paren_start==0) and "," or " "
+
+  local name = string.gsub(line, "^%s*([_%w]+).*", "%1")
+  local padlen = math.max(14 - #name, 0)
+  local pad = string.rep(' ',padlen)
+
   -- entity xxx is
-  newline[1] = string.gsub(line, "^%s*entity%s+([_%w]+)%s+is", "u_%1: entity work.%1")
+  newline[1] = string.gsub(line, "^%s*entity%s+([_%w]+)%s+is", "  u_%1: entity work.%1")
+
+  -- generic (
+  newline[2] = string.gsub(line, "^%s*generic.*", "  generic map (")
+  
+  -- WIDTH : integer := 1024;
+  newline[3] = string.gsub(line, "^%s*([_%w]+).*[:]=.*", "    %1"..pad.."=> %1"..comma)
 
   -- port (
-  newline[2] = string.gsub(line, "^%s*port.*", "port map (")
+  newline[4] = string.gsub(line, "^%s*port.*", "  port map (")
 
   -- clk: in std_logic;
-  local next_line = get_next_line() or "" -- peek ahead for close paren 
-  local paren_start = string.find(next_line, "^%s*%)%s*;",1) or 0
-  local comma = (paren_start==0) and "," or "" 
-  newline[3] = string.gsub(line, "^%s*([_%w]+)%s*:%s*(%w%w.)%s*(std_logic[^;]*)", "   %1 => %1"..comma.."  -- %2 %3")
+  newline[5] = string.gsub(line, "^%s*([_%w]+)%s*:%s*(%w%w.)%s*(std_logic[^;]*)", "    %1"..pad.."=> %1"..comma..pad.."  -- %2 %3")
 
+  -- );
+  newline[6] = string.gsub(line, "^%s*[)];.*", "  );")
+  
   -- end xxx;
-  newline[4] = string.gsub(line, "^%s*end", "-- %0")
+  newline[7] = string.gsub(line, "^%s*end", "  -- %0")
 
-  for i=1,4 do
+  for i=1,7 do
     if (newline[i]~=line) then
       replace_line(newline[i],dd2)
       break
     end
   end
 
-  movd_down_n_lines(1,dd2)
+  move_down_n_lines(1,dd2)
   move_to_sol_classic(dd2)
 
-  disp(dd)  
+  disp(dd)
 end
 
 
@@ -94,7 +108,7 @@ architecture rtl of yyy is
   signal eeeee     : unsigned(WIDTH-1 downto 0);
   signal ffffff    : signed(WIDTH-1 downto 0);
 begin
-  
+
 end rtl;
 
 ]===]
@@ -169,7 +183,7 @@ architecture sim of tb is
   signal clk       : std_logic;
   signal rst_n     : std_logic;
   signal test_done : std_logic := '0';
-  
+
   constant CLK_PERIOD : integer := 10 ns;
 
 begin
@@ -185,19 +199,19 @@ begin
     end
     wait;  -- Simulation stops stop after clock stops
   end
-  
+
   main_test: process
   begin
     rst_n <= '0'; -- assert reset
-    
+
     for i in 1 to 10 loop
       wait until rising_edge(clk);
     end loop;
-    
+
     wait for 10 * CLK_PERIOD;
-    
+
     report("test done"); -- severity NOTE, WARNING, ERROR, FAILURE (NOTE is default)
-  
+
     test_done <= '1';
     wait;
   end
@@ -229,7 +243,7 @@ function vhdl_proc(dd)
       xxx <= '0;
       yyy <= (others => '0');
     elsif rising_edge(clk)
-      
+
     end if;
   end process;
 
@@ -311,7 +325,8 @@ end
 -- =============================================================================
 -- Insert signal slv : std_logic_vector(FIXME downto 0);
 
-function vhdl_slv(dd)
+function vhdl_slv(n,dd)
+  n = n or 0
   local dd2 = 1
 
 --   local str = "signal slv : std_logic_vector(FIXME downto 0);"
@@ -320,9 +335,13 @@ function vhdl_slv(dd)
 --   move_right_n_words(1,dd2)
 --   sel_word(dd)
 
-  ins_str(" std_logic_vector( N downto 0);", dd2)
-  move_left_n_words(3,dd2);
-  sel_word(dd2);
+  if n == 0 then
+    ins_str("std_logic_vector(".."FIXME-1".." downto 0);", dd2)
+    move_left_n_words(3,dd2);
+    sel_word(dd2);
+  else
+    ins_str("std_logic_vector("..n.." downto 0);", dd2)
+  end
   disp(dd)
 end
 
@@ -390,7 +409,7 @@ end
 -- =============================================================================
 -- Insert type state is (IDLE, STATE1);
 
-function vhdl_type_state(dd)
+function vhdl_state(dd)
 
   local str = "type state_type is (IDLE, STATE1);"
 
@@ -405,7 +424,7 @@ end
 -- =============================================================================
 -- Insert VHDL record template;
 
-function vhdl_type_record(dd)
+function vhdl_record(dd)
 
   local str = [[
   type aaa_rec is record
@@ -414,7 +433,7 @@ function vhdl_type_record(dd)
   end record aaa_rec;
 
 ]]
-  
+
 
   local dd2 = 1
   ins_str(str,dd)
@@ -468,46 +487,52 @@ end
 
 
 function vhdl_help()
-  local str = [[
-alt_vhdl_inst           = vhdl_inst_selected
-alt_vhdl_proc           = vhdl_proc
-alt_vhdl_proc_all       = vhdl_proc_all
-alt_vhdl_template = vhdl_template
-alt_vhdl_package = vhdl_package
-alt_vhdl_tb = vhdl_tb
-alt_sl  = vhdl_sl
-alt_slv = vhdl_slv
-alt_unsigned = vhdl_unsigned
-alt_signed = vhdl_signed
-alt_slv_array = vhdl_slv_array
-alt_slv_incr = vhdl_slv_incr
-alt_vhdl_case = vhdl_case
-alt_vhdl_type_state = vhdl_type_state
-alt_vhdl_type_record = vhdl_type_record
-alt_vhdl_type_slv_array = vhdl_type_slv_array
-alt_vhdl_function = vhdl_function
+  local help_str = [[
+  
+alt_vhdl_inst             - Convert arch/port list into entity instantiation
+alt_vhdl_proc             - Template for clocked process
+alt_vhdl_proc_all         - Template for comb process
+alt_vhdl_template         - Template for vhdl file 
+alt_vhdl_package          - Template for vhdl package
+alt_vhdl_tb               - Template for testbench
+alt_sl                    - Shortcut for std_logic
+alt_slv                   - Shortcut slv.  alt+slv15 -> std_logic_vector(15 downto 0);
+alt_slv_squote            - Shortcut slv.  alt+slv'WID -> std_logic_vector(WID-1 downto 0);
+alt_unsigned              - shortcut unsigned15 -> unsigned(15 downto 0);
+alt_signed                - shortcut signed15 -> signed(15 downto 0);
+alt_slv_array             - shortcut
+alt_slv_incr              - shortcut x <= std_logic_vecctor(unsigned(x)+1);     
+alt_vhdl_case             - Template for case statement
+alt_vhdl_state            - Template for state
+alt_vhdl_record           - Template
+alt_vhdl_type_slv_array   - Template
+alt_vhdl_function         - Template
   ]]
+
+print(help_str)
+
 end
 
 -- =============================================================================
 -- KEYBOARD BINDINGS
 
-alt_vhdl_inst = vhdl_inst_selected
-alt_vhdl_proc = vhdl_proc
-alt_vhdl_proc_all = vhdl_proc_all
-alt_vhdl_template = vhdl_template
-alt_vhdl_package = vhdl_package
-alt_vhdl_tb = vhdl_tb
-alt_sl  = vhdl_sl
-alt_slv = vhdl_slv
-alt_unsigned = vhdl_unsigned
-alt_signed = vhdl_signed
-alt_slv_array = vhdl_slv_array
-alt_slv_incr = vhdl_slv_incr
-alt_vhdl_case = vhdl_case
-alt_vhdl_type_state = vhdl_type_state
-alt_vhdl_type_record = vhdl_type_record
+alt_vhdl_help      = vhdl_help
+alt_vhdl_inst      = vhdl_inst_selected
+alt_vhdl_proc      = vhdl_proc
+alt_vhdl_proc_all  = vhdl_proc_all
+alt_vhdl_template  = vhdl_template
+alt_vhdl_package   = vhdl_package
+alt_vhdl_tb        = vhdl_tb
+alt_sl             = vhdl_sl
+alt_slv            = vhdl_slv
+alt_unsigned       = vhdl_unsigned
+alt_signed         = vhdl_signed
+alt_slv_array      = vhdl_slv_array
+alt_slv_incr       = vhdl_slv_incr
+alt_vhdl_case      = vhdl_case
+alt_vhdl_state     = vhdl_state
+alt_vhdl_record    = vhdl_record
 alt_vhdl_type_slv_array = vhdl_type_slv_array
-alt_vhdl_function = vhdl_function
+alt_vhdl_function  = vhdl_function
 
 
