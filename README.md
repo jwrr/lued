@@ -407,3 +407,7 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 ## Resolves: #123
 ## See also: #456 #789
 
+* alt_df/DF delete to File end or File start eof/sof
+* alt_sf/SF select to File end or File start eof/sof
+* alt_ff/FF goto File end or File start eof/sof
+

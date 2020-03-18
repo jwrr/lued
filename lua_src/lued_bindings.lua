@@ -57,14 +57,15 @@ alt__plus_       = tab_prev                hot(",+,") -- Change to previous file
 
 --## Select Commands
 alt_si           = sel_indentation         hot("si") -- Similar to Sublime Ctrl+shift+J.  Select lines with the indentation.
-alt_sq           = sel_sol                 hot("sq") -- Select from cursor to start of line
 alt_sb           = sel_inside_braces       hot("sb") -- Select inside curly brace. Similar to Sublime Ctrl+Command+M
-alt_se           = sel_eol                 hot("se") -- Select from cursor to end of line
-alt_sq           = sel_sof                 hot("sq") -- Select from cursor to start of file
-alt_sg           = sel_eof                 hot("sg") -- Select from cursor to end of file
+alt_se           = sel_eol                 hot("se") -- Select from cursor to End of line
+alt_SE           = sel_sol                 hot("SE") -- Select from cursor to starting End of line
+alt_sb           = sel_eof                 hot("sb") -- Select to Bottom of File Buffer
+alt_SB           = sel_sof                 hot("SB") -- Select to Beginning of File Buffer
 alt_sm           = sel_mark_to_cursor      hot("sm") -- Select from mark (alt+mm) to cursor. Similar to Sublime Ctrl+K
 alt_ss           = sel_toggle              hot("ss") -- Turn off/on selection. Similar to Sublime <ESC>.
-alt_sw           = sel_word                hot("sw") -- Select Word (same as Ctrl+D). Similar to Sublime Ctrl+D
+alt_sw           = sel_eow                 hot("sw") -- Select to End of word.
+alt_SW           = sel_sow                 hot("SW") -- Select to starting End of word.
 
 --## Movement Commands
 alt_bb           = toggle_bottom           hot("bb")  -- Goto bottom of file. Similar to Sublime END
@@ -76,10 +77,8 @@ alt_ee           = move_to_eol             hot("ee")  -- Move to End of Line. Si
 alt_EE           = move_to_sol             hot("EE")  -- Move to Start of Line. Similar to Sublime <Home>.
 alt__gt_         = halfsy_right            hot(",>,") -- Move right half the distance
 alt__lt_         = halfsy_left             hot(",<,") -- Move left half the distance
-alt_u            = set_move_up_n_lines                -- Move N lines up. alt_u42<Enter> moves up 42 lines
-alt_uu           = set_move_up_n_lines     hot("uu")  -- Move N lines up. alt_u42<Enter> moves up 42 lines
-alt_l            = move_left_n_char                   -- Move N char left.  alt_l42<Enter> moves 42 char to the left
-alt_11           = move_left_n_char        hot("ll")  -- Move predefined numbed of char to the left.
+alt_R            = move_left_n_char                   -- Move N char left.  alt_l42<Enter> moves 42 char to the left
+alt_RR           = move_left_n_char        hot("RR")  -- Move predefined numbed of char to the left.
 alt_r            = set_move_right_n_char              -- Move N char right.  alt_r42<Enter> moves 42 char to the right
 alt_rr           = move_right_n_char       hot("rr")  -- Move predefined numbed of char to the right.
 
@@ -93,13 +92,13 @@ alt_cx           = ctag_delete_history      hot("cx") -- ctag delete history
 
 --## Delete, Cut, Copy and Paste Commands
 alt_ce           = copy_eol                hot("ce") -- copy current pos to eol
-alt_cq           = copy_sol                hot("cq") -- copy sol to current pos
+alt_CE           = copy_sol                hot("CE") -- copy sol to current pos
 alt_cw           = copy_word               hot("cw") -- copy word
 alt_DD           = duplicate_line          hot("DD") -- Similar to Sublime Ctrl+Shift+D
 
 alt_d            = del_char                          -- del N char
-alt_db           = del_eof                 hot("db")
-alt_DB           = del_sof                 hot("DB")
+alt_db           = del_eof                 hot("db") -- Delete to Bottom of Tab/Buffer/Window/File
+alt_DB           = del_sof                 hot("DB") -- Delete to Beginning of Tab
 alt_de           = del_eol                 hot("de") -- Similar to Sublime Ctrl+KK
 alt_DE           = del_sol                 hot("DE") -- Similar to Sublime Ctrl_K+<Backspace>
 alt_dm           = del_mark_to_cursor      hot("dm") -- Delete from mark (alt+mm) to cursor
@@ -108,8 +107,8 @@ alt_dd           = del_word                hot("dd") -- Delete word under cursor
 alt_dw           = del_eow                 hot("dw") -- Similar to Sublime Ctrl+KW
 alt_DW           = del_sow                 hot("DW") -- Similar to Sublime Ctrl+Backspace
 
-alt_pl           = paste_line_after        hot("pl") -- Paste line after current line
-alt_pk           = paste_line_before       hot("pk") -- Past line before current line
+alt_pl           = paste_line_after        hot("pl") -- Paste Line after current line
+alt_PL           = paste_line_before       hot("PL") -- Paste Line before current line
 
 --## Find and Replace Commands
 alt_fa           = search_all_files        hot("fa")  -- Similar to Sublime Ctrl+Shift+F. search all open files for match
@@ -139,7 +138,7 @@ alt_ui           = unindent_selected       hot("ui")  -- Unindent selected lines
 alt_ir           = reindent_selected       hot("ir")  -- Reindents selected per defined indent size
 alt_is           = set_indent_size         hot("is")  -- Set indent size
 alt_al           = align_cur_char;         hot("al") -- Align char on next line with current line
-alt_af           = align_selected          hot("af")  -- Align first char on next line with current line. If lines selected then align all lines with first line.
+alt_af           = align_selected          hot("af")  -- Align First char on next line with current line. If lines selected then align all lines with first line.
 
 --## Center Cursor Commands
 alt_kc           = recenter                hot("kc") -- Recenters cursor to top, press again and recenters to center. Similar to Sublime's CTRL+KC. vim's zz/zt. 
@@ -154,8 +153,8 @@ alt_kl           = sel_to_lower            hot("kl") -- Similar to Sublime Ctrl+
 alt_ku           = sel_to_upper            hot("ku") -- Similar to Sublime Ctrl+KU. Convert to Upper Case
 
 --## Mark Commands
-alt_ka           = sel_mark_to_cursor      hot("ka") -- Similar to Sublime Ctrl+KA. Select from mark to cursor (set mark with alt_mm)
-alt_kw           = del_mark_to_cursor      hot("kw") -- Similar to Sublime Ctrl+KW. Delete from mark to cursor (set mark with alt_mm)
+alt_sm           = sel_mark_to_cursor      hot("sm") -- Similar to Sublime Ctrl+KA. Select from mark to cursor (set mark with alt_mm)
+alt_dm           = del_mark_to_cursor      hot("dm") -- Similar to Sublime Ctrl+KW. Delete from mark to cursor (set mark with alt_mm)
 alt_M_squote     = function(name) set_mark(name); disp() end
 alt_M_squote     = function(name) goto_mark(name); disp() end
 alt_mm           = set_nameless_mark       hot("mm") -- Similar to Sublime Ctrl+K+space. Set Mark
@@ -164,7 +163,7 @@ alt_mn           = goto_nameless_mark_next hot("mn") -- Goto next mark in stack
 
 --## Insert Line Before / After Commands
 alt_ll           = insert_cr_after         hot("ll") -- Goto to end of line and insert new line. similar to vi's o. Similar to Sublime Ctrl+Enter
-alt_lk           = insert_cr_before        hot("lk") -- Goto beginning of line and insert new line. similar to vi's O. Similar to Sublime Ctrl+Shift+Enter
+alt_LL           = insert_cr_before        hot("LL") -- Goto beginning of line and insert new line. similar to vi's O. Similar to Sublime Ctrl+Shift+Enter
 
 --## Page Up / Down Commands
 alt_p            = move_down_n_lines                 -- Move down N lines

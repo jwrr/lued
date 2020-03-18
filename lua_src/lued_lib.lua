@@ -2199,45 +2199,59 @@ function del_char(n,dd)
 end
 
 
-function del_sow(dd)
+function sel_sow(dd)
   local dd2 = 1
-  move_left_n_char(1,dd2)
+  set_sel_start()
   if not is_word() then
     while not is_word() do
-      del_char(1,dd2)
       move_left_n_char(1,dd2)
     end
     move_right_n_char(1,dd2)
   else
     while is_word() do
-      del_char(1,dd2)
       move_left_n_char(1,dd2)
     end
     move_right_n_char(1,dd2)
   end
+  set_sel_end()
+  disp(dd)
+end
+
+
+function del_sow(dd)
+  local dd2 = 1
+  sel_sow(dd2)
+  del_sel(dd)
+end
+
+
+function sel_eow(dd)
+  local dd2 = 1
+  set_sel_start()
+  if is_space() then
+    while is_space() and not is_eol()  do
+      move_right_n_char(1,dd2)
+    end
+  else
+    while not is_space() and not is_eol() do
+      move_right_n_char(1,dd2)
+    end
+  end
+  set_sel_end()
   disp(dd)
 end
 
 
 function del_eow(dd)
   local dd2 = 1
-  
-  if not is_word() then
-    while not is_word() do
-      del_char(1,dd2)
-    end
-  else
-    while is_word() do
-      del_char(1,dd2)
-    end
-  end
-  disp(dd)
+  sel_eow(dd2)
+  del_sel(dd)
 end
 
 
 -- Remove spaces from cursor to start of next word.  If cursor is not over a
 -- space then go to next line and then delete the spaces.
-function del_spaces(dd)
+function del_spaces_next_line(dd)
   local dd2 = 1
   if not is_space() then
     move_down_n_lines(1,dd2)
@@ -2252,7 +2266,7 @@ end
 
 
 function del_spaces_selected(dd)
-  foreach_selected(del_spaces, dd)
+  foreach_selected(del_spaces_next_line, dd)
 end
 
 
@@ -2568,12 +2582,12 @@ function insert_tab(dd)
     end
   end
   
-  r1,c1 = get_cur_pos()
   if (c3 > c2) then
-    while is_space() and not is_eol() do
-      del_char(1,dd2)
+    if is_space() then
+      del_eow(dd2) -- delete to end of spaces
     end
-    local num_spaces_to_insert = c3 - c2
+    r4,c4 = get_cur_pos()
+    local num_spaces_to_insert = c3 - c4
     local t = string.rep(" ",num_spaces_to_insert) or " "
     ins_str(t,dd2)
   else
@@ -3848,7 +3862,7 @@ end
 
 --  foreach_selected(align_start_of_next_line, dd)
 --  foreach_selected(align_delimiter_of_next_line, dd)
---  foreach_selected(del_spaces, dd)
+--  foreach_selected(del_spaces_next_line, dd)
 --  foreach_selected(bubble_line_up,dd)
 --  foreach_selected(comment, dd)
 --  foreach_selected(uncomment, dd)
