@@ -44,7 +44,7 @@ function vhdl_inst(dd)
   newline[5] = string.gsub(line, "^%s*([_%w]+)%s*:%s*(%w%w.)%s*(std_logic[^;]*)", "    %1"..pad.."=> %1"..comma..pad.."  -- %2 %3")
 
   -- );
-  newline[6] = string.gsub(line, "^%s*[)];.*", "  );")
+  newline[6] = string.gsub(line, "^%s*[)];.*", "  )")
   
   -- end xxx;
   newline[7] = string.gsub(line, "^%s*end", "  -- %0")
@@ -168,7 +168,7 @@ library std.textio.all;
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use ieee.std_logic_textio.all
+use ieee.std_logic_textio.all;
 library work;
 
 entity tb is
@@ -184,21 +184,21 @@ architecture sim of tb is
   signal rst_n     : std_logic;
   signal test_done : std_logic := '0';
 
-  constant CLK_PERIOD : integer := 10 ns;
+  constant CLK_PERIOD : time := 10 ns;
 
 begin
 
   -- generate clocks until test_done is asserted
   clk_gen: process
   begin
-    while test_done = '0' begin
+    while test_done = '0' loop
       wait for CLK_PERIOD / 2;
       clk <= '1';
       wait for CLK_PERIOD / 2;
       clk <= '0';
-    end
+    end loop;
     wait;  -- Simulation stops stop after clock stops
-  end
+  end process clk_gen;
 
   main_test: process
   begin
@@ -214,7 +214,7 @@ begin
 
     test_done <= '1';
     wait;
-  end
+  end process main_test;
 
 end sim;
 ]===]
