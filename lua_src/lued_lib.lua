@@ -273,7 +273,6 @@ function is_space(line,pos)
   return is
 end
 
-
 function is_word(line,pos)
   local is;
   if line then
@@ -284,6 +283,73 @@ function is_word(line,pos)
   end
   return is
 end
+
+-- not word and not space
+function is_other(line,pos)
+  local is = not (is_word() or is_space())
+  return is;
+end
+
+function prev_is_space()
+  local dd2 = 1
+  if is_sol() then return false; end
+  move_left_n_char(1,dd2)
+  local is = is_space()
+  move_right_n_char(1,dd2)
+  return is;
+end
+
+
+function next_is_space()
+  local dd2 = 1
+  if is_eol() then return false; end
+  move_right_n_char(1,dd2)
+  local is = is_space()
+  move_left_n_char(1,dd2)
+  return is;
+end
+
+
+function prev_is_word()
+  local dd2 = 1
+  if is_sol() then return false; end
+  move_left_n_char(1,dd2)
+  local is = is_word()
+  move_right_n_char(1,dd2)
+  return is;
+end
+
+
+function next_is_word()
+  local dd2 = 1
+  if is_eol() then return false; end
+  move_right_n_char(1,dd2)
+  local is = is_word()
+  move_left_n_char(1,dd2)
+  return is;
+end
+
+
+
+function prev_is_other()
+  local dd2 = 1
+  if is_sol() then return false; end
+  move_left_n_char(1,dd2)
+  local is = is_other()
+  move_right_n_char(1,dd2)
+  return is;
+end
+
+
+function next_is_other()
+  local dd2 = 1
+  if is_eol() then return false; end
+  move_right_n_char(1,dd2)
+  local is = is_other()
+  move_left_n_char(1,dd2)
+  return is;
+end
+
 
 
 function is_sow()
@@ -617,7 +683,7 @@ function align_cur_char(dd)
     else
       if is_sol() or not is_space("",-1) then
         done = true
-      else      
+      else
         del_backspace(1,dd2)
         if not is_space("",-1) then
           ins_str(" ",dd2)
@@ -793,7 +859,7 @@ function display_status_in_lua(lua_mode)
   else
     mode_str = "EDIT MODE"
   end
-  
+
   local cmd_str = get_last_cmd() or ""
   local max_cmd_len = 20
   cmd_str = string.sub(cmd_str,1,max_cmd_len)
@@ -882,7 +948,7 @@ function disp(dd,center)
    if dd == 0 then
      g_command_count = g_command_count or 0
      g_command_count = g_command_count + 1
-     
+
      g_prev_pos = g_cur_pos or nil;
      g_cur_pos = get_cur_pos();
 
@@ -1034,10 +1100,10 @@ function move_left_n_words(n,dd)
     local r,c = get_cur_pos()
 --    while is_space(line,c-1) do c = c - 1 end -- back through spaces
     while not is_word(line,c-1) do
-      if c == 1 then break end 
-      c = c - 1 
+      if c == 1 then break end
+      c = c - 1
     end -- back through spaces
-    while is_word(line,c-1) do 
+    while is_word(line,c-1) do
       if c == 1 then break end
       c = c - 1
     end -- back through alphanums
@@ -1093,19 +1159,98 @@ function skip_spaces(dd)
 end
 
 
+function skip_spaces_right(dd)
+  local dd2 = 1
+  if is_eol() and not is_eof() then
+    move_right_n_char(1,dd2)
+  elseif is_space() then
+    repeat
+      move_right_n_char(1,dd2)
+    until is_eol() or not is_space()
+  end
+  disp(dd)
+end
+
+
+function skip_spaces_left(dd)
+  local dd2 = 1
+  if is_sol() and not is_sof() then
+    move_left_n_char(1,dd2)
+  elseif is_space() then
+    repeat
+      move_left_n_char(1,dd2)
+    until is_sol() or not is_space()
+  end
+  disp(dd)
+end
+
+
 function move_right_n_words(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
     if is_eol() then
-      move_down_n_lines(1, dd2)
-      move_to_sol(dd2)
-    else
-      skip_word(dd2)
-      move_right_n_char(1,dd2)
-      skip_spaces(dd2)
+      if not is_eof() then
+        move_right_n_char(1,dd2)
+      end
+    elseif is_word() then
+      repeat
+        move_right_n_char(1,dd2)
+      until is_eol() or not is_word()
+    elseif not is_space() then -- misc char
+      repeat
+        move_right_n_char(1,dd2)
+      until is_eol() or is_word() or is_space()
+    end
+    if not is_eol() then
+      skip_spaces_right(dd2)
     end
   end
+  disp(dd)
+end
+
+
+function move_left_n_words(n,dd)
+
+--   if sof do nothing
+--   if sol then move to end of previous line
+--   if at start of word goto start of previous word or misc
+--   if at start of misc go to start of previous word or misc
+--   if in space go to start of previous word or misc
+--   if in word then goto start of word
+--   if in misc then goto start of misc
+
+  n = n or 1
+  local dd2 = 1
+  for i=1,n do
+    if is_sof() then
+      break
+    elseif is_sol() then
+      move_left_n_char(1,dd2)
+    else
+      local start_of_word = is_word() and not prev_is_word()
+      local start_of_other = is_other() and not prev_is_other()
+      local in_space = is_space()
+
+      if in_space or start_of_word or start_of_other then
+        move_left_n_char(1,dd2)
+        skip_spaces_left(1,dd2)
+      end
+
+      local in_word = is_word() and prev_is_word()
+      local in_other = is_other() and prev_is_other()
+      if in_word then
+        while prev_is_word() and not is_sol() do
+          move_left_n_char(1,dd2)
+        end
+      elseif in_other then
+        while prev_is_other() and not is_sol() do
+          move_left_n_char(1,dd2)
+        end
+      end
+    end -- else not eol
+  end
+
   disp(dd)
 end
 
@@ -1278,7 +1423,7 @@ function move_to_eol(dd)
       move_down_n_lines(1,dd2)
     end
     local r,c = get_cur_pos()
-    line_len = get_line_len()
+    local line_len = get_line_len()
     set_cur_pos(r,line_len+1)
   end
   disp(dd)
@@ -2571,9 +2716,9 @@ function insert_tab(dd)
     move_right_n_words(1,dd2)
   end
   local r3,c3 = get_cur_pos()
- 
+
   set_cur_pos(r2,c2)
-  
+
   if not is_eol() then
     -- goto beginning of word
     while not is_space() do
@@ -2581,7 +2726,7 @@ function insert_tab(dd)
       move_left_n_char(1,dd2)
     end
   end
-  
+
   if (c3 > c2) then
     if is_space() then
       del_eow(dd2) -- delete to end of spaces
@@ -2791,7 +2936,7 @@ function save_as(filename, dd)
       else
         done = true
       end
-    until done    
+    until done
   end
 
   set_filename(filename)
@@ -3253,8 +3398,8 @@ function move_down_and_repeat(dd)
     local prev_cmd = get_last_cmd() or ""
     set_cur_pos(prev_r, prev_c);
     move_down_n_lines(1,dd2)
-    
-    
+
+
   end
   disp(dd)
 end

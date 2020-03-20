@@ -74,5 +74,20 @@ SOFTWARE.
   dofile( g_lued_root .. "/lued_version.lua" )
   init_lued(g_lued_root, g_bindings_file)
 
+  local lued_metatable = {
+    __index = function ( t, k )
+      if k == nil then return end
+      if k == "_PROMPT" then return end
+      -- print ("KEY='"..k.."'")
 
+      local new_func_name, num_found = string.gsub(k, "alt_", "")
+
+      if num_found == 0 then return end
+      if _G[new_func_name] == nil then return end
+
+      return _G[new_func_name]
+    end
+  }
+
+  setmetatable(_G, lued_metatable)
 
