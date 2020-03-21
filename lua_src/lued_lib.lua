@@ -208,6 +208,19 @@ function toggle_find_case_sensitive(dd)
   disp(dd)
 end
 
+function get_find_whole_word()
+  return g_find_whole_word
+end
+
+function set_find_whole_word(dd)
+  g_find_whole_word = true
+  disp(dd)
+end
+
+function clr_find_whole_word(dd)
+  g_find_whole_word = false
+  disp(dd)
+end
 
 function toggle_find_whole_word(dd)
   g_find_whole_word = not g_find_whole_word
@@ -833,6 +846,12 @@ function esc_rev(str)
   return ESC_REVERSE .. str .. ESC_NORMAL
 end
 
+
+function get_cur_filename()
+  local id = get_fileid()
+  local filename = get_filename(id)
+  return filename  
+end
 
 function display_status_in_lua(lua_mode)
   esc_clear_screen()
@@ -1698,6 +1717,8 @@ function find_reverse(str,dd)
   local dd2 = 1
   if (str==nil or str=="") then
     g_find_str = find_prompt()
+  else
+    g_find_str = str
   end
   if g_find_str == "" then
     disp(dd)
@@ -3442,7 +3463,7 @@ function set_nameless_mark(dd)
   set_sel_end()
   disp()
   set_nameless_mark_hist_id = set_nameless_mark_hist_id or get_hist_id()
-  lued_prompt(set_nameless_mark_hist_id, "Marker is now set on line# "..r..". Alt+mp returns to this line. Press <Enter> to continue...")
+  -- lued_prompt(set_nameless_mark_hist_id, "Marker is now set on line# "..r..". Alt+mp returns to this line. Press <Enter> to continue...")
   set_sel_off()
   disp()
 end

@@ -47,7 +47,7 @@ function vhdl_inst(dd)
   newline[6] = string.gsub(line, "^%s*[)];.*", "  )")
   
   -- end xxx;
-  newline[7] = string.gsub(line, "^%s*end", "  -- %0")
+  newline[7] = string.gsub(line, "^%s*end", "  ; -- %0")
 
   for i=1,7 do
     if (newline[i]~=line) then
@@ -75,11 +75,14 @@ end
 
 function vhdl_template(dd)
 
-  local str = [===[
+  local id = get_fileid()
+  local filename = get_filename(id)
+  filename = string.gsub(filename, ".*/", "");
+  filename = string.gsub(filename, ".vhd", "");
 
+  local str = [[
 --------------------------------------------------------------------------------
--- Block:
--- Email:
+-- Block: ]]..filename..[[ 
 -- Description:
 -- This block ...
 --
@@ -88,34 +91,45 @@ function vhdl_template(dd)
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use ieee.math_real.all;
 library work;
 
-entity yyy is
+entity ]]..filename..[[ is
 generic (
-  WIDTH : integer := 16;
+  WIDTH : integer := 16
 );
 port (
   clk        : in  std_logic;
-  rst_n      : in  std_logic;
-  i_aaa      : in  std_logic;
-  o_bbbb     : out std_logic_vector(WIDTH-1 downto 0)
+  rst        : in  std_logic;
+  i_    : in  std_logic;
+  o_    : out std_logic_vector(WIDTH-1 downto 0)
 );
-end yyy;
+end ]]..filename..[[;
 
-architecture rtl of yyy is
+architecture rtl of ]]..filename..[[ is
   signal ccc       : std_logic;
   signal dddd      : std_logic_vector(WIDTH-1 downto 0);
   signal eeeee     : unsigned(WIDTH-1 downto 0);
   signal ffffff    : signed(WIDTH-1 downto 0);
 begin
 
+  process (clk,rst)
+  begin
+    if rst = '1' then
+      
+    elsif rising_edge(clk) then
+      
+    end if;
+  end process;
+  
 end rtl;
 
-]===]
+]]
 
   local dd2 = 1
   move_to_sol_classic(dd2)
-  ins_str(str,dd)
+  ins_str(str,dd2)
+  move_to_first_line(dd)
 end
 
 
@@ -155,77 +169,183 @@ end
 -- Insert VHDL template for testbench
 
 function vhdl_tb(dd)
+  local dd2 = 1
+  local full_filename = get_cur_filename()
+  local filename = string.gsub(full_filename, ".*/", "");
+  local blockname = string.gsub(filename, ".vhd.*", "");
+  
+  local full_tbname,src_found = string.gsub(full_filename, "src/", "tb/tb_");
+  local tbname = string.gsub(full_tbname, ".*/", "");
+  local tbblockname = string.gsub(full_filename, ".vhd.*", "");
 
-  local str = [===[
+  -- Snip Entity from block
+  move_to_first_line(dd2)
+  local save_find_whole_word = get_find_whole_word()
+  set_find_whole_word(dd2)
+  find_forward("entity",dd2)
+  move_to_sol_classic(dd2)
+  set_nameless_mark(dd2)
+  find_forward("end",dd2)
+  move_to_eol(dd2)
+  sel_mark_to_cursor(dd2)
+  global_copy(dd2)
+  
+  new_file(full_tbname,dd2)
+  
+  ins_str( [[
 
 --------------------------------------------------------------------------------
--- Test :
+-- Test : ]] .. tbname .. [[
+
 -- Description:
--- This test ...
+-- This test verifies the ]] .. blockname .. [[
+ block.
 --
 --------------------------------------------------------------------------------
-library std.textio.all;
+-- library std.textio.all;
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_textio.all;
 library work;
+use work.tb_pkg.all;
 
 entity tb is
 end entity tb;
 
 architecture sim of tb is
-  signal ccc       : std_logic;
-  signal dddd      : std_logic_vector(WIDTH-1 downto 0);
-  signal eeeee     : unsigned(WIDTH-1 downto 0);
-  signal ffffff    : signed(WIDTH-1 downto 0);
+FINDME1 ]]
+,dd2)
+  
+  global_paste(dd2)
+
+  ins_str( [[
 
   signal clk       : std_logic;
-  signal rst_n     : std_logic;
-  signal test_done : std_logic := '0';
-
-  constant CLK_PERIOD : time := 10 ns;
+  signal rst       : std_logic;
+  signal test_done : std_logic;
 
 begin
 
+FINDME2
+]]
+, dd2)
+
+  global_paste(dd2)
+  
+  ins_str( [[
+
+
+
   -- generate clocks until test_done is asserted
-  clk_gen: process
+  process
   begin
-    while test_done = '0' loop
-      wait for CLK_PERIOD / 2;
-      clk <= '1';
-      wait for CLK_PERIOD / 2;
-      clk <= '0';
-    end loop;
+    clkgen(clk,test_done);
     wait;  -- Simulation stops stop after clock stops
-  end process clk_gen;
+  end process;
 
   main_test: process
   begin
-    rst_n <= '0'; -- assert reset
 
-    for i in 1 to 10 loop
-      wait until rising_edge(clk);
-    end loop;
+    report("reset dut");
+    pulse(rst, clk, 10);
 
-    wait for 10 * CLK_PERIOD;
+    report("After reset");
 
+    wait_re(clk,10);
+    
     report("test done"); -- severity NOTE, WARNING, ERROR, FAILURE (NOTE is default)
 
-    test_done <= '1';
+    set(test_done);
     wait;
   end process main_test;
 
-end sim;
-]===]
+end architecture sim;
 
-  local dd2 = 1
-  local r,c = get_cur_pos()
-  move_to_sol_classic(dd2)
-  ins_str(str,dd)
-  set_cur_pos(r,c)
+]]
+, dd2)
+
+-- ===========================================================
+-- CREATE CONSTANTS AND SIGNALS FROM ENTITY GENERICS AND PORTS
+  find_forward("FINDME1",dd2)
+  cut_line(dd2) -- FINDME1
+  local r1,c1 = get_cur_pos()
+  find_forward("end",dd2)
+  local r2,c2 = get_cur_pos()
+  
+  local in_generic = false
+  local in_port = false
+  for r=r1,r2 do
+    set_cur_pos(r,1)
+    local line = get_line()
+    lowerline = string.lower(line)
+
+    -- Insert semicolon if missing
+    if string.find(line, ":") then
+      if string.find(line, ";") == nil then
+        line = string.gsub(line," *[-][-]","; --")
+        if string.find(line, ";") == nil then
+          line = line .. ";"
+        end
+      end
+    end
+
+    if string.find(lowerline, ":=") then -- constant
+      del_eol(dd2)
+      ins_str(line,dd2)
+      move_to_sol_classic(dd2)
+      if is_space() then skip_spaces_right(dd2); end
+      ins_str("constant ",dd2)
+    elseif string.find(lowerline, ":") then -- signal
+      if string.find(lowerline, "inout") then
+        line = string.gsub(line, "inout%s*", "")
+        line = line .. " -- inout"
+      elseif string.find(lowerline, "out") then
+        line = string.gsub(line, "out%s*", "")
+        line = line .. " -- out"
+      elseif string.find(lowerline, "in") then
+        line = string.gsub(line, "in%s*", "")
+        line = string.gsub(line, ";", "")
+        if string.find(lowerline,"std_logic_vector") then
+          line = line .. " := (others => '0'); -- in"
+        elseif string.find(lowerline,"std_logic") then
+          line = line .. " := '0'; -- in"
+        else
+          line = line .. "; -- in"
+        end
+      end
+      del_eol(dd2)
+      ins_str(line,dd2)
+      move_to_sol_classic(dd2)
+      if is_space() then skip_spaces_right(dd2); end
+      ins_str("signal ",dd2)
+    else
+      if not is_eol() then del_eol(dd2) end
+    end
+  end -- for
+    
+-- ======================================================================
+-- CONVERT ENTITY INTO INSTANTIATION
+
+  move_to_first_line(dd2)
+  find_forward("FINDME2",dd2)
+  cut_line(dd2)
+  set_nameless_mark(dd2)
+  find_forward("end")
+  move_down_n_lines(1, dd2)
+  sel_mark_to_cursor(dd2)
+  vhdl_inst_selected(dd2)
+  set_sel_off(dd2)
+  
+
+
+  if not save_find_whole_word then
+    clr_find_whole_word(dd2)
+  end
+  
+  move_to_first_line(dd2)
   disp(dd)
-end
+end -- vhdl_tb
 
 
 
@@ -301,8 +421,8 @@ function vhdl_function(dd)
 end
 
 
-function alt_oth (dd) ins_str("(others => '0');\n",dd); end
-function alt_ooth (dd) ins_str("others => (others => '0'));\n",dd); end
+function alt_oth (dd) ins_str("(others => '0');\n",dd2); insert_tab(dd); end
+function alt_ooth (dd) ins_str("others => (others => '0'));\n",dd2); insert_tab(dd); end
 
 -- =============================================================================
 -- Insert signal sl : std_logic;
@@ -323,24 +443,33 @@ end
 
 
 -- =============================================================================
--- Insert signal slv : std_logic_vector(FIXME downto 0);
+-- Insert: std_logic_vector(FIXME-1 downto 0);
+-- ALT_slv15 produces std_logic_vector(15 downto 0);
 
 function vhdl_slv(n,dd)
   n = n or 0
   local dd2 = 1
-
---   local str = "signal slv : std_logic_vector(FIXME downto 0);"
---   ins_str(str,dd2)
---   move_to_sol(dd2)
---   move_right_n_words(1,dd2)
---   sel_word(dd)
-
   if n == 0 then
     ins_str("std_logic_vector(".."FIXME-1".." downto 0);", dd2)
-    move_left_n_words(3,dd2);
-    sel_word(dd2);
+    find_reverse("FIXME",dd2)
   else
     ins_str("std_logic_vector("..n.." downto 0);", dd2)
+  end
+  disp(dd)
+end
+
+
+-- =============================================================================
+-- Insert: integer := integer(ceil(log2(real(DEPTH))));
+
+function vhdl_log(n,dd)
+  n = n or 0
+  local dd2 = 1
+  if n == 0 then
+    ins_str("integer := integer(ceil(log2(real(FIXME))));", dd2)
+    find_reverse("FIXME",dd2)
+  else
+    ins_str("integer := integer(ceil(log2(real("..n.."))));", dd2)
   end
   disp(dd)
 end
@@ -396,13 +525,18 @@ end
 -- Insert FIXME = std_logic_vector( unsigned(FIXME) + 1);
 
 function vhdl_slv_incr(dd)
-
-  local str = "FIXME = std_logic_vector( unsigned(FIXME) + 1);"
-
   local dd2 = 1
-  ins_str(str,dd2)
   move_to_sol(dd2)
-  sel_word(dd)
+  sel_word(dd2)
+  copy(dd2)
+  move_to_eol(dd2)
+  local str = "std_logic_vector( unsigned(FIXME) + 1);"
+  ins_str(str,dd2)
+  find_reverse("FIXME",dd2)
+  paste(dd2)
+  sel_word(dd2)
+  set_sel_end(dd2)
+  disp(dd)
 end
 
 
@@ -498,6 +632,7 @@ alt_vhdl_tb               - Template for testbench
 alt_sl                    - Shortcut for std_logic
 alt_slv                   - Shortcut slv.  alt+slv15 -> std_logic_vector(15 downto 0);
 alt_slv_squote            - Shortcut slv.  alt+slv'WID -> std_logic_vector(WID-1 downto 0);
+alt_log                   - Shortcut log2.  alt+slv16 -> integer := integer(ceil(log2(real(16))));
 alt_unsigned              - shortcut unsigned15 -> unsigned(15 downto 0);
 alt_signed                - shortcut signed15 -> signed(15 downto 0);
 alt_slv_array             - shortcut
@@ -525,6 +660,7 @@ alt_vhdl_package   = vhdl_package
 alt_vhdl_tb        = vhdl_tb
 alt_sl             = vhdl_sl
 alt_slv            = vhdl_slv
+alt_log            = vhdl_log
 alt_unsigned       = vhdl_unsigned
 alt_signed         = vhdl_signed
 alt_slv_array      = vhdl_slv_array
