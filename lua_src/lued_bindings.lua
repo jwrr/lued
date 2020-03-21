@@ -158,7 +158,7 @@ alt_dm           = del_mark_to_cursor      hot("dm") -- Similar to Sublime Ctrl+
 alt_M_squote     = function(name) set_mark(name); disp() end
 alt_M_squote     = function(name) goto_mark(name); disp() end
 alt_mm           = set_nameless_mark       hot("mm") -- Similar to Sublime Ctrl+K+space. Set Mark
-alt_mp           = goto_nameless_mark_prev hot("mp") -- Goto previous mark
+alt_MM           = goto_nameless_mark_prev hot("MM") -- Goto previous mark
 alt_mn           = goto_nameless_mark_next hot("mn") -- Goto next mark in stack
 
 --## Insert Line Before / After Commands
