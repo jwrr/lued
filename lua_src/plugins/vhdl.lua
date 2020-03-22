@@ -1,6 +1,78 @@
 
 -- vhdl.lua
 
+
+-- =============================================================================
+-- =============================================================================
+-- vhdl_sig converts a vhdl entity into signals and constants.
+-- The entity's generics are converted to constants
+-- The entity's ports are converted to signals.
+-- Typical usage is to cut/paste a copy of the entity. Then move to the first line
+-- of the copy and type esc+vhdl_sig. This should have converted the generics and
+-- ports to constants and signals.
+
+function vhdl_sig()
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  find_forward("end",dd2)
+  local r2,c2 = get_cur_pos()
+
+  local in_generic = false
+  local in_port = false
+  for r=r1,r2 do
+    set_cur_pos(r,1)
+    local line = get_line()
+    lowerline = string.lower(line)
+
+    -- Insert semicolon if missing
+    if string.find(line, ":") then
+      if string.find(line, ";") == nil then
+        line = string.gsub(line," *[-][-]","; --")
+        if string.find(line, ";") == nil then
+          line = line .. ";"
+        end
+      end
+    end
+
+    if string.find(lowerline, ":=") then -- constant
+      del_eol(dd2)
+      ins_str(line,dd2)
+      move_to_sol_classic(dd2)
+      if is_space() then skip_spaces_right(dd2); end
+      ins_str("constant ",dd2)
+    elseif string.find(lowerline, ":") then -- signal
+      if string.find(lowerline, "inout") then
+        line = string.gsub(line, "inout%s*", "")
+        line = line .. " -- inout"
+      elseif string.find(lowerline, "out") then
+        line = string.gsub(line, "out%s*", "")
+        line = line .. " -- out"
+      elseif string.find(lowerline, "in") then
+        line = string.gsub(line, "in%s*", "")
+        line = string.gsub(line, ";", "")
+        if string.find(lowerline,"std_logic_vector") then
+          line = line .. " := (others => '0'); -- in"
+        elseif string.find(lowerline,"std_logic") then
+          line = line .. " := '0'; -- in"
+        else
+          line = line .. "; -- in"
+        end
+      end
+      del_eol(dd2)
+      ins_str(line,dd2)
+      move_to_sol_classic(dd2)
+      if is_space() then skip_spaces_right(dd2); end
+      ins_str("signal ",dd2)
+    else
+      if not is_eol() then del_eol(dd2) end
+    end
+  end -- for
+  disp(dd)
+end -- vhdl_sig
+
+-- =============================================================================
+-- =============================================================================
+
 --[[
   vhdl_inst
 --]]
@@ -33,7 +105,7 @@ function vhdl_inst(dd)
 
   -- generic (
   newline[2] = string.gsub(line, "^%s*generic.*", "  generic map (")
-  
+
   -- WIDTH : integer := 1024;
   newline[3] = string.gsub(line, "^%s*([_%w]+).*[:]=.*", "    %1"..pad.."=> %1"..comma)
 
@@ -45,7 +117,7 @@ function vhdl_inst(dd)
 
   -- );
   newline[6] = string.gsub(line, "^%s*[)];.*", "  )")
-  
+
   -- end xxx;
   newline[7] = string.gsub(line, "^%s*end", "  ; -- %0")
 
@@ -68,9 +140,9 @@ function vhdl_inst_selected(dd)
 end
 
 
-
-
 -- =============================================================================
+-- =============================================================================
+
 -- Insert VHDL template for entity and architecture
 
 function vhdl_template(dd)
@@ -82,7 +154,7 @@ function vhdl_template(dd)
 
   local str = [[
 --------------------------------------------------------------------------------
--- Block: ]]..filename..[[ 
+-- Block: ]]..filename..[[
 -- Description:
 -- This block ...
 --
@@ -116,12 +188,12 @@ begin
   process (clk,rst)
   begin
     if rst = '1' then
-      
+
     elsif rising_edge(clk) then
-      
+
     end if;
   end process;
-  
+
 end rtl;
 
 ]]
@@ -173,7 +245,7 @@ function vhdl_tb(dd)
   local full_filename = get_cur_filename()
   local filename = string.gsub(full_filename, ".*/", "");
   local blockname = string.gsub(filename, ".vhd.*", "");
-  
+
   local full_tbname,src_found = string.gsub(full_filename, "src/", "tb/tb_");
   local tbname = string.gsub(full_tbname, ".*/", "");
   local tbblockname = string.gsub(full_filename, ".vhd.*", "");
@@ -189,9 +261,9 @@ function vhdl_tb(dd)
   move_to_eol(dd2)
   sel_mark_to_cursor(dd2)
   global_copy(dd2)
-  
+
   new_file(full_tbname,dd2)
-  
+
   ins_str( [[
 
 --------------------------------------------------------------------------------
@@ -216,7 +288,7 @@ end entity tb;
 architecture sim of tb is
 FINDME1 ]]
 ,dd2)
-  
+
   global_paste(dd2)
 
   ins_str( [[
@@ -232,7 +304,7 @@ FINDME2
 , dd2)
 
   global_paste(dd2)
-  
+
   ins_str( [[
 
 
@@ -253,7 +325,7 @@ FINDME2
     report("After reset");
 
     wait_re(clk,10);
-    
+
     report("test done"); -- severity NOTE, WARNING, ERROR, FAILURE (NOTE is default)
 
     set(test_done);
@@ -269,61 +341,8 @@ end architecture sim;
 -- CREATE CONSTANTS AND SIGNALS FROM ENTITY GENERICS AND PORTS
   find_forward("FINDME1",dd2)
   cut_line(dd2) -- FINDME1
-  local r1,c1 = get_cur_pos()
-  find_forward("end",dd2)
-  local r2,c2 = get_cur_pos()
-  
-  local in_generic = false
-  local in_port = false
-  for r=r1,r2 do
-    set_cur_pos(r,1)
-    local line = get_line()
-    lowerline = string.lower(line)
+  vhdl_sig(dd2)
 
-    -- Insert semicolon if missing
-    if string.find(line, ":") then
-      if string.find(line, ";") == nil then
-        line = string.gsub(line," *[-][-]","; --")
-        if string.find(line, ";") == nil then
-          line = line .. ";"
-        end
-      end
-    end
-
-    if string.find(lowerline, ":=") then -- constant
-      del_eol(dd2)
-      ins_str(line,dd2)
-      move_to_sol_classic(dd2)
-      if is_space() then skip_spaces_right(dd2); end
-      ins_str("constant ",dd2)
-    elseif string.find(lowerline, ":") then -- signal
-      if string.find(lowerline, "inout") then
-        line = string.gsub(line, "inout%s*", "")
-        line = line .. " -- inout"
-      elseif string.find(lowerline, "out") then
-        line = string.gsub(line, "out%s*", "")
-        line = line .. " -- out"
-      elseif string.find(lowerline, "in") then
-        line = string.gsub(line, "in%s*", "")
-        line = string.gsub(line, ";", "")
-        if string.find(lowerline,"std_logic_vector") then
-          line = line .. " := (others => '0'); -- in"
-        elseif string.find(lowerline,"std_logic") then
-          line = line .. " := '0'; -- in"
-        else
-          line = line .. "; -- in"
-        end
-      end
-      del_eol(dd2)
-      ins_str(line,dd2)
-      move_to_sol_classic(dd2)
-      if is_space() then skip_spaces_right(dd2); end
-      ins_str("signal ",dd2)
-    else
-      if not is_eol() then del_eol(dd2) end
-    end
-  end -- for
-    
 -- ======================================================================
 -- CONVERT ENTITY INTO INSTANTIATION
 
@@ -336,21 +355,23 @@ end architecture sim;
   sel_mark_to_cursor(dd2)
   vhdl_inst_selected(dd2)
   set_sel_off(dd2)
-  
+
 
 
   if not save_find_whole_word then
     clr_find_whole_word(dd2)
   end
-  
+
   move_to_first_line(dd2)
   disp(dd)
 end -- vhdl_tb
 
 
 
---
+
 -- =============================================================================
+-- =============================================================================
+--
 -- Insert VHDL process with a clock and an active-low, asynchronous reset.
 
 function vhdl_proc(dd)
@@ -622,11 +643,12 @@ end
 
 function vhdl_help()
   local help_str = [[
-  
-alt_vhdl_inst             - Convert arch/port list into entity instantiation
+
+alt_vhdl_sig              - Convert entity into entity instantiation
+alt_vhdl_inst             - Convert entity into constants and signals
 alt_vhdl_proc             - Template for clocked process
 alt_vhdl_proc_all         - Template for comb process
-alt_vhdl_template         - Template for vhdl file 
+alt_vhdl_template         - Template for vhdl file
 alt_vhdl_package          - Template for vhdl package
 alt_vhdl_tb               - Template for testbench
 alt_sl                    - Shortcut for std_logic
@@ -636,7 +658,7 @@ alt_log                   - Shortcut log2.  alt+slv16 -> integer := integer(ceil
 alt_unsigned              - shortcut unsigned15 -> unsigned(15 downto 0);
 alt_signed                - shortcut signed15 -> signed(15 downto 0);
 alt_slv_array             - shortcut
-alt_slv_incr              - shortcut x <= std_logic_vecctor(unsigned(x)+1);     
+alt_slv_incr              - shortcut x <= std_logic_vecctor(unsigned(x)+1);
 alt_vhdl_case             - Template for case statement
 alt_vhdl_state            - Template for state
 alt_vhdl_record           - Template
@@ -652,6 +674,7 @@ end
 -- KEYBOARD BINDINGS
 
 alt_vhdl_help      = vhdl_help
+alt_vhdl_sig       = vhdl_sig
 alt_vhdl_inst      = vhdl_inst_selected
 alt_vhdl_proc      = vhdl_proc
 alt_vhdl_proc_all  = vhdl_proc_all
