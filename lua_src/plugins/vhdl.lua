@@ -17,8 +17,6 @@ function vhdl_sig()
   find_forward("end",dd2)
   local r2,c2 = get_cur_pos()
 
-  local in_generic = false
-  local in_port = false
   for r=r1,r2 do
     set_cur_pos(r,1)
     local line = get_line()
@@ -67,6 +65,7 @@ function vhdl_sig()
       if not is_eol() then del_eol(dd2) end
     end
   end -- for
+  set_cur_pos(r1+1,1)
   disp(dd)
 end -- vhdl_sig
 
@@ -87,57 +86,86 @@ end -- vhdl_sig
 --   7. Type Alt-aa and enter = at the prompt. This should align all of the =>.
 --   8. Type Alt-aa and enter -- at the prompt.  This should align alll of the -- comments.
 
-function vhdl_inst(dd)
-  local dd2 = 1
-  local line = get_line()
-  local newline = {}
-
-  local next_line = get_next_line() or "" -- peek ahead for close paren
-  local paren_start = string.find(next_line, "^%s*%)%s*;",1) or 0
-  local comma = (paren_start==0) and "," or " "
-
-  local name = string.gsub(line, "^%s*([_%w]+).*", "%1")
-  local padlen = math.max(14 - #name, 0)
-  local pad = string.rep(' ',padlen)
-
-  -- entity xxx is
-  newline[1] = string.gsub(line, "^%s*entity%s+([_%w]+)%s+is", "  u_%1: entity work.%1")
-
-  -- generic (
-  newline[2] = string.gsub(line, "^%s*generic.*", "  generic map (")
-
-  -- WIDTH : integer := 1024;
-  newline[3] = string.gsub(line, "^%s*([_%w]+).*[:]=.*", "    %1"..pad.."=> %1"..comma)
-
-  -- port (
-  newline[4] = string.gsub(line, "^%s*port.*", "  port map (")
-
-  -- clk: in std_logic;
-  newline[5] = string.gsub(line, "^%s*([_%w]+)%s*:%s*(%w%w.)%s*(std_logic[^;]*)", "    %1"..pad.."=> %1"..comma..pad.."  -- %2 %3")
-
-  -- );
-  newline[6] = string.gsub(line, "^%s*[)];.*", "  )")
-
-  -- end xxx;
-  newline[7] = string.gsub(line, "^%s*end", "  ; -- %0")
-
-  for i=1,7 do
-    if (newline[i]~=line) then
-      replace_line(newline[i],dd2)
-      break
-    end
+function vhdl_sel_entity(dd)
+  local dd2=1
+  local save_find_whole_word = get_find_whole_word()
+  set_find_whole_word()
+  move_up_n_lines(1,dd2)
+  find_forward("entity",dd2)
+  set_nameless_mark(dd2)
+  find_forward("end",dd2)
+  if not save_find_whole_word then
+    clr_find_whole_word(dd2)
   end
-
-  move_down_n_lines(1,dd2)
-  move_to_sol_classic(dd2)
-
+  move_down_n_lines(1, dd2)
+  sel_mark_to_cursor(dd2)
   disp(dd)
 end
 
+function vhdl_inst(dd)
+  local dd2 = 1
+  
+  local r1,c1 = get_cur_pos()
+  local save_find_whole_word = get_find_whole_word()
+  set_find_whole_word()
+  find_forward("end",dd2)
+  local r2,c2 = get_cur_pos()
 
-function vhdl_inst_selected(dd)
-  foreach_selected(vhdl_inst, dd)
-end
+  for r=r1,r2 do
+    set_cur_pos(r,1)
+
+    local line = get_line()
+    local newline = {}
+  
+    local next_line = get_next_line() or "" -- peek ahead for close paren
+    local paren_start = string.find(next_line, "^%s*%)%s*;",1) or 0
+    local comma = (paren_start==0) and "," or " "
+  
+    local name = string.gsub(line, "^%s*([_%w]+).*", "%1")
+    local padlen = math.max(14 - #name, 0)
+    local pad = string.rep(' ',padlen)
+  
+    -- entity xxx is
+    newline[1] = string.gsub(line, "^%s*entity%s+([_%w]+)%s+is", "  u_%1: entity work.%1")
+    newline[1] = string.gsub(newline[1], "^%s*ENTITY%s+([_%w]+)%s+is", "  u_%1: ENTITY work.%1")
+  
+    -- generic (
+    newline[2] = string.gsub(line, "^%s*generic.*", "  generic map (")
+    newline[2] = string.gsub(newline[2], "^%s*GENERIC.*", "  GENERIC MAP (")
+  
+    -- WIDTH : integer := 1024;
+    newline[3] = string.gsub(line, "^%s*([_%w]+).*[:]=.*", "    %1"..pad.."=> %1"..comma)
+  
+    -- port (
+    newline[4] = string.gsub(line, "^%s*port.*", "  port map (")
+    newline[4] = string.gsub(newline[4], "^%s*PORT.*", "  PORT MAP (")
+  
+    -- clk: in std_logic;
+    newline[5] = string.gsub(line, "^%s*([_%w]+)%s*:%s*(%w%w.)%s*(std_logic[^;]*)", "    %1"..pad.."=> %1"..comma..pad.."  -- %2 %3")
+  
+    -- );
+    newline[6] = string.gsub(line, "^%s*[)];.*", "  )")
+  
+    -- end xxx;
+    newline[7] = string.gsub(line, "^%s*end", "  ; -- %0")
+  
+    if not is_eol() then del_eol(dd2); end
+    for i=1,7 do
+      if (newline[i]~=line) then
+        ins_str(newline[i],dd2)
+        break
+      end
+    end
+
+  end -- for r=r1,r2
+
+  set_cur_pos(r1,1)
+  if not save_find_whole_word then
+    clr_find_whole_word(dd2)
+  end
+
+  disp(dd)
+end -- vhdl inst
 
 
 -- =============================================================================
@@ -353,7 +381,7 @@ end architecture sim;
   find_forward("end")
   move_down_n_lines(1, dd2)
   sel_mark_to_cursor(dd2)
-  vhdl_inst_selected(dd2)
+  vhdl_inst(dd2)
   set_sel_off(dd2)
 
 
@@ -646,6 +674,7 @@ function vhdl_help()
 
 alt_vhdl_sig              - Convert entity into entity instantiation
 alt_vhdl_inst             - Convert entity into constants and signals
+alt_vhdl_sel_entity       - Select entity
 alt_vhdl_proc             - Template for clocked process
 alt_vhdl_proc_all         - Template for comb process
 alt_vhdl_template         - Template for vhdl file
@@ -675,7 +704,8 @@ end
 
 alt_vhdl_help      = vhdl_help
 alt_vhdl_sig       = vhdl_sig
-alt_vhdl_inst      = vhdl_inst_selected
+alt_vhdl_inst      = vhdl_inst
+alt_vhdl_sel_entity  = vhdl_sel_entity
 alt_vhdl_proc      = vhdl_proc
 alt_vhdl_proc_all  = vhdl_proc_all
 alt_vhdl_template  = vhdl_template
