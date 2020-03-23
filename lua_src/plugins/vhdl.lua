@@ -321,9 +321,9 @@ FINDME1 ]]
 
   ins_str( [[
 
-  signal clk       : std_logic;
-  signal rst       : std_logic;
-  signal test_done : std_logic;
+  signal clk       : std_logic := '0';
+  signal rst       : std_logic := '0';
+  signal test_done : std_logic := '0';
 
 begin
 
@@ -409,10 +409,9 @@ function vhdl_proc(dd)
   process (clk, rst_n)
   begin
     if (rst_n = '0') then
-      xxx <= '0;
-      yyy <= (others => '0');
-    elsif rising_edge(clk)
-
+      
+    elsif rising_edge(clk) then
+      
     end if;
   end process;
 
