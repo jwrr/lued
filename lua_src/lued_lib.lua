@@ -45,6 +45,15 @@ function init_lued(lued_path, bindings_file)
   disp()
 end
 
+function clr_line_numbers(dd)
+  set_show_line_numbers(0)
+  disp(dd)
+end
+
+function set_line_numbers(dd)
+  set_show_line_numbers(1)
+  disp(dd)
+end
 
 function toggle_line_numbers(dd)
   g_show_line_numbers = not g_show_line_numbers
@@ -850,7 +859,7 @@ end
 function get_cur_filename()
   local id = get_fileid()
   local filename = get_filename(id)
-  return filename  
+  return filename
 end
 
 function display_status_in_lua(lua_mode)
@@ -3451,21 +3460,30 @@ function alt_z_wrapper(dd)
 end
 
 
+function set_named_mark(dd)
+  named_mark_hist_id = named_mark_hist_id or get_hist_id()
+  local hot = nil
+  mark_name = lued_prompt(select_tab_hist_id, "Set Mark - Enter Name: ",hot)
+  set_mark(mark_name);
+  disp(dd)
+end
+
+
+function goto_named_mark(dd)
+  named_mark_hist_id = named_mark_hist_id or get_hist_id()
+  local hot = nil
+  mark_name = lued_prompt(select_tab_hist_id, "Goto Mark - Enter Name: ",hot)
+  goto_mark(mark_name);
+  disp(dd)
+end
+
+
 function set_nameless_mark(dd)
   local dd2 = 1
   g_nameless_stack = g_nameless_stack or 0
   set_mark("nameless_" .. g_nameless_stack)
   g_nameless_stack = g_nameless_stack + 1
-  local r,c = get_cur_pos()
-  move_to_sol_classic(dd2)
-  set_sel_start()
-  move_to_eol(dd2)
-  set_sel_end()
-  disp()
-  set_nameless_mark_hist_id = set_nameless_mark_hist_id or get_hist_id()
-  -- lued_prompt(set_nameless_mark_hist_id, "Marker is now set on line# "..r..". Alt+mp returns to this line. Press <Enter> to continue...")
-  set_sel_off()
-  disp()
+  disp(dd)
 end
 
 
@@ -3722,106 +3740,6 @@ end
 function copy_word(dd)
   local dd2 = 1
   sel_word(dd2)
-  global_copy(dd)
-end
-
-
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
-  global_copy(dd)
-end
-
-
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
-  global_copy(dd)
-end
-
-
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
-  global_copy(dd)
-end
-
-
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
-  global_copy(dd)
-end
-
-
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
-  global_copy(dd)
-end
-
-
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
-  global_copy(dd)
-end
-
-
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
-  global_copy(dd)
-end
-
-
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
-  global_copy(dd)
-end
-
-
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
-  global_copy(dd)
-end
-
-
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
   global_copy(dd)
 end
 
