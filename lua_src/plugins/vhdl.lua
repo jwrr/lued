@@ -183,6 +183,7 @@ function vhdl_template(dd)
   local str = [[
 --------------------------------------------------------------------------------
 -- Block: ]]..filename..[[
+
 -- Description:
 -- This block ...
 --
