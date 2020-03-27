@@ -407,9 +407,9 @@ function vhdl_proc(dd)
 
   local str = [===[
 
-  process (clk, rst_n)
+  process (clk, rst)
   begin
-    if (rst_n = '0') then
+    if (rst = '1') then
       
     elsif rising_edge(clk) then
       
@@ -471,7 +471,7 @@ end
 
 
 function alt_oth (dd) ins_str("(others => '0');\n",dd2); insert_tab(dd); end
-function alt_ooth (dd) ins_str("others => (others => '0'));\n",dd2); insert_tab(dd); end
+function alt_ooth (dd) ins_str( "(others => (others => '0'));\n" ,dd2); insert_tab(dd); end
 
 -- =============================================================================
 -- Insert signal sl : std_logic;
