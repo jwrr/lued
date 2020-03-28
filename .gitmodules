@@ -1,0 +1,7 @@
+[submodule "src/carr"]
+	path = src/carr
+	url = https://github.com/jwrr/carr.git
+[submodule "src/lua/src"]
+	path = src/lua/src
+	url = https://github.com/lua/lua.git
+	branch = v5-2
