@@ -1,0 +1,99 @@
+## How to add external project using git submodule?
+
+## These are notes from when I added submodules to lued.
+
+## Clean up
+rm -rf lued_dev
+
+## Clone your repo that will include the external projects
+git clone https://jwrr@github.com/jwrr/lued.git lued_dev
+cd lued_dev
+
+## Create a new branch (OPTIONAL)
+git checkout -b submodule_branch
+
+## Add a submodule
+git submodule add https://github.com/jwrr/carr.git src/carr
+git submodule status
+git status
+git add .gitmodules src/carr
+git status
+
+## Add a submodule with specific branch
+git submodule add -b v5-2 https://github.com/lua/lua.git src/lua/src
+git submodule status
+git status
+git add .gitmodules src/lua/src
+git status
+
+## Commit the submodules
+git commit -m "Add submodules lua_5.2 and carr"
+git submodule status
+git status
+
+## push the changes to github
+git push origin submodule_branch
+
+## Try it
+cd ..
+rm -rf lued_submodule_trial
+
+## Clone your repo's new branch
+git clone --single-branch --branch submodule_branch https://jwrr@github.com/jwrr/lued.git lued_submodule_trial
+cd lued_submodule_trial
+
+echo "Verify the submodules aren't there yet"
+ls src/lua/src/*
+ls src/carr/*
+
+git submodule status
+git status
+
+cat .git/config
+git submodule init
+cat .git/config
+
+git submodule update
+
+git submodule status
+git status
+
+echo "Verify the submodules are now there"
+ls src/lua/src
+ls src/carr
+
+### Compile branch, verify it works and then
+## Merge branch to master
+cd ..
+rm -rf lued_merge
+git clone https://jwrr@github.com/jwrr/lued.git lued_merge
+cd lued_merge
+git merge origin/submodule_branch
+
+
+## Compile master, verify it works and then
+## Delete the branch 'submodule_branch'
+
+cd ..
+rm -rf lued_master
+git clone https://jwrr@github.com/jwrr/lued.git lued_master
+cd lued_master
+./COMPILE
+
+## Delete local branch (not needed here)
+## git branch -d submodule_branch
+
+## Delete remote branch
+git push origin --delete submodule_branch
+
+
+
+
+
+
+
+
+
+
+
+
