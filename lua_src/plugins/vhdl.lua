@@ -652,11 +652,10 @@ function vhdl_case(dd)
           if COND then
             state <= STATE2
           end if;
-        when STATE2 =>
-          state <= STATE3;
+        when STATE2 => state <= STATE3;
         when OTHERS =>
           state <= IDLE;
-      endcase;
+      end case;
 ]]
 
   local dd2 = 1
