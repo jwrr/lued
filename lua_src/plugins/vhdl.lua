@@ -1,5 +1,5 @@
 
--- vhdl.lua
+-- vhdl.lua - plugin for lued text editor
 
 
 -- =============================================================================
@@ -686,7 +686,7 @@ alt_log                   - Shortcut log2.  alt+slv16 -> integer := integer(ceil
 alt_unsigned              - shortcut unsigned15 -> unsigned(15 downto 0);
 alt_signed                - shortcut signed15 -> signed(15 downto 0);
 alt_slv_array             - shortcut
-alt_slv_incr              - shortcut x <= std_logic_vecctor(unsigned(x)+1);
+alt_vhdl_incr             - shortcut x <= std_logic_vecctor(unsigned(x)+1);
 alt_vhdl_case             - Template for case statement
 alt_vhdl_state            - Template for state
 alt_vhdl_record           - Template
@@ -716,7 +716,7 @@ alt_log            = vhdl_log
 alt_unsigned       = vhdl_unsigned
 alt_signed         = vhdl_signed
 alt_slv_array      = vhdl_slv_array
-alt_slv_incr       = vhdl_slv_incr
+alt_vhdl_incr      = vhdl_slv_incr
 alt_vhdl_case      = vhdl_case
 alt_vhdl_state     = vhdl_state
 alt_vhdl_record    = vhdl_record
