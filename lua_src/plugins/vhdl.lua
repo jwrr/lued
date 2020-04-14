@@ -627,6 +627,25 @@ end
 
 
 -- =============================================================================
+-- Insert FIXME <= std_logic_vector( resize( unsigned(FIXME), FIXME'size);
+
+function vhdl_slv_resize(dd)
+  local dd2 = 1
+  move_to_sol(dd2)
+  sel_word(dd2)
+  copy(dd2)
+  move_to_eol(dd2)
+  local str = "std_logic_vector( resize( unsigned(FIXME), FIXME2'length);"
+  ins_str(str,dd2)
+  find_reverse("FIXME2",dd2)
+  paste(dd2)
+  sel_word(dd2)
+  set_sel_end(dd2)
+  disp(dd)
+end
+
+
+-- =============================================================================
 -- Insert type state is (IDLE, STATE1);
 
 function vhdl_state(dd)
@@ -754,6 +773,7 @@ alt_unsigned       = vhdl_unsigned
 alt_signed         = vhdl_signed
 alt_slv_array      = vhdl_slv_array
 alt_vhdl_incr      = vhdl_slv_incr
+alt_vhdl_resize    = vhdl_slv_resize
 alt_vhdl_case      = vhdl_case
 alt_vhdl_state     = vhdl_state
 alt_vhdl_record    = vhdl_record
