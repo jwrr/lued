@@ -4092,7 +4092,7 @@ function sel_number(dd)
     while is_digit( string.sub(line,c2+1,c2+1) ) do c2 = c2 + 1; end
     set_sel_from_to(r,c1,r,c2+1,dd2)
   else
-    set_sel_off(dd2)
+    set_sel_off()
   end
 end
 

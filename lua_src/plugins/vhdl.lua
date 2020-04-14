@@ -404,25 +404,62 @@ end -- vhdl_tb
 -- Insert VHDL process with a clock and an active-low, asynchronous reset.
 
 function vhdl_proc(dd)
+  local dd2 = 1
 
-  local str = [===[
+  local r1,c1 = get_cur_pos()
+  local save_fw = g_find_whole_word
+  g_find_whole_word = false;
+  
+  set_cur_pos(1,1)
+  local clk_name = "clk"
+  local clk_found = find_forward("clk",dd2) or
+                    find_forward("clock",dd2) or
+                    find_forward("ck",dd2) or false
+  if clk_found then
+    set_sel_off()
+    sel_word()
+    clk_name = get_sel_str()
+--     dbg_prompt("clk_name = " .. clk_name)
+  end
 
-  process (clk, rst)
+  set_cur_pos(1,1)
+  local rst_name = "rst"
+  local rst_found = find_forward("rst",dd2) or
+                    find_forward("reset",dd2) or false
+  if rst_found then
+    set_sel_off()
+    sel_word()
+    rst_name = get_sel_str()
+  end
+
+  set_sel_off()
+  g_find_whole_word = save_fw
+  move_to_line(r1,dd2)
+  move_to_sol_classic(dd2)
+
+  local rst_name_lower = string.lower(rst_name)
+  local rst_active_low = string.match(rst_name, "n") or
+                         string.match(rst_name, "b") or
+                         string.match(rst_name, "l")
+  local rst_level = rst_active_low and "0" or "1"
+  local str = [[
+
+  process (]] .. clk_name .. " , " .. rst_name .. [[)
   begin
-    if (rst = '1') then
+    if (]] .. rst_name .. " = '" .. rst_level .. [[') then
       
     elsif rising_edge(clk) then
       
     end if;
   end process;
 
-]===]
+]]
 
-  local dd2 = 1
-  move_to_sol_classic(dd2)
   ins_str(str,dd)
   move_up_n_lines(4,dd2)
   move_to_eol(dd)
+
+
 end
 
 
