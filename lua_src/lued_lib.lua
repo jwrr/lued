@@ -2424,6 +2424,19 @@ function del_eow(dd)
 end
 
 
+function del_spaces(dd)
+  local dd2 = 1
+  if not is_space() then
+    disp(dd)
+    return
+  end
+  set_sel_start()
+  skip_spaces(dd2)
+  set_sel_end()
+  cut(dd)
+end
+
+
 -- Remove spaces from cursor to start of next word.  If cursor is not over a
 -- space then go to next line and then delete the spaces.
 function del_spaces_next_line(dd)
@@ -2658,7 +2671,13 @@ function unindent_selected(dd)
     set_cur_pos(sel_er,sel_ec)
   else
     local goto_next_line = true
-    unindent1(g_indent_size, g_indent_char, goto_next_line, dd2)
+    local ws, ws_len = leading_ws()
+    if ws_len < g_indent_size then
+      del_spaces(dd2)
+      move_down_n_lines(1,dd2)
+    else
+      unindent1(g_indent_size, g_indent_char, goto_next_line, dd2)
+    end
   end
   disp(dd)
 end

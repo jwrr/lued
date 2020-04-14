@@ -135,7 +135,7 @@ alt_br           = bubble_word_right          hot("br") -- swap current word wit
 
 --## Indent and Align Commands
 alt_ii           = indent_selected         hot("ii")  -- Indented selected lines one space
-alt_ui           = unindent_selected       hot("ui")  -- Unindent selected lines one space
+alt_II           = unindent_selected       hot("II")  -- Unindent selected lines one space
 alt_ir           = reindent_selected       hot("ir")  -- Reindents selected per defined indent size
 alt_is           = set_indent_size         hot("is")  -- Set indent size
 alt_al           = align_cur_char;         hot("al") -- Align char on next line with current line
