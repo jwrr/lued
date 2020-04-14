@@ -3409,14 +3409,14 @@ end
 
 function recenter(dd)
   local dd2 = 1
-  g_page_offset = g_page_offset or 0
-  local offset1 = g_page_offset
+  set_page_offset_percent(0.50,dd)
+  disp(dd)
+end
+
+
+function recenter_top(dd)
+  local dd2 = 1
   set_page_offset_percent(0.10,dd2)
-  local offset2 = g_page_offset
-  -- dbg_prompt("offset1="..offset1.." offset2="..offset2)
-  if offset1==offset2+1 then
-    set_page_offset_percent(0.50,dd2)
-  end
   disp(dd)
 end
 

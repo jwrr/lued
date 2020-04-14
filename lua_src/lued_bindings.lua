@@ -142,7 +142,8 @@ alt_al           = align_cur_char;         hot("al") -- Align char on next line 
 alt_af           = align_selected          hot("af")  -- Align First char on next line with current line. If lines selected then align all lines with first line.
 
 --## Center Cursor Commands
-alt_kc           = recenter                hot("kc") -- Recenters cursor to top, press again and recenters to center. Similar to Sublime's CTRL+KC. vim's zz/zt. 
+alt_kc           = recenter                hot("kc") -- Recenters cursor to center, press again and recenters to top. Similar to Sublime's CTRL+KC. vim's zz/zt. 
+alt_KC           = recenter_top            hot("KC") -- Recenters cursor to top, press again and recenters to center. Similar to Sublime's CTRL+KC. vim's zz/zt. 
 
 --## Comment Commands
 alt_cc           = comment_selected        hot("cc") -- Comment out line. Similar to Sublime Ctrl+slash.
