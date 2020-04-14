@@ -111,6 +111,8 @@ alt_pl           = paste_line_after        hot("pl") -- Paste Line after current
 alt_PL           = paste_line_before       hot("PL") -- Paste Line before current line
 
 --## Find and Replace Commands
+alt_df           = find_word               hot("df")  -- find word under cursor
+alt_DF           = find_reverse_word       hot("DF")  -- find reverse word under cursor
 alt_fa           = search_all_files        hot("fa")  -- Similar to Sublime Ctrl+Shift+F. search all open files for match
 alt_fb           = find_back               hot("fb")  -- find back. return to position before find operation.
 alt_ff           = find_forward_again      hot("ff")  -- Similar to Sublime F3. Find next occurrence of search text.

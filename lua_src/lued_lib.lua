@@ -2060,6 +2060,25 @@ function find_forward_again(dd)
 end
 
 
+function find_word(dd)
+  local dd2 = 1
+  set_sel_off()
+  sel_word(dd2)
+  set_sel_end()
+  local sel_str = get_sel_str()
+  find_forward_selected(dd)
+end
+
+
+function find_reverse_word(dd)
+  local dd2 = 1
+  set_sel_off()
+  sel_word(dd2)
+  set_sel_end()
+  find_reverse_selected(dd)
+end
+
+
 function find_forward_selected(dd)
   local dd2 = 1
   g_search_all_files = false

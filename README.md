@@ -411,3 +411,19 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * alt_sf/SF select to File end or File start eof/sof
 * alt_ff/FF goto File end or File start eof/sof
 
+
+* Should sel_word incldule set_sel_end()? or should it be an argument?
+* <cr> in comment creates new comment line.
+* alt+jj joins two lines. if on comment line the remove next lines comment
+* Bracket highlighting
+* Move to open/close of bracket
+* Create php.lua language mode
+* Map files extension to language mode
+* Support php alternate mode for bracket highlighting
+* alt_hh highlight selected text. this allows you to move without growing/shrinking/closing selected region.
+* alt_HH turns off highlight
+* Support multiple sessions. Each session has different set of files
+* Check compatibility with tmux and screen
+* When ctrl+R immediately follows ctrl+E (or E follows R) move a half step
+
+
