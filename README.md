@@ -425,5 +425,8 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * Support multiple sessions. Each session has different set of files
 * Check compatibility with tmux and screen
 * When ctrl+R immediately follows ctrl+E (or E follows R) move a half step
+* Refine Jah when modifying partial word, and still maintaining alignment
+* After quiting Find+Replace, return to original screen offset
+* Repeat previous N
 
 

@@ -21,7 +21,7 @@ ctrl_Q           = quit_all          -- Quit or Exit. Similar to Sublime Ctrl-Q.
 ctrl_W           = quit_session      -- Close window or tab. Similar to Sublime Ctrl-W.
 ctrl_E           = move_left_fast    -- Move left defined number (8) of char
 ctrl_R           = move_right_fast   -- Move right defined number (4) of char
-ctrl_T           = bubble_word_left  -- Move current word left. Similar to Sublime Ctrl+T
+ctrl_T           = select_tab        -- Select file tab menu
 ctrl_Y           = redo_cmd          -- Redo (undo undo). Similar to Sublime Ctrl+Y
 ctrl_U           = spare             -- Spare
 
@@ -50,10 +50,10 @@ ctrl_M           = dont_use          -- Do Not Use.
 
 
 --## File Tab Commands
-alt_tt           = select_tab              hot("tt")  -- Select file tab from list of open files. Similar to Sublime Command+T
-alt_TT           = tab_toggle              hot("TT")  -- Toggle to previous file tab
-alt__equal_      = tab_next                hot("=")   -- Change to next file tab. Similar to Sublime next_view Ctrl+Tab or Command+Shift+].
-alt__plus_       = tab_prev                hot(",+,") -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[.
+alt_tt           = tab_next                hot("tt")  -- Change to next file tab. Similar to Sublime next_view Ctrl+Tab or Command+Shift+].
+alt_TT           = tab_prev                hot("TT")  -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[.
+alt__equal_      = tab_toggle              hot("=")   -- Toggle to previous file tab
+alt__plus_       = tab_prev                hot(",+,") -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[
 
 --## Select Commands
 alt_si           = sel_indentation         hot("si") -- Similar to Sublime Ctrl+shift+J.  Select lines with the indentation.
