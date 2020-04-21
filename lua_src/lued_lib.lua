@@ -212,8 +212,13 @@ function toggle_enable_file_changed(dd)
 end
 
 
-function toggle_find_case_sensitive(dd)
-  g_find_case_sensitive = not g_find_case_sensitive
+function set_find_case_sensitive(dd)
+  g_find_case_sensitive = true
+  disp(dd)
+end
+
+function clr_find_case_sensitive(dd)
+  g_find_case_sensitive = false
   disp(dd)
 end
 
