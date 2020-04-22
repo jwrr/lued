@@ -61,7 +61,7 @@ function toggle_line_numbers(dd)
   if g_show_line_numbers then
     show = 1;
   end
-  set_show_line_numbers(show)
+  -- set_show_line_numbers(show)
   disp(dd)
 end
 
@@ -918,10 +918,22 @@ function display_status_in_lua(lua_mode)
 end
 
 
+function insert_line_numbers(text)
+  if g_show_line_numbers then
+    g_lnum = row;
+    text = text:gsub("^",  string.format("%4d: ",g_lnum) )
+    text = string.gsub (text, "\n", function (str) g_lnum = g_lnum + 1; return string.format("\n%4d: ",g_lnum) end )
+    text = string.gsub (text, " *%d*: $","")
+  end
+  return text;
+end
+
+
 function display_page_in_lua(lua_mode, highlight_trailing_spaces)
   display_status_in_lua(lua_mode)
   local row,col = get_page_pos() -- FIXME -1 to adjust from c to lua
   local text = get_page(row-1,highlight_trailing_spaces)
+  text = insert_line_numbers(text)
   io.write (text)
 end
 
