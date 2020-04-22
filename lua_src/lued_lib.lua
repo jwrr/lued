@@ -212,6 +212,11 @@ function toggle_enable_file_changed(dd)
 end
 
 
+function toggle_express_mode(dd)
+  g_express_mode = not g_express_mode
+  disp(dd)
+end
+
 function set_find_case_sensitive(dd)
   g_find_case_sensitive = true
   disp(dd)
@@ -1039,8 +1044,13 @@ function set_move_left_n_char(n,dd)
 end
 
 
+
 function move_left_fast(dd)
-  move_left_n_char(g_move_left_n_char,dd)
+  if g_express_mode then
+    move_left_n_char(g_move_left_n_char,dd)
+  else
+    move_left_n_char(1,dd)
+  end
 end
 
 
@@ -1079,7 +1089,11 @@ end
 
 
 function move_right_fast(dd)
-  move_right_n_char(g_move_right_n_char,dd)
+  if g_express_mode then
+    move_right_n_char(g_move_right_n_char,dd)
+  else
+    move_right_n_char(1,dd)
+  end
 end
 
 

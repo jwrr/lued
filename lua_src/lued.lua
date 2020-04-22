@@ -33,6 +33,7 @@ SOFTWARE.
   g_lued_root              = expand_path(g_lued_root)
   g_bindings_file          = g_lued_root .. "/lued_bindings.lua"
   g_auto_indent            = true  -- Indent the same as the previous line
+  g_express_mode           = false -- arrow keys move faster
   g_indent_char            = " "   -- Used in indent_selected. Typically a space or tab
   g_indent_size            = 2     -- Used in reindent_selected
   g_remove_trailing_spaces = false -- Only removes on lines that are modified. Use alt_Rats to remove all trailing spaces.
@@ -41,11 +42,11 @@ SOFTWARE.
   g_mouse_remove_trailing_comma = true -- Some terminals include comma if it is next to selected work. Which is rarely what you want.
   g_min_lines_from_top     = 5     -- Scroll will try to keep at least 5 lines from the top
   g_min_lines_from_bot     = 7     -- Scroll will try to keep at least 7 lines from the bottom
-  g_move_down_n_lines      = 8     -- move this many lines when not specified
+  g_move_down_n_lines      = 4     -- move this many lines when not specified
   g_move_up_n_lines        = 4     -- move this many lines when not specified
-  g_move_right_n_char      = 10    -- move this many char when not specified
-  g_move_left_n_char       = 3     -- move this many char when not specified
-  g_page_size              = 0.5  -- This controls PgUp/PgDn speed. 0.5 is halfs page at a time.
+  g_move_right_n_char      = 4     -- move this many char when not specified
+  g_move_left_n_char       = 4     -- move this many char when not specified
+  g_page_size              = 0.5   -- This controls PgUp/PgDn speed. 0.5 is halfs page at a time.
   g_enable_file_changed    = true  -- efc0, efc1. detect file change and prompt to reload FIXME
   g_find_case_sensitive    = false -- find uses case sensitive search
   g_find_whole_word        = false -- Find whole words
