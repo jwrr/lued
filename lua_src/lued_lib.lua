@@ -918,13 +918,43 @@ function display_status_in_lua(lua_mode)
 end
 
 
-function insert_line_numbers(text)
-  if g_show_line_numbers then
-    g_lnum = row;
-    text = text:gsub("^",  string.format("%4d: ",g_lnum) )
-    text = string.gsub (text, "\n", function (str) g_lnum = g_lnum + 1; return string.format("\n%4d: ",g_lnum) end )
-    text = string.gsub (text, " *%d*: $","")
+function make_line_bold(lnum1,lnum2)
+  esc_bold = ""
+  g_bold_current_line = true
+  if g_bold_current_line and lnum1==lnum2 then
+    esc_bold = string.char(27) .. "[1m"
   end
+  return esc_bold
+end
+
+
+function insert_line_numbers(text)
+  linenum,col = get_cur_pos()
+  
+  -- First Line - Insert Line Number
+  esc_bold = make_line_bold(linenum, g_lnum)
+  if g_show_line_numbers then
+    text = text:gsub("^",  esc_bold..string.format("%4d: ",g_lnum) )
+  else
+    text = text:gsub("^",  esc_bold )
+  end
+  
+  -- Middle Lines
+  text = string.gsub (text, "\n", function (str) 
+           g_lnum = g_lnum + 1
+           local linenum = get_cur_pos()
+           esc_bold = make_line_bold(linenum,g_lnum)
+           esc_normal = string.char(27).."[0m"
+           if g_show_line_numbers then
+             return string.format(esc_normal .. "\n" .. esc_bold .. "%4d: ", g_lnum)
+           else
+             return string.format(esc_normal .. "\n" .. esc_bold)
+           end
+         end )
+         
+  -- Last Line - Remove Erroneous Extra Line Number
+  text = string.gsub (text, " *%d*: $","")
+
   return text;
 end
 
@@ -932,8 +962,13 @@ end
 function display_page_in_lua(lua_mode, highlight_trailing_spaces)
   display_status_in_lua(lua_mode)
   local row,col = get_page_pos() -- FIXME -1 to adjust from c to lua
+  g_lnum = row
   local text = get_page(row-1,highlight_trailing_spaces)
+  
   text = insert_line_numbers(text)
+  
+  -- text = string.char(27) .. "[1m" .. text;
+  
   io.write (text)
 end
 
