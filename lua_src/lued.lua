@@ -62,6 +62,7 @@ SOFTWARE.
   g_comment                = "--"  -- Alt+Co comments line. Alt+Noco removes comment marker
   g_pwd                    = "."   -- This is the current working directory and is changed by change_dir (alt_CD)
   g_review_mode            = false -- In review mode save maps to save_as.
+  g_self_closing_braces    = true  -- close "{(["
   g_status_line_on         = true  -- Display status line when true, else do not display status line
   g_status_line_reverse    = true  -- Status Line is in reverse video when true, else normal video
   g_search_all_files       = false -- Search all files. set by search_all_files, cleared by

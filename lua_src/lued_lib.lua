@@ -677,7 +677,7 @@ end
 
 
 function get_char(offset)
-  offset = offset or 0
+  offset = offset or 0  -- offset is useful for getting next/prev char
   local r,c = get_cur_pos()
   local pos = c + offset
   pos = math.max(1, pos)
@@ -2755,7 +2755,24 @@ function ins_string(str, dd)
     set_cur_pos(r,c)
     remove_trailing_spaces(r2,c2,false,dd2)
   else
-    insert_str(str)
+    local brace_closed = false
+    if g_self_closing_braces then
+      if str=='{' then str= '{}'; brace_closed = true; end
+      if str=='(' then str= '()'; brace_closed = true; end
+      if str=='[' then str= '[]'; brace_closed = true; end
+    end
+    local ch = get_char()
+    if not string.find("})]",ch) then
+      ch = '';
+    end
+    if str==ch then -- ch is '' or closing brace
+      move_right_n_char(1,dd2)
+    else 
+      insert_str(str)
+      if brace_closed then
+        move_left_n_char(1,dd2)
+      end
+    end
   end
   if g_bracket_paste==1 then
     bracket_paste_stop(dd2)

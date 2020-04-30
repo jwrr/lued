@@ -317,7 +317,12 @@ TBD
 * Change alt_he to alt_help - done
 * Center screen (alt_kc) after last find and replace (ctrl_H) - done
 * Fix Change_File_Tab (alt_tt) to not update last tab when tab doesn't change - done
-* Add session support (alt_SaveSession, alt_LoadSession)
+* Add session support (alt_SaveSession, alt_LoadSession) - done
+* alt_db/DB delete to File end or File start eof/sof - done
+* alt_sb/SB select to File end or File start eof/sof - done
+* alt_bb/BB goto File end or File start eof/sof - done
+* add support for self-closing braces '()[]{}' - done
+
 
 
 ==========================
@@ -407,10 +412,6 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 ## Resolves: #123
 ## See also: #456 #789
 
-* alt_df/DF delete to File end or File start eof/sof
-* alt_sf/SF select to File end or File start eof/sof
-* alt_ff/FF goto File end or File start eof/sof
-
 
 * Should sel_word incldule set_sel_end()? or should it be an argument?
 * <cr> in comment creates new comment line.
@@ -429,4 +430,6 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * After quiting Find+Replace, return to original screen offset
 * Repeat previous N
 
+* move goto_mark from c to lua
+* add support for snippets
 

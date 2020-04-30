@@ -43,7 +43,7 @@ ctrl_Z           = undo_cmd          -- Undo. Similar to Sublime Ctrl+Z
 ctrl_X           = cut_line          -- Cut. Similar to Word and Sublime Ctrl+X
 ctrl_C           = copy_line         -- Copy. Similar to Sublime Ctrl+C
 ctrl_V           = global_paste      -- Paste. Similar to Sublime Ctrl+V
-ctrl_B           = spare             -- Spare.
+ctrl_B           = spare             -- Spare. - let's keep that way for tmux compatibility
 
 ctrl_N           = new_file          -- Create New File. Similar to Word.
 ctrl_M           = dont_use          -- Do Not Use.
