@@ -31,16 +31,59 @@ g_buffer                 = ""    -- The global buffer is used for cut and paste 
 local ESC = string.char(27)
 local CSI = ESC .. '['
 
+-- -- monochrome 
+-- local csi = {}  
+-- csi.normal  = CSI .. "0m"
+-- csi.bold    = CSI .. "1m"
+-- csi.under   = CSI .. "4m"
+-- csi.blink   = CSI .. "5m"
+-- csi.inverse = CSI .. "7m"
+--
+-- -- 16color
+-- csi.fg_black   = CSI .. "30m" -- Black foreground
+-- csi.fg_red     = CSI .. "31m" -- Red foreground
+-- csi.fg_green   = CSI .. "32m" -- Green foreground
+-- csi.fg_yellow  = CSI .. "33m" -- Yellow foreground
+-- csi.fg_blue    = CSI .. "34m" -- Blue foreground
+-- csi.fg_magenta = CSI .. "35m" -- Magenta foreground
+-- csi.fg_cyan    = CSI .. "36m" -- Cyan foreground
+-- csi.fg_white   = CSI .. "37m" -- White foreground
+-- csi.bg_black   = CSI .. "30m" -- Black foreground
+-- csi.bg_red     = CSI .. "31m" -- Red foreground
+-- csi.bg_green   = CSI .. "32m" -- Green foreground
+-- csi.bg_yellow  = CSI .. "33m" -- Yellow foreground
+-- csi.bg_blue    = CSI .. "34m" -- Blue foreground
+-- csi.bg_magenta = CSI .. "35m" -- Magenta foreground
+-- csi.bg_cyan    = CSI .. "36m" -- Cyan foreground
+-- csi.bg_white   = CSI .. "37m" -- White foreground
+
+
+
 -- monochrome 
 local csi = {}  
-csi.normal  = CSI .. "0m"
-csi.bold    = CSI .. "1m"
-csi.under   = CSI .. "4m"
-csi.blink   = CSI .. "5m"
-csi.inverse = CSI .. "7m"
+csi.normal  = "0"
+csi.bold    = "1"
+csi.under   = "4"
+csi.blink   = "5"
+csi.inverse = "7"
 
 -- 16color
-
+csi.fg_black   = "30" -- Black foreground
+csi.fg_red     = "31" -- Red foreground
+csi.fg_green   = "32" -- Green foreground
+csi.fg_yellow  = "33" -- Yellow foreground
+csi.fg_blue    = "34" -- Blue foreground
+csi.fg_magenta = "35" -- Magenta foreground
+csi.fg_cyan    = "36" -- Cyan foreground
+csi.fg_white   = "37" -- White foreground
+csi.bg_black   = "40" -- Black foreground
+csi.bg_red     = "41" -- Red foreground
+csi.bg_green   = "42" -- Green foreground
+csi.bg_yellow  = "43" -- Yellow foreground
+csi.bg_blue    = "44" -- Blue foreground
+csi.bg_magenta = "45" -- Magenta foreground
+csi.bg_cyan    = "46" -- Cyan foreground
+csi.bg_white   = "47" -- White foreground
 
 
 
@@ -440,7 +483,7 @@ end
 
 function is_blankline(line)
   line = line or get_line()
-  local found = string.find(line,"^%s*$")
+  local found = string.bind(line,"^%s*$")
   local is = found~=nil
   return is
 end
@@ -1016,9 +1059,9 @@ function highlight_line(lines, ii)
     return lines
   end
 
-  local csi_default = csi.normal
-  local csi_text    = csi.bold
-  local csi_lnum    = csi.inverse
+  local csi_default = CSI .. csi.normal .."m"
+  local csi_text    = CSI .. csi.bg_black .. ";" .. csi.bold .. "m"
+  local csi_lnum    = CSI .. csi.inverse .. "m"
   
   if g_show_line_numbers then
     local tmp1 = plain_sub(lines[ii] , csi_default, csi_default .. csi_text)
