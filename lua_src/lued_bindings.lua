@@ -150,8 +150,8 @@ alt_KC           = recenter_top            hot("KC") -- Recenters cursor to top,
 
 --## Comment Commands
 alt_cc           = comment_selected        hot("cc") -- Comment out line. Similar to Sublime Ctrl+slash.
+alt_CC           = uncomment_selected      hot("CC") -- Uncomment selected lines.
 alt_cs           = set_comment             hot("cs") -- Comment set. Change start of comment string.
-alt_cu           = uncomment_selected      hot("cu") -- Uncomment selected lines.
 
 --## Upper / Lower Case Commands
 alt_kl           = sel_to_lower            hot("kl") -- Similar to Sublime Ctrl+KL. Convert to Lower Case

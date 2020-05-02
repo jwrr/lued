@@ -33,7 +33,9 @@ SOFTWARE.
   g_lued_root              = expand_path(g_lued_root)
   g_bindings_file          = g_lued_root .. "/lued_bindings.lua"
   g_auto_indent            = true  -- Indent the same as the previous line
-  g_express_mode           = false -- arrow keys move faster
+  g_color_mode             = 'monochrome' -- '16color' '256color'
+  g_express_mode           = false -- arrow keys move faster (ctrl-E toggles)
+  g_highlight_current_line = true
   g_indent_char            = " "   -- Used in indent_selected. Typically a space or tab
   g_indent_size            = 2     -- Used in reindent_selected
   g_remove_trailing_spaces = false -- Only removes on lines that are modified. Use alt_Rats to remove all trailing spaces.

@@ -26,6 +26,24 @@ SOFTWARE.
 
 g_buffer                 = ""    -- The global buffer is used for cut and paste between multiple files.
 
+
+
+local ESC = string.char(27)
+local CSI = ESC .. '['
+
+-- monochrome 
+local csi = {}  
+csi.normal  = CSI .. "0m"
+csi.bold    = CSI .. "1m"
+csi.under   = CSI .. "4m"
+csi.blink   = CSI .. "5m"
+csi.inverse = CSI .. "7m"
+
+-- 16color
+
+
+
+
 function init_lued(lued_path, bindings_file)
   load_plugins( lued_path .. "/plugins" )
   dofile( bindings_file)
@@ -46,12 +64,14 @@ function init_lued(lued_path, bindings_file)
 end
 
 function clr_line_numbers(dd)
+  g_show_line_numbers = false
   set_show_line_numbers(0)
   disp(dd)
 end
 
 function set_line_numbers(dd)
-  set_show_line_numbers(1)
+  g_show_line_numbers = true
+  set_show_line_numbers(0)
   disp(dd)
 end
 
@@ -918,9 +938,116 @@ function display_status_in_lua(lua_mode)
 end
 
 
-function make_line_bold(lnum1,lnum2)
-  esc_bold = ""
-  g_bold_current_line = true
+function explode (subject, sep,  lim)
+  local sep = sep or "\n"
+  lim = lim or -1 -- -1 means no limit
+  local pieces = { }
+  local subject_len = string.len(subject)
+  local sep_len = string.len(sep)
+  if (subject_len==0) or (sep_len==0) or (lim==0) then
+    return pieces -- invalid arg: return empty array
+  end
+
+  local done = false
+  local piece_start = 1
+  repeat
+    local sep_pos = string.find( subject, sep, piece_start )
+    local found = sep_pos ~= nil
+    if not found then
+      piece_stop = subject_len
+    else
+      piece_stop = sep_pos - 1
+    end
+
+    local piece = string.sub( subject, piece_start , piece_stop )
+    table.insert( pieces, piece)
+    piece_start = sep_pos + sep_len
+    local subject_end_reached = piece_start > subject_len
+    local limit_reached = (lim > 0) and (#pieces == lim)
+    done = limit_reached or subject_end_reached
+  until done
+  return pieces
+end
+
+
+function implode(pieces, sep, trailing_sep, first, last)
+  sep = sep or "\n"
+  trailing_sep = trailing_sep or sep
+  return table.concat(pieces,sep,first,last) .. trailing_sep
+end
+
+
+function plain_sub(subject, from, to, lim)
+  local lim = lim or 1
+  if not subject or not from or from=='' or not to or to=='' then
+    return subject
+  end
+  subject_len = string.len(subject)
+  from_len = string.len(from)
+  local out_str = ''
+--   if true then return subject  end
+  local plain = true
+  local pos = string.find( subject, from, 1, plain)
+
+--s   if true then return subject  end
+
+  if pos then
+    local front = ''
+    if pos>1 then
+      front = string.sub(subject, 1, pos-1)
+    end
+    local back_start = pos+from_len
+    local back = ''
+    if back_start <= subject_len then
+      back = string.sub(subject , back_start)
+    end
+    out_str = front .. to .. back
+    -- dbg_prompt("pos" .. tostring(pos) .. "sub"..subject.."front"..front.."back"..back.."end")
+  else
+    out_str = subject
+  end
+  return out_str
+end
+
+
+function highlight_line(lines, ii)
+  g_highlight_line = true
+  if not g_highlight_line or not ii or ii < 1 or ii > #lines then
+    return lines
+  end
+
+  local csi_default = csi.normal
+  local csi_text    = csi.bold
+  local csi_lnum    = csi.inverse
+  
+  if g_show_line_numbers then
+    local tmp1 = plain_sub(lines[ii] , csi_default, csi_default .. csi_text)
+    local tmp2 = plain_sub(tmp1 , ':' , ':' .. csi_default .. csi_text)
+    local tmp3 = csi_lnum .. tmp2 .. csi_default
+    lines[ii] = tmp3
+  else
+    lines[ii] = csi_text .. plain_sub(lines[ii] , csi_default, csi_default .. csi_text) .. csi_default
+  end
+  return lines
+
+end
+
+
+function insert_line_numbers(lines, linenum)
+  if not g_show_line_numbers or not linenum or linenum < 1 then
+    return lines
+  end
+  local outlines = { }
+  linenum = linenum-1
+  for i=1,#lines do
+    outlines[i] = string.format("%4d: ", linenum+i) .. lines[i]
+  end
+  return outlines
+end
+
+
+function make_line_bold_orig(lnum1,lnum2)
+  local esc_bold = ""
   if g_bold_current_line and lnum1==lnum2 then
     esc_bold = string.char(27) .. "[1m"
   end
@@ -928,47 +1055,39 @@ function make_line_bold(lnum1,lnum2)
 end
 
 
-function insert_line_numbers(text)
+function insert_line_numbers_orig(text)
   linenum,col = get_cur_pos()
-  
-  -- First Line - Insert Line Number
-  esc_bold = make_line_bold(linenum, g_lnum)
-  if g_show_line_numbers then
-    text = text:gsub("^",  esc_bold..string.format("%4d: ",g_lnum) )
-  else
-    text = text:gsub("^",  esc_bold )
-  end
-  
-  -- Middle Lines
-  text = string.gsub (text, "\n", function (str) 
+
+  -- replace every newline except for the last
+  return  string.gsub (text, "\n.", function (str)
            g_lnum = g_lnum + 1
            local linenum = get_cur_pos()
-           esc_bold = make_line_bold(linenum,g_lnum)
-           esc_normal = string.char(27).."[0m"
+           local esc_bold = ""
+           if g_bold_current_line then
+             esc_bold = make_line_bold_orig(linenum,g_lnum)
+           end
+           local esc_normal = string.char(27).."[0m"
            if g_show_line_numbers then
-             return string.format(esc_normal .. "\n" .. esc_bold .. "%4d: ", g_lnum)
+             return string.format(esc_normal .. str .. esc_bold .. "%4d: ", g_lnum)
            else
-             return string.format(esc_normal .. "\n" .. esc_bold)
+             return string.format(esc_normal .. str .. esc_bold)
            end
          end )
-         
-  -- Last Line - Remove Erroneous Extra Line Number
-  text = string.gsub (text, " *%d*: $","")
-
-  return text;
 end
 
 
 function display_page_in_lua(lua_mode, highlight_trailing_spaces)
   display_status_in_lua(lua_mode)
-  local row,col = get_page_pos() -- FIXME -1 to adjust from c to lua
-  g_lnum = row
-  local text = get_page(row-1,highlight_trailing_spaces)
-  
-  text = insert_line_numbers(text)
-  
+  local prow,pcol = get_page_pos() -- FIXME -1 to adjust from c to lua
+  local crow,ccol = get_cur_pos()
+  local row_offset = crow - prow + 1
+  local text = get_page(prow-1,highlight_trailing_spaces)
+  local lines = highlight_line( insert_line_numbers( explode(text) , prow) , row_offset )
+  text = implode(lines)
+
+  -- text = insert_line_numbers_orig(text)
   -- text = string.char(27) .. "[1m" .. text;
-  
+
   io.write (text)
 end
 
@@ -2796,19 +2915,21 @@ function ins_string(str, dd)
       if str=='(' then str= '()'; brace_closed = true; end
       if str=='[' then str= '[]'; brace_closed = true; end
     end
+
     local ch = get_char()
-    if not string.find("})]",ch) then
+    if ch~='}' and ch~=')' and ch~=']' then
       ch = '';
     end
     if str==ch then -- ch is '' or closing brace
       move_right_n_char(1,dd2)
-    else 
+    else
       insert_str(str)
       if brace_closed then
         move_left_n_char(1,dd2)
       end
     end
   end
+
   if g_bracket_paste==1 then
     bracket_paste_stop(dd2)
   end
