@@ -2914,9 +2914,6 @@ end
 
 function indent1(n, ch, goto_next, dd)
   local dd2 = 1
-  n = n or g_indent_size
-  ch = ch or g_indent_char
-  goto_next = goto_next or true
 
   local spaces = string.rep(ch,n)
   local r,c = get_cur_pos()
@@ -3022,6 +3019,21 @@ function unindent_selected(dd)
 end
 
 
+function line_contains(needles, line)
+  local line = line or get_line()
+  local found = false
+  if needles then
+    for i=1,#needles do
+      if string.find(line, needles[i], 1, true)~=nil then
+        found = true
+        break
+      end
+    end
+  end
+  return found
+end
+
+
 function ins_string(str, dd)
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -3029,6 +3041,10 @@ function ins_string(str, dd)
   local first_line = sel_sr<=1
   local inhibit_cr = sel_state~=0 and not first_line
   del_sel(dd2)
+  
+  is_start_of_block = line_contains(g_block_start)
+  is_inside_braces  = get_char()=="}" and get_char(-1)=="{"
+  
   if str == "\n" then
     if g_auto_indent==true and c~=1 then
       local line = get_line()
@@ -3040,6 +3056,15 @@ function ins_string(str, dd)
       end
     end
     insert_str(str)
+    
+    if is_inside_braces then
+      insert_str(str)
+      move_up_n_lines(1,dd2)
+      indent1(g_indent_size, g_indent_char, false, dd2)
+    elseif is_start_of_block then
+      indent1(g_indent_size, g_indent_char, false, dd2)
+    end    
+    
     local r2,c2 = get_cur_pos()
     set_cur_pos(r,c)
     remove_trailing_spaces(r2,c2,false,dd2)
@@ -3154,20 +3179,25 @@ function insert_tab_selected(dd)
 end
 
 
-
 function insert_cr_before(dd)
   local dd2 = 1
+  local is_end_of_block = line_contains(g_block_end)
   move_to_sol_classic(dd2)
   ins_str("\n",dd2)
   move_up_n_lines(1,dd2)
-  indent(dd)
+  indent(dd2)
+  if is_end_of_block then
+    indent1(g_indent_size, g_indent_char, false, dd2)
+  end
+  disp(dd)
 end
 
-
+ 
 function insert_cr_after(dd)
   local dd2 = 1
   if not is_eol() then move_to_eol(dd2) end
-  ins_str("\n",dd)
+  ins_str("\n",dd2)
+  disp(dd)
 end
 
 

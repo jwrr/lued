@@ -9,6 +9,12 @@ rm -rf lued_dev
 git clone https://jwrr@github.com/jwrr/lued.git lued_dev
 cd lued_dev
 
+if true then
+end
+
+if true:
+  
+
 ## Create a new branch (OPTIONAL)
 git checkout -b submodule_branch
 

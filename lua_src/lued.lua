@@ -33,6 +33,8 @@ SOFTWARE.
   g_lued_root              = expand_path(g_lued_root)
   g_bindings_file          = g_lued_root .. "/lued_bindings.lua"
   g_auto_indent            = true  -- Indent the same as the previous line
+  g_block_start            = { "{" , "begin" , "then" , "do" , "loop" , "repeat", ":" }
+  g_block_end              = { "}" , "end" , "until" , ":" }
   g_color_mode             = 'monochrome' -- '16color' '256color'
   g_express_mode           = false -- arrow keys move faster (ctrl-E toggles)
   g_highlight_current_line = true
