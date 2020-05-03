@@ -442,13 +442,20 @@ function is_space(line,pos)
   return is
 end
 
+
+function is_punct(line,pos)
+  pos = pos or 1
+  local ch = line and string.sub(line,pos.pos) or get_char()
+  return string.match(ch,"^%p",pos) and true or false
+end
+
+
 function is_word(line,pos)
   local is;
   if line then
     is = string.match(line,"^[%w_]",pos) and true or false
   else
-    local ch = get_char()
-    is =  string.match(ch,"^[%w_]",1) and true or false
+    is = string.match(get_char(),"^[%w_]",1) and true or false
   end
   return is
 end
@@ -2746,7 +2753,15 @@ function sel_eow(dd)
     while is_space() and not is_eol()  do
       move_right_n_char(1,dd2)
     end
-  else
+  elseif is_punct() then
+    while is_punct() and not is_eol() do
+      move_right_n_char(1,dd2)
+    end
+  elseif is_word() then
+    while is_word() and not is_eol() do
+      move_right_n_char(1,dd2)
+    end
+  else -- other
     while not is_space() and not is_eol() do
       move_right_n_char(1,dd2)
     end
