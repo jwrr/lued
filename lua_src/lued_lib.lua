@@ -445,7 +445,7 @@ end
 
 function is_punct(line,pos)
   pos = pos or 1
-  local ch = line and string.sub(line,pos.pos) or get_char()
+  local ch = line and string.sub(line,pos,pos) or get_char()
   return string.match(ch,"^%p",pos) and true or false
 end
 
@@ -2723,16 +2723,18 @@ end
 function sel_sow(dd)
   local dd2 = 1
   set_sel_start()
-  if not is_word() then
-    while not is_word() do
+  if is_word(get_char(-1)) then
+    while not is_sol() and is_word(get_char(-1)) do
       move_left_n_char(1,dd2)
     end
-    move_right_n_char(1,dd2)
-  else
-    while is_word() do
+  elseif is_space(get_char(-1)) then
+    while not is_sol() and is_space(get_char(-1)) do
       move_left_n_char(1,dd2)
     end
-    move_right_n_char(1,dd2)
+  elseif is_punct(get_char(-1)) then
+    while not is_sol() and is_punct(get_char(-1)) do
+      move_left_n_char(1,dd2)
+    end
   end
   set_sel_end()
   disp(dd)
