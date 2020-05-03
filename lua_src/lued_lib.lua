@@ -31,37 +31,10 @@ g_buffer                 = ""    -- The global buffer is used for cut and paste 
 local ESC = string.char(27)
 local CSI = ESC .. '['
 
--- -- monochrome 
--- local csi = {}  
--- csi.normal  = CSI .. "0m"
--- csi.bold    = CSI .. "1m"
--- csi.under   = CSI .. "4m"
--- csi.blink   = CSI .. "5m"
--- csi.inverse = CSI .. "7m"
---
--- -- 16color
--- csi.fg_black   = CSI .. "30m" -- Black foreground
--- csi.fg_red     = CSI .. "31m" -- Red foreground
--- csi.fg_green   = CSI .. "32m" -- Green foreground
--- csi.fg_yellow  = CSI .. "33m" -- Yellow foreground
--- csi.fg_blue    = CSI .. "34m" -- Blue foreground
--- csi.fg_magenta = CSI .. "35m" -- Magenta foreground
--- csi.fg_cyan    = CSI .. "36m" -- Cyan foreground
--- csi.fg_white   = CSI .. "37m" -- White foreground
--- csi.bg_black   = CSI .. "30m" -- Black foreground
--- csi.bg_red     = CSI .. "31m" -- Red foreground
--- csi.bg_green   = CSI .. "32m" -- Green foreground
--- csi.bg_yellow  = CSI .. "33m" -- Yellow foreground
--- csi.bg_blue    = CSI .. "34m" -- Blue foreground
--- csi.bg_magenta = CSI .. "35m" -- Magenta foreground
--- csi.bg_cyan    = CSI .. "36m" -- Cyan foreground
--- csi.bg_white   = CSI .. "37m" -- White foreground
-
-
-
 -- monochrome 
 local csi = {}  
 csi.normal  = "0"
+csi.reset   = "0"
 csi.bold    = "1"
 csi.under   = "4"
 csi.blink   = "5"
@@ -76,15 +49,116 @@ csi.fg_blue    = "34" -- Blue foreground
 csi.fg_magenta = "35" -- Magenta foreground
 csi.fg_cyan    = "36" -- Cyan foreground
 csi.fg_white   = "37" -- White foreground
-csi.bg_black   = "40" -- Black foreground
-csi.bg_red     = "41" -- Red foreground
-csi.bg_green   = "42" -- Green foreground
-csi.bg_yellow  = "43" -- Yellow foreground
-csi.bg_blue    = "44" -- Blue foreground
-csi.bg_magenta = "45" -- Magenta foreground
-csi.bg_cyan    = "46" -- Cyan foreground
-csi.bg_white   = "47" -- White foreground
+csi.bg_black   = "40" -- Black background
+csi.bg_red     = "41" -- Red background
+csi.bg_green   = "42" -- Green background
+csi.bg_yellow  = "43" -- Yellow background
+csi.bg_blue    = "44" -- Blue background
+csi.bg_magenta = "45" -- Magenta background
+csi.bg_cyan    = "46" -- Cyan background
+csi.bg_white   = "47" -- White background
 
+local fg = {}
+local bg = {}
+for i=0,7 do
+  fg[i]      = tostring(30+i)
+  fg[i+8]    = tostring(30+i) .. ";1"
+  bg[i]      = tostring(40+i)
+  bg[i+8]    = tostring(40+i) .. ";1"
+end
+
+csi.fg = fg
+csi.bg = bg
+
+local decoration   = {}
+decoration.normal  = 2^0
+decoration.bold    = 2^1
+decoration.faint   = 2^2
+decoration.italic  = 2^3
+decoration.uline   = 2^4
+decoration.blink   = 2^5
+decoration.inverse = 2^7
+decoration.hidden  = 2^8
+decoration.strike  = 2^9
+csi.dec = decoration
+
+
+function color_code(color_args)
+  local code = CSI;
+  for i=1,#color_args do
+    local sep = (i==#color_args) and "m" or ";"
+    code = code .. color_args[i] .. sep
+  end
+  return code;
+end
+
+
+function lued_prompt2(prompt)
+  prompt = prompt or "--> "
+  io.write(" ")
+  str = io_read(nil,prompt,"",nil)
+  return str
+end
+
+function dbg_prompt(dbg_str)
+  local str = ""
+  -- repeat
+    local prompt = "DBG> "..dbg_str..": "
+    str = lued_prompt2(prompt)
+  return str
+end
+
+
+
+
+function set_style(fg,bg,decorations)
+  -- bit 0 = normal      (2^0)
+  -- bit 1 = bold        (2^1)
+  -- bit 2 = faint       (2^2)
+  -- bit 3 = italicized  (2^3)
+  -- bit 4 = underlined  (2^4)
+  -- bit 5 = blink       (2^5)
+  -- bit 6 = undefined
+  -- bit 7 = inverse     (2^7)
+  -- bit 8 = hidden      (2^8)
+  -- bit 9 = crossed-out (2^9)
+
+  -- local CSI = "esc["  
+  local code = CSI .. "0m"
+  if decorations ~= nil then
+    if decorations == 0 then
+      code = code .. CSI .. "0m"
+    else
+      for i=0,9 do
+        if decorations % 2 == 1 then
+          code = code .. CSI .. tostring(i) .. "m"
+        end
+        decorations = math.floor(decorations / 2)
+      end
+    end
+  end
+  if fg ~= nil and bg ~= nil then
+    code = code .. CSI .. fg .. "m" .. CSI.. bg .. "m"
+  elseif fg ~= nil then
+    code = code .. CSI .. fg .. "m"
+  elseif  bg ~= nil then
+    code = code .. CSI .. bg .. "m"
+  end
+  -- dbg_prompt("code="..code.."xxx")
+  return code;
+end
+
+local styles = {}
+styles.enable               = true
+styles.reset                = color_code( {csi.reset})
+styles.inverse              = color_code( {csi.inverse})
+styles.normal               = color_code( {csi.reset})
+styles.normal               = color_code( {csi.reset})
+styles.cursor               = set_style( csi.fg[0], csi.bg[15], 0  )
+styles.cursor_line          = set_style( csi.fg[15], csi.bg[8], 0 )
+styles.line                 = set_style( nil, nil, 0)
+styles.line_number          = set_style( csi.fg[3], csi.bg[8], 0)
+styles.cursor_line_number   = set_style( csi.fg[0], csi.bg[15], 0)
 
 
 function init_lued(lued_path, bindings_file)
@@ -1019,73 +1093,102 @@ function implode(pieces, sep, trailing_sep, first, last)
   return table.concat(pieces,sep,first,last) .. trailing_sep
 end
 
-
-function plain_sub(subject, from, to, lim)
-  local lim = lim or 1
-  if not subject or not from or from=='' or not to or to=='' then
+-- @description replace plain text string. Similar to string.gsub, except with
+-- plain text.
+-- @param subject is the string to modify
+-- @param from is the plain text string to find
+-- @param to is the plain text replacement string
+-- @param index is the starting offset. default to 1
+-- @param lim is the max number of substitutions. nil is no limit.
+-- @return result count start stop
+-- @return result is modified string
+-- @return count is the number of replacements performed
+-- @return start is the first offset modied
+-- @return stop is the last offset modified in the new string
+function psub(subject, from, to, index, lim)
+  lim = lim or 0
+  index = index or 1
+  if not subject or not from or from=="" or not to or to=="" then
     return subject
   end
   subject_len = string.len(subject)
   from_len = string.len(from)
-  local out_str = ''
+  local to_len = string.len(to)
 --   if true then return subject  end
   local plain = true
-  local pos = string.find( subject, from, 1, plain)
-
---s   if true then return subject  end
-
-  if pos then
-    local front = ''
-    if pos>1 then
-      front = string.sub(subject, 1, pos-1)
-    end
+  local count = 0
+  local start
+  local stop
+  local offset = 1
+  local result = subject
+  local lim_reached = false
+  repeat
+    local pos = string.find( result, from, offset, plain)
+    if not pos then break end
+    offset = pos + to_len
+    local front_exists = pos>1
+    local front = front_exists and string.sub(result, 1, pos-1) or ''
     local back_start = pos+from_len
-    local back = ''
-    if back_start <= subject_len then
-      back = string.sub(subject , back_start)
-    end
-    out_str = front .. to .. back
-    -- dbg_prompt("pos" .. tostring(pos) .. "sub"..subject.."front"..front.."back"..back.."end")
-  else
-    out_str = subject
-  end
-  return out_str
+    local back_exists = back_start <= string.len(result)
+    local back = back_exists and string.sub(result , back_start) or ''
+    result = front .. to .. back
+    count = count + 1
+    start = start or pos
+    stop = pos + to_len - 1
+  until count==lim
+  return result, count, start, stop
 end
 
 
-function highlight_line(lines, ii)
-  g_highlight_line = true
-  if not g_highlight_line or not ii or ii < 1 or ii > #lines then
+function style_page(lines, linenum, row_offset)
+
+  -- ensure all styles are define
+  styles.enable = styles.enable or false
+  styles.line = styles.line or ""
+  styles.cursor_line = styles.cursor_line or ""
+  styles.line_number = styles.line_number or ""  
+  styles.cursor_line_number = styles.cursor_line_number or ""
+  styles.cursor = styles.cursor or ""
+
+
+  -- do nothing if not showing lnum and no style
+  if not g_show_line_numbers and not styles.enable then
     return lines
   end
-
-  local csi_default = CSI .. csi.normal .."m"
-  local csi_text    = CSI .. csi.bg_black .. ";" .. csi.bold .. "m"
-  local csi_lnum    = CSI .. csi.inverse .. "m"
   
-  if g_show_line_numbers then
-    local tmp1 = plain_sub(lines[ii] , csi_default, csi_default .. csi_text)
-    local tmp2 = plain_sub(tmp1 , ':' , ':' .. csi_default .. csi_text)
-    local tmp3 = csi_lnum .. tmp2 .. csi_default
-    lines[ii] = tmp3
-  else
-    lines[ii] = csi_text .. plain_sub(lines[ii] , csi_default, csi_default .. csi_text) .. csi_default
+  -- subtract one because for loop adds one
+  linenum = linenum-1
+  
+  -- set the first and last lines to include all lines or just current line
+  local update_only_cursor_line = not g_show_line_numbers and styles.line==""
+  local start_line = update_only_cursor_line and row_offset or 1
+  local stop_line = update_only_cursor_line and row_offset or #lines
+  
+  for i=start_line,stop_line do
+    local line_style = styles.enable and styles.line or ""
+    local lnum_style = styles.enable and styles.line_number or ""
+    
+    if i==row_offset then
+      local curs_style = styles.enable and styles.cursor or ""
+      if curs_style~="" then
+        lines[i] = psub(lines[i], styles.inverse, curs_style, 1)
+      end
+    
+      line_style = styles.enable and styles.cursor_line or ""
+      lnum_style = styles.enable and styles.cursor_line_number or ""
+    end
+    
+    if line_style~="" then
+      lines[i] = line_style .. psub(lines[i], styles.reset, line_style) .. styles.line
+    end
+
+    if g_show_line_numbers then
+      local linenum_str = string.format("%4d:", linenum+i)
+      lines[i] = lnum_style .. linenum_str .. styles.reset .. " " .. lines[i]
+    end
+      
   end
   return lines
-
-end
-
-
-function insert_line_numbers(lines, linenum)
-  if not g_show_line_numbers or not linenum or linenum < 1 then
-    return lines
-  end
-  local outlines = { }
-  linenum = linenum-1
-  for i=1,#lines do
-    outlines[i] = string.format("%4d: ", linenum+i) .. lines[i]
-  end
-  return outlines
 end
 
 
@@ -1125,7 +1228,7 @@ function display_page_in_lua(lua_mode, highlight_trailing_spaces)
   local crow,ccol = get_cur_pos()
   local row_offset = crow - prow + 1
   local text = get_page(prow-1,highlight_trailing_spaces)
-  local lines = highlight_line( insert_line_numbers( explode(text) , prow) , row_offset )
+  local lines = style_page( explode(text) , prow, row_offset)
   text = implode(lines)
 
   -- text = insert_line_numbers_orig(text)
@@ -1781,17 +1884,6 @@ end
 --   end
 --   disp(dd)
 -- end
-
-
-function dbg_prompt(dbg_str)
-  local str = ""
-  -- repeat
-    local prompt = "DBG> "..dbg_str..": "
-
-    dbg_id = dgb_id or get_hist_id()
-    str = lued_prompt(nil, prompt)
-  return str
-end
 
 
 function find_prompt(test_str)
