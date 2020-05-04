@@ -62,9 +62,9 @@ local fg = {}
 local bg = {}
 for i=0,7 do
   fg[i]      = tostring(30+i)
-  fg[i+8]    = tostring(30+i) .. ";1"
+  fg[i+8]    = tostring(90+i)
   bg[i]      = tostring(40+i)
-  bg[i+8]    = tostring(40+i) .. ";1"
+  bg[i+8]    = tostring(100+i)
 end
 
 csi.fg = fg
@@ -153,12 +153,91 @@ styles.enable               = true
 styles.reset                = color_code( {csi.reset})
 styles.inverse              = color_code( {csi.inverse})
 styles.normal               = color_code( {csi.reset})
-styles.normal               = color_code( {csi.reset})
 styles.cursor               = set_style( csi.fg[0], csi.bg[15], 0  )
-styles.cursor_line          = set_style( csi.fg[15], csi.bg[8], 0 )
-styles.line                 = set_style( nil, nil, 0)
-styles.line_number          = set_style( csi.fg[3], csi.bg[8], 0)
-styles.cursor_line_number   = set_style( csi.fg[0], csi.bg[15], 0)
+--styles.cursor_line        = set_style( csi.fg[15], csi.bg[8], 0 )
+styles.cursor_line          = set_style( nil, nil, 0 )
+styles.normal               = set_style( nil, nil, 0 )
+styles.line_number          = set_style( csi.fg[8],  nil       , 0)
+styles.cursor_line_number   = set_style( csi.fg[15], csi.bg[8] , 0)
+styles.comment              = set_style( csi.fg[8],  nil       , 0 )
+styles.comment_regex        = "//[^\n]*"
+styles.comment_regex2       = "%-%-[^\n]*"
+styles.comment_regex3       = "%-%-[^\n]*"
+styles.string               = set_style( csi.fg[3],  nil       , 0 )
+styles.string_regex         = "[\"][^\"][\"]"
+
+-- Lua Magic: (   )   .   %   +   –   *   ?   [   ^   $
+
+styles.fg0                  = set_style (csi.fg[0], nil , 0)
+styles.fg1                  = set_style (csi.fg[1], nil , 0)
+styles.fg2                  = set_style (csi.fg[2], nil , 0)
+styles.fg3                  = set_style (csi.fg[3], nil , 0)
+styles.fg4                  = set_style (csi.fg[4], nil , 0)
+styles.fg5                  = set_style (csi.fg[5], nil , 0)
+styles.fg6                  = set_style (csi.fg[6], nil , 0)
+styles.fg7                  = set_style (csi.fg[7], nil , 0)
+styles.fg8                  = set_style (csi.fg[8], nil , 0)
+styles.fg9                  = set_style (csi.fg[9], nil , 0)
+styles.fg10                 = set_style (csi.fg[10], nil , 0)
+styles.fg11                 = set_style (csi.fg[11], nil , 0)
+styles.fg12                 = set_style (csi.fg[12], nil , 0)
+styles.fg13                 = set_style (csi.fg[13], nil , 0)
+styles.fg14                 = set_style (csi.fg[14], nil , 0)
+styles.fg15                 = set_style (csi.fg[15], nil , 0)
+styles.bg0                  = set_style (csi.bg[0], nil , 0)
+styles.bg1                  = set_style (csi.bg[1], nil , 0)
+styles.bg2                  = set_style (csi.bg[2], nil , 0)
+styles.bg3                  = set_style (csi.bg[3], nil , 0)
+styles.bg4                  = set_style (csi.bg[4], nil , 0)
+styles.bg5                  = set_style (csi.bg[5], nil , 0)
+styles.bg6                  = set_style (csi.bg[6], nil , 0)
+styles.bg7                  = set_style (csi.bg[7], nil , 0)
+styles.bg8                  = set_style (csi.bg[8], nil , 0)
+styles.bg9                  = set_style (csi.bg[9], nil , 0)
+styles.bg10                 = set_style (csi.bg[10], nil , 0)
+styles.bg11                 = set_style (csi.bg[11], nil , 0)
+styles.bg12                 = set_style (csi.bg[12], nil , 0)
+styles.bg13                 = set_style (csi.bg[13], nil , 0)
+styles.bg14                 = set_style (csi.bg[14], nil , 0)
+styles.bg15                 = set_style (csi.bg[15], nil , 0)
+
+
+dbg_prompt("\n" ..
+           styles.fg0 .. "000000" ..
+           styles.fg1 .. "111111" ..
+           styles.fg2 .. "222222" ..
+           styles.fg3 .. "333333" ..
+           styles.fg4 .. "444444" ..
+           styles.fg5 .. "555555" ..
+           styles.fg6 .. "666666" ..
+           styles.fg7 .. "777777" .. "\n" ..
+           styles.fg8 .. "888888" ..
+           styles.fg9 .. "999999" ..
+           styles.fg10 .. "aaaaaa" ..
+           styles.fg11 .. "bbbbbb" ..
+           styles.fg12 .. "cccccc" ..
+           styles.fg13 .. "dddddd" ..
+           styles.fg14 .. "eeeeee" ..
+           styles.fg15 .. "ffffff" .. "\n" ..
+           styles.bg0 .. "0     " ..
+           styles.bg1 .. "1     " ..
+           styles.bg2 .. "2     " ..
+           styles.bg3 .. "3     " ..
+           styles.bg4 .. "4     " ..
+           styles.bg5 .. "5     " ..
+           styles.bg6 .. "6     " ..
+           styles.bg7 .. "7     " .. "\n" ..
+           styles.bg8 .. "8     " ..
+           styles.bg9 .. "9     " ..
+           styles.bg10 .. "a     " ..
+           styles.bg11 .. "b     " ..
+           styles.bg12 .. "c     " ..
+           styles.bg13 .. "d     " ..
+           styles.bg14 .. "e     " ..
+           styles.bg15 .. "f     " 
+          )
+
+
 
 
 function init_lued(lued_path, bindings_file)
@@ -1151,7 +1230,7 @@ function style_page(lines, linenum, row_offset)
 
   -- ensure all styles are define
   styles.enable = styles.enable or false
-  styles.line = styles.line or ""
+  styles.normal = styles.normal or ""
   styles.cursor_line = styles.cursor_line or ""
   styles.line_number = styles.line_number or ""  
   styles.cursor_line_number = styles.cursor_line_number or ""
@@ -1167,12 +1246,18 @@ function style_page(lines, linenum, row_offset)
   linenum = linenum-1
   
   -- set the first and last lines to include all lines or just current line
-  local update_only_cursor_line = not g_show_line_numbers and styles.line==""
+  local update_only_cursor_line = not g_show_line_numbers and styles.normal==""
   local start_line = update_only_cursor_line and row_offset or 1
   local stop_line = update_only_cursor_line and row_offset or #lines
+
+  local comment_from = "(" .. styles.comment_regex .. ")";
+  local comment_to = styles.comment .. "%1" .. styles.normal
+  local string_from = "(" .. styles.string_regex .. ")"
+  local string_to   = styles.comment .. "%1" .. styles.normal
+--   dbg_prompt("comment_from="..comment_from.." to="..comment_to)
   
   for i=start_line,stop_line do
-    local line_style = styles.enable and styles.line or ""
+    local line_style = styles.enable and styles.normal or ""
     local lnum_style = styles.enable and styles.line_number or ""
     
     if i==row_offset then
@@ -1186,14 +1271,19 @@ function style_page(lines, linenum, row_offset)
     end
     
     if line_style~="" then
-      lines[i] = line_style .. psub(lines[i], styles.reset, line_style) .. styles.line
+      lines[i] = line_style .. psub(lines[i], styles.reset, line_style) .. styles.normal
     end
 
     if g_show_line_numbers then
-      local linenum_str = string.format("%4d:", linenum+i)
-      lines[i] = lnum_style .. linenum_str .. styles.reset .. " " .. lines[i]
+      local linenum_str = string.format("  %4d  ", linenum+i)
+      lines[i] = lnum_style .. linenum_str .. styles.reset .. lines[i]
     end
-      
+    if styles.comment~="" then
+       lines[i] = string.gsub(lines[i], comment_from, comment_to )
+    end
+    if styles.string~="" then
+       lines[i] = string.gsub(lines[i], string_from, string_to )
+    end
   end
   return lines
 end
