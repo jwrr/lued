@@ -31,32 +31,7 @@ g_buffer                 = ""    -- The global buffer is used for cut and paste 
 local ESC = string.char(27)
 local CSI = ESC .. '['
 
--- monochrome 
-local csi = {}  
-csi.normal  = "0"
-csi.reset   = "0"
-csi.bold    = "1"
-csi.under   = "4"
-csi.blink   = "5"
-csi.inverse = "7"
-
--- 16color
-csi.fg_black   = "30" -- Black foreground
-csi.fg_red     = "31" -- Red foreground
-csi.fg_green   = "32" -- Green foreground
-csi.fg_yellow  = "33" -- Yellow foreground
-csi.fg_blue    = "34" -- Blue foreground
-csi.fg_magenta = "35" -- Magenta foreground
-csi.fg_cyan    = "36" -- Cyan foreground
-csi.fg_white   = "37" -- White foreground
-csi.bg_black   = "40" -- Black background
-csi.bg_red     = "41" -- Red background
-csi.bg_green   = "42" -- Green background
-csi.bg_yellow  = "43" -- Yellow background
-csi.bg_blue    = "44" -- Blue background
-csi.bg_magenta = "45" -- Magenta background
-csi.bg_cyan    = "46" -- Cyan background
-csi.bg_white   = "47" -- White background
+local csi = {}
 
 local fg = {}
 local bg = {}
@@ -83,16 +58,6 @@ decoration.strike  = 2^9
 csi.dec = decoration
 
 
-function color_code(color_args)
-  local code = CSI;
-  for i=1,#color_args do
-    local sep = (i==#color_args) and "m" or ";"
-    code = code .. color_args[i] .. sep
-  end
-  return code;
-end
-
-
 function lued_prompt2(prompt)
   prompt = prompt or "--> "
   io.write(" ")
@@ -109,97 +74,94 @@ function dbg_prompt(dbg_str)
 end
 
 
-
-
 function set_style(fg,bg,decorations)
-  -- bit 0 = normal      (2^0)
-  -- bit 1 = bold        (2^1)
-  -- bit 2 = faint       (2^2)
-  -- bit 3 = italicized  (2^3)
-  -- bit 4 = underlined  (2^4)
-  -- bit 5 = blink       (2^5)
-  -- bit 6 = undefined
-  -- bit 7 = inverse     (2^7)
-  -- bit 8 = hidden      (2^8)
-  -- bit 9 = crossed-out (2^9)
-
-  -- local CSI = "esc["  
-  local code = CSI .. "0m"
+-- csi.normal  = "0"
+-- csi.reset   = "0"
+-- csi.bold    = "1"
+-- csi.under   = "4"
+-- csi.blink   = "5"
+-- csi.inverse = "7"
+--    local CSI = "esc["
+  local code = ""
   if decorations ~= nil then
-    if decorations == 0 then
-      code = code .. CSI .. "0m"
-    else
-      for i=0,9 do
-        if decorations % 2 == 1 then
-          code = code .. CSI .. tostring(i) .. "m"
-        end
-        decorations = math.floor(decorations / 2)
+    if type(decorations)=="table" then
+      for i=1,#decorations do
+        code = code=="" and CSI or code..";"
+        code = code .. tostring(decorations[i])
       end
+    else
+      code = code=="" and CSI or code..";"
+      code = code .. tostring(decorations)
     end
   end
-  if fg ~= nil and bg ~= nil then
-    code = code .. CSI .. fg .. "m" .. CSI.. bg .. "m"
-  elseif fg ~= nil then
-    code = code .. CSI .. fg .. "m"
-  elseif  bg ~= nil then
-    code = code .. CSI .. bg .. "m"
+  if fg ~= nil then
+    local fg_code = tostring( fg<8 and fg+30 or fg+90-8 )
+    code = code=="" and CSI or code..";"
+    code = code .. fg_code
   end
-  -- dbg_prompt("code="..code.."xxx")
+  if  bg ~= nil then
+    local bg_code = tostring( bg<8 and bg+40 or bg+100-8 )
+    code = code=="" and CSI or code..";"
+    code = code .. bg_code
+  end
+  code = code=="" and "" or code.."m"
+
+--    dbg_prompt("code="..code.."dec="..decorations.."xxx")
   return code;
 end
 
+
 local styles = {}
 styles.enable               = true
-styles.reset                = color_code( {csi.reset})
-styles.inverse              = color_code( {csi.inverse})
-styles.normal               = color_code( {csi.reset})
-styles.cursor               = set_style( csi.fg[0], csi.bg[15], 0  )
---styles.cursor_line        = set_style( csi.fg[15], csi.bg[8], 0 )
-styles.cursor_line          = set_style( nil, nil, 0 )
+styles.reset                = set_style( nil, nil, 0 )
 styles.normal               = set_style( nil, nil, 0 )
-styles.line_number          = set_style( csi.fg[8],  nil       , 0)
-styles.cursor_line_number   = set_style( csi.fg[15], csi.bg[8] , 0)
-styles.comment              = set_style( csi.fg[8],  nil       , 0 )
+styles.inverse              = set_style( nil, nil, 7 ) -- inverse
+styles.cursor               = set_style( nil, nil, {1,5,7} ) -- bold,blink,inverse
+--     dbg_prompt("code="..styles.cursor.."xxx"); os.exit()
+styles.cursor_line          = set_style( nil, 8  , nil )
+styles.line_number          = set_style( 8,  nil , 0)
+styles.cursor_line_number   = set_style( 15, 8   , 0)
+styles.comment              = set_style( 8,  nil , 0 )
 styles.comment_regex        = "//[^\n]*"
 styles.comment_regex2       = "%-%-[^\n]*"
 styles.comment_regex3       = "%-%-[^\n]*"
-styles.string               = set_style( csi.fg[3],  nil       , 0 )
+styles.string               = set_style( 3,  nil       , 0 )
 styles.string_regex         = "[\"][^\"][\"]"
 
 -- Lua Magic: (   )   .   %   +   –   *   ?   [   ^   $
 
-styles.fg0                  = set_style (csi.fg[0], nil , 0)
-styles.fg1                  = set_style (csi.fg[1], nil , 0)
-styles.fg2                  = set_style (csi.fg[2], nil , 0)
-styles.fg3                  = set_style (csi.fg[3], nil , 0)
-styles.fg4                  = set_style (csi.fg[4], nil , 0)
-styles.fg5                  = set_style (csi.fg[5], nil , 0)
-styles.fg6                  = set_style (csi.fg[6], nil , 0)
-styles.fg7                  = set_style (csi.fg[7], nil , 0)
-styles.fg8                  = set_style (csi.fg[8], nil , 0)
-styles.fg9                  = set_style (csi.fg[9], nil , 0)
-styles.fg10                 = set_style (csi.fg[10], nil , 0)
-styles.fg11                 = set_style (csi.fg[11], nil , 0)
-styles.fg12                 = set_style (csi.fg[12], nil , 0)
-styles.fg13                 = set_style (csi.fg[13], nil , 0)
-styles.fg14                 = set_style (csi.fg[14], nil , 0)
-styles.fg15                 = set_style (csi.fg[15], nil , 0)
-styles.bg0                  = set_style (csi.bg[0], nil , 0)
-styles.bg1                  = set_style (csi.bg[1], nil , 0)
-styles.bg2                  = set_style (csi.bg[2], nil , 0)
-styles.bg3                  = set_style (csi.bg[3], nil , 0)
-styles.bg4                  = set_style (csi.bg[4], nil , 0)
-styles.bg5                  = set_style (csi.bg[5], nil , 0)
-styles.bg6                  = set_style (csi.bg[6], nil , 0)
-styles.bg7                  = set_style (csi.bg[7], nil , 0)
-styles.bg8                  = set_style (csi.bg[8], nil , 0)
-styles.bg9                  = set_style (csi.bg[9], nil , 0)
-styles.bg10                 = set_style (csi.bg[10], nil , 0)
-styles.bg11                 = set_style (csi.bg[11], nil , 0)
-styles.bg12                 = set_style (csi.bg[12], nil , 0)
-styles.bg13                 = set_style (csi.bg[13], nil , 0)
-styles.bg14                 = set_style (csi.bg[14], nil , 0)
-styles.bg15                 = set_style (csi.bg[15], nil , 0)
+styles.fg0                  = set_style ( 0, nil , 0)
+styles.fg1                  = set_style ( 1, nil , 0)
+styles.fg2                  = set_style ( 2, nil , 0)
+styles.fg3                  = set_style ( 3, nil , 0)
+styles.fg4                  = set_style ( 4, nil , 0)
+styles.fg5                  = set_style ( 5, nil , 0)
+styles.fg6                  = set_style ( 6, nil , 0)
+styles.fg7                  = set_style ( 7, nil , 0)
+styles.fg8                  = set_style ( 8, nil , 0)
+styles.fg9                  = set_style ( 9, nil , 0)
+styles.fg10                 = set_style ( 10, nil , 0)
+styles.fg11                 = set_style ( 11, nil , 0)
+styles.fg12                 = set_style ( 12, nil , 0)
+styles.fg13                 = set_style ( 13, nil , 0)
+styles.fg14                 = set_style ( 14, nil , 0)
+styles.fg15                 = set_style ( 15, nil , 0)
+styles.bg0                  = set_style ( nil, 0  ,  0)
+styles.bg1                  = set_style ( nil, 1  ,  0)
+styles.bg2                  = set_style ( nil, 2  ,  0)
+styles.bg3                  = set_style ( nil, 3  ,  0)
+styles.bg4                  = set_style ( nil, 4  ,  0)
+styles.bg5                  = set_style ( nil, 5  ,  0)
+styles.bg6                  = set_style ( nil, 6  ,  0)
+styles.bg7                  = set_style ( nil, 7  ,  0)
+styles.bg8                  = set_style ( nil, 8  ,  0)
+styles.bg9                  = set_style ( nil, 9  ,  0)
+styles.bg10                  = set_style ( nil, 10  ,  0)
+styles.bg11                  = set_style ( nil, 11  ,  0)
+styles.bg12                  = set_style ( nil, 12  ,  0)
+styles.bg13                  = set_style ( nil, 13  ,  0)
+styles.bg14                  = set_style ( nil, 14  ,  0)
+styles.bg15                  = set_style ( nil, 15  ,  0)
 
 
 dbg_prompt("\n" ..
@@ -234,7 +196,7 @@ dbg_prompt("\n" ..
            styles.bg12 .. "c     " ..
            styles.bg13 .. "d     " ..
            styles.bg14 .. "e     " ..
-           styles.bg15 .. "f     " 
+           styles.bg15 .. "f     "
           )
 
 
@@ -1232,7 +1194,7 @@ function style_page(lines, linenum, row_offset)
   styles.enable = styles.enable or false
   styles.normal = styles.normal or ""
   styles.cursor_line = styles.cursor_line or ""
-  styles.line_number = styles.line_number or ""  
+  styles.line_number = styles.line_number or ""
   styles.cursor_line_number = styles.cursor_line_number or ""
   styles.cursor = styles.cursor or ""
 
@@ -1241,10 +1203,10 @@ function style_page(lines, linenum, row_offset)
   if not g_show_line_numbers and not styles.enable then
     return lines
   end
-  
+
   -- subtract one because for loop adds one
   linenum = linenum-1
-  
+
   -- set the first and last lines to include all lines or just current line
   local update_only_cursor_line = not g_show_line_numbers and styles.normal==""
   local start_line = update_only_cursor_line and row_offset or 1
@@ -1255,35 +1217,56 @@ function style_page(lines, linenum, row_offset)
   local string_from = "(" .. styles.string_regex .. ")"
   local string_to   = styles.comment .. "%1" .. styles.normal
 --   dbg_prompt("comment_from="..comment_from.." to="..comment_to)
-  
+
   for i=start_line,stop_line do
     local line_style = styles.enable and styles.normal or ""
     local lnum_style = styles.enable and styles.line_number or ""
-    
+
     if i==row_offset then
       local curs_style = styles.enable and styles.cursor or ""
       if curs_style~="" then
         lines[i] = psub(lines[i], styles.inverse, curs_style, 1)
       end
-    
-      line_style = styles.enable and styles.cursor_line or ""
+
+      line_style = styles.enable and line_style .. styles.cursor_line or ""
       lnum_style = styles.enable and styles.cursor_line_number or ""
-    end
-    
-    if line_style~="" then
-      lines[i] = line_style .. psub(lines[i], styles.reset, line_style) .. styles.normal
+    else
+
+      if styles.comment~="" then
+        lines[i] = string.gsub(lines[i], comment_from, comment_to )
+      end
+
+      if styles.string~="" then
+        lines[i] = string.gsub(lines[i], string_from, string_to )
+      end
     end
 
+
+    local t={}
+    if line_style~="" then
+--       table.insert(t,line_style)
+--       table.insert(t,psub(lines[i], styles.reset, line_style))
+--       table.insert(t,styles.normal)
+--       lines[i] = table.concat(t)
+     lines[i] = line_style .. psub(lines[i], styles.reset, line_style) .. styles.normal
+    end
+    
+    
     if g_show_line_numbers then
       local linenum_str = string.format("  %4d  ", linenum+i)
       lines[i] = lnum_style .. linenum_str .. styles.reset .. lines[i]
+--       table.insert(t,linenum_style)
+--       table.insert(t,linenum_str)
+--       table.insert(t,styles.reset)
+--       table.insert(t,lines[i])
+--       lines[i]=table.concat(t)
     end
-    if styles.comment~="" then
-       lines[i] = string.gsub(lines[i], comment_from, comment_to )
-    end
-    if styles.string~="" then
-       lines[i] = string.gsub(lines[i], string_from, string_to )
-    end
+    
+    lines[i] = styles.reset .. lines[i]
+--     table.insert(t,styles.reset)
+--     table.insert(t,lines[i])
+--     lines[i]=table.concat(t)
+
   end
   return lines
 end
@@ -3148,10 +3131,10 @@ function ins_string(str, dd)
   local first_line = sel_sr<=1
   local inhibit_cr = sel_state~=0 and not first_line
   del_sel(dd2)
-  
+
   is_start_of_block = line_contains(g_block_start)
   is_inside_braces  = get_char()=="}" and get_char(-1)=="{"
-  
+
   if str == "\n" then
     if g_auto_indent==true and c~=1 then
       local line = get_line()
@@ -3163,15 +3146,15 @@ function ins_string(str, dd)
       end
     end
     insert_str(str)
-    
+
     if is_inside_braces then
       insert_str(str)
       move_up_n_lines(1,dd2)
       indent1(g_indent_size, g_indent_char, false, dd2)
     elseif is_start_of_block then
       indent1(g_indent_size, g_indent_char, false, dd2)
-    end    
-    
+    end
+
     local r2,c2 = get_cur_pos()
     set_cur_pos(r,c)
     remove_trailing_spaces(r2,c2,false,dd2)
@@ -3299,7 +3282,7 @@ function insert_cr_before(dd)
   disp(dd)
 end
 
- 
+
 function insert_cr_after(dd)
   local dd2 = 1
   if not is_eol() then move_to_eol(dd2) end
