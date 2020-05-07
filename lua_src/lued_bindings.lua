@@ -101,6 +101,7 @@ alt_db           = del_eof                 hot("db") -- Delete to Bottom of Tab/
 alt_DB           = del_sof                 hot("DB") -- Delete to Beginning of Tab
 alt_de           = del_eol                 hot("de") -- Similar to Sublime Ctrl+KK
 alt_DE           = del_sol                 hot("DE") -- Similar to Sublime Ctrl_K+<Backspace>
+alt_dl           = del_line                hot("dl") -- Delete line
 alt_dm           = del_mark_to_cursor      hot("dm") -- Delete from mark (alt+mm) to cursor
 alt_ds           = del_spaces_selected     hot("ds") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
 alt_dd           = del_word                hot("dd") -- Delete word under cursor

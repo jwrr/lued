@@ -2934,23 +2934,28 @@ function del_sol(dd)
   end
 end
 
+function del_line(n,dd)
+  n = n or 1
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  set_cur_pos(r,1)
+  set_sel_start()
+  move_down_n_lines(n,dd2)
+  set_sel_end()
+  if (g_command_count == g_cut_line_command_count) then
+    global_cut_append(dd2)
+  else
+    global_cut(dd2)
+  end
+  g_cut_line_command_count = g_command_count
+  disp(dd)
+end
 
 function cut_line(n,dd)
   n = n or 1
   local dd2 = 1
-
   if is_sel_off()==1 then
-    local r,c = get_cur_pos()
-    set_cur_pos(r,1)
-    set_sel_start()
-    move_down_n_lines(n,dd2)
-    set_sel_end()
-    if (g_command_count == g_cut_line_command_count) then
-      global_cut_append(dd)
-    else
-      global_cut(dd)
-    end
-    g_cut_line_command_count = g_command_count
+    del_line(n,dd)
   else
     global_cut(dd)
   end
