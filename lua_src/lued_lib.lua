@@ -2770,6 +2770,13 @@ end
 
 function global_paste(dd)
   local dd2 = 1
+  if string.find(g_buffer,"\n") then
+    insert_cr_after(dd2)
+    local spaces = string.match(g_buffer, "^%w*")
+    spaces = spaces or ""
+    g_buffer = string.gsub(g_buffer,"^%s*","")
+    g_buffer = string.gsub(g_buffer,"\n"..spaces,"\n")
+  end
   set_paste(g_buffer)
   paste(dd2)
   disp(dd)
