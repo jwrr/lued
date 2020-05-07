@@ -3822,18 +3822,13 @@ function ls_recursive(path,filter)
 end
 
 
-function open_file_selected(dd)
+function open_partial_filename(dd)
   local dd2 = 1
   local file_filter = ""
-  if is_sel_on() then
-    local sel_str, sel_sr, sel_sc = get_sel_str()
-    file_filter = sel_str
-  else
-    open_file_selected_hist_id = open_file_selected_hist_id or get_hist_id()
-    file_filter = lued_prompt(open_file_selected_hist_id, "Enter Partial Filename: ")
-  end
+  open_partial_filename_hist_id = open_partial_filename_hist_id or get_hist_id()
+  file_filter = lued_prompt(open_partial_filename_hist_id, "Enter Partial Filename: ")
+  print("\n")
   local filenames_table = ls_recursive(".", file_filter)
-  print("")
   for i, f in pairs(filenames_table) do
     print(i..": "..f)
   end

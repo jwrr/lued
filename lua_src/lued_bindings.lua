@@ -27,7 +27,7 @@ ctrl_U           = spare             -- Spare
 
 ctrl_I           = insert_tab        -- Terminal interprets as `Tab` key
 ctrl_O           = open_file         -- Open File. Similar to Word Ctrl+O
-ctrl_P           = open_file_selected -- Open File from partial name. Similar to Sublime Ctrl+P
+ctrl_P           = open_partial_filename -- Open File from partial name. Similar to Sublime Ctrl+P
 ctrl_A           = move_to_sol       -- Move to Start of Line. Similar to Sublime <Home>.
 
 ctrl_S           = save_file         -- Save File. Similar to Sublime Ctrl+S.
