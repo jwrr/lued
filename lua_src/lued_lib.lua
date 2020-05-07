@@ -3273,6 +3273,7 @@ function insert_cr_before(dd)
   local dd2 = 1
   local is_end_of_block = line_contains(g_block_end)
   move_to_sol_classic(dd2)
+  set_sel_off()
   ins_str("\n",dd2)
   move_up_n_lines(1,dd2)
   indent(dd2)
@@ -3286,6 +3287,7 @@ end
 function insert_cr_after(dd)
   local dd2 = 1
   if not is_eol() then move_to_eol(dd2) end
+  set_sel_off()
   ins_str("\n",dd2)
   disp(dd)
 end
