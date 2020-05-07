@@ -19,7 +19,7 @@ set_non_repeatables(",alt_ee,alt_EE,")
 ctrl__at_        = disp              -- Called when resuming from Ctrl+Z (fg at shell prompt). Not directly used by you.
 ctrl_Q           = quit_all          -- Quit or Exit. Similar to Sublime Ctrl-Q.
 ctrl_W           = quit_session      -- Close window or tab. Similar to Sublime Ctrl-W.
-ctrl_E           = toggle_express_mode -- Express mode - arrow keys move faster
+ctrl_E           = move_to_eol       -- Move to End of Line. Similar to Sublime <End>.
 ctrl_R           = move_right_fast   -- Move right defined number (4) of char
 ctrl_T           = select_tab        -- Select file tab menu
 ctrl_Y           = redo_cmd          -- Redo (undo undo). Similar to Sublime Ctrl+Y
@@ -28,7 +28,8 @@ ctrl_U           = spare             -- Spare
 ctrl_I           = insert_tab        -- Terminal interprets as `Tab` key
 ctrl_O           = open_file         -- Open File. Similar to Word Ctrl+O
 ctrl_P           = open_file_selected -- Open File from partial name. Similar to Sublime Ctrl+P
-ctrl_A           = sel_all           -- Select All (Entire File). Similar to Sublime Ctrl+A.
+ctrl_A           = move_to_sol       -- Move to Start of Line. Similar to Sublime <Home>.
+
 ctrl_S           = save_file         -- Save File. Similar to Sublime Ctrl+S.
 ctrl_D           = sel_word          -- Select Word under cursor. Similar to Sublime Ctrl+D
 ctrl_F           = find_forward_selected -- Find. Similar to Sublime Ctrl+F.  If text is selected the find selected text (Similar to Sublime Ctrl+F3).
@@ -73,8 +74,7 @@ alt_BB           = toggle_top              hot("BB")  -- Goto top of file. Simil
 
 alt_ww           = move_right_n_words      hot("ww")  -- Move right one word. Similar to Sublime Ctrl+right_arrow.
 alt_WW           = move_left_n_words       hot("WW")  -- Move left one word. Similar to Sublime Ctrl+left_arrow.
-alt_ee           = move_to_eol             hot("ee")  -- Move to End of Line. Similar to Sublime <End>.
-alt_EE           = move_to_sol             hot("EE")  -- Move to Start of Line. Similar to Sublime <Home>.
+alt_ee           = toggle_express_mode     hot("ee") -- Express mode - arrow keys move faster
 alt__gt_         = halfsy_right            hot(",>,") -- Move right half the distance
 alt__lt_         = halfsy_left             hot(",<,") -- Move left half the distance
 alt_R            = move_left_n_char                   -- Move N char left.  alt_l42<Enter> moves 42 char to the left
@@ -141,6 +141,7 @@ alt_ii           = indent_selected         hot("ii")  -- Indented selected lines
 alt_II           = unindent_selected       hot("II")  -- Unindent selected lines one space
 alt_ir           = reindent_selected       hot("ir")  -- Reindents selected per defined indent size
 alt_is           = set_indent_size         hot("is")  -- Set indent size
+alt_aa           = sel_all                 hot("aa")  -- Select All (Entire File). Similar to Sublime Ctrl+A.
 alt_al           = align_cur_char;         hot("al") -- Align char on next line with current line
 alt_af           = align_selected          hot("af")  -- Align First char on next line with current line. If lines selected then align all lines with first line.
 
