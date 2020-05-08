@@ -1278,8 +1278,8 @@ function style_page(lines, first_line_of_page, row_offset)
       local found, files = select_tab_menu(nil,true) 
       local files_str = files[ii] or ""
       local sb_file_width = 20
-      files_str = string.sub(files_str, 1, sb_file_width-2)
-      files_str = files_str .. string.rep(" ",sb_file_width-#files_str)
+      files_str = string.sub(files_str, 1, sb_file_width)
+      files_str = files_str .. string.rep(" ",sb_file_width-#files_str) .. " | "
       lines[ii] = styles.sb_files .. files_str .. styles.reset .. lines[ii]
     end
     
