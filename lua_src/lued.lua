@@ -55,8 +55,10 @@ SOFTWARE.
   g_find_case_sensitive    = false -- find uses case sensitive search
   g_find_whole_word        = false -- Find whole words
   g_find_plaintext         = true  -- plain text search. Set to true for regular expression pattern search
-  g_show_line_numbers      = false -- alt_LN (toggle_line_numbers) toggles on/off
   g_ctrl_c_max             = 5     -- Quit when Ctrl+C is pounded several times with empty select buffer
+  g_show_abs_line_numbers  = false -- alt_ln/LN turn on/off absolute line numbers
+  g_show_rel_line_numbers  = false -- alt_ln/LN turn on/off relative line numbers
+  g_show_sb_files          = false -- alt_sb/alt_SB shows/hides sidebar listing open files
   g_show_help              = false -- Show startup help menu
   g_double_speed           = 0     -- Increases scroll speed. 1 enables this feature. 2 or more goes even faster
   g_lua_mode               = false -- set_lua_mode (Alt+LU) forces lua mode. LuEd automatically goes in and out of Lua mode as needed.

@@ -121,6 +121,7 @@ styles.cursor               = set_style( nil, nil, {1,5,7} ) -- bold,blink,inver
 styles.cursor_line          = set_style( nil, 8  , nil )
 styles.line_number          = set_style( 8,  nil , 0)
 styles.cursor_line_number   = set_style( 15, 8   , 0)
+styles.sb_files             = set_style( 7, nil   , 0)
 styles.comment              = set_style( 8,  nil , 0 )
 styles.comment_regex        = "//[^\n]*"
 styles.comment_regex2       = "%-%-[^\n]*"
@@ -221,25 +222,44 @@ function init_lued(lued_path, bindings_file)
   disp()
 end
 
-function clr_line_numbers(dd)
-  g_show_line_numbers = false
+
+function clr_sb_files(dd)
+  g_show_sb_files = false
   set_show_line_numbers(0)
   disp(dd)
 end
 
-function set_line_numbers(dd)
-  g_show_line_numbers = true
+
+function set_sb_files(dd)
+  g_show_sb_files = true
   set_show_line_numbers(0)
   disp(dd)
 end
 
-function toggle_line_numbers(dd)
-  g_show_line_numbers = not g_show_line_numbers
-  local show = 0;
-  if g_show_line_numbers then
-    show = 1;
-  end
-  -- set_show_line_numbers(show)
+
+function clr_abs_line_numbers(dd)
+  g_show_abs_line_numbers = false
+  set_show_line_numbers(0)
+  disp(dd)
+end
+
+function set_abs_line_numbers(dd)
+  g_show_abs_line_numbers = true
+  set_show_line_numbers(0)
+  disp(dd)
+end
+
+
+function clr_rel_line_numbers(dd)
+  g_show_rel_line_numbers = false
+  set_show_line_numbers(0)
+  disp(dd)
+end
+
+
+function set_rel_line_numbers(dd)
+  g_show_rel_line_numbers = true
+  set_show_line_numbers(0)
   disp(dd)
 end
 
@@ -1188,7 +1208,7 @@ function psub(subject, from, to, index, lim)
 end
 
 
-function style_page(lines, linenum, row_offset)
+function style_page(lines, first_line_of_page, row_offset)
 
   -- ensure all styles are define
   styles.enable = styles.enable or false
@@ -1200,15 +1220,15 @@ function style_page(lines, linenum, row_offset)
 
 
   -- do nothing if not showing lnum and no style
-  if not g_show_line_numbers and not styles.enable then
+  if not g_show_abs_line_numbers and not styles.enable then
     return lines
   end
 
   -- subtract one because for loop adds one
-  linenum = linenum-1
+  first_line_of_page = first_line_of_page-1
 
   -- set the first and last lines to include all lines or just current line
-  local update_only_cursor_line = not g_show_line_numbers and styles.normal==""
+  local update_only_cursor_line = not g_show_abs_line_numbers and styles.normal==""
   local start_line = update_only_cursor_line and row_offset or 1
   local stop_line = update_only_cursor_line and row_offset or #lines
 
@@ -1216,16 +1236,15 @@ function style_page(lines, linenum, row_offset)
   local comment_to = styles.comment .. "%1" .. styles.normal
   local string_from = "(" .. styles.string_regex .. ")"
   local string_to   = styles.comment .. "%1" .. styles.normal
---   dbg_prompt("comment_from="..comment_from.." to="..comment_to)
 
-  for i=start_line,stop_line do
+  for ii=start_line,stop_line do
     local line_style = styles.enable and styles.normal or ""
     local lnum_style = styles.enable and styles.line_number or ""
 
-    if i==row_offset then
+    if ii==row_offset then
       local curs_style = styles.enable and styles.cursor or ""
       if curs_style~="" then
-        lines[i] = psub(lines[i], styles.inverse, curs_style, 1)
+        lines[ii] = psub(lines[ii], styles.inverse, curs_style, 1)
       end
 
       line_style = styles.enable and line_style .. styles.cursor_line or ""
@@ -1233,41 +1252,41 @@ function style_page(lines, linenum, row_offset)
     else
 
       if styles.comment~="" then
-        lines[i] = string.gsub(lines[i], comment_from, comment_to )
+        lines[ii] = string.gsub(lines[ii], comment_from, comment_to )
       end
 
       if styles.string~="" then
-        lines[i] = string.gsub(lines[i], string_from, string_to )
+        lines[ii] = string.gsub(lines[ii], string_from, string_to )
       end
     end
 
-
     local t={}
     if line_style~="" then
---       table.insert(t,line_style)
---       table.insert(t,psub(lines[i], styles.reset, line_style))
---       table.insert(t,styles.normal)
---       lines[i] = table.concat(t)
-     lines[i] = line_style .. psub(lines[i], styles.reset, line_style) .. styles.normal
+     lines[ii] = line_style .. psub(lines[ii], styles.reset, line_style) .. styles.normal
     end
     
-    
-    if g_show_line_numbers then
-      local linenum_str = string.format("  %4d  ", linenum+i)
-      lines[i] = lnum_style .. linenum_str .. styles.reset .. lines[i]
---       table.insert(t,linenum_style)
---       table.insert(t,linenum_str)
---       table.insert(t,styles.reset)
---       table.insert(t,lines[i])
---       lines[i]=table.concat(t)
+    if g_show_abs_line_numbers or g_show_rel_line_numbers then
+      local abs_ln = first_line_of_page+ii
+      local rel_ln = math.abs(row_offset-ii) 
+      local tmp = g_show_abs_line_numbers and abs_ln or rel_ln
+      tmp = tmp==0 and abs_ln or tmp
+      local linenum_str = string.format("  %4d  ", tmp)
+      lines[ii] = lnum_style .. linenum_str .. styles.reset .. lines[ii]
     end
     
-    lines[i] = styles.reset .. lines[i]
---     table.insert(t,styles.reset)
---     table.insert(t,lines[i])
---     lines[i]=table.concat(t)
+    if g_show_sb_files then
+      local found, files = select_tab_menu(nil,true) 
+      local files_str = files[ii] or ""
+      local sb_file_width = 20
+      files_str = string.sub(files_str, 1, sb_file_width-2)
+      files_str = files_str .. string.rep(" ",sb_file_width-#files_str)
+      lines[ii] = styles.sb_files .. files_str .. styles.reset .. lines[ii]
+    end
+    
 
-  end
+    lines[ii] = styles.reset .. lines[ii]
+
+  end -- for each line
   return lines
 end
 
@@ -1293,7 +1312,7 @@ function insert_line_numbers_orig(text)
              esc_bold = make_line_bold_orig(linenum,g_lnum)
            end
            local esc_normal = string.char(27).."[0m"
-           if g_show_line_numbers then
+           if g_show_abs_line_numbers then
              return string.format(esc_normal .. str .. esc_bold .. "%4d: ", g_lnum)
            else
              return string.format(esc_normal .. str .. esc_bold)
@@ -2771,11 +2790,11 @@ end
 function global_paste(dd)
   local dd2 = 1
   if string.find(g_buffer,"\n") then
-    insert_cr_after(dd2)
-    local spaces = string.match(g_buffer, "^%w*")
-    spaces = spaces or ""
-    g_buffer = string.gsub(g_buffer,"^%s*","")
-    g_buffer = string.gsub(g_buffer,"\n"..spaces,"\n")
+    move_to_sol_classic(dd2)
+--     local spaces = string.match(g_buffer, "^%w*")
+--     spaces = spaces or ""
+--     g_buffer = string.gsub(g_buffer,"^%s*","")
+--     g_buffer = string.gsub(g_buffer,"\n"..spaces,"\n")
   end
   set_paste(g_buffer)
   paste(dd2)
@@ -4328,10 +4347,10 @@ function load_session_file(dd)
 end
 
 
-function select_tab_menu(filter)
+function select_tab_menu(filter,dont_print)
+  dont_print = dont_print or false
   local n = get_numsessions()
-  print "\n"
-  print ("select_tab (t)")
+  local t = { "Open Files" }
   local id = get_fileid()
   local found_i = 0
   local found_count = 0
@@ -4346,11 +4365,12 @@ function select_tab_menu(filter)
         found_i = i
       end
       found_count = found_count + 1
-      print (line)
+      t[#t+1]=line
     end
   end
+  print( "\n" .. table.concat(t, "\n") .. "\n" )   
   if found_count > 1 then found_i = 0 end
-  return found_i
+  return found_i, t
 end
 
 
