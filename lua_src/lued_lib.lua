@@ -112,7 +112,7 @@ end
 
 
 local styles = {}
-styles.enable               = true
+styles.enable               = false
 styles.reset                = set_style( nil, nil, 0 )
 styles.normal               = set_style( nil, nil, 0 )
 styles.inverse              = set_style( nil, nil, 7 ) -- inverse
@@ -165,41 +165,41 @@ styles.bg14                  = set_style ( nil, 14  ,  0)
 styles.bg15                  = set_style ( nil, 15  ,  0)
 
 
-dbg_prompt("\n" ..
-           styles.fg0 .. "000000" ..
-           styles.fg1 .. "111111" ..
-           styles.fg2 .. "222222" ..
-           styles.fg3 .. "333333" ..
-           styles.fg4 .. "444444" ..
-           styles.fg5 .. "555555" ..
-           styles.fg6 .. "666666" ..
-           styles.fg7 .. "777777" .. "\n" ..
-           styles.fg8 .. "888888" ..
-           styles.fg9 .. "999999" ..
-           styles.fg10 .. "aaaaaa" ..
-           styles.fg11 .. "bbbbbb" ..
-           styles.fg12 .. "cccccc" ..
-           styles.fg13 .. "dddddd" ..
-           styles.fg14 .. "eeeeee" ..
-           styles.fg15 .. "ffffff" .. "\n" ..
-           styles.bg0 .. "0     " ..
-           styles.bg1 .. "1     " ..
-           styles.bg2 .. "2     " ..
-           styles.bg3 .. "3     " ..
-           styles.bg4 .. "4     " ..
-           styles.bg5 .. "5     " ..
-           styles.bg6 .. "6     " ..
-           styles.bg7 .. "7     " .. "\n" ..
-           styles.bg8 .. "8     " ..
-           styles.bg9 .. "9     " ..
-           styles.bg10 .. "a     " ..
-           styles.bg11 .. "b     " ..
-           styles.bg12 .. "c     " ..
-           styles.bg13 .. "d     " ..
-           styles.bg14 .. "e     " ..
-           styles.bg15 .. "f     "
-          )
-
+-- dbg_prompt("\n" ..
+--            styles.fg0 .. "000000" ..
+--            styles.fg1 .. "111111" ..
+--            styles.fg2 .. "222222" ..
+--            styles.fg3 .. "333333" ..
+--            styles.fg4 .. "444444" ..
+--            styles.fg5 .. "555555" ..
+--            styles.fg6 .. "666666" ..
+--            styles.fg7 .. "777777" .. "\n" ..
+--            styles.fg8 .. "888888" ..
+--            styles.fg9 .. "999999" ..
+--            styles.fg10 .. "aaaaaa" ..
+--            styles.fg11 .. "bbbbbb" ..
+--            styles.fg12 .. "cccccc" ..
+--            styles.fg13 .. "dddddd" ..
+--            styles.fg14 .. "eeeeee" ..
+--            styles.fg15 .. "ffffff" .. "\n" ..
+--            styles.bg0 .. "0     " ..
+--            styles.bg1 .. "1     " ..
+--            styles.bg2 .. "2     " ..
+--            styles.bg3 .. "3     " ..
+--            styles.bg4 .. "4     " ..
+--            styles.bg5 .. "5     " ..
+--            styles.bg6 .. "6     " ..
+--            styles.bg7 .. "7     " .. "\n" ..
+--            styles.bg8 .. "8     " ..
+--            styles.bg9 .. "9     " ..
+--            styles.bg10 .. "a     " ..
+--            styles.bg11 .. "b     " ..
+--            styles.bg12 .. "c     " ..
+--            styles.bg13 .. "d     " ..
+--            styles.bg14 .. "e     " ..
+--            styles.bg15 .. "f     "
+--           )
+--
 
 
 
@@ -1321,12 +1321,27 @@ function insert_line_numbers_orig(text)
 end
 
 
-function display_page_in_lua(lua_mode, highlight_trailing_spaces)
+function display_page_in_lua1(lua_mode, highlight_trailing_spaces)
   display_status_in_lua(lua_mode)
   local prow,pcol = get_page_pos() -- FIXME -1 to adjust from c to lua
   local crow,ccol = get_cur_pos()
   local row_offset = crow - prow + 1
   local text = get_page(prow-1,highlight_trailing_spaces)
+  local lines = style_page( explode(text) , prow, row_offset)
+  text = implode(lines)
+
+  -- text = insert_line_numbers_orig(text)
+  -- text = string.char(27) .. "[1m" .. text;
+
+  io.write (text)
+end
+
+function display_page_in_lua(lua_mode, highlight_trailing_spaces)
+  display_status_in_lua(lua_mode)
+  local prow,pcol = get_page_pos() -- FIXME -1 to adjust from c to lua
+  local crow,ccol = get_cur_pos()
+  local row_offset = crow - prow + 1
+  local text = get_lines(prow,1,prow+20,0)
   local lines = style_page( explode(text) , prow, row_offset)
   text = implode(lines)
 
@@ -1406,7 +1421,7 @@ function disp(dd,center)
      if g_lua_mode then
        lua_mode = 1
      end
-     display_page_in_lua(lua_mode,g_show_trailing_spaces)
+     display_page_in_lua1(lua_mode,g_show_trailing_spaces)
      -- display_status(lua_mode)
      -- display_text(lua_mode,g_show_trailing_spaces)
    end
@@ -3244,12 +3259,48 @@ function insert_tab_classic(dd)
   ins_str(t,dd)
 end
 
+
+function snip_tab(dd)
+  local dd2 = false
+  local r,c=get_cur_pos()
+  sel_sow(dd2)
+  local sel_str, sel_sr, sel_sc = get_sel_str()
+  local filetype = 'html'
+  
+  s1 = snips and "snips exists," or "snips NOT"
+  s2 = snips[filetype] and "html exists" or "html NOT"
+  --s3 = snips[filetype]['exec']  and "exec exists" or "exec NOT"
+  
+  local snip_routine = snips[filetype].main
+  if snip_routine == nil then
+    set_sel_off()
+    set_cur_pos(r,c)
+    return false
+  end
+  del_sel(dd2)
+  set_cur_pos(sel_sr,sel_sc)
+  snip_routine(sel_str)
+  
+  disp(dd)
+  return true
+end
+
 -- align cursor with previous line's next 'column'
 function insert_tab(dd)
   if g_tab_classic then
     insert_tab_classic(dd)
     return
   end
+  
+  local snip_found = false
+  if g_snip_tab then
+    snip_found = snip_tab(dd)
+  end
+  
+  if snip_found then
+    return
+  end
+  
   local dd2 = 1
   local r1,c1 = get_cur_pos()
   local len = get_line_len()

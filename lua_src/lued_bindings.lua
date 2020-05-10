@@ -104,6 +104,7 @@ alt_DE           = del_sol                 hot("DE") -- Similar to Sublime Ctrl_
 alt_dl           = del_line                hot("dl") -- Delete line
 alt_dm           = del_mark_to_cursor      hot("dm") -- Delete from mark (alt+mm) to cursor
 alt_ds           = del_spaces_selected     hot("ds") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
+alt_DS           = del_sow                 hot("DS") -- Delete spaces to the left
 alt_dd           = del_word                hot("dd") -- Delete word under cursor
 alt_dw           = del_eow                 hot("dw") -- Similar to Sublime Ctrl+KW
 alt_DW           = del_sow                 hot("DW") -- Similar to Sublime Ctrl+Backspace

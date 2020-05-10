@@ -79,6 +79,10 @@ SOFTWARE.
   g_decr_step              = 1     -- step size for incr command
 
   g_lnum = 1
+    
+  g_snip_tab = true
+  snips = {}
+
 
   dofile( g_lued_root .. "/lued_lib.lua" )
   dofile( g_lued_root .. "/lued_version.lua" )
