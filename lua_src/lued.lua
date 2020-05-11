@@ -79,8 +79,9 @@ SOFTWARE.
   g_decr_step              = 1     -- step size for incr command
 
   g_lnum = 1
-    
-  g_snip_tab = true
+  
+  g_dont_display = 0 -- This is set to true when  running snippets  
+  g_handle_snippets = true
   snips = {}
 
 

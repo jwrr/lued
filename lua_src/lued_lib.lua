@@ -521,6 +521,18 @@ function is_word(line,pos)
   return is
 end
 
+
+function is_pattern(pattern, line,pos)
+  local is;
+  if line then
+    is = string.match(line, "^"..pattern, pos) and true or false
+  else
+    is = string.match(get_char(), "^"..pattern, 1) and true or false
+  end
+  return is
+end
+
+
 -- not word and not space
 function is_other(line,pos)
   local is = not (is_word() or is_space())
@@ -1353,7 +1365,7 @@ end
 
 
 function disp(dd,center)
-   dd = dd or 0
+   dd = dd or g_dont_display
    center = center or false
 
    local dd2 = 1
@@ -2855,6 +2867,30 @@ function sel_sow(dd)
 end
 
 
+function sel_left_nonspaces(dd)
+  local dd2 = 1
+  set_sel_start()
+  if not is_space(get_char(-1)) then
+    while not is_sol() and not is_space(get_char(-1)) do
+      move_left_n_char(1,dd2)
+    end
+  end
+  set_sel_end()
+  disp(dd)
+end
+
+
+function sel_left_pattern(pattern , dd)
+  local dd2 = 1
+  set_sel_start()
+  while not is_sol() and is_pattern(pattern , get_char(-1)) do
+    move_left_n_char(1,dd2)
+  end
+  set_sel_end()
+  disp(dd)
+end
+
+
 function del_sow(dd)
   local dd2 = 1
   sel_sow(dd2)
@@ -3260,10 +3296,11 @@ function insert_tab_classic(dd)
 end
 
 
-function snip_tab(dd)
+function handle_snippets(dd)
   local dd2 = false
   local r,c=get_cur_pos()
-  sel_sow(dd2)
+  sel_left_pattern( "[%w.#*()^>+*:]"  , dd2)
+--   sel_sow(dd2)
   local sel_str, sel_sr, sel_sc = get_sel_str()
   local filetype = 'html'
   
@@ -3279,7 +3316,9 @@ function snip_tab(dd)
   end
   del_sel(dd2)
   set_cur_pos(sel_sr,sel_sc)
+  g_dont_display = 1
   snip_routine(sel_str)
+  g_dont_display = 0
   
   disp(dd)
   return true
@@ -3293,8 +3332,8 @@ function insert_tab(dd)
   end
   
   local snip_found = false
-  if g_snip_tab then
-    snip_found = snip_tab(dd)
+  if g_handle_snippets then
+    snip_found = handle_snippets(dd)
   end
   
   if snip_found then
