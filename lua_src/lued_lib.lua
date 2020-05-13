@@ -24,14 +24,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
 
-g_buffer                 = ""    -- The global buffer is used for cut and paste between multiple files.
+lued = {}
+
+lued.g_buffer = ""    -- The global buffer is used for cut and paste between multiple files.
 
 
-
-local ESC = string.char(27)
-local CSI = ESC .. '['
-
-local csi = {}
+lued.csi = {}
 
 local fg = {}
 local bg = {}
@@ -42,46 +40,36 @@ for i=0,7 do
   bg[i+8]    = tostring(100+i)
 end
 
-csi.fg = fg
-csi.bg = bg
-
-local decoration   = {}
-decoration.normal  = 2^0
-decoration.bold    = 2^1
-decoration.faint   = 2^2
-decoration.italic  = 2^3
-decoration.uline   = 2^4
-decoration.blink   = 2^5
-decoration.inverse = 2^7
-decoration.hidden  = 2^8
-decoration.strike  = 2^9
-csi.dec = decoration
+lued.csi.fg = fg
+lued.csi.bg = bg
 
 
-function lued_prompt2(prompt)
+function lued.prompt2(prompt)
   prompt = prompt or "--> "
   io.write(" ")
   str = io_read(nil,prompt,"",nil)
   return str
 end
 
-function dbg_prompt(dbg_str)
+function lued.dbg_prompt(dbg_str)
   local str = ""
   -- repeat
     local prompt = "DBG> "..dbg_str..": "
-    str = lued_prompt2(prompt)
+    str = lued.prompt2(prompt)
   return str
 end
 
 
-function set_style(fg,bg,decorations)
--- csi.normal  = "0"
--- csi.reset   = "0"
--- csi.bold    = "1"
--- csi.under   = "4"
--- csi.blink   = "5"
--- csi.inverse = "7"
+function lued.set_style(fg,bg,decorations)
+-- lued.csi.normal  = "0"
+-- lued.csi.reset   = "0"
+-- lued.csi.bold    = "1"
+-- lued.csi.under   = "4"
+-- lued.csi.blink   = "5"
+-- lued.csi.inverse = "7"
 --    local CSI = "esc["
+  local CSI = string.char(27) .. '['
+
   local code = ""
   if decorations ~= nil then
     if type(decorations)=="table" then
@@ -106,66 +94,66 @@ function set_style(fg,bg,decorations)
   end
   code = code=="" and "" or code.."m"
 
---    dbg_prompt("code="..code.."dec="..decorations.."xxx")
+--    lued.dbg_prompt("code="..code.."dec="..decorations.."xxx")
   return code;
 end
 
 
 local styles = {}
 styles.enable               = false
-styles.reset                = set_style( nil, nil, 0 )
-styles.normal               = set_style( nil, nil, 0 )
-styles.inverse              = set_style( nil, nil, 7 ) -- inverse
-styles.cursor               = set_style( nil, nil, {1,5,7} ) -- bold,blink,inverse
---     dbg_prompt("code="..styles.cursor.."xxx"); os.exit()
-styles.cursor_line          = set_style( nil, 8  , nil )
-styles.line_number          = set_style( 8,  nil , 0)
-styles.cursor_line_number   = set_style( 15, 8   , 0)
-styles.sb_files             = set_style( 7, nil   , 0)
-styles.comment              = set_style( 8,  nil , 0 )
+styles.reset                = lued.set_style( nil, nil, 0 )
+styles.normal               = lued.set_style( nil, nil, 0 )
+styles.inverse              = lued.set_style( nil, nil, 7 ) -- inverse
+styles.cursor               = lued.set_style( nil, nil, {1,5,7} ) -- bold,blink,inverse
+--     lued.dbg_prompt("code="..styles.cursor.."xxx"); os.exit()
+styles.cursor_line          = lued.set_style( nil, 8  , nil )
+styles.line_number          = lued.set_style( 8,  nil , 0)
+styles.cursor_line_number   = lued.set_style( 15, 8   , 0)
+styles.sb_files             = lued.set_style( 7, nil   , 0)
+styles.comment              = lued.set_style( 8,  nil , 0 )
 styles.comment_regex        = "//[^\n]*"
 styles.comment_regex2       = "%-%-[^\n]*"
 styles.comment_regex3       = "%-%-[^\n]*"
-styles.string               = set_style( 3,  nil       , 0 )
+styles.string               = lued.set_style( 3,  nil       , 0 )
 styles.string_regex         = "[\"][^\"][\"]"
 
 -- Lua Magic: (   )   .   %   +   –   *   ?   [   ^   $
 
-styles.fg0                  = set_style ( 0, nil , 0)
-styles.fg1                  = set_style ( 1, nil , 0)
-styles.fg2                  = set_style ( 2, nil , 0)
-styles.fg3                  = set_style ( 3, nil , 0)
-styles.fg4                  = set_style ( 4, nil , 0)
-styles.fg5                  = set_style ( 5, nil , 0)
-styles.fg6                  = set_style ( 6, nil , 0)
-styles.fg7                  = set_style ( 7, nil , 0)
-styles.fg8                  = set_style ( 8, nil , 0)
-styles.fg9                  = set_style ( 9, nil , 0)
-styles.fg10                 = set_style ( 10, nil , 0)
-styles.fg11                 = set_style ( 11, nil , 0)
-styles.fg12                 = set_style ( 12, nil , 0)
-styles.fg13                 = set_style ( 13, nil , 0)
-styles.fg14                 = set_style ( 14, nil , 0)
-styles.fg15                 = set_style ( 15, nil , 0)
-styles.bg0                  = set_style ( nil, 0  ,  0)
-styles.bg1                  = set_style ( nil, 1  ,  0)
-styles.bg2                  = set_style ( nil, 2  ,  0)
-styles.bg3                  = set_style ( nil, 3  ,  0)
-styles.bg4                  = set_style ( nil, 4  ,  0)
-styles.bg5                  = set_style ( nil, 5  ,  0)
-styles.bg6                  = set_style ( nil, 6  ,  0)
-styles.bg7                  = set_style ( nil, 7  ,  0)
-styles.bg8                  = set_style ( nil, 8  ,  0)
-styles.bg9                  = set_style ( nil, 9  ,  0)
-styles.bg10                  = set_style ( nil, 10  ,  0)
-styles.bg11                  = set_style ( nil, 11  ,  0)
-styles.bg12                  = set_style ( nil, 12  ,  0)
-styles.bg13                  = set_style ( nil, 13  ,  0)
-styles.bg14                  = set_style ( nil, 14  ,  0)
-styles.bg15                  = set_style ( nil, 15  ,  0)
+styles.fg0                  = lued.set_style ( 0, nil , 0)
+styles.fg1                  = lued.set_style ( 1, nil , 0)
+styles.fg2                  = lued.set_style ( 2, nil , 0)
+styles.fg3                  = lued.set_style ( 3, nil , 0)
+styles.fg4                  = lued.set_style ( 4, nil , 0)
+styles.fg5                  = lued.set_style ( 5, nil , 0)
+styles.fg6                  = lued.set_style ( 6, nil , 0)
+styles.fg7                  = lued.set_style ( 7, nil , 0)
+styles.fg8                  = lued.set_style ( 8, nil , 0)
+styles.fg9                  = lued.set_style ( 9, nil , 0)
+styles.fg10                 = lued.set_style ( 10, nil , 0)
+styles.fg11                 = lued.set_style ( 11, nil , 0)
+styles.fg12                 = lued.set_style ( 12, nil , 0)
+styles.fg13                 = lued.set_style ( 13, nil , 0)
+styles.fg14                 = lued.set_style ( 14, nil , 0)
+styles.fg15                 = lued.set_style ( 15, nil , 0)
+styles.bg0                  = lued.set_style ( nil, 0  ,  0)
+styles.bg1                  = lued.set_style ( nil, 1  ,  0)
+styles.bg2                  = lued.set_style ( nil, 2  ,  0)
+styles.bg3                  = lued.set_style ( nil, 3  ,  0)
+styles.bg4                  = lued.set_style ( nil, 4  ,  0)
+styles.bg5                  = lued.set_style ( nil, 5  ,  0)
+styles.bg6                  = lued.set_style ( nil, 6  ,  0)
+styles.bg7                  = lued.set_style ( nil, 7  ,  0)
+styles.bg8                  = lued.set_style ( nil, 8  ,  0)
+styles.bg9                  = lued.set_style ( nil, 9  ,  0)
+styles.bg10                  = lued.set_style ( nil, 10  ,  0)
+styles.bg11                  = lued.set_style ( nil, 11  ,  0)
+styles.bg12                  = lued.set_style ( nil, 12  ,  0)
+styles.bg13                  = lued.set_style ( nil, 13  ,  0)
+styles.bg14                  = lued.set_style ( nil, 14  ,  0)
+styles.bg15                  = lued.set_style ( nil, 15  ,  0)
 
 
--- dbg_prompt("\n" ..
+-- lued.dbg_prompt("\n" ..
 --            styles.fg0 .. "000000" ..
 --            styles.fg1 .. "111111" ..
 --            styles.fg2 .. "222222" ..
@@ -497,7 +485,7 @@ function is_space(line,pos)
   else
     local offset = pos
     local ch = get_char(offset)
-    -- dbg_prompt ("is_space="..ch.."xxx")
+    -- lued.dbg_prompt ("is_space="..ch.."xxx")
     is = string.match(ch,"^%s",1) and true or false
   end
   return is
@@ -637,7 +625,7 @@ end
 
 function is_blankline(line)
   line = line or get_line()
-  local found = string.bind(line,"^%s*$")
+  local found = string.find(line,"^%s*$")
   local is = found~=nil
   return is
 end
@@ -1397,13 +1385,13 @@ function disp(dd,center)
    local page_offset_changed = false
    local half = math.floor(tr / 2)
 
-   -- if center then dbg_prompt("CENTER") end
+   -- if center then lued.dbg_prompt("CENTER") end
 
    if (r-pr) < g_min_lines_from_top then
      local new_offset = g_min_lines_from_top
      if center then
        new_offset = half
-       dbg_prompt("new_offset1="..new_offset)
+       lued.dbg_prompt("new_offset1="..new_offset)
      end
      set_page_offset_percent(new_offset,dd2)
    end
@@ -1412,7 +1400,7 @@ function disp(dd,center)
      if center then
        new_offset = half
      end
-     if center then dbg_prompt("new_offset2="..new_offset) end
+     if center then lued.dbg_prompt("new_offset2="..new_offset) end
      set_page_offset_percent(new_offset,dd2)
    end
 
@@ -2249,7 +2237,7 @@ function find_reverse_selected(dd)
   local found = false
   if sel_str~="" then
     g_find_str = sel_str
---  dbg_prompt("DBG sel_sr="..sel_sr.." initial_r="..initial_r)
+--  lued.dbg_prompt("DBG sel_sr="..sel_sr.." initial_r="..initial_r)
     set_cur_pos(sel_sr,sel_sc)
     found = find_reverse(g_find_str,dd2)
     if found then
@@ -2794,14 +2782,14 @@ end
 
 function global_cut(dd)
   cut(dd)
-  g_buffer = get_paste()
+  lued.g_buffer = get_paste()
   disp(dd)
 end
 
 
 function global_cut_append(dd)
   cut(dd)
-  g_buffer = g_buffer .. get_paste()
+  lued.g_buffer = lued.g_buffer .. get_paste()
   disp(dd)
 end
 
@@ -2809,21 +2797,21 @@ end
 function global_copy(dd)
   local dd2 = 1
   copy(dd2)
-  g_buffer = get_paste()
+  lued.g_buffer = get_paste()
   disp(dd)
 end
 
 
 function global_paste(dd)
   local dd2 = 1
-  if string.find(g_buffer,"\n") then
+  if string.find(lued.g_buffer,"\n") then
     move_to_sol_classic(dd2)
---     local spaces = string.match(g_buffer, "^%w*")
+--     local spaces = string.match(lued.g_buffer, "^%w*")
 --     spaces = spaces or ""
---     g_buffer = string.gsub(g_buffer,"^%s*","")
---     g_buffer = string.gsub(g_buffer,"\n"..spaces,"\n")
+--     lued.g_buffer = string.gsub(lued.g_buffer,"^%s*","")
+--     lued.g_buffer = string.gsub(lued.g_buffer,"\n"..spaces,"\n")
   end
-  set_paste(g_buffer)
+  set_paste(lued.g_buffer)
   paste(dd2)
   disp(dd)
 end
@@ -3296,12 +3284,37 @@ function insert_tab_classic(dd)
 end
 
 
+function get_token(str,ii)
+  ii = ii or 1
+  local str = str or ""
+  local len = str:len()
+  local token = ''
+  while ii <= len and is_space(str,ii) do
+    ii = ii + 1
+  end
+  if ii <= len and is_word(str,ii) then
+    while ii <= len and is_word(str,ii) do
+      token = token .. str:sub(ii,ii)
+      ii = ii + 1
+    end
+  elseif is_punct then
+    token = str:sub(ii,ii)
+    ii = ii + 1
+  end
+  return token, ii    
+end
+  
+
 function handle_snippets(dd)
   local dd2 = false
   local r,c=get_cur_pos()
   sel_left_pattern( "[%w.#*()^>+*:]"  , dd2)
 --   sel_sow(dd2)
   local sel_str, sel_sr, sel_sc = get_sel_str()
+  if sel_str==nil or sel_str=='' then
+    return false
+  end
+  
   local filetype = 'html'
   
   s1 = snips and "snips exists," or "snips NOT"
@@ -3317,7 +3330,17 @@ function handle_snippets(dd)
   del_sel(dd2)
   set_cur_pos(sel_sr,sel_sc)
   g_dont_display = 1
-  snip_routine(sel_str)
+  
+  local tok = ""
+  local ii = 1
+  local cnt = 1
+  repeat
+    tok, ii = get_token(sel_str,ii)
+    snip_routine(tok)
+    tok, ii = get_token(sel_str,ii)
+    cnt = cnt + 1
+  until tok == "" or cnt == 5
+  
   g_dont_display = 0
   
   disp(dd)
@@ -4052,7 +4075,7 @@ end
 
 function undo_cmd(dd)
   local last_cmd = get_last_cmd()
---  dbg_prompt("last_cmd="..last_cmd.."xxx")
+--  lued.dbg_prompt("last_cmd="..last_cmd.."xxx")
   -- set_ctrl_z_suspend(true);
   undo()
   disp(dd)
