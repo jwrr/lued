@@ -192,13 +192,13 @@ styles.bg15                  = lued.set_style ( nil, 15  ,  0)
 
 
 function init_lued(lued_path, bindings_file)
-  load_plugins( lued_path .. "/plugins" )
+  lued.load_plugins( lued_path .. "/plugins" )
   dofile( bindings_file)
 
   local dd2 = 1
-  set_ctrl_s_flow_control(false,dd2)
-  set_ctrl_c_abort(false,dd2)
-  set_ctrl_z_suspend(false,dd2)
+  lued.set_ctrl_s_flow_control(false,dd2)
+  lued.set_ctrl_c_abort(false,dd2)
+  lued.set_ctrl_z_suspend(false,dd2)
   decset(1000)
   set_fileid(1,dd2)
 --  set_cur_pos(1,1)
@@ -206,53 +206,53 @@ function init_lued(lued_path, bindings_file)
 --  if g_show_help then help(1,0) end
 -- end
 
-  set_edit_mode(0)
+  lued.set_edit_mode(0)
   disp()
 end
 
 
-function clr_sb_files(dd)
+function lued.clr_sb_files(dd)
   g_show_sb_files = false
   set_show_line_numbers(0)
   disp(dd)
 end
 
 
-function set_sb_files(dd)
+function lued.set_sb_files(dd)
   g_show_sb_files = true
   set_show_line_numbers(0)
   disp(dd)
 end
 
 
-function clr_abs_line_numbers(dd)
+function lued.clr_abs_line_numbers(dd)
   g_show_abs_line_numbers = false
   set_show_line_numbers(0)
   disp(dd)
 end
 
-function set_abs_line_numbers(dd)
+function lued.set_abs_line_numbers(dd)
   g_show_abs_line_numbers = true
   set_show_line_numbers(0)
   disp(dd)
 end
 
 
-function clr_rel_line_numbers(dd)
+function lued.clr_rel_line_numbers(dd)
   g_show_rel_line_numbers = false
   set_show_line_numbers(0)
   disp(dd)
 end
 
 
-function set_rel_line_numbers(dd)
+function lued.set_rel_line_numbers(dd)
   g_show_rel_line_numbers = true
   set_show_line_numbers(0)
   disp(dd)
 end
 
 
-function toggle_review_mode(dd)
+function lued.toggle_review_mode(dd)
   g_review_mode = g_review_mode or false
   g_review_mode = not g_review_mode
   disp(dd)
@@ -260,7 +260,7 @@ end
 
 
 -- disable/enable ctrl+S ctrl+Q XON/XOFF Flow Control
-function set_ctrl_s_flow_control (bool, dd)
+function lued.set_ctrl_s_flow_control (bool, dd)
   if bool==nil then
     g_ctrl_s_flow_control = not g_ctrl_s_flow_control
   else
@@ -276,7 +276,7 @@ end
 
 
 -- disable/enable ctrl+C abort
-function set_ctrl_c_abort (bool, dd)
+function lued.set_ctrl_c_abort (bool, dd)
   if bool==nil then
     g_ctrl_c_abort = not g_ctrl_c_abort
   else
@@ -292,7 +292,7 @@ end
 
 
 -- disable/enable ctrl+Z suspend
-function set_ctrl_z_suspend (bool, dd)
+function lued.set_ctrl_z_suspend (bool, dd)
   local change = true
   if bool==nil then
     g_ctrl_z_suspend = not g_ctrl_z_suspend
@@ -312,179 +312,179 @@ function set_ctrl_z_suspend (bool, dd)
 end
 
 
-function toggle_ctrl_z_suspend (dd)
-  set_ctrl_z_suspend(not g_ctrl_z_suspend,dd)
+function lued.toggle_ctrl_z_suspend (dd)
+  lued.set_ctrl_z_suspend(not g_ctrl_z_suspend,dd)
 end
 
 
-function toggle_ctrl_c_abort (dd)
-  set_ctrl_c_abort(not g_ctrl_c_abort,dd)
+function lued.toggle_ctrl_c_abort (dd)
+  lued.set_ctrl_c_abort(not g_ctrl_c_abort,dd)
 end
 
 
-function set_auto_indent(dd)
+function lued.set_auto_indent(dd)
   g_auto_indent = true
   disp(dd)
 end
 
 
-function clr_auto_indent(dd)
+function lued.clr_auto_indent(dd)
   g_auto_indent = false
   disp(dd)
 end
 
 
-function toggle_auto_indent(dd)
+function lued.toggle_auto_indent(dd)
   g_auto_indent = not g_auto_indent
   disp(dd)
 end
 
 
-function bracket_paste_start(dd)
+function lued.bracket_paste_start(dd)
   g_bracket_paste = 1
-  clr_auto_indent()
+  lued.clr_auto_indent()
 end
 
 
-function bracket_paste_stop(dd)
+function lued.bracket_paste_stop(dd)
   g_bracket_paste = 0
-  set_auto_indent(dd)
+  lued.set_auto_indent(dd)
 end
 
 
-function set_tab_size(val,dd)
+function lued.set_tab_size(val,dd)
   val = val or 0
   g_tab_size = val
   disp(dd)
 end
 
 
-function toggle_remove_trailing_spaces(dd)
+function lued.toggle_remove_trailing_spaces(dd)
   g_remove_trailing_spaces = not g_remove_trailing_spaces
   disp(dd)
 end
 
 
-function toggle_show_trailing_spaces(dd)
+function lued.toggle_show_trailing_spaces(dd)
   g_show_trailing_spaces = not g_show_trailing_spaces
   disp(dd)
 end
 
 
-function set_scope_indent(val,dd)
+function lued.set_scope_indent(val,dd)
   val = val or 1
   g_scope_indent = val
   disp(dd)
 end
 
 
-function set_min_lines_from_top(val,dd)
+function lued.set_min_lines_from_top(val,dd)
   if val==nil then val = 5 end
   g_min_lines_from_top = val
   disp(dd)
 end
 
 
-function set_min_lines_from_bot(val,dd)
+function lued.set_min_lines_from_bot(val,dd)
   if val==nil then val = 7 end
   g_min_lines_from_bot = val
   disp(dd)
 end
 
 
-function toggle_enable_file_changed(dd)
+function lued.toggle_enable_file_changed(dd)
   g_enable_file_changed = not g_enable_file_changed
   disp(dd)
 end
 
 
-function toggle_express_mode(dd)
+function lued.toggle_express_mode(dd)
   g_express_mode = not g_express_mode
   disp(dd)
 end
 
-function set_find_case_sensitive(dd)
+function lued.set_find_case_sensitive(dd)
   g_find_case_sensitive = true
   disp(dd)
 end
 
-function clr_find_case_sensitive(dd)
+function lued.clr_find_case_sensitive(dd)
   g_find_case_sensitive = false
   disp(dd)
 end
 
-function get_find_whole_word()
+function lued.get_find_whole_word()
   return g_find_whole_word
 end
 
-function set_find_whole_word(dd)
+function lued.set_find_whole_word(dd)
   g_find_whole_word = true
   disp(dd)
 end
 
-function clr_find_whole_word(dd)
+function lued.clr_find_whole_word(dd)
   g_find_whole_word = false
   disp(dd)
 end
 
-function toggle_find_whole_word(dd)
+function lued.toggle_find_whole_word(dd)
   g_find_whole_word = not g_find_whole_word
   disp(dd)
 end
 
 
-function get_overtype()
+function lued.get_overtype()
   return g_overtype
 end
 
 
-function set_overtype(val,dd)
+function lued.set_overtype(val,dd)
   val = val or 0
   g_overtype = val
   disp(dd)
 end
 
 
-function toggle_overtype(dd)
+function lued.toggle_overtype(dd)
   g_overtype = g_overtype or 0
   g_overtype = (g_overtype+1) % 2
   disp(dd)
 end
 
 
-function toggle_doublespeed(dd)
+function lued.toggle_doublespeed(dd)
   g_double_speed = g_double_speed or 0
   g_double_speed = (g_double_speed+1) % 2
   disp(dd)
 end
 
 
-function is_sol()
+function lued.is_sol()
   local r,c = get_cur_pos()
   return c <= 1
 end
 
 
-function is_eol()
+function lued.is_eol()
   local r,c = get_cur_pos()
   return c > get_line_len()
 end
 
 
-function is_sof()
+function lued.is_sof()
   local r,c = get_cur_pos()
   return c <= 1 and r <= 1
 end
 
 -- Two modes are supported. When line string is passed in the char at `pos` is
 -- checked. When line is nil then the char under the cursor is checked.
-function is_space(line,pos)
-  local is;
+function lued.is_space(line,pos)
+  local is
   if line and line ~= "" then
     is = string.match(line,"^%s",pos) and true or false
   else
     local offset = pos
-    local ch = get_char(offset)
+    local ch = lued.get_char(offset)
     -- lued.dbg_prompt ("is_space="..ch.."xxx")
     is = string.match(ch,"^%s",1) and true or false
   end
@@ -492,138 +492,135 @@ function is_space(line,pos)
 end
 
 
-function is_punct(line,pos)
+function lued.is_punct(line,pos)
   pos = pos or 1
-  local ch = line and string.sub(line,pos,pos) or get_char()
+  local ch = line and string.sub(line,pos,pos) or lued.get_char()
   return string.match(ch,"^%p",pos) and true or false
 end
 
 
-function is_word(line,pos)
+function lued.is_word(line,pos)
   local is;
   if line then
     is = string.match(line,"^[%w_]",pos) and true or false
   else
-    is = string.match(get_char(),"^[%w_]",1) and true or false
+    is = string.match(lued.get_char(),"^[%w_]",1) and true or false
   end
   return is
 end
 
 
-function is_pattern(pattern, line,pos)
+function lued.is_pattern(pattern, line,pos)
   local is;
   if line then
     is = string.match(line, "^"..pattern, pos) and true or false
   else
-    is = string.match(get_char(), "^"..pattern, 1) and true or false
+    is = string.match(lued.get_char(), "^"..pattern, 1) and true or false
   end
   return is
 end
 
 
 -- not word and not space
-function is_other(line,pos)
-  local is = not (is_word() or is_space())
+function lued.is_other(line,pos)
+  local is = not (lued.is_word() or lued.is_space())
   return is;
 end
 
-function prev_is_space()
+function lued.prev_is_space()
   local dd2 = 1
-  if is_sol() then return false; end
+  if lued.is_sol() then return false; end
   move_left_n_char(1,dd2)
-  local is = is_space()
+  local is = lued.is_space()
   move_right_n_char(1,dd2)
   return is;
 end
 
 
-function next_is_space()
+function lued.next_is_space()
   local dd2 = 1
-  if is_eol() then return false; end
+  if lued.is_eol() then return false; end
   move_right_n_char(1,dd2)
-  local is = is_space()
-  move_left_n_char(1,dd2)
-  return is;
-end
-
-
-function prev_is_word()
-  local dd2 = 1
-  if is_sol() then return false; end
-  move_left_n_char(1,dd2)
-  local is = is_word()
-  move_right_n_char(1,dd2)
-  return is;
-end
-
-
-function next_is_word()
-  local dd2 = 1
-  if is_eol() then return false; end
-  move_right_n_char(1,dd2)
-  local is = is_word()
+  local is = lued.is_space()
   move_left_n_char(1,dd2)
   return is;
 end
 
 
-
-function prev_is_other()
+function lued.prev_is_word()
   local dd2 = 1
-  if is_sol() then return false; end
+  if lued.is_sol() then return false; end
   move_left_n_char(1,dd2)
-  local is = is_other()
+  local is = lued.is_word()
   move_right_n_char(1,dd2)
   return is;
 end
 
 
-function next_is_other()
+function lued.next_is_word()
   local dd2 = 1
-  if is_eol() then return false; end
+  if lued.is_eol() then return false; end
   move_right_n_char(1,dd2)
-  local is = is_other()
+  local is = lued.is_word()
   move_left_n_char(1,dd2)
   return is;
 end
 
 
 
-function is_sow()
+function lued.prev_is_other()
+  local dd2 = 1
+  if lued.is_sol() then return false; end
+  move_left_n_char(1,dd2)
+  local is = lued.is_other()
+  move_right_n_char(1,dd2)
+  return is;
+end
+
+function lued.next_is_other()
+  local dd2 = 1
+  if lued.is_eol() then return false; end
+  move_right_n_char(1,dd2)
+  local is = lued.is_other()
+  move_left_n_char(1,dd2)
+  return is;
+end
+
+
+
+function lued.is_sow()
   local r,c = get_cur_pos()
   local line = get_line()
-  local prev_boundary = (c==1) or is_space(line,c-1)
-  local is = prev_boundary and not is_space(line,c)
+  local prev_boundary = (c==1) or lued.is_space(line,c-1)
+  local is = prev_boundary and not lued.is_space(line,c)
   return is
 end
 
 
-function is_firstline()
+function lued.is_firstline()
   local r,c = get_cur_pos()
   return r <= 1
 end
 
 
-function is_lastline()
+function lued.is_lastline()
   local r,c = get_cur_pos()
   local num_lines = get_numlines()
   return r >= num_lines
 end
 
 
-function is_eof()
-  local r,c = get_cur_pos()
-  local len = get_line_len()
-  return is_lastline() and is_eol()
+function lued.is_eof()
+  return lued.is_lastline() and lued.is_eol()
 end
 
 
-function is_sel_on()
+function lued.is_sel_on()
   return not (is_sel_off()==1)
 end
 
 
-function is_blankline(line)
+function lued.is_blankline(line)
   line = line or get_line()
   local found = string.find(line,"^%s*$")
   local is = found~=nil
@@ -631,7 +628,7 @@ function is_blankline(line)
 end
 
 
-function set_edit_mode(dd)
+function lued.set_edit_mode(dd)
   g_lua_mode = false
   local keys = get_hotkeys()
   keys = "all" .. keys
@@ -640,7 +637,7 @@ function set_edit_mode(dd)
 end
 
 
-function set_lua_mode(dd)
+function lued.set_lua_mode(dd)
   g_lua_mode = true
   local keys = get_hotkeys()
   keys = string.gsub(keys,"(all)","")
@@ -650,7 +647,7 @@ function set_lua_mode(dd)
 end
 
 
-function remove_trailing_spaces(next_row,next_col,force,dd)
+function lued.remove_trailing_spaces(next_row,next_col,force,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   local line = get_line()
@@ -666,7 +663,7 @@ function remove_trailing_spaces(next_row,next_col,force,dd)
     if last_nonspace then
       local first_trailing_space = non_space==nil and 0 or last_nonspace + 1
       set_cur_pos(r,first_trailing_space)
-      if not is_eol() then
+      if not lued.is_eol() then
         del_eol(dd2)
       end
     end
@@ -688,14 +685,14 @@ function remove_trailing_spaces(next_row,next_col,force,dd)
 end
 
 
-function remove_all_trailing_space(dd)
+function lued.remove_all_trailing_space(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   local pr,pc = get_page_pos()
   local numlines = get_numlines()
   for i=1,numlines do
     set_cur_pos(i,1)
-    remove_trailing_spaces(0,0,true,dd2)
+    lued.remove_trailing_spaces(0,0,true,dd2)
   end
   set_cur_pos(r,c)
   set_page_pos(pr,pc)
@@ -703,19 +700,19 @@ function remove_all_trailing_space(dd)
 end
 
 
-function remove_all_trailing_space_all_files(dd)
+function lued.remove_all_trailing_space_all_files(dd)
   local dd2 = 1
   local fileid = get_fileid()
   local num_sessions = get_numsessions()
   for i=1,num_sessions do
     session_sel(i,dd2)
-    remove_all_trailing_space(dd2)
+    lued.remove_all_trailing_space(dd2)
   end
   session_sel(fileid,dd)
 end
 
 
-function remove_all_leading_tabs(tab_size,dd)
+function lued.remove_all_leading_tabs(tab_size,dd)
   tab_size = tab_size or  8
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -750,7 +747,7 @@ function remove_all_leading_tabs(tab_size,dd)
 end
 
 
-function leading_ws()
+function lued.leading_ws()
   local line = get_line()
   local ws = string.match(line,"^%s+") or ""
   local ws_len = string.len(ws)
@@ -758,7 +755,7 @@ function leading_ws()
 end
 
 
-function indent_scope(str,dd)
+function lued.indent_scope(str,dd)
   str = str or string.rep(" ",g_scope_indent)
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -771,7 +768,7 @@ function indent_scope(str,dd)
     local leading_ws = string.match(line,"^%s+") or ""
     if (leading_ws == leading_ws1) then
       ins_str(str,dd2)
-    elseif is_blankline(line)==false then
+    elseif lued.is_blankline(line)==false then
       break
     end
   end -- for
@@ -780,17 +777,17 @@ function indent_scope(str,dd)
 end
 
 
-function reindent(n,dd)
+function lued.reindent(n,dd)
   n = n or 3
   local dd2 = 1
-  local ws1,ws1_len = leading_ws()
+  local ws1,ws1_len = lued.leading_ws()
   local r,c = get_cur_pos()
   local numlines = get_numlines() - r
   local indent_level = 0;
   local ws_len = ws1_len
   for i=1,numlines do
     set_cur_pos(r+i,1)
-    local ws2,ws2_len = leading_ws()
+    local ws2,ws2_len = lued.leading_ws()
     if ws2_len < ws1_len then break end
     if ws2_len > ws_len then
       indent_level = indent_level + 1
@@ -808,12 +805,12 @@ end
 
 
 -- \brief Make next line's leading whitespace the same as current line's leading whitespace.
-function align_start_of_next_line(dd)
+function lued.align_start_of_next_line(dd)
   local dd2 = 1
-  local ws1,ws1_len = leading_ws()
+  local ws1,ws1_len = lued.leading_ws()
   move_down_n_lines(1,dd2)
-  move_to_sol_classic(dd2)
-  local ws2,ws2_len = leading_ws()
+  lued.move_to_sol_classic(dd2)
+  local ws2,ws2_len = lued.leading_ws()
   del_char(ws2_len,dd2)
   ins_str(ws1,dd2)
   disp(dd)
@@ -821,17 +818,17 @@ end
 
 
 -- \brief Fix jagged left edges by making leading white space of all selected lines the same as first selected line.
-function align_selected(dd)
-  foreach_selected(align_start_of_next_line, dd)
+function lued.align_selected(dd)
+  lued.foreach_selected(lued.align_start_of_next_line, dd)
 end
 
 
-function replace_line(newline,dd)
+function lued.replace_line(newline,dd)
   newline = newline or ""
   local dd2 = 1
   local line = get_line() or ""
   if newline ~= line then
-    move_to_sol_classic(dd2)
+    lued.move_to_sol_classic(dd2)
     ins_str(newline,dd2);
     del_eol(dd2);
   end
@@ -839,7 +836,7 @@ function replace_line(newline,dd)
 end
 
 
-function get_next_line()
+function lued.get_next_line()
   local dd2 = 1
   local r,c = get_cur_pos()
   set_cur_pos(r+1,c)
@@ -850,7 +847,7 @@ end
 
 
 -- \brief Align delimiter of next line with the same delimiter on current line
-function align_delimiter_of_next_line(delim, dd)
+function lued.align_delimiter_of_next_line(delim, dd)
   g_align_delimiter_of_next_line = g_align_delimiter_of_next_line or "="
   delim = delim or "="
   local dd2 = 1
@@ -869,9 +866,9 @@ function align_delimiter_of_next_line(delim, dd)
       elseif delta < 0 then
         delta = -1 * delta
         for i = 1, delta do
-          if is_sol() then break end
+          if lued.is_sol() then break end
           move_left_n_char(1,dd2)
-          if not is_space() then break end
+          if not lued.is_space() then break end
           del_char(1,dd2)
         end
       end
@@ -881,7 +878,7 @@ function align_delimiter_of_next_line(delim, dd)
 end
 
 
-function get_char(offset)
+function lued.get_char(offset)
   offset = offset or 0  -- offset is useful for getting next/prev char
   local r,c = get_cur_pos()
   local pos = c + offset
@@ -892,18 +889,19 @@ end
 
 
 -- \brief Align delimiter in selected region
-function align_delimiter_selected(delim, dd)
+function lued.align_delimiter_selected(delim, dd)
   align_delimiter_selected_hist_id = align_delimiter_selected_hist_id or get_hist_id()
   g_align_delimiter_of_next_line = delim or lued_prompt(align_delimiter_selected_hist_id, "Enter string to align: ") or "="
-  foreach_selected(align_delimiter_of_next_line, dd)
+  lued.foreach_selected(lued.align_delimiter_of_next_line, dd)
 end
 
-function align_cur_char(dd)
+
+function lued.align_cur_char(dd)
   local dd2 = 1
-  local cur_char = get_char()
+  local cur_char = lued.get_char()
   local r1,c1 = get_cur_pos()
   move_down_n_lines(1,dd2)
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   found = find_forward(cur_char,true,false,true,"",dd2)
   if not found then
     disp(dd)
@@ -918,11 +916,11 @@ function align_cur_char(dd)
     if c2 < c1 then
       ins_str(" ",dd2)
     else
-      if is_sol() or not is_space("",-1) then
+      if lued.is_sol() or not lued.is_space("",-1) then
         done = true
       else
         del_backspace(1,dd2)
-        if not is_space("",-1) then
+        if not lued.is_space("",-1) then
           ins_str(" ",dd2)
           done = true
         end
@@ -936,7 +934,7 @@ function align_cur_char(dd)
 end
 
 
-function reindent_selected(dd)
+function lued.reindent_selected(dd)
   g_indent_char    = g_indent_char or " "
   g_indent_size    = g_indent_size or 4
   local dd2 = 1
@@ -948,14 +946,14 @@ function reindent_selected(dd)
     set_sel_off()
 
     set_cur_pos(sel_sr,1)
-    local ws1,ws1_len = leading_ws()
+    local ws1,ws1_len = lued.leading_ws()
     local indent_level = 0;
     local ws_len = ws1_len
 
     for row=sel_sr,sel_er-1 do
       set_cur_pos(row,1)
 --
-      local ws2,ws2_len = leading_ws()
+      local ws2,ws2_len = lued.leading_ws()
       if ws2_len < ws1_len then break end
       if ws2_len > ws_len then
         indent_level = indent_level + 1
@@ -974,17 +972,17 @@ function reindent_selected(dd)
 end
 
 
-function reindent_all(n,dd)
+function lued.reindent_all(n,dd)
   n = n or 3
   local dd2 = 1
-  local ws1,ws1_len = leading_ws()
+  local ws1,ws1_len = lued.leading_ws()
   local r,c = get_cur_pos()
   local numlines = get_numlines() - r
   local indent_level = 0;
   local ws_len = ws1_len
   for i=1,numlines do
     set_cur_pos(r+i,1)
-    local ws2,ws2_len = leading_ws()
+    local ws2,ws2_len = lued.leading_ws()
     if ws2_len < ws1_len then break end
     if ws2_len > ws_len then
       indent_level = indent_level + 1
@@ -1275,7 +1273,7 @@ function style_page(lines, first_line_of_page, row_offset)
     end
     
     if g_show_sb_files then
-      local found, files = select_tab_menu(nil,true) 
+      local found, files = lued.select_tab_menu(nil,true) 
       local files_str = files[ii] or ""
       local sb_file_width = 20
       files_str = string.sub(files_str, 1, sb_file_width)
@@ -1433,10 +1431,10 @@ function move_left_n_char(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
-    if is_sof() then break end
-    if is_sol() then
+    if lued.is_sof() then break end
+    if lued.is_sol() then
       move_up_n_lines(1,dd2)
-      if not is_eol() then move_to_eol(dd2) end
+      if not lued.is_eol() then move_to_eol(dd2) end
     else
       local r,c = get_cur_pos()
       local len = get_line_len()
@@ -1485,10 +1483,10 @@ function move_right_n_char(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
-    if is_eof() then break end
-    if is_eol() then
+    if lued.is_eof() then break end
+    if lued.is_eol() then
       move_down_n_lines(1,dd2)
-      move_to_sol_classic(dd2)
+      lued.move_to_sol_classic(dd2)
     else
       local r,c = get_cur_pos()
       c = c + 1
@@ -1563,24 +1561,24 @@ function move_left_n_words(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
-    if is_sof() then break end
-    if is_sol() then
+    if lued.is_sof() then break end
+    if lued.is_sol() then
       move_up_n_lines(1,dd2)
       move_to_eol(dd2)
       break
     end
     local line = get_line()
     local r,c = get_cur_pos()
---    while is_space(line,c-1) do c = c - 1 end -- back through spaces
-    while not is_word(line,c-1) do
+--    while lued.is_space(line,c-1) do c = c - 1 end -- back through spaces
+    while not lued.is_word(line,c-1) do
       if c == 1 then break end
       c = c - 1
     end -- back through spaces
-    while is_word(line,c-1) do
+    while lued.is_word(line,c-1) do
       if c == 1 then break end
       c = c - 1
     end -- back through alphanums
-    -- while not is_space(line,c-1) do c = c - 1 end -- back through alphanums
+    -- while not lued.is_space(line,c-1) do c = c - 1 end -- back through alphanums
     set_cur_pos(r,c)
   end
   disp(dd)
@@ -1634,12 +1632,12 @@ end
 
 function skip_spaces_right(dd)
   local dd2 = 1
-  if is_eol() and not is_eof() then
+  if lued.is_eol() and not lued.is_eof() then
     move_right_n_char(1,dd2)
-  elseif is_space() then
+  elseif lued.is_space() then
     repeat
       move_right_n_char(1,dd2)
-    until is_eol() or not is_space()
+    until lued.is_eol() or not lued.is_space()
   end
   disp(dd)
 end
@@ -1647,12 +1645,12 @@ end
 
 function skip_spaces_left(dd)
   local dd2 = 1
-  if is_sol() and not is_sof() then
+  if lued.is_sol() and not lued.is_sof() then
     move_left_n_char(1,dd2)
-  elseif is_space() then
+  elseif lued.is_space() then
     repeat
       move_left_n_char(1,dd2)
-    until is_sol() or not is_space()
+    until lued.is_sol() or not lued.is_space()
   end
   disp(dd)
 end
@@ -1662,20 +1660,20 @@ function move_right_n_words(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
-    if is_eol() then
-      if not is_eof() then
+    if lued.is_eol() then
+      if not lued.is_eof() then
         move_right_n_char(1,dd2)
       end
-    elseif is_word() then
+    elseif lued.is_word() then
       repeat
         move_right_n_char(1,dd2)
-      until is_eol() or not is_word()
-    elseif not is_space() then -- misc char
+      until lued.is_eol() or not lued.is_word()
+    elseif not lued.is_space() then -- misc char
       repeat
         move_right_n_char(1,dd2)
-      until is_eol() or is_word() or is_space()
+      until lued.is_eol() or lued.is_word() or lued.is_space()
     end
-    if not is_eol() then
+    if not lued.is_eol() then
       skip_spaces_right(dd2)
     end
   end
@@ -1696,28 +1694,28 @@ function move_left_n_words(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
-    if is_sof() then
+    if lued.is_sof() then
       break
-    elseif is_sol() then
+    elseif lued.is_sol() then
       move_left_n_char(1,dd2)
     else
-      local start_of_word = is_word() and not prev_is_word()
-      local start_of_other = is_other() and not prev_is_other()
-      local in_space = is_space()
+      local start_of_word = lued.is_word() and not lued.prev_is_word()
+      local start_of_other = lued.is_other() and not lued.prev_is_other()
+      local in_space = lued.is_space()
 
       if in_space or start_of_word or start_of_other then
         move_left_n_char(1,dd2)
         skip_spaces_left(1,dd2)
       end
 
-      local in_word = is_word() and prev_is_word()
-      local in_other = is_other() and prev_is_other()
+      local in_word = lued.is_word() and lued.prev_is_word()
+      local in_other = lued.is_other() and lued.prev_is_other()
       if in_word then
-        while prev_is_word() and not is_sol() do
+        while lued.prev_is_word() and not lued.is_sol() do
           move_left_n_char(1,dd2)
         end
       elseif in_other then
-        while prev_is_other() and not is_sol() do
+        while lued.prev_is_other() and not lued.is_sol() do
           move_left_n_char(1,dd2)
         end
       end
@@ -1778,7 +1776,7 @@ function move_down_n_lines(n,dd)
   end
 
   r2 = r + g_scroll_speed
-  remove_trailing_spaces(r2,c,false,dd2)
+  lued.remove_trailing_spaces(r2,c,false,dd2)
   disp(dd)
 end
 
@@ -1808,7 +1806,7 @@ function move_up_n_lines(n,dd)
     g_scroll_speed = 0
   end
 
-  remove_trailing_spaces(r2,c,false,dd2)
+  lued.remove_trailing_spaces(r2,c,false,dd2)
   disp(dd)
 end
 
@@ -1823,7 +1821,7 @@ function move_to_first_line(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   move_up_n_lines(r-1,dd2)
-  move_to_sol_classic(dd)
+  lued.move_to_sol_classic(dd)
 end
 first_line = move_to_first_line
 
@@ -1846,7 +1844,7 @@ end
 
 
 function toggle_top(dd)
-  if is_sof() then
+  if lued.is_sof() then
      move_to_last_line(dd)
   else
      move_to_first_line(dd)
@@ -1855,7 +1853,7 @@ end
 
 
 function toggle_bottom(dd)
-  if is_eof() then
+  if lued.is_eof() then
      move_to_first_line(dd)
   else
      move_to_last_line(dd)
@@ -1863,7 +1861,7 @@ function toggle_bottom(dd)
 end
 
 
-function move_to_sol_classic(dd)
+function lued.move_to_sol_classic(dd)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
   disp(dd)
@@ -1872,15 +1870,15 @@ end
 
 function move_to_sol(dd)
   local dd2 = 1
-  if not is_sof() then
-    if is_sol() then
+  if not lued.is_sof() then
+    if lued.is_sol() then
       move_up_n_lines(1,dd2)
-      if not is_eol() then
+      if not lued.is_eol() then
         move_to_eol(dd2)
       end
     end
     local r,c = get_cur_pos()
-    move_to_sol_classic(dd2)
+    lued.move_to_sol_classic(dd2)
     skip_spaces(dd2)
     local r2,c2 = get_cur_pos()
     if (c2 == c) then set_cur_pos(r,1) end
@@ -1891,8 +1889,8 @@ end
 
 function move_to_eol(dd)
   local dd2 = 1
-  if not is_eof() then
-    if is_eol() then
+  if not lued.is_eof() then
+    if lued.is_eol() then
       move_down_n_lines(1,dd2)
     end
     local r,c = get_cur_pos()
@@ -1987,7 +1985,7 @@ end
 --     set_cur_pos(r,c)
 --   end
 --   if found ~= 0 then
---     -- remove_trailing_spaces(r2,c2,false,dd2)
+--     -- lued.remove_trailing_spaces(r2,c2,false,dd2)
 --     local pr,pc = get_page_pos()
 --     local tr,tc = get_termsize()
 --     local lr = pr+tr
@@ -2465,7 +2463,7 @@ function search_all_files(str,dd)
     if session_id == start_session then break end
     local r,c = get_cur_pos()
     move_to_first_line(dd2)
-    move_to_sol_classic(dd2)
+    lued.move_to_sol_classic(dd2)
     match = find_forward(g_find_str,true,true,false,test_str,dd2)
     if not match then -- restore cur_pos
       set_cur_pos(r,c)
@@ -2537,9 +2535,9 @@ end
 function word_start(dd)
   local r,c = get_cur_pos()
   local line = get_line()
-  if is_space(line,c) then
+  if lued.is_space(line,c) then
     move_right_n_words(1,dd)
-  elseif not is_sow(line,c) then
+  elseif not lued.is_sow(line,c) then
     move_left_n_words(1,dd)
   else
     disp(dd)
@@ -2572,7 +2570,7 @@ function sel_word(dd)
     var_start(dd2)
     set_sel_start()
   else
-    if is_blankline() then
+    if lued.is_blankline() then
       move_down_n_lines(1,dd2)
     end
     move_right_n_words(1, dd2)
@@ -2805,7 +2803,7 @@ end
 function global_paste(dd)
   local dd2 = 1
   if string.find(lued.g_buffer,"\n") then
-    move_to_sol_classic(dd2)
+    lued.move_to_sol_classic(dd2)
 --     local spaces = string.match(lued.g_buffer, "^%w*")
 --     spaces = spaces or ""
 --     lued.g_buffer = string.gsub(lued.g_buffer,"^%s*","")
@@ -2837,16 +2835,16 @@ end
 function sel_sow(dd)
   local dd2 = 1
   set_sel_start()
-  if is_word(get_char(-1)) then
-    while not is_sol() and is_word(get_char(-1)) do
+  if lued.is_word(lued.get_char(-1)) then
+    while not lued.is_sol() and lued.is_word(lued.get_char(-1)) do
       move_left_n_char(1,dd2)
     end
-  elseif is_space(get_char(-1)) then
-    while not is_sol() and is_space(get_char(-1)) do
+  elseif lued.is_space(lued.get_char(-1)) then
+    while not lued.is_sol() and lued.is_space(lued.get_char(-1)) do
       move_left_n_char(1,dd2)
     end
-  elseif is_punct(get_char(-1)) then
-    while not is_sol() and is_punct(get_char(-1)) do
+  elseif lued.is_punct(lued.get_char(-1)) then
+    while not lued.is_sol() and lued.is_punct(lued.get_char(-1)) do
       move_left_n_char(1,dd2)
     end
   end
@@ -2858,8 +2856,8 @@ end
 function sel_left_nonspaces(dd)
   local dd2 = 1
   set_sel_start()
-  if not is_space(get_char(-1)) then
-    while not is_sol() and not is_space(get_char(-1)) do
+  if not lued.is_space(lued.get_char(-1)) then
+    while not lued.is_sol() and not lued.is_space(lued.get_char(-1)) do
       move_left_n_char(1,dd2)
     end
   end
@@ -2871,7 +2869,7 @@ end
 function sel_left_pattern(pattern , dd)
   local dd2 = 1
   set_sel_start()
-  while not is_sol() and is_pattern(pattern , get_char(-1)) do
+  while not lued.is_sol() and lued.is_pattern(pattern , lued.get_char(-1)) do
     move_left_n_char(1,dd2)
   end
   set_sel_end()
@@ -2889,20 +2887,20 @@ end
 function sel_eow(dd)
   local dd2 = 1
   set_sel_start()
-  if is_space() then
-    while is_space() and not is_eol()  do
+  if lued.is_space() then
+    while lued.is_space() and not lued.is_eol()  do
       move_right_n_char(1,dd2)
     end
-  elseif is_punct() then
-    while is_punct() and not is_eol() do
+  elseif lued.is_punct() then
+    while lued.is_punct() and not lued.is_eol() do
       move_right_n_char(1,dd2)
     end
-  elseif is_word() then
-    while is_word() and not is_eol() do
+  elseif lued.is_word() then
+    while lued.is_word() and not lued.is_eol() do
       move_right_n_char(1,dd2)
     end
   else -- other
-    while not is_space() and not is_eol() do
+    while not lued.is_space() and not lued.is_eol() do
       move_right_n_char(1,dd2)
     end
   end
@@ -2920,7 +2918,7 @@ end
 
 function del_spaces(dd)
   local dd2 = 1
-  if not is_space() then
+  if not lued.is_space() then
     disp(dd)
     return
   end
@@ -2935,7 +2933,7 @@ end
 -- space then go to next line and then delete the spaces.
 function del_spaces_next_line(dd)
   local dd2 = 1
-  if not is_space() then
+  if not lued.is_space() then
     move_down_n_lines(1,dd2)
   end
   local r,c = get_cur_pos()
@@ -2948,18 +2946,18 @@ end
 
 
 function del_spaces_selected(dd)
-  foreach_selected(del_spaces_next_line, dd)
+  lued.foreach_selected(del_spaces_next_line, dd)
 end
 
 
 function del_word(n,dd)
   local dd2 = 1
-  if is_word() then
+  if lued.is_word() then
     sel_word(dd2)
     set_sel_end()
     cut(dd)
   else
-    while not is_word() do
+    while not lued.is_word() do
       del_char(1,dd2)
     end
     disp(dd)
@@ -2969,10 +2967,10 @@ end
 
 function del_eol(dd)
   local dd2 = 1
-  if is_eol() then
+  if lued.is_eol() then
     move_down_n_lines(1,dd2)
   end
-  if not is_eol() then
+  if not lued.is_eol() then
     sel_eol(dd2)
     set_sel_end()
     cut(dd2)
@@ -2982,15 +2980,15 @@ end
 
 
 function del_eol_selected(dd)
-  foreach_selected(del_eol, dd)
+  lued.foreach_selected(del_eol, dd)
 end
 
 
 function del_sol(dd)
   local dd2 = 1
-  if is_sof() then
+  if lued.is_sof() then
     disp(dd)
-  elseif is_sol() then
+  elseif lued.is_sol() then
     del_backspace(1,dd)
   else
     sel_sol(dd2)
@@ -3029,7 +3027,7 @@ end
 
 function paste_line_before(dd)
   local dd2 = 1
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   global_paste(dd)
 end
 
@@ -3044,7 +3042,7 @@ end
 
 function del_backspace(n,dd)
   local dd2 = 1
-  if is_sof() then
+  if lued.is_sof() then
     disp(dd)
   elseif is_sel_off()==1 then
     n = n or 1
@@ -3081,7 +3079,7 @@ function indent1(n, ch, goto_next, dd)
   ins_str(spaces,dd2)
   if goto_next then
     move_down_n_lines(1,dd2)
-    move_to_sol_classic(dd2)
+    lued.move_to_sol_classic(dd2)
   else
     set_cur_pos(r,c+n)
   end
@@ -3101,7 +3099,7 @@ function unindent1(n, ch, goto_next, dd)
   del_char(n,dd2)
   if goto_next then
     move_down_n_lines(1,dd2)
-    move_to_sol_classic(dd2)
+    lued.move_to_sol_classic(dd2)
   else
     set_cur_pos(r,c-n)
   end
@@ -3167,7 +3165,7 @@ function unindent_selected(dd)
     set_cur_pos(sel_er,sel_ec)
   else
     local goto_next_line = true
-    local ws, ws_len = leading_ws()
+    local ws, ws_len = lued.leading_ws()
     if ws_len < g_indent_size then
       del_spaces(dd2)
       move_down_n_lines(1,dd2)
@@ -3203,7 +3201,7 @@ function ins_string(str, dd)
   del_sel(dd2)
 
   is_start_of_block = line_contains(g_block_start)
-  is_inside_braces  = get_char()=="}" and get_char(-1)=="{"
+  is_inside_braces  = lued.get_char()=="}" and lued.get_char(-1)=="{"
 
   if str == "\n" then
     if g_auto_indent==true and c~=1 then
@@ -3227,7 +3225,7 @@ function ins_string(str, dd)
 
     local r2,c2 = get_cur_pos()
     set_cur_pos(r,c)
-    remove_trailing_spaces(r2,c2,false,dd2)
+    lued.remove_trailing_spaces(r2,c2,false,dd2)
   else
     local brace_closed = false
     if g_self_closing_braces then
@@ -3236,7 +3234,7 @@ function ins_string(str, dd)
       if str=='[' then str= '[]'; brace_closed = true; end
     end
 
-    local ch = get_char()
+    local ch = lued.get_char()
     if ch~='}' and ch~=')' and ch~=']' then
       ch = '';
     end
@@ -3251,7 +3249,7 @@ function ins_string(str, dd)
   end
 
   if g_bracket_paste==1 then
-    bracket_paste_stop(dd2)
+    lued.bracket_paste_stop(dd2)
   end
   disp(dd)
 end
@@ -3260,7 +3258,7 @@ end
 function overtype_string(str,dd)
   local dd2 = 1
   for c in string.gmatch(str,".") do
-    if not is_eol() then
+    if not lued.is_eol() then
       del_char(1,dd2)
     end
     ins_string(c,dd2)
@@ -3289,15 +3287,15 @@ function get_token(str,ii)
   local str = str or ""
   local len = str:len()
   local token = ''
-  while ii <= len and is_space(str,ii) do
+  while ii <= len and lued.is_space(str,ii) do
     ii = ii + 1
   end
-  if ii <= len and is_word(str,ii) then
-    while ii <= len and is_word(str,ii) do
+  if ii <= len and lued.is_word(str,ii) then
+    while ii <= len and lued.is_word(str,ii) do
       token = token .. str:sub(ii,ii)
       ii = ii + 1
     end
-  elseif is_punct then
+  elseif lued.is_punct then
     token = str:sub(ii,ii)
     ii = ii + 1
   end
@@ -3372,29 +3370,29 @@ function insert_tab(dd)
   set_cur_pos(r2,c2)
   local done = false
   repeat
-    if is_firstline() then break end
+    if lued.is_firstline() then break end
     move_up_n_lines(1,dd2)
     local len = get_line_len()
     local short_line = (len <= c2)
     done = not short_line
   until done
-  if not is_eol() then
+  if not lued.is_eol() then
     move_right_n_words(1,dd2)
   end
   local r3,c3 = get_cur_pos()
 
   set_cur_pos(r2,c2)
 
-  if not is_eol() then
+  if not lued.is_eol() then
     -- goto beginning of word
-    while not is_space() do
-      if is_sol() then break end
+    while not lued.is_space() do
+      if lued.is_sol() then break end
       move_left_n_char(1,dd2)
     end
   end
 
   if (c3 > c2) then
-    if is_space() then
+    if lued.is_space() then
       del_eow(dd2) -- delete to end of spaces
     end
     r4,c4 = get_cur_pos()
@@ -3409,14 +3407,14 @@ end
 
 
 function insert_tab_selected(dd)
-  foreach_selected(insert_tab, dd)
+  lued.foreach_selected(insert_tab, dd)
 end
 
 
 function insert_cr_before(dd)
   local dd2 = 1
   local is_end_of_block = line_contains(g_block_end)
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   set_sel_off()
   ins_str("\n",dd2)
   move_up_n_lines(1,dd2)
@@ -3430,7 +3428,7 @@ end
 
 function insert_cr_after(dd)
   local dd2 = 1
-  if not is_eol() then move_to_eol(dd2) end
+  if not lued.is_eol() then move_to_eol(dd2) end
   set_sel_off()
   ins_str("\n",dd2)
   disp(dd)
@@ -3473,7 +3471,7 @@ end
 
 function bubble_selected_lines_up(dd)
   local dd2 = 1
-  if is_sel_on() then
+  if lued.is_sel_on() then
     local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
     if sel_sr > 1 then
       global_cut(dd2)
@@ -3497,7 +3495,7 @@ end
 
 function bubble_selected_lines_down(dd)
   local dd2 = 1
-  if is_sel_on() then
+  if lued.is_sel_on() then
     local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
     global_cut(dd2)
     move_down_n_lines(1,dd2)
@@ -4092,7 +4090,7 @@ function alt_z_wrapper(dd)
   if g_ctrl_z_suspend then
     undo_cmd(dd2)
   else
-    set_ctrl_z_suspend(true)
+    lued.set_ctrl_z_suspend(true)
   end
   disp(dd)
 end
@@ -4177,17 +4175,17 @@ end
 
 function decset(val)
   val = val or 1000
-  set_min_lines_from_top(0)
-  set_min_lines_from_bot(0)
+  lued.set_min_lines_from_top(0)
+  lued.set_min_lines_from_bot(0)
   local esc = string.char(27)
   local csi = esc .. "["
   io.write( csi .. "?" .. val .. "h" )
 end
 
-function decrst(val)
+function lued.decrst(val)
   val = val or 1000
-  set_min_lines_from_top()
-  set_min_lines_from_bot()
+  lued.set_min_lines_from_top()
+  lued.set_min_lines_from_bot()
   local esc = string.char(27)
   local csi = esc .. "["
   io.write( csi .. "?" .. val .. "l" )
@@ -4203,12 +4201,12 @@ function mouse_config(val)
   end
 
   if g_decset and g_decset~=0 and val~=g_decset then
-    decrst(g_decset)
+    lued.decrst(g_decset)
   end
   if (val~=0) then -- 9 = x10 1000 = normal
     decset(val)
   else
-    decrst(g_decset)
+    lued.decrst(g_decset)
   end
   g_decset = val;
 end
@@ -4407,14 +4405,14 @@ function copy_line(n,dd)
   n = n or 1
   local dd2 = 1
   if is_sel_off()==1 then
-    move_to_sol_classic(dd2)
+    lued.move_to_sol_classic(dd2)
     local r1,c1 = get_cur_pos()
     set_sel_start()
     move_down_n_lines(n,dd)
     local r2,c2 = get_cur_pos()
 --    set_sel_end()
     global_copy(dd)
---    move_to_sol_classic(dd)
+--    lued.move_to_sol_classic(dd)
   else
     global_copy(dd)
   end
@@ -4436,7 +4434,7 @@ function hit_cr()
 end
 
 
-function save_session_file(dd)
+function lued.save_session_file(dd)
   local n = get_numsessions()
   local id = get_fileid()
   local seshfile = io.open("session.lued","w")
@@ -4453,14 +4451,14 @@ function save_session_file(dd)
 end
 
 
-function load_session_file(dd)
+function lued.load_session_file(dd)
   local sesh_file = io.open("session.lued","r")
   local all_files = sesh_file:read("*all")
   open_file(all_files, dd)
 end
 
 
-function select_tab_menu(filter,dont_print)
+function lued.select_tab_menu(filter,dont_print)
   dont_print = dont_print or false
   local n = get_numsessions()
   local t = { "Open Files" }
@@ -4487,12 +4485,12 @@ function select_tab_menu(filter,dont_print)
 end
 
 
-function select_tab(filter)
+function lued.select_tab(filter)
   local id = get_fileid()
   local new_id = id
   local found_i = 0
   repeat
-    found_i = select_tab_menu(filter)
+    found_i = lued.select_tab_menu(filter)
     if found_i ~= 0 then
       new_id = found_i
     else
@@ -4526,7 +4524,7 @@ function select_tab(filter)
 end
 
 
-function set_comment(dd)
+function lued.set_comment(dd)
   local dd2 = 1
   set_comment_hist_id = set_comment_hist_id or get_hist_id()
   local comment_str = lued_prompt(set_comment_hist_id,"Enter Comment String (Default = '"..g_comment.."'): ")
@@ -4537,7 +4535,7 @@ function set_comment(dd)
 end
 
 
-function set_indent_size(dd)
+function lued.set_indent_size(dd)
   local dd2 = 1
   set_indent_size_hist_id = set_indent_size_hist_id or get_hist_id()
   local  indent_size = lued_prompt(set_indent_size_hist_id,"Enter Indent Size (Default = '"..g_indent_size.."'): ")
@@ -4548,13 +4546,13 @@ function set_indent_size(dd)
 end
 
 
-function join_lines(delim,n,dd)
+function lued.join_lines(delim,n,dd)
   delim = delim or " "
   n = n or 1
   local dd2 = 1
   for i=1,n do
     local r,c = get_cur_pos()
-    if not is_eol() then
+    if not lued.is_eol() then
       move_to_eol(dd2)
     end
     del_char(dd2)
@@ -4565,7 +4563,7 @@ function join_lines(delim,n,dd)
 end
 
 
-function wrap_line(wrap_col,wrap_delim,dd)
+function lued.wrap_line(wrap_col,wrap_delim,dd)
   wrap_col = wrap_col or 60
   wrap_delim = wrap_delim or " "
   local dd2 = 1
@@ -4577,23 +4575,23 @@ function wrap_line(wrap_col,wrap_delim,dd)
   end
   ins_string("\n",dd2)
   if get_line_len() <= wrap_col then
-    join_lines(wrap_delim,dd2)
+    lued.join_lines(wrap_delim,dd2)
   end
   disp(dd)
 end
 
 
---  foreach_selected(align_start_of_next_line, dd)
---  foreach_selected(align_delimiter_of_next_line, dd)
---  foreach_selected(del_spaces_next_line, dd)
---  foreach_selected(bubble_line_up,dd)
---  foreach_selected(comment, dd)
---  foreach_selected(uncomment, dd)
+--  lued.foreach_selected(lued.align_start_of_next_line, dd)
+--  lued.foreach_selected(lued.align_delimiter_of_next_line, dd)
+--  lued.foreach_selected(del_spaces_next_line, dd)
+--  lued.foreach_selected(bubble_line_up,dd)
+--  lued.foreach_selected(lued.comment, dd)
+--  lued.foreach_selected(lued.uncomment, dd)
 
 
-function foreach_selected(fn, dd)
+function lued.foreach_selected(fn, dd)
   local dd2 = 1
-  if is_sel_on() then
+  if lued.is_sel_on() then
     local r,c = get_cur_pos()
     set_sel_off()
     local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
@@ -4615,28 +4613,28 @@ function foreach_selected(fn, dd)
 end
 
 
-function comment(dd)
+function lued.comment(dd)
   local dd2 = 1
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   ins_str(g_comment,dd2);
-  if not is_eol() then
+  if not lued.is_eol() then
     ins_str(" ",dd2)
   end
   move_down_n_lines(1,dd2)
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   disp(dd)
 end
 
 
-function comment_selected(dd)
-  foreach_selected(comment, dd)
+function lued.comment_selected(dd)
+  lued.foreach_selected(lued.comment, dd)
 end
 
 
-function uncomment(dd)
+function lued.uncomment(dd)
   local dd2 = 1
   local comment_len = string.len(g_comment)
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   local line = get_line()
   if string.find(line,g_comment,1,true) == 1 then
     del_char(comment_len+1,dd2)
@@ -4645,12 +4643,12 @@ function uncomment(dd)
 end
 
 
-function uncomment_selected(dd)
-  foreach_selected(uncomment, dd)
+function lued.uncomment_selected(dd)
+  lued.foreach_selected(lued.uncomment, dd)
 end
 
 
-function load_plugins(plugin_path)
+function lued.load_plugins(plugin_path)
   plugin_path = pathifier(plugin_path)
   local plugins = read_dir(plugin_path .. "/*.lua")
   for plugin in plugins:gmatch("(%S+)") do
@@ -4661,9 +4659,9 @@ function load_plugins(plugin_path)
 end
 
 
-function sel_to_upper(dd)
+function lued.sel_to_upper(dd)
   local dd2 = 1
-  if not is_sel_on() then
+  if not lued.is_sel_on() then
     sel_n_char(1,dd2)
     set_sel_end()
   end
@@ -4675,9 +4673,9 @@ function sel_to_upper(dd)
 end
 
 
-function sel_to_lower(dd)
+function lued.sel_to_lower(dd)
   local dd2 = 1
-  if not is_sel_on() then
+  if not lued.is_sel_on() then
     sel_n_char(1,dd2)
     set_sel_end()
   end
@@ -4689,7 +4687,7 @@ function sel_to_lower(dd)
 end
 
 
-function split_string (str, delimiter)
+function lued.split_string (str, delimiter)
   delimiter = delimiter or "%s"
   local t={}
   for field in string.gmatch(str, "([^"..delimiter.."]+)") do
@@ -4699,12 +4697,12 @@ function split_string (str, delimiter)
 end
 
 
-function is_number(str)
+function lued.is_number(str)
   return (tonumber(str) ~= nil)
 end
 
 
-function get_word(dd)
+function lued.get_word(dd)
   local dd2 = 1
   sel_word(dd2)
   set_sel_end(dd2)
@@ -4714,21 +4712,21 @@ function get_word(dd)
 end
 
 
-function is_digit(ch)
-  ch = ch or get_char()
+function lued.is_digit(ch)
+  ch = ch or lued.get_char()
   return ( string.match(ch, "%d") )
 end
 
 
-function sel_number(dd)
+function lued.sel_number(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   local line = get_line()
   local c1 = c
   local c2 = c
-  if is_digit( string.sub(line,c,c) ) then
-    while is_digit( string.sub(line,c1-1,c1-1) ) do c1 = c1 - 1; end
-    while is_digit( string.sub(line,c2+1,c2+1) ) do c2 = c2 + 1; end
+  if lued.is_digit( string.sub(line,c,c) ) then
+    while lued.is_digit( string.sub(line,c1-1,c1-1) ) do c1 = c1 - 1; end
+    while lued.is_digit( string.sub(line,c2+1,c2+1) ) do c2 = c2 + 1; end
     set_sel_from_to(r,c1,r,c2+1,dd2)
   else
     set_sel_off()
@@ -4736,9 +4734,9 @@ function sel_number(dd)
 end
 
 
-function get_number(dd)
+function lued.get_number(dd)
   local dd2 = 1
-  sel_number(dd2)
+  lued.sel_number(dd2)
   if is_sel_off() then
     disp(dd)
     return nil
@@ -4749,12 +4747,12 @@ function get_number(dd)
 end
 
 -- go down 1 line and replace number with increment
-function incr(step_size, dd)
+function lued.incr(step_size, dd)
   g_incr_step = g_incr_step or 1
   step_size = step_size or g_incr_step
   local dd2 = 1
   local r,c = get_cur_pos()
-  local tmp_str = get_number(dd2)
+  local tmp_str = lued.get_number(dd2)
   if tmp_str == nil then
     disp(dd)
     return
@@ -4763,8 +4761,8 @@ function incr(step_size, dd)
   local num_str = tostring ( num )
   set_cur_pos(r,c)
   move_down_n_lines(1,dd2)
-  sel_number(dd2)
-  if is_sel_on() then
+  lued.sel_number(dd2)
+  if lued.is_sel_on() then
     ins_str(num_str,dd2)
     set_cur_pos(r+1, c)
   end
@@ -4772,9 +4770,9 @@ function incr(step_size, dd)
 end
 
 -- go down 1 line replace number with decrement
-function decr(step_size,dd)
+function lued.decr(step_size,dd)
   g_decr_step = g_decr_step or 1
   step_size = step_size or g_decr_step
-  incr(-1*step_size,dd)
+  lued.incr(-1*step_size,dd)
 end
 

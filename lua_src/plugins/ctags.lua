@@ -37,7 +37,7 @@ function ctag_read_file(tagfile, dd)
   if file == nil then return; end
   for line in file:lines() do
     line = line:gsub(';"\t.*','') -- Remove comment
-    local fields = split_string(line, '\t')
+    local fields = lued.split_string(line, '\t')
     local name = fields[1] or ""
     g_ctag_file[name] = fields[2] or ""
     g_ctag_address[name] = fields[3] or ""
@@ -56,7 +56,7 @@ function ctag_move_to_tag(dd)
   local sel_str, sel_sr, sel_sc = get_sel_str()
 
   local file = g_ctag_file[sel_str]
-  local address = g_ctag_address[sel_str]
+  local address = g_ctag_address[sel_str] or 1
 
   -- save current position in jump stack
   g_ctag_r, g_ctag_c = get_cur_pos()
@@ -66,7 +66,7 @@ function ctag_move_to_tag(dd)
   
   open_file(file, dd2)
   move_to_first_line(dd2)
-  if is_number(address) then
+  if lued.is_number(address) then
     move_to_line(tonumber(address), dd2)
   else
     address = address:sub(3,-3) -- remove '/^' and '$/'

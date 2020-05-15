@@ -21,7 +21,7 @@ ctrl_Q           = quit_all          -- Quit or Exit. Similar to Sublime Ctrl-Q.
 ctrl_W           = quit_session      -- Close window or tab. Similar to Sublime Ctrl-W.
 ctrl_E           = move_to_eol       -- Move to End of Line. Similar to Sublime <End>.
 ctrl_R           = move_right_fast   -- Move right defined number (4) of char
-ctrl_T           = select_tab        -- Select file tab menu
+ctrl_T           = lued.select_tab        -- Select file tab menu
 ctrl_Y           = redo_cmd          -- Redo (undo undo). Similar to Sublime Ctrl+Y
 ctrl_U           = spare             -- Spare
 
@@ -74,7 +74,7 @@ alt_BB           = toggle_top              hot("BB")  -- Goto top of file. Simil
 
 alt_ww           = move_right_n_words      hot("ww")  -- Move right one word. Similar to Sublime Ctrl+right_arrow.
 alt_WW           = move_left_n_words       hot("WW")  -- Move left one word. Similar to Sublime Ctrl+left_arrow.
-alt_ee           = toggle_express_mode     hot("ee") -- Express mode - arrow keys move faster
+alt_ee           = lued.toggle_express_mode     hot("ee") -- Express mode - arrow keys move faster
 alt__gt_         = halfsy_right            hot(",>,") -- Move right half the distance
 alt__lt_         = halfsy_left             hot(",<,") -- Move left half the distance
 alt_R            = move_left_n_char                   -- Move N char left.  alt_l42<Enter> moves 42 char to the left
@@ -119,13 +119,13 @@ alt_fa           = search_all_files        hot("fa")  -- Similar to Sublime Ctrl
 alt_fb           = find_back               hot("fb")  -- find back. return to position before find operation.
 alt_ff           = find_forward_again      hot("ff")  -- Similar to Sublime F3. Find next occurrence of search text.
 alt_FF           = find_reverse_again      hot("FF")  -- Similar to Sublime Shift+F3. Find previous occurrence.
-alt_kb        = set_sb_files            hot("kb") -- show sidebar with list of open files
-alt_KB        = clr_sb_files            hot("KB") -- hide sidbar with list of open files
+alt_kb        = lued.set_sb_files            hot("kb") -- show sidebar with list of open files
+alt_KB        = lued.clr_sb_files            hot("KB") -- hide sidbar with list of open files
 alt_FR           = find_reverse_selected   hot("FR")  -- Find previous occurrence.
-alt_fc           = set_find_case_sensitive  hot("fc")  -- set find case sensitive
-alt_FC           = clr_find_case_sensitive  hot("FC")  -- clear find case sensitive (case insensitive)
-alt_fw           = set_find_whole_word     hot("fw")  -- set find whole word
-alt_FW           = clr_find_whole_word     hot("FW")  -- clear find whole word
+alt_fc           = lued.set_find_case_sensitive  hot("fc")  -- set find case sensitive
+alt_FC           = lued.clr_find_case_sensitive  hot("FC")  -- clear find case sensitive (case insensitive)
+alt_fw           = lued.set_find_whole_word     hot("fw")  -- set find whole word
+alt_FW           = lued.clr_find_whole_word     hot("FW")  -- clear find whole word
 alt_hh           = replace_again           hot("hh")  -- Find and Replace again.
 alt_vv           = paste_and_find_forward  hot("vv")  -- Paste and Find Next
 alt_VV           = paste_and_find_reverse  hot("VV")  -- Paste and Find Prev
@@ -143,24 +143,24 @@ alt_br           = bubble_word_right          hot("br") -- swap current word wit
 --## Indent and Align Commands
 alt_ii           = indent_selected         hot("ii")  -- Indented selected lines one space
 alt_II           = unindent_selected       hot("II")  -- Unindent selected lines one space
-alt_ir           = reindent_selected       hot("ir")  -- Reindents selected per defined indent size
-alt_is           = set_indent_size         hot("is")  -- Set indent size
+alt_ir           = lued.reindent_selected       hot("ir")  -- Reindents selected per defined indent size
+alt_is           = lued.set_indent_size         hot("is")  -- Set indent size
 alt_aa           = sel_all                 hot("aa")  -- Select All (Entire File). Similar to Sublime Ctrl+A.
-alt_al           = align_cur_char;         hot("al") -- Align char on next line with current line
-alt_af           = align_selected          hot("af")  -- Align First char on next line with current line. If lines selected then align all lines with first line.
+alt_al           = lued.align_cur_char;         hot("al") -- Align char on next line with current line
+alt_af           = lued.align_selected          hot("af")  -- Align First char on next line with current line. If lines selected then align all lines with first line.
 
 --## Center Cursor Commands
 alt_kc           = recenter                hot("kc") -- Recenters cursor to center, press again and recenters to top. Similar to Sublime's CTRL+KC. vim's zz/zt. 
 alt_KC           = recenter_top            hot("KC") -- Recenters cursor to top, press again and recenters to center. Similar to Sublime's CTRL+KC. vim's zz/zt. 
 
 --## Comment Commands
-alt_cc           = comment_selected        hot("cc") -- Comment out line. Similar to Sublime Ctrl+slash.
-alt_CC           = uncomment_selected      hot("CC") -- Uncomment selected lines.
-alt_cs           = set_comment             hot("cs") -- Comment set. Change start of comment string.
+alt_cc           = lued.comment_selected        hot("cc") -- Comment out line. Similar to Sublime Ctrl+slash.
+alt_CC           = lued.uncomment_selected      hot("CC") -- Uncomment selected lines.
+alt_cs           = lued.set_comment             hot("cs") -- Comment set. Change start of comment string.
 
 --## Upper / Lower Case Commands
-alt_kl           = sel_to_lower            hot("kl") -- Similar to Sublime Ctrl+KL. Convert to Lower Case
-alt_ku           = sel_to_upper            hot("ku") -- Similar to Sublime Ctrl+KU. Convert to Upper Case
+alt_kl           = lued.sel_to_lower            hot("kl") -- Similar to Sublime Ctrl+KL. Convert to Lower Case
+alt_ku           = lued.sel_to_upper            hot("ku") -- Similar to Sublime Ctrl+KU. Convert to Upper Case
 
 --## Mark Commands
 alt_sm           = sel_mark_to_cursor      hot("sm") -- Similar to Sublime Ctrl+KA. Select from mark to cursor (set mark with alt_mm)
@@ -182,41 +182,41 @@ alt_pp           = move_down_n_pages       hot("pp") -- Similar to Sublime <Page
 alt_PP           = move_up_n_pages         hot("PP") -- Similar to Sublime <PageUP> (or ctrl+d in vintage mode), move up half page
 
 --## Remove Tabs and Spaces
-alt_ralt         = remove_all_leading_tabs              -- Replace all leading tabs with spaces at start of line
-alt_rats         = remove_all_trailing_space            -- Remove all trailing spaces at end of line
-alt_ratsall      = remove_all_trailing_space_all_files  -- Remove all trailing spaces in all files
+alt_ralt         = lued.remove_all_leading_tabs              -- Replace all leading tabs with spaces at start of line
+alt_rats         = lued.remove_all_trailing_space            -- Remove all trailing spaces at end of line
+alt_ratsall      = lued.remove_all_trailing_space_all_files  -- Remove all trailing spaces in all files
 
 -- Ctrl-Z Commands
 alt_z            = alt_z_wrapper           hot("z")  -- Similar to Sublime Ctrl-z. Undo. After alt-z is used, ctrl-z becomes unix suspend command.
 
 
 -- Increment / Decrement
-alt_incr         = incr                    hot("incr") -- Read number at current position, go down a line, and replace number with incremented value.
-alt_decr         = decr                    hot("decr") -- Decrement next line's index.
+alt_incr         = lued.incr                    hot("incr") -- Read number at current position, go down a line, and replace number with incremented value.
+alt_decr         = lued.decr                    hot("decr") -- Decrement next line's index.
 
 --## Configuration Commands
 -- Setting keystroke combinations start with period ('.')
-alt__period_c    = toggle_ctrl_c_abort         -- Toggle Ctrl+C between Cut and Kill Process
-alt__period_ind  = toggle_auto_indent          -- Turn auto-indent on/off
---alt__period_cts  = set_ctrl_s_flow_control
---a lt__period_ctz  = toggle_ctrl_z_suspend
---a lt__period_dsp  = toggle_doublespeed
+alt__period_c    = lued.toggle_ctrl_c_abort         -- Toggle Ctrl+C between Cut and Kill Process
+alt__period_ind  = lued.toggle_auto_indent          -- Turn auto-indent on/off
+--alt__period_cts  = lued.set_ctrl_s_flow_control
+--a lt__period_ctz  = lued.toggle_ctrl_z_suspend
+--a lt__period_dsp  = lued.toggle_doublespeed
 alt__period_edi  = set_edit_mode               -- Change from Lua mode to Edit mode. You almost always want to be in edit mode. 
---a lt__period_fch  = toggle_enable_file_changed
+--a lt__period_fch  = lued.toggle_enable_file_changed
 alt__period_lua  = set_lua_mode                -- Toggle to Lua mode to enter lua commands. Rarely used.
-alt__period_mlt  = set_min_lines_from_top      -- Set minimum lines to from top of page to cursor
-alt__period_mlb  = set_min_lines_from_bot      -- Set minimum lines from cursor to bottom of page
+alt__period_mlt  = lued.set_min_lines_from_top      -- Set minimum lines to from top of page to cursor
+alt__period_mlb  = lued.set_min_lines_from_bot      -- Set minimum lines from cursor to bottom of page
 alt__period_ps   = set_pagesize                -- Change number of lines for page up/down command
 alt__period_sl   = toggle_status_line_on       -- Toggle on/off the status line
 alt__period_slr  = toggle_status_line_reverse  -- Toggle status line being shown in reverse video
 alt__period_tab  = set_replace_tabs            -- Toggle replace tabs with spaces as you type (defaults to replace)
-alt__period_rts  = toggle_remove_trailing_spaces -- Toggle on/off remove trailing spaces as you type (defaults to don't remove)
+alt__period_rts  = lued.toggle_remove_trailing_spaces -- Toggle on/off remove trailing spaces as you type (defaults to don't remove)
 
 alt_p_squote     = set_paste_buffer -- Put string into paste buffer
 
 -- These keys produce escape sequences (escape is not pressed)
 esc_backspace    = del_backspace     -- BACKSPACE. Delete previous char. 
-esc_insert       = toggle_overtype   -- INSERT. Toggle insert/overtype mode.
+esc_insert       = lued.toggle_overtype   -- INSERT. Toggle insert/overtype mode.
 esc_delete       = del_char          -- DELETE. Delete current char.  If selection the delete selection.
 esc_up           = move_up_n_lines   -- UP ARROW.  Move up one line.
 esc_down         = move_down_n_lines -- DOWN ARROW. Move down one line.
@@ -231,8 +231,8 @@ esc_pagedown     = move_down_n_pages  -- PAGEDOWN. Move down one page (if suppor
 
 -- These mouse actions produce escape sequences (escape is not pressed)
 esc_mouse        = mouse_event         -- Mouse event. Double Left Mouse Button (LMB) selects word. Triple selects line. Middle Mouse Button (MMB) pastes mouse selection.
-esc_pastestart   = bracket_paste_start -- Mouse paste start
-esc_pastestop    = bracket_paste_stop  -- Mouse paste stop
+esc_pastestart   = lued.bracket_paste_start -- Mouse paste start
+esc_pastestop    = lued.bracket_paste_stop  -- Mouse paste stop
 
 --## Misc Commands
 
@@ -244,23 +244,23 @@ alt__colon_w     = save_file               hot(":w")  -- Save File. Similar to V
 alt_cd           = cd_change_dir;          hot("cd")  -- Change directory
 alt_ed           = set_edit_mode           hot("ed")  -- Change to EDIT mode. You almost always want to be in EDIT mode.
 alt_help         = open_file_bindings      hot("help")  -- Help. Open lued_bindings.lua
-alt_jj           = join_lines              hot("jj")  -- Similar to Sublime Ctrl+J. Join lines.
-alt_ln           = set_abs_line_numbers    hot("ln")  -- show absolute line numbers
-alt_LN           = clr_abs_line_numbers    hot("LN")  -- hide absolute line numbers
+alt_jj           = lued.join_lines              hot("jj")  -- Similar to Sublime Ctrl+J. Join lines.
+alt_ln           = lued.set_abs_line_numbers    hot("ln")  -- show absolute line numbers
+alt_LN           = lued.clr_abs_line_numbers    hot("LN")  -- hide absolute line numbers
 
-alt_rln          = set_rel_line_numbers    hot("rln")  -- show relative line numbers
-alt_RLN          = clr_rel_line_numbers    hot("RLN")  -- hide relative line numbers
+alt_rln          = lued.set_rel_line_numbers    hot("rln")  -- show relative line numbers
+alt_RLN          = lued.clr_rel_line_numbers    hot("RLN")  -- hide relative line numbers
 
 alt_ls           = ls_dir                  hot("ls")  -- unix ls command. dos dir command
 alt_LU           = set_lua_mode            hot("LU")  -- Change to LUA mode. You rarely want to be in lua mode.
-alt_qq           = wrap_line               hot("qq")  -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
+alt_qq           = lued.wrap_line               hot("qq")  -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
 alt_relued       = relued                             -- Reload lued script
-alt_review       = toggle_review_mode                 -- Review mode prevents saving file
+alt_review       = lued.toggle_review_mode                 -- Review mode prevents saving file
 alt_refresh      = reload_file                        -- Reload current file
 alt_sa           = save_as                 hot("sa")  -- Similar to Sublime Ctrl+Shift+S. File Save as.
-alt_SaveSession  = save_session_file
-alt_LoadSession  = load_session_file
-alt_Seti         = set_scope_indent                  -- Set Scope Indent SI2 SI3 SI4
+alt_SaveSession  = lued.save_session_file
+alt_LoadSession  = lued.load_session_file
+alt_Seti         = lued.set_scope_indent                  -- Set Scope Indent SI2 SI3 SI4
 -- alt_sw           = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("sw")
 
 

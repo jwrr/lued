@@ -35,7 +35,7 @@ function vhdl_sig()
     if string.find(lowerline, ":=") then -- constant
       del_eol(dd2)
       ins_str(line,dd2)
-      move_to_sol_classic(dd2)
+      lued.move_to_sol_classic(dd2)
       if is_space() then skip_spaces_right(dd2); end
       ins_str("constant ",dd2)
     elseif string.find(lowerline, ":") then -- signal
@@ -58,7 +58,7 @@ function vhdl_sig()
       end
       del_eol(dd2)
       ins_str(line,dd2)
-      move_to_sol_classic(dd2)
+      lued.move_to_sol_classic(dd2)
       if is_space() then skip_spaces_right(dd2); end
       ins_str("signal ",dd2)
     else
@@ -117,7 +117,7 @@ function vhdl_inst(dd)
     local line = get_line()
     local newline = {}
   
-    local next_line = get_next_line() or "" -- peek ahead for close paren
+    local next_line = lued.get_next_line() or "" -- peek ahead for close paren
     local paren_start = string.find(next_line, "^%s*%)%s*;",1) or 0
     local comma = (paren_start==0) and "," or " "
   
@@ -228,7 +228,7 @@ end rtl;
 ]]
 
   local dd2 = 1
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   ins_str(str,dd2)
   move_to_first_line(dd)
 end
@@ -259,7 +259,7 @@ end package;
 ]===]
 
   local dd2 = 1
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   ins_str(str,dd)
   move_up_n_lines(30,dd2)
   move_to_eol(dd)
@@ -284,7 +284,7 @@ function vhdl_tb(dd)
   local save_find_whole_word = get_find_whole_word()
   set_find_whole_word(dd2)
   find_forward("entity",dd2)
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   set_nameless_mark(dd2)
   find_forward("end",dd2)
   move_to_eol(dd2)
@@ -435,7 +435,7 @@ function vhdl_proc(dd)
   set_sel_off()
   g_find_whole_word = save_fw
   move_to_line(r1,dd2)
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
 
   local rst_name_lower = string.lower(rst_name)
   local rst_active_low = string.match(rst_name, "n") or
@@ -478,7 +478,7 @@ function vhdl_proc_all(dd)
 ]===]
 
   local dd2 = 1
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   ins_str(str,dd)
   move_up_n_lines(3,dd2)
   move_to_eol(dd)
@@ -500,7 +500,7 @@ function vhdl_function(dd)
 ]===]
 
   local dd2 = 1
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   ins_str(str,dd)
   move_up_n_lines(3,dd2)
   move_to_eol(dd)
@@ -715,7 +715,7 @@ function vhdl_case(dd)
 ]]
 
   local dd2 = 1
-  move_to_sol_classic(dd2)
+  lued.move_to_sol_classic(dd2)
   ins_str(str,dd2)
   move_up_n_lines(9,dd2)
   move_to_sol(dd2)

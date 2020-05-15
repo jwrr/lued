@@ -32,7 +32,7 @@ function v_inst(dd)
   newline[2] = string.gsub(line, "^%s*port.*", "port map (")
 
   -- clk: in std_logic;
-  local next_line = get_next_line() or "" -- peek ahead for close paren 
+  local next_line = lued.get_next_line() or "" -- peek ahead for close paren 
   local paren_start = string.find(next_line, "^%s*%)%s*;",1) or 0
   local comma = (paren_start==0) and "," or "" 
   newline[3] = string.gsub(line, "^%s*([_%w]+)%s*:%s*(%w%w.)%s*(std_logic[^;]*)", "   %1 => %1"..comma.."  -- %2 %3")
@@ -42,7 +42,7 @@ function v_inst(dd)
 
   for i=1,4 do
     if (newline[i]~=line) then
-      replace_line(newline[i],dd2)
+      lued.replace_line(newline[i],dd2)
       break
     end
   end
