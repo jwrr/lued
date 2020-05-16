@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
+Permission is hereby granted, free of charge, to any person obtaining a lued.copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -38,11 +38,11 @@ SOFTWARE.
   g_color_mode             = 'monochrome' -- '16color' '256color'
   g_express_mode           = false -- arrow keys move faster (ctrl-E toggles)
   g_highlight_current_line = true
-  g_indent_char            = " "   -- Used in indent_selected. Typically a space or tab
+  g_indent_char            = " "   -- Used in lued.indent_selected. Typically a space or tab
   g_indent_size            = 2     -- Used in reindent_selected
   g_remove_trailing_spaces = false -- Only removes on lines that are modified. Use alt_Rats to remove all trailing spaces.
   g_show_trailing_spaces   = true  -- Show trailing spaces in reverse video
-  g_scope_indent           = 2     -- Use with indent_scope(is) command. change indent with si2 si3 si4...
+  g_scope_indent           = 2     -- Use with indent_scope(is) command. change lued.indent with si2 si3 si4...
   g_mouse_remove_trailing_comma = true -- Some terminals include comma if it is next to selected work. Which is rarely what you want.
   g_min_lines_from_top     = 5     -- Scroll will try to keep at least 5 lines from the top
   g_min_lines_from_bot     = 7     -- Scroll will try to keep at least 7 lines from the bottom
@@ -59,7 +59,7 @@ SOFTWARE.
   g_show_abs_line_numbers  = false -- alt_ln/LN turn on/off absolute line numbers
   g_show_rel_line_numbers  = false -- alt_ln/LN turn on/off relative line numbers
   g_show_sb_files          = false -- alt_sb/alt_SB shows/hides sidebar listing open files
-  g_show_help              = false -- Show startup help menu
+  g_show_help              = false -- Show startup lued.help menu
   g_double_speed           = 0     -- Increases scroll speed. 1 enables this feature. 2 or more goes even faster
   g_lua_mode               = false -- set_lua_mode (Alt+LU) forces lua mode. LuEd automatically goes in and out of Lua mode as needed.
   g_ctrl_s_flow_control    = true  -- Alt+Flow toggles this to enable/disable Ctrl+S / Ctrl+Q
@@ -67,11 +67,11 @@ SOFTWARE.
   g_ctrl_z_suspend         = true  -- Alt+Suspend toggles this to enable/disable Ctrl+Z suspect (fg at shell prompt resumes).
   g_comment                = "--"  -- Alt+Co comments line. Alt+Noco removes comment marker
   g_pwd                    = "."   -- This is the current working directory and is changed by change_dir (alt_CD)
-  g_review_mode            = false -- In review mode save maps to save_as.
+  g_review_mode            = false -- In review mode save maps to lued.save_as.
   g_self_closing_braces    = true  -- close "{(["
   g_status_line_on         = true  -- Display status line when true, else do not display status line
   g_status_line_reverse    = true  -- Status Line is in reverse video when true, else normal video
-  g_search_all_files       = false -- Search all files. set by search_all_files, cleared by
+  g_search_all_files       = false -- Search all files. set by lued.search_all_files, cleared by
   g_tab_classic            = false -- Select classic tab or better tab
   g_replace_tabs           = 0     -- 4 -- Replace tab with N spaces (does not remove existing tabs). 0 keeps tabs.
   g_tab_size               = 8     -- Tab size
@@ -87,7 +87,7 @@ SOFTWARE.
 
   dofile( g_lued_root .. "/lued_lib.lua" )
   dofile( g_lued_root .. "/lued_version.lua" )
-  init_lued(g_lued_root, g_bindings_file)
+  lued.init_lued(g_lued_root, g_bindings_file)
 
   local lued_metatable = {
     __index = function ( t, k )

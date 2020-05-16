@@ -16,170 +16,170 @@ set_non_repeatables(",alt_ee,alt_EE,")
 -- This is a feature of terminals, not just LUED.
 
 --## Basic Control Key Commands
-ctrl__at_        = disp              -- Called when resuming from Ctrl+Z (fg at shell prompt). Not directly used by you.
-ctrl_Q           = quit_all          -- Quit or Exit. Similar to Sublime Ctrl-Q.
-ctrl_W           = quit_session      -- Close window or tab. Similar to Sublime Ctrl-W.
-ctrl_E           = move_to_eol       -- Move to End of Line. Similar to Sublime <End>.
-ctrl_R           = move_right_fast   -- Move right defined number (4) of char
+ctrl__at_        = lued.disp              -- Called when resuming from Ctrl+Z (fg at shell prompt). Not directly used by you.
+ctrl_Q           = lued.quit_all          -- Quit or Exit. Similar to Sublime Ctrl-Q.
+ctrl_W           = lued.quit_session      -- Close window or tab. Similar to Sublime Ctrl-W.
+ctrl_E           = lued.move_to_eol       -- Move to End of Line. Similar to Sublime <End>.
+ctrl_R           = lued.move_right_fast   -- Move right defined number (4) of char
 ctrl_T           = lued.select_tab        -- Select file tab menu
-ctrl_Y           = redo_cmd          -- Redo (undo undo). Similar to Sublime Ctrl+Y
-ctrl_U           = spare             -- Spare
+ctrl_Y           = lued.redo_cmd          -- Redo (undo undo). Similar to Sublime Ctrl+Y
+ctrl_U           = lued.spare             -- Spare
 
-ctrl_I           = insert_tab        -- Terminal interprets as `Tab` key
-ctrl_O           = open_file         -- Open File. Similar to Word Ctrl+O
-ctrl_P           = open_partial_filename -- Open File from partial name. Similar to Sublime Ctrl+P
-ctrl_A           = move_to_sol       -- Move to Start of Line. Similar to Sublime <Home>.
+ctrl_I           = lued.insert_tab        -- Terminal interprets as `Tab` key
+ctrl_O           = lued.open_file         -- Open File. Similar to Word Ctrl+O
+ctrl_P           = lued.open_partial_filename -- Open File from partial name. Similar to Sublime Ctrl+P
+ctrl_A           = lued.move_to_sol       -- Move to Start of Line. Similar to Sublime <Home>.
 
-ctrl_S           = save_file         -- Save File. Similar to Sublime Ctrl+S.
-ctrl_D           = sel_word          -- Select Word under cursor. Similar to Sublime Ctrl+D
-ctrl_F           = find_forward_selected -- Find. Similar to Sublime Ctrl+F.  If text is selected the find selected text (Similar to Sublime Ctrl+F3).
-ctrl_G           = move_to_line      -- Goto Line Number. Similar to Sublime Ctrl+G
+ctrl_S           = lued.save_file         -- Save File. Similar to Sublime Ctrl+S.
+ctrl_D           = lued.sel_word          -- Select Word under cursor. Similar to Sublime Ctrl+D
+ctrl_F           = lued.find_forward_selected -- Find. Similar to Sublime Ctrl+F.  If text is selected the find selected text (Similar to Sublime Ctrl+F3).
+ctrl_G           = lued.move_to_line      -- Goto Line Number. Similar to Sublime Ctrl+G
 
-ctrl_H           = find_and_replace  -- Find and Replace. Similar to Sublime Ctrl+H.
-ctrl_J           = dont_use          -- Do Not Use. Same as <Enter>
-ctrl_K           = spare             -- Spare
-ctrl_L           = sel_line          -- Select entire line. Similar to Sublime Ctrl+L
+ctrl_H           = lued.find_and_replace  -- Find and Replace. Similar to Sublime Ctrl+H.
+ctrl_J           = lued.dont_use          -- Do Not Use. Same as <Enter>
+ctrl_K           = lued.spare             -- Spare
+ctrl_L           = lued.sel_line          -- Select entire line. Similar to Sublime Ctrl+L
 
-ctrl_Z           = undo_cmd          -- Undo. Similar to Sublime Ctrl+Z
-ctrl_X           = cut_line          -- Cut. Similar to Word and Sublime Ctrl+X
-ctrl_C           = copy_line         -- Copy. Similar to Sublime Ctrl+C
-ctrl_V           = global_paste      -- Paste. Similar to Sublime Ctrl+V
-ctrl_B           = spare             -- Spare. - let's keep that way for tmux compatibility
+ctrl_Z           = lued.undo_cmd          -- Undo. Similar to Sublime Ctrl+Z
+ctrl_X           = lued.cut_line          -- Cut. Similar to Word and Sublime Ctrl+X
+ctrl_C           = lued.copy_line         -- Copy. Similar to Sublime Ctrl+C
+ctrl_V           = lued.global_paste      -- Paste. Similar to Sublime Ctrl+V
+ctrl_B           = lued.spare             -- Spare. - let's keep that way for tmux compatibility
 
-ctrl_N           = new_file          -- Create New File. Similar to Word.
-ctrl_M           = dont_use          -- Do Not Use.
+ctrl_N           = lued.new_file          -- Create New File. Similar to Word.
+ctrl_M           = lued.dont_use          -- Do Not Use.
 
 
 --## File Tab Commands
-alt_tt           = tab_next                hot("tt")  -- Change to next file tab. Similar to Sublime next_view Ctrl+Tab or Command+Shift+].
-alt_TT           = tab_prev                hot("TT")  -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[.
-alt__equal_      = tab_toggle              hot("=")   -- Toggle to previous file tab
-alt__plus_       = tab_prev                hot(",+,") -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[
+alt_tt           = lued.tab_next                lued.hot("tt")  -- Change to next file tab. Similar to Sublime next_view Ctrl+Tab or Command+Shift+].
+alt_TT           = lued.tab_prev                lued.hot("TT")  -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[.
+alt__equal_      = lued.tab_toggle              lued.hot("=")   -- Toggle to previous file tab
+alt__plus_       = lued.tab_prev                lued.hot(",+,") -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[
 
 --## Select Commands
-alt_si           = sel_indentation         hot("si") -- Similar to Sublime Ctrl+shift+J.  Select lines with the indentation.
-alt_sb           = sel_inside_braces       hot("sb") -- Select inside curly brace. Similar to Sublime Ctrl+Command+M
-alt_se           = sel_eol                 hot("se") -- Select from cursor to End of line
-alt_SE           = sel_sol                 hot("SE") -- Select from cursor to starting End of line
-alt_sb           = sel_eof                 hot("sb") -- Select to Bottom of File Buffer
-alt_SB           = sel_sof                 hot("SB") -- Select to Beginning of File Buffer
-alt_sm           = sel_mark_to_cursor      hot("sm") -- Select from mark (alt+mm) to cursor. Similar to Sublime Ctrl+K
-alt_ss           = sel_toggle              hot("ss") -- Turn off/on selection. Similar to Sublime <ESC>.
-alt_sw           = sel_eow                 hot("sw") -- Select to End of word.
-alt_SW           = sel_sow                 hot("SW") -- Select to starting End of word.
+alt_si           = lued.sel_indentation         lued.hot("si") -- Similar to Sublime Ctrl+shift+J.  Select lines with the indentation.
+alt_sb           = lued.sel_inside_braces       lued.hot("sb") -- Select inside curly brace. Similar to Sublime Ctrl+Command+M
+alt_se           = lued.sel_eol                 lued.hot("se") -- Select from cursor to End of line
+alt_SE           = lued.sel_sol                 lued.hot("SE") -- Select from cursor to starting End of line
+alt_sb           = lued.sel_eof                 lued.hot("sb") -- Select to Bottom of File Buffer
+alt_SB           = lued.sel_sof                 lued.hot("SB") -- Select to Beginning of File Buffer
+alt_sm           = lued.sel_mark_to_cursor      lued.hot("sm") -- Select from mark (alt+mm) to cursor. Similar to Sublime Ctrl+K
+alt_ss           = lued.sel_toggle              lued.hot("ss") -- Turn off/on selection. Similar to Sublime <ESC>.
+alt_sw           = lued.sel_eow                 lued.hot("sw") -- Select to End of word.
+alt_SW           = lued.sel_sow                 lued.hot("SW") -- Select to starting End of word.
 
 --## Movement Commands
-alt_bb           = toggle_bottom           hot("bb")  -- Goto bottom of file. Similar to Sublime END
-alt_BB           = toggle_top              hot("BB")  -- Goto top of file. Similar to Sublime HOME
+alt_bb           = lued.toggle_bottom           lued.hot("bb")  -- Goto bottom of file. Similar to Sublime END
+alt_BB           = lued.toggle_top              lued.hot("BB")  -- Goto top of file. Similar to Sublime HOME
 
-alt_ww           = move_right_n_words      hot("ww")  -- Move right one word. Similar to Sublime Ctrl+right_arrow.
-alt_WW           = move_left_n_words       hot("WW")  -- Move left one word. Similar to Sublime Ctrl+left_arrow.
-alt_ee           = lued.toggle_express_mode     hot("ee") -- Express mode - arrow keys move faster
-alt__gt_         = halfsy_right            hot(",>,") -- Move right half the distance
-alt__lt_         = halfsy_left             hot(",<,") -- Move left half the distance
-alt_R            = move_left_n_char                   -- Move N char left.  alt_l42<Enter> moves 42 char to the left
-alt_RR           = move_left_n_char        hot("RR")  -- Move predefined numbed of char to the left.
-alt_r            = set_move_right_n_char              -- Move N char right.  alt_r42<Enter> moves 42 char to the right
-alt_rr           = move_right_n_char       hot("rr")  -- Move predefined numbed of char to the right.
+alt_ww           = lued.move_right_n_words      lued.hot("ww")  -- Move right one word. Similar to Sublime Ctrl+right_arrow.
+alt_WW           = lued.move_left_n_words       lued.hot("WW")  -- Move left one word. Similar to Sublime Ctrl+left_arrow.
+alt_ee           = lued.toggle_express_mode     lued.hot("ee") -- Express mode - arrow keys move faster
+alt__gt_         = lued.halfsy_right            lued.hot(",>,") -- Move right half the distance
+alt__lt_         = lued.halfsy_left             lued.hot(",<,") -- Move left half the distance
+alt_R            = lued.move_left_n_char                   -- Move N char left.  alt_l42<Enter> moves 42 char to the left
+alt_RR           = lued.move_left_n_char        lued.hot("RR")  -- Move predefined numbed of char to the left.
+alt_r            = lued.set_move_right_n_char              -- Move N char right.  alt_r42<Enter> moves 42 char to the right
+alt_rr           = lued.move_right_n_char       lued.hot("rr")  -- Move predefined numbed of char to the right.
 
 --## ctag Exuberant Tags
-alt_cb           = ctag_move_back_from_tag  hot("cb") -- ctag back
-alt_cf           = ctag_move_forward_in_stack hot("cf") -- ctag forward in stack 
-alt_ct           = ctag_move_to_tag         hot("ct") -- ctag jump. Similar Sublime Ctrl+R
-alt_CT           = ctag_jump_back           hot("CT") -- ctag jump back.
-alt_cr           = ctag_read_file           hot("cr") -- ctag read
-alt_cx           = ctag_delete_history      hot("cx") -- ctag delete history
+alt_cb           = ctag_move_back_from_tag  lued.hot("cb") -- ctag back
+alt_cf           = ctag_move_forward_in_stack lued.hot("cf") -- ctag forward in stack 
+alt_ct           = ctag_move_to_tag         lued.hot("ct") -- ctag jump. Similar Sublime Ctrl+R
+alt_CT           = ctag_jump_back           lued.hot("CT") -- ctag jump back.
+alt_cr           = ctag_read_file           lued.hot("cr") -- ctag read
+alt_cx           = ctag_delete_history      lued.hot("cx") -- ctag delete history
 
 --## Delete, Cut, Copy and Paste Commands
-alt_ce           = copy_eol                hot("ce") -- copy current pos to eol
-alt_CE           = copy_sol                hot("CE") -- copy sol to current pos
-alt_cw           = copy_word               hot("cw") -- copy word
-alt_DD           = duplicate_line          hot("DD") -- Similar to Sublime Ctrl+Shift+D
+alt_ce           = lued.copy_eol                lued.hot("ce") -- lued.copy current pos to eol
+alt_CE           = lued.copy_sol                lued.hot("CE") -- lued.copy sol to current pos
+alt_cw           = lued.copy_word               lued.hot("cw") -- lued.copy word
+alt_DD           = lued.duplicate_line          lued.hot("DD") -- Similar to Sublime Ctrl+Shift+D
 
-alt_d            = del_char                          -- del N char
-alt_db           = del_eof                 hot("db") -- Delete to Bottom of Tab/Buffer/Window/File
-alt_DB           = del_sof                 hot("DB") -- Delete to Beginning of Tab
-alt_de           = del_eol                 hot("de") -- Similar to Sublime Ctrl+KK
-alt_DE           = del_sol                 hot("DE") -- Similar to Sublime Ctrl_K+<Backspace>
-alt_dl           = del_line                hot("dl") -- Delete line
-alt_dm           = del_mark_to_cursor      hot("dm") -- Delete from mark (alt+mm) to cursor
-alt_ds           = del_spaces_selected     hot("ds") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
-alt_DS           = del_sow                 hot("DS") -- Delete spaces to the left
-alt_dd           = del_word                hot("dd") -- Delete word under cursor
-alt_dw           = del_eow                 hot("dw") -- Similar to Sublime Ctrl+KW
-alt_DW           = del_sow                 hot("DW") -- Similar to Sublime Ctrl+Backspace
+alt_d            = lued.del_char                          -- del N char
+alt_db           = lued.del_eof                 lued.hot("db") -- Delete to Bottom of Tab/Buffer/Window/File
+alt_DB           = lued.del_sof                 lued.hot("DB") -- Delete to Beginning of Tab
+alt_de           = lued.del_eol                 lued.hot("de") -- Similar to Sublime Ctrl+KK
+alt_DE           = lued.del_sol                 lued.hot("DE") -- Similar to Sublime Ctrl_K+<Backspace>
+alt_dl           = lued.del_line                lued.hot("dl") -- Delete line
+alt_dm           = lued.del_mark_to_cursor      lued.hot("dm") -- Delete from mark (alt+mm) to cursor
+alt_ds           = lued.del_spaces_selected     lued.hot("ds") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
+alt_DS           = lued.del_sow                 lued.hot("DS") -- Delete spaces to the left
+alt_dd           = lued.del_word                lued.hot("dd") -- Delete word under cursor
+alt_dw           = lued.del_eow                 lued.hot("dw") -- Similar to Sublime Ctrl+KW
+alt_DW           = lued.del_sow                 lued.hot("DW") -- Similar to Sublime Ctrl+Backspace
 
-alt_pl           = paste_line_after        hot("pl") -- Paste Line after current line
-alt_PL           = paste_line_before       hot("PL") -- Paste Line before current line
+alt_pl           = lued.paste_line_after        lued.hot("pl") -- Paste Line after current line
+alt_PL           = lued.paste_line_before       lued.hot("PL") -- Paste Line before current line
 
 --## Find and Replace Commands
-alt_df           = find_word               hot("df")  -- find word under cursor
-alt_DF           = find_reverse_word       hot("DF")  -- find reverse word under cursor
-alt_fa           = search_all_files        hot("fa")  -- Similar to Sublime Ctrl+Shift+F. search all open files for match
-alt_fb           = find_back               hot("fb")  -- find back. return to position before find operation.
-alt_ff           = find_forward_again      hot("ff")  -- Similar to Sublime F3. Find next occurrence of search text.
-alt_FF           = find_reverse_again      hot("FF")  -- Similar to Sublime Shift+F3. Find previous occurrence.
-alt_kb        = lued.set_sb_files            hot("kb") -- show sidebar with list of open files
-alt_KB        = lued.clr_sb_files            hot("KB") -- hide sidbar with list of open files
-alt_FR           = find_reverse_selected   hot("FR")  -- Find previous occurrence.
-alt_fc           = lued.set_find_case_sensitive  hot("fc")  -- set find case sensitive
-alt_FC           = lued.clr_find_case_sensitive  hot("FC")  -- clear find case sensitive (case insensitive)
-alt_fw           = lued.set_find_whole_word     hot("fw")  -- set find whole word
-alt_FW           = lued.clr_find_whole_word     hot("FW")  -- clear find whole word
-alt_hh           = replace_again           hot("hh")  -- Find and Replace again.
-alt_vv           = paste_and_find_forward  hot("vv")  -- Paste and Find Next
-alt_VV           = paste_and_find_reverse  hot("VV")  -- Paste and Find Prev
-alt__minus_      = find_jump_back          hot(",-,") -- Jump back to previous position before Find. Similar to Sublime jump_back.
-alt__            = find_jump_forward       hot(",_,") -- Jump forward to next position in jump stack. Similar to Sublime jump_forward.
+alt_df           = lued.find_word               lued.hot("df")  -- find word under cursor
+alt_DF           = lued.find_reverse_word       lued.hot("DF")  -- find reverse word under cursor
+alt_fa           = lued.search_all_files        lued.hot("fa")  -- Similar to Sublime Ctrl+Shift+F. search all open files for match
+alt_fb           = find_back               lued.hot("fb")  -- find back. return to position before find operation.
+alt_ff           = lued.find_forward_again      lued.hot("ff")  -- Similar to Sublime F3. Find next occurrence of search text.
+alt_FF           = lued.find_reverse_again      lued.hot("FF")  -- Similar to Sublime Shift+F3. Find previous occurrence.
+alt_kb        = lued.set_sb_files            lued.hot("kb") -- show sidebar with list of open files
+alt_KB        = lued.clr_sb_files            lued.hot("KB") -- hide sidbar with list of open files
+alt_FR           = lued.find_reverse_selected   lued.hot("FR")  -- Find previous occurrence.
+alt_fc           = lued.set_find_case_sensitive  lued.hot("fc")  -- set find case sensitive
+alt_FC           = lued.clr_find_case_sensitive  lued.hot("FC")  -- clear find case sensitive (case insensitive)
+alt_fw           = lued.set_find_whole_word     lued.hot("fw")  -- set find whole word
+alt_FW           = lued.clr_find_whole_word     lued.hot("FW")  -- clear find whole word
+alt_hh           = lued.replace_again           lued.hot("hh")  -- Find and Replace again.
+alt_vv           = lued.paste_and_find_forward  lued.hot("vv")  -- Paste and Find Next
+alt_VV           = lued.paste_and_find_reverse  lued.hot("VV")  -- Paste and Find Prev
+alt__minus_      = lued.find_jump_back          lued.hot(",-,") -- Jump back to previous position before Find. Similar to Sublime lued.jump_back.
+alt__            = lued.find_jump_forward       lued.hot(",_,") -- Jump forward to next position in jump stack. Similar to Sublime lued.jump_forward.
 
 --## Line Swap Commands
-alt_sn           = swap_line_with_next     hot("sn") -- Swap current line with next line. Similar to Sublime Ctrl+DOWN arrow
-alt_sp           = swap_line_with_prev     hot("sp") -- Swap current line with prev line. Similar to Sublime Ctrl+UP arrow
-alt_bd           = bubble_selected_lines_down hot("bd") -- line sinks to bottom of file. Similar to sublime Ctrl+Shift+Down
-alt_bu           = bubble_selected_lines_up   hot("bu") -- line floats to top of file. Similar to Sublime Ctrl+Shift+Up
-alt_bl           = bubble_word_left           hot("bl") -- swap current word with prev word. Similar to Sublime move_word_left
-alt_br           = bubble_word_right          hot("br") -- swap current word with next word. Similar to Sublime move_word_right
+alt_sn           = lued.swap_line_with_next     lued.hot("sn") -- Swap current line with next line. Similar to Sublime Ctrl+DOWN arrow
+alt_sp           = lued.swap_line_with_prev     lued.hot("sp") -- Swap current line with prev line. Similar to Sublime Ctrl+UP arrow
+alt_bd           = lued.bubble_selected_lines_down lued.hot("bd") -- line sinks to bottom of file. Similar to sublime Ctrl+Shift+Down
+alt_bu           = lued.bubble_selected_lines_up   lued.hot("bu") -- line floats to top of file. Similar to Sublime Ctrl+Shift+Up
+alt_bl           = lued.bubble_word_left           lued.hot("bl") -- swap current word with prev word. Similar to Sublime move_word_left
+alt_br           = lued.bubble_word_right          lued.hot("br") -- swap current word with next word. Similar to Sublime move_word_right
 
 --## Indent and Align Commands
-alt_ii           = indent_selected         hot("ii")  -- Indented selected lines one space
-alt_II           = unindent_selected       hot("II")  -- Unindent selected lines one space
-alt_ir           = lued.reindent_selected       hot("ir")  -- Reindents selected per defined indent size
-alt_is           = lued.set_indent_size         hot("is")  -- Set indent size
-alt_aa           = sel_all                 hot("aa")  -- Select All (Entire File). Similar to Sublime Ctrl+A.
-alt_al           = lued.align_cur_char;         hot("al") -- Align char on next line with current line
-alt_af           = lued.align_selected          hot("af")  -- Align First char on next line with current line. If lines selected then align all lines with first line.
+alt_ii           = lued.indent_selected         lued.hot("ii")  -- Indented selected lines one space
+alt_II           = lued.unindent_selected       lued.hot("II")  -- Unindent selected lines one space
+alt_ir           = lued.reindent_selected       lued.hot("ir")  -- Reindents selected per defined lued.indent size
+alt_is           = lued.set_indent_size         lued.hot("is")  -- Set lued.indent size
+alt_aa           = lued.sel_all                 lued.hot("aa")  -- Select All (Entire File). Similar to Sublime Ctrl+A.
+alt_al           = lued.align_cur_char;         lued.hot("al") -- Align char on next line with current line
+alt_af           = lued.align_selected          lued.hot("af")  -- Align First char on next line with current line. If lines selected then align all lines with first line.
 
 --## Center Cursor Commands
-alt_kc           = recenter                hot("kc") -- Recenters cursor to center, press again and recenters to top. Similar to Sublime's CTRL+KC. vim's zz/zt. 
-alt_KC           = recenter_top            hot("KC") -- Recenters cursor to top, press again and recenters to center. Similar to Sublime's CTRL+KC. vim's zz/zt. 
+alt_kc           = lued.recenter                lued.hot("kc") -- Recenters cursor to center, press again and recenters to top. Similar to Sublime's CTRL+KC. vim's zz/zt. 
+alt_KC           = lued.recenter_top            lued.hot("KC") -- Recenters cursor to top, press again and recenters to center. Similar to Sublime's CTRL+KC. vim's zz/zt. 
 
 --## Comment Commands
-alt_cc           = lued.comment_selected        hot("cc") -- Comment out line. Similar to Sublime Ctrl+slash.
-alt_CC           = lued.uncomment_selected      hot("CC") -- Uncomment selected lines.
-alt_cs           = lued.set_comment             hot("cs") -- Comment set. Change start of comment string.
+alt_cc           = lued.comment_selected        lued.hot("cc") -- Comment out line. Similar to Sublime Ctrl+slash.
+alt_CC           = lued.uncomment_selected      lued.hot("CC") -- Uncomment selected lines.
+alt_cs           = lued.set_comment             lued.hot("cs") -- Comment set. Change start of comment string.
 
 --## Upper / Lower Case Commands
-alt_kl           = lued.sel_to_lower            hot("kl") -- Similar to Sublime Ctrl+KL. Convert to Lower Case
-alt_ku           = lued.sel_to_upper            hot("ku") -- Similar to Sublime Ctrl+KU. Convert to Upper Case
+alt_kl           = lued.sel_to_lower            lued.hot("kl") -- Similar to Sublime Ctrl+KL. Convert to Lower Case
+alt_ku           = lued.sel_to_upper            lued.hot("ku") -- Similar to Sublime Ctrl+KU. Convert to Upper Case
 
 --## Mark Commands
-alt_sm           = sel_mark_to_cursor      hot("sm") -- Similar to Sublime Ctrl+KA. Select from mark to cursor (set mark with alt_mm)
-alt_dm           = del_mark_to_cursor      hot("dm") -- Similar to Sublime Ctrl+KW. Delete from mark to cursor (set mark with alt_mm)
-alt_m            = set_named_mark 
-alt_M            = goto_named_mark
-alt_mm           = set_nameless_mark       hot("mm") -- Similar to Sublime Ctrl+K+space. Set Mark
-alt_MM           = goto_nameless_mark_prev hot("MM") -- Goto previous mark
-alt_mn           = goto_nameless_mark_next hot("mn") -- Goto next mark in stack
+alt_sm           = lued.sel_mark_to_cursor      lued.hot("sm") -- Similar to Sublime Ctrl+KA. Select from mark to cursor (set mark with alt_mm)
+alt_dm           = lued.del_mark_to_cursor      lued.hot("dm") -- Similar to Sublime Ctrl+KW. Delete from mark to cursor (set mark with alt_mm)
+alt_m            = lued.set_named_mark 
+alt_M            = lued.goto_named_mark
+alt_mm           = lued.set_nameless_mark       lued.hot("mm") -- Similar to Sublime Ctrl+K+space. Set Mark
+alt_MM           = lued.goto_nameless_mark_prev lued.hot("MM") -- Goto previous mark
+alt_mn           = lued.goto_nameless_mark_next lued.hot("mn") -- Goto next mark in stack
 
 --## Insert Line Before / After Commands
-alt_ll           = insert_cr_after         hot("ll") -- Goto to end of line and insert new line. similar to vi's o. Similar to Sublime Ctrl+Enter
-alt_LL           = insert_cr_before        hot("LL") -- Goto beginning of line and insert new line. similar to vi's O. Similar to Sublime Ctrl+Shift+Enter
+alt_ll           = lued.insert_cr_after         lued.hot("ll") -- Goto to end of line and insert new line. similar to vi's o. Similar to Sublime Ctrl+Enter
+alt_LL           = lued.insert_cr_before        lued.hot("LL") -- Goto beginning of line and insert new line. similar to vi's O. Similar to Sublime Ctrl+Shift+Enter
 
 --## Page Up / Down Commands
-alt_p            = move_down_n_lines                 -- Move down N lines
-alt_P            = move_up_n_lines                   -- Move up N lines
-alt_pp           = move_down_n_pages       hot("pp") -- Similar to Sublime <PageDown> (or ctrl+u in vintage mode) , move down half page
-alt_PP           = move_up_n_pages         hot("PP") -- Similar to Sublime <PageUP> (or ctrl+d in vintage mode), move up half page
+alt_p            = lued.move_down_n_lines                 -- Move down N lines
+alt_P            = lued.move_up_n_lines                   -- Move up N lines
+alt_pp           = lued.move_down_n_pages       lued.hot("pp") -- Similar to Sublime <PageDown> (or ctrl+u in vintage mode) , move down half page
+alt_PP           = lued.move_up_n_pages         lued.hot("PP") -- Similar to Sublime <PageUP> (or ctrl+d in vintage mode), move up half page
 
 --## Remove Tabs and Spaces
 alt_ralt         = lued.remove_all_leading_tabs              -- Replace all leading tabs with spaces at start of line
@@ -187,17 +187,17 @@ alt_rats         = lued.remove_all_trailing_space            -- Remove all trail
 alt_ratsall      = lued.remove_all_trailing_space_all_files  -- Remove all trailing spaces in all files
 
 -- Ctrl-Z Commands
-alt_z            = alt_z_wrapper           hot("z")  -- Similar to Sublime Ctrl-z. Undo. After alt-z is used, ctrl-z becomes unix suspend command.
+alt_z            = lued.alt_z_wrapper           lued.hot("z")  -- Similar to Sublime Ctrl-z. Undo. After alt-z is used, ctrl-z becomes unix suspend command.
 
 
 -- Increment / Decrement
-alt_incr         = lued.incr                    hot("incr") -- Read number at current position, go down a line, and replace number with incremented value.
-alt_decr         = lued.decr                    hot("decr") -- Decrement next line's index.
+alt_incr         = lued.incr                    lued.hot("incr") -- Read number at current position, go down a line, and replace number with incremented value.
+alt_decr         = lued.decr                    lued.hot("decr") -- Decrement next line's index.
 
 --## Configuration Commands
 -- Setting keystroke combinations start with period ('.')
 alt__period_c    = lued.toggle_ctrl_c_abort         -- Toggle Ctrl+C between Cut and Kill Process
-alt__period_ind  = lued.toggle_auto_indent          -- Turn auto-indent on/off
+alt__period_ind  = lued.toggle_auto_indent          -- Turn auto-lued.indent on/off
 --alt__period_cts  = lued.set_ctrl_s_flow_control
 --a lt__period_ctz  = lued.toggle_ctrl_z_suspend
 --a lt__period_dsp  = lued.toggle_doublespeed
@@ -206,62 +206,62 @@ alt__period_edi  = set_edit_mode               -- Change from Lua mode to Edit m
 alt__period_lua  = set_lua_mode                -- Toggle to Lua mode to enter lua commands. Rarely used.
 alt__period_mlt  = lued.set_min_lines_from_top      -- Set minimum lines to from top of page to cursor
 alt__period_mlb  = lued.set_min_lines_from_bot      -- Set minimum lines from cursor to bottom of page
-alt__period_ps   = set_pagesize                -- Change number of lines for page up/down command
+alt__period_ps   = lued.set_pagesize                -- Change number of lines for page up/down command
 alt__period_sl   = toggle_status_line_on       -- Toggle on/off the status line
 alt__period_slr  = toggle_status_line_reverse  -- Toggle status line being shown in reverse video
 alt__period_tab  = set_replace_tabs            -- Toggle replace tabs with spaces as you type (defaults to replace)
 alt__period_rts  = lued.toggle_remove_trailing_spaces -- Toggle on/off remove trailing spaces as you type (defaults to don't remove)
 
-alt_p_squote     = set_paste_buffer -- Put string into paste buffer
+alt_p_squote     = lued.set_paste_buffer -- Put string into lued.paste buffer
 
 -- These keys produce escape sequences (escape is not pressed)
-esc_backspace    = del_backspace     -- BACKSPACE. Delete previous char. 
+esc_backspace    = lued.del_backspace     -- BACKSPACE. Delete previous char. 
 esc_insert       = lued.toggle_overtype   -- INSERT. Toggle insert/overtype mode.
-esc_delete       = del_char          -- DELETE. Delete current char.  If selection the delete selection.
-esc_up           = move_up_n_lines   -- UP ARROW.  Move up one line.
-esc_down         = move_down_n_lines -- DOWN ARROW. Move down one line.
-esc_left         = move_left_fast    -- LEFT ARROW. Move left one char.
-esc_right        = move_right_fast   -- RIGHT ARROW. MOVE right one char.
+esc_delete       = lued.del_char          -- DELETE. Delete current char.  If selection the delete selection.
+esc_up           = lued.move_up_n_lines   -- UP ARROW.  Move up one line.
+esc_down         = lued.move_down_n_lines -- DOWN ARROW. Move down one line.
+esc_left         = lued.move_left_fast    -- LEFT ARROW. Move left one char.
+esc_right        = lued.move_right_fast   -- RIGHT ARROW. MOVE right one char.
 esc_shift_left   = word_left         -- SHIFT+LEFT ARROW. Move left one word (if supported by terminal). Same as Alt+WW
-esc_shift_right  = move_right_n_words -- SHIFT+RIGHT ARROW. Move right one word (if supported by terminal). Same as Alt+ww
-esc_home         = move_to_sol        -- HOME. Move to start of line (if supported by terminal). Same as Alt+wq
-esc_end          = move_to_eol        -- END. Move to end of line (if supported by terminal). Same as Alt+we
-esc_pageup       = move_up_n_pages    -- PAGEUP. Move up one page (if supported by terminal). Same as Alt+PP
-esc_pagedown     = move_down_n_pages  -- PAGEDOWN. Move down one page (if supported by terminal). Same as Alt+pp
+esc_shift_right  = lued.move_right_n_words -- SHIFT+RIGHT ARROW. Move right one word (if supported by terminal). Same as Alt+ww
+esc_home         = lued.move_to_sol        -- HOME. Move to start of line (if supported by terminal). Same as Alt+wq
+esc_end          = lued.move_to_eol        -- END. Move to end of line (if supported by terminal). Same as Alt+we
+esc_pageup       = lued.move_up_n_pages    -- PAGEUP. Move up one page (if supported by terminal). Same as Alt+PP
+esc_pagedown     = lued.move_down_n_pages  -- PAGEDOWN. Move down one page (if supported by terminal). Same as Alt+pp
 
 -- These mouse actions produce escape sequences (escape is not pressed)
-esc_mouse        = mouse_event         -- Mouse event. Double Left Mouse Button (LMB) selects word. Triple selects line. Middle Mouse Button (MMB) pastes mouse selection.
-esc_pastestart   = lued.bracket_paste_start -- Mouse paste start
-esc_pastestop    = lued.bracket_paste_stop  -- Mouse paste stop
+esc_mouse        = lued.mouse_event         -- Mouse event. Double Left Mouse Button (LMB) selects word. Triple selects line. Middle Mouse Button (MMB) pastes mouse selection.
+esc_pastestart   = lued.bracket_paste_start -- Mouse lued.paste start
+esc_pastestop    = lued.bracket_paste_stop  -- Mouse lued.paste stop
 
 --## Misc Commands
 
-alt__caret_      = del_sol                 hot("^")   -- delete from cursor to start of line
-alt__dollar_     = del_eol                 hot("$")   -- delete from cursor to end of line
-alt__slash_      = find_forward            hot(",/,") -- find forward
-alt__colon_w     = save_file               hot(":w")  -- Save File. Similar to Vi :w
+alt__caret_      = lued.del_sol                 lued.hot("^")   -- delete from cursor to start of line
+alt__dollar_     = lued.del_eol                 lued.hot("$")   -- delete from cursor to end of line
+alt__slash_      = lued.find_forward            lued.hot(",/,") -- find forward
+alt__colon_w     = lued.save_file               lued.hot(":w")  -- Save File. Similar to Vi :w
 
-alt_cd           = cd_change_dir;          hot("cd")  -- Change directory
-alt_ed           = set_edit_mode           hot("ed")  -- Change to EDIT mode. You almost always want to be in EDIT mode.
-alt_help         = open_file_bindings      hot("help")  -- Help. Open lued_bindings.lua
-alt_jj           = lued.join_lines              hot("jj")  -- Similar to Sublime Ctrl+J. Join lines.
-alt_ln           = lued.set_abs_line_numbers    hot("ln")  -- show absolute line numbers
-alt_LN           = lued.clr_abs_line_numbers    hot("LN")  -- hide absolute line numbers
+alt_cd           = lued.cd_change_dir;          lued.hot("cd")  -- Change directory
+alt_ed           = set_edit_mode           lued.hot("ed")  -- Change to EDIT mode. You almost always want to be in EDIT mode.
+alt_help         = lued.open_file_bindings      lued.hot("lued.help")  -- Help. Open lued_bindings.lua
+alt_jj           = lued.join_lines              lued.hot("jj")  -- Similar to Sublime Ctrl+J. Join lines.
+alt_ln           = lued.set_abs_line_numbers    lued.hot("ln")  -- show absolute line numbers
+alt_LN           = lued.clr_abs_line_numbers    lued.hot("LN")  -- hide absolute line numbers
 
-alt_rln          = lued.set_rel_line_numbers    hot("rln")  -- show relative line numbers
-alt_RLN          = lued.clr_rel_line_numbers    hot("RLN")  -- hide relative line numbers
+alt_rln          = lued.set_rel_line_numbers    lued.hot("rln")  -- show relative line numbers
+alt_RLN          = lued.clr_rel_line_numbers    lued.hot("RLN")  -- hide relative line numbers
 
-alt_ls           = ls_dir                  hot("ls")  -- unix ls command. dos dir command
-alt_LU           = set_lua_mode            hot("LU")  -- Change to LUA mode. You rarely want to be in lua mode.
-alt_qq           = lued.wrap_line               hot("qq")  -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
-alt_relued       = relued                             -- Reload lued script
+alt_ls           = lued.ls_dir                  lued.hot("ls")  -- unix ls command. dos dir command
+alt_LU           = set_lua_mode            lued.hot("LU")  -- Change to LUA mode. You rarely want to be in lua mode.
+alt_qq           = lued.wrap_line               lued.hot("qq")  -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
+alt_relued       = lued.relued                             -- Reload lued script
 alt_review       = lued.toggle_review_mode                 -- Review mode prevents saving file
-alt_refresh      = reload_file                        -- Reload current file
-alt_sa           = save_as                 hot("sa")  -- Similar to Sublime Ctrl+Shift+S. File Save as.
+alt_refresh      = lued.reload_file                        -- Reload current file
+alt_sa           = lued.save_as                 lued.hot("sa")  -- Similar to Sublime Ctrl+Shift+S. File Save as.
 alt_SaveSession  = lued.save_session_file
 alt_LoadSession  = lued.load_session_file
 alt_Seti         = lued.set_scope_indent                  -- Set Scope Indent SI2 SI3 SI4
--- alt_sw           = function() set_sel_start(); var_end(1); set_sel_end(); disp(); end hot("sw")
+-- alt_sw           = function() set_sel_start(); lued.var_end(1); set_sel_end(); lued.disp(); end lued.hot("sw")
 
 
 

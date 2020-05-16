@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
+Permission is hereby granted, free of charge, to any person obtaining a lued.copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -26,7 +26,7 @@ SOFTWARE.
 
 lued = {}
 
-lued.g_buffer = ""    -- The global buffer is used for cut and paste between multiple files.
+lued.g_buffer = ""    -- The global buffer is used for lued.cut and lued.paste between multiple files.
 
 
 lued.csi = {}
@@ -191,7 +191,7 @@ styles.bg15                  = lued.set_style ( nil, 15  ,  0)
 
 
 
-function init_lued(lued_path, bindings_file)
+function lued.init_lued(lued_path, bindings_file)
   lued.load_plugins( lued_path .. "/plugins" )
   dofile( bindings_file)
 
@@ -199,63 +199,63 @@ function init_lued(lued_path, bindings_file)
   lued.set_ctrl_s_flow_control(false,dd2)
   lued.set_ctrl_c_abort(false,dd2)
   lued.set_ctrl_z_suspend(false,dd2)
-  decset(1000)
+  lued.decset(1000)
   set_fileid(1,dd2)
 --  set_cur_pos(1,1)
-  mouse_config(0)
---  if g_show_help then help(1,0) end
+  lued.mouse_config(0)
+--  if g_show_help then lued.help(1,0) end
 -- end
 
   lued.set_edit_mode(0)
-  disp()
+  lued.disp()
 end
 
 
 function lued.clr_sb_files(dd)
   g_show_sb_files = false
   set_show_line_numbers(0)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.set_sb_files(dd)
   g_show_sb_files = true
   set_show_line_numbers(0)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.clr_abs_line_numbers(dd)
   g_show_abs_line_numbers = false
   set_show_line_numbers(0)
-  disp(dd)
+  lued.disp(dd)
 end
 
 function lued.set_abs_line_numbers(dd)
   g_show_abs_line_numbers = true
   set_show_line_numbers(0)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.clr_rel_line_numbers(dd)
   g_show_rel_line_numbers = false
   set_show_line_numbers(0)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.set_rel_line_numbers(dd)
   g_show_rel_line_numbers = true
   set_show_line_numbers(0)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.toggle_review_mode(dd)
   g_review_mode = g_review_mode or false
   g_review_mode = not g_review_mode
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -271,7 +271,7 @@ function lued.set_ctrl_s_flow_control (bool, dd)
   else
     os.execute("stty -ixon -ixoff")
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -287,7 +287,7 @@ function lued.set_ctrl_c_abort (bool, dd)
   else
     os.execute("stty intr undef")
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -307,7 +307,7 @@ function lued.set_ctrl_z_suspend (bool, dd)
       os.execute("stty susp undef")
     end
   end
-  disp(dd)
+  lued.disp(dd)
   return change
 end
 
@@ -324,19 +324,19 @@ end
 
 function lued.set_auto_indent(dd)
   g_auto_indent = true
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.clr_auto_indent(dd)
   g_auto_indent = false
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.toggle_auto_indent(dd)
   g_auto_indent = not g_auto_indent
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -355,62 +355,62 @@ end
 function lued.set_tab_size(val,dd)
   val = val or 0
   g_tab_size = val
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.toggle_remove_trailing_spaces(dd)
   g_remove_trailing_spaces = not g_remove_trailing_spaces
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.toggle_show_trailing_spaces(dd)
   g_show_trailing_spaces = not g_show_trailing_spaces
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.set_scope_indent(val,dd)
   val = val or 1
   g_scope_indent = val
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.set_min_lines_from_top(val,dd)
   if val==nil then val = 5 end
   g_min_lines_from_top = val
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.set_min_lines_from_bot(val,dd)
   if val==nil then val = 7 end
   g_min_lines_from_bot = val
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.toggle_enable_file_changed(dd)
   g_enable_file_changed = not g_enable_file_changed
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.toggle_express_mode(dd)
   g_express_mode = not g_express_mode
-  disp(dd)
+  lued.disp(dd)
 end
 
 function lued.set_find_case_sensitive(dd)
   g_find_case_sensitive = true
-  disp(dd)
+  lued.disp(dd)
 end
 
 function lued.clr_find_case_sensitive(dd)
   g_find_case_sensitive = false
-  disp(dd)
+  lued.disp(dd)
 end
 
 function lued.get_find_whole_word()
@@ -419,17 +419,17 @@ end
 
 function lued.set_find_whole_word(dd)
   g_find_whole_word = true
-  disp(dd)
+  lued.disp(dd)
 end
 
 function lued.clr_find_whole_word(dd)
   g_find_whole_word = false
-  disp(dd)
+  lued.disp(dd)
 end
 
 function lued.toggle_find_whole_word(dd)
   g_find_whole_word = not g_find_whole_word
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -441,21 +441,21 @@ end
 function lued.set_overtype(val,dd)
   val = val or 0
   g_overtype = val
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.toggle_overtype(dd)
   g_overtype = g_overtype or 0
   g_overtype = (g_overtype+1) % 2
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.toggle_doublespeed(dd)
   g_double_speed = g_double_speed or 0
   g_double_speed = (g_double_speed+1) % 2
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -530,9 +530,9 @@ end
 function lued.prev_is_space()
   local dd2 = 1
   if lued.is_sol() then return false; end
-  move_left_n_char(1,dd2)
+  lued.move_left_n_char(1,dd2)
   local is = lued.is_space()
-  move_right_n_char(1,dd2)
+  lued.move_right_n_char(1,dd2)
   return is;
 end
 
@@ -540,9 +540,9 @@ end
 function lued.next_is_space()
   local dd2 = 1
   if lued.is_eol() then return false; end
-  move_right_n_char(1,dd2)
+  lued.move_right_n_char(1,dd2)
   local is = lued.is_space()
-  move_left_n_char(1,dd2)
+  lued.move_left_n_char(1,dd2)
   return is;
 end
 
@@ -550,9 +550,9 @@ end
 function lued.prev_is_word()
   local dd2 = 1
   if lued.is_sol() then return false; end
-  move_left_n_char(1,dd2)
+  lued.move_left_n_char(1,dd2)
   local is = lued.is_word()
-  move_right_n_char(1,dd2)
+  lued.move_right_n_char(1,dd2)
   return is;
 end
 
@@ -560,9 +560,9 @@ end
 function lued.next_is_word()
   local dd2 = 1
   if lued.is_eol() then return false; end
-  move_right_n_char(1,dd2)
+  lued.move_right_n_char(1,dd2)
   local is = lued.is_word()
-  move_left_n_char(1,dd2)
+  lued.move_left_n_char(1,dd2)
   return is;
 end
 
@@ -571,18 +571,18 @@ end
 function lued.prev_is_other()
   local dd2 = 1
   if lued.is_sol() then return false; end
-  move_left_n_char(1,dd2)
+  lued.move_left_n_char(1,dd2)
   local is = lued.is_other()
-  move_right_n_char(1,dd2)
+  lued.move_right_n_char(1,dd2)
   return is;
 end
 
 function lued.next_is_other()
   local dd2 = 1
   if lued.is_eol() then return false; end
-  move_right_n_char(1,dd2)
+  lued.move_right_n_char(1,dd2)
   local is = lued.is_other()
-  move_left_n_char(1,dd2)
+  lued.move_left_n_char(1,dd2)
   return is;
 end
 
@@ -633,7 +633,7 @@ function lued.set_edit_mode(dd)
   local keys = get_hotkeys()
   keys = "all" .. keys
   set_hotkeys(keys)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -643,7 +643,7 @@ function lued.set_lua_mode(dd)
   keys = string.gsub(keys,"(all)","")
   print ("KEYS2="..keys)
   set_hotkeys(keys)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -664,7 +664,7 @@ function lued.remove_trailing_spaces(next_row,next_col,force,dd)
       local first_trailing_space = non_space==nil and 0 or last_nonspace + 1
       set_cur_pos(r,first_trailing_space)
       if not lued.is_eol() then
-        del_eol(dd2)
+        lued.del_eol(dd2)
       end
     end
   end
@@ -673,7 +673,7 @@ function lued.remove_trailing_spaces(next_row,next_col,force,dd)
     local numlines = get_numlines()
     if next_row > numlines then
       next_row = numlines
-      move_to_eol(dd2);
+      lued.move_to_eol(dd2);
     end
     if (next_row ~= row) then
       saved_line = get_line()
@@ -681,7 +681,7 @@ function lued.remove_trailing_spaces(next_row,next_col,force,dd)
   else
     saved_line = ""
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -696,7 +696,7 @@ function lued.remove_all_trailing_space(dd)
   end
   set_cur_pos(r,c)
   set_page_pos(pr,pc)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -705,10 +705,10 @@ function lued.remove_all_trailing_space_all_files(dd)
   local fileid = get_fileid()
   local num_sessions = get_numsessions()
   for i=1,num_sessions do
-    session_sel(i,dd2)
+    lued.session_sel(i,dd2)
     lued.remove_all_trailing_space(dd2)
   end
-  session_sel(fileid,dd)
+  lued.session_sel(fileid,dd)
 end
 
 
@@ -738,12 +738,12 @@ function lued.remove_all_leading_tabs(tab_size,dd)
       set_sel_start()
       set_cur_pos(i,leading_ws_len+1)
       set_sel_end()
-      del_sel(dd2)
+      lued.del_sel(dd2)
       ins_str(leading_ws,dd2)
     end
   end -- for
   set_cur_pos(r,c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -773,7 +773,7 @@ function lued.indent_scope(str,dd)
     end
   end -- for
   set_cur_pos(r,c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -796,11 +796,11 @@ function lued.reindent(n,dd)
     end
     ws_len = ws2_len
     local indent_str = ws1 .. string.rep(" ",n*indent_level)
-    del_char(ws2_len,dd2)
+    lued.del_char(ws2_len,dd2)
     ins_str(indent_str,dd2)
   end
   set_cur_pos(r,c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -808,12 +808,12 @@ end
 function lued.align_start_of_next_line(dd)
   local dd2 = 1
   local ws1,ws1_len = lued.leading_ws()
-  move_down_n_lines(1,dd2)
+  lued.move_down_n_lines(1,dd2)
   lued.move_to_sol_classic(dd2)
   local ws2,ws2_len = lued.leading_ws()
-  del_char(ws2_len,dd2)
+  lued.del_char(ws2_len,dd2)
   ins_str(ws1,dd2)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -830,9 +830,9 @@ function lued.replace_line(newline,dd)
   if newline ~= line then
     lued.move_to_sol_classic(dd2)
     ins_str(newline,dd2);
-    del_eol(dd2);
+    lued.del_eol(dd2);
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -853,7 +853,7 @@ function lued.align_delimiter_of_next_line(delim, dd)
   local dd2 = 1
   local delim_pos1 = string.find( get_line(), g_align_delimiter_of_next_line, 1, true)
   if delim_pos1 then
-    move_down_n_lines(1,dd2)
+    lued.move_down_n_lines(1,dd2)
     local line = get_line() or ""
     local delim_pos2 = string.find( line, g_align_delimiter_of_next_line, 1, true)
     if delim_pos2 then
@@ -867,14 +867,14 @@ function lued.align_delimiter_of_next_line(delim, dd)
         delta = -1 * delta
         for i = 1, delta do
           if lued.is_sol() then break end
-          move_left_n_char(1,dd2)
+          lued.move_left_n_char(1,dd2)
           if not lued.is_space() then break end
-          del_char(1,dd2)
+          lued.del_char(1,dd2)
         end
       end
     end
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -890,7 +890,7 @@ end
 
 -- \brief Align delimiter in selected region
 function lued.align_delimiter_selected(delim, dd)
-  align_delimiter_selected_hist_id = align_delimiter_selected_hist_id or get_hist_id()
+  align_delimiter_selected_hist_id = align_delimiter_selected_hist_id or lued.get_hist_id()
   g_align_delimiter_of_next_line = delim or lued_prompt(align_delimiter_selected_hist_id, "Enter string to align: ") or "="
   lued.foreach_selected(lued.align_delimiter_of_next_line, dd)
 end
@@ -900,11 +900,11 @@ function lued.align_cur_char(dd)
   local dd2 = 1
   local cur_char = lued.get_char()
   local r1,c1 = get_cur_pos()
-  move_down_n_lines(1,dd2)
+  lued.move_down_n_lines(1,dd2)
   lued.move_to_sol_classic(dd2)
-  found = find_forward(cur_char,true,false,true,"",dd2)
+  found = lued.find_forward(cur_char,true,false,true,"",dd2)
   if not found then
-    disp(dd)
+    lued.disp(dd)
     return
   end
 
@@ -919,7 +919,7 @@ function lued.align_cur_char(dd)
       if lued.is_sol() or not lued.is_space("",-1) then
         done = true
       else
-        del_backspace(1,dd2)
+        lued.del_backspace(1,dd2)
         if not lued.is_space("",-1) then
           ins_str(" ",dd2)
           done = true
@@ -930,7 +930,7 @@ function lued.align_cur_char(dd)
     cnt = cnt + 1
     done = done or (c2 == c1) or (cnt > 200)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -962,13 +962,13 @@ function lued.reindent_selected(dd)
       end
       ws_len = ws2_len
       local indent_str = ws1 .. string.rep(g_indent_char,g_indent_size*indent_level)
-      del_char(ws2_len,dd2)
+      lued.del_char(ws2_len,dd2)
       ins_str(indent_str,dd2)
 --
     end
     set_cur_pos(initial_row,initial_col)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -991,15 +991,15 @@ function lued.reindent_all(n,dd)
     end
     ws_len = ws2_len
     local indent_str = ws1 .. string.rep(" ",n*indent_level)
-    del_char(ws2_len,dd2)
+    lued.del_char(ws2_len,dd2)
     ins_str(indent_str,dd2)
   end
   set_cur_pos(r,c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function hot_range(lower,upper)
+function lued.hot_range(lower,upper)
   local hot = ""
   for ch=string.byte(lower),string.byte(upper) do
     hot = hot .. "," .. string.char(ch)
@@ -1021,21 +1021,21 @@ function lued_prompt(hist_id,prompt,hot,test_str)
 end
 
 
-function get_hist_id()
+function lued.get_hist_id()
   get_hist_id_cnt = get_hist_id_cnt or 0
   get_hist_id_cnt = get_hist_id_cnt + 1
   return get_hist_id_cnt;
 end
 
 
-function get_yesno(prompt,default)
+function lued.get_yesno(prompt,default)
   local yes = false
   local no = false
   local quit = false
   local all = false
   local valid_answer = false
   local answer = ""
-  get_yesno_hist_id = get_yesno_hist_id or get_hist_id()
+  get_yesno_hist_id = get_yesno_hist_id or lued.get_hist_id()
   repeat
     answer = lued_prompt(get_yesno_hist_id,prompt .. " ")
     if default~=nil and answer==nil or answer=="" then answer = default end
@@ -1053,7 +1053,7 @@ function get_yesno(prompt,default)
 end
 
 
-function esc_clear_screen()
+function lued.esc_clear_screen()
   local ESC = string.char(27)
   local ESC_CLR_ALL  = ESC .. "[2J"
   local ESC_GO_HOME  = ESC .. "[H"
@@ -1061,7 +1061,7 @@ function esc_clear_screen()
 end
 
 
-function esc_rev(str)
+function lued.esc_rev(str)
   local ESC = string.char(27)
   local ESC_REVERSE  = ESC .. "[7m"
   local ESC_NORMAL   = ESC .. "[0m"
@@ -1069,14 +1069,14 @@ function esc_rev(str)
 end
 
 
-function get_cur_filename()
+function lued.get_cur_filename()
   local id = get_fileid()
   local filename = get_filename(id)
   return filename
 end
 
-function display_status_in_lua(lua_mode)
-  esc_clear_screen()
+function lued.display_status_in_lua(lua_mode)
+  lued.esc_clear_screen()
   set_sel_end(0)
   -- if not g_status_line_on then return end
   local id = get_fileid()
@@ -1115,7 +1115,7 @@ function display_status_in_lua(lua_mode)
           g_lued_version, mode_str, id, filename, save_str, row, col, sel_state, cmd_str, sel_sr, sel_sc, sel_er, sel_ec, stay_selected_int)
   status_line = string.sub(status_line,1,tcol)
   if g_status_line_reverse then
-    status_line = esc_rev(status_line)
+    status_line = lued.esc_rev(status_line)
   end
   io.write(status_line)
 end
@@ -1153,7 +1153,7 @@ function explode (subject, sep,  lim)
 end
 
 
-function implode(pieces, sep, trailing_sep, first, last)
+function lued.implode(pieces, sep, trailing_sep, first, last)
   sep = sep or "\n"
   trailing_sep = trailing_sep or sep
   return table.concat(pieces,sep,first,last) .. trailing_sep
@@ -1171,7 +1171,7 @@ end
 -- @return count is the number of replacements performed
 -- @return start is the first offset modied
 -- @return stop is the last offset modified in the new string
-function psub(subject, from, to, index, lim)
+function lued.psub(subject, from, to, index, lim)
   lim = lim or 0
   index = index or 1
   if not subject or not from or from=="" or not to or to=="" then
@@ -1206,7 +1206,7 @@ function psub(subject, from, to, index, lim)
 end
 
 
-function style_page(lines, first_line_of_page, row_offset)
+function lued.style_page(lines, first_line_of_page, row_offset)
 
   -- ensure all styles are define
   styles.enable = styles.enable or false
@@ -1242,7 +1242,7 @@ function style_page(lines, first_line_of_page, row_offset)
     if ii==row_offset then
       local curs_style = styles.enable and styles.cursor or ""
       if curs_style~="" then
-        lines[ii] = psub(lines[ii], styles.inverse, curs_style, 1)
+        lines[ii] = lued.psub(lines[ii], styles.inverse, curs_style, 1)
       end
 
       line_style = styles.enable and line_style .. styles.cursor_line or ""
@@ -1260,7 +1260,7 @@ function style_page(lines, first_line_of_page, row_offset)
 
     local t={}
     if line_style~="" then
-     lines[ii] = line_style .. psub(lines[ii], styles.reset, line_style) .. styles.normal
+     lines[ii] = line_style .. lued.psub(lines[ii], styles.reset, line_style) .. styles.normal
     end
     
     if g_show_abs_line_numbers or g_show_rel_line_numbers then
@@ -1289,7 +1289,7 @@ function style_page(lines, first_line_of_page, row_offset)
 end
 
 
-function make_line_bold_orig(lnum1,lnum2)
+function lued.make_line_bold_orig(lnum1,lnum2)
   local esc_bold = ""
   if g_bold_current_line and lnum1==lnum2 then
     esc_bold = string.char(27) .. "[1m"
@@ -1298,7 +1298,7 @@ function make_line_bold_orig(lnum1,lnum2)
 end
 
 
-function insert_line_numbers_orig(text)
+function lued.insert_line_numbers_orig(text)
   linenum,col = get_cur_pos()
 
   -- replace every newline except for the last
@@ -1307,7 +1307,7 @@ function insert_line_numbers_orig(text)
            local linenum = get_cur_pos()
            local esc_bold = ""
            if g_bold_current_line then
-             esc_bold = make_line_bold_orig(linenum,g_lnum)
+             esc_bold = lued.make_line_bold_orig(linenum,g_lnum)
            end
            local esc_normal = string.char(27).."[0m"
            if g_show_abs_line_numbers then
@@ -1319,38 +1319,38 @@ function insert_line_numbers_orig(text)
 end
 
 
-function display_page_in_lua1(lua_mode, highlight_trailing_spaces)
-  display_status_in_lua(lua_mode)
+function lued.display_page_in_lua1(lua_mode, highlight_trailing_spaces)
+  lued.display_status_in_lua(lua_mode)
   local prow,pcol = get_page_pos() -- FIXME -1 to adjust from c to lua
   local crow,ccol = get_cur_pos()
   local row_offset = crow - prow + 1
   local text = get_page(prow-1,highlight_trailing_spaces)
-  local lines = style_page( explode(text) , prow, row_offset)
-  text = implode(lines)
+  local lines = lued.style_page( explode(text) , prow, row_offset)
+  text = lued.implode(lines)
 
-  -- text = insert_line_numbers_orig(text)
+  -- text = lued.insert_line_numbers_orig(text)
   -- text = string.char(27) .. "[1m" .. text;
 
   io.write (text)
 end
 
-function display_page_in_lua(lua_mode, highlight_trailing_spaces)
-  display_status_in_lua(lua_mode)
+function lued.display_page_in_lua(lua_mode, highlight_trailing_spaces)
+  lued.display_status_in_lua(lua_mode)
   local prow,pcol = get_page_pos() -- FIXME -1 to adjust from c to lua
   local crow,ccol = get_cur_pos()
   local row_offset = crow - prow + 1
   local text = get_lines(prow,1,prow+20,0)
-  local lines = style_page( explode(text) , prow, row_offset)
-  text = implode(lines)
+  local lines = lued.style_page( explode(text) , prow, row_offset)
+  text = lued.implode(lines)
 
-  -- text = insert_line_numbers_orig(text)
+  -- text = lued.insert_line_numbers_orig(text)
   -- text = string.char(27) .. "[1m" .. text;
 
   io.write (text)
 end
 
 
-function disp(dd,center)
+function lued.disp(dd,center)
    dd = dd or g_dont_display
    center = center or false
 
@@ -1364,14 +1364,14 @@ function disp(dd,center)
      local filename = get_filename(id)
      local file_has_changed = false
      local mtime, ts
-     if file_exists(filename) then
+     if lued.file_exists(filename) then
        file_has_changed,mtime,ts = is_file_modified(0)
      end
 
      if file_has_changed==1 then
        io.write("\n\n=======================================\n\n")
        local prompt = "File '" .. filename .. "' has changed. Do you want to reload <y/n>?"
-       local reload = get_yesno(prompt)=="Y"
+       local reload = lued.get_yesno(prompt)=="Y"
        if reload then
          reopen()
        else
@@ -1391,7 +1391,7 @@ function disp(dd,center)
        new_offset = half
        lued.dbg_prompt("new_offset1="..new_offset)
      end
-     set_page_offset_percent(new_offset,dd2)
+     lued.set_page_offset_percent(new_offset,dd2)
    end
    if (pr+tr-r < g_min_lines_from_bot) then
      local new_offset = -g_min_lines_from_bot
@@ -1399,12 +1399,12 @@ function disp(dd,center)
        new_offset = half
      end
      if center then lued.dbg_prompt("new_offset2="..new_offset) end
-     set_page_offset_percent(new_offset,dd2)
+     lued.set_page_offset_percent(new_offset,dd2)
    end
 
    if center then
      local new_offset = half
-     set_page_offset_percent(new_offset,dd2)
+     lued.set_page_offset_percent(new_offset,dd2)
    end
 
    if dd == 0 then
@@ -1419,22 +1419,22 @@ function disp(dd,center)
      if g_lua_mode then
        lua_mode = 1
      end
-     display_page_in_lua1(lua_mode,g_show_trailing_spaces)
+     lued.display_page_in_lua1(lua_mode,g_show_trailing_spaces)
      -- display_status(lua_mode)
      -- display_text(lua_mode,g_show_trailing_spaces)
    end
 end
 
 
-function move_left_n_char(n,dd)
+function lued.move_left_n_char(n,dd)
   local n_is_nil = n == nil or n == 0
   n = n or 1
   local dd2 = 1
   for i=1,n do
     if lued.is_sof() then break end
     if lued.is_sol() then
-      move_up_n_lines(1,dd2)
-      if not lued.is_eol() then move_to_eol(dd2) end
+      lued.move_up_n_lines(1,dd2)
+      if not lued.is_eol() then lued.move_to_eol(dd2) end
     else
       local r,c = get_cur_pos()
       local len = get_line_len()
@@ -1458,34 +1458,34 @@ function move_left_n_char(n,dd)
 
     end
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function set_move_left_n_char(n,dd)
+function lued.set_move_left_n_char(n,dd)
   g_move_left_n_char = n or g_move_left_n_char
-  move_left_n_char(g_move_left_n_char,dd)
+  lued.move_left_n_char(g_move_left_n_char,dd)
 end
 
 
 
-function move_left_fast(dd)
+function lued.move_left_fast(dd)
   if g_express_mode then
-    move_left_n_char(g_move_left_n_char,dd)
+    lued.move_left_n_char(g_move_left_n_char,dd)
   else
-    move_left_n_char(1,dd)
+    lued.move_left_n_char(1,dd)
   end
 end
 
 
-function move_right_n_char(n,dd)
+function lued.move_right_n_char(n,dd)
   local n_is_nil = n == nil or n == 0
   n = n or 1
   local dd2 = 1
   for i=1,n do
     if lued.is_eof() then break end
     if lued.is_eol() then
-      move_down_n_lines(1,dd2)
+      lued.move_down_n_lines(1,dd2)
       lued.move_to_sol_classic(dd2)
     else
       local r,c = get_cur_pos()
@@ -1508,26 +1508,26 @@ function move_right_n_char(n,dd)
 
     end
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function move_right_fast(dd)
+function lued.move_right_fast(dd)
   if g_express_mode then
-    move_right_n_char(g_move_right_n_char,dd)
+    lued.move_right_n_char(g_move_right_n_char,dd)
   else
-    move_right_n_char(1,dd)
+    lued.move_right_n_char(1,dd)
   end
 end
 
 
-function set_move_right_n_char(n,dd)
+function lued.set_move_right_n_char(n,dd)
   g_move_right_n_char = n or g_move_right_n_char
-  move_right_n_char(g_move_right_n_char,dd)
+  lued.move_right_n_char(g_move_right_n_char,dd)
 end
 
 
-function halfsy_left(dd)
+function lued.halfsy_left(dd)
   local r,c = get_cur_pos()
   g_halfsy_right = c
   if g_command_count ~= g_halfsy_command_count or g_halfsy_left==nil then
@@ -1538,11 +1538,11 @@ function halfsy_left(dd)
   local next_c = c - math.ceil( (c-g_halfsy_left) / 2)
   set_cur_pos(r,next_c)
   g_halfsy_right = c
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function halfsy_right(dd)
+function lued.halfsy_right(dd)
   local r,c = get_cur_pos()
   local len = get_line_len()
   g_halfsy_left = c
@@ -1553,18 +1553,18 @@ function halfsy_right(dd)
   g_halfsy_command_count = g_command_count+1
   local next_c = c + math.ceil( (g_halfsy_right-c) / 2)
   set_cur_pos(r,next_c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function move_left_n_words(n,dd)
+function lued.move_left_n_words(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
     if lued.is_sof() then break end
     if lued.is_sol() then
-      move_up_n_lines(1,dd2)
-      move_to_eol(dd2)
+      lued.move_up_n_lines(1,dd2)
+      lued.move_to_eol(dd2)
       break
     end
     local line = get_line()
@@ -1581,28 +1581,28 @@ function move_left_n_words(n,dd)
     -- while not lued.is_space(line,c-1) do c = c - 1 end -- back through alphanums
     set_cur_pos(r,c)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function word_end(dd)
+function lued.word_end(dd)
   local r,c = get_cur_pos()
   local len = get_line_len()
   local line = get_line()
   c = string.find(line, "%s", c) -- find space after end of word
   c = c and c-1 or len
   set_cur_pos(r, c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function skip_word(dd)
+function lued.skip_word(dd)
   local dd2 = 1
-  word_end(dd2)
+  lued.word_end(dd2)
 end
 
 
-function var_end(dd)
+function lued.var_end(dd)
   local r,c = get_cur_pos()
   local len = get_line_len()
   local line = get_line()
@@ -1610,78 +1610,78 @@ function var_end(dd)
   if c2==c then c2 = c2+1 end
   local c3 = c2 and c2 or len+1
   set_cur_pos(r, c3)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function skip_variable(dd)
-  var_end(dd)
+function lued.skip_variable(dd)
+  lued.var_end(dd)
 end
 
 
-function skip_spaces(dd)
+function lued.skip_spaces(dd)
   local line = get_line()
   local r,c = get_cur_pos()
   local len = get_line_len()
   c = string.find(line, "[^%s]", c)
   c = c or len + 1
   set_cur_pos(r,c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function skip_spaces_right(dd)
+function lued.skip_spaces_right(dd)
   local dd2 = 1
   if lued.is_eol() and not lued.is_eof() then
-    move_right_n_char(1,dd2)
+    lued.move_right_n_char(1,dd2)
   elseif lued.is_space() then
     repeat
-      move_right_n_char(1,dd2)
+      lued.move_right_n_char(1,dd2)
     until lued.is_eol() or not lued.is_space()
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function skip_spaces_left(dd)
+function lued.skip_spaces_left(dd)
   local dd2 = 1
   if lued.is_sol() and not lued.is_sof() then
-    move_left_n_char(1,dd2)
+    lued.move_left_n_char(1,dd2)
   elseif lued.is_space() then
     repeat
-      move_left_n_char(1,dd2)
+      lued.move_left_n_char(1,dd2)
     until lued.is_sol() or not lued.is_space()
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function move_right_n_words(n,dd)
+function lued.move_right_n_words(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
     if lued.is_eol() then
       if not lued.is_eof() then
-        move_right_n_char(1,dd2)
+        lued.move_right_n_char(1,dd2)
       end
     elseif lued.is_word() then
       repeat
-        move_right_n_char(1,dd2)
+        lued.move_right_n_char(1,dd2)
       until lued.is_eol() or not lued.is_word()
     elseif not lued.is_space() then -- misc char
       repeat
-        move_right_n_char(1,dd2)
+        lued.move_right_n_char(1,dd2)
       until lued.is_eol() or lued.is_word() or lued.is_space()
     end
     if not lued.is_eol() then
-      skip_spaces_right(dd2)
+      lued.skip_spaces_right(dd2)
     end
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function move_left_n_words(n,dd)
+function lued.move_left_n_words(n,dd)
 
 --   if sof do nothing
 --   if sol then move to end of previous line
@@ -1697,43 +1697,43 @@ function move_left_n_words(n,dd)
     if lued.is_sof() then
       break
     elseif lued.is_sol() then
-      move_left_n_char(1,dd2)
+      lued.move_left_n_char(1,dd2)
     else
       local start_of_word = lued.is_word() and not lued.prev_is_word()
       local start_of_other = lued.is_other() and not lued.prev_is_other()
       local in_space = lued.is_space()
 
       if in_space or start_of_word or start_of_other then
-        move_left_n_char(1,dd2)
-        skip_spaces_left(1,dd2)
+        lued.move_left_n_char(1,dd2)
+        lued.skip_spaces_left(1,dd2)
       end
 
       local in_word = lued.is_word() and lued.prev_is_word()
       local in_other = lued.is_other() and lued.prev_is_other()
       if in_word then
         while lued.prev_is_word() and not lued.is_sol() do
-          move_left_n_char(1,dd2)
+          lued.move_left_n_char(1,dd2)
         end
       elseif in_other then
         while lued.prev_is_other() and not lued.is_sol() do
-          move_left_n_char(1,dd2)
+          lued.move_left_n_char(1,dd2)
         end
       end
     end -- else not eol
   end
 
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function set_pagesize(val,dd)
+function lued.set_pagesize(val,dd)
   val = val or 0 -- zero is a special case.
   g_page_size = val
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function get_pagesize()
+function lued.get_pagesize()
   rows, cols = get_termsize()
   if g_page_size==nil or g_page_size==0 then
     return rows
@@ -1745,21 +1745,21 @@ function get_pagesize()
 end
 
 
-function move_up_n_pages(n,dd)
+function lued.move_up_n_pages(n,dd)
   n = n or 1
-  local pagesize = get_pagesize()
-  move_up_n_lines(n*pagesize,dd)
+  local pagesize = lued.get_pagesize()
+  lued.move_up_n_lines(n*pagesize,dd)
 end
 
 
-function move_down_n_pages(n,dd)
+function lued.move_down_n_pages(n,dd)
   n = n or 1
-  local pagesize = get_pagesize()
-  move_down_n_lines(n*pagesize, dd)
+  local pagesize = lued.get_pagesize()
+  lued.move_down_n_lines(n*pagesize, dd)
 end
 
 
-function move_down_n_lines(n,dd)
+function lued.move_down_n_lines(n,dd)
   local dd2 = 1
   n = n or 1
   local r,c = get_cur_pos()
@@ -1777,17 +1777,17 @@ function move_down_n_lines(n,dd)
 
   r2 = r + g_scroll_speed
   lued.remove_trailing_spaces(r2,c,false,dd2)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function set_move_down_n_lines(val,dd)
+function lued.set_move_down_n_lines(val,dd)
   g_move_down_n_lines = val or g_move_down_n_lines
-  move_down_n_lines(g_move_down_n_lines, dd)
+  lued.move_down_n_lines(g_move_down_n_lines, dd)
 end
 
 
-function move_up_n_lines(n,dd)
+function lued.move_up_n_lines(n,dd)
   local dd2 = 1
   n = n or 1
   local r,c = get_cur_pos()
@@ -1807,26 +1807,26 @@ function move_up_n_lines(n,dd)
   end
 
   lued.remove_trailing_spaces(r2,c,false,dd2)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function set_move_up_n_lines(val,dd)
+function lued.set_move_up_n_lines(val,dd)
   g_move_up_n_lines = val or g_move_up_n_lines
-  move_up_n_lines(g_move_up_n_lines, dd)
+  lued.move_up_n_lines(g_move_up_n_lines, dd)
 end
 
 
-function move_to_first_line(dd)
+function lued.move_to_first_line(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
-  move_up_n_lines(r-1,dd2)
+  lued.move_up_n_lines(r-1,dd2)
   lued.move_to_sol_classic(dd)
 end
-first_line = move_to_first_line
+first_line = lued.move_to_first_line
 
 
-function move_to_last_line(dd)
+function lued.move_to_last_line(dd)
   local dd2 = 1
   local lastline = get_numlines()
   local trows, tcols = get_termsize()
@@ -1837,26 +1837,26 @@ function move_to_last_line(dd)
   else
     r2 = lastline - r - trows/2
   end
-  move_down_n_lines(r2,dd2)
-  move_to_line(lastline, dd2)
-  move_to_eol(dd)
+  lued.move_down_n_lines(r2,dd2)
+  lued.move_to_line(lastline, dd2)
+  lued.move_to_eol(dd)
 end
 
 
-function toggle_top(dd)
+function lued.toggle_top(dd)
   if lued.is_sof() then
-     move_to_last_line(dd)
+     lued.move_to_last_line(dd)
   else
-     move_to_first_line(dd)
+     lued.move_to_first_line(dd)
   end
 end
 
 
-function toggle_bottom(dd)
+function lued.toggle_bottom(dd)
   if lued.is_eof() then
-     move_to_first_line(dd)
+     lued.move_to_first_line(dd)
   else
-     move_to_last_line(dd)
+     lued.move_to_last_line(dd)
   end
 end
 
@@ -1864,44 +1864,44 @@ end
 function lued.move_to_sol_classic(dd)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function move_to_sol(dd)
+function lued.move_to_sol(dd)
   local dd2 = 1
   if not lued.is_sof() then
     if lued.is_sol() then
-      move_up_n_lines(1,dd2)
+      lued.move_up_n_lines(1,dd2)
       if not lued.is_eol() then
-        move_to_eol(dd2)
+        lued.move_to_eol(dd2)
       end
     end
     local r,c = get_cur_pos()
     lued.move_to_sol_classic(dd2)
-    skip_spaces(dd2)
+    lued.skip_spaces(dd2)
     local r2,c2 = get_cur_pos()
     if (c2 == c) then set_cur_pos(r,1) end
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function move_to_eol(dd)
+function lued.move_to_eol(dd)
   local dd2 = 1
   if not lued.is_eof() then
     if lued.is_eol() then
-      move_down_n_lines(1,dd2)
+      lued.move_down_n_lines(1,dd2)
     end
     local r,c = get_cur_pos()
     local line_len = get_line_len()
     set_cur_pos(r,line_len+1)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function session_sel(session_id,dd)
+function lued.session_sel(session_id,dd)
   if session_id then
     local fileid = get_fileid()
     if session_id ~= fileid then
@@ -1909,30 +1909,30 @@ function session_sel(session_id,dd)
     end
     set_fileid(session_id)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function tab_next(dd)
+function lued.tab_next(dd)
   local num_sessions = get_numsessions()
   local next_session = (get_fileid() % num_sessions)+1
-  session_sel(next_session, dd)
+  lued.session_sel(next_session, dd)
   return get_fileid()
 end
 
 
-function tab_prev(dd)
+function lued.tab_prev(dd)
   local num_sessions = get_numsessions()
   local next_session = get_fileid()-1
   if next_session<1 then
     next_session = num_sessions
   end
-  session_sel(next_session, dd)
+  lued.session_sel(next_session, dd)
   return get_fileid()
 end
 
 
-function tab_toggle(dd)
+function lued.tab_toggle(dd)
   local num_sessions = get_numsessions()
   local this_session = get_fileid()
   if g_tab_prev == nil and get_numsessions() > 1 then
@@ -1942,28 +1942,28 @@ function tab_toggle(dd)
       g_tab_prev = this_session - 1
     end
   end
-  session_sel(g_tab_prev, dd)
+  lued.session_sel(g_tab_prev, dd)
 end
 
 
-function move_to_line(n,dd)
+function lued.move_to_line(n,dd)
   local r,c = get_cur_pos()
   if n == nil then
-    move_to_line_hist_id = move_to_line_hist_id or get_hist_id()
+    move_to_line_hist_id = move_to_line_hist_id or lued.get_hist_id()
     local n_str = lued_prompt(move_to_line_hist_id,"Goto Linenumber: ")
     n = tonumber(n_str) or r
   end
   if n > r then
-    move_down_n_lines(n-r,dd)
+    lued.move_down_n_lines(n-r,dd)
   elseif (n < r) then
-    move_up_n_lines(r-n,dd)
+    lued.move_up_n_lines(r-n,dd)
   else
-    disp(dd)
+    lued.disp(dd)
   end
 end
 
 
-function get_sel_str()
+function lued.get_sel_str()
   local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local sel_str = ""
   if sel_state~=0 then
@@ -1979,7 +1979,7 @@ end
 --   local r,c = get_cur_pos()
 --   local found,r2,c2 = find_str(str)
 --   if found==0 then
---     move_to_first_line(dd2)
+--     lued.move_to_first_line(dd2)
 --
 --     found,r2,c2 = find_str(str)
 --     set_cur_pos(r,c)
@@ -1991,14 +1991,14 @@ end
 --     local lr = pr+tr
 --     local page_change = r2 > lr-third or r2 < pr+third
 --     if page_change==true then
---       set_page_offset_percent(third,dd2)
+--       lued.set_page_offset_percent(third,dd2)
 --     end
 --   end
---   disp(dd)
+--   lued.disp(dd)
 -- end
 
 
-function find_prompt(test_str)
+function lued.find_prompt(test_str)
   test_str = test_str or ""
   local str = ""
   -- repeat
@@ -2009,7 +2009,7 @@ function find_prompt(test_str)
 
     local prompt = "String to Find"..default_str..": "
 
-    find_prompt_hist_id = find_prompt_hist_id or get_hist_id()
+    find_prompt_hist_id = find_prompt_hist_id or lued.get_hist_id()
 
     local hot=""
     str = lued_prompt(find_prompt_hist_id, prompt, hot, test_str)
@@ -2017,7 +2017,7 @@ function find_prompt(test_str)
     if str==nil or str=="" and g_find_str and g_find_str~="" then
       str = g_find_str
     else
-      disp()
+      lued.disp()
     end
   -- until str and str ~= ""
   if (str=="/*") then str = "/" .. "\\" .. "*" end
@@ -2025,7 +2025,7 @@ function find_prompt(test_str)
 end
 
 
-function replace_prompt()
+function lued.replace_prompt()
   local str = ""
   -- repeat
     local default_str = ""
@@ -2034,13 +2034,13 @@ function replace_prompt()
     end
 
     local prompt = "String to Replace"..default_str..": "
-    replace_prompt_hist_id = replace_prompt_hist_id or get_hist_id()
+    replace_prompt_hist_id = replace_prompt_hist_id or lued.get_hist_id()
     str = lued_prompt(replace_prompt_hist_id, prompt)
 --    str = replace_read(prompt)
     if str==nil or str=="" and g_replace_str and g_replace_str~="" then
       str = g_replace_str
     else
-      disp()
+      lued.disp()
     end
   -- until str and str ~= ""
   return str
@@ -2049,13 +2049,13 @@ end
 
 g_find_jump_back_stack = {}
 g_find_jump_forward_stack = {}
-function push_jump_stack(stack, fileid, row, col)
+function lued.push_jump_stack(stack, fileid, row, col)
   local entry = {fileid, row, col}
   table.insert(stack, entry)
 end
 
 
-function pop_jump_stack(stack)
+function lued.pop_jump_stack(stack)
   if #stack == 0 then
     return 0, 0, 0
   end
@@ -2068,54 +2068,54 @@ function pop_jump_stack(stack)
 end
 
 
-function jump_back(jump_back_stack, jump_forward_stack, dd)
+function lued.jump_back(jump_back_stack, jump_forward_stack, dd)
   local dd2 = 1
 
   local fileid = get_fileid()
   local r, c = get_cur_pos()
-  push_jump_stack(jump_forward_stack, fileid, r, c)
+  lued.push_jump_stack(jump_forward_stack, fileid, r, c)
 
 
-  local fileid, row, col = pop_jump_stack(jump_back_stack)
+  local fileid, row, col = lued.pop_jump_stack(jump_back_stack)
   if fileid ~= get_fileid() then
-    session_sel(fileid, dd2)
+    lued.session_sel(fileid, dd2)
   end
   if row ~= 0 then
     set_cur_pos(row, col)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function jump_forward(jump_back_stack, jump_forward_stack, dd)
+function lued.jump_forward(jump_back_stack, jump_forward_stack, dd)
   local dd2 = 1
 
   local fileid = get_fileid()
   local r, c = get_cur_pos()
-  push_jump_stack(jump_back_stack, fileid, r, c)
+  lued.push_jump_stack(jump_back_stack, fileid, r, c)
 
-  local fileid, row, col = pop_jump_stack(jump_forward_stack)
+  local fileid, row, col = lued.pop_jump_stack(jump_forward_stack)
   if fileid ~= get_fileid() then
-    session_sel(fileid, dd2)
+    lued.session_sel(fileid, dd2)
   end
   if row ~= 0 then
     set_cur_pos(row, col)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function find_jump_back(dd)
-  jump_back(g_find_jump_back_stack, g_find_jump_forward_stack, dd)
+function lued.find_jump_back(dd)
+  lued.jump_back(g_find_jump_back_stack, g_find_jump_forward_stack, dd)
 end
 
 
-function find_jump_forward(dd)
-  jump_back(g_find_jump_back_stack, g_find_jump_forward_stack, dd)
+function lued.find_jump_forward(dd)
+  lued.jump_back(g_find_jump_back_stack, g_find_jump_forward_stack, dd)
 end
 
 
-function find_all_on_line(line,str)
+function lued.find_all_on_line(line,str)
   local matchi = {}
   local s,e = 1,1
   local match_count = 0
@@ -2142,7 +2142,7 @@ function find_all_on_line(line,str)
 end
 
 
-function get_last_match(matches, maxc)
+function lued.get_last_match(matches, maxc)
   if matches==nil then return end
   local last_match
   for i=1,#matches do
@@ -2154,15 +2154,15 @@ function get_last_match(matches, maxc)
 end
 
 
-function find_reverse(str,dd)
+function lued.find_reverse(str,dd)
   local dd2 = 1
   if (str==nil or str=="") then
-    g_find_str = find_prompt()
+    g_find_str = lued.find_prompt()
   else
     g_find_str = str
   end
   if g_find_str == "" then
-    disp(dd)
+    lued.disp(dd)
     return
   end
 
@@ -2182,16 +2182,16 @@ function find_reverse(str,dd)
     if not g_find_case_sensitive then
       line = string.lower(line)
     end
-    local matches = find_all_on_line(line,g_find_str2)
+    local matches = lued.find_all_on_line(line,g_find_str2)
     local maxc = i==r and c or string.len(line)+1
-    local match_c = get_last_match(matches,maxc)
+    local match_c = lued.get_last_match(matches,maxc)
     for j=1,#matches do matches[j] = nil end
     match_found = (match_c ~= nil)
     if match_found then
       local cfileid = get_fileid()
       local cr, cc = get_cur_pos()
       if not dd then
-        push_jump_stack(g_find_jump_back_stack, cfileid, cr, cc)
+        lued.push_jump_stack(g_find_jump_back_stack, cfileid, cr, cc)
       end
 
       local match_str = string.match(line,g_find_str2,match_c)
@@ -2211,33 +2211,33 @@ function find_reverse(str,dd)
       end
     end
   end
-  disp(dd)
+  lued.disp(dd)
   return match_found
 end
 
 
-function find_reverse_again(dd)
+function lued.find_reverse_again(dd)
   local dd2 = 1
   local skip = g_find_str==nil or g_find_str==""
   if not skip then
-    find_reverse(g_find_str,dd2)
+    lued.find_reverse(g_find_str,dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function find_reverse_selected(dd)
+function lued.find_reverse_selected(dd)
   local dd2 = 1
   local initial_r,initial_c = get_cur_pos()
   local pr,pc = get_page_pos()
 
-  local sel_str, sel_sr, sel_sc = get_sel_str()
+  local sel_str, sel_sr, sel_sc = lued.get_sel_str()
   local found = false
   if sel_str~="" then
     g_find_str = sel_str
 --  lued.dbg_prompt("DBG sel_sr="..sel_sr.." initial_r="..initial_r)
     set_cur_pos(sel_sr,sel_sc)
-    found = find_reverse(g_find_str,dd2)
+    found = lued.find_reverse(g_find_str,dd2)
     if found then
       local new_r,new_c = get_cur_pos()
       local delta_r = initial_r - new_r
@@ -2246,12 +2246,12 @@ function find_reverse_selected(dd)
     end
   end
   local center = true
-  disp(dd, center)
+  lued.disp(dd, center)
   return found
 end
 
 
-function get_first_match(matches, minc)
+function lued.get_first_match(matches, minc)
   if matches==nil then return end
   local first_match
   for i=1,#matches do
@@ -2263,8 +2263,8 @@ function get_first_match(matches, minc)
   return first_match
 end
 
--- found = find_forward(str,true,false,false,'',dd2)
-function find_forward(str,nowrap,search_all,replace,test_str,dd)
+-- found = lued.find_forward(str,true,false,false,'',dd2)
+function lued.find_forward(str,nowrap,search_all,replace,test_str,dd)
   test_str = test_str or ""
   local dd2 = 1
 
@@ -2273,14 +2273,14 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
 
   local found = false
   if test_str ~= "" then
-    g_find_str = find_prompt(test_str)
+    g_find_str = lued.find_prompt(test_str)
   elseif str==nil or str=="" then
-    g_find_str = find_prompt()
+    g_find_str = lued.find_prompt()
   else
     g_find_str = str
   end
   if g_find_str == "" then
-    disp(dd)
+    lued.disp(dd)
     return
   end
 
@@ -2290,7 +2290,7 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
   end
 
   if replace and (str==nil or str=="") then
-    g_replace_str = replace_prompt()
+    g_replace_str = lued.replace_prompt()
   end
 
   local r,c = get_cur_pos()
@@ -2307,12 +2307,12 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
     if not g_find_case_sensitive then
       line = string.lower(line)
     end
-    local matches = find_all_on_line(line,g_find_str2)
+    local matches = lued.find_all_on_line(line,g_find_str2)
     local minc = 0
     if i==r and not search_all then
       minc = c
     end
-    local match_c = get_first_match(matches,minc)
+    local match_c = lued.get_first_match(matches,minc)
     for j=1,#matches do matches[j] = nil end
     if match_c == nil then
       if k==numlines then
@@ -2324,7 +2324,7 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
         set_cur_pos(i+1,1)
       end
     else
-      push_jump_stack(g_find_jump_back_stack, cfileid, cr, cc)
+      lued.push_jump_stack(g_find_jump_back_stack, cfileid, cr, cc)
 
       local match_str = string.match(line,g_find_str2,match_c) or ""
       local match_len = string.len(match_str)
@@ -2337,12 +2337,12 @@ function find_forward(str,nowrap,search_all,replace,test_str,dd)
       break
     end
   end
-  disp(dd)
+  lued.disp(dd)
   return found
 end
 
 
-function find_and_replace(from,to,options,dd)
+function lued.find_and_replace(from,to,options,dd)
   local dd2 = 1
   local found = false
   local str = nil
@@ -2364,15 +2364,15 @@ function find_and_replace(from,to,options,dd)
   repeat
 
     local test_str = ""
-    found = find_forward(str,true,false,true,test_str,dd2)
+    found = lued.find_forward(str,true,false,true,test_str,dd2)
     str = str or g_find_str
     g_find_str = str
     if found then
       resp = "y"
       if not replace_all then
-        disp(0)
+        lued.disp(0)
         r,c = get_cur_pos()
-        find_and_replace_hist_id = find_and_replace_hist_id or get_hist_id()
+        find_and_replace_hist_id = find_and_replace_hist_id or lued.get_hist_id()
         resp = lued_prompt(find_and_replace_hist_id,"Replace <y/n/j/a/q/s>?", ",y,n,j,a,q,s,")
         -- Y = yes and goto next
         -- N = no and goto next
@@ -2391,7 +2391,7 @@ function find_and_replace(from,to,options,dd)
         local to_is_lower = to == to:lower()
         local to_is_upper = to == to:upper()
         if not to_is_lower and not to_is_upper then
-          local sel_str, sel_sr, sel_sc = get_sel_str()
+          local sel_str, sel_sr, sel_sc = lued.get_sel_str()
           local from_is_lower = sel_str == sel_str:lower()
           local from_is_upper = sel_str == sel_str:upper()
           if from_is_lower then
@@ -2400,13 +2400,13 @@ function find_and_replace(from,to,options,dd)
             to = to:upper()
           end
         end
-        ins_string(to, dd2)
+        lued.ins_string(to, dd2)
         if resp=="j" then
-          insert_tab(dd2)
+          lued.insert_tab(dd2)
         end
         if resp=="s" then break end
       elseif resp=="n" then
-        move_right_n_char(1,dd2)
+        lued.move_right_n_char(1,dd2)
       else -- q or invalid response
         break
       end
@@ -2415,37 +2415,37 @@ function find_and_replace(from,to,options,dd)
   until not found
   if resp~="s" then
     set_cur_pos(initial_r,initial_c)
-    recenter(dd2)
+    lued.recenter(dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function replace_again(dd)
+function lued.replace_again(dd)
   local dd2 = 1
-  find_and_replace(g_find_str,g_replace_str,"",dd)
+  lued.find_and_replace(g_find_str,g_replace_str,"",dd)
 end
 
 
-function paste_and_find_forward(dd)
+function lued.paste_and_find_forward(dd)
   local dd2 = 1
-  global_paste(dd2)
-  find_forward_again(dd)
+  lued.global_paste(dd2)
+  lued.find_forward_again(dd)
 end
 
 
-function paste_and_find_reverse(dd)
+function lued.paste_and_find_reverse(dd)
   local dd2 = 1
-  global_paste(dd2)
-  find_reverse_again(dd)
+  lued.global_paste(dd2)
+  lued.find_reverse_again(dd)
 end
 
 
-function search_all_files(str,dd)
+function lued.search_all_files(str,dd)
   local dd2 = 1
   str = str or ""
 
-  local sel_str, sel_sr, sel_sc = get_sel_str()
+  local sel_str, sel_sr, sel_sc = lued.get_sel_str()
   if sel_str ~= "" then
     g_find_str = sel_str
     set_sel_off()
@@ -2453,134 +2453,134 @@ function search_all_files(str,dd)
 
   local save_g_tab_prev = g_tab_prev;
   local test_str = ""
-  local match = find_forward(str,true,false,false,sel_str,dd2)
+  local match = lued.find_forward(str,true,false,false,sel_str,dd2)
   local start_session = get_fileid()
   if not match then
     save_g_tab_prev = start_session
   end
   while not match do
-    local session_id = tab_next(dd2)
+    local session_id = lued.tab_next(dd2)
     if session_id == start_session then break end
     local r,c = get_cur_pos()
-    move_to_first_line(dd2)
+    lued.move_to_first_line(dd2)
     lued.move_to_sol_classic(dd2)
-    match = find_forward(g_find_str,true,true,false,test_str,dd2)
+    match = lued.find_forward(g_find_str,true,true,false,test_str,dd2)
     if not match then -- restore cur_pos
       set_cur_pos(r,c)
     end
   end
   g_tab_prev = save_g_tab_prev
   g_search_all_files = true
-  disp(dd)
+  lued.disp(dd)
   return match
 end
 
 
-function find_forward_again(dd)
+function lued.find_forward_again(dd)
   local dd2 = 1
   local initial_r,initial_c = get_cur_pos()
   if g_search_all_files then
-    return search_all_files(str,dd)
+    return lued.search_all_files(str,dd)
   end
   local test_str = ""
-  local found = find_forward(g_find_str,false,false,false,test_str,dd2)
+  local found = lued.find_forward(g_find_str,false,false,false,test_str,dd2)
   if not found then
     set_cur_pos(initial_r,initial_c)
   end
-  disp(dd)
+  lued.disp(dd)
   return found
 end
 
 
-function find_word(dd)
+function lued.find_word(dd)
   local dd2 = 1
   set_sel_off()
-  sel_word(dd2)
+  lued.sel_word(dd2)
   set_sel_end()
-  local sel_str = get_sel_str()
-  find_forward_selected(dd)
+  local sel_str = lued.get_sel_str()
+  lued.find_forward_selected(dd)
 end
 
 
-function find_reverse_word(dd)
+function lued.find_reverse_word(dd)
   local dd2 = 1
   set_sel_off()
-  sel_word(dd2)
+  lued.sel_word(dd2)
   set_sel_end()
-  find_reverse_selected(dd)
+  lued.find_reverse_selected(dd)
 end
 
 
-function find_forward_selected(dd)
+function lued.find_forward_selected(dd)
   local dd2 = 1
   g_search_all_files = false
   local initial_r,initial_c = get_cur_pos()
-  local sel_str, sel_sr, sel_sc = get_sel_str()
+  local sel_str, sel_sr, sel_sc = lued.get_sel_str()
   if sel_str~="" then
-    move_right_n_char(1,dd2)
+    lued.move_right_n_char(1,dd2)
     g_find_str = sel_str
     set_sel_off()
   else
     g_find_str = sel_str
   end
-  local found = find_forward(g_find_str,false,false,false,sel_str,dd2)
+  local found = lued.find_forward(g_find_str,false,false,false,sel_str,dd2)
   if not found then
     set_cur_pos(initial_r,initial_c)
   end
-  disp(dd)
+  lued.disp(dd)
   return found
 end
 
 
-function word_start(dd)
+function lued.word_start(dd)
   local r,c = get_cur_pos()
   local line = get_line()
   if lued.is_space(line,c) then
-    move_right_n_words(1,dd)
+    lued.move_right_n_words(1,dd)
   elseif not lued.is_sow(line,c) then
-    move_left_n_words(1,dd)
+    lued.move_left_n_words(1,dd)
   else
-    disp(dd)
+    lued.disp(dd)
   end
 end
 
 
-function var_start(dd)
+function lued.var_start(dd)
   local r,c = get_cur_pos()
   local line = get_line()
   local len = get_line_len()
   local c2 = string.find(line, "[%w_]", c) -- find space after end of word
   local c3 = c2 and c2 or len
   set_cur_pos(r, c3)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function sel_n_char(n,dd)
+function lued.sel_n_char(n,dd)
   n = n or 1
   set_sel_start()
-  move_right_n_char(n, dd)
+  lued.move_right_n_char(n, dd)
 end
 
 
-function sel_word(dd)
+function lued.sel_word(dd)
   local dd2 = 1
   if is_sel_off()==1 then
-    word_start(dd2)
-    var_start(dd2)
+    lued.word_start(dd2)
+    lued.var_start(dd2)
     set_sel_start()
   else
     if lued.is_blankline() then
-      move_down_n_lines(1,dd2)
+      lued.move_down_n_lines(1,dd2)
     end
-    move_right_n_words(1, dd2)
+    lued.move_right_n_words(1, dd2)
   end
-  skip_variable(dd2)
-  disp(dd)
+  lued.skip_variable(dd2)
+  lued.disp(dd)
 end
 
 
-function sel_line(n,dd)
+function lued.sel_line(n,dd)
   n = n or 1
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -2591,35 +2591,35 @@ function sel_line(n,dd)
   end
   set_cur_pos(rlast+1,1)
   set_cur_pos(rlast+1,1)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function sel_inside_braces(dd)
+function lued.sel_inside_braces(dd)
   local dd2 = 1
   local save_find_str = g_find_str
   set_sel_off()
 
   g_find_str = "}"
   local r,c = get_cur_pos()
-  find_forward_again(dd2)
-  move_left_n_char(1,dd2)
+  lued.find_forward_again(dd2)
+  lued.move_left_n_char(1,dd2)
   local r2,c2 = get_cur_pos()
 
   g_find_str = "{"
   set_cur_pos(r,c)
-  find_reverse_again(dd2)
-  move_right_n_char(1,dd2)
+  lued.find_reverse_again(dd2)
+  lued.move_right_n_char(1,dd2)
   set_sel_start()
   set_cur_pos(r2,c2)
   set_sel_end()
 
   g_find_str = save_find_str
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function get_indent_len()
+function lued.get_indent_len()
   local line = get_line()
   local leading_ws = string.match(line,"^%s+") or ""
   local leading_ws_len = string.len(leading_ws)
@@ -2627,180 +2627,180 @@ function get_indent_len()
 end
 
 
-function sel_indentation(dd)
+function lued.sel_indentation(dd)
   local dd2 = 1
-  local indent_len = get_indent_len()
+  local indent_len = lued.get_indent_len()
 
   local r,c = get_cur_pos()
   local r1,c1 = r,c
   repeat
     r1,c1 = get_cur_pos()
     if r1==1 then break end
-    move_up_n_lines(1,dd2)
-  until (get_indent_len() < indent_len)
+    lued.move_up_n_lines(1,dd2)
+  until (lued.get_indent_len() < indent_len)
 
   local lastline = get_numlines()
   set_cur_pos(r,c)
   repeat
     r2,c2 = get_cur_pos()
     if r2==lastline then break end
-    move_down_n_lines(2,dd2)
-  until (get_indent_len() < indent_len)
-  set_sel_from_to(r1, 1, r2+1, 1, dd2 )
+    lued.move_down_n_lines(2,dd2)
+  until (lued.get_indent_len() < indent_len)
+  lued.set_sel_from_to(r1, 1, r2+1, 1, dd2 )
 --  set_cur_pos(r,c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function sel_sol(dd)
+function lued.sel_sol(dd)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
   set_sel_start()
   set_cur_pos(r,c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function sel_eol(dd)
+function lued.sel_eol(dd)
   set_sel_start()
-  move_to_eol(dd)
+  lued.move_to_eol(dd)
 end
 
 
-function sel_sof(dd)
+function lued.sel_sof(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
-  move_to_first_line(dd2)
+  lued.move_to_first_line(dd2)
   set_sel_start()
   set_cur_pos(r,c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function sel_eof(dd)
+function lued.sel_eof(dd)
   set_sel_start()
-  move_to_last_line(dd)
+  lued.move_to_last_line(dd)
 end
 
 
-function sel_all(dd)
+function lued.sel_all(dd)
   local dd2 = 1
-  move_to_first_line(dd2)
+  lued.move_to_first_line(dd2)
   set_sel_start()
-  move_to_last_line(dd2)
+  lued.move_to_last_line(dd2)
   set_sel_end()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function del_sof(dd)
+function lued.del_sof(dd)
   local dd2 = 1
-  sel_sof(dd2)
+  lued.sel_sof(dd2)
   set_sel_end()
-  cut(dd)
+  lued.cut(dd)
 end
 
 
-function del_eof(dd)
+function lued.del_eof(dd)
   local dd2 = 1
-  sel_eof(dd2)
+  lued.sel_eof(dd2)
   set_sel_end()
-  cut(dd)
+  lued.cut(dd)
 end
 
 
-function del_all(dd)
+function lued.del_all(dd)
   local dd2 = 1
-  sel_all(dd2)
-  cut(dd)
+  lued.sel_all(dd2)
+  lued.cut(dd)
 end
 
 
-function sel_toggle(dd)
+function lued.sel_toggle(dd)
   if is_sel_off()==1 then
     set_sel_start()
   else
     set_sel_off()
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function del_sel(dd)
+function lued.del_sel(dd)
   delete_selected()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function cut(dd)
+function lued.cut(dd)
   if is_sel_off()==1 then
-    disp(dd)
+    lued.disp(dd)
   else
     set_paste()
-    del_sel(dd)
+    lued.del_sel(dd)
   end
 end
 
 
-function copy(dd)
+function lued.copy(dd)
   if is_sel_off()==1 then
     g_ctrl_c_count = g_ctrl_c_count or 0
     g_ctrl_c_count = g_ctrl_c_count+1
     if (g_ctrl_c_count >= g_ctrl_c_max) then
       local force = true
-      quit_all(force,1)
+      lued.quit_all(force,1)
     end
-    disp(dd)
+    lued.disp(dd)
   else
     g_ctrl_c_count = 0
     set_sel_end()
     set_paste()
     set_sel_off()
-    disp(dd)
+    lued.disp(dd)
   end
 end
 
 
-function set_paste_buffer(str,dd)
+function lued.set_paste_buffer(str,dd)
   set_paste(str)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function paste(dd)
+function lued.paste(dd)
   local dd2 = 1
   local auto_indent_save = g_auto_indent
   g_auto_indent = false
-  del_sel(dd2)
+  lued.del_sel(dd2)
   local pb = get_paste()
   ins_str(pb, dd)
   g_auto_indent = auto_indent_save
 end
 
 
-function global_cut(dd)
-  cut(dd)
+function lued.global_cut(dd)
+  lued.cut(dd)
   lued.g_buffer = get_paste()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function global_cut_append(dd)
-  cut(dd)
+function lued.global_cut_append(dd)
+  lued.cut(dd)
   lued.g_buffer = lued.g_buffer .. get_paste()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function global_copy(dd)
+function lued.global_copy(dd)
   local dd2 = 1
-  copy(dd2)
+  lued.copy(dd2)
   lued.g_buffer = get_paste()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function global_paste(dd)
+function lued.global_paste(dd)
   local dd2 = 1
   if string.find(lued.g_buffer,"\n") then
     lued.move_to_sol_classic(dd2)
@@ -2810,267 +2810,267 @@ function global_paste(dd)
 --     lued.g_buffer = string.gsub(lued.g_buffer,"\n"..spaces,"\n")
   end
   set_paste(lued.g_buffer)
-  paste(dd2)
-  disp(dd)
+  lued.paste(dd2)
+  lued.disp(dd)
 end
 
 
-function del_char(n,dd)
+function lued.del_char(n,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   if is_sel_off()==1 then
     set_sel_start()
     n = n or 1
-    move_right_n_char(n, dd2)
+    lued.move_right_n_char(n, dd2)
     set_sel_end()
     set_cur_pos(r,c)
-    del_sel(dd)
+    lued.del_sel(dd)
   else
     set_sel_end()
-    cut(dd)
+    lued.cut(dd)
   end
 end
 
 
-function sel_sow(dd)
+function lued.sel_sow(dd)
   local dd2 = 1
   set_sel_start()
   if lued.is_word(lued.get_char(-1)) then
     while not lued.is_sol() and lued.is_word(lued.get_char(-1)) do
-      move_left_n_char(1,dd2)
+      lued.move_left_n_char(1,dd2)
     end
   elseif lued.is_space(lued.get_char(-1)) then
     while not lued.is_sol() and lued.is_space(lued.get_char(-1)) do
-      move_left_n_char(1,dd2)
+      lued.move_left_n_char(1,dd2)
     end
   elseif lued.is_punct(lued.get_char(-1)) then
     while not lued.is_sol() and lued.is_punct(lued.get_char(-1)) do
-      move_left_n_char(1,dd2)
+      lued.move_left_n_char(1,dd2)
     end
   end
   set_sel_end()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function sel_left_nonspaces(dd)
+function lued.sel_left_nonspaces(dd)
   local dd2 = 1
   set_sel_start()
   if not lued.is_space(lued.get_char(-1)) then
     while not lued.is_sol() and not lued.is_space(lued.get_char(-1)) do
-      move_left_n_char(1,dd2)
+      lued.move_left_n_char(1,dd2)
     end
   end
   set_sel_end()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function sel_left_pattern(pattern , dd)
+function lued.sel_left_pattern(pattern , dd)
   local dd2 = 1
   set_sel_start()
   while not lued.is_sol() and lued.is_pattern(pattern , lued.get_char(-1)) do
-    move_left_n_char(1,dd2)
+    lued.move_left_n_char(1,dd2)
   end
   set_sel_end()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function del_sow(dd)
+function lued.del_sow(dd)
   local dd2 = 1
-  sel_sow(dd2)
-  del_sel(dd)
+  lued.sel_sow(dd2)
+  lued.del_sel(dd)
 end
 
 
-function sel_eow(dd)
+function lued.sel_eow(dd)
   local dd2 = 1
   set_sel_start()
   if lued.is_space() then
     while lued.is_space() and not lued.is_eol()  do
-      move_right_n_char(1,dd2)
+      lued.move_right_n_char(1,dd2)
     end
   elseif lued.is_punct() then
     while lued.is_punct() and not lued.is_eol() do
-      move_right_n_char(1,dd2)
+      lued.move_right_n_char(1,dd2)
     end
   elseif lued.is_word() then
     while lued.is_word() and not lued.is_eol() do
-      move_right_n_char(1,dd2)
+      lued.move_right_n_char(1,dd2)
     end
   else -- other
     while not lued.is_space() and not lued.is_eol() do
-      move_right_n_char(1,dd2)
+      lued.move_right_n_char(1,dd2)
     end
   end
   set_sel_end()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function del_eow(dd)
+function lued.del_eow(dd)
   local dd2 = 1
-  sel_eow(dd2)
-  del_sel(dd)
+  lued.sel_eow(dd2)
+  lued.del_sel(dd)
 end
 
 
-function del_spaces(dd)
+function lued.del_spaces(dd)
   local dd2 = 1
   if not lued.is_space() then
-    disp(dd)
+    lued.disp(dd)
     return
   end
   set_sel_start()
-  skip_spaces(dd2)
+  lued.skip_spaces(dd2)
   set_sel_end()
-  cut(dd)
+  lued.cut(dd)
 end
 
 
 -- Remove spaces from cursor to start of next word.  If cursor is not over a
 -- space then go to next line and then delete the spaces.
-function del_spaces_next_line(dd)
+function lued.del_spaces_next_line(dd)
   local dd2 = 1
   if not lued.is_space() then
-    move_down_n_lines(1,dd2)
+    lued.move_down_n_lines(1,dd2)
   end
   local r,c = get_cur_pos()
   set_sel_start()
-  skip_spaces(dd2)
+  lued.skip_spaces(dd2)
   set_sel_end()
 --  set_cur_pos(r,c)
-  cut(dd)
+  lued.cut(dd)
 end
 
 
-function del_spaces_selected(dd)
-  lued.foreach_selected(del_spaces_next_line, dd)
+function lued.del_spaces_selected(dd)
+  lued.foreach_selected(lued.del_spaces_next_line, dd)
 end
 
 
-function del_word(n,dd)
+function lued.del_word(n,dd)
   local dd2 = 1
   if lued.is_word() then
-    sel_word(dd2)
+    lued.sel_word(dd2)
     set_sel_end()
-    cut(dd)
+    lued.cut(dd)
   else
     while not lued.is_word() do
-      del_char(1,dd2)
+      lued.del_char(1,dd2)
     end
-    disp(dd)
+    lued.disp(dd)
   end
 end
 
 
-function del_eol(dd)
+function lued.del_eol(dd)
   local dd2 = 1
   if lued.is_eol() then
-    move_down_n_lines(1,dd2)
+    lued.move_down_n_lines(1,dd2)
   end
   if not lued.is_eol() then
-    sel_eol(dd2)
+    lued.sel_eol(dd2)
     set_sel_end()
-    cut(dd2)
+    lued.cut(dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function del_eol_selected(dd)
-  lued.foreach_selected(del_eol, dd)
+function lued.del_eol_selected(dd)
+  lued.foreach_selected(lued.del_eol, dd)
 end
 
 
-function del_sol(dd)
+function lued.del_sol(dd)
   local dd2 = 1
   if lued.is_sof() then
-    disp(dd)
+    lued.disp(dd)
   elseif lued.is_sol() then
-    del_backspace(1,dd)
+    lued.del_backspace(1,dd)
   else
-    sel_sol(dd2)
+    lued.sel_sol(dd2)
     set_sel_end()
-    cut(dd)
+    lued.cut(dd)
   end
 end
 
-function del_line(n,dd)
+function lued.del_line(n,dd)
   n = n or 1
   local dd2 = 1
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
   set_sel_start()
-  move_down_n_lines(n,dd2)
+  lued.move_down_n_lines(n,dd2)
   set_sel_end()
   if (g_command_count == g_cut_line_command_count) then
-    global_cut_append(dd2)
+    lued.global_cut_append(dd2)
   else
-    global_cut(dd2)
+    lued.global_cut(dd2)
   end
   g_cut_line_command_count = g_command_count
-  disp(dd)
+  lued.disp(dd)
 end
 
-function cut_line(n,dd)
+function lued.cut_line(n,dd)
   n = n or 1
   local dd2 = 1
   if is_sel_off()==1 then
-    del_line(n,dd)
+    lued.del_line(n,dd)
   else
-    global_cut(dd)
+    lued.global_cut(dd)
   end
 end
 
 
-function paste_line_before(dd)
+function lued.paste_line_before(dd)
   local dd2 = 1
   lued.move_to_sol_classic(dd2)
-  global_paste(dd)
+  lued.global_paste(dd)
 end
 
 
-function paste_line_after(dd)
+function lued.paste_line_after(dd)
   local dd2 = 1
-  move_down_n_lines(dd2)
-  paste_line_before(dd2)
-  move_up_n_lines(dd)
+  lued.move_down_n_lines(dd2)
+  lued.paste_line_before(dd2)
+  lued.move_up_n_lines(dd)
 end
 
 
-function del_backspace(n,dd)
+function lued.del_backspace(n,dd)
   local dd2 = 1
   if lued.is_sof() then
-    disp(dd)
+    lued.disp(dd)
   elseif is_sel_off()==1 then
     n = n or 1
     local r,c = get_cur_pos()
-    move_left_n_char(n, dd2)
+    lued.move_left_n_char(n, dd2)
     set_sel_start()
     set_cur_pos(r,c)
     set_sel_end()
-    del_sel(dd)
+    lued.del_sel(dd)
   else
     set_sel_end()
-    cut(dd)
+    lued.cut(dd)
   end
 end
 
 
-function del_backword(n,dd)
+function lued.del_backword(n,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   set_sel_start()
-  move_left_n_words(n,dd2)
+  lued.move_left_n_words(n,dd2)
   set_sel_end()
   set_cur_pos(r,c)
-  del_sel(dd)
+  lued.del_sel(dd)
 end
 
 
-function indent1(n, ch, goto_next, dd)
+function lued.indent1(n, ch, goto_next, dd)
   local dd2 = 1
 
   local spaces = string.rep(ch,n)
@@ -3078,16 +3078,16 @@ function indent1(n, ch, goto_next, dd)
   set_cur_pos(r,1)
   ins_str(spaces,dd2)
   if goto_next then
-    move_down_n_lines(1,dd2)
+    lued.move_down_n_lines(1,dd2)
     lued.move_to_sol_classic(dd2)
   else
     set_cur_pos(r,c+n)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function unindent1(n, ch, goto_next, dd)
+function lued.unindent1(n, ch, goto_next, dd)
   local dd2 = 1
   n = n or g_indent_size
   ch = ch or g_indent_char
@@ -3096,36 +3096,36 @@ function unindent1(n, ch, goto_next, dd)
   local spaces = string.rep(ch,n)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
-  del_char(n,dd2)
+  lued.del_char(n,dd2)
   if goto_next then
-    move_down_n_lines(1,dd2)
+    lued.move_down_n_lines(1,dd2)
     lued.move_to_sol_classic(dd2)
   else
     set_cur_pos(r,c-n)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function indent(dd)
+function lued.indent(dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   local goto_next_line = false
   if r==1 then
-     indent1(g_indent_size, g_indent_char, goto_next_line, dd)
+     lued.indent1(g_indent_size, g_indent_char, goto_next_line, dd)
   else
-    move_up_n_lines(1,dd2)
+    lued.move_up_n_lines(1,dd2)
     local line = get_line()
     local indent_str = line:match("^%s*") or ""
     set_cur_pos(r,1)
     ins_str(indent_str,dd2)
     set_cur_pos(r,c+indent_str:len())
-    disp(dd)
+    lued.disp(dd)
   end
 end
 
 
-function indent_selected(dd)
+function lued.indent_selected(dd)
   local dd2 = 1
   local initial_row,initial_col = get_cur_pos()
   local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
@@ -3142,13 +3142,13 @@ function indent_selected(dd)
     set_cur_pos(sel_er,sel_ec)
   else
     local goto_next_line = true
-    indent1(g_indent_size, g_indent_char, goto_next_line, dd2)
+    lued.indent1(g_indent_size, g_indent_char, goto_next_line, dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function unindent_selected(dd)
+function lued.unindent_selected(dd)
   local dd2 = 1
   local initial_row,initial_col = get_cur_pos()
   local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
@@ -3158,7 +3158,7 @@ function unindent_selected(dd)
     set_sel_off()
     for row=sel_sr,sel_er-1 do
       set_cur_pos(row,1)
-      del_char(1,dd2)
+      lued.del_char(1,dd2)
     end
     set_cur_pos(sel_sr,sel_sc)
     set_sel_start()
@@ -3167,17 +3167,17 @@ function unindent_selected(dd)
     local goto_next_line = true
     local ws, ws_len = lued.leading_ws()
     if ws_len < g_indent_size then
-      del_spaces(dd2)
-      move_down_n_lines(1,dd2)
+      lued.del_spaces(dd2)
+      lued.move_down_n_lines(1,dd2)
     else
-      unindent1(g_indent_size, g_indent_char, goto_next_line, dd2)
+      lued.unindent1(g_indent_size, g_indent_char, goto_next_line, dd2)
     end
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function line_contains(needles, line)
+function lued.line_contains(needles, line)
   local line = line or get_line()
   local found = false
   if needles then
@@ -3192,15 +3192,15 @@ function line_contains(needles, line)
 end
 
 
-function ins_string(str, dd)
+function lued.ins_string(str, dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local first_line = sel_sr<=1
   local inhibit_cr = sel_state~=0 and not first_line
-  del_sel(dd2)
+  lued.del_sel(dd2)
 
-  is_start_of_block = line_contains(g_block_start)
+  is_start_of_block = lued.line_contains(g_block_start)
   is_inside_braces  = lued.get_char()=="}" and lued.get_char(-1)=="{"
 
   if str == "\n" then
@@ -3217,10 +3217,10 @@ function ins_string(str, dd)
 
     if is_inside_braces then
       insert_str(str)
-      move_up_n_lines(1,dd2)
-      indent1(g_indent_size, g_indent_char, false, dd2)
+      lued.move_up_n_lines(1,dd2)
+      lued.indent1(g_indent_size, g_indent_char, false, dd2)
     elseif is_start_of_block then
-      indent1(g_indent_size, g_indent_char, false, dd2)
+      lued.indent1(g_indent_size, g_indent_char, false, dd2)
     end
 
     local r2,c2 = get_cur_pos()
@@ -3239,11 +3239,11 @@ function ins_string(str, dd)
       ch = '';
     end
     if str==ch then -- ch is '' or closing brace
-      move_right_n_char(1,dd2)
+      lued.move_right_n_char(1,dd2)
     else
       insert_str(str)
       if brace_closed then
-        move_left_n_char(1,dd2)
+        lued.move_left_n_char(1,dd2)
       end
     end
   end
@@ -3251,38 +3251,38 @@ function ins_string(str, dd)
   if g_bracket_paste==1 then
     lued.bracket_paste_stop(dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function overtype_string(str,dd)
+function lued.overtype_string(str,dd)
   local dd2 = 1
   for c in string.gmatch(str,".") do
     if not lued.is_eol() then
-      del_char(1,dd2)
+      lued.del_char(1,dd2)
     end
-    ins_string(c,dd2)
+    lued.ins_string(c,dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function ins_str(str,dd)
   if g_overtype==1 then
-    overtype_string(str,dd)
+    lued.overtype_string(str,dd)
   else
-    ins_string(str,dd)
+    lued.ins_string(str,dd)
   end
 end
 
 
-function insert_tab_classic(dd)
+function lued.insert_tab_classic(dd)
   local t = (g_tab_size > 0) and string.rep(' ',g_tab_size) or "\t"
   ins_str(t,dd)
 end
 
 
-function get_token(str,ii)
+function lued.get_token(str,ii)
   ii = ii or 1
   local str = str or ""
   local len = str:len()
@@ -3303,12 +3303,12 @@ function get_token(str,ii)
 end
   
 
-function handle_snippets(dd)
+function lued.handle_snippets(dd)
   local dd2 = false
   local r,c=get_cur_pos()
-  sel_left_pattern( "[%w.#*()^>+*:]"  , dd2)
---   sel_sow(dd2)
-  local sel_str, sel_sr, sel_sc = get_sel_str()
+  lued.sel_left_pattern( "[%w.#*()^>+*:]"  , dd2)
+--   lued.sel_sow(dd2)
+  local sel_str, sel_sr, sel_sc = lued.get_sel_str()
   if sel_str==nil or sel_str=='' then
     return false
   end
@@ -3325,7 +3325,7 @@ function handle_snippets(dd)
     set_cur_pos(r,c)
     return false
   end
-  del_sel(dd2)
+  lued.del_sel(dd2)
   set_cur_pos(sel_sr,sel_sc)
   g_dont_display = 1
   
@@ -3333,28 +3333,28 @@ function handle_snippets(dd)
   local ii = 1
   local cnt = 1
   repeat
-    tok, ii = get_token(sel_str,ii)
+    tok, ii = lued.get_token(sel_str,ii)
     snip_routine(tok)
-    tok, ii = get_token(sel_str,ii)
+    tok, ii = lued.get_token(sel_str,ii)
     cnt = cnt + 1
   until tok == "" or cnt == 5
   
   g_dont_display = 0
   
-  disp(dd)
+  lued.disp(dd)
   return true
 end
 
 -- align cursor with previous line's next 'column'
-function insert_tab(dd)
+function lued.insert_tab(dd)
   if g_tab_classic then
-    insert_tab_classic(dd)
+    lued.insert_tab_classic(dd)
     return
   end
   
   local snip_found = false
   if g_handle_snippets then
-    snip_found = handle_snippets(dd)
+    snip_found = lued.handle_snippets(dd)
   end
   
   if snip_found then
@@ -3371,13 +3371,13 @@ function insert_tab(dd)
   local done = false
   repeat
     if lued.is_firstline() then break end
-    move_up_n_lines(1,dd2)
+    lued.move_up_n_lines(1,dd2)
     local len = get_line_len()
     local short_line = (len <= c2)
     done = not short_line
   until done
   if not lued.is_eol() then
-    move_right_n_words(1,dd2)
+    lued.move_right_n_words(1,dd2)
   end
   local r3,c3 = get_cur_pos()
 
@@ -3387,177 +3387,177 @@ function insert_tab(dd)
     -- goto beginning of word
     while not lued.is_space() do
       if lued.is_sol() then break end
-      move_left_n_char(1,dd2)
+      lued.move_left_n_char(1,dd2)
     end
   end
 
   if (c3 > c2) then
     if lued.is_space() then
-      del_eow(dd2) -- delete to end of spaces
+      lued.del_eow(dd2) -- delete to end of spaces
     end
     r4,c4 = get_cur_pos()
     local num_spaces_to_insert = c3 - c4
     local t = string.rep(" ",num_spaces_to_insert) or " "
     ins_str(t,dd2)
   else
-    insert_tab_classic(dd2)
+    lued.insert_tab_classic(dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function insert_tab_selected(dd)
-  lued.foreach_selected(insert_tab, dd)
+function lued.insert_tab_selected(dd)
+  lued.foreach_selected(lued.insert_tab, dd)
 end
 
 
-function insert_cr_before(dd)
+function lued.insert_cr_before(dd)
   local dd2 = 1
-  local is_end_of_block = line_contains(g_block_end)
+  local is_end_of_block = lued.line_contains(g_block_end)
   lued.move_to_sol_classic(dd2)
   set_sel_off()
   ins_str("\n",dd2)
-  move_up_n_lines(1,dd2)
-  indent(dd2)
+  lued.move_up_n_lines(1,dd2)
+  lued.indent(dd2)
   if is_end_of_block then
-    indent1(g_indent_size, g_indent_char, false, dd2)
+    lued.indent1(g_indent_size, g_indent_char, false, dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function insert_cr_after(dd)
+function lued.insert_cr_after(dd)
   local dd2 = 1
-  if not lued.is_eol() then move_to_eol(dd2) end
+  if not lued.is_eol() then lued.move_to_eol(dd2) end
   set_sel_off()
   ins_str("\n",dd2)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function swap_line_with_prev(dd)
+function lued.swap_line_with_prev(dd)
   local dd2 = 1
-  cut_line(1,dd2)
-  move_up_n_lines(1,dd2)
-  paste_line_before(dd)
+  lued.cut_line(1,dd2)
+  lued.move_up_n_lines(1,dd2)
+  lued.paste_line_before(dd)
 end
 
 
-function swap_line_with_next(dd)
+function lued.swap_line_with_next(dd)
   local dd2 = 1
-  cut_line(1,dd2)
-  move_down_n_lines(1,dd2)
-  paste_line_before(dd2)
-  move_up_n_lines(2,dd)
+  lued.cut_line(1,dd2)
+  lued.move_down_n_lines(1,dd2)
+  lued.paste_line_before(dd2)
+  lued.move_up_n_lines(2,dd)
 end
 
 
-function bubble_line_up(dd)
+function lued.bubble_line_up(dd)
   local dd2 = 1
-  swap_line_with_prev(dd2)
-  move_up_n_lines(1,dd)
+  lued.swap_line_with_prev(dd2)
+  lued.move_up_n_lines(1,dd)
 end
 
 
-function set_sel_from_to(sel_sr,sel_sc,sel_er,sel_ec,dd)
+function lued.set_sel_from_to(sel_sr,sel_sc,sel_er,sel_ec,dd)
   local dd2 = 1
   set_cur_pos(sel_sr,sel_sc)
   set_sel_start()
   set_cur_pos(sel_er,sel_ec)
   set_sel_end()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function bubble_selected_lines_up(dd)
+function lued.bubble_selected_lines_up(dd)
   local dd2 = 1
   if lued.is_sel_on() then
     local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
     if sel_sr > 1 then
-      global_cut(dd2)
-      move_up_n_lines(1,dd2)
-      paste_line_before(dd)
-      set_sel_from_to(sel_sr-1, 1, sel_er-1, 1, dd)
+      lued.global_cut(dd2)
+      lued.move_up_n_lines(1,dd2)
+      lued.paste_line_before(dd)
+      lued.set_sel_from_to(sel_sr-1, 1, sel_er-1, 1, dd)
     end
-    disp(dd)
+    lued.disp(dd)
   else
-    bubble_line_up(dd)
+    lued.bubble_line_up(dd)
   end
 end
 
 
-function bubble_line_down(dd)
+function lued.bubble_line_down(dd)
   local dd2 = 1
-  swap_line_with_next(dd2)
-  move_down_n_lines(1,dd)
+  lued.swap_line_with_next(dd2)
+  lued.move_down_n_lines(1,dd)
 end
 
 
-function bubble_selected_lines_down(dd)
+function lued.bubble_selected_lines_down(dd)
   local dd2 = 1
   if lued.is_sel_on() then
     local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
-    global_cut(dd2)
-    move_down_n_lines(1,dd2)
-    paste_line_before(dd)
-    set_sel_from_to(sel_sr+1, 1, sel_er+1, 1, dd)
-    disp(dd)
+    lued.global_cut(dd2)
+    lued.move_down_n_lines(1,dd2)
+    lued.paste_line_before(dd)
+    lued.set_sel_from_to(sel_sr+1, 1, sel_er+1, 1, dd)
+    lued.disp(dd)
   else
-    bubble_line_down(dd)
+    lued.bubble_line_down(dd)
   end
 end
 
 
-function bubble_word_right(dd)
+function lued.bubble_word_right(dd)
   local dd2 = 1
-  sel_word(dd2)
-  skip_spaces(dd2)
+  lued.sel_word(dd2)
+  lued.skip_spaces(dd2)
   set_sel_end()
-  del_word(1,dd2)
-  move_right_n_words(1,dd2)
-  paste(dd2)
-  move_left_n_words(1,dd2)
-  disp(dd)
+  lued.del_word(1,dd2)
+  lued.move_right_n_words(1,dd2)
+  lued.paste(dd2)
+  lued.move_left_n_words(1,dd2)
+  lued.disp(dd)
 end
 
 
-function bubble_word_left(dd)
+function lued.bubble_word_left(dd)
   local dd2 = 1
-  sel_word(dd2)
-  skip_spaces(dd2)
+  lued.sel_word(dd2)
+  lued.skip_spaces(dd2)
   set_sel_end()
-  del_word(1,dd2)
-  move_left_n_words(1,dd2)
-  paste(dd2)
-  move_left_n_words(1,dd2)
-  disp(dd)
+  lued.del_word(1,dd2)
+  lued.move_left_n_words(1,dd2)
+  lued.paste(dd2)
+  lued.move_left_n_words(1,dd2)
+  lued.disp(dd)
 end
 
 
-function hot(key, dd)
+function lued.hot(key, dd)
   if key == nil then return end
   key = "," .. key .. ","
   local keys = get_hotkeys()
   if not string.find(keys, key, 1, true) then
     set_hotkeys(keys .. key)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function nohot(key, dd)
+function lued.nohot(key, dd)
   if not key then return end
   key = key .. ","
   local keys = get_hotkeys()
   keys:gsub(key,"")
   set_hotkeys(keys)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function save_file(dd)
+function lued.save_file(dd)
   if g_review_mode then
-    save_as(nil, dd)
+    lued.save_as(nil, dd)
   end
 
   local r,c = get_cur_pos()
@@ -3565,7 +3565,7 @@ function save_file(dd)
   local filename = get_filename(id)
   local file_has_changed = false
   local mtime, ts
-  if file_exists(filename) then
+  if lued.file_exists(filename) then
     file_has_changed,mtime,ts = is_file_modified(1)
    end
 
@@ -3573,7 +3573,7 @@ function save_file(dd)
     local id = get_fileid()
     local filename = get_filename(id)
     io.write("\n\n=======================================\n\n")
-    local overwrite = get_yesno("File '" .. filename .. "' has changed. Do you want to overwrite <y/n>?")=="Y"
+    local overwrite = lued.get_yesno("File '" .. filename .. "' has changed. Do you want to overwrite <y/n>?")=="Y"
     if overwrite then
       save_session()
     end
@@ -3581,27 +3581,27 @@ function save_file(dd)
     save_session()
   end
   set_cur_pos(r,c)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function save_as(filename, dd)
+function lued.save_as(filename, dd)
   if filename == nil then
-    save_as_hist_id = save_as_hist_id or get_hist_id()
+    save_as_hist_id = save_as_hist_id or lued.get_hist_id()
     local done = false
     repeat
       filename = lued_prompt(save_as_hist_id,"Save As Filename: ")
-      if file_exists(filename) then
-        local response = get_yesno
+      if lued.file_exists(filename) then
+        local response = lued.get_yesno
         local prompt = "File '" .. filename .. "' exists. Overwrite <y/n/a for abort (don't save)>?";
-        local what_should_i_do = get_yesno(prompt, "N")
+        local what_should_i_do = lued.get_yesno(prompt, "N")
         if what_should_i_do == "N" then
-          disp(dd)
+          lued.disp(dd)
           done = false
         elseif what_should_i_do == "Y" then
           done = true
         else -- abort
-          disp(dd)
+          lued.disp(dd)
           return
         end
       else
@@ -3612,40 +3612,40 @@ function save_as(filename, dd)
 
   set_filename(filename)
   save_session()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function save_all(dd)
+function lued.save_all(dd)
   local dd2 = 1
   local fileid = get_fileid()
   local numsessions = get_numsessions()
   for i=1,numsessions do
-    session_sel(i)
+    lued.session_sel(i)
     if is_modified()==1 then
       save_session(dd2)
     end
   end
-  session_sel(fileid,dd)
+  lued.session_sel(fileid,dd)
 end
 
 
-function exit_session(dd)
+function lued.exit_session(dd)
   save_session()
   close_session()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function exit_all(dd)
+function lued.exit_all(dd)
   local dd2 = 1
   while (true) do
-     exit_session(dd2)
+     lued.exit_session(dd2)
   end
 end
 
 
-function quit_session(force,dd)
+function lued.quit_session(force,dd)
   force = force or false
   local not_saved_yet = is_modified()
   local numsessions = get_numsessions()
@@ -3653,7 +3653,7 @@ function quit_session(force,dd)
   if not force and not_saved_yet==1 and numsessions>0 then
     local id = get_fileid()
     local prompt = "Save '" .. get_filename(id) .. "' <y/n/a for abort (don't quit)>?";
-    what_should_i_do = get_yesno(prompt, "A")
+    what_should_i_do = lued.get_yesno(prompt, "A")
     if what_should_i_do=="Y" then
       save_session()
     end
@@ -3665,25 +3665,25 @@ function quit_session(force,dd)
       close_session()
     end
   end
-  disp(dd)
+  lued.disp(dd)
   return abort
 end
 
 
-function quit_all(force, dd)
+function lued.quit_all(force, dd)
   local dd2 = 1
   force = force or false
   local abort = false
   while (not abort) do
-     abort = quit_session(force, dd2)
+     abort = lued.quit_session(force, dd2)
   end
   if abort then
-    disp(dd)
+    lued.disp(dd)
   end
 end
 
 
-function pathifier(filename)
+function lued.pathifier(filename)
     filename = string.gsub(filename, "^~", os.getenv("HOME") )
     local env_name = string.match(filename,"%${?([%w_]+)}?")
     while env_name ~= nil do
@@ -3695,7 +3695,7 @@ function pathifier(filename)
 end
 
 
-function os_cmd(cmd)
+function lued.os_cmd(cmd)
   local stream  = assert(io.popen(cmd, "r"))
   local output_string  = assert(stream:read("*all"))
   stream:close()
@@ -3703,14 +3703,14 @@ function os_cmd(cmd)
 end
 
 
-function read_dir(glob)
+function lued.read_dir(glob)
   glob = glob or "*"
-  local files = os_cmd("ls " .. glob)
+  local files = lued.os_cmd("ls " .. glob)
   return files
 end
 
 
-function get_longest_word(words)
+function lued.get_longest_word(words)
   local longest_word = "";
   for word in words:gmatch("(%S+)") do
     local len = word:len()
@@ -3722,14 +3722,14 @@ function get_longest_word(words)
 end
 
 
-function basename(full_path)
+function lued.basename(full_path)
   full_path = full_path or ""
   local basename_str = full_path:match("[^/]+$") or ""
   return basename_str
 end
 
 
-function dirname(full_path)
+function lued.dirname(full_path)
   full_path = full_path or ""
   local dirname_str  = full_path:match("^.*[/]") or ""
 --  if dirname_str:len() > 1 then
@@ -3739,7 +3739,7 @@ function dirname(full_path)
 end
 
 
-function is_glob(filename)
+function lued.is_glob(filename)
   filename = filename or     ""
   local contains_wildcard = filename:match("[*]")
   if filename:match("[*]") then
@@ -3749,15 +3749,15 @@ function is_glob(filename)
 end
 
 
-function is_dir(filename)
+function lued.is_dir(filename)
   filename = filename or ""
   if filename == "" then
     return false
   end
-  if is_glob(filename) then
+  if lued.is_glob(filename) then
     return false
   end
-  local file_type = os_cmd("stat -c%F " .. filename) or ""
+  local file_type = lued.os_cmd("stat -c%F " .. filename) or ""
   if file_type:match("directory") then
     return true
   end
@@ -3765,7 +3765,7 @@ function is_dir(filename)
 end
 
 
-function file_exists(filename)
+function lued.file_exists(filename)
    local handle=io.open(filename,"r")
    local exists = handle~=nil
    if exists then
@@ -3775,8 +3775,8 @@ function file_exists(filename)
 end
 
 
-function ls_dir(glob)
-  ls_dir_hist_id = ls_dir_hist_id or get_hist_id()
+function lued.ls_dir(glob)
+  ls_dir_hist_id = ls_dir_hist_id or lued.get_hist_id()
   glob = glob or lued_prompt(ls_dir_hist_id, "Enter path, glob or filename. ctrl-A selects All: ")
   glob = glob or ""
 
@@ -3784,9 +3784,9 @@ function ls_dir(glob)
     return glob
   end
 
-  local path  = dirname(glob)
-  local globname = basename(glob)
-  if is_dir(glob) then
+  local path  = lued.dirname(glob)
+  local globname = lued.basename(glob)
+  if lued.is_dir(glob) then
     path = glob
     if path:match("[/]$")==nil then
       path = path .. "/"
@@ -3796,7 +3796,7 @@ function ls_dir(glob)
 
   local file_count = 0
   local return_filename = ""
-  local filenames = read_dir(glob)
+  local filenames = lued.read_dir(glob)
   if filenames ~= "" then
     print ("")
     local str = "path: " .. path
@@ -3805,7 +3805,7 @@ function ls_dir(glob)
     end
     print (str)
 
-    local longest_filename = get_longest_word(filenames);
+    local longest_filename = lued.get_longest_word(filenames);
     local col_width = longest_filename:len() + 2
     local prepend_path = path ~= nil and longest_filename:match("[/]")==nil
     if (prepend_path) then
@@ -3839,58 +3839,58 @@ function ls_dir(glob)
 end
 
 
-function chomp(str)
+function lued.chomp(str)
   str = str or ""
   return str:gsub("\n$","")
 end
 
 
-function exactly_one_file_matches(glob)
-  local filenames = read_dir(glob)
+function lued.exactly_one_file_matches(glob)
+  local filenames = lued.read_dir(glob)
   local _,count = filenames:gsub("%S+","")
   if count==1 then
-    return chomp(filenames)
+    return lued.chomp(filenames)
   end
   return nil
 end
 
 
-function is_empty(str)
+function lued.is_empty(str)
   return str==nil or str==""
 end
 
 
-function cd_change_dir(dd)
+function lued.cd_change_dir(dd)
   local tmp_path = ""
-  tmp_path = ls_dir("")
+  tmp_path = lued.ls_dir("")
   local previous = tmp_path
   local filename = ""
   repeat
     if tmp_path == "ctrl_A" then -- select all
-      if is_dir(previous) then
+      if lued.is_dir(previous) then
         previous = previous .. "/*"
       end
-      local filenames = read_dir(previous)
+      local filenames = lued.read_dir(previous)
 
       return filenames
     end
 
-    filename = exactly_one_file_matches(tmp_path)
-    if not is_empty(filename) then
+    filename = lued.exactly_one_file_matches(tmp_path)
+    if not lued.is_empty(filename) then
       return filename
     end
     previous = tmp_path
-    tmp_path = ls_dir()
+    tmp_path = lued.ls_dir()
   until tmp_path==""
-  disp(dd)
+  lued.disp(dd)
   return nil
 end
 
 
-function is_open(filename)
+function lued.is_open(filename)
   local dd2 = 1
   filename = filename or ""
-  if is_empty(filename) then
+  if lued.is_empty(filename) then
     return nil
   end
   local id = get_fileid()
@@ -3908,13 +3908,13 @@ function is_open(filename)
 end
 
 
-function open_file(filenames,dd)
+function lued.open_file(filenames,dd)
   local dd2 = 1
   if filenames==nil then
-    filenames = cd_change_dir(dd2)
+    filenames = lued.cd_change_dir(dd2)
   end
   if filenames==nil then
-    open_file_hist_id = open_file_hist_id or get_hist_id()
+    open_file_hist_id = open_file_hist_id or lued.get_hist_id()
     filenames = lued_prompt(open_file_hist_id, "Enter Filename: ")
     local home = os.getenv("HOME")
     filenames = string.gsub(filenames,"^~",home)
@@ -3929,28 +3929,28 @@ function open_file(filenames,dd)
   local filename_list,count = filenames:gmatch("(%S+)")
 
   for filename1 in filename_list do
-    local existing_fileid = is_open(filename1)
+    local existing_fileid = lued.is_open(filename1)
     if existing_fileid then
        g_tab_prev = get_fileid()
       set_fileid(existing_fileid,dd2)
-    elseif filename1~=nil and filename1~="" and file_exists(filename1) and not is_dir(filename1) and not is_open(filename1) then
+    elseif filename1~=nil and filename1~="" and lued.file_exists(filename1) and not lued.is_dir(filename1) and not lued.is_open(filename1) then
       local prev = get_fileid()
       local fileid = lued_open(filename1)
       if fileid~=nil and fileid~=0 then
         g_tab_prev = prev
         set_fileid(fileid)
-        move_to_first_line(dd2)
+        lued.move_to_first_line(dd2)
       end
     end
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function ls_recursive(path,filter)
+function lued.ls_recursive(path,filter)
   path = path or "."
   filter = filter or ""
-  local filenames_str = os_cmd("find "..path.." -type f -iname '*"..filter.."*'")
+  local filenames_str = lued.os_cmd("find "..path.." -type f -iname '*"..filter.."*'")
   local filenames_table = {}
   for filename in filenames_str:gmatch('[^\n]+') do
     table.insert(filenames_table, filename)
@@ -3959,13 +3959,13 @@ function ls_recursive(path,filter)
 end
 
 
-function open_partial_filename(dd)
+function lued.open_partial_filename(dd)
   local dd2 = 1
   local file_filter = ""
-  open_partial_filename_hist_id = open_partial_filename_hist_id or get_hist_id()
+  open_partial_filename_hist_id = open_partial_filename_hist_id or lued.get_hist_id()
   file_filter = lued_prompt(open_partial_filename_hist_id, "Enter Partial Filename: ")
   print("\n")
-  local filenames_table = ls_recursive(".", file_filter)
+  local filenames_table = lued.ls_recursive(".", file_filter)
   for i, f in pairs(filenames_table) do
     print(i..": "..f)
   end
@@ -3973,57 +3973,57 @@ function open_partial_filename(dd)
   if #filenames_table == 1 then
     filename = filenames_table[1]
   end
-  open_file(filename,dd)
+  lued.open_file(filename,dd)
 end
 
 
-function open_file_bindings(dd)
-  open_file(g_bindings_file,dd)
+function lued.open_file_bindings(dd)
+  lued.open_file(g_bindings_file,dd)
 end
 
 
-function reload_file(dd)
+function lued.reload_file(dd)
   reopen()
   g_enable_file_changed = true -- tell me when the file has changed.
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function open_filelist(filelist,dd)
+function lued.open_filelist(filelist,dd)
   local dd2 = 1
   if filelist==nil then
-    open_filelist_hist_id = open_filelist_hist_id or get_hist_id()
+    open_filelist_hist_id = open_filelist_hist_id or lued.get_hist_id()
     filelist = lued_prompt(open_filelist_hist_id, "Enter Filelist: ")
   end
   if (filelist~=nil and filelist~="") then
     local file = io.open(filelist, "r");
     if file~=nil then
       for filename in file:lines() do
-        open_file(filename)
+        lued.open_file(filename)
       end
     end
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function new_file(filename, dd)
+function lued.new_file(filename, dd)
   local dd2 = 1
   local fileid = lued_open("")
   if filename == nil then
     local default_filename = "lued_untitled_"..fileid..".txt"
-    new_file_hist_id = new_file_hist_id or get_hist_id()
+    new_file_hist_id = new_file_hist_id or lued.get_hist_id()
     filename = lued_prompt(new_file_hist_id,  "Enter Filename (default: '"..default_filename.."'): ")
     if filename == nil or filename=="" then
       filename = default_filename
     end
   end
   set_fileid(fileid)
-  save_as(filename,dd)
+  lued.save_as(filename,dd)
 end
 
 
-function set_page_offset_percent(offset,dd)
+function lued.set_page_offset_percent(offset,dd)
   local tr,tc = get_termsize()
   local r,c = get_cur_pos()
   if offset == nil then
@@ -4039,102 +4039,102 @@ function set_page_offset_percent(offset,dd)
   offset = math.ceil(offset)
   set_page_offset(offset,0)
   g_page_offset = offset
-  if (dd==0) then disp(dd) end
+  if (dd==0) then lued.disp(dd) end
 end
 
 
-function recenter(dd)
+function lued.recenter(dd)
   local dd2 = 1
-  set_page_offset_percent(0.50,dd)
-  disp(dd)
+  lued.set_page_offset_percent(0.50,dd)
+  lued.disp(dd)
 end
 
 
-function recenter_top(dd)
+function lued.recenter_top(dd)
   local dd2 = 1
-  set_page_offset_percent(0.10,dd2)
-  disp(dd)
+  lued.set_page_offset_percent(0.10,dd2)
+  lued.disp(dd)
 end
 
 
-function move_down_and_repeat(dd)
+function lued.move_down_and_repeat(dd)
   local dd2 = 1
   if g_prev_pos ~= nil then
     local prev_r, prev_c = g_prev_pos;
     local prev_cmd = get_last_cmd() or ""
     set_cur_pos(prev_r, prev_c);
-    move_down_n_lines(1,dd2)
+    lued.move_down_n_lines(1,dd2)
 
 
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function undo_cmd(dd)
+function lued.undo_cmd(dd)
   local last_cmd = get_last_cmd()
 --  lued.dbg_prompt("last_cmd="..last_cmd.."xxx")
   -- set_ctrl_z_suspend(true);
   undo()
-  disp(dd)
+  lued.disp(dd)
 end
 
-function redo_cmd(dd)
+function lued.redo_cmd(dd)
   redo()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function alt_z_wrapper(dd)
+function lued.alt_z_wrapper(dd)
   local dd2 = 1;
   if g_ctrl_z_suspend then
-    undo_cmd(dd2)
+    lued.undo_cmd(dd2)
   else
     lued.set_ctrl_z_suspend(true)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function set_named_mark(dd)
-  named_mark_hist_id = named_mark_hist_id or get_hist_id()
+function lued.set_named_mark(dd)
+  named_mark_hist_id = named_mark_hist_id or lued.get_hist_id()
   local hot = nil
   mark_name = lued_prompt(select_tab_hist_id, "Set Mark - Enter Name: ",hot)
   set_mark(mark_name);
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function goto_named_mark(dd)
-  named_mark_hist_id = named_mark_hist_id or get_hist_id()
+function lued.goto_named_mark(dd)
+  named_mark_hist_id = named_mark_hist_id or lued.get_hist_id()
   local hot = nil
   mark_name = lued_prompt(select_tab_hist_id, "Goto Mark - Enter Name: ",hot)
   goto_mark(mark_name);
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function set_nameless_mark(dd)
+function lued.set_nameless_mark(dd)
   local dd2 = 1
   g_nameless_stack = g_nameless_stack or 0
   set_mark("nameless_" .. g_nameless_stack)
   g_nameless_stack = g_nameless_stack + 1
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function goto_nameless_mark_prev(dd)
+function lued.goto_nameless_mark_prev(dd)
   g_nameless_stack = g_nameless_stack or 1
   if g_nameless_stack==0 then g_nameless_stack = 1 end
   g_nameless_stack = g_nameless_stack - 1
   goto_mark("nameless_" .. g_nameless_stack)
-  disp(dd)
+  lued.disp(dd)
 end
 
-function sel_mark_to_cursor(dd)
+function lued.sel_mark_to_cursor(dd)
   local dd2 = 1
   local r1,c1 = get_cur_pos()
-  goto_nameless_mark_prev(dd2)
+  lued.goto_nameless_mark_prev(dd2)
   local r2,c2 = get_cur_pos()
 
   if (r1 < r2) then
@@ -4146,7 +4146,7 @@ function sel_mark_to_cursor(dd)
     r1,r2 = r2,r1
     c1,c2 = c2,c1
   else
-    disp(dd)
+    lued.disp(dd)
     return
   end
 
@@ -4154,26 +4154,26 @@ function sel_mark_to_cursor(dd)
   set_sel_start()
   set_cur_pos(r2,c2)
   set_sel_end()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
-function del_mark_to_cursor(dd)
+function lued.del_mark_to_cursor(dd)
   local dd2 = 1
-  sel_mark_to_cursor(dd2)
-  del_sel(dd)
+  lued.sel_mark_to_cursor(dd2)
+  lued.del_sel(dd)
 end
 
 
-function goto_nameless_mark_next(dd)
+function lued.goto_nameless_mark_next(dd)
   g_nameless_stack = g_nameless_stack or 0
   g_nameless_stack = g_nameless_stack + 1
   local found = goto_mark("nameless_" .. g_nameless_stack)
   if not found then g_nameless_stack = g_nameless_stack - 1 end
-  disp(dd)
+  lued.disp(dd)
 end
 
-function decset(val)
+function lued.decset(val)
   val = val or 1000
   lued.set_min_lines_from_top(0)
   lued.set_min_lines_from_bot(0)
@@ -4191,7 +4191,7 @@ function lued.decrst(val)
   io.write( csi .. "?" .. val .. "l" )
 end
 
-function mouse_config(val)
+function lued.mouse_config(val)
   if val==nil then
     if g_decset==nil or g_decset==0 then
       val = 1000
@@ -4204,7 +4204,7 @@ function mouse_config(val)
     lued.decrst(g_decset)
   end
   if (val~=0) then -- 9 = x10 1000 = normal
-    decset(val)
+    lued.decset(val)
   else
     lued.decrst(g_decset)
   end
@@ -4212,7 +4212,7 @@ function mouse_config(val)
 end
 
 
-function mouse_event(str)
+function lued.mouse_event(str)
   str = str or ""
   if g_mouse_remove_trailing_comma then
     local last_pos = #str-1
@@ -4240,38 +4240,38 @@ function mouse_event(str)
       -- set_sel_end()
     end
   elseif Cb==64 then  -- scroll wheel forward
-    move_up_n_lines(2,dd2)
+    lued.move_up_n_lines(2,dd2)
   elseif Cb==65 then  -- scroll wheel backward
-    move_down_n_lines(2,dd2)
+    lued.move_down_n_lines(2,dd2)
   else
     dd2 = 1
   end
-  disp(dd2)
+  lued.disp(dd2)
 end
 
-function relued(dd)
-  dofile(pathifier( g_lued_root .. "/lued.lua"))
-  disp(dd)
+function lued.relued(dd)
+  dofile(lued.pathifier( g_lued_root .. "/lued.lua"))
+  lued.disp(dd)
 end
 
-function spare()
-  spare_hist_id = spare_hist_id or get_hist_id()
+function lued.spare()
+  spare_hist_id = spare_hist_id or lued.get_hist_id()
   lued_prompt(spare_hist_id, "Undefined control character. Press <Enter> to continue...")
-  disp()
+  lued.disp()
 end
 
-function dont_use()
-  dont_use_hist_id = dont_use_hist_id or get_hist_id()
+function lued.dont_use()
+  dont_use_hist_id = dont_use_hist_id or lued.get_hist_id()
   lued_prompt(dont_use_hist_id, "Please do not use this control character. Press <Enter> to continue...")
-  disp()
+  lued.disp()
 end
 
-function logo()
-  -- logo generated by:
+function lued.logo()
+  -- lued.logo generated by:
   -- http://patorjk.com/software/taag/#p=display&f=Big&t=LuEd%20v0%20.%2010
 
 
-  local logo = [=[
+  local logo_str = [=[
 
   _           ______    _          ___        __  ___
  | |         |  ____|  | |        / _ \      /_ |/ _ \
@@ -4281,10 +4281,10 @@ function logo()
  |______\__,_|______\__,_|   \_/  \___/  (_)  |_|\___/
 ]=]
 
-return logo
+return logo_str
 end
 
-function help(n,dd)
+function lued.help(n,dd)
   n = n or 1
   local basic_help = [[
 Basic Operations
@@ -4301,15 +4301,15 @@ Basic Operations
 - Ctrl+d deletes character, Alt+d backspaces char
 Cut / Copy / Paste
 - Alt+z starts selecting (similar to mouse press and hold)
-- Ctrl+x / Ctrl+c / Ctrl+v cut, copy and paste as expected.
-- A common cut and paste sequence is Alt+z, move, Ctrl+c, move Ctrl+v
+- Ctrl+x / Ctrl+c / Ctrl+v lued.cut, lued.copy and lued.paste as expected.
+- A common lued.cut and lued.paste sequence is Alt+z, move, Ctrl+c, move Ctrl+v
 - Ctrl+d is the same as the delete key; Alt+d is the same as backspace key
 
 Try the Scroll Wheel... It should work
-Try Mouse select, right mouse button to copy/paste... It should work too.
+Try Mouse select, right mouse button to lued.copy/lued.paste... It should work too.
 
 More Help
-- Alt+help2 shows more help
+- Alt+help2 shows more lued.help
 ]]
 
   local advanced_help = [[
@@ -4335,7 +4335,7 @@ Delete/Cut/Copy Commands
 - Alt+e deletes to end of line    (Same as Alt+z,<End>,<Delete>)
 - Alt+x deletes current line      (Same as Shift+Delete)
 - Alt+w deletes to end of word    (Same as Alt+z,Alt+f,<Delete>)
-- Alt+c copies current line to paste buffer. Repeat to copy more lines.
+- Alt+c copies current line to lued.paste buffer. Repeat to lued.copy more lines.
 
 - Alt+l420<enter> goes to line 420
 
@@ -4345,91 +4345,91 @@ Multiple Files
 - Alt+Shift+B goes to previous file buffer (useful when working with two files)
 
 More Help
-- <alt>help for basic edit commands
-- <alt>help3 for less help
+- <alt>lued.help for basic edit commands
+- <alt>help3 for less lued.help
 ]]
 
 local lua_help = [[
 
 tbd...
 More Help
-- <alt>help for basic edit commands
+- <alt>lued.help for basic edit commands
 - <alt>help2 for more features
 ]]
 
-  disp(dd)
+  lued.disp(dd)
   if (n==1) then
-    print (logo())
+    print (lued.logo())
     print (basic_help)
   elseif (n==2) then
-    print (logo())
+    print (lued.logo())
     print (advanced_help)
   else
-    print (logo())
+    print (lued.logo())
     print (lua_help)
   end
-  hit_cr()
-  disp(dd)
+  lued.hit_cr()
+  lued.disp(dd)
 end
 
 
-function copy_word(dd)
+function lued.copy_word(dd)
   local dd2 = 1
-  sel_word(dd2)
-  global_copy(dd)
+  lued.sel_word(dd2)
+  lued.global_copy(dd)
 end
 
 
-function copy_sol(dd)
-  local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  move_to_sol(dd2)
-  set_sel_start()
-  set_cur_pos(r1,c1)
-  global_copy(dd)
-end
-
-
-function copy_eol(dd)
+function lued.copy_sol(dd)
   local dd2 = 1
   local r1,c1 = get_cur_pos()
+  lued.move_to_sol(dd2)
   set_sel_start()
-  move_to_eol(dd2)
-  global_copy(dd2)
   set_cur_pos(r1,c1)
-  disp(dd)
+  lued.global_copy(dd)
 end
 
 
-function copy_line(n,dd)
+function lued.copy_eol(dd)
+  local dd2 = 1
+  local r1,c1 = get_cur_pos()
+  set_sel_start()
+  lued.move_to_eol(dd2)
+  lued.global_copy(dd2)
+  set_cur_pos(r1,c1)
+  lued.disp(dd)
+end
+
+
+function lued.copy_line(n,dd)
   n = n or 1
   local dd2 = 1
   if is_sel_off()==1 then
     lued.move_to_sol_classic(dd2)
     local r1,c1 = get_cur_pos()
     set_sel_start()
-    move_down_n_lines(n,dd)
+    lued.move_down_n_lines(n,dd)
     local r2,c2 = get_cur_pos()
 --    set_sel_end()
-    global_copy(dd)
+    lued.global_copy(dd)
 --    lued.move_to_sol_classic(dd)
   else
-    global_copy(dd)
+    lued.global_copy(dd)
   end
 end
 
 
-function duplicate_line(dd)
+function lued.duplicate_line(dd)
   local dd2 = 1
-  cut_line(1,dd2)
-  global_paste(dd2)
-  global_paste(dd2)
-  move_up_n_lines(1,dd)
+  lued.cut_line(1,dd2)
+  lued.global_paste(dd2)
+  lued.global_paste(dd2)
+  lued.move_up_n_lines(1,dd)
 end
 
 
-function hit_cr()
-  hit_cr_hist_id = hit_cr_hist_id or get_hist_id()
+function lued.hit_cr()
+  hit_cr_hist_id = hit_cr_hist_id or lued.get_hist_id()
   lued_prompt(hit_cr_hist_id, "Press <Enter> to continue...")
 end
 
@@ -4447,14 +4447,14 @@ function lued.save_session_file(dd)
     seshfile:write(line.."\n")
   end
   seshfile:close()
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.load_session_file(dd)
   local sesh_file = io.open("session.lued","r")
   local all_files = sesh_file:read("*all")
-  open_file(all_files, dd)
+  lued.open_file(all_files, dd)
 end
 
 
@@ -4494,12 +4494,12 @@ function lued.select_tab(filter)
     if found_i ~= 0 then
       new_id = found_i
     else
-      local hot = nil -- hot_range('a','z') .. hot_range('A','Z') .. ",-,_,"
+      local hot = nil -- lued.hot_range('a','z') .. hot_range('A','Z') .. ",-,_,"
       -- print (hot); io.read()
-      select_tab_hist_id = select_tab_hist_id or get_hist_id()
+      select_tab_hist_id = select_tab_hist_id or lued.get_hist_id()
       new_id = lued_prompt(select_tab_hist_id, "Enter File Id Number, 'tt' or portion of filename: ",hot)
       if new_id==nil or new_id=="" then
-        tab_toggle(dd)
+        lued.tab_toggle(dd)
         return
       end
       local new_id_int = tonumber(new_id)
@@ -4517,32 +4517,32 @@ function lued.select_tab(filter)
     end
   until found_i > 0
   if (tonumber(new_id)~=id) then
-    session_sel(new_id)
+    lued.session_sel(new_id)
   else
-    disp()
+    lued.disp()
   end
 end
 
 
 function lued.set_comment(dd)
   local dd2 = 1
-  set_comment_hist_id = set_comment_hist_id or get_hist_id()
+  set_comment_hist_id = set_comment_hist_id or lued.get_hist_id()
   local comment_str = lued_prompt(set_comment_hist_id,"Enter Comment String (Default = '"..g_comment.."'): ")
   if comment_str~=nil and comment_str~="" then
     g_comment = comment_str
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.set_indent_size(dd)
   local dd2 = 1
-  set_indent_size_hist_id = set_indent_size_hist_id or get_hist_id()
+  set_indent_size_hist_id = set_indent_size_hist_id or lued.get_hist_id()
   local  indent_size = lued_prompt(set_indent_size_hist_id,"Enter Indent Size (Default = '"..g_indent_size.."'): ")
   if indent_size ~= nil and tonumber(indent_size) > 0 then
     g_indent_size = indent_size
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -4553,13 +4553,13 @@ function lued.join_lines(delim,n,dd)
   for i=1,n do
     local r,c = get_cur_pos()
     if not lued.is_eol() then
-      move_to_eol(dd2)
+      lued.move_to_eol(dd2)
     end
-    del_char(dd2)
+    lued.del_char(dd2)
     ins_str(delim,dd2);
     set_cur_pos(r,c)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -4567,24 +4567,24 @@ function lued.wrap_line(wrap_col,wrap_delim,dd)
   wrap_col = wrap_col or 60
   wrap_delim = wrap_delim or " "
   local dd2 = 1
-  move_to_eol(dd2)
+  lued.move_to_eol(dd2)
   local r,c = get_cur_pos()
   while c > wrap_col do
-    move_left_n_words(dd2)
+    lued.move_left_n_words(dd2)
     r,c = get_cur_pos()
   end
-  ins_string("\n",dd2)
+  lued.ins_string("\n",dd2)
   if get_line_len() <= wrap_col then
     lued.join_lines(wrap_delim,dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 --  lued.foreach_selected(lued.align_start_of_next_line, dd)
 --  lued.foreach_selected(lued.align_delimiter_of_next_line, dd)
---  lued.foreach_selected(del_spaces_next_line, dd)
---  lued.foreach_selected(bubble_line_up,dd)
+--  lued.foreach_selected(lued.del_spaces_next_line, dd)
+--  lued.foreach_selected(lued.bubble_line_up,dd)
 --  lued.foreach_selected(lued.comment, dd)
 --  lued.foreach_selected(lued.uncomment, dd)
 
@@ -4609,7 +4609,7 @@ function lued.foreach_selected(fn, dd)
   else
     fn(dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -4620,9 +4620,9 @@ function lued.comment(dd)
   if not lued.is_eol() then
     ins_str(" ",dd2)
   end
-  move_down_n_lines(1,dd2)
+  lued.move_down_n_lines(1,dd2)
   lued.move_to_sol_classic(dd2)
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -4637,9 +4637,9 @@ function lued.uncomment(dd)
   lued.move_to_sol_classic(dd2)
   local line = get_line()
   if string.find(line,g_comment,1,true) == 1 then
-    del_char(comment_len+1,dd2)
+    lued.del_char(comment_len+1,dd2)
   end
-  move_down_n_lines(1,dd)
+  lued.move_down_n_lines(1,dd)
 end
 
 
@@ -4649,8 +4649,8 @@ end
 
 
 function lued.load_plugins(plugin_path)
-  plugin_path = pathifier(plugin_path)
-  local plugins = read_dir(plugin_path .. "/*.lua")
+  plugin_path = lued.pathifier(plugin_path)
+  local plugins = lued.read_dir(plugin_path .. "/*.lua")
   for plugin in plugins:gmatch("(%S+)") do
     if (plugin ~= "") then
       dofile(plugin)
@@ -4662,28 +4662,28 @@ end
 function lued.sel_to_upper(dd)
   local dd2 = 1
   if not lued.is_sel_on() then
-    sel_n_char(1,dd2)
+    lued.sel_n_char(1,dd2)
     set_sel_end()
   end
-  local sel_str, sel_sr, sel_sc = get_sel_str()
+  local sel_str, sel_sr, sel_sc = lued.get_sel_str()
   if sel_str ~= "" then
-    ins_string(string.upper(sel_str),dd2)
+    lued.ins_string(string.upper(sel_str),dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 function lued.sel_to_lower(dd)
   local dd2 = 1
   if not lued.is_sel_on() then
-    sel_n_char(1,dd2)
+    lued.sel_n_char(1,dd2)
     set_sel_end()
   end
-  local sel_str, sel_sr, sel_sc = get_sel_str()
+  local sel_str, sel_sr, sel_sc = lued.get_sel_str()
   if sel_str ~= "" then
-    ins_string(string.lower(sel_str),dd2)
+    lued.ins_string(string.lower(sel_str),dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
@@ -4704,10 +4704,10 @@ end
 
 function lued.get_word(dd)
   local dd2 = 1
-  sel_word(dd2)
+  lued.sel_word(dd2)
   set_sel_end(dd2)
-  local sel_str, sel_sr, sel_sc, sel_er, sel_ec = get_sel_str()
-  disp(dd)
+  local sel_str, sel_sr, sel_sc, sel_er, sel_ec = lued.get_sel_str()
+  lued.disp(dd)
   return sel_str
 end
 
@@ -4727,7 +4727,7 @@ function lued.sel_number(dd)
   if lued.is_digit( string.sub(line,c,c) ) then
     while lued.is_digit( string.sub(line,c1-1,c1-1) ) do c1 = c1 - 1; end
     while lued.is_digit( string.sub(line,c2+1,c2+1) ) do c2 = c2 + 1; end
-    set_sel_from_to(r,c1,r,c2+1,dd2)
+    lued.set_sel_from_to(r,c1,r,c2+1,dd2)
   else
     set_sel_off()
   end
@@ -4738,11 +4738,11 @@ function lued.get_number(dd)
   local dd2 = 1
   lued.sel_number(dd2)
   if is_sel_off() then
-    disp(dd)
+    lued.disp(dd)
     return nil
   end
-  local sel_str, sel_sr, sel_sc = get_sel_str()
-  disp(dd)
+  local sel_str, sel_sr, sel_sc = lued.get_sel_str()
+  lued.disp(dd)
   return sel_str
 end
 
@@ -4754,19 +4754,19 @@ function lued.incr(step_size, dd)
   local r,c = get_cur_pos()
   local tmp_str = lued.get_number(dd2)
   if tmp_str == nil then
-    disp(dd)
+    lued.disp(dd)
     return
   end
   local num = tonumber( tmp_str ) + step_size
   local num_str = tostring ( num )
   set_cur_pos(r,c)
-  move_down_n_lines(1,dd2)
+  lued.move_down_n_lines(1,dd2)
   lued.sel_number(dd2)
   if lued.is_sel_on() then
     ins_str(num_str,dd2)
     set_cur_pos(r+1, c)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 -- go down 1 line replace number with decrement
