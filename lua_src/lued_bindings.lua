@@ -75,20 +75,20 @@ alt_BB           = lued.toggle_top              lued.hot("BB")  -- Goto top of f
 alt_ww           = lued.move_right_n_words      lued.hot("ww")  -- Move right one word. Similar to Sublime Ctrl+right_arrow.
 alt_WW           = lued.move_left_n_words       lued.hot("WW")  -- Move left one word. Similar to Sublime Ctrl+left_arrow.
 alt_ee           = lued.toggle_express_mode     lued.hot("ee") -- Express mode - arrow keys move faster
-alt__gt_         = lued.halfsy_right            lued.hot(",>,") -- Move right half the distance
-alt__lt_         = lued.halfsy_left             lued.hot(",<,") -- Move left half the distance
+alt__gt_         = lued.move_halfsy_right            lued.hot(",>,") -- Move right half the distance
+alt__lt_         = lued.move_halfsy_left             lued.hot(",<,") -- Move left half the distance
 alt_R            = lued.move_left_n_char                   -- Move N char left.  alt_l42<Enter> moves 42 char to the left
 alt_RR           = lued.move_left_n_char        lued.hot("RR")  -- Move predefined numbed of char to the left.
 alt_r            = lued.set_move_right_n_char              -- Move N char right.  alt_r42<Enter> moves 42 char to the right
 alt_rr           = lued.move_right_n_char       lued.hot("rr")  -- Move predefined numbed of char to the right.
 
 --## ctag Exuberant Tags
-alt_cb           = ctag_move_back_from_tag  lued.hot("cb") -- ctag back
-alt_cf           = ctag_move_forward_in_stack lued.hot("cf") -- ctag forward in stack 
-alt_ct           = ctag_move_to_tag         lued.hot("ct") -- ctag jump. Similar Sublime Ctrl+R
-alt_CT           = ctag_jump_back           lued.hot("CT") -- ctag jump back.
-alt_cr           = ctag_read_file           lued.hot("cr") -- ctag read
-alt_cx           = ctag_delete_history      lued.hot("cx") -- ctag delete history
+alt_cb           = lued.ctag_move_back_from_tag  lued.hot("cb") -- ctag back
+alt_cf           = lued.ctag_move_forward_in_stack lued.hot("cf") -- ctag forward in stack 
+alt_ct           = lued.ctag_move_to_tag         lued.hot("ct") -- ctag jump. Similar Sublime Ctrl+R
+alt_CT           = lued.ctag_jump_back           lued.hot("CT") -- ctag jump back.
+alt_cr           = lued.ctag_read_file           lued.hot("cr") -- ctag read
+alt_cx           = lued.ctag_delete_history      lued.hot("cx") -- ctag delete history
 
 --## Delete, Cut, Copy and Paste Commands
 alt_ce           = lued.copy_eol                lued.hot("ce") -- lued.copy current pos to eol
@@ -127,18 +127,18 @@ alt_FC           = lued.clr_find_case_sensitive  lued.hot("FC")  -- clear find c
 alt_fw           = lued.set_find_whole_word     lued.hot("fw")  -- set find whole word
 alt_FW           = lued.clr_find_whole_word     lued.hot("FW")  -- clear find whole word
 alt_hh           = lued.replace_again           lued.hot("hh")  -- Find and Replace again.
-alt_vv           = lued.paste_and_find_forward  lued.hot("vv")  -- Paste and Find Next
 alt_VV           = lued.paste_and_find_reverse  lued.hot("VV")  -- Paste and Find Prev
+alt_vv           = lued.paste_and_find_forward  lued.hot("vv")  -- Paste and Find Next
 alt__minus_      = lued.find_jump_back          lued.hot(",-,") -- Jump back to previous position before Find. Similar to Sublime lued.jump_back.
 alt__            = lued.find_jump_forward       lued.hot(",_,") -- Jump forward to next position in jump stack. Similar to Sublime lued.jump_forward.
 
 --## Line Swap Commands
-alt_sn           = lued.swap_line_with_next     lued.hot("sn") -- Swap current line with next line. Similar to Sublime Ctrl+DOWN arrow
-alt_sp           = lued.swap_line_with_prev     lued.hot("sp") -- Swap current line with prev line. Similar to Sublime Ctrl+UP arrow
-alt_bd           = lued.bubble_selected_lines_down lued.hot("bd") -- line sinks to bottom of file. Similar to sublime Ctrl+Shift+Down
-alt_bu           = lued.bubble_selected_lines_up   lued.hot("bu") -- line floats to top of file. Similar to Sublime Ctrl+Shift+Up
-alt_bl           = lued.bubble_word_left           lued.hot("bl") -- swap current word with prev word. Similar to Sublime move_word_left
+alt_sl           = lued.swap_line_with_next     lued.hot("sl") -- Swap current line with next line. Similar to Sublime Ctrl+DOWN arrow
+alt_SL           = lued.swap_line_with_prev     lued.hot("SL") -- Swap current line with prev line. Similar to Sublime Ctrl+UP arrow
+alt_bl           = lued.bubble_selected_lines_down lued.hot("bl") -- line sinks down towards bottom of file. Similar to sublime Ctrl+Shift+Down
+alt_BL           = lued.bubble_selected_lines_up   lued.hot("BL") -- line floats up towards top of file. Similar to Sublime Ctrl+Shift+Up
 alt_br           = lued.bubble_word_right          lued.hot("br") -- swap current word with next word. Similar to Sublime move_word_right
+alt_BR           = lued.bubble_word_left           lued.hot("BR") -- swap current word with prev word. Similar to Sublime move_word_left
 
 --## Indent and Align Commands
 alt_ii           = lued.indent_selected         lued.hot("ii")  -- Indented selected lines one space
@@ -146,7 +146,7 @@ alt_II           = lued.unindent_selected       lued.hot("II")  -- Unindent sele
 alt_ir           = lued.reindent_selected       lued.hot("ir")  -- Reindents selected per defined lued.indent size
 alt_is           = lued.set_indent_size         lued.hot("is")  -- Set lued.indent size
 alt_aa           = lued.sel_all                 lued.hot("aa")  -- Select All (Entire File). Similar to Sublime Ctrl+A.
-alt_al           = lued.align_cur_char;         lued.hot("al") -- Align char on next line with current line
+alt_al           = lued.align_cur_char          lued.hot("al") -- Align char on next line with current line
 alt_af           = lued.align_selected          lued.hot("af")  -- Align First char on next line with current line. If lines selected then align all lines with first line.
 
 --## Center Cursor Commands

@@ -87,7 +87,48 @@ SOFTWARE.
 
   dofile( g_lued_root .. "/lued_lib.lua" )
   dofile( g_lued_root .. "/lued_version.lua" )
+
+
+
+  package.path = g_lued_root .. "/?.lua;" ..  package.path
+
+  require "core.terminal"
+  require "core.os"
+  require "core.hotkeys"
+  require "core.undo"
+  require "core.files"
+  require "core.getters_setters"
+  require "core.booleans"
+  require "core.display"
+  require "core.move"
+  require "core.select"
+  require "core.insert"
+  require "core.find"
+  require "core.delete"
+  require "core.copy_paste"
+  require "core.get_sel"
+  require "core.quit"
+  
+  require "base.align"
+  require "base.center_page"
+  require "base.comments"
+  require "base.ctags"
+  require "base.help"
+  require "base.increment"
+  require "base.indent"
+  require "base.linenumbers"
+  require "base.markers"
+  require "base.mouse"
+  require "base.multifile"
+  require "base.plugins"
+  require "base.remove"
+  require "base.sessions"
+  require "base.sidebar"
+  require "base.statusline"
+  require "base.swap"
+
   lued.init_lued(g_lued_root, g_bindings_file)
+
 
   local lued_metatable = {
     __index = function ( t, k )

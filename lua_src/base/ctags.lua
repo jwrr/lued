@@ -29,7 +29,7 @@ g_ctag_file = {}
 g_ctag_address = {}
 
 -- Read the tags file
-function ctag_read_file(tagfile, dd)
+function lued.ctag_read_file(tagfile, dd)
   tagfile = tagfile or "tags"  -- if nil then default to "tags"
   g_ctag_file = {}     -- clear hash table of filenames
   g_ctag_address = {}  -- clear hash table of line numbers (or search strings)
@@ -42,18 +42,18 @@ function ctag_read_file(tagfile, dd)
     g_ctag_file[name] = fields[2] or ""
     g_ctag_address[name] = fields[3] or ""
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 -- Jump to the definition of the symbol under the cursor
-function ctag_move_to_tag(dd)
+function lued.ctag_move_to_tag(dd)
   local dd2=1
   if is_sel_off()==1 then
-    sel_word(dd2)
+    lued.sel_word(dd2)
     set_sel_end()
   end
-  local sel_str, sel_sr, sel_sc = get_sel_str()
+  local sel_str, sel_sr, sel_sc = lued.get_sel_str()
 
   local file = g_ctag_file[sel_str]
   local address = g_ctag_address[sel_str] or 1
@@ -61,48 +61,48 @@ function ctag_move_to_tag(dd)
   -- save current position in jump stack
   g_ctag_r, g_ctag_c = get_cur_pos()
   g_ctag_id = get_fileid()
-  push_jump_stack(g_find_jump_back_stack, g_ctag_id, g_ctag_r, g_ctag_c)
-  push_jump_stack(g_ctag_jump_back_stack, g_ctag_id, g_ctag_r, g_ctag_c)
+  lued.push_jump_stack(g_find_jump_back_stack, g_ctag_id, g_ctag_r, g_ctag_c)
+  lued.push_jump_stack(g_ctag_jump_back_stack, g_ctag_id, g_ctag_r, g_ctag_c)
   
-  open_file(file, dd2)
-  move_to_first_line(dd2)
+  lued.open_file(file, dd2)
+  lued.move_to_first_line(dd2)
   if lued.is_number(address) then
-    move_to_line(tonumber(address), dd2)
+    lued.move_to_line(tonumber(address), dd2)
   else
     address = address:sub(3,-3) -- remove '/^' and '$/'
 --     dbg_prompt("file="..file.." address="..address)
-     local found = find_forward(address,true,false,false,address,dd2)
-     move_to_sol(dd2)
+     local found = lued.find_forward(address,true,false,false,address,dd2)
+     lued.move_to_sol(dd2)
      
-     find_forward(sel_str,true,false,false,sel_str,dd2)
+     lued.find_forward(sel_str,true,false,false,sel_str,dd2)
   end
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 -- Return back to the original file location
-function ctag_move_back_from_tag(dd)
+function lued.ctag_move_back_from_tag(dd)
   if g_ctag_r==nil then
-    disp(dd)
+    lued.disp(dd)
     return
   end
   local dd2 = 1
-  session_sel(g_ctag_id,dd2)
+  lued.session_sel(g_ctag_id,dd2)
   set_cur_pos(g_ctag_r, g_ctag_c)
   g_ctag_r = nil
-  disp(dd)
+  lued.disp(dd)
 end
 
 
 g_ctag_jump_back_stack = {}
 g_ctag_jump_forward_stack = {}
-function ctag_jump_back(dd)
-  jump_back(g_ctag_jump_back_stack, g_ctag_jump_forward_stack, dd)
+function lued.ctag_jump_back(dd)
+  lued.jump_back(g_ctag_jump_back_stack, g_ctag_jump_forward_stack, dd)
 end
 
 
-function ctag_jump_forward(dd)
-  jump_forward(g_ctag_jump_back_stack, g_ctag_jump_forward_stack, dd)
+function lued.ctag_jump_forward(dd)
+  lued.jump_forward(g_ctag_jump_back_stack, g_ctag_jump_forward_stack, dd)
 end
 
 
@@ -113,5 +113,5 @@ end
 
 -- Read the ctag file
 -- You can re-read the ctags file using Alt+cr 
-ctag_read_file(dd2)
+lued.ctag_read_file(dd2)
 
