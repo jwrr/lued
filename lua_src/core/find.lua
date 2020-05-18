@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a lued.copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -94,7 +94,7 @@ function lued.find_prompt(test_str)
     find_prompt_hist_id = find_prompt_hist_id or lued.get_hist_id()
 
     local hot=""
-    str = lued_prompt(find_prompt_hist_id, prompt, hot, test_str)
+    str = lued.prompt(find_prompt_hist_id, prompt, hot, test_str)
 --    str = find_read(0,prompt)
     if str==nil or str=="" and g_find_str and g_find_str~="" then
       str = g_find_str
@@ -117,7 +117,7 @@ function lued.replace_prompt()
 
     local prompt = "String to Replace"..default_str..": "
     replace_prompt_hist_id = replace_prompt_hist_id or lued.get_hist_id()
-    str = lued_prompt(replace_prompt_hist_id, prompt)
+    str = lued.prompt(replace_prompt_hist_id, prompt)
 --    str = replace_read(prompt)
     if str==nil or str=="" and g_replace_str and g_replace_str~="" then
       str = g_replace_str
@@ -460,7 +460,7 @@ function lued.find_and_replace(from,to,options,dd)
         lued.disp(0)
         r,c = get_cur_pos()
         find_and_replace_hist_id = find_and_replace_hist_id or lued.get_hist_id()
-        resp = lued_prompt(find_and_replace_hist_id,"Replace <y/n/j/a/q/s>?", ",y,n,j,a,q,s,")
+        resp = lued.prompt(find_and_replace_hist_id,"Replace <y/n/j/a/q/s>?", ",y,n,j,a,q,s,")
         -- Y = yes and goto next
         -- N = no and goto next
         -- J = Jagged. Yes + Fix jagged alignment after replace

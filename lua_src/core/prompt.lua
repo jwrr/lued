@@ -25,58 +25,32 @@ SOFTWARE.
 --]]
 
 
-function lued.exit_session(dd)
-  save_session()
-  close_session()
-  lued.disp(dd)
+
+function lued.prompt(hist_id,prompt,hot,test_str)
+  -- io.write(prompt)
+  -- str = io.read()
+  hist_id = hist_id or 0
+  prompt = prompt or "--> "
+  hot = hot or ""
+  io.write(" ")
+  str = io_read(hist_id,prompt,hot,test_str)
+  return str
 end
 
 
-function lued.exit_all(dd)
-  local dd2 = 1
-  while (true) do
-     lued.exit_session(dd2)
-  end
+function lued.dbg_prompt(dbg_str)
+  local str = ""
+  -- repeat
+    local prompt = "DBG> "..dbg_str..": "
+    str = lued.prompt(prompt)
+  return str
 end
 
 
-function lued.quit_session(force,dd)
-  force = force or false
-  local not_saved_yet = is_modified()
-  local numsessions = get_numsessions()
-  local what_should_i_do = "Y"
-  if not force and not_saved_yet==1 and numsessions>0 then
-    local id = get_fileid()
-    local prompt = "Save '" .. get_filename(id) .. "' <y/n/a for abort (don't quit)>?";
-    what_should_i_do = lued.get_yesno(prompt, "A")
-    if what_should_i_do=="Y" then
-      save_session()
-    end
-  end
-  local abort = what_should_i_do=="A"
-  if not abort then
-    close_session()
-    if (numsessions==1) then
-      close_session()
-    end
-  end
-  lued.disp(dd)
-  return abort
+function lued.hit_cr()
+  hit_cr_hist_id = hit_cr_hist_id or lued.get_hist_id()
+  lued.prompt(hit_cr_hist_id, "Press <Enter> to continue...")
 end
-
-
-function lued.quit_all(force, dd)
-  local dd2 = 1
-  force = force or false
-  local abort = false
-  while (not abort) do
-     abort = lued.quit_session(force, dd2)
-  end
-  if abort then
-    lued.disp(dd)
-  end
-end
-
 
 
 

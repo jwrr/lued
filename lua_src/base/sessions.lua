@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a lued.copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -46,6 +46,18 @@ function lued.load_session_file(dd)
   local sesh_file = io.open("session.lued","r")
   local all_files = sesh_file:read("*all")
   lued.open_file(all_files, dd)
+end
+
+
+function lued.session_sel(session_id,dd)
+  if session_id then
+    local fileid = get_fileid()
+    if session_id ~= fileid then
+      g_tab_prev = fileid
+    end
+    set_fileid(session_id)
+  end
+  lued.disp(dd)
 end
 
 

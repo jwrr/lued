@@ -35,31 +35,27 @@ snips.html.html5_template = [[
 </html>
 ]]
 
-is_snippet = function(haystack, plain_text)
-  return string.find(" "..haystack.." ", " "..plain_text.." ", 1, plain)
-end
-
 snips.html.main = function(ss) -- ss = snippet string
 
   
 --   start_pos end_pos = string.find(ss, "^[%w:])
   
   
-  if is_snippet("html html:5 !", ss) then
-    ins_str(snips.html.html5_template)
-    move_to_first_line()
-    find_forward("Document")
-  elseif is_snippet("br hr" , ss) then
-    ins_str('<'..ss.."/>")
-  elseif is_snippet("a", ss) then
-    ins_str('<a href="#">text</a>')
-    move_to_sol()
-    find_forward('#')
-  elseif is_snippet( snips.html.tags, ss) then
-    ins_str('<'..ss.."></"..ss..">")
-    move_left_n_char( ss:len()+3)
+  if lued.is_snippet("html html:5 !", ss) then
+    lued.ins_str(snips.html.html5_template)
+    lued.move_to_first_line()
+    lued.find_forward("Document")
+  elseif lued.is_snippet("br hr" , ss) then
+    lued.ins_str('<'..ss.."/>")
+  elseif lued.is_snippet("a", ss) then
+    lued.ins_str('<a href="#">text</a>')
+    lued.move_to_sol()
+    lued.find_forward('#')
+  elseif lued.is_snippet( snips.html.tags, ss) then
+    lued.ins_str('<'..ss.."></"..ss..">")
+    lued.move_left_n_char( ss:len()+3)
   else
-    ins_str(ss)
+    lued.ins_str(ss)
   end
   return true
 end

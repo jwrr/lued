@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a lued.copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -31,7 +31,7 @@ SOFTWARE.
 
   g_lued_root              = "~/.lued/lua_src" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
   g_lued_root              = expand_path(g_lued_root)
-  g_bindings_file          = g_lued_root .. "/lued_bindings.lua"
+  g_bindings_file          = g_lued_root .. "/bindings/lued_bindings.lua"
   g_auto_indent            = true  -- Indent the same as the previous line
   g_block_start            = { "{" , "begin" , "then" , "do" , "loop" , "repeat", ":" }
   g_block_end              = { "}" , "end" , "until" , ":" }
@@ -85,17 +85,14 @@ SOFTWARE.
   snips = {}
 
 
-  dofile( g_lued_root .. "/lued_lib.lua" )
-  dofile( g_lued_root .. "/lued_version.lua" )
-
-
-
   package.path = g_lued_root .. "/?.lua;" ..  package.path
 
+  require "core.lued_lib"
   require "core.terminal"
   require "core.os"
   require "core.hotkeys"
   require "core.undo"
+  require "core.prompt"
   require "core.files"
   require "core.getters_setters"
   require "core.booleans"
@@ -108,6 +105,9 @@ SOFTWARE.
   require "core.copy_paste"
   require "core.get_sel"
   require "core.quit"
+  require "core.style"
+  require "core.version"
+  
   
   require "base.align"
   require "base.center_page"
@@ -117,6 +117,7 @@ SOFTWARE.
   require "base.increment"
   require "base.indent"
   require "base.linenumbers"
+  require "base.lines"
   require "base.markers"
   require "base.mouse"
   require "base.multifile"
@@ -124,10 +125,11 @@ SOFTWARE.
   require "base.remove"
   require "base.sessions"
   require "base.sidebar"
+  require "base.snippets"
   require "base.statusline"
   require "base.swap"
 
-  lued.init_lued(g_lued_root, g_bindings_file)
+  lued.init_lued(g_lued_root , g_bindings_file)
 
 
   local lued_metatable = {

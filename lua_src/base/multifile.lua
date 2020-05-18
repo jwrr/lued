@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a lued.copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -97,7 +97,7 @@ function lued.select_tab(filter)
       local hot = nil -- lued.hot_range('a','z') .. hot_range('A','Z') .. ",-,_,"
       -- print (hot); io.read()
       select_tab_hist_id = select_tab_hist_id or lued.get_hist_id()
-      new_id = lued_prompt(select_tab_hist_id, "Enter File Id Number, 'tt' or portion of filename: ",hot)
+      new_id = lued.prompt(select_tab_hist_id, "Enter File Id Number, 'tt' or portion of filename: ",hot)
       if new_id==nil or new_id=="" then
         lued.tab_toggle(dd)
         return

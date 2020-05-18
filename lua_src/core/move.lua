@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a lued.copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -413,7 +413,7 @@ function lued.move_to_line(n,dd)
   local r,c = get_cur_pos()
   if n == nil then
     move_to_line_hist_id = move_to_line_hist_id or lued.get_hist_id()
-    local n_str = lued_prompt(move_to_line_hist_id,"Goto Linenumber: ")
+    local n_str = lued.prompt(move_to_line_hist_id,"Goto Linenumber: ")
     n = tonumber(n_str) or r
   end
   if n > r then

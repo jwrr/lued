@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a lued.copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -46,6 +46,93 @@ end
 function lued.display_status_in_lua()
   lued.esc_clear_screen()
 end
+
+
+function lued.explode(subject, sep,  lim)
+  local sep = sep or "\n"
+  lim = lim or -1 -- -1 means no limit
+  local pieces = { }
+  local subject_len = string.len(subject)
+  local sep_len = string.len(sep)
+  if (subject_len==0) or (sep_len==0) or (lim==0) then
+    return pieces -- invalid arg: return empty array
+  end
+
+  local done = false
+  local piece_start = 1
+  repeat
+    local sep_pos = string.find( subject, sep, piece_start )
+    local found = sep_pos ~= nil
+    if not found then
+      piece_stop = subject_len
+    else
+      piece_stop = sep_pos - 1
+    end
+
+    local piece = string.sub( subject, piece_start , piece_stop )
+    table.insert( pieces, piece)
+    piece_start = sep_pos + sep_len
+    local subject_end_reached = piece_start > subject_len
+    local limit_reached = (lim > 0) and (#pieces == lim)
+    done = limit_reached or subject_end_reached
+  until done
+  return pieces
+end
+
+
+function lued.implode(pieces, sep, trailing_sep, first, last)
+  sep = sep or "\n"
+  trailing_sep = trailing_sep or sep
+  return table.concat(pieces,sep,first,last) .. trailing_sep
+end
+
+
+-- @description replace plain text string. Similar to string.gsub, except with
+-- plain text.
+-- @param subject is the string to modify
+-- @param from is the plain text string to find
+-- @param to is the plain text replacement string
+-- @param index is the starting offset. default to 1
+-- @param lim is the max number of substitutions. nil is no limit.
+-- @return result count start stop
+-- @return result is modified string
+-- @return count is the number of replacements performed
+-- @return start is the first offset modied
+-- @return stop is the last offset modified in the new string
+function lued.psub(subject, from, to, index, lim)
+  lim = lim or 0
+  index = index or 1
+  if not subject or not from or from=="" or not to or to=="" then
+    return subject
+  end
+  subject_len = string.len(subject)
+  from_len = string.len(from)
+  local to_len = string.len(to)
+--   if true then return subject  end
+  local plain = true
+  local count = 0
+  local start
+  local stop
+  local offset = 1
+  local result = subject
+  local lim_reached = false
+  repeat
+    local pos = string.find( result, from, offset, plain)
+    if not pos then break end
+    offset = pos + to_len
+    local front_exists = pos>1
+    local front = front_exists and string.sub(result, 1, pos-1) or ''
+    local back_start = pos+from_len
+    local back_exists = back_start <= string.len(result)
+    local back = back_exists and string.sub(result , back_start) or ''
+    result = front .. to .. back
+    count = count + 1
+    start = start or pos
+    stop = pos + to_len - 1
+  until count==lim
+  return result, count, start, stop
+end
+
 
 function lued.display_page_in_lua1(lua_mode, highlight_trailing_spaces)
   lued.display_status_in_lua(lua_mode)

@@ -25,56 +25,38 @@ SOFTWARE.
 --]]
 
 
-function lued.exit_session(dd)
-  save_session()
-  close_session()
+function lued.join_lines(delim,n,dd)
+  delim = delim or " "
+  n = n or 1
+  local dd2 = 1
+  for i=1,n do
+    local r,c = get_cur_pos()
+    if not lued.is_eol() then
+      lued.move_to_eol(dd2)
+    end
+    lued.del_char(dd2)
+    ins_str(delim,dd2);
+    set_cur_pos(r,c)
+  end
   lued.disp(dd)
 end
 
 
-function lued.exit_all(dd)
+function lued.wrap_line(wrap_col,wrap_delim,dd)
+  wrap_col = wrap_col or 60
+  wrap_delim = wrap_delim or " "
   local dd2 = 1
-  while (true) do
-     lued.exit_session(dd2)
+  lued.move_to_eol(dd2)
+  local r,c = get_cur_pos()
+  while c > wrap_col do
+    lued.move_left_n_words(dd2)
+    r,c = get_cur_pos()
   end
-end
-
-
-function lued.quit_session(force,dd)
-  force = force or false
-  local not_saved_yet = is_modified()
-  local numsessions = get_numsessions()
-  local what_should_i_do = "Y"
-  if not force and not_saved_yet==1 and numsessions>0 then
-    local id = get_fileid()
-    local prompt = "Save '" .. get_filename(id) .. "' <y/n/a for abort (don't quit)>?";
-    what_should_i_do = lued.get_yesno(prompt, "A")
-    if what_should_i_do=="Y" then
-      save_session()
-    end
-  end
-  local abort = what_should_i_do=="A"
-  if not abort then
-    close_session()
-    if (numsessions==1) then
-      close_session()
-    end
+  lued.ins_string("\n",dd2)
+  if get_line_len() <= wrap_col then
+    lued.join_lines(wrap_delim,dd2)
   end
   lued.disp(dd)
-  return abort
-end
-
-
-function lued.quit_all(force, dd)
-  local dd2 = 1
-  force = force or false
-  local abort = false
-  while (not abort) do
-     abort = lued.quit_session(force, dd2)
-  end
-  if abort then
-    lued.disp(dd)
-  end
 end
 
 

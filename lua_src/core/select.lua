@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a lued.copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -44,6 +44,45 @@ function lued.sel_n_char(n,dd)
   n = n or 1
   set_sel_start()
   lued.move_right_n_char(n, dd)
+end
+
+
+function lued.word_start(dd)
+  local r,c = get_cur_pos()
+  local line = get_line()
+  if lued.is_space(line,c) then
+    lued.move_right_n_words(1,dd)
+  elseif not lued.is_sow(line,c) then
+    lued.move_left_n_words(1,dd)
+  else
+    lued.disp(dd)
+  end
+end
+
+
+function lued.var_start(dd)
+  local r,c = get_cur_pos()
+  local line = get_line()
+  local len = get_line_len()
+  local c2 = string.find(line, "[%w_]", c) -- find space after end of word
+  local c3 = c2 and c2 or len
+  set_cur_pos(r, c3)
+  lued.disp(dd)
+end
+
+
+function lued.line_contains(needles, line)
+  local line = line or get_line() or ""
+  local found = false
+  if needles then
+    for i=1,#needles do
+      if string.find(line, needles[i], 1, true)~=nil then
+        found = true
+        break
+      end
+    end
+  end
+  return found
 end
 
 

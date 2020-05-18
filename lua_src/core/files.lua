@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a lued.copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -23,6 +23,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
+
+
+function lued.toggle_review_mode(dd)
+  g_review_mode = g_review_mode or false
+  g_review_mode = not g_review_mode
+  lued.disp(dd)
+end
 
 
 function lued.save_file(dd)
@@ -60,7 +67,7 @@ function lued.save_as(filename, dd)
     save_as_hist_id = save_as_hist_id or lued.get_hist_id()
     local done = false
     repeat
-      filename = lued_prompt(save_as_hist_id,"Save As Filename: ")
+      filename = lued.prompt(save_as_hist_id,"Save As Filename: ")
       if lued.file_exists(filename) then
         local response = lued.get_yesno
         local prompt = "File '" .. filename .. "' exists. Overwrite <y/n/a for abort (don't save)>?";
@@ -107,7 +114,7 @@ function lued.open_file(filenames,dd)
   end
   if filenames==nil then
     open_file_hist_id = open_file_hist_id or lued.get_hist_id()
-    filenames = lued_prompt(open_file_hist_id, "Enter Filename: ")
+    filenames = lued.prompt(open_file_hist_id, "Enter Filename: ")
     local home = os.getenv("HOME")
     filenames = string.gsub(filenames,"^~",home)
     local env_name = string.match(filenames,"%${?([%w_]+)}?")
@@ -143,7 +150,7 @@ function lued.open_partial_filename(dd)
   local dd2 = 1
   local file_filter = ""
   open_partial_filename_hist_id = open_partial_filename_hist_id or lued.get_hist_id()
-  file_filter = lued_prompt(open_partial_filename_hist_id, "Enter Partial Filename: ")
+  file_filter = lued.prompt(open_partial_filename_hist_id, "Enter Partial Filename: ")
   print("\n")
   local filenames_table = lued.ls_recursive(".", file_filter)
   for i, f in pairs(filenames_table) do
@@ -173,7 +180,7 @@ function lued.open_filelist(filelist,dd)
   local dd2 = 1
   if filelist==nil then
     open_filelist_hist_id = open_filelist_hist_id or lued.get_hist_id()
-    filelist = lued_prompt(open_filelist_hist_id, "Enter Filelist: ")
+    filelist = lued.prompt(open_filelist_hist_id, "Enter Filelist: ")
   end
   if (filelist~=nil and filelist~="") then
     local file = io.open(filelist, "r");
@@ -193,7 +200,7 @@ function lued.new_file(filename, dd)
   if filename == nil then
     local default_filename = "lued_untitled_"..fileid..".txt"
     new_file_hist_id = new_file_hist_id or lued.get_hist_id()
-    filename = lued_prompt(new_file_hist_id,  "Enter Filename (default: '"..default_filename.."'): ")
+    filename = lued.prompt(new_file_hist_id,  "Enter Filename (default: '"..default_filename.."'): ")
     if filename == nil or filename=="" then
       filename = default_filename
     end

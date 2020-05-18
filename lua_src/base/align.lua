@@ -53,7 +53,7 @@ end
 -- \brief Align delimiter in selected region
 function lued.align_delimiter_selected(delim, dd)
   align_delimiter_selected_hist_id = align_delimiter_selected_hist_id or lued.get_hist_id()
-  g_align_delimiter_of_next_line = delim or lued_prompt(align_delimiter_selected_hist_id, "Enter string to align: ") or "="
+  g_align_delimiter_of_next_line = delim or lued.prompt(align_delimiter_selected_hist_id, "Enter string to align: ") or "="
   lued.foreach_selected(lued.align_delimiter_of_next_line, dd)
 end
 

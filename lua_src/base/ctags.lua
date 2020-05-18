@@ -28,6 +28,17 @@ SOFTWARE.
 g_ctag_file = {}
 g_ctag_address = {}
 
+
+function lued.split_string (str, delimiter)
+  delimiter = delimiter or "%s"
+  local t={}
+  for field in string.gmatch(str, "([^"..delimiter.."]+)") do
+    table.insert(t, field)
+  end
+  return t
+end
+
+
 -- Read the tags file
 function lued.ctag_read_file(tagfile, dd)
   tagfile = tagfile or "tags"  -- if nil then default to "tags"

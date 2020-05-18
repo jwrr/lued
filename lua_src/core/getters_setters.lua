@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a lued.copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -67,7 +67,7 @@ function lued.get_yesno(prompt,default)
   local answer = ""
   get_yesno_hist_id = get_yesno_hist_id or lued.get_hist_id()
   repeat
-    answer = lued_prompt(get_yesno_hist_id,prompt .. " ")
+    answer = lued.prompt(get_yesno_hist_id,prompt .. " ")
     if default~=nil and answer==nil or answer=="" then answer = default end
     answer = string.upper(answer)
     yes = answer=="Y"
@@ -99,7 +99,7 @@ function lued.get_yesno(prompt,default)
   local answer = ""
   get_yesno_hist_id = get_yesno_hist_id or lued.get_hist_id()
   repeat
-    answer = lued_prompt(get_yesno_hist_id,prompt .. " ")
+    answer = lued.prompt(get_yesno_hist_id,prompt .. " ")
     if default~=nil and answer==nil or answer=="" then answer = default end
     answer = string.upper(answer)
     yes = answer=="Y"
@@ -162,6 +162,12 @@ function lued.get_dirname(full_path)
   return dirname_str
 end
 
+
+function lued.set_pagesize(val,dd)
+  val = val or 0 -- zero is a special case.
+  g_page_size = val
+  lued.disp(dd)
+end
 
 
 function lued.set_tab_size(val,dd)

@@ -25,58 +25,52 @@ SOFTWARE.
 --]]
 
 
-function lued.exit_session(dd)
-  save_session()
-  close_session()
+function lued.handle_snippets(dd)
+  local dd2 = false
+  local r,c=get_cur_pos()
+  lued.sel_left_pattern( "[%w.#*()^>+*:]"  , dd2)
+--   lued.sel_sow(dd2)
+  local sel_str, sel_sr, sel_sc = lued.get_sel_str()
+  if sel_str==nil or sel_str=='' then
+    return false
+  end
+  
+  local filetype = 'html'
+  
+  s1 = snips and "snips exists," or "snips NOT"
+  s2 = snips[filetype] and "html exists" or "html NOT"
+  --s3 = snips[filetype]['exec']  and "exec exists" or "exec NOT"
+  
+  local snip_routine = snips[filetype].main
+  if snip_routine == nil then
+    set_sel_off()
+    set_cur_pos(r,c)
+    return false
+  end
+  lued.del_sel(dd2)
+  set_cur_pos(sel_sr,sel_sc)
+  g_dont_display = 1
+  
+  local tok = ""
+  local ii = 1
+  local cnt = 1
+  repeat
+    tok, ii = lued.get_token(sel_str,ii)
+    snip_routine(tok)
+    tok, ii = lued.get_token(sel_str,ii)
+    cnt = cnt + 1
+  until tok == "" or cnt == 5
+  
+  g_dont_display = 0
+  
   lued.disp(dd)
+  return true
 end
 
 
-function lued.exit_all(dd)
-  local dd2 = 1
-  while (true) do
-     lued.exit_session(dd2)
-  end
+lued.is_snippet = function(haystack, plain_text)
+  return string.find(" "..haystack.." ", " "..plain_text.." ", 1, plain)
 end
-
-
-function lued.quit_session(force,dd)
-  force = force or false
-  local not_saved_yet = is_modified()
-  local numsessions = get_numsessions()
-  local what_should_i_do = "Y"
-  if not force and not_saved_yet==1 and numsessions>0 then
-    local id = get_fileid()
-    local prompt = "Save '" .. get_filename(id) .. "' <y/n/a for abort (don't quit)>?";
-    what_should_i_do = lued.get_yesno(prompt, "A")
-    if what_should_i_do=="Y" then
-      save_session()
-    end
-  end
-  local abort = what_should_i_do=="A"
-  if not abort then
-    close_session()
-    if (numsessions==1) then
-      close_session()
-    end
-  end
-  lued.disp(dd)
-  return abort
-end
-
-
-function lued.quit_all(force, dd)
-  local dd2 = 1
-  force = force or false
-  local abort = false
-  while (not abort) do
-     abort = lued.quit_session(force, dd2)
-  end
-  if abort then
-    lued.disp(dd)
-  end
-end
-
 
 
 

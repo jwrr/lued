@@ -5,10 +5,10 @@ Copyright (c) 2018 JWRR.COM
 
 git clone https://github.com/jwrr/lued.git
 
-Permission is hereby granted, free of charge, to any person obtaining a lued.copy
+Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, lued.copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
@@ -28,7 +28,7 @@ SOFTWARE.
 function lued.set_named_mark(dd)
   named_mark_hist_id = named_mark_hist_id or lued.get_hist_id()
   local hot = nil
-  mark_name = lued_prompt(select_tab_hist_id, "Set Mark - Enter Name: ",hot)
+  mark_name = lued.prompt(select_tab_hist_id, "Set Mark - Enter Name: ",hot)
   set_mark(mark_name);
   lued.disp(dd)
 end
@@ -37,7 +37,7 @@ end
 function lued.goto_named_mark(dd)
   named_mark_hist_id = named_mark_hist_id or lued.get_hist_id()
   local hot = nil
-  mark_name = lued_prompt(select_tab_hist_id, "Goto Mark - Enter Name: ",hot)
+  mark_name = lued.prompt(select_tab_hist_id, "Goto Mark - Enter Name: ",hot)
   goto_mark(mark_name);
   lued.disp(dd)
 end
