@@ -25,6 +25,8 @@ SOFTWARE.
 --]]
 
 lued = {}
+lued.filetypes = {}  -- maps extensions to filetypes
+lued.snippets  = {}  -- contains snippets for each filetype
 
 lued.g_buffer = ""    -- The global buffer is used for lued.cut and lued.paste between multiple files.
 
@@ -99,5 +101,42 @@ function lued.leading_ws()
   local ws_len = string.len(ws)
   return ws, ws_len
 end
+
+
+function lued.explode(subject, sep,  lim)
+  subject = subject or ""
+  sep = sep or "\n"
+  lim = lim or 0 -- 0 means no limit
+
+  if (#subject==0) or (#sep==0) then
+    return {} -- invalid arg: return empty array
+  end
+
+  local pieces = {}
+  local done = false
+  local piece_start = 1
+  repeat
+    local sep_pos = string.find( subject, sep, piece_start ) or #subject+1
+    local piece = string.sub( subject, piece_start , sep_pos-1 )
+    pieces[#pieces+1] = piece
+    piece_start = sep_pos + #sep
+    done = (piece_start > #subject) or (#pieces == lim)
+  until done
+  return pieces
+end
+
+
+function lued.implode(pieces, sep, trailing_sep, first, last)
+  sep = sep or "\n"
+  trailing_sep = trailing_sep or sep
+  return table.concat(pieces,sep,first,last) .. trailing_sep
+end
+
+lued.get_cur_pos = get_cur_pos
+lued.get_line    = get_line
+lued.set_cur_pos = set_cur_pos
+lued.set_sel_off = set_sel_off
+
+
 
 

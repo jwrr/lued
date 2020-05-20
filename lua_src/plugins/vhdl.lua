@@ -1,25 +1,30 @@
 
 -- vhdl.lua - plugin for lued text editor
 
+lued.vhdl = {}
+lued.filetypes.vhdl = "vhdl"
+lued.filetypes.vhd  = "vhdl"
+
+snips.vhdl = {}
 
 -- =============================================================================
 -- =============================================================================
--- vhdl_sig converts a vhdl entity into signals and constants.
+-- lued.vhdl.sig_from_entity converts a vhdl entity into signals and constants.
 -- The entity's generics are converted to constants
 -- The entity's ports are converted to signals.
 -- Typical usage is to cut/paste a copy of the entity. Then move to the first line
--- of the copy and type esc+vhdl_sig. This should have converted the generics and
+-- of the copy and type esc+lued.vhdl.sig_from_entity. This should have converted the generics and
 -- ports to constants and signals.
 
-function vhdl_sig()
+function lued.vhdl.sig_from_entity()
   local dd2 = 1
-  local r1,c1 = get_cur_pos()
-  find_forward("end",dd2)
-  local r2,c2 = get_cur_pos()
+  local r1,c1 = lued.get_cur_pos()
+  lued.find_forward("end",dd2)
+  local r2,c2 = lued.get_cur_pos()
 
   for r=r1,r2 do
-    set_cur_pos(r,1)
-    local line = get_line()
+    lued.set_cur_pos(r,1)
+    local line = lued.get_line()
     lowerline = string.lower(line)
 
     -- Insert semicolon if missing
@@ -33,11 +38,11 @@ function vhdl_sig()
     end
 
     if string.find(lowerline, ":=") then -- constant
-      del_eol(dd2)
-      ins_str(line,dd2)
+      lued.del_eol(dd2)
+      lued.ins_str(line,dd2)
       lued.move_to_sol_classic(dd2)
-      if is_space() then skip_spaces_right(dd2); end
-      ins_str("constant ",dd2)
+      if lued.is_space() then lued.skip_spaces_right(dd2); end
+      lued.ins_str("constant ",dd2)
     elseif string.find(lowerline, ":") then -- signal
       if string.find(lowerline, "inout") then
         line = string.gsub(line, "inout%s*", "")
@@ -56,18 +61,18 @@ function vhdl_sig()
           line = line .. "; -- in"
         end
       end
-      del_eol(dd2)
-      ins_str(line,dd2)
+      lued.del_eol(dd2)
+      lued.ins_str(line,dd2)
       lued.move_to_sol_classic(dd2)
-      if is_space() then skip_spaces_right(dd2); end
-      ins_str("signal ",dd2)
+      if lued.is_space() then lued.skip_spaces_right(dd2); end
+      lued.ins_str("signal ",dd2)
     else
-      if not is_eol() then del_eol(dd2) end
+      if not lued.is_eol() then lued.del_eol(dd2) end
     end
   end -- for
-  set_cur_pos(r1+1,1)
-  disp(dd)
-end -- vhdl_sig
+  lued.set_cur_pos(r1+1,1)
+  lued.disp(dd)
+end -- lued.vhdl.sig_from_entity
 
 -- =============================================================================
 -- =============================================================================
@@ -86,35 +91,35 @@ end -- vhdl_sig
 --   7. Type Alt-aa and enter = at the prompt. This should align all of the =>.
 --   8. Type Alt-aa and enter -- at the prompt.  This should align alll of the -- comments.
 
-function vhdl_sel_entity(dd)
+function lued.vhdl.sel_entity(dd)
   local dd2=1
-  local save_find_whole_word = get_find_whole_word()
-  set_find_whole_word()
-  move_up_n_lines(1,dd2)
-  find_forward("entity",dd2)
-  set_nameless_mark(dd2)
-  find_forward("end",dd2)
-  if not save_find_whole_word then
-    clr_find_whole_word(dd2)
+  local save_find_whole_word = lued.get_find_whole_word()
+  lued.set_find_whole_word()
+  lued.move_up_n_lines(1,dd2)
+  lued.find_forward("entity",dd2)
+  lued.set_nameless_mark(dd2)
+  lued.find_forward("end",dd2)
+  if not lued.save_find_whole_word then
+    lued.clr_find_whole_word(dd2)
   end
-  move_down_n_lines(1, dd2)
-  sel_mark_to_cursor(dd2)
-  disp(dd)
+  lued.move_down_n_lines(1, dd2)
+  lued.sel_mark_to_cursor(dd2)
+  lued.disp(dd)
 end
 
-function vhdl_inst(dd)
+function lued.vhdl.inst_from_entity(dd)
   local dd2 = 1
   
-  local r1,c1 = get_cur_pos()
-  local save_find_whole_word = get_find_whole_word()
-  set_find_whole_word()
-  find_forward("end",dd2)
-  local r2,c2 = get_cur_pos()
+  local r1,c1 = lued.get_cur_pos()
+  local save_find_whole_word = lued.get_find_whole_word()
+  lued.set_find_whole_word()
+  lued.find_forward("end",dd2)
+  local r2,c2 = lued.get_cur_pos()
 
   for r=r1,r2 do
-    set_cur_pos(r,1)
+    lued.set_cur_pos(r,1)
 
-    local line = get_line()
+    local line = lued.get_line()
     local newline = {}
   
     local next_line = lued.get_next_line() or "" -- peek ahead for close paren
@@ -149,23 +154,23 @@ function vhdl_inst(dd)
     -- end xxx;
     newline[7] = string.gsub(line, "^%s*end", "  ; -- %0")
   
-    if not is_eol() then del_eol(dd2); end
+    if not lued.is_eol() then lued.del_eol(dd2); end
     for i=1,7 do
       if (newline[i]~=line) then
-        ins_str(newline[i],dd2)
+        lued.ins_str(newline[i],dd2)
         break
       end
     end
 
   end -- for r=r1,r2
 
-  set_cur_pos(r1,1)
+  lued.set_cur_pos(r1,1)
   if not save_find_whole_word then
-    clr_find_whole_word(dd2)
+    lued.clr_find_whole_word(dd2)
   end
 
-  disp(dd)
-end -- vhdl inst
+  lued.disp(dd)
+end -- vhdl inst_from_entity
 
 
 -- =============================================================================
@@ -173,12 +178,11 @@ end -- vhdl inst
 
 -- Insert VHDL template for entity and architecture
 
-function vhdl_template(dd)
+function lued.vhdl.template()
 
-  local id = get_fileid()
-  local filename = get_filename(id)
+  local filename = lued.get_filename()
   filename = string.gsub(filename, ".*/", "");
-  filename = string.gsub(filename, ".vhd", "");
+  filename = string.gsub(filename, ".vhd.*", "");
 
   local str = [[
 --------------------------------------------------------------------------------
@@ -227,10 +231,11 @@ end rtl;
 
 ]]
 
-  local dd2 = 1
-  lued.move_to_sol_classic(dd2)
-  ins_str(str,dd2)
-  move_to_first_line(dd)
+  local r,c = lued.get_cur_pos()
+  lued.move_to_sol_classic()
+  lued.ins_str(str)
+  lued.set_cur_pos(r,c)
+  lued.find_forward("...")
 end
 
 
@@ -238,7 +243,7 @@ end
 -- =============================================================================
 -- Insert VHDL template for package
 
-function vhdl_package(dd)
+function lued.vhdl.package()
 
   local str = [===[
 
@@ -258,20 +263,20 @@ package aaa_pkg is
 end package;
 ]===]
 
-  local dd2 = 1
-  lued.move_to_sol_classic(dd2)
-  ins_str(str,dd)
-  move_up_n_lines(30,dd2)
-  move_to_eol(dd)
+
+  lued.move_to_sol_classic()
+  local r,c = lued.get_cur_pos()
+  lued.ins_str(str)
+  lued.set_cur_pos(r,c)
+  lued.find_forward("...")
 end
 
 
 -- =============================================================================
 -- Insert VHDL template for testbench
 
-function vhdl_tb(dd)
-  local dd2 = 1
-  local full_filename = get_cur_filename()
+function lued.vhdl.tb()
+  local full_filename = lued.get_filename()
   local filename = string.gsub(full_filename, ".*/", "");
   local blockname = string.gsub(filename, ".vhd.*", "");
 
@@ -280,20 +285,20 @@ function vhdl_tb(dd)
   local tbblockname = string.gsub(full_filename, ".vhd.*", "");
 
   -- Snip Entity from block
-  move_to_first_line(dd2)
-  local save_find_whole_word = get_find_whole_word()
-  set_find_whole_word(dd2)
-  find_forward("entity",dd2)
-  lued.move_to_sol_classic(dd2)
-  set_nameless_mark(dd2)
-  find_forward("end",dd2)
-  move_to_eol(dd2)
-  sel_mark_to_cursor(dd2)
-  global_copy(dd2)
+  lued.move_to_first_line()
+  local save_find_whole_word = lued.get_find_whole_word()
+  lued.set_find_whole_word()
+  lued.find_forward("entity")
+  lued.move_to_sol_classic()
+  lued.set_nameless_mark()
+  lued.find_forward("end")
+  lued.move_to_eol()
+  lued.sel_mark_to_cursor()
+  lued.global_copy()
 
-  new_file(full_tbname,dd2)
+  lued.new_file(full_tbname)
 
-  ins_str( [[
+  lued.ins_str( [[
 
 --------------------------------------------------------------------------------
 -- Test : ]] .. tbname .. [[
@@ -318,9 +323,9 @@ architecture sim of tb is
 FINDME1 ]]
 ,dd2)
 
-  global_paste(dd2)
+  lued.global_paste(dd2)
 
-  ins_str( [[
+  lued.ins_str( [[
 
   signal clk       : std_logic := '0';
   signal rst       : std_logic := '0';
@@ -329,12 +334,11 @@ FINDME1 ]]
 begin
 
 FINDME2
-]]
-, dd2)
+]])
 
-  global_paste(dd2)
+  lued.global_paste()
 
-  ins_str( [[
+  lued.ins_str( [[
 
 
 
@@ -363,37 +367,35 @@ FINDME2
 
 end architecture sim;
 
-]]
-, dd2)
+]])
 
 -- ===========================================================
 -- CREATE CONSTANTS AND SIGNALS FROM ENTITY GENERICS AND PORTS
-  find_forward("FINDME1",dd2)
-  cut_line(dd2) -- FINDME1
-  vhdl_sig(dd2)
+  lued.find_forward("FINDME1")
+  lued.cut_line() -- FINDME1
+  lued.vhdl.sig_from_entity()
 
 -- ======================================================================
 -- CONVERT ENTITY INTO INSTANTIATION
 
-  move_to_first_line(dd2)
-  find_forward("FINDME2",dd2)
-  cut_line(dd2)
-  set_nameless_mark(dd2)
-  find_forward("end")
-  move_down_n_lines(1, dd2)
-  sel_mark_to_cursor(dd2)
-  vhdl_inst(dd2)
-  set_sel_off(dd2)
+  lued.move_to_first_line()
+  lued.find_forward("FINDME2")
+  lued.cut_line()
+  lued.set_nameless_mark()
+  lued.find_forward("end")
+  lued.move_down_n_lines(1)
+  lued.sel_mark_to_cursor()
+  lued.vhdl.inst_from_entity()
+  lued.set_sel_off()
 
 
 
   if not save_find_whole_word then
-    clr_find_whole_word(dd2)
+    lued.clr_find_whole_word()
   end
 
-  move_to_first_line(dd2)
-  disp(dd)
-end -- vhdl_tb
+  lued.move_to_first_line()
+end -- lued.vhdl.tb
 
 
 
@@ -403,38 +405,37 @@ end -- vhdl_tb
 --
 -- Insert VHDL process with a clock and an active-low, asynchronous reset.
 
-function vhdl_proc(dd)
+function lued.vhdl.proc(dd)
   local dd2 = 1
 
-  local r1,c1 = get_cur_pos()
+  local r1,c1 = lued.get_cur_pos()
   local save_fw = g_find_whole_word
   g_find_whole_word = false;
   
-  set_cur_pos(1,1)
+  lued.set_cur_pos(1,1)
   local clk_name = "clk"
-  local clk_found = find_forward("clk",dd2) or
-                    find_forward("clock",dd2) or
-                    find_forward("ck",dd2) or false
+  local clk_found = lued.find_forward("clk",dd2) or
+                    lued.find_forward("clock",dd2) or
+                    lued.find_forward("ck",dd2) or false
   if clk_found then
-    set_sel_off()
-    sel_word()
-    clk_name = get_sel_str()
---     dbg_prompt("clk_name = " .. clk_name)
+    lued.set_sel_off()
+    lued.sel_word()
+    clk_name = lued.get_sel_str()
   end
 
-  set_cur_pos(1,1)
+  lued.set_cur_pos(1,1)
   local rst_name = "rst"
-  local rst_found = find_forward("rst",dd2) or
-                    find_forward("reset",dd2) or false
+  local rst_found = lued.find_forward("rst",dd2) or
+                    lued.find_forward("reset",dd2) or false
   if rst_found then
-    set_sel_off()
-    sel_word()
-    rst_name = get_sel_str()
+    lued.set_sel_off()
+    lued.sel_word()
+    rst_name = lued.get_sel_str()
   end
 
-  set_sel_off()
+  lued.set_sel_off()
   g_find_whole_word = save_fw
-  move_to_line(r1,dd2)
+  lued.move_to_line(r1,dd2)
   lued.move_to_sol_classic(dd2)
 
   local rst_name_lower = string.lower(rst_name)
@@ -449,15 +450,13 @@ function vhdl_proc(dd)
     if (]] .. rst_name .. " = '" .. rst_level .. [[') then
       
     elsif rising_edge(clk) then
-      
+      DELETEME
     end if;
   end process;
 
 ]]
 
-  ins_str(str,dd)
-  move_up_n_lines(4,dd2)
-  move_to_eol(dd)
+  lued.ins_str_after(str, "DELETEME")
 
 
 end
@@ -466,65 +465,51 @@ end
 -- =============================================================================
 -- Insert VHDL combinatorial process.
 
-function vhdl_proc_all(dd)
+function lued.vhdl.proc_all()
 
   local str = [===[
 
   process (all) -- combinatorial block
   begin
-
+    DELETEME
   end process;
 
 ]===]
 
-  local dd2 = 1
-  lued.move_to_sol_classic(dd2)
-  ins_str(str,dd)
-  move_up_n_lines(3,dd2)
-  move_to_eol(dd)
+  lued.move_to(0,1)
+  lued.ins_str_after(str, "DELETEME")
 end
 
 
 -- =============================================================================
 -- Insert VHDL function template.
 
-function vhdl_function(dd)
+function lued.vhdl.func()
 
   local str = [===[
 
   function incr(slv :std_logic_vector) return std_logic_vector is
   begin
+    DELETEME
     return std_logic_vector( unsigned(slv) + 1);
   end function;
 
 ]===]
 
-  local dd2 = 1
-  lued.move_to_sol_classic(dd2)
-  ins_str(str,dd)
-  move_up_n_lines(3,dd2)
-  move_to_eol(dd)
+  lued.move_to(0,1)
+  lued.ins_str_after(str)
+  lued.del_next("DELETEME")
 end
 
 
-function alt_oth (dd) ins_str("(others => '0');\n",dd2); insert_tab(dd); end
-function alt_ooth (dd) ins_str( "(others => (others => '0'));\n" ,dd2); insert_tab(dd); end
+function alt_oth (dd) lued.ins_str("(others => '0');\n",dd2); insert_tab(dd); end
+function alt_ooth (dd) lued.ins_str( "(others => (others => '0'));\n" ,dd2); insert_tab(dd); end
 
 -- =============================================================================
 -- Insert signal sl : std_logic;
 
-function vhdl_sl(dd)
-  local dd2 = 1
-
---   local str = "signal sl : std_logic;"
---   ins_str(str,dd2)
---   move_to_sol(dd2)
---   move_right_n_words(1,dd2)
---   sel_word(dd)
-
-  ins_str(" std_logic;\n",dd)
-
-
+function lued.vhdl.sl()
+  lued.ins_str_after("signal signame   : std_logic;" , "signame")
 end
 
 
@@ -532,32 +517,26 @@ end
 -- Insert: std_logic_vector(FIXME-1 downto 0);
 -- ALT_slv15 produces std_logic_vector(15 downto 0);
 
-function vhdl_slv(n,dd)
-  n = n or 0
-  local dd2 = 1
-  if n == 0 then
-    ins_str("std_logic_vector(".."FIXME-1".." downto 0);", dd2)
-    find_reverse("FIXME",dd2)
-  else
-    ins_str("std_logic_vector("..n.." downto 0);", dd2)
-  end
-  disp(dd)
+function lued.vhdl.slv()
+  lued.ins_str_after("signal signame     : std_logic_vector(".."H".." downto 0);" , "signame")
+end
+
+
+function lued.vhdl.signed()
+  lued.ins_str_after("signal signame     : signed(".."H".." downto 0);" , "signame")
+end
+
+
+function lued.vhdl.unsigned()
+  lued.ins_str_after("signal signame     : unsigned(".."H".." downto 0);" , "signame")
 end
 
 
 -- =============================================================================
 -- Insert: integer := integer(ceil(log2(real(DEPTH))));
 
-function vhdl_log(n,dd)
-  n = n or 0
-  local dd2 = 1
-  if n == 0 then
-    ins_str("integer := integer(ceil(log2(real(FIXME))));", dd2)
-    find_reverse("FIXME",dd2)
-  else
-    ins_str("integer := integer(ceil(log2(real("..n.."))));", dd2)
-  end
-  disp(dd)
+function lued.vhdl.log()
+  lued.ins_str_after("integer := integer(ceil(log2(real(BUS_WIDTH))));", "BUS_WIDTH")
 end
 
 
@@ -565,106 +544,66 @@ end
 -- Insert signal slv_array : slv_array16_type;
 -- Works in conjunction with vhdl_type_slv_array.
 
-function vhdl_slv_array(dd)
-
-  local str = "signal slv_array : slv_array16_type;"
-
-  local dd2 = 1
-  ins_str(str,dd2)
-  move_to_sol(dd2)
-  move_right_n_words(1,dd2)
-  sel_word(dd)
-end
-
-
--- =============================================================================
--- Insert signal unsigned_vec : std_logic_vector(FIXME downto 0);
-
-function vhdl_unsigned(dd)
-
-  local str = "signal unsigned_vec : std_logic_vector(FIXME downto 0);"
-
-  local dd2 = 1
-  ins_str(str,dd2)
-  move_to_sol(dd2)
-  move_right_n_words(1,dd2)
-  sel_word(dd)
-end
-
-
--- =============================================================================
--- Insert signal signed_vec : std_logic_vector(FIXME downto 0);
-
-function vhdl_signed(dd)
-
-  local str = "signal signed_vec : std_logic_vector(FIXME downto 0);"
-
-  local dd2 = 1
-  ins_str(str,dd2)
-  move_to_sol(dd2)
-  move_right_n_words(1,dd2)
-  sel_word(dd)
+function lued.vhdl.slv_array()
+  local str = "signal slv_array    : slv_array16_type;"
+  lued.ins_str_after(str , "slv_array")
 end
 
 
 -- =============================================================================
 -- Insert FIXME = std_logic_vector( unsigned(FIXME) + 1);
 
-function vhdl_slv_incr(dd)
-  local dd2 = 1
-  move_to_sol(dd2)
-  sel_word(dd2)
-  copy(dd2)
-  move_to_eol(dd2)
+function lued.vhdl.slv_incr(dd)
   local str = "std_logic_vector( unsigned(FIXME) + 1);"
-  ins_str(str,dd2)
-  find_reverse("FIXME",dd2)
-  paste(dd2)
-  sel_word(dd2)
-  set_sel_end(dd2)
-  disp(dd)
+  lued.move_to_sol()
+  lued.sel_word()
+  lued.copy()
+  lued.move_to_eol()
+  lued.ins_str_after(str, "FIXME")
+  lued.paste()
 end
 
 
 -- =============================================================================
 -- Insert FIXME <= std_logic_vector( resize( unsigned(FIXME), FIXME'size);
 
-function vhdl_slv_resize(dd)
-  local dd2 = 1
-  move_to_sol(dd2)
-  sel_word(dd2)
-  copy(dd2)
-  move_to_eol(dd2)
-  local str = "std_logic_vector( resize( unsigned(FIXME), FIXME2'length);"
-  ins_str(str,dd2)
-  find_reverse("FIXME2",dd2)
-  paste(dd2)
-  sel_word(dd2)
-  set_sel_end(dd2)
-  disp(dd)
+function lued.vhdl.resize(t)
+  t = t or "slv"
+  local str = ""
+  if t=="slv" then
+    str = "std_logic_vector( resize( unsigned(FIXME), FIXME2'length);"
+  else
+    str = "resize(FIXME, FIXME2'length);"
+  end
+
+  lued.move_to_sol()
+  lued.sel_word()
+  lued.copy()
+  lued.move_to_eol()
+  
+  lued.ins_str_after(str, "FIXME2")
+  lued.paste()
+  lued.find_reverse("FIXME")
 end
+
+function lued.vhdl.slv_resize() lued.vhdl.resize("slv") end
+function lued.vhdl.signed_resize() lued.vhdl.resize("signed") end
+function lued.vhdl.unsigned_resize() lued.vhdl.resize("unsigned") end
 
 
 -- =============================================================================
 -- Insert type state is (IDLE, STATE1);
 
-function vhdl_state(dd)
-
+function lued.vhdl.state()
   local str = "type state_type is (IDLE, STATE1);"
-
-  local dd2 = 1
-  ins_str(str,dd2)
-  move_to_sol(dd2)
-  move_right_n_words(1,dd2)
-  sel_word(dd)
+  lued.ins_str_after(str, "state_type")
 end
 
 
 -- =============================================================================
 -- Insert VHDL record template;
 
-function vhdl_record(dd)
-
+function lued.vhdl.record()
   local str = [[
   type aaa_rec is record
     sig1    :std_logic;
@@ -672,35 +611,25 @@ function vhdl_record(dd)
   end record aaa_rec;
 
 ]]
-
-
-  local dd2 = 1
-  ins_str(str,dd)
+  lued.move_to(0,1)
+  lued.ins_str_after(str, "aaa_rec")
 end
 
 
 -- =============================================================================
 -- Insert type slv_array16_type is array(natural range <>) of std_logic_vector(15 downto 0);
--- Works in conjunction with vhdl_slv_array.
+-- Works in conjunction with lued.vhdl.slv_array.
 
-function vhdl_type_slv_array(dd)
-
+function lued.vhdl.type_slv_array()
   local str = "type slv_array16_type is array(natural range <>) of std_logic_vector(15 downto 0);"
-
-  local dd2 = 1
-  ins_str(str,dd2)
-  move_to_sol(dd2)
-  move_right_n_words(1,dd2)
-  sel_word(dd2)
-  set_sel_end()
-  disp(dd)
+  lued.ins_str_after(str,"slv_array16_type")
 end
 
 
 -- =============================================================================
 -- Insert VHDL case statement template
 
-function vhdl_case(dd)
+function lued.vhdl.case()
 
   local str = [[
       case state is
@@ -714,43 +643,18 @@ function vhdl_case(dd)
       end case;
 ]]
 
-  local dd2 = 1
-  lued.move_to_sol_classic(dd2)
-  ins_str(str,dd2)
-  move_up_n_lines(9,dd2)
-  move_to_sol(dd2)
-  move_right_n_words(1,dd2)
-  sel_word(dd)
+  lued.move_to(0,1)
+  lued.ins_str_after(str, "state")
 end
 
 
-function vhdl_help()
+function lued.vhdl.help()
   local help_str = [[
 
-alt_vhdl_sig              - Convert entity into entity instantiation
-alt_vhdl_inst             - Convert entity into constants and signals
-alt_vhdl_sel_entity       - Select entity
-alt_vhdl_proc             - Template for clocked process
-alt_vhdl_proc_all         - Template for comb process
-alt_vhdl_template         - Template for vhdl file
-alt_vhdl_package          - Template for vhdl package
-alt_vhdl_tb               - Template for testbench
-alt_sl                    - Shortcut for std_logic
-alt_slv                   - Shortcut slv.  alt+slv15 -> std_logic_vector(15 downto 0);
-alt_slv_squote            - Shortcut slv.  alt+slv'WID -> std_logic_vector(WID-1 downto 0);
-alt_log                   - Shortcut log2.  alt+slv16 -> integer := integer(ceil(log2(real(16))));
-alt_unsigned              - shortcut unsigned15 -> unsigned(15 downto 0);
-alt_signed                - shortcut signed15 -> signed(15 downto 0);
-alt_slv_array             - shortcut
-alt_vhdl_incr             - shortcut x <= std_logic_vecctor(unsigned(x)+1);
-alt_vhdl_case             - Template for case statement
-alt_vhdl_state            - Template for state
-alt_vhdl_record           - Template
-alt_vhdl_type_slv_array   - Template
-alt_vhdl_function         - Template
   ]]
 
 print(help_str)
+prompt("Press <Enter> to continue...")
 
 end
 
@@ -758,26 +662,35 @@ end
 -- KEYBOARD BINDINGS
 
 alt_vhdl_help      = vhdl_help
-alt_vhdl_sig       = vhdl_sig
-alt_vhdl_inst      = vhdl_inst
-alt_vhdl_sel_entity  = vhdl_sel_entity
-alt_vhdl_proc      = vhdl_proc
-alt_vhdl_proc_all  = vhdl_proc_all
-alt_vhdl_template  = vhdl_template
-alt_vhdl_package   = vhdl_package
-alt_vhdl_tb        = vhdl_tb
-alt_sl             = vhdl_sl
-alt_slv            = vhdl_slv
-alt_log            = vhdl_log
-alt_unsigned       = vhdl_unsigned
-alt_signed         = vhdl_signed
-alt_slv_array      = vhdl_slv_array
-alt_vhdl_incr      = vhdl_slv_incr
-alt_vhdl_resize    = vhdl_slv_resize
-alt_vhdl_case      = vhdl_case
-alt_vhdl_state     = vhdl_state
-alt_vhdl_record    = vhdl_record
-alt_vhdl_type_slv_array = vhdl_type_slv_array
-alt_vhdl_function  = vhdl_function
+
+-- ============================================================================
+
+local s = {}
+lued.def_snippet(s, "vhdl vhd !"     , lued.vhdl.template)
+lued.def_snippet(s, "package pack"   , lued.vhdl.package)
+lued.def_snippet(s, "process proc"   , lued.vhdl.proc)
+lued.def_snippet(s, "testbench tb"   , lued.vhdl.tb)
+lued.def_snippet(s, "proc_all procall all" , lued.vhdl.proc_all)
+lued.def_snippet(s, "function func"  , lued.vhdl.func)
+lued.def_snippet(s, "sl stdl"        , lued.vhdl.sl)
+lued.def_snippet(s, "sv slv stdlv"   , lued.vhdl.slv)
+lued.def_snippet(s, "slva aslv"      , lued.vhdl.slv_array)
+lued.def_snippet(s, "incr"           , lued.vhdl.slv_incr)
+lued.def_snippet(s, "resize"         , lued.vhdl.slv_resize)
+lued.def_snippet(s, "un uns unsign unsigned" , lued.vhdl.unsigned)
+lued.def_snippet(s, "si sign signed" , lued.vhdl.signed)
+lued.def_snippet(s, "log log2"       , lued.vhdl.log)
+lued.def_snippet(s, "ta tsa typea"   , lued.vhdl.type_slv_array)
+lued.def_snippet(s, "rec record"     , lued.vhdl.record)
+lued.def_snippet(s, "ts state"       , lued.vhdl.state)
+lued.def_snippet(s, "resize slvresize slvr" , lued.vhdl.slv_resize)
+lued.def_snippet(s, "uresize ures ur" , lued.vhdl.unsigned_resize)
+lued.def_snippet(s, "sresize sres"    , lued.vhdl.signed_resize)
+lued.def_snippet(s, "case"            , lued.vhdl.case)
+lued.def_snippet(s, "inst instance e2i" , lued.vhdl.inst_from_entity)
+lued.def_snippet(s, "sig siglist sigent" , lued.vhdl.sig_from_entity)
+lued.def_snippet(s, "selent sel_ent sent" , lued.vhdl.sel_entity)
+lued.def_snippet(s, "help h"              , lued.vhdl.help)
+lued.snippets.vhdl = s
 
 

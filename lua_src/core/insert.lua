@@ -37,6 +37,18 @@ function lued.bracket_paste_stop(dd)
 end
 
 
+function lued.ins_str_after(str, fstr, dd)
+  local dd2 = 1
+  local r,c = lued.get_cur_pos(dd2)
+  lued.ins_str(str,dd2)
+  lued.set_cur_pos(r,c,dd2)
+  if fstr and #fstr>0 then
+    lued.find_forward(fstr, dd2)
+  end
+  lued.disp(dd)
+end
+
+
 function lued.ins_string(str, dd)
   local dd2 = 1
   local r,c = get_cur_pos()
@@ -46,6 +58,7 @@ function lued.ins_string(str, dd)
   lued.del_sel(dd2)
 
   is_start_of_block = lued.line_contains(g_block_start)
+  is_start_of_block = lued.line_ends_with(g_block_start)
   is_inside_braces  = lued.get_char()=="}" and lued.get_char(-1)=="{"
 
   if str == "\n" then

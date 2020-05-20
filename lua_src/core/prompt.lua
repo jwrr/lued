@@ -27,8 +27,6 @@ SOFTWARE.
 
 
 function lued.prompt(hist_id,prompt,hot,test_str)
-  -- io.write(prompt)
-  -- str = io.read()
   hist_id = hist_id or 0
   prompt = prompt or "--> "
   hot = hot or ""
@@ -40,9 +38,8 @@ end
 
 function lued.dbg_prompt(dbg_str)
   local str = ""
-  -- repeat
-    local prompt = "DBG> "..dbg_str..": "
-    str = lued.prompt(prompt)
+  local prompt = "DBG> "..dbg_str..": "
+  str = lued.prompt(0,prompt)
   return str
 end
 

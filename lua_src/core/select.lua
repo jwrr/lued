@@ -86,6 +86,21 @@ function lued.line_contains(needles, line)
 end
 
 
+function lued.line_ends_with(needles, line)
+  local line = line or get_line() or ""
+  local found = false
+  if needles then
+    for i=1,#needles do
+      if string.find(line, needles[i] .. "%s*$", 1, false)~=nil then
+        found = true
+        break
+      end
+    end
+  end
+  return found
+end
+
+
 function lued.sel_word(dd)
   local dd2 = 1
   if is_sel_off()==1 then

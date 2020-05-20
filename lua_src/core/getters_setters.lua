@@ -234,4 +234,17 @@ function lued.set_lua_mode(dd)
 end
 
 
+function lued.get_filename()
+  local id = get_fileid() or 1
+  return get_filename(id) or ""
+end
+
+
+function lued.get_filetype(filename)
+  filename = filename or lued.get_filename()
+  local extension = string.lower( filename:match "[^./]+$" or "" )
+  local filetype = lued.filetypes[extension] or extension
+  return filetype
+end
+
 

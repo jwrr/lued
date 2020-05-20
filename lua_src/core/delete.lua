@@ -54,6 +54,14 @@ function lued.del_sel(dd)
 end
 
 
+function lued.del_next(str,dd)
+  local dd2 = 1
+  lued.find_forward(str,dd2)
+  lued.del_sel(dd2)
+  lued.disp(dd)
+end
+
+
 function lued.del_char(n,dd)
   local dd2 = 1
   local r,c = get_cur_pos()

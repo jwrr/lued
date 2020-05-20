@@ -22,6 +22,11 @@ snips.html.tags = string.gsub([[
 -- dbg_prompt("tags=".. snips['html']['tags'] )
 
 
+lued.filetypes.html = "html"
+lued.filetypes.htm  = "htm"
+
+
+
 snips.html.html5_template = [[
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +40,9 @@ snips.html.html5_template = [[
 </html>
 ]]
 
-snips.html.main = function(ss) -- ss = snippet string
 
-  
---   start_pos end_pos = string.find(ss, "^[%w:])
-  
-  
+snips.html.main = function(ss) -- ss = snippet string
+  -- start_pos end_pos = string.find(ss, "^[%w:])
   if lued.is_snippet("html html:5 !", ss) then
     lued.ins_str(snips.html.html5_template)
     lued.move_to_first_line()

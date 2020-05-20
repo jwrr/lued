@@ -25,52 +25,59 @@ SOFTWARE.
 --]]
 
 
+function lued.def_snippet(snippets, key_str, fn)
+  local keys = lued.explode(key_str, " ")
+  for i=1,#keys do
+    local key = keys[i]
+    snippets[key] = fn
+  end
+end
+
+
+function lued.is_snippet(haystack, plain_text)
+  haystack = " " .. haystack .. " "
+  plain_text = " " .. plain_text .. " "
+--   lued.dbg_prompt("haystack=") -- ..haystack.."++plain_text="..plain_text.."++")
+  return string.find( haystack , plain_text , 1 , plain)
+end
+
+
 function lued.handle_snippets(dd)
+  local filetype = lued.get_filetype()
+  if not lued.snippets[filetype] then return false end
+  
   local dd2 = false
   local r,c=get_cur_pos()
-  lued.sel_left_pattern( "[%w.#*()^>+*:]"  , dd2)
---   lued.sel_sow(dd2)
+  lued.sel_left_pattern( "[%w.#*()^>+*:!]"  , dd2)
   local sel_str, sel_sr, sel_sc = lued.get_sel_str()
-  if sel_str==nil or sel_str=='' then
-    return false
-  end
+  if sel_str==nil or sel_str=='' then return false end
   
-  local filetype = 'html'
-  
-  s1 = snips and "snips exists," or "snips NOT"
-  s2 = snips[filetype] and "html exists" or "html NOT"
-  --s3 = snips[filetype]['exec']  and "exec exists" or "exec NOT"
-  
-  local snip_routine = snips[filetype].main
-  if snip_routine == nil then
+  if not lued.snippets[filetype][sel_str] then
     set_sel_off()
     set_cur_pos(r,c)
     return false
   end
+    
   lued.del_sel(dd2)
   set_cur_pos(sel_sr,sel_sc)
-  g_dont_display = 1
-  
-  local tok = ""
-  local ii = 1
-  local cnt = 1
+  local tok, ii, cnt = "", 1, 1
   repeat
     tok, ii = lued.get_token(sel_str,ii)
-    snip_routine(tok)
+    local snippet_routine = lued.snippets[filetype][sel_str]
+    if snippet_routine then
+      g_dont_display = 1
+      snippet_routine()
+      g_dont_display = 0
+    end
     tok, ii = lued.get_token(sel_str,ii)
     cnt = cnt + 1
-  until tok == "" or cnt == 5
-  
-  g_dont_display = 0
+  until tok == "" or cnt == 5  
   
   lued.disp(dd)
   return true
 end
 
 
-lued.is_snippet = function(haystack, plain_text)
-  return string.find(" "..haystack.." ", " "..plain_text.." ", 1, plain)
-end
 
 
 

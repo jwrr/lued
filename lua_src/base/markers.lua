@@ -60,6 +60,8 @@ function lued.goto_nameless_mark_prev(dd)
   lued.disp(dd)
 end
 
+lued.goto_nameless_mark = lued.goto_nameless_mark_prev
+
 function lued.sel_mark_to_cursor(dd)
   local dd2 = 1
   local r1,c1 = get_cur_pos()
