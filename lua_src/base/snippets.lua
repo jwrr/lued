@@ -48,7 +48,7 @@ function lued.handle_snippets(dd)
   
   local dd2 = false
   local r,c=get_cur_pos()
-  lued.sel_left_pattern( "[%w.#*()^>+*:!]"  , dd2)
+  lued.sel_left_pattern( "[%w.#*()^+*:!]"  , dd2)
   local sel_str, sel_sr, sel_sc = lued.get_sel_str()
   if sel_str==nil or sel_str=='' then return false end
   
@@ -66,7 +66,7 @@ function lued.handle_snippets(dd)
     local snippet_routine = lued.snippets[filetype][sel_str]
     if snippet_routine then
       g_dont_display = 1
-      snippet_routine()
+      snippet_routine(tok)
       g_dont_display = 0
     end
     tok, ii = lued.get_token(sel_str,ii)

@@ -25,6 +25,19 @@ SOFTWARE.
 --]]
 
 
+function lued.ins_str_after(str, fstr, r, c, dd)
+  local dd2 = 1
+  lued.move_to(r,c)
+  local r1,c1 = lued.get_cur_pos(dd2)
+  lued.ins_str(str,dd2)
+  lued.set_cur_pos(r,c,dd2)
+  if fstr and #fstr>0 then
+    lued.find_forward(fstr, dd2)
+  end
+  lued.disp(dd)
+end
+
+
 function lued.bracket_paste_start(dd)
   g_bracket_paste = 1
   lued.clr_auto_indent()
@@ -34,18 +47,6 @@ end
 function lued.bracket_paste_stop(dd)
   g_bracket_paste = 0
   lued.set_auto_indent(dd)
-end
-
-
-function lued.ins_str_after(str, fstr, dd)
-  local dd2 = 1
-  local r,c = lued.get_cur_pos(dd2)
-  lued.ins_str(str,dd2)
-  lued.set_cur_pos(r,c,dd2)
-  if fstr and #fstr>0 then
-    lued.find_forward(fstr, dd2)
-  end
-  lued.disp(dd)
 end
 
 

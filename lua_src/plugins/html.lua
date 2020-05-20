@@ -1,9 +1,8 @@
 -- html.lua
 
-snips['html'] = {}
+lued.html = {}
 
--- snips["html"]["tags"] = "a b c d"
-snips.html.tags = string.gsub([[
+lued.html.tags = string.gsub([[
  a abbr acronym address applet area article aside audio b  
  base basefont bb bdo big blockquote body button canvas 
  caption center  cite code col colgroup command datagrid 
@@ -19,48 +18,55 @@ snips.html.tags = string.gsub([[
  track tt u ul var video wbr 
 ]] , "%s+", " ")
 
--- dbg_prompt("tags=".. snips['html']['tags'] )
 
-
-lued.filetypes.html = "html"
-lued.filetypes.htm  = "htm"
-
-
-
-snips.html.html5_template = [[
+function lued.html.html5()
+str = [[
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>NAME</title>
 </head>
 <body>
-    
+  HI
 </body>
 </html>
 ]]
+lued.ins_str_after(str, "NAME" , 0, 1)
+
+end -- lued.html.html5
 
 
-snips.html.main = function(ss) -- ss = snippet string
-  -- start_pos end_pos = string.find(ss, "^[%w:])
-  if lued.is_snippet("html html:5 !", ss) then
-    lued.ins_str(snips.html.html5_template)
-    lued.move_to_first_line()
-    lued.find_forward("Document")
-  elseif lued.is_snippet("br hr" , ss) then
-    lued.ins_str('<'..ss.."/>")
-  elseif lued.is_snippet("a", ss) then
-    lued.ins_str('<a href="#">text</a>')
-    lued.move_to_sol()
-    lued.find_forward('#')
-  elseif lued.is_snippet( snips.html.tags, ss) then
-    lued.ins_str('<'..ss.."></"..ss..">")
-    lued.move_left_n_char( ss:len()+3)
-  else
-    lued.ins_str(ss)
+function lued.html.self_closing(tag)
+  lued.ins_str('<'..tag.."/>")  
+end
+
+function lued.html.anchor(tag)
+  local link = "#"
+  if tag == "ah" then
+    link = "http://"
+  elseif tag == "as" or tag == "ahs" then
+    link = "https://"
   end
-  return true
+  lued.ins_str_after('<a href="' .. link .. '">hi</a>', link)
+end
+
+function lued.html.tag(t)
+  lued.ins_str_after('<'..t..">TEXT</"..t..">", "TEXT")
 end
 
 
+-- ============================================================================
+
+lued.filetypes.html = "html"
+lued.filetypes.htm  = "htm"
+
+local s = {}
+lued.def_snippet(s, lued.html.tags  , lued.html.tag)
+lued.def_snippet(s, "html html5 !"  , lued.html.html5)
+lued.def_snippet(s, "br hr"         , lued.html.self_closing)
+lued.def_snippet(s, "a"             , lued.html.anchor)
+lued.def_snippet(s, "ah"            , lued.html.anchor)
+lued.def_snippet(s, "ahs as"        , lued.html.anchor)
+lued.snippets.html = s
 
