@@ -1,11 +1,459 @@
+ALLONES	src/lua/src/lbitlib.c	22
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	447
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	450
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	453
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	456
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	460
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	462
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	464
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	468
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	471
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	474
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	479
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	482
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	485
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	490
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	493
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	496
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	499
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	502
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	505
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	508
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	511
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	514
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	517
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	522
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	525
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	528
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	531
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	534
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	537
+ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	540
+AUXMARK	src/lua/src/loadlib.c	622
+BlockCnt	src/lua/src/lparser.c	42
+BlockCnt	src/lua/src/lparser.c	49
+CAP_POSITION	src/lua/src/lstrlib.c	195
+CAP_UNFINISHED	src/lua/src/lstrlib.c	194
+CLIBS	src/lua/src/loadlib.c	96
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	19
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	56
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	64
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	70
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	76
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	85
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	94
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	108
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	115
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	122
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	129
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	137
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	144
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	151
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	159
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	164
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	171
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	174
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	183
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	186
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	189
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	192
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	207
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	222
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	229
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	243
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	253
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	271
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	280
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	294
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	311
+COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	314
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	226
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	285
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	290
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	27
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	57
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	65
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	72
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	78
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	87
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	97
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	102
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	110
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	117
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	124
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	130
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	139
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	146
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	152
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	160
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	166
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	177
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	195
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	200
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	211
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	223
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	233
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	244
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	255
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	274
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	282
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	287
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	296
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	301
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	28
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	58
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	66
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	73
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	79
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	88
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	98
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	103
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	111
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	118
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	125
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	131
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	140
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	147
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	153
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	161
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	167
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	178
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	196
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	201
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	212
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	224
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	234
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	246
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	256
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	275
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	283
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	288
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	297
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	302
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	30
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	32
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	60
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	67
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	81
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	90
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	99
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	104
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	112
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	119
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	126
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	132
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	141
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	148
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	155
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	168
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	179
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	197
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	202
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	213
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	225
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	235
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	249
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	260
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	263
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	276
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	284
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	289
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	298
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	303
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	36
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	133
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	219
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	267
+C_DIALECT	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	623
+C_DIALECT	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	625
+C_DIALECT	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	628
+C_DIALECT	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	630
+C_DIALECT	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	632
+CallS	src/lua/src/lapi.c	915
+Cfunc	src/lua/src/ltests.c	/^static int Cfunc (lua_State *L) {$/
+Cfunck	src/lua/src/ltests.c	/^static int Cfunck (lua_State *L) {$/
+Chook	src/lua/src/ltests.c	/^static void Chook (lua_State *L, lua_Debug *ar) {$/
+ConsControl	src/lua/src/lparser.c	643
+DEC	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(n)                   \\$/
+DLMSG	src/lua/src/loadlib.c	226
+DumpBlock	src/lua/src/ldump.c	/^static void DumpBlock(const void* b, size_t size, /
+DumpChar	src/lua/src/ldump.c	/^static void DumpChar(int y, DumpState* D)$/
+DumpCode	src/lua/src/ldump.c	/^#define DumpCode(f,D)	 DumpVector(f->code,f->sizec/
+DumpConstants	src/lua/src/ldump.c	/^static void DumpConstants(const Proto* f, DumpStat/
+DumpDebug	src/lua/src/ldump.c	/^static void DumpDebug(const Proto* f, DumpState* D/
+DumpFunction	src/lua/src/ldump.c	/^static void DumpFunction(const Proto* f, DumpState/
+DumpHeader	src/lua/src/ldump.c	/^static void DumpHeader(DumpState* D)$/
+DumpInt	src/lua/src/ldump.c	/^static void DumpInt(int x, DumpState* D)$/
+DumpMem	src/lua/src/ldump.c	/^#define DumpMem(b,n,size,D)	DumpBlock(b,(n)*(size)/
+DumpNumber	src/lua/src/ldump.c	/^static void DumpNumber(lua_Number x, DumpState* D)/
+DumpState	src/lua/src/ldump.c	24
+DumpString	src/lua/src/ldump.c	/^static void DumpString(const TString* s, DumpState/
+DumpUpvalues	src/lua/src/ldump.c	/^static void DumpUpvalues(const Proto* f, DumpState/
+DumpVar	src/lua/src/ldump.c	/^#define DumpVar(x,D)		DumpMem(&x,1,sizeof(x),D)$/
+DumpVector	src/lua/src/ldump.c	/^static void DumpVector(const void* b, int n, size_/
+EOFMARK	src/lua/src/lua.c	246
+EQ	src/lua/src/ltests.c	/^#define EQ(s1)	(strcmp(s1, inst) == 0)$/
+ERRFUNC	src/lua/src/loadlib.c	103
+ERRLIB	src/lua/src/loadlib.c	102
+ERRORSTACKSIZE	src/lua/src/ldo.c	158
+FLAGS	src/lua/src/lstrlib.c	825
+FORMAT	src/lua/src/lundump.c	237
+GCFINALIZENUM	src/lua/src/lgc.c	37
+GCSWEEPCOST	src/lua/src/lgc.c	31
+GCSWEEPMAX	src/lua/src/lgc.c	34
+GCTM	src/lua/src/lgc.c	/^static void GCTM (lua_State *L, int propagateerror/
+HEX	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(n)             \\$/
+HOOKKEY	src/lua/src/ldblib.c	21
+Header	src/lua/src/ltests.c	77
+Header	src/lua/src/ltests.c	83
+ID_VOID_MAIN	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	6
+IO_INPUT	src/lua/src/liolib.c	118
+IO_OUTPUT	src/lua/src/liolib.c	119
+IO_PREFIX	src/lua/src/liolib.c	117
+KBx	src/lua/src/lvm.c	/^#define KBx(i)  \\$/
+L	src/lua/src/lstrlib.c	203
+L	src/lua/src/lundump.c	24
+L	src/lua/src/ldump.c	19
+LEVELS1	src/lua/src/lauxlib.c	34
+LEVELS2	src/lua/src/lauxlib.c	35
+LG	src/lua/src/lstate.c	70
+LG	src/lua/src/lstate.c	73
+LHS_assign	src/lua/src/lparser.c	1096
+LIB_FAIL	src/lua/src/loadlib.c	98
+LIB_FAIL	src/lua/src/loadlib.c	222
+LIB_FAIL	src/lua/src/loadlib.c	223
+LL	src/lua/src/lobject.c	/^#define LL(x)	(sizeof(x)\/sizeof(char) - 1)$/
+LStream	src/lua/src/liolib.c	122
+LUAI_GCMAJOR	src/lua/src/lstate.c	34
+LUAI_GCMUL	src/lua/src/lstate.c	38
+LUAI_GCPAUSE	src/lua/src/lstate.c	30
+LUAI_HASHLIMIT	src/lua/src/lstring.c	26
+LUAI_THROW	src/lua/src/ldo.c	/^#define LUAI_THROW(L,c)		throw(c)$/
+LUAI_THROW	src/lua/src/ldo.c	/^#define LUAI_THROW(L,c)		_longjmp((c)->b, 1)$/
+LUAI_THROW	src/lua/src/ldo.c	/^#define LUAI_THROW(L,c)		longjmp((c)->b, 1)$/
+LUAI_TRY	src/lua/src/ldo.c	/^#define LUAI_TRY(L,c,a) \\$/
+LUAI_TRY	src/lua/src/ldo.c	/^#define LUAI_TRY(L,c,a)		if (_setjmp((c)->b) == 0)/
+LUAI_TRY	src/lua/src/ldo.c	/^#define LUAI_TRY(L,c,a)		if (setjmp((c)->b) == 0) /
+LUA_CORE	src/lua/src/lctype.c	8
+LUA_CORE	src/lua/src/lmem.c	11
+LUA_CORE	src/lua/src/lapi.c	12
+LUA_CORE	src/lua/src/ldebug.c	14
+LUA_CORE	src/lua/src/lobject.c	13
+LUA_CORE	src/lua/src/ltests.c	14
+LUA_CORE	src/lua/src/lstring.c	11
+LUA_CORE	src/lua/src/llex.c	12
+LUA_CORE	src/lua/src/lparser.c	11
+LUA_CORE	src/lua/src/lundump.c	10
+LUA_CORE	src/lua/src/lstate.c	12
+LUA_CORE	src/lua/src/lcode.c	11
+LUA_CORE	src/lua/src/lfunc.c	11
+LUA_CORE	src/lua/src/ltable.c	24
+LUA_CORE	src/lua/src/ldo.c	13
+LUA_CORE	src/lua/src/lzio.c	11
+LUA_CORE	src/lua/src/lvm.c	13
+LUA_CORE	src/lua/src/ltm.c	11
+LUA_CORE	src/lua/src/lgc.c	10
+LUA_CORE	src/lua/src/lopcodes.c	9
+LUA_CORE	src/lua/src/ldump.c	10
+LUA_CPATH	src/lua/src/loadlib.c	42
+LUA_CPATHVERSION	src/lua/src/loadlib.c	48
+LUA_CSUBSEP	src/lua/src/loadlib.c	80
+LUA_EXEC_DIR	src/lua/src/loadlib.c	66
+LUA_FLTFRMLEN	src/lua/src/lstrlib.c	816
+LUA_FLTFRM_T	src/lua/src/lstrlib.c	817
+LUA_IGMARK	src/lua/src/loadlib.c	69
+LUA_INIT	src/lua/src/lua.c	37
+LUA_INITVERSION	src/lua/src/lua.c	40
+LUA_INTFRMLEN	src/lua/src/lstrlib.c	797
+LUA_INTFRMLEN	src/lua/src/lstrlib.c	802
+LUA_INTFRM_T	src/lua/src/lstrlib.c	798
+LUA_INTFRM_T	src/lua/src/lstrlib.c	803
+LUA_LIB	src/lua/src/liolib.c	24
+LUA_LIB	src/lua/src/lbitlib.c	8
+LUA_LIB	src/lua/src/loslib.c	15
+LUA_LIB	src/lua/src/lbaselib.c	15
+LUA_LIB	src/lua/src/lstrlib.c	15
+LUA_LIB	src/lua/src/ltablib.c	12
+LUA_LIB	src/lua/src/lcorolib.c	12
+LUA_LIB	src/lua/src/ldblib.c	13
+LUA_LIB	src/lua/src/lmathlib.c	12
+LUA_LIB	src/lua/src/loadlib.c	25
+LUA_LIB	src/lua/src/lauxlib.c	20
+LUA_LIB	src/lua/src/linit.c	17
+LUA_LLE_FLAGS	src/lua/src/loadlib.c	164
+LUA_LSUBSEP	src/lua/src/loadlib.c	84
+LUA_MAXCAPTURES	src/lua/src/lstrlib.c	28
+LUA_MAXINPUT	src/lua/src/lua.c	33
+LUA_NBITS	src/lua/src/lbitlib.c	18
+LUA_OFSEP	src/lua/src/loadlib.c	92
+LUA_PATH	src/lua/src/loadlib.c	38
+LUA_PATHSUFFIX	src/lua/src/loadlib.c	45
+LUA_PATHVERSION	src/lua/src/loadlib.c	47
+LUA_PATH_MARK	src/lua/src/loadlib.c	63
+LUA_PATH_SEP	src/lua/src/loadlib.c	60
+LUA_POF	src/lua/src/loadlib.c	89
+LUA_PROGNAME	src/lua/src/lua.c	29
+LUA_PROMPT	src/lua/src/lua.c	24
+LUA_PROMPT2	src/lua/src/lua.c	25
+LUA_STRFTIMEOPTIONS	src/lua/src/loslib.c	29
+LUA_STRFTIMEOPTIONS	src/lua/src/loslib.c	31
+LUA_TMPNAMBUFSIZE	src/lua/src/loslib.c	47
+LUA_TMPNAMBUFSIZE	src/lua/src/loslib.c	56
 LUED_SELEND	src/lued.c	32
 LUED_SELENDBLK	src/lued.c	33
 LUED_SELOFF	src/lued.c	31
 LUED_SELON	src/lued.c	34
 LUED_SELONBLK	src/lued.c	35
 LUED_SESSIONS	src/lued.c	37
+LX	src/lua/src/lstate.c	59
+LX	src/lua/src/lstate.c	64
+L_ESC	src/lua/src/lstrlib.c	222
+LoadBlock	src/lua/src/lundump.c	/^static void LoadBlock(LoadState* S, void* b, size_/
+LoadByte	src/lua/src/lundump.c	/^#define LoadByte(S)		(lu_byte)LoadChar(S)$/
+LoadChar	src/lua/src/lundump.c	/^static int LoadChar(LoadState* S)$/
+LoadCode	src/lua/src/lundump.c	/^static void LoadCode(LoadState* S, Proto* f)$/
+LoadConstants	src/lua/src/lundump.c	/^static void LoadConstants(LoadState* S, Proto* f)$/
+LoadDebug	src/lua/src/lundump.c	/^static void LoadDebug(LoadState* S, Proto* f)$/
+LoadF	src/lua/src/lauxlib.c	562
+LoadF	src/lua/src/lauxlib.c	566
+LoadFunction	src/lua/src/lundump.c	/^static void LoadFunction(LoadState* S, Proto* f)$/
+LoadHeader	src/lua/src/lundump.c	/^static void LoadHeader(LoadState* S)$/
+LoadInt	src/lua/src/lundump.c	/^static int LoadInt(LoadState* S)$/
+LoadMem	src/lua/src/lundump.c	/^#define LoadMem(S,b,n,size)	LoadBlock(S,b,(n)*(siz/
+LoadNumber	src/lua/src/lundump.c	/^static lua_Number LoadNumber(LoadState* S)$/
+LoadS	src/lua/src/lauxlib.c	666
+LoadS	src/lua/src/lauxlib.c	669
+LoadState	src/lua/src/lundump.c	28
+LoadString	src/lua/src/lundump.c	/^static TString* LoadString(LoadState* S)$/
+LoadUpvalues	src/lua/src/lundump.c	/^static void LoadUpvalues(LoadState* S, Proto* f)$/
+LoadVar	src/lua/src/lundump.c	/^#define LoadVar(S,x)		LoadMem(S,&x,1,sizeof(x))$/
+LoadVector	src/lua/src/lundump.c	/^#define LoadVector(S,b,n,size)	LoadMem(S,b,n,size)/
+MARK	src/lua/src/ltests.c	75
+MARKSIZE	src/lua/src/ltests.c	89
+MARKSIZE	src/lua/src/ltests.c	95
+MAXASIZE	src/lua/src/ltable.c	48
+MAXBITS	src/lua/src/ltable.c	43
+MAXBITS	src/lua/src/ltable.c	45
+MAXCCALLS	src/lua/src/lstrlib.c	218
+MAXSIZE	src/lua/src/lstrlib.c	106
+MAXTAGLOOP	src/lua/src/lvm.c	32
+MAXVARS	src/lua/src/lparser.c	32
+MAX_FORMAT	src/lua/src/lstrlib.c	830
+MAX_ITEM	src/lua/src/lstrlib.c	823
+MAX_SIZE_T	src/lua/src/liolib.c	393
+MCMakeCCompilerId	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/
+MCMakeCCompilerId	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^int main(argc, argv) int argc; char *argv[];$/
+MEMERRMSG	src/lua/src/lstate.c	42
+MINSIZEARRAY	src/lua/src/lmem.c	43
+MYINT	src/lua/src/lundump.c	/^#define MYINT(s)	(s[0]-'0')$/
+Marrlen_test	src/carr/test/arrlen_test.c	/^int main(int argc, char* argv[])$/
+MatchState	src/lua/src/lstrlib.c	198
+MatchState	src/lua/src/lstrlib.c	209
+Mcarr_copy_test	src/carr/test/carr_copy_test.c	/^int main(int argc, char* argv[])$/
+Mcarr_dup_test	src/carr/test/carr_dup_test.c	/^int main(int argc, char* argv[])$/
+Mcarr_init_test	src/carr/test/carr_init_test.c	/^int main(int argc, char* argv[])$/
+Mcarr_new_test	src/carr/test/carr_new_test.c	/^int main(int argc, char* argv[])$/
+Mcarr_resize_if_needed_test	src/carr/test/carr_resize_if_needed_test.c	/^int main(int argc, char* argv[])$/
+Mcarr_resize_test	src/carr/test/carr_resize_test.c	/^int main(int argc, char* argv[])$/
+Mcarr_test	src/carr/test/carr_test.c	/^int main()$/
+Mcstra_new	src/carr/test/cstra_new.c	/^int main(int argc, char* argv[])$/
+Mlua	src/lua/src/lua.c	/^int main (int argc, char **argv) {$/
 Mmain	src/main.c	/^int main(int argc, char* argv[])$/
+Mmem_is_zero_test	src/carr/test/mem_is_zero_test.c	/^int main(int argc, char* argv[])$/
+Mtest1	src/carr/test/test1.c	/^int main()$/
+Mtest2	src/carr/test/test2.c	/^int main()$/
+N0	src/lua/src/lundump.c	185
+N1	src/lua/src/lundump.c	186
+N2	src/lua/src/lundump.c	187
+N3	src/lua/src/lundump.c	188
+NONVALIDVALUE	src/lua/src/lapi.c	38
+PAUSEADJ	src/lua/src/lgc.c	51
+PI	src/lua/src/lmathlib.c	20
+PI	src/lua/src/lmathlib.c	21
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	339
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	342
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	345
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	348
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	351
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	354
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	357
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	360
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	363
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	366
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	369
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	372
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	375
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	378
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	381
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	384
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	387
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	390
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	393
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	396
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	399
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	402
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	405
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	408
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	412
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	415
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	418
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	421
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	424
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	429
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	432
+PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	436
+POS	src/lua/src/lobject.c	248
+PRE	src/lua/src/lobject.c	247
+Protect	src/lua/src/lvm.c	/^#define Protect(x)	{ {x;}; base = ci->u.l.base; }$/
+RA	src/lua/src/lvm.c	/^#define RA(i)	(base+GETARG_A(i))$/
+RADIANS_PER_DEGREE	src/lua/src/lmathlib.c	22
+RB	src/lua/src/lvm.c	/^#define RB(i)	check_exp(getBMode(GET_OPCODE(i)) ==/
+RC	src/lua/src/lvm.c	/^#define RC(i)	check_exp(getCMode(GET_OPCODE(i)) ==/
+RESERVEDSLOT	src/lua/src/lbaselib.c	283
+RETS	src/lua/src/lobject.c	246
+RKB	src/lua/src/lvm.c	/^#define RKB(i)	check_exp(getBMode(GET_OPCODE(i)) =/
+RKC	src/lua/src/lvm.c	/^#define RKC(i)	check_exp(getCMode(GET_OPCODE(i)) =/
+SIMULATE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	21
+SIMULATE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	24
+SIMULATE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	209
+SIMULATE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	231
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	40
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	44
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	46
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	216
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	238
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	41
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	49
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	217
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	239
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	52
+SPACECHARS	src/lua/src/lbaselib.c	46
+SPECIALS	src/lua/src/lstrlib.c	223
+SParser	src/lua/src/ldo.c	622
+STEPMULADJ	src/lua/src/lgc.c	44
+STRINGIFY	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY(X) STRINGIFY_HELPER(X)$/
+STRINGIFY_HELPER	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY_HELPER(X) #X$/
 STRLEN	src/lued.c	1686
+TESTGRAYBIT	src/lua/src/ltests.c	375
+UNARY_PRIORITY	src/lua/src/lparser.c	1030
+VERSION	src/lua/src/lundump.c	236
+Z	src/lua/src/lundump.c	25
+_FILE_OFFSET_BITS	src/lua/src/liolib.c	14
+_LARGEFILE_SOURCE	src/lua/src/liolib.c	13
+a	src/lua/src/ltests.c	78
+add_s	src/lua/src/lstrlib.c	/^static void add_s (MatchState *ms, luaL_Buffer *b,/
+add_value	src/lua/src/lstrlib.c	/^static void add_value (MatchState *ms, luaL_Buffer/
+addbuff	src/lua/src/lstate.c	/^#define addbuff(b,p,e) \\$/
+addfield	src/lua/src/ltablib.c	/^static void addfield (lua_State *L, luaL_Buffer *b/
+addinfo	src/lua/src/ldebug.c	/^static void addinfo (lua_State *L, const char *msg/
+addk	src/lua/src/lcode.c	/^static int addk (FuncState *fs, TValue *key, TValu/
+addlenmod	src/lua/src/lstrlib.c	/^static void addlenmod (char *form, const char *len/
+addprototype	src/lua/src/lparser.c	/^static Proto *addprototype (LexState *ls) {$/
+addquoted	src/lua/src/lstrlib.c	/^static void addquoted (lua_State *L, luaL_Buffer */
+addstr	src/lua/src/lobject.c	/^#define addstr(a,b,l)	( memcpy(a,b,(l) * sizeof(ch/
+adjust_assign	src/lua/src/lparser.c	/^static void adjust_assign (LexState *ls, int nvars/
+adjust_varargs	src/lua/src/ldo.c	/^static StkId adjust_varargs (lua_State *L, Proto */
+adjustlocalvars	src/lua/src/lparser.c	/^static void adjustlocalvars (LexState *ls, int nva/
 align_cur_char	lua_src/base/align.lua	/^function lued.align_cur_char(dd)$/
 align_delimiter_of_next_line	lua_src/base/align.lua	/^function lued.align_delimiter_of_next_line(delim, /
 align_delimiter_selected	lua_src/base/align.lua	/^function lued.align_delimiter_selected(delim, dd)$/
@@ -15,16 +463,72 @@ all_hist	src/carr/src/carr_readline_lua.c	105
 alt_ooth	lua_src/plugins/vhdl.lua	/^function alt_ooth (dd) lued.ins_str( "(others => (/
 alt_oth	lua_src/plugins/vhdl.lua	/^function alt_oth (dd) lued.ins_str("(others => '0'/
 alt_z_wrapper	lua_src/core/undo.lua	/^function lued.alt_z_wrapper(dd)$/
+anchor	lua_src/plugins/html.lua	/^function lued.html.anchor(tag)$/
+anchor_token	src/lua/src/lparser.c	/^static void anchor_token (LexState *ls) {$/
+andaux	src/lua/src/lbitlib.c	/^static b_uint andaux (lua_State *L) {$/
+api_checkstackindex	src/lua/src/lapi.c	/^#define api_checkstackindex(L, i, o)  \\$/
+api_checkvalidindex	src/lua/src/lapi.c	/^#define api_checkvalidindex(L, o)  api_check(L, is/
+arith_op	src/lua/src/lvm.c	/^#define arith_op(op,tm) { \\$/
+arrayindex	src/lua/src/ltable.c	/^static int arrayindex (const TValue *key) {$/
 arrlen	src/carr/src/carr.c	/^uint32_t arrlen(const void* arr, uint32_t elem_siz/
+assignment	src/lua/src/lparser.c	/^static void assignment (LexState *ls, struct LHS_a/
+atomic	src/lua/src/lgc.c	/^static l_mem atomic (lua_State *L) {$/
+aux_close	src/lua/src/liolib.c	/^static int aux_close (lua_State *L) {$/
+aux_getn	src/lua/src/ltablib.c	/^#define aux_getn(L,n)	(luaL_checktype(L, n, LUA_TT/
+aux_lines	src/lua/src/liolib.c	/^static void aux_lines (lua_State *L, int toclose) /
+aux_upvalue	src/lua/src/lapi.c	/^static const char *aux_upvalue (StkId fi, int n, T/
+auxgetinfo	src/lua/src/ldebug.c	/^static int auxgetinfo (lua_State *L, const char *w/
+auxresume	src/lua/src/lcorolib.c	/^static int auxresume (lua_State *L, lua_State *co,/
+auxsort	src/lua/src/ltablib.c	/^static void auxsort (lua_State *L, int l, int u) {/
+auxupvalue	src/lua/src/ldblib.c	/^static int auxupvalue (lua_State *L, int get) {$/
+b	src/lua/src/lundump.c	26
+b	src/lua/src/ldo.c	79
+b_and	src/lua/src/lbitlib.c	/^static int b_and (lua_State *L) {$/
+b_arshift	src/lua/src/lbitlib.c	/^static int b_arshift (lua_State *L) {$/
+b_extract	src/lua/src/lbitlib.c	/^static int b_extract (lua_State *L) {$/
+b_lrot	src/lua/src/lbitlib.c	/^static int b_lrot (lua_State *L) {$/
+b_lshift	src/lua/src/lbitlib.c	/^static int b_lshift (lua_State *L) {$/
+b_not	src/lua/src/lbitlib.c	/^static int b_not (lua_State *L) {$/
+b_or	src/lua/src/lbitlib.c	/^static int b_or (lua_State *L) {$/
+b_replace	src/lua/src/lbitlib.c	/^static int b_replace (lua_State *L) {$/
+b_rot	src/lua/src/lbitlib.c	/^static int b_rot (lua_State *L, int i) {$/
+b_rrot	src/lua/src/lbitlib.c	/^static int b_rrot (lua_State *L) {$/
+b_rshift	src/lua/src/lbitlib.c	/^static int b_rshift (lua_State *L) {$/
+b_shift	src/lua/src/lbitlib.c	/^static int b_shift (lua_State *L, b_uint r, int i)/
+b_test	src/lua/src/lbitlib.c	/^static int b_test (lua_State *L) {$/
+b_uint	src/lua/src/lbitlib.c	32
+b_xor	src/lua/src/lbitlib.c	/^static int b_xor (lua_State *L) {$/
 backspace	src/carr/src/carr_readline.c	/^static void backspace(carr_t* line, size_t n) {$/
+base_funcs	src/lua/src/lbaselib.c	417
+bitlib	src/lua/src/lbitlib.c	190
+black2gray	src/lua/src/lgc.c	/^#define black2gray(x)	resetbit(gch(x)->marked, BLA/
+block	src/lua/src/lparser.c	/^static void block (LexState *ls) {$/
+block_follow	src/lua/src/lparser.c	/^static int block_follow (LexState *ls, int withunt/
+body	src/lua/src/lparser.c	/^static void body (LexState *ls, expdesc *e, int is/
+boolK	src/lua/src/lcode.c	/^static int boolK (FuncState *fs, int b) {$/
 bracket_paste_start	lua_src/core/insert.lua	/^function lued.bracket_paste_start(dd)$/
 bracket_paste_stop	lua_src/core/insert.lua	/^function lued.bracket_paste_stop(dd)$/
+breaklabel	src/lua/src/lparser.c	/^static void breaklabel (LexState *ls) {$/
 bubble_line_down	lua_src/base/swap.lua	/^function lued.bubble_line_down(dd)$/
 bubble_line_up	lua_src/base/swap.lua	/^function lued.bubble_line_up(dd)$/
 bubble_selected_lines_down	lua_src/base/swap.lua	/^function lued.bubble_selected_lines_down(dd)$/
 bubble_selected_lines_up	lua_src/base/swap.lua	/^function lued.bubble_selected_lines_up(dd)$/
 bubble_word_left	lua_src/base/swap.lua	/^function lued.bubble_word_left(dd)$/
 bubble_word_right	lua_src/base/swap.lua	/^function lued.bubble_word_right(dd)$/
+buff	src/lua/src/lstate.c	61
+buff	src/lua/src/ldo.c	624
+buff	src/lua/src/lauxlib.c	565
+buff2d	src/lua/src/llex.c	/^#define buff2d(b,e)	luaO_str2d(luaZ_buffer(b), lua/
+buffonstack	src/lua/src/lauxlib.c	/^#define buffonstack(B)	((B)->b != (B)->initb)$/
+buffreplace	src/lua/src/llex.c	/^static void buffreplace (LexState *ls, char from, /
+buildop	src/lua/src/ltests.c	/^static char *buildop (Proto *p, int pc, char *buff/
+callTM	src/lua/src/lvm.c	/^static void callTM (lua_State *L, const TValue *f,/
+call_binTM	src/lua/src/lvm.c	/^static int call_binTM (lua_State *L, const TValue /
+call_orderTM	src/lua/src/lvm.c	/^static int call_orderTM (lua_State *L, const TValu/
+callallpendingfinalizers	src/lua/src/lgc.c	/^static void callallpendingfinalizers (lua_State *L/
+callhook	src/lua/src/ldo.c	/^static void callhook (lua_State *L, CallInfo *ci) /
+capture	src/lua/src/lstrlib.c	208
+capture_to_close	src/lua/src/lstrlib.c	/^static int capture_to_close (MatchState *ms) {$/
 carr_append	src/carr/src/carr.c	/^uint32_t carr_append(carr_t* dest, carr_t* src)$/
 carr_arg	src/carr/src/carr_arg.c	/^const carr_t* carr_arg(int argc, char** argv, cons/
 carr_clear	src/carr/src/carr.c	/^void carr_clear(carr_t* const ca, uint32_t const o/
@@ -80,6 +584,8 @@ carr_set_len	src/carr/src/carr.c	/^void carr_set_len(carr_t* ca, uint32_t new_le
 carr_seti	src/carr/src/carr.c	/^void carr_seti(carr_t* ca, void* value)$/
 carr_slicei	src/carr/src/carr.c	/^carr_t* carr_slicei(carr_t* ca, uint32_t len)$/
 carr_split	src/carr/src/carr.c	/^void carr_split(carr_t* const outs, carr_t* const /
+carr_test	src/carr/test/test_src/carr_test.c	/^int carr_test(const int argc, char* argv[])$/
+carr_test	src/carr/test/carr_test.c	/^int carr_test(const int argc, char* argv[])$/
 carr_to_end	src/carr/src/carr.c	/^uint32_t carr_to_end(carr_t* ca)$/
 carr_too_big	src/carr/src/carr.c	/^int carr_too_big(const carr_t* const ca, uint32_t /
 carr_validei	src/carr/src/carr.c	/^int carr_validei(const carr_t* const ca, void* ele/
@@ -87,8 +593,47 @@ carr_validi	src/carr/src/carr.c	/^int carr_validi(const carr_t* const ca)$/
 carr_write2d	src/carr/src/carr.c	/^int carr_write2d(carr_t* ca, char* filename)$/
 case	lua_src/plugins/vhdl.lua	/^function lued.vhdl.case()$/
 cd_change_dir	lua_src/core/os.lua	/^function lued.cd_change_dir(dd)$/
+check	src/lua/src/lparser.c	/^static void check (LexState *ls, int c) {$/
+checkCclosure	src/lua/src/ltests.c	/^static void checkCclosure (global_State *g, CClosu/
+checkGC	src/lua/src/lvm.c	/^#define checkGC(L,c)  \\$/
+checkLclosure	src/lua/src/ltests.c	/^static void checkLclosure (global_State *g, LClosu/
+checkSizes	src/lua/src/lgc.c	/^static void checkSizes (lua_State *L) {$/
+check_capture	src/lua/src/lstrlib.c	/^static int check_capture (MatchState *ms, int l) {/
+check_condition	src/lua/src/lparser.c	/^#define check_condition(ls,c,msg)	{ if (!(c)) luaX/
+check_conflict	src/lua/src/lparser.c	/^static void check_conflict (LexState *ls, struct L/
+check_match	src/lua/src/lparser.c	/^static void check_match (LexState *ls, int what, i/
+check_next	src/lua/src/llex.c	/^static int check_next (LexState *ls, const char *s/
+checkconsistency	src/lua/src/lgc.c	/^#define checkconsistency(obj)  \\$/
+checkdeadkey	src/lua/src/lgc.c	/^#define checkdeadkey(n)	lua_assert(!ttisdeadkey(gk/
+checkfinalmem	src/lua/src/ltests.c	/^static void checkfinalmem (void) {$/
+checkgraylist	src/lua/src/ltests.c	/^static void checkgraylist (GCObject *l) {$/
+checklimit	src/lua/src/lparser.c	/^static void checklimit (FuncState *fs, int v, int /
+checkload	src/lua/src/loadlib.c	/^static int checkload (lua_State *L, int stat, cons/
+checkmode	src/lua/src/ldo.c	/^static void checkmode (lua_State *L, const char *m/
+checkname	src/lua/src/lparser.c	/^static void checkname (LexState *ls, expdesc *e) {/
+checknext	src/lua/src/lparser.c	/^static void checknext (LexState *ls, int c) {$/
+checkobject	src/lua/src/ltests.c	/^static void checkobject (global_State *g, GCObject/
+checkobjref	src/lua/src/ltests.c	/^#define checkobjref(g,f,t) lua_assert(testobjref(g/
+checkold	src/lua/src/ltests.c	/^static void checkold (global_State *g, GCObject *o/
+checkoption	src/lua/src/loslib.c	/^static const char *checkoption (lua_State *L, cons/
+checkproto	src/lua/src/ltests.c	/^static void checkproto (global_State *g, Proto *f)/
+checkrepeated	src/lua/src/lparser.c	/^static void checkrepeated (FuncState *fs, Labellis/
+checkresults	src/lua/src/lapi.c	/^#define checkresults(L,na,nr) \\$/
+checkstack	src/lua/src/ltests.c	/^static void checkstack (global_State *g, lua_State/
+checkstack	src/lua/src/ldblib.c	/^static void checkstack (lua_State *L, lua_State *L/
+checktable	src/lua/src/ltests.c	/^static void checktable (global_State *g, Table *h)/
+checkupval	src/lua/src/ldblib.c	/^static int checkupval (lua_State *L, int argf, int/
+checkvalref	src/lua/src/ltests.c	/^static void checkvalref (global_State *g, GCObject/
 chomp	lua_src/core/os.lua	/^function lued.chomp(str)$/
+classend	src/lua/src/lstrlib.c	/^static const char *classend (MatchState *ms, const/
+clearkeys	src/lua/src/lgc.c	/^static void clearkeys (global_State *g, GCObject */
+clearvalues	src/lua/src/lgc.c	/^static void clearvalues (global_State *g, GCObject/
+close_func	src/lua/src/lparser.c	/^static void close_func (LexState *ls) {$/
 close_session	src/lued.c	/^static void close_session(carr_t* all_sessions) {$/
+close_state	src/lua/src/lstate.c	/^static void close_state (lua_State *L) {$/
+closegoto	src/lua/src/lparser.c	/^static void closegoto (LexState *ls, int g, Labeld/
+closelistfield	src/lua/src/lparser.c	/^static void closelistfield (FuncState *fs, struct /
+closestate	src/lua/src/ltests.c	/^static int closestate (lua_State *L) {$/
 clr_abs_line_numbers	lua_src/base/linenumbers.lua	/^function lued.clr_abs_line_numbers(dd)$/
 clr_auto_indent	lua_src/base/indent.lua	/^function lued.clr_auto_indent(dd)$/
 clr_find_case_sensitive	lua_src/core/find.lua	/^function lued.clr_find_case_sensitive(dd)$/
@@ -96,8 +641,25 @@ clr_find_whole_word	lua_src/core/find.lua	/^function lued.clr_find_whole_word(dd
 clr_rel_line_numbers	lua_src/base/linenumbers.lua	/^function lued.clr_rel_line_numbers(dd)$/
 clr_sb_files	lua_src/base/sidebar.lua	/^function lued.clr_sb_files(dd)$/
 cmd_hist	src/carr/src/carr_readline_lua.c	74
+co_funcs	src/lua/src/lcorolib.c	139
+code_label	src/lua/src/lcode.c	/^static int code_label (FuncState *fs, int A, int b/
+codearith	src/lua/src/lcode.c	/^static void codearith (FuncState *fs, OpCode op,$/
+codeclosure	src/lua/src/lparser.c	/^static void codeclosure (LexState *ls, expdesc *v)/
+codecomp	src/lua/src/lcode.c	/^static void codecomp (FuncState *fs, OpCode op, in/
+codeextraarg	src/lua/src/lcode.c	/^static int codeextraarg (FuncState *fs, int a) {$/
+codenot	src/lua/src/lcode.c	/^static void codenot (FuncState *fs, expdesc *e) {$/
+codestring	src/lua/src/lparser.c	/^static void codestring (LexState *ls, expdesc *e, /
+collectargs	src/lua/src/lua.c	/^static int collectargs (char **argv, int *args) {$/
+collectvalidlines	src/lua/src/ldebug.c	/^static void collectvalidlines (lua_State *L, Closu/
 comment	lua_src/base/comments.lua	/^function lued.comment(dd)$/
 comment_selected	lua_src/base/comments.lua	/^function lued.comment_selected(dd)$/
+computesizes	src/lua/src/ltable.c	/^static int computesizes (int nums[], int *narray) /
+cond	src/lua/src/lparser.c	/^static int cond (LexState *ls) {$/
+condjump	src/lua/src/lcode.c	/^static int condjump (FuncState *fs, OpCode op, int/
+const	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	10
+constfolding	src/lua/src/lcode.c	/^static int constfolding (OpCode op, expdesc *e1, e/
+constructor	src/lua/src/lparser.c	/^static void constructor (LexState *ls, expdesc *t)/
+convergeephemerons	src/lua/src/lgc.c	/^static void convergeephemerons (global_State *g) {/
 copy	lua_src/core/copypaste.lua	/^function lued.copy(dd)$/
 copy	lua_src/core/copy_paste.lua	/^function lued.copy(dd)$/
 copy_eol	lua_src/core/copypaste.lua	/^function lued.copy_eol(dd)$/
@@ -108,13 +670,36 @@ copy_sol	lua_src/core/copypaste.lua	/^function lued.copy_sol(dd)$/
 copy_sol	lua_src/core/copy_paste.lua	/^function lued.copy_sol(dd)$/
 copy_word	lua_src/core/copypaste.lua	/^function lued.copy_word(dd)$/
 copy_word	lua_src/core/copy_paste.lua	/^function lued.copy_word(dd)$/
+coresume	src/lua/src/ltests.c	/^static int coresume (lua_State *L) {$/
+correctstack	src/lua/src/ldo.c	/^static void correctstack (lua_State *L, TValue *ol/
 count_char	src/lued.c	/^size_t count_char(const char* str, const int start/
+countint	src/lua/src/ltable.c	/^static int countint (const TValue *key, int *nums)/
+countlevels	src/lua/src/lauxlib.c	/^static int countlevels (lua_State *L) {$/
+createmeta	src/lua/src/liolib.c	/^static void createmeta (lua_State *L) {$/
+createmetatable	src/lua/src/lstrlib.c	/^static void createmetatable (lua_State *L) {$/
+createsearcherstable	src/lua/src/loadlib.c	/^static void createsearcherstable (lua_State *L) {$/
+createstdfile	src/lua/src/liolib.c	/^static void createstdfile (lua_State *L, FILE *f, /
+createstrobj	src/lua/src/lstring.c	/^static TString *createstrobj (lua_State *L, const /
+cstr_test	src/carr/test/test_src/cstr_test.c	/^int cstr_test(const int argc, char* argv[])$/
 cstra_new	src/carr/src/carr.c	/^carr_t* cstra_new(uint32_t const max_size, const c/
 ctag_jump_back	lua_src/base/ctags.lua	/^function lued.ctag_jump_back(dd)$/
 ctag_jump_forward	lua_src/base/ctags.lua	/^function lued.ctag_jump_forward(dd)$/
 ctag_move_back_from_tag	lua_src/base/ctags.lua	/^function lued.ctag_move_back_from_tag(dd)$/
 ctag_move_to_tag	lua_src/base/ctags.lua	/^function lued.ctag_move_to_tag(dd)$/
 ctag_read_file	lua_src/base/ctags.lua	/^function lued.ctag_read_file(tagfile, dd)$/
+ctest_eqi	src/carr/test/test_src/ctest.c	/^void ctest_eqi(ctest_type* test, const int actual,/
+ctest_eqs	src/carr/test/test_src/ctest.c	/^void ctest_eqs(ctest_type* test, const char* const/
+ctest_free	src/carr/test/test_src/ctest.c	/^void ctest_free(ctest_type* test)$/
+ctest_mode	src/carr/test/test_src/ctest.c	/^void ctest_mode(ctest_type* test, uint32_t mode)$/
+ctest_new	src/carr/test/test_src/ctest.c	/^ctest_type* ctest_new(int argc, char* argv[]) $/
+ctest_test_result	src/carr/test/test_src/ctest.c	/^void ctest_test_result(ctest_type* test)$/
+ctest_total_result	src/carr/test/test_src/ctest.c	/^void ctest_total_result(ctest_type* test)$/
+ctest_unit	src/carr/test/test_src/ctest.c	/^int ctest_unit(ctest_type* test, const char* name)/
+ctestfl_eqi	src/carr/test/test_src/ctest.c	/^void ctestfl_eqi(ctest_type* test, const int actua/
+ctestfl_eqs	src/carr/test/test_src/ctest.c	/^void ctestfl_eqs(ctest_type* test, const char* act/
+currIsNewline	src/lua/src/llex.c	/^#define currIsNewline(ls)	(ls->current == '\\n' || /
+currentline	src/lua/src/ldebug.c	/^static int currentline (CallInfo *ci) {$/
+currentpc	src/lua/src/ldebug.c	/^static int currentpc (CallInfo *ci) {$/
 cursor_end	src/carr/src/carr_readline.c	/^static void cursor_end(carr_t* line) {$/
 cursor_home	src/carr/src/carr_readline.c	/^static void cursor_home(carr_t* line) {$/
 cursor_left	src/carr/src/carr_readline.c	/^static void cursor_left(carr_t* line, size_t n) {$/
@@ -123,7 +708,28 @@ cut	lua_src/core/copypaste.lua	/^function lued.cut(dd)$/
 cut	lua_src/core/copy_paste.lua	/^function lued.cut(dd)$/
 cut_line	lua_src/core/copypaste.lua	/^function lued.cut_line(n,dd)$/
 cut_line	lua_src/core/copy_paste.lua	/^function lued.cut_line(n,dd)$/
+d	src/lua/src/ltests.c	82
+d2s	src/lua/src/ltests.c	/^static int d2s (lua_State *L) {$/
+data	src/lua/src/ldump.c	21
+db_debug	src/lua/src/ldblib.c	/^static int db_debug (lua_State *L) {$/
+db_gethook	src/lua/src/ldblib.c	/^static int db_gethook (lua_State *L) {$/
+db_getinfo	src/lua/src/ldblib.c	/^static int db_getinfo (lua_State *L) {$/
+db_getlocal	src/lua/src/ldblib.c	/^static int db_getlocal (lua_State *L) {$/
+db_getmetatable	src/lua/src/ldblib.c	/^static int db_getmetatable (lua_State *L) {$/
+db_getregistry	src/lua/src/ldblib.c	/^static int db_getregistry (lua_State *L) {$/
+db_getupvalue	src/lua/src/ldblib.c	/^static int db_getupvalue (lua_State *L) {$/
+db_getuservalue	src/lua/src/ldblib.c	/^static int db_getuservalue (lua_State *L) {$/
+db_sethook	src/lua/src/ldblib.c	/^static int db_sethook (lua_State *L) {$/
+db_setlocal	src/lua/src/ldblib.c	/^static int db_setlocal (lua_State *L) {$/
+db_setmetatable	src/lua/src/ldblib.c	/^static int db_setmetatable (lua_State *L) {$/
+db_setupvalue	src/lua/src/ldblib.c	/^static int db_setupvalue (lua_State *L) {$/
+db_setuservalue	src/lua/src/ldblib.c	/^static int db_setuservalue (lua_State *L) {$/
+db_traceback	src/lua/src/ldblib.c	/^static int db_traceback (lua_State *L) {$/
+db_upvalueid	src/lua/src/ldblib.c	/^static int db_upvalueid (lua_State *L) {$/
+db_upvaluejoin	src/lua/src/ldblib.c	/^static int db_upvaluejoin (lua_State *L) {$/
 dbg_prompt	lua_src/core/prompt.lua	/^function lued.dbg_prompt(dbg_str)$/
+dblib	src/lua/src/ldblib.c	383
+debug_realloc	src/lua/src/ltests.c	/^void *debug_realloc (void *ud, void *b, size_t old/
 decr	lua_src/base/increment.lua	/^function lued.decr(step_size,dd)$/
 decrst	lua_src/core/terminal.lua	/^function lued.decrst(val)$/
 decset	lua_src/core/terminal.lua	/^function lued.decset(val)$/
@@ -149,29 +755,81 @@ del_spaces_selected	lua_src/core/delete.lua	/^function lued.del_spaces_selected(
 del_word	lua_src/core/delete.lua	/^function lued.del_word(n,dd)$/
 delete_char	src/carr/src/carr_readline.c	/^static void delete_char(carr_t* line) {$/
 delete_selected	src/lued.c	/^static void delete_selected(carr_t* all_sessions) /
+delimits	src/lua/src/ltests.c	949
 dig_down	lua_src/plugins/ascii_art.lua	/^function dig_down(n,dd)$/
 dig_left	lua_src/plugins/ascii_art.lua	/^function dig_left(n,dd)$/
 dig_right	lua_src/plugins/ascii_art.lua	/^function dig_right(n,dd)$/
 dig_up	lua_src/plugins/ascii_art.lua	/^function dig_up(n,dd)$/
+discharge2anyreg	src/lua/src/lcode.c	/^static void discharge2anyreg (FuncState *fs, expde/
+discharge2reg	src/lua/src/lcode.c	/^static void discharge2reg (FuncState *fs, expdesc /
+dischargejpc	src/lua/src/lcode.c	/^static void dischargejpc (FuncState *fs) {$/
 disp	lua_src/core/display.lua	/^function lued.disp(dd,center)$/
 display_page_in_lua	lua_src/core/display.lua	/^function lued.display_page_in_lua(lua_mode, highli/
 display_page_in_lua1	lua_src/core/display.lua	/^function lued.display_page_in_lua1(lua_mode, highl/
 display_status_in_lua	lua_src/base/statusline.lua	/^function lued.display_status_in_lua(lua_mode)$/
 display_status_in_lua	lua_src/core/display.lua	/^function lued.display_status_in_lua()$/
+docall	src/lua/src/lua.c	/^static int docall (lua_State *L, int narg, int nre/
+dofile	src/lua/src/lua.c	/^static int dofile (lua_State *L, const char *name)/
+dofilecont	src/lua/src/lbaselib.c	/^static int dofilecont (lua_State *L) {$/
+dojump	src/lua/src/lvm.c	/^#define dojump(ci,i,e) \\$/
+dolibrary	src/lua/src/lua.c	/^static int dolibrary (lua_State *L, const char *na/
+donextjump	src/lua/src/lvm.c	/^#define donextjump(ci)	{ i = *ci->u.l.savedpc; doj/
 dont_use	lua_src/core/hotkeys.lua	/^function lued.dont_use()$/
+doonnewstack	src/lua/src/ltests.c	/^static int doonnewstack (lua_State *L) {$/
+dooptions	src/lua/src/loadlib.c	/^static void dooptions (lua_State *L, int n) {$/
+doremote	src/lua/src/ltests.c	/^static int doremote (lua_State *L) {$/
+dostring	src/lua/src/lua.c	/^static int dostring (lua_State *L, const char *s, /
+dothecall	src/lua/src/lgc.c	/^static void dothecall (lua_State *L, void *ud) {$/
+dotty	src/lua/src/lua.c	/^static void dotty (lua_State *L) {$/
+dummynode	src/lua/src/ltable.c	67
+dummynode_	src/lua/src/ltable.c	71
 duplicate_line	lua_src/core/copypaste.lua	/^function lued.duplicate_line(dd)$/
 duplicate_line	lua_src/core/copy_paste.lua	/^function lued.duplicate_line(dd)$/
+dyd	src/lua/src/ldo.c	625
+end_capture	src/lua/src/lstrlib.c	/^static const char *end_capture (MatchState *ms, co/
+enterblock	src/lua/src/lparser.c	/^static void enterblock (FuncState *fs, BlockCnt *b/
+enterlevel	src/lua/src/lparser.c	/^static void enterlevel (LexState *ls) {$/
+entersweep	src/lua/src/lgc.c	/^static int entersweep (lua_State *L) {$/
+errfile	src/lua/src/lauxlib.c	/^static int errfile (lua_State *L, const char *what/
+error	src/lua/src/lundump.c	/^static l_noret error(LoadState* S, const char* why/
+error_expected	src/lua/src/lparser.c	/^static l_noret error_expected (LexState *ls, int t/
+errorlimit	src/lua/src/lparser.c	/^static l_noret errorlimit (FuncState *fs, int limi/
 esc_append	src/carr/src/carr_readline.c	/^static void esc_append(char* str, size_t* i, char /
 esc_clear_screen	lua_src/core/display.lua	/^function lued.esc_clear_screen()$/
 esc_rev	lua_src/core/display.lua	/^function lued.esc_rev(str)$/
+escerror	src/lua/src/llex.c	/^static void escerror (LexState *ls, int *c, int n,/
 exactly_one_file_matches	lua_src/core/os.lua	/^function lued.exactly_one_file_matches(glob)$/
 exit_all	lua_src/core/quit.lua	/^function lued.exit_all(dd)$/
 exit_session	lua_src/core/quit.lua	/^function lued.exit_session(dd)$/
+exp1	src/lua/src/lparser.c	/^static int exp1 (LexState *ls) {$/
+exp2reg	src/lua/src/lcode.c	/^static void exp2reg (FuncState *fs, expdesc *e, in/
 expand_path	lua_src/lued.lua	/^  function expand_path(filename)$/
+explist	src/lua/src/lparser.c	/^static int explist (LexState *ls, expdesc *v) {$/
 explode	lua_src/core/lued_lib.lua	/^function lued.explode(subject, sep,  lim)$/
+expr	src/lua/src/lparser.c	/^static void expr (LexState *ls, expdesc *v) {$/
+exprstat	src/lua/src/lparser.c	/^static void exprstat (LexState *ls) {$/
+f	src/lua/src/lauxlib.c	564
+f_call	src/lua/src/lapi.c	/^static void f_call (lua_State *L, void *ud) {$/
+f_flush	src/lua/src/liolib.c	/^static int f_flush (lua_State *L) {$/
+f_gc	src/lua/src/liolib.c	/^static int f_gc (lua_State *L) {$/
+f_lines	src/lua/src/liolib.c	/^static int f_lines (lua_State *L) {$/
+f_luaopen	src/lua/src/lstate.c	/^static void f_luaopen (lua_State *L, void *ud) {$/
+f_parser	src/lua/src/ldo.c	/^static void f_parser (lua_State *L, void *ud) {$/
+f_read	src/lua/src/liolib.c	/^static int f_read (lua_State *L) {$/
+f_seek	src/lua/src/liolib.c	/^static int f_seek (lua_State *L) {$/
+f_setvbuf	src/lua/src/liolib.c	/^static int f_setvbuf (lua_State *L) {$/
+f_tostring	src/lua/src/liolib.c	/^static int f_tostring (lua_State *L) {$/
+f_write	src/lua/src/liolib.c	/^static int f_write (lua_State *L) {$/
+field	src/lua/src/lparser.c	/^static void field (LexState *ls, struct ConsContro/
+fieldargs	src/lua/src/lbitlib.c	/^static int fieldargs (lua_State *L, int farg, int /
+fieldsel	src/lua/src/lparser.c	/^static void fieldsel (LexState *ls, expdesc *v) {$/
 file_exists	lua_src/core/booleans.lua	/^function lued.file_exists(filename)$/
 file_exists	src/lued.c	/^int file_exists(const char* filename)$/
 fill_screen	lua_src/plugins/ascii_art.lua	/^function fill_screen(ch,r,c)$/
+fillmem	src/lua/src/ltests.c	/^#define fillmem(mem,size)	memset(mem, -MARK, size)/
+fillmem	src/lua/src/ltests.c	/^#define fillmem(mem,size)	\/* empty *\/$/
+filterpc	src/lua/src/ldebug.c	/^static int filterpc (int pc, int jmptarget) {$/
+finalreport	src/lua/src/lua.c	/^static void finalreport (lua_State *L, int status)/
 find_all_on_line	lua_src/core/find.lua	/^function lued.find_all_on_line(line,str)$/
 find_and_replace	lua_src/core/find.lua	/^function lued.find_and_replace(from,to,options,dd)/
 find_forward	lua_src/core/find.lua	/^function lued.find_forward(str,nowrap,search_all,r/
@@ -188,11 +846,53 @@ find_reverse_word	lua_src/core/find.lua	/^function lued.find_reverse_word(dd)$/
 find_script	src/lued.c	/^bool find_script (char* script_path, int maxlen) {/
 find_trailing_space	src/lued.c	/^static int find_trailing_space(carr_t* line, uint3/
 find_word	lua_src/core/find.lua	/^function lued.find_word(dd)$/
+findfield	src/lua/src/lauxlib.c	/^static int findfield (lua_State *L, int objidx, in/
+findfile	src/lua/src/loadlib.c	/^static const char *findfile (lua_State *L, const c/
+findgotos	src/lua/src/lparser.c	/^static void findgotos (LexState *ls, Labeldesc *lb/
+findindex	src/lua/src/ltable.c	/^static int findindex (lua_State *L, Table *t, StkI/
+findlabel	src/lua/src/lparser.c	/^static int findlabel (LexState *ls, int g) {$/
+findloader	src/lua/src/loadlib.c	/^static void findloader (lua_State *L, const char */
+findlocal	src/lua/src/ldebug.c	/^static const char *findlocal (lua_State *L, CallIn/
+findpcall	src/lua/src/ldo.c	/^static CallInfo *findpcall (lua_State *L) {$/
+findsetreg	src/lua/src/ldebug.c	/^static int findsetreg (Proto *p, int lastpc, int r/
+findvararg	src/lua/src/ldebug.c	/^static const char *findvararg (CallInfo *ci, int n/
+finishCcall	src/lua/src/ldo.c	/^static void finishCcall (lua_State *L) {$/
+finishpcall	src/lua/src/lbaselib.c	/^static int finishpcall (lua_State *L, int status) /
 first_move	src/lued.c	193
+firstgoto	src/lua/src/lparser.c	45
+firstlabel	src/lua/src/lparser.c	44
+fixjump	src/lua/src/lcode.c	/^static void fixjump (FuncState *fs, int pc, int de/
+flib	src/lua/src/liolib.c	609
+forbody	src/lua/src/lparser.c	/^static void forbody (LexState *ls, int base, int l/
 foreach_selected	lua_src/core/select.lua	/^function lued.foreach_selected(fn, dd)$/
+forlist	src/lua/src/lparser.c	/^static void forlist (LexState *ls, TString *indexn/
 format_lines	lua_src/bindings/bindings2md.lua	/^function format_lines(line_array)$/
+fornum	src/lua/src/lparser.c	/^static void fornum (LexState *ls, TString *varname/
+forstat	src/lua/src/lparser.c	/^static void forstat (LexState *ls, int line) {$/
 free_session	src/lued.c	/^static void free_session(lued_t* session_p) {$/
+freeblock	src/lua/src/ltests.c	/^static void freeblock (Memcontrol *mc, Header *blo/
+freeexp	src/lua/src/lcode.c	/^static void freeexp (FuncState *fs, expdesc *e) {$/
+freelist	src/lua/src/lauxlib.c	519
+freeobj	src/lua/src/lgc.c	/^static void freeobj (lua_State *L, GCObject *o) {$/
+freereg	src/lua/src/lcode.c	/^static void freereg (FuncState *fs, int reg) {$/
+freestack	src/lua/src/lstate.c	/^static void freestack (lua_State *L) {$/
+fromstate	src/lua/src/lstate.c	/^#define fromstate(L)	(cast(LX *, cast(lu_byte *, (/
 func	lua_src/plugins/vhdl.lua	/^function lued.vhdl.func()$/
+func	src/lua/src/lapi.c	916
+funcargs	src/lua/src/lparser.c	/^static void funcargs (LexState *ls, expdesc *f, in/
+funcinfo	src/lua/src/ldebug.c	/^static void funcinfo (lua_Debug *ar, Closure *cl) /
+funcname	src/lua/src/lparser.c	/^static int funcname (LexState *ls, expdesc *v) {$/
+funcstat	src/lua/src/lparser.c	/^static void funcstat (LexState *ls, int line) {$/
+g	src/lua/src/lstate.c	72
+g_iofile	src/lua/src/liolib.c	/^static int g_iofile (lua_State *L, const char *f, /
+g_read	src/lua/src/liolib.c	/^static int g_read (lua_State *L, FILE *f, int firs/
+g_write	src/lua/src/liolib.c	/^static int g_write (lua_State *L, FILE *f, int arg/
+gc_state	src/lua/src/ltests.c	/^static int gc_state (lua_State *L) {$/
+gctm	src/lua/src/loadlib.c	/^static int gctm (lua_State *L) {$/
+generationalcollection	src/lua/src/lgc.c	/^static void generationalcollection (lua_State *L) /
+generic_reader	src/lua/src/lbaselib.c	/^static const char *generic_reader (lua_State *L, v/
+getF	src/lua/src/lauxlib.c	/^static const char *getF (lua_State *L, void *ud, s/
+getS	src/lua/src/lauxlib.c	/^static const char *getS (lua_State *L, void *ud, s/
 get_basename	lua_src/core/getters_setters.lua	/^function lued.get_basename(full_path)$/
 get_carr_line	src/lued.c	/^static carr_t* get_carr_line(carr_t* all_sessions)/
 get_char	lua_src/core/get_sel.lua	/^function lued.get_char(offset)$/
@@ -202,6 +902,7 @@ get_cur_filename	lua_src/core/getters_setters.lua	/^function lued.get_cur_filena
 get_cur_pos	src/lued.c	/^static void get_cur_pos(uint32_t* row, uint32_t* c/
 get_cursor_position	src/lued.c	/^static int get_cursor_position(lued_t* l, uint32_t/
 get_dirname	lua_src/core/getters_setters.lua	/^function lued.get_dirname(full_path)$/
+get_equalTM	src/lua/src/lvm.c	/^static const TValue *get_equalTM (lua_State *L, Ta/
 get_file_modified	src/lued.c	/^static time_t get_file_modified(const char* filena/
 get_fileid	src/lued.c	/^static uint32_t get_fileid() {$/
 get_filename	lua_src/core/getters_setters.lua	/^function lued.get_filename()$/
@@ -209,11 +910,13 @@ get_filename	src/lued.c	/^void get_filename(uint32_t id, char* filename, siz/
 get_filetype	lua_src/core/getters_setters.lua	/^function lued.get_filetype(filename)$/
 get_find_whole_word	lua_src/core/find.lua	/^function lued.get_find_whole_word()$/
 get_first_match	lua_src/core/find.lua	/^function lued.get_first_match(matches, minc)$/
+get_gccolor	src/lua/src/ltests.c	/^static int get_gccolor (lua_State *L) {$/
 get_hist_id	lua_src/core/getters_setters.lua	/^function lued.get_hist_id()$/
 get_hist_id	lua_src/core/getters_setters.lua	/^function lued.get_hist_id()$/
 get_indent_len	lua_src/base/indent.lua	/^function lued.get_indent_len()$/
 get_last_cmd	src/lued.c	/^static const char* get_last_cmd() {$/
 get_last_match	lua_src/core/find.lua	/^function lued.get_last_match(matches, maxc)$/
+get_limits	src/lua/src/ltests.c	/^static int get_limits (lua_State *L) {$/
 get_line	src/lued.c	/^static const char* get_line(carr_t* all_sessions) /
 get_line_len	src/lued.c	/^static uint32_t get_line_len() {$/
 get_longest_word	lua_src/core/getters_setters.lua	/^function lued.get_longest_word(words)$/
@@ -228,6 +931,7 @@ get_page_pos	src/lued.c	/^static void get_page_pos(uint32_t* row, uint32_t* /
 get_page_position	src/lued.c	/^static int get_page_position(lued_t* l, uint32_t* /
 get_pagesize	lua_src/core/getters_setters.lua	/^function lued.get_pagesize()$/
 get_paste	src/lued.c	/^static const char* get_paste(carr_t* all_sessions)/
+get_prompt	src/lua/src/lua.c	/^static const char *get_prompt (lua_State *L, int f/
 get_save_needed	src/lued.c	/^int get_save_needed(lued_t* session_p, bool* save_/
 get_sel	src/lued.c	/^static int get_sel(lued_t* l, uint32_t* sel_st,$/
 get_sel_str	lua_src/core/select.lua	/^function lued.get_sel_str()$/
@@ -240,8 +944,35 @@ get_word	lua_src/core/get_sel.lua	/^function lued.get_word(dd)$/
 get_word	src/carr/src/carr_readline_lua.c	/^static char *get_word(char* str) {$/
 get_yesno	lua_src/core/getters_setters.lua	/^function lued.get_yesno(prompt,default)$/
 get_yesno	lua_src/core/getters_setters.lua	/^function lued.get_yesno(prompt,default)$/
+getargs	src/lua/src/lua.c	/^static int getargs (lua_State *L, char **argv, int/
+getbinopr	src/lua/src/lparser.c	/^static BinOpr getbinopr (int op) {$/
+getboolfield	src/lua/src/loslib.c	/^static int getboolfield (lua_State *L, const char /
+getcached	src/lua/src/lvm.c	/^static Closure *getcached (Proto *p, UpVal **encup/
 getchar_raw	src/carr/src/carr_readline.c	/^char getchar_raw(char *ch)$/
 getchar_until	src/carr/src/carr_readline.c	/^static void getchar_until(carr_t* dest, const char/
+getfield	src/lua/src/loslib.c	/^static int getfield (lua_State *L, const char *key/
+getfreepos	src/lua/src/ltable.c	/^static Node *getfreepos (Table *t) {$/
+getfuncname	src/lua/src/ldebug.c	/^static const char *getfuncname (lua_State *L, Call/
+gethooktable	src/lua/src/ldblib.c	/^#define gethooktable(L)	luaL_getsubtable(L, LUA_RE/
+getindex	src/lua/src/ltests.c	1023
+getindex_aux	src/lua/src/ltests.c	/^static int getindex_aux (lua_State *L, lua_State */
+getiofile	src/lua/src/liolib.c	/^static FILE *getiofile (lua_State *L, const char */
+getjump	src/lua/src/lcode.c	/^static int getjump (FuncState *fs, int pc) {$/
+getjumpcontrol	src/lua/src/lcode.c	/^static Instruction *getjumpcontrol (FuncState *fs,/
+getlocaledecpoint	src/lua/src/llex.c	/^#define getlocaledecpoint()	(localeconv()->decimal/
+getlocvar	src/lua/src/lparser.c	/^static LocVar *getlocvar (FuncState *fs, int i) {$/
+getnum	src/lua/src/ltests.c	1021
+getnum_aux	src/lua/src/ltests.c	/^static int getnum_aux (lua_State *L, lua_State *L1/
+getobjname	src/lua/src/ldebug.c	/^static const char *getobjname (Proto *p, int lastp/
+getref	src/lua/src/ltests.c	/^static int getref (lua_State *L) {$/
+getstate	src/lua/src/ltests.c	/^static lua_State *getstate (lua_State *L) {$/
+getstring	src/lua/src/ltests.c	1022
+getstring_aux	src/lua/src/ltests.c	/^static const char *getstring_aux (lua_State *L, ch/
+getthread	src/lua/src/ldblib.c	/^static lua_State *getthread (lua_State *L, int *ar/
+getunopr	src/lua/src/lparser.c	/^static UnOpr getunopr (int op) {$/
+getupvalname	src/lua/src/ldebug.c	/^static const char *getupvalname (CallInfo *ci, con/
+getupvalref	src/lua/src/lapi.c	/^static UpVal **getupvalref (lua_State *L, int fidx/
+globalL	src/lua/src/lua.c	90
 global_copy	lua_src/core/copypaste.lua	/^function lued.global_copy(dd)$/
 global_copy	lua_src/core/copy_paste.lua	/^function lued.global_copy(dd)$/
 global_cut	lua_src/core/copypaste.lua	/^function lued.global_cut(dd)$/
@@ -250,33 +981,72 @@ global_cut_append	lua_src/core/copypaste.lua	/^function lued.global_cut_append(d
 global_cut_append	lua_src/core/copy_paste.lua	/^function lued.global_cut_append(dd)$/
 global_paste	lua_src/core/copypaste.lua	/^function lued.global_paste(dd)$/
 global_paste	lua_src/core/copy_paste.lua	/^function lued.global_paste(dd)$/
+gmatch	src/lua/src/lstrlib.c	/^static int gmatch (lua_State *L) {$/
+gmatch_aux	src/lua/src/lstrlib.c	/^static int gmatch_aux (lua_State *L) {$/
+gnodelast	src/lua/src/lgc.c	/^#define gnodelast(h)	gnode(h, cast(size_t, sizenod/
 goto_mark	src/lued.c	/^static int goto_mark(carr_t* all_sessions, const c/
 goto_named_mark	lua_src/base/markers.lua	/^function lued.goto_named_mark(dd)$/
 goto_nameless_mark_next	lua_src/base/markers.lua	/^function lued.goto_nameless_mark_next(dd)$/
 goto_nameless_mark_prev	lua_src/base/markers.lua	/^function lued.goto_nameless_mark_prev(dd)$/
+gotostat	src/lua/src/lparser.c	/^static void gotostat (LexState *ls, int pc) {$/
+growstack	src/lua/src/lapi.c	/^static void growstack (lua_State *L, void *ud) {$/
+handle_luainit	src/lua/src/lua.c	/^static int handle_luainit (lua_State *L) {$/
+handle_script	src/lua/src/lua.c	/^static int handle_script (lua_State *L, char **arg/
 handle_snippets	lua_src/base/snippets.lua	/^function lued.handle_snippets(dd)$/
+has_E	src/lua/src/lua.c	354
+has_e	src/lua/src/lua.c	353
+has_i	src/lua/src/lua.c	351
+has_v	src/lua/src/lua.c	352
+hash_query	src/lua/src/ltests.c	/^static int hash_query (lua_State *L) {$/
+hashboolean	src/lua/src/ltable.c	/^#define hashboolean(t,p)	hashpow2(t, p)$/
+hashmod	src/lua/src/ltable.c	/^#define hashmod(t,n)	(gnode(t, ((n) % ((sizenode(t/
+hashnum	src/lua/src/ltable.c	/^static Node *hashnum (const Table *t, lua_Number n/
+hashpointer	src/lua/src/ltable.c	/^#define hashpointer(t,p)	hashmod(t, IntPoint(p))$/
+hashpow2	src/lua/src/ltable.c	/^#define hashpow2(t,n)		(gnode(t, lmod((n), sizenod/
+hashstr	src/lua/src/ltable.c	/^#define hashstr(t,str)		hashpow2(t, (str)->tsv.has/
+hasjumps	src/lua/src/lcode.c	/^#define hasjumps(e)	((e)->t != (e)->f)$/
+hasmultret	src/lua/src/lparser.c	/^#define hasmultret(k)		((k) == VCALL || (k) == VVA/
 help	lua_src/plugins/vhdl.lua	/^function lued.vhdl.help()$/
 help	lua_src/base/help.lua	/^function lued.help(n,dd)$/
 hi	lua_src/plugins/ascii_art.lua	/^function hi()$/
 history_next	src/carr/src/carr_readline.c	/^static void history_next(carr_t* history, carr_t* /
 history_prev	src/carr/src/carr_readline.c	/^static void history_prev(carr_t* history, carr_t* /
 hit_cr	lua_src/core/prompt.lua	/^function lued.hit_cr()$/
+hookf	src/lua/src/ldblib.c	/^static void hookf (lua_State *L, lua_Debug *ar) {$/
 hot	lua_src/core/hotkeys.lua	/^function lued.hot(key, dd)$/
 hot_range	lua_src/core/hotkeys.lua	/^function lued.hot_range(lower,upper)$/
 hotkeys	src/carr/src/carr_readline_lua.c	35
+html5	lua_src/plugins/html.lua	/^function lued.html.html5()$/
+ifstat	src/lua/src/lparser.c	/^static void ifstat (LexState *ls, int line) {$/
 implode	lua_src/core/lued_lib.lua	/^function lued.implode(pieces, sep, trailing_sep, f/
 in_array	src/carr/src/carr.c	/^int in_array(void* needle, void* haystack, uint32_/
+inclinenumber	src/lua/src/llex.c	/^static void inclinenumber (LexState *ls) {$/
+incomplete	src/lua/src/lua.c	/^static int incomplete (lua_State *L, int status) {/
 incr	lua_src/plugins/vhdl.lua	/^  function incr(slv :std_logic_vector) return std_/
 incr	lua_src/plugins/verilog.lua	/^  function incr(slv :std_logic_vector) return std_/
 incr	lua_src/base/increment.lua	/^function lued.incr(step_size, dd)$/
+incstep	src/lua/src/lgc.c	/^static void incstep (lua_State *L) {$/
 indent	lua_src/base/indent.lua	/^function lued.indent(dd)$/
 indent1	lua_src/base/indent.lua	/^function lued.indent1(n, ch, goto_next, dd)$/
 indent_scope	lua_src/base/indent.lua	/^function lued.indent_scope(str,dd)$/
 indent_selected	lua_src/base/indent.lua	/^function lued.indent_selected(dd)$/
+index2addr	src/lua/src/lapi.c	/^static TValue *index2addr (lua_State *L, int idx) /
+info_arch	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	615
+info_compiler	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	321
+info_cray	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	331
+info_language_dialect_default	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	634
+info_platform	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	614
+info_simulate	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	323
+info_simulate_version	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	594
+info_version	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	567
+info_version_internal	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	585
+init	src/lua/src/lstrlib.c	206
+init_exp	src/lua/src/lparser.c	/^static void init_exp (expdesc *e, expkind k, int i/
 init_lued	lua_src/core/lued_lib.lua	/^function lued.init_lued(lued_path, bindings_file)$/
+init_registry	src/lua/src/lstate.c	/^static void init_registry (lua_State *L, global_St/
 ins_str	lua_src/core/insert.lua	/^function ins_str(str,dd)$/
 ins_str	lua_src/core/insert.lua	/^function lued.ins_str(str,dd)$/
-ins_str_after	lua_src/core/insert.lua	/^function lued.ins_str_after(str, fstr, dd)$/
+ins_str_after	lua_src/core/insert.lua	/^function lued.ins_str_after(str, fstr, r, c, dd)$/
 ins_string	lua_src/core/insert.lua	/^function lued.ins_string(str, dd)$/
 insert_char	src/carr/src/carr_readline.c	/^static void insert_char(carr_t* line, char c) {$/
 insert_cr_after	lua_src/core/insert.lua	/^function lued.insert_cr_after(dd)$/
@@ -288,7 +1058,29 @@ insert_string	src/carr/src/carr_readline.c	/^static void insert_string(carr_t* l
 insert_tab	lua_src/core/insert.lua	/^function lued.insert_tab(dd)$/
 insert_tab_classic	lua_src/core/insert.lua	/^function lued.insert_tab_classic(dd)$/
 insert_tab_selected	lua_src/core/insert.lua	/^function lued.insert_tab_selected(dd)$/
+inspectstat	src/lua/src/lauxlib.c	/^#define inspectstat(stat,what)  \\$/
+inspectstat	src/lua/src/lauxlib.c	/^#define inspectstat(stat,what)  \/* no op *\/$/
 inst_from_entity	lua_src/plugins/vhdl.lua	/^function lued.vhdl.inst_from_entity(dd)$/
+int2fb_aux	src/lua/src/ltests.c	/^static int int2fb_aux (lua_State *L) {$/
+internshrstr	src/lua/src/lstring.c	/^static TString *internshrstr (lua_State *L, const /
+invertjump	src/lua/src/lcode.c	/^static void invertjump (FuncState *fs, expdesc *e)/
+io_close	src/lua/src/liolib.c	/^static int io_close (lua_State *L) {$/
+io_fclose	src/lua/src/liolib.c	/^static int io_fclose (lua_State *L) {$/
+io_flush	src/lua/src/liolib.c	/^static int io_flush (lua_State *L) {$/
+io_input	src/lua/src/liolib.c	/^static int io_input (lua_State *L) {$/
+io_lines	src/lua/src/liolib.c	/^static int io_lines (lua_State *L) {$/
+io_noclose	src/lua/src/liolib.c	/^static int io_noclose (lua_State *L) {$/
+io_open	src/lua/src/liolib.c	/^static int io_open (lua_State *L) {$/
+io_output	src/lua/src/liolib.c	/^static int io_output (lua_State *L) {$/
+io_pclose	src/lua/src/liolib.c	/^static int io_pclose (lua_State *L) {$/
+io_popen	src/lua/src/liolib.c	/^static int io_popen (lua_State *L) {$/
+io_read	src/lua/src/liolib.c	/^static int io_read (lua_State *L) {$/
+io_readline	src/lua/src/liolib.c	/^static int io_readline (lua_State *L) {$/
+io_tmpfile	src/lua/src/liolib.c	/^static int io_tmpfile (lua_State *L) {$/
+io_type	src/lua/src/liolib.c	/^static int io_type (lua_State *L) {$/
+io_write	src/lua/src/liolib.c	/^static int io_write (lua_State *L) {$/
+iolib	src/lua/src/liolib.c	590
+ipairsaux	src/lua/src/lbaselib.c	/^static int ipairsaux (lua_State *L) {$/
 is_blankline	lua_src/core/booleans.lua	/^function lued.is_blankline(line)$/
 is_digit	lua_src/core/booleans.lua	/^function lued.is_digit(ch)$/
 is_dir	lua_src/core/booleans.lua	/^function lued.is_dir(filename)$/
@@ -316,22 +1108,373 @@ is_sol	lua_src/core/booleans.lua	/^function lued.is_sol()$/
 is_sow	lua_src/core/booleans.lua	/^function lued.is_sow()$/
 is_space	lua_src/core/booleans.lua	/^function lued.is_space(line,pos)$/
 is_word	lua_src/core/booleans.lua	/^function lued.is_word(line,pos)$/
+iscleared	src/lua/src/lgc.c	/^static int iscleared (global_State *g, const TValu/
+isclosed	src/lua/src/liolib.c	/^#define isclosed(p)	((p)->closef == NULL)$/
+isdummy	src/lua/src/ltable.c	/^#define isdummy(n)		((n) == dummynode)$/
+isfinalized	src/lua/src/lgc.c	/^#define isfinalized(x)		testbit(gch(x)->marked, FI/
+isinstack	src/lua/src/ldebug.c	/^static int isinstack (CallInfo *ci, const TValue */
+islocked	src/lua/src/ltests.c	43
+isloop	src/lua/src/lparser.c	48
+isneg	src/lua/src/lobject.c	/^static int isneg (const char **s) {$/
+isnumeral	src/lua/src/lcode.c	/^static int isnumeral(expdesc *e) {$/
+ispseudo	src/lua/src/lapi.c	/^#define ispseudo(i)		((i) <= LUA_REGISTRYINDEX)$/
+isstackindex	src/lua/src/lapi.c	/^#define isstackindex(i, o)	(isvalid(o) && !ispseud/
+isvalid	src/lua/src/lapi.c	/^#define isvalid(o)	((o) != luaO_nilobject)$/
 join_lines	lua_src/base/lines.lua	/^function lued.join_lines(delim,n,dd)$/
 jump_back	lua_src/core/find.lua	/^function lued.jump_back(jump_back_stack, jump_forw/
 jump_forward	lua_src/core/find.lua	/^function lued.jump_forward(jump_back_stack, jump_f/
+jumponcond	src/lua/src/lcode.c	/^static int jumponcond (FuncState *fs, expdesc *e, /
 just_a_number	src/carr/src/carr_readline_lua.c	/^static int just_a_number(carr_t* str) {$/
+kname	src/lua/src/ldebug.c	/^static void kname (Proto *p, int pc, int c, const /
+l	src/lua/src/lstate.c	63
+l	src/lua/src/lstate.c	71
+l_Trick	src/lua/src/ltests.c	40
+l_alloc	src/lua/src/lauxlib.c	/^static void *l_alloc (void *ud, void *ptr, size_t /
+l_fseek	src/lua/src/liolib.c	/^#define l_fseek(f,o,w)		fseeko(f,o,w)$/
+l_fseek	src/lua/src/liolib.c	/^#define l_fseek(f,o,w)		_fseeki64(f,o,w)$/
+l_fseek	src/lua/src/liolib.c	/^#define l_fseek(f,o,w)		fseek(f,o,w)$/
+l_ftell	src/lua/src/liolib.c	/^#define l_ftell(f)		ftello(f)$/
+l_ftell	src/lua/src/liolib.c	/^#define l_ftell(f)		_ftelli64(f)$/
+l_ftell	src/lua/src/liolib.c	/^#define l_ftell(f)		ftell(f)$/
+l_gmtime	src/lua/src/loslib.c	/^#define l_gmtime(t,r)		gmtime_r(t,r)$/
+l_gmtime	src/lua/src/loslib.c	/^#define l_gmtime(t,r)		((void)r, gmtime(t))$/
+l_localtime	src/lua/src/loslib.c	/^#define l_localtime(t,r)	localtime_r(t,r)$/
+l_localtime	src/lua/src/loslib.c	/^#define l_localtime(t,r)  	((void)r, localtime(t))/
+l_memcontrol	src/lua/src/ltests.c	101
+l_message	src/lua/src/lua.c	/^static void l_message (const char *pname, const ch/
+l_seeknum	src/lua/src/liolib.c	93
+l_seeknum	src/lua/src/liolib.c	101
+l_seeknum	src/lua/src/liolib.c	111
+l_strcmp	src/lua/src/lvm.c	/^static int l_strcmp (const TString *ls, const TStr/
+labelstat	src/lua/src/lparser.c	/^static void labelstat (LexState *ls, TString *labe/
+laction	src/lua/src/lua.c	/^static void laction (int i) {$/
+lapi_c	src/lua/src/lapi.c	11
+lastlistfield	src/lua/src/lparser.c	/^static void lastlistfield (FuncState *fs, struct C/
+lauxlib_c	src/lua/src/lauxlib.c	19
+lbaselib_c	src/lua/src/lbaselib.c	14
+lbitlib_c	src/lua/src/lbitlib.c	7
+lcode_c	src/lua/src/lcode.c	10
+lcorolib_c	src/lua/src/lcorolib.c	11
+lctype_c	src/lua/src/lctype.c	7
+ldblib_c	src/lua/src/ldblib.c	12
+ldebug_c	src/lua/src/ldebug.c	13
+ldo_c	src/lua/src/ldo.c	12
+ldump_c	src/lua/src/ldump.c	9
 leading_ws	lua_src/core/lued_lib.lua	/^function lued.leading_ws()$/
+leaveblock	src/lua/src/lparser.c	/^static void leaveblock (FuncState *fs) {$/
+leavelevel	src/lua/src/lparser.c	/^#define leavelevel(ls)	((ls)->L->nCcalls--)$/
+left	src/lua/src/lparser.c	1020
+len	src/lua/src/lstrlib.c	207
+level	src/lua/src/lstrlib.c	204
+lexerror	src/lua/src/llex.c	/^static l_noret lexerror (LexState *ls, const char /
+lfunc_c	src/lua/src/lfunc.c	10
+lgc_c	src/lua/src/lgc.c	9
+libsize	src/lua/src/lauxlib.c	/^static int libsize (const luaL_Reg *l) {$/
 line_contains	lua_src/core/select.lua	/^function lued.line_contains(needles, line)$/
 line_ends_with	lua_src/core/select.lua	/^function lued.line_ends_with(needles, line)$/
 line_starts_with	lua_src/bindings/bindings2md.lua	/^function line_starts_with(line,str)$/
+linit_c	src/lua/src/linit.c	16
+linktable	src/lua/src/lgc.c	/^#define linktable(h,p)	((h)->gclist = *(p), *(p) =/
+liolib_c	src/lua/src/liolib.c	23
+listcode	src/lua/src/ltests.c	/^static int listcode (lua_State *L) {$/
+listfield	src/lua/src/lparser.c	/^static void listfield (LexState *ls, struct ConsCo/
+listk	src/lua/src/ltests.c	/^static int listk (lua_State *L) {$/
+listlocals	src/lua/src/ltests.c	/^static int listlocals (lua_State *L) {$/
+ll_addtoclib	src/lua/src/loadlib.c	/^static void ll_addtoclib (lua_State *L, const char/
+ll_checkclib	src/lua/src/loadlib.c	/^static void *ll_checkclib (lua_State *L, const cha/
+ll_funcs	src/lua/src/loadlib.c	666
+ll_load	src/lua/src/loadlib.c	/^static void *ll_load (lua_State *L, const char *pa/
+ll_load	src/lua/src/loadlib.c	/^static void *ll_load (lua_State *L, const char *pa/
+ll_load	src/lua/src/loadlib.c	/^static void *ll_load (lua_State *L, const char *pa/
+ll_loadfunc	src/lua/src/loadlib.c	/^static int ll_loadfunc (lua_State *L, const char */
+ll_loadlib	src/lua/src/loadlib.c	/^static int ll_loadlib (lua_State *L) {$/
+ll_module	src/lua/src/loadlib.c	/^static int ll_module (lua_State *L) {$/
+ll_require	src/lua/src/loadlib.c	/^static int ll_require (lua_State *L) {$/
+ll_searchpath	src/lua/src/loadlib.c	/^static int ll_searchpath (lua_State *L) {$/
+ll_seeall	src/lua/src/loadlib.c	/^static int ll_seeall (lua_State *L) {$/
+ll_sym	src/lua/src/loadlib.c	/^static lua_CFunction ll_sym (lua_State *L, void *l/
+ll_sym	src/lua/src/loadlib.c	/^static lua_CFunction ll_sym (lua_State *L, void *l/
+ll_sym	src/lua/src/loadlib.c	/^static lua_CFunction ll_sym (lua_State *L, void *l/
+ll_unloadlib	src/lua/src/loadlib.c	/^static void ll_unloadlib (void *lib) {$/
+ll_unloadlib	src/lua/src/loadlib.c	/^static void ll_unloadlib (void *lib) {$/
+ll_unloadlib	src/lua/src/loadlib.c	/^static void ll_unloadlib (void *lib) {$/
+llex	src/lua/src/llex.c	/^static int llex (LexState *ls, SemInfo *seminfo) {/
+llex_c	src/lua/src/llex.c	11
+lmathlib_c	src/lua/src/lmathlib.c	11
+lmem_c	src/lua/src/lmem.c	10
+lmemfind	src/lua/src/lstrlib.c	/^static const char *lmemfind (const char *s1, size_/
+load_aux	src/lua/src/lbaselib.c	/^static int load_aux (lua_State *L, int status, int/
 load_plugins	lua_src/base/plugins.lua	/^function lued.load_plugins(plugin_path)$/
 load_session_file	lua_src/base/sessions.lua	/^function lued.load_session_file(dd)$/
+loadedlibs	src/lua/src/linit.c	29
+loadfunc	src/lua/src/loadlib.c	/^static int loadfunc (lua_State *L, const char *fil/
+loadlib	src/lua/src/ltests.c	/^static int loadlib (lua_State *L) {$/
+loadlib_c	src/lua/src/loadlib.c	24
+loadline	src/lua/src/lua.c	/^static int loadline (lua_State *L) {$/
+lobject_c	src/lua/src/lobject.c	12
+localfunc	src/lua/src/lparser.c	/^static void localfunc (LexState *ls) {$/
+localstat	src/lua/src/lparser.c	/^static void localstat (LexState *ls) {$/
 log	lua_src/plugins/vhdl.lua	/^function lued.vhdl.log()$/
 logo	lua_src/base/help.lua	/^function lued.logo()$/
+lopcodes_c	src/lua/src/lopcodes.c	8
+loslib_c	src/lua/src/loslib.c	14
+lparser_c	src/lua/src/lparser.c	10
 ls_dir	lua_src/core/os.lua	/^function lued.ls_dir(glob)$/
 ls_recursive	lua_src/core/os.lua	/^function lued.ls_recursive(path,filter)$/
+lstate_c	src/lua/src/lstate.c	11
+lstop	src/lua/src/lua.c	/^static void lstop (lua_State *L, lua_Debug *ar) {$/
+lstring_c	src/lua/src/lstring.c	10
+lstrlib_c	src/lua/src/lstrlib.c	14
+ltable_c	src/lua/src/ltable.c	23
+ltablib_c	src/lua/src/ltablib.c	11
+ltests_c	src/lua/src/ltests.c	13
+ltm_c	src/lua/src/ltm.c	10
+luaB_assert	src/lua/src/lbaselib.c	/^static int luaB_assert (lua_State *L) {$/
+luaB_auxwrap	src/lua/src/lcorolib.c	/^static int luaB_auxwrap (lua_State *L) {$/
+luaB_cocreate	src/lua/src/lcorolib.c	/^static int luaB_cocreate (lua_State *L) {$/
+luaB_collectgarbage	src/lua/src/lbaselib.c	/^static int luaB_collectgarbage (lua_State *L) {$/
+luaB_coresume	src/lua/src/lcorolib.c	/^static int luaB_coresume (lua_State *L) {$/
+luaB_corunning	src/lua/src/lcorolib.c	/^static int luaB_corunning (lua_State *L) {$/
+luaB_costatus	src/lua/src/lcorolib.c	/^static int luaB_costatus (lua_State *L) {$/
+luaB_cowrap	src/lua/src/lcorolib.c	/^static int luaB_cowrap (lua_State *L) {$/
+luaB_dofile	src/lua/src/lbaselib.c	/^static int luaB_dofile (lua_State *L) {$/
+luaB_error	src/lua/src/lbaselib.c	/^static int luaB_error (lua_State *L) {$/
+luaB_getmetatable	src/lua/src/lbaselib.c	/^static int luaB_getmetatable (lua_State *L) {$/
+luaB_ipairs	src/lua/src/lbaselib.c	/^static int luaB_ipairs (lua_State *L) {$/
+luaB_load	src/lua/src/lbaselib.c	/^static int luaB_load (lua_State *L) {$/
+luaB_loadfile	src/lua/src/lbaselib.c	/^static int luaB_loadfile (lua_State *L) {$/
+luaB_next	src/lua/src/lbaselib.c	/^static int luaB_next (lua_State *L) {$/
+luaB_opentests	src/lua/src/ltests.c	/^int luaB_opentests (lua_State *L) {$/
+luaB_pairs	src/lua/src/lbaselib.c	/^static int luaB_pairs (lua_State *L) {$/
+luaB_pcall	src/lua/src/lbaselib.c	/^static int luaB_pcall (lua_State *L) {$/
+luaB_print	src/lua/src/lbaselib.c	/^static int luaB_print (lua_State *L) {$/
+luaB_rawequal	src/lua/src/lbaselib.c	/^static int luaB_rawequal (lua_State *L) {$/
+luaB_rawget	src/lua/src/lbaselib.c	/^static int luaB_rawget (lua_State *L) {$/
+luaB_rawlen	src/lua/src/lbaselib.c	/^static int luaB_rawlen (lua_State *L) {$/
+luaB_rawset	src/lua/src/lbaselib.c	/^static int luaB_rawset (lua_State *L) {$/
+luaB_select	src/lua/src/lbaselib.c	/^static int luaB_select (lua_State *L) {$/
+luaB_setmetatable	src/lua/src/lbaselib.c	/^static int luaB_setmetatable (lua_State *L) {$/
+luaB_tonumber	src/lua/src/lbaselib.c	/^static int luaB_tonumber (lua_State *L) {$/
+luaB_tostring	src/lua/src/lbaselib.c	/^static int luaB_tostring (lua_State *L) {$/
+luaB_type	src/lua/src/lbaselib.c	/^static int luaB_type (lua_State *L) {$/
+luaB_xpcall	src/lua/src/lbaselib.c	/^static int luaB_xpcall (lua_State *L) {$/
+luaB_yield	src/lua/src/lcorolib.c	/^static int luaB_yield (lua_State *L) {$/
+luaC_barrier_	src/lua/src/lgc.c	/^void luaC_barrier_ (lua_State *L, GCObject *o, GCO/
+luaC_barrierback_	src/lua/src/lgc.c	/^void luaC_barrierback_ (lua_State *L, GCObject *o)/
+luaC_barrierproto_	src/lua/src/lgc.c	/^LUAI_FUNC void luaC_barrierproto_ (lua_State *L, P/
+luaC_changemode	src/lua/src/lgc.c	/^void luaC_changemode (lua_State *L, int mode) {$/
+luaC_checkfinalizer	src/lua/src/lgc.c	/^void luaC_checkfinalizer (lua_State *L, GCObject */
+luaC_checkupvalcolor	src/lua/src/lgc.c	/^void luaC_checkupvalcolor (global_State *g, UpVal /
+luaC_forcestep	src/lua/src/lgc.c	/^void luaC_forcestep (lua_State *L) {$/
+luaC_freeallobjects	src/lua/src/lgc.c	/^void luaC_freeallobjects (lua_State *L) {$/
+luaC_fullgc	src/lua/src/lgc.c	/^void luaC_fullgc (lua_State *L, int isemergency) {/
+luaC_newobj	src/lua/src/lgc.c	/^GCObject *luaC_newobj (lua_State *L, int tt, size_/
+luaC_runtilstate	src/lua/src/lgc.c	/^void luaC_runtilstate (lua_State *L, int statesmas/
+luaC_step	src/lua/src/lgc.c	/^void luaC_step (lua_State *L) {$/
+luaD_call	src/lua/src/ldo.c	/^void luaD_call (lua_State *L, StkId func, int nRes/
+luaD_growstack	src/lua/src/ldo.c	/^void luaD_growstack (lua_State *L, int n) {$/
+luaD_hook	src/lua/src/ldo.c	/^void luaD_hook (lua_State *L, int event, int line)/
+luaD_pcall	src/lua/src/ldo.c	/^int luaD_pcall (lua_State *L, Pfunc func, void *u,/
+luaD_poscall	src/lua/src/ldo.c	/^int luaD_poscall (lua_State *L, StkId firstResult)/
+luaD_precall	src/lua/src/ldo.c	/^int luaD_precall (lua_State *L, StkId func, int nr/
+luaD_protectedparser	src/lua/src/ldo.c	/^int luaD_protectedparser (lua_State *L, ZIO *z, co/
+luaD_rawrunprotected	src/lua/src/ldo.c	/^int luaD_rawrunprotected (lua_State *L, Pfunc f, v/
+luaD_reallocstack	src/lua/src/ldo.c	/^void luaD_reallocstack (lua_State *L, int newsize)/
+luaD_shrinkstack	src/lua/src/ldo.c	/^void luaD_shrinkstack (lua_State *L) {$/
+luaD_throw	src/lua/src/ldo.c	/^l_noret luaD_throw (lua_State *L, int errcode) {$/
+luaE_extendCI	src/lua/src/lstate.c	/^CallInfo *luaE_extendCI (lua_State *L) {$/
+luaE_freeCI	src/lua/src/lstate.c	/^void luaE_freeCI (lua_State *L) {$/
+luaE_freethread	src/lua/src/lstate.c	/^void luaE_freethread (lua_State *L, lua_State *L1)/
+luaE_setdebt	src/lua/src/lstate.c	/^void luaE_setdebt (global_State *g, l_mem debt) {$/
+luaF_close	src/lua/src/lfunc.c	/^void luaF_close (lua_State *L, StkId level) {$/
+luaF_findupval	src/lua/src/lfunc.c	/^UpVal *luaF_findupval (lua_State *L, StkId level) /
+luaF_freeproto	src/lua/src/lfunc.c	/^void luaF_freeproto (lua_State *L, Proto *f) {$/
+luaF_freeupval	src/lua/src/lfunc.c	/^void luaF_freeupval (lua_State *L, UpVal *uv) {$/
+luaF_getlocalname	src/lua/src/lfunc.c	/^const char *luaF_getlocalname (const Proto *f, int/
+luaF_newCclosure	src/lua/src/lfunc.c	/^Closure *luaF_newCclosure (lua_State *L, int n) {$/
+luaF_newLclosure	src/lua/src/lfunc.c	/^Closure *luaF_newLclosure (lua_State *L, int n) {$/
+luaF_newproto	src/lua/src/lfunc.c	/^Proto *luaF_newproto (lua_State *L) {$/
+luaF_newupval	src/lua/src/lfunc.c	/^UpVal *luaF_newupval (lua_State *L) {$/
+luaG_aritherror	src/lua/src/ldebug.c	/^l_noret luaG_aritherror (lua_State *L, const TValu/
+luaG_concaterror	src/lua/src/ldebug.c	/^l_noret luaG_concaterror (lua_State *L, StkId p1, /
+luaG_errormsg	src/lua/src/ldebug.c	/^l_noret luaG_errormsg (lua_State *L) {$/
+luaG_ordererror	src/lua/src/ldebug.c	/^l_noret luaG_ordererror (lua_State *L, const TValu/
+luaG_runerror	src/lua/src/ldebug.c	/^l_noret luaG_runerror (lua_State *L, const char *f/
+luaG_typeerror	src/lua/src/ldebug.c	/^l_noret luaG_typeerror (lua_State *L, const TValue/
+luaH_free	src/lua/src/ltable.c	/^void luaH_free (lua_State *L, Table *t) {$/
+luaH_get	src/lua/src/ltable.c	/^const TValue *luaH_get (Table *t, const TValue *ke/
+luaH_getint	src/lua/src/ltable.c	/^const TValue *luaH_getint (Table *t, int key) {$/
+luaH_getn	src/lua/src/ltable.c	/^int luaH_getn (Table *t) {$/
+luaH_getstr	src/lua/src/ltable.c	/^const TValue *luaH_getstr (Table *t, TString *key)/
+luaH_isdummy	src/lua/src/ltable.c	/^int luaH_isdummy (Node *n) { return isdummy(n); }$/
+luaH_mainposition	src/lua/src/ltable.c	/^Node *luaH_mainposition (const Table *t, const TVa/
+luaH_new	src/lua/src/ltable.c	/^Table *luaH_new (lua_State *L) {$/
+luaH_newkey	src/lua/src/ltable.c	/^TValue *luaH_newkey (lua_State *L, Table *t, const/
+luaH_next	src/lua/src/ltable.c	/^int luaH_next (lua_State *L, Table *t, StkId key) /
+luaH_resize	src/lua/src/ltable.c	/^void luaH_resize (lua_State *L, Table *t, int nasi/
+luaH_resizearray	src/lua/src/ltable.c	/^void luaH_resizearray (lua_State *L, Table *t, int/
+luaH_set	src/lua/src/ltable.c	/^TValue *luaH_set (lua_State *L, Table *t, const TV/
+luaH_setint	src/lua/src/ltable.c	/^void luaH_setint (lua_State *L, Table *t, int key,/
+luaI_printcode	src/lua/src/ltests.c	/^void luaI_printcode (Proto *pt, int size) {$/
+luaI_printinst	src/lua/src/ltests.c	/^void luaI_printinst (Proto *pt, int pc) {$/
+luaK_checkstack	src/lua/src/lcode.c	/^void luaK_checkstack (FuncState *fs, int n) {$/
+luaK_code	src/lua/src/lcode.c	/^static int luaK_code (FuncState *fs, Instruction i/
+luaK_codeABC	src/lua/src/lcode.c	/^int luaK_codeABC (FuncState *fs, OpCode o, int a, /
+luaK_codeABx	src/lua/src/lcode.c	/^int luaK_codeABx (FuncState *fs, OpCode o, int a, /
+luaK_codek	src/lua/src/lcode.c	/^int luaK_codek (FuncState *fs, int reg, int k) {$/
+luaK_concat	src/lua/src/lcode.c	/^void luaK_concat (FuncState *fs, int *l1, int l2) /
+luaK_dischargevars	src/lua/src/lcode.c	/^void luaK_dischargevars (FuncState *fs, expdesc *e/
+luaK_exp2RK	src/lua/src/lcode.c	/^int luaK_exp2RK (FuncState *fs, expdesc *e) {$/
+luaK_exp2anyreg	src/lua/src/lcode.c	/^int luaK_exp2anyreg (FuncState *fs, expdesc *e) {$/
+luaK_exp2anyregup	src/lua/src/lcode.c	/^void luaK_exp2anyregup (FuncState *fs, expdesc *e)/
+luaK_exp2nextreg	src/lua/src/lcode.c	/^void luaK_exp2nextreg (FuncState *fs, expdesc *e) /
+luaK_exp2val	src/lua/src/lcode.c	/^void luaK_exp2val (FuncState *fs, expdesc *e) {$/
+luaK_fixline	src/lua/src/lcode.c	/^void luaK_fixline (FuncState *fs, int line) {$/
+luaK_getlabel	src/lua/src/lcode.c	/^int luaK_getlabel (FuncState *fs) {$/
+luaK_goiffalse	src/lua/src/lcode.c	/^void luaK_goiffalse (FuncState *fs, expdesc *e) {$/
+luaK_goiftrue	src/lua/src/lcode.c	/^void luaK_goiftrue (FuncState *fs, expdesc *e) {$/
+luaK_indexed	src/lua/src/lcode.c	/^void luaK_indexed (FuncState *fs, expdesc *t, expd/
+luaK_infix	src/lua/src/lcode.c	/^void luaK_infix (FuncState *fs, BinOpr op, expdesc/
+luaK_jump	src/lua/src/lcode.c	/^int luaK_jump (FuncState *fs) {$/
+luaK_nil	src/lua/src/lcode.c	/^void luaK_nil (FuncState *fs, int from, int n) {$/
+luaK_numberK	src/lua/src/lcode.c	/^int luaK_numberK (FuncState *fs, lua_Number r) {$/
+luaK_patchclose	src/lua/src/lcode.c	/^LUAI_FUNC void luaK_patchclose (FuncState *fs, int/
+luaK_patchlist	src/lua/src/lcode.c	/^void luaK_patchlist (FuncState *fs, int list, int /
+luaK_patchtohere	src/lua/src/lcode.c	/^void luaK_patchtohere (FuncState *fs, int list) {$/
+luaK_posfix	src/lua/src/lcode.c	/^void luaK_posfix (FuncState *fs, BinOpr op,$/
+luaK_prefix	src/lua/src/lcode.c	/^void luaK_prefix (FuncState *fs, UnOpr op, expdesc/
+luaK_reserveregs	src/lua/src/lcode.c	/^void luaK_reserveregs (FuncState *fs, int n) {$/
+luaK_ret	src/lua/src/lcode.c	/^void luaK_ret (FuncState *fs, int first, int nret)/
+luaK_self	src/lua/src/lcode.c	/^void luaK_self (FuncState *fs, expdesc *e, expdesc/
+luaK_setlist	src/lua/src/lcode.c	/^void luaK_setlist (FuncState *fs, int base, int ne/
+luaK_setoneret	src/lua/src/lcode.c	/^void luaK_setoneret (FuncState *fs, expdesc *e) {$/
+luaK_setreturns	src/lua/src/lcode.c	/^void luaK_setreturns (FuncState *fs, expdesc *e, i/
+luaK_storevar	src/lua/src/lcode.c	/^void luaK_storevar (FuncState *fs, expdesc *var, e/
+luaK_stringK	src/lua/src/lcode.c	/^int luaK_stringK (FuncState *fs, TString *s) {$/
+luaL_addlstring	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_addlstring (luaL_Buffer *B, c/
+luaL_addstring	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_addstring (luaL_Buffer *B, co/
+luaL_addvalue	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_addvalue (luaL_Buffer *B) {$/
+luaL_argerror	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_argerror (lua_State *L, int na/
+luaL_buffinit	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_buffinit (lua_State *L, luaL_/
+luaL_buffinitsize	src/lua/src/lauxlib.c	/^LUALIB_API char *luaL_buffinitsize (lua_State *L, /
+luaL_callmeta	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_callmeta (lua_State *L, int ob/
+luaL_checkany	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_checkany (lua_State *L, int n/
+luaL_checkinteger	src/lua/src/lauxlib.c	/^LUALIB_API lua_Integer luaL_checkinteger (lua_Stat/
+luaL_checklstring	src/lua/src/lauxlib.c	/^LUALIB_API const char *luaL_checklstring (lua_Stat/
+luaL_checknumber	src/lua/src/lauxlib.c	/^LUALIB_API lua_Number luaL_checknumber (lua_State /
+luaL_checkoption	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_checkoption (lua_State *L, int/
+luaL_checkstack	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_checkstack (lua_State *L, int/
+luaL_checktype	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_checktype (lua_State *L, int /
+luaL_checkudata	src/lua/src/lauxlib.c	/^LUALIB_API void *luaL_checkudata (lua_State *L, in/
+luaL_checkunsigned	src/lua/src/lauxlib.c	/^LUALIB_API lua_Unsigned luaL_checkunsigned (lua_St/
+luaL_checkversion_	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_checkversion_ (lua_State *L, /
+luaL_error	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_error (lua_State *L, const cha/
+luaL_execresult	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_execresult (lua_State *L, int /
+luaL_fileresult	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_fileresult (lua_State *L, int /
+luaL_findtable	src/lua/src/lauxlib.c	/^static const char *luaL_findtable (lua_State *L, i/
+luaL_getmetafield	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_getmetafield (lua_State *L, in/
+luaL_getsubtable	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_getsubtable (lua_State *L, int/
+luaL_gsub	src/lua/src/lauxlib.c	/^LUALIB_API const char *luaL_gsub (lua_State *L, co/
+luaL_len	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_len (lua_State *L, int idx) {$/
+luaL_loadbufferx	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_loadbufferx (lua_State *L, con/
+luaL_loadfilex	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_loadfilex (lua_State *L, const/
+luaL_loadstring	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_loadstring (lua_State *L, cons/
+luaL_newmetatable	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_newmetatable (lua_State *L, co/
+luaL_newstate	src/lua/src/lauxlib.c	/^LUALIB_API lua_State *luaL_newstate (void) {$/
+luaL_openlib	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_openlib (lua_State *L, const /
+luaL_openlibs	src/lua/src/linit.c	/^LUALIB_API void luaL_openlibs (lua_State *L) {$/
+luaL_optinteger	src/lua/src/lauxlib.c	/^LUALIB_API lua_Integer luaL_optinteger (lua_State /
+luaL_optlstring	src/lua/src/lauxlib.c	/^LUALIB_API const char *luaL_optlstring (lua_State /
+luaL_optnumber	src/lua/src/lauxlib.c	/^LUALIB_API lua_Number luaL_optnumber (lua_State *L/
+luaL_optunsigned	src/lua/src/lauxlib.c	/^LUALIB_API lua_Unsigned luaL_optunsigned (lua_Stat/
+luaL_prepbuffsize	src/lua/src/lauxlib.c	/^LUALIB_API char *luaL_prepbuffsize (luaL_Buffer *B/
+luaL_pushmodule	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_pushmodule (lua_State *L, con/
+luaL_pushresult	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_pushresult (luaL_Buffer *B) {/
+luaL_pushresultsize	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_pushresultsize (luaL_Buffer */
+luaL_ref	src/lua/src/lauxlib.c	/^LUALIB_API int luaL_ref (lua_State *L, int t) {$/
+luaL_requiref	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_requiref (lua_State *L, const/
+luaL_setfuncs	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_setfuncs (lua_State *L, const/
+luaL_setmetatable	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_setmetatable (lua_State *L, c/
+luaL_testudata	src/lua/src/lauxlib.c	/^LUALIB_API void *luaL_testudata (lua_State *L, int/
+luaL_tolstring	src/lua/src/lauxlib.c	/^LUALIB_API const char *luaL_tolstring (lua_State */
+luaL_traceback	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_traceback (lua_State *L, lua_/
+luaL_unref	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_unref (lua_State *L, int t, i/
+luaL_where	src/lua/src/lauxlib.c	/^LUALIB_API void luaL_where (lua_State *L, int leve/
+luaM_growaux_	src/lua/src/lmem.c	/^void *luaM_growaux_ (lua_State *L, void *block, in/
+luaM_realloc_	src/lua/src/lmem.c	/^void *luaM_realloc_ (lua_State *L, void *block, si/
+luaM_toobig	src/lua/src/lmem.c	/^l_noret luaM_toobig (lua_State *L) {$/
+luaO_arith	src/lua/src/lobject.c	/^lua_Number luaO_arith (int op, lua_Number v1, lua_/
+luaO_ceillog2	src/lua/src/lobject.c	/^int luaO_ceillog2 (unsigned int x) {$/
+luaO_chunkid	src/lua/src/lobject.c	/^void luaO_chunkid (char *out, const char *source, /
+luaO_fb2int	src/lua/src/lobject.c	/^int luaO_fb2int (int x) {$/
+luaO_hexavalue	src/lua/src/lobject.c	/^int luaO_hexavalue (int c) {$/
+luaO_int2fb	src/lua/src/lobject.c	/^int luaO_int2fb (unsigned int x) {$/
+luaO_nilobject_	src/lua/src/lobject.c	28
+luaO_pushfstring	src/lua/src/lobject.c	/^const char *luaO_pushfstring (lua_State *L, const /
+luaO_pushvfstring	src/lua/src/lobject.c	/^const char *luaO_pushvfstring (lua_State *L, const/
+luaO_str2d	src/lua/src/lobject.c	/^int luaO_str2d (const char *s, size_t len, lua_Num/
+luaP_opmodes	src/lua/src/lopcodes.c	64
+luaP_opnames	src/lua/src/lopcodes.c	17
+luaS_eqlngstr	src/lua/src/lstring.c	/^int luaS_eqlngstr (TString *a, TString *b) {$/
+luaS_eqstr	src/lua/src/lstring.c	/^int luaS_eqstr (TString *a, TString *b) {$/
+luaS_hash	src/lua/src/lstring.c	/^unsigned int luaS_hash (const char *str, size_t l,/
+luaS_new	src/lua/src/lstring.c	/^TString *luaS_new (lua_State *L, const char *str) /
+luaS_newlstr	src/lua/src/lstring.c	/^TString *luaS_newlstr (lua_State *L, const char *s/
+luaS_newudata	src/lua/src/lstring.c	/^Udata *luaS_newudata (lua_State *L, size_t s, Tabl/
+luaS_resize	src/lua/src/lstring.c	/^void luaS_resize (lua_State *L, int newsize) {$/
+luaT_gettm	src/lua/src/ltm.c	/^const TValue *luaT_gettm (Table *events, TMS event/
+luaT_gettmbyobj	src/lua/src/ltm.c	/^const TValue *luaT_gettmbyobj (lua_State *L, const/
+luaT_init	src/lua/src/ltm.c	/^void luaT_init (lua_State *L) {$/
+luaT_typenames_	src/lua/src/ltm.c	24
+luaU_dump	src/lua/src/ldump.c	/^int luaU_dump (lua_State* L, const Proto* f, lua_W/
+luaU_header	src/lua/src/lundump.c	/^void luaU_header (lu_byte* h)$/
+luaU_undump	src/lua/src/lundump.c	/^Closure* luaU_undump (lua_State* L, ZIO* Z, Mbuffe/
+luaV_arith	src/lua/src/lvm.c	/^void luaV_arith (lua_State *L, StkId ra, const TVa/
+luaV_concat	src/lua/src/lvm.c	/^void luaV_concat (lua_State *L, int total) {$/
+luaV_equalobj_	src/lua/src/lvm.c	/^int luaV_equalobj_ (lua_State *L, const TValue *t1/
+luaV_execute	src/lua/src/lvm.c	/^void luaV_execute (lua_State *L) {$/
+luaV_finishOp	src/lua/src/lvm.c	/^void luaV_finishOp (lua_State *L) {$/
+luaV_gettable	src/lua/src/lvm.c	/^void luaV_gettable (lua_State *L, const TValue *t,/
+luaV_lessequal	src/lua/src/lvm.c	/^int luaV_lessequal (lua_State *L, const TValue *l,/
+luaV_lessthan	src/lua/src/lvm.c	/^int luaV_lessthan (lua_State *L, const TValue *l, /
+luaV_objlen	src/lua/src/lvm.c	/^void luaV_objlen (lua_State *L, StkId ra, const TV/
+luaV_settable	src/lua/src/lvm.c	/^void luaV_settable (lua_State *L, const TValue *t,/
+luaV_tonumber	src/lua/src/lvm.c	/^const TValue *luaV_tonumber (const TValue *obj, TV/
+luaV_tostring	src/lua/src/lvm.c	/^int luaV_tostring (lua_State *L, StkId obj) {$/
+luaX_init	src/lua/src/llex.c	/^void luaX_init (lua_State *L) {$/
+luaX_lookahead	src/lua/src/llex.c	/^int luaX_lookahead (LexState *ls) {$/
+luaX_newstring	src/lua/src/llex.c	/^TString *luaX_newstring (LexState *ls, const char /
+luaX_next	src/lua/src/llex.c	/^void luaX_next (LexState *ls) {$/
+luaX_setinput	src/lua/src/llex.c	/^void luaX_setinput (lua_State *L, LexState *ls, ZI/
+luaX_syntaxerror	src/lua/src/llex.c	/^l_noret luaX_syntaxerror (LexState *ls, const char/
+luaX_token2str	src/lua/src/llex.c	/^const char *luaX_token2str (LexState *ls, int toke/
+luaX_tokens	src/lua/src/llex.c	36
+luaY_parser	src/lua/src/lparser.c	/^Closure *luaY_parser (lua_State *L, ZIO *z, Mbuffe/
+luaZ_fill	src/lua/src/lzio.c	/^int luaZ_fill (ZIO *z) {$/
+luaZ_init	src/lua/src/lzio.c	/^void luaZ_init (lua_State *L, ZIO *z, lua_Reader r/
+luaZ_openspace	src/lua/src/lzio.c	/^char *luaZ_openspace (lua_State *L, Mbuffer *buff,/
+luaZ_read	src/lua/src/lzio.c	/^size_t luaZ_read (ZIO *z, void *b, size_t n) {$/
+lua_absindex	src/lua/src/lapi.c	/^LUA_API int lua_absindex (lua_State *L, int idx) {/
+lua_arith	src/lua/src/lapi.c	/^LUA_API void lua_arith (lua_State *L, int op) {$/
+lua_atpanic	src/lua/src/lapi.c	/^LUA_API lua_CFunction lua_atpanic (lua_State *L, l/
+lua_c	src/lua/src/lua.c	15
+lua_callk	src/lua/src/lapi.c	/^LUA_API void lua_callk (lua_State *L, int nargs, i/
+lua_checkmemory	src/lua/src/ltests.c	/^int lua_checkmemory (lua_State *L) {$/
+lua_checkmode	src/lua/src/liolib.c	/^#define lua_checkmode(mode) \\$/
+lua_checkpc	src/lua/src/ltests.c	/^static int lua_checkpc (pCallInfo ci) {$/
+lua_checkstack	src/lua/src/lapi.c	/^LUA_API int lua_checkstack (lua_State *L, int size/
+lua_close	src/lua/src/lstate.c	/^LUA_API void lua_close (lua_State *L) {$/
 lua_close_session	src/lued.c	/^int lua_close_session(lua_State* L) {$/
+lua_compare	src/lua/src/lapi.c	/^LUA_API int lua_compare (lua_State *L, int index1,/
+lua_concat	src/lua/src/lapi.c	/^LUA_API void lua_concat (lua_State *L, int n) {$/
+lua_copy	src/lua/src/lapi.c	/^LUA_API void lua_copy (lua_State *L, int fromidx, /
+lua_createtable	src/lua/src/lapi.c	/^LUA_API void lua_createtable (lua_State *L, int na/
 lua_delete_selected	src/lued.c	/^static int lua_delete_selected(lua_State* L) {$/
+lua_dump	src/lua/src/lapi.c	/^LUA_API int lua_dump (lua_State *L, lua_Writer wri/
+lua_error	src/lua/src/lapi.c	/^LUA_API int lua_error (lua_State *L) {$/
+lua_freeline	src/lua/src/lua.c	/^#define lua_freeline(L,b)	((void)L, free(b))$/
+lua_freeline	src/lua/src/lua.c	/^#define lua_freeline(L,b)	{ (void)L; (void)b; }$/
+lua_gc	src/lua/src/lapi.c	/^LUA_API int lua_gc (lua_State *L, int what, int da/
 lua_get_char	src/lued.c	/^static int lua_get_char(lua_State* L) {$/
 lua_get_cur_pos	src/lued.c	/^static int lua_get_cur_pos(lua_State* L)$/
 lua_get_fileid	src/lued.c	/^int lua_get_fileid(lua_State* L)$/
@@ -351,17 +1494,81 @@ lua_get_repeatables	src/carr/src/carr_readline_lua.c	/^int lua_get_repeatables(l
 lua_get_sel	src/lued.c	/^int lua_get_sel(lua_State* L) {$/
 lua_get_str	src/lued.c	/^int lua_get_str(lua_State* L) {$/
 lua_get_termsize	src/lued.c	/^int lua_get_termsize(lua_State* L)$/
+lua_getallocf	src/lua/src/lapi.c	/^LUA_API lua_Alloc lua_getallocf (lua_State *L, voi/
+lua_getctx	src/lua/src/lapi.c	/^LUA_API int lua_getctx (lua_State *L, int *ctx) {$/
+lua_getfield	src/lua/src/lapi.c	/^LUA_API void lua_getfield (lua_State *L, int idx, /
+lua_getglobal	src/lua/src/lapi.c	/^LUA_API void lua_getglobal (lua_State *L, const ch/
+lua_gethook	src/lua/src/ldebug.c	/^LUA_API lua_Hook lua_gethook (lua_State *L) {$/
+lua_gethookcount	src/lua/src/ldebug.c	/^LUA_API int lua_gethookcount (lua_State *L) {$/
+lua_gethookmask	src/lua/src/ldebug.c	/^LUA_API int lua_gethookmask (lua_State *L) {$/
+lua_getinfo	src/lua/src/ldebug.c	/^LUA_API int lua_getinfo (lua_State *L, const char /
+lua_getlocal	src/lua/src/ldebug.c	/^LUA_API const char *lua_getlocal (lua_State *L, co/
+lua_getmetatable	src/lua/src/lapi.c	/^LUA_API int lua_getmetatable (lua_State *L, int ob/
+lua_getstack	src/lua/src/ldebug.c	/^LUA_API int lua_getstack (lua_State *L, int level,/
+lua_gettable	src/lua/src/lapi.c	/^LUA_API void lua_gettable (lua_State *L, int idx) /
+lua_gettop	src/lua/src/lapi.c	/^LUA_API int lua_gettop (lua_State *L) {$/
+lua_getupvalue	src/lua/src/lapi.c	/^LUA_API const char *lua_getupvalue (lua_State *L, /
+lua_getuservalue	src/lua/src/lapi.c	/^LUA_API void lua_getuservalue (lua_State *L, int i/
 lua_goto_mark	src/lued.c	/^int lua_goto_mark(lua_State* L) {$/
+lua_ident	src/lua/src/lapi.c	32
+lua_insert	src/lua/src/lapi.c	/^LUA_API void lua_insert (lua_State *L, int idx) {$/
 lua_insert_str	src/lued.c	/^static int lua_insert_str(lua_State* L) {$/
+lua_interpreter	src/lua/src/lua.c	/^int lua_interpreter (lua_State* L, int argc, char /
 lua_io_read	src/carr/src/carr_readline_lua.c	/^int lua_io_read(lua_State *L) {$/
 lua_is_file_modified	src/lued.c	/^int lua_is_file_modified(lua_State* L) {$/
 lua_is_modified	src/lued.c	/^static int lua_is_modified(lua_State* L) {$/
 lua_is_sel_end	src/lued.c	/^int lua_is_sel_end(lua_State* L) {$/
 lua_is_sel_off	src/lued.c	/^int lua_is_sel_off(lua_State* L) {$/
+lua_iscfunction	src/lua/src/lapi.c	/^LUA_API int lua_iscfunction (lua_State *L, int idx/
+lua_isnumber	src/lua/src/lapi.c	/^LUA_API int lua_isnumber (lua_State *L, int idx) {/
+lua_isstring	src/lua/src/lapi.c	/^LUA_API int lua_isstring (lua_State *L, int idx) {/
+lua_isuserdata	src/lua/src/lapi.c	/^LUA_API int lua_isuserdata (lua_State *L, int idx)/
+lua_len	src/lua/src/lapi.c	/^LUA_API void lua_len (lua_State *L, int idx) {$/
+lua_load	src/lua/src/lapi.c	/^LUA_API int lua_load (lua_State *L, lua_Reader rea/
+lua_longjmp	src/lua/src/ldo.c	77
 lua_lued_open	src/lued.c	/^int lua_lued_open(lua_State* L)$/
+lua_newstate	src/lua/src/lstate.c	/^LUA_API lua_State *lua_newstate (lua_Alloc f, void/
+lua_newthread	src/lua/src/lstate.c	/^LUA_API lua_State *lua_newthread (lua_State *L) {$/
+lua_newuserdata	src/lua/src/lapi.c	/^LUA_API void *lua_newuserdata (lua_State *L, size_/
+lua_next	src/lua/src/lapi.c	/^LUA_API int lua_next (lua_State *L, int idx) {$/
+lua_pcallk	src/lua/src/lapi.c	/^LUA_API int lua_pcallk (lua_State *L, int nargs, i/
+lua_pclose	src/lua/src/liolib.c	/^#define lua_pclose(L,file)	((void)L, pclose(file))/
+lua_pclose	src/lua/src/liolib.c	/^#define lua_pclose(L,file)		((void)L, _pclose(file/
+lua_pclose	src/lua/src/liolib.c	/^#define lua_pclose(L,file)		((void)((void)L, file)/
+lua_popen	src/lua/src/liolib.c	/^#define lua_popen(L,c,m)	((void)L, fflush(NULL), p/
+lua_popen	src/lua/src/liolib.c	/^#define lua_popen(L,c,m)		((void)L, _popen(c,m))$/
+lua_popen	src/lua/src/liolib.c	/^#define lua_popen(L,c,m)		((void)((void)c, m),  \\$/
+lua_pushboolean	src/lua/src/lapi.c	/^LUA_API void lua_pushboolean (lua_State *L, int b)/
+lua_pushcclosure	src/lua/src/lapi.c	/^LUA_API void lua_pushcclosure (lua_State *L, lua_C/
+lua_pushfstring	src/lua/src/lapi.c	/^LUA_API const char *lua_pushfstring (lua_State *L,/
+lua_pushinteger	src/lua/src/lapi.c	/^LUA_API void lua_pushinteger (lua_State *L, lua_In/
+lua_pushlightuserdata	src/lua/src/lapi.c	/^LUA_API void lua_pushlightuserdata (lua_State *L, /
+lua_pushlstring	src/lua/src/lapi.c	/^LUA_API const char *lua_pushlstring (lua_State *L,/
+lua_pushnil	src/lua/src/lapi.c	/^LUA_API void lua_pushnil (lua_State *L) {$/
+lua_pushnumber	src/lua/src/lapi.c	/^LUA_API void lua_pushnumber (lua_State *L, lua_Num/
+lua_pushstring	src/lua/src/lapi.c	/^LUA_API const char *lua_pushstring (lua_State *L, /
+lua_pushthread	src/lua/src/lapi.c	/^LUA_API int lua_pushthread (lua_State *L) {$/
+lua_pushunsigned	src/lua/src/lapi.c	/^LUA_API void lua_pushunsigned (lua_State *L, lua_U/
+lua_pushvalue	src/lua/src/lapi.c	/^LUA_API void lua_pushvalue (lua_State *L, int idx)/
+lua_pushvfstring	src/lua/src/lapi.c	/^LUA_API const char *lua_pushvfstring (lua_State *L/
+lua_rawequal	src/lua/src/lapi.c	/^LUA_API int lua_rawequal (lua_State *L, int index1/
+lua_rawget	src/lua/src/lapi.c	/^LUA_API void lua_rawget (lua_State *L, int idx) {$/
+lua_rawgeti	src/lua/src/lapi.c	/^LUA_API void lua_rawgeti (lua_State *L, int idx, i/
+lua_rawgetp	src/lua/src/lapi.c	/^LUA_API void lua_rawgetp (lua_State *L, int idx, c/
+lua_rawlen	src/lua/src/lapi.c	/^LUA_API size_t lua_rawlen (lua_State *L, int idx) /
+lua_rawset	src/lua/src/lapi.c	/^LUA_API void lua_rawset (lua_State *L, int idx) {$/
+lua_rawseti	src/lua/src/lapi.c	/^LUA_API void lua_rawseti (lua_State *L, int idx, i/
+lua_rawsetp	src/lua/src/lapi.c	/^LUA_API void lua_rawsetp (lua_State *L, int idx, c/
+lua_readline	src/lua/src/lua.c	/^#define lua_readline(L,b,p)	((void)L, ((b)=readlin/
+lua_readline	src/lua/src/lua.c	/^#define lua_readline(L,b,p) \\$/
 lua_redo	src/lued.c	/^int lua_redo(lua_State* L) {$/
+lua_remove	src/lua/src/lapi.c	/^LUA_API void lua_remove (lua_State *L, int idx) {$/
 lua_reopen	src/lued.c	/^int lua_reopen(lua_State* L)$/
+lua_replace	src/lua/src/lapi.c	/^LUA_API void lua_replace (lua_State *L, int idx) {/
+lua_resume	src/lua/src/ldo.c	/^LUA_API int lua_resume (lua_State *L, lua_State *f/
 lua_save_session	src/lued.c	/^int lua_save_session(lua_State* L) {$/
+lua_saveline	src/lua/src/lua.c	/^#define lua_saveline(L,idx) \\$/
+lua_saveline	src/lua/src/lua.c	/^#define lua_saveline(L,idx)	{ (void)L; (void)idx; /
 lua_set_color	src/lued.c	/^int lua_set_color(lua_State *L)$/
 lua_set_cur_pos	src/lued.c	/^static int lua_set_cur_pos(lua_State* L) {$/
 lua_set_fileid	src/lued.c	/^int lua_set_fileid(lua_State* L) {$/
@@ -377,7 +1584,57 @@ lua_set_sel_end	src/lued.c	/^int lua_set_sel_end(lua_State* L) {$/
 lua_set_sel_off	src/lued.c	/^int lua_set_sel_off(lua_State* L) {$/
 lua_set_sel_start	src/lued.c	/^int lua_set_sel_start(lua_State* L) {$/
 lua_set_show_line_numbers	src/lued.c	/^static int lua_set_show_line_numbers(lua_State* L)/
+lua_setallocf	src/lua/src/lapi.c	/^LUA_API void lua_setallocf (lua_State *L, lua_Allo/
+lua_setfield	src/lua/src/lapi.c	/^LUA_API void lua_setfield (lua_State *L, int idx, /
+lua_setglobal	src/lua/src/lapi.c	/^LUA_API void lua_setglobal (lua_State *L, const ch/
+lua_sethook	src/lua/src/ldebug.c	/^LUA_API int lua_sethook (lua_State *L, lua_Hook fu/
+lua_setlocal	src/lua/src/ldebug.c	/^LUA_API const char *lua_setlocal (lua_State *L, co/
+lua_setmetatable	src/lua/src/lapi.c	/^LUA_API int lua_setmetatable (lua_State *L, int ob/
+lua_settable	src/lua/src/lapi.c	/^LUA_API void lua_settable (lua_State *L, int idx) /
+lua_settop	src/lua/src/lapi.c	/^LUA_API void lua_settop (lua_State *L, int idx) {$/
+lua_setupvalue	src/lua/src/lapi.c	/^LUA_API const char *lua_setupvalue (lua_State *L, /
+lua_setuservalue	src/lua/src/lapi.c	/^LUA_API void lua_setuservalue (lua_State *L, int i/
+lua_status	src/lua/src/lapi.c	/^LUA_API int lua_status (lua_State *L) {$/
+lua_stdin_is_tty	src/lua/src/lua.c	/^#define lua_stdin_is_tty()	isatty(0)$/
+lua_stdin_is_tty	src/lua/src/lua.c	/^#define lua_stdin_is_tty()	_isatty(_fileno(stdin))/
+lua_stdin_is_tty	src/lua/src/lua.c	/^#define lua_stdin_is_tty()	1  \/* assume stdin is a/
+lua_strx2number	src/lua/src/lobject.c	/^static lua_Number lua_strx2number (const char *s, /
+lua_tmpnam	src/lua/src/loslib.c	/^#define lua_tmpnam(b,e) { \\$/
+lua_tmpnam	src/lua/src/loslib.c	/^#define lua_tmpnam(b,e)		{ e = (tmpnam(b) == NULL)/
+lua_toboolean	src/lua/src/lapi.c	/^LUA_API int lua_toboolean (lua_State *L, int idx) /
+lua_tocfunction	src/lua/src/lapi.c	/^LUA_API lua_CFunction lua_tocfunction (lua_State */
+lua_tointegerx	src/lua/src/lapi.c	/^LUA_API lua_Integer lua_tointegerx (lua_State *L, /
+lua_tolstring	src/lua/src/lapi.c	/^LUA_API const char *lua_tolstring (lua_State *L, i/
+lua_tonumberx	src/lua/src/lapi.c	/^LUA_API lua_Number lua_tonumberx (lua_State *L, in/
+lua_topointer	src/lua/src/lapi.c	/^LUA_API const void *lua_topointer (lua_State *L, i/
+lua_tothread	src/lua/src/lapi.c	/^LUA_API lua_State *lua_tothread (lua_State *L, int/
+lua_tounsignedx	src/lua/src/lapi.c	/^LUA_API lua_Unsigned lua_tounsignedx (lua_State *L/
+lua_touserdata	src/lua/src/lapi.c	/^LUA_API void *lua_touserdata (lua_State *L, int id/
+lua_type	src/lua/src/lapi.c	/^LUA_API int lua_type (lua_State *L, int idx) {$/
+lua_typename	src/lua/src/lapi.c	/^LUA_API const char *lua_typename (lua_State *L, in/
 lua_undo	src/lued.c	/^int lua_undo(lua_State* L) {$/
+lua_upvalueid	src/lua/src/lapi.c	/^LUA_API void *lua_upvalueid (lua_State *L, int fid/
+lua_upvaluejoin	src/lua/src/lapi.c	/^LUA_API void lua_upvaluejoin (lua_State *L, int fi/
+lua_version	src/lua/src/lapi.c	/^LUA_API const lua_Number *lua_version (lua_State */
+lua_xmove	src/lua/src/lapi.c	/^LUA_API void lua_xmove (lua_State *from, lua_State/
+lua_yieldk	src/lua/src/ldo.c	/^LUA_API int lua_yieldk (lua_State *L, int nresults/
+luai_ctype_	src/lua/src/lctype.c	16
+luai_jmpbuf	src/lua/src/ldo.c	56
+luai_jmpbuf	src/lua/src/ldo.c	62
+luai_jmpbuf	src/lua/src/ldo.c	68
+luai_makeseed	src/lua/src/lstate.c	/^#define luai_makeseed()		cast(unsigned int, time(N/
+luai_runtimecheck	src/lua/src/lvm.c	/^#define luai_runtimecheck(L, c)		\/* void *\/$/
+luai_verifycode	src/lua/src/lundump.c	/^#define luai_verifycode(L,b,f)	\/* empty *\/$/
+luaopen_base	src/lua/src/lbaselib.c	/^LUAMOD_API int luaopen_base (lua_State *L) {$/
+luaopen_bit32	src/lua/src/lbitlib.c	/^LUAMOD_API int luaopen_bit32 (lua_State *L) {$/
+luaopen_coroutine	src/lua/src/lcorolib.c	/^LUAMOD_API int luaopen_coroutine (lua_State *L) {$/
+luaopen_debug	src/lua/src/ldblib.c	/^LUAMOD_API int luaopen_debug (lua_State *L) {$/
+luaopen_io	src/lua/src/liolib.c	/^LUAMOD_API int luaopen_io (lua_State *L) {$/
+luaopen_math	src/lua/src/lmathlib.c	/^LUAMOD_API int luaopen_math (lua_State *L) {$/
+luaopen_os	src/lua/src/loslib.c	/^LUAMOD_API int luaopen_os (lua_State *L) {$/
+luaopen_package	src/lua/src/loadlib.c	/^LUAMOD_API int luaopen_package (lua_State *L) {$/
+luaopen_string	src/lua/src/lstrlib.c	/^LUAMOD_API int luaopen_string (lua_State *L) {$/
+luaopen_table	src/lua/src/ltablib.c	/^LUAMOD_API int luaopen_table (lua_State *L) {$/
 lued.align_cur_char	lua_src/base/align.lua	/^function lued.align_cur_char(dd)$/
 lued.align_delimiter_of_next_line	lua_src/base/align.lua	/^function lued.align_delimiter_of_next_line(delim, /
 lued.align_delimiter_selected	lua_src/base/align.lua	/^function lued.align_delimiter_selected(delim, dd)$/
@@ -512,6 +1769,10 @@ lued.help	lua_src/base/help.lua	/^function lued.help(n,dd)$/
 lued.hit_cr	lua_src/core/prompt.lua	/^function lued.hit_cr()$/
 lued.hot	lua_src/core/hotkeys.lua	/^function lued.hot(key, dd)$/
 lued.hot_range	lua_src/core/hotkeys.lua	/^function lued.hot_range(lower,upper)$/
+lued.html.anchor	lua_src/plugins/html.lua	/^function lued.html.anchor(tag)$/
+lued.html.html5	lua_src/plugins/html.lua	/^function lued.html.html5()$/
+lued.html.self_closing	lua_src/plugins/html.lua	/^function lued.html.self_closing(tag)$/
+lued.html.tag	lua_src/plugins/html.lua	/^function lued.html.tag(t)$/
 lued.implode	lua_src/core/lued_lib.lua	/^function lued.implode(pieces, sep, trailing_sep, f/
 lued.incr	lua_src/base/increment.lua	/^function lued.incr(step_size, dd)$/
 lued.indent	lua_src/base/indent.lua	/^function lued.indent(dd)$/
@@ -520,7 +1781,7 @@ lued.indent_scope	lua_src/base/indent.lua	/^function lued.indent_scope(str,dd)$/
 lued.indent_selected	lua_src/base/indent.lua	/^function lued.indent_selected(dd)$/
 lued.init_lued	lua_src/core/lued_lib.lua	/^function lued.init_lued(lued_path, bindings_file)$/
 lued.ins_str	lua_src/core/insert.lua	/^function lued.ins_str(str,dd)$/
-lued.ins_str_after	lua_src/core/insert.lua	/^function lued.ins_str_after(str, fstr, dd)$/
+lued.ins_str_after	lua_src/core/insert.lua	/^function lued.ins_str_after(str, fstr, r, c, dd)$/
 lued.ins_string	lua_src/core/insert.lua	/^function lued.ins_string(str, dd)$/
 lued.insert_cr_after	lua_src/core/insert.lua	/^function lued.insert_cr_after(dd)$/
 lued.insert_cr_before	lua_src/core/insert.lua	/^function lued.insert_cr_before(dd)$/
@@ -757,11 +2018,71 @@ lued_insertx	src/lued.c	/^int lued_insertx(lued_t* l, uint32_t row, uint32_t/
 lued_main	src/lued.c	/^int lued_main (int argc, char** argv)$/
 lued_open	src/lued.c	/^lued_t* lued_open(carr_t* all_sessions, const char/
 lued_reg	src/lued.c	/^lua_State* lued_reg () {$/
+lued_test	src/carr/test/test_src/lued_test.c	/^int lued_test(const int argc, char* argv[])$/
 luedc_get_page	src/lued.c	/^int luedc_get_page(lued_t* l, uint32_t from_row, u/
 luedc_insert	src/lued.c	/^int luedc_insert(lued_t* l, uint32_t r, uint32_t c/
 luedc_overwrite	src/lued.c	/^int luedc_overwrite(lued_t* l, uint32_t r, uint32_/
+lundump_c	src/lua/src/lundump.c	9
+lvm_c	src/lua/src/lvm.c	12
+lzio_c	src/lua/src/lzio.c	10
+mainfunc	src/lua/src/lparser.c	/^static void mainfunc (LexState *ls, FuncState *fs)/
+mainposition	src/lua/src/ltable.c	/^static Node *mainposition (const Table *t, const T/
+makeCfunc	src/lua/src/ltests.c	/^static int makeCfunc (lua_State *L) {$/
 make_line_bold_orig	lua_src/core/style.lua	/^function lued.make_line_bold_orig(lnum1,lnum2)$/
+makemask	src/lua/src/ldblib.c	/^static int makemask (const char *smask, int count)/
+makeseed	src/lua/src/lstate.c	/^static unsigned int makeseed (lua_State *L) {$/
+makewhite	src/lua/src/lgc.c	/^#define makewhite(g,x)	\\$/
+markbeingfnz	src/lua/src/lgc.c	/^static void markbeingfnz (global_State *g) {$/
+markgrays	src/lua/src/ltests.c	/^static void markgrays (global_State *g) {$/
+marklen	src/lua/src/lua.c	247
+markmt	src/lua/src/lgc.c	/^static void markmt (global_State *g) {$/
+markobject	src/lua/src/lgc.c	/^#define markobject(g,t) { if ((t) && iswhite(obj2g/
+markupval	src/lua/src/lparser.c	/^static void markupval (FuncState *fs, int level) {/
+markvalue	src/lua/src/lgc.c	/^#define markvalue(g,o) { checkconsistency(o); \\$/
+mask	src/lua/src/lbitlib.c	/^#define mask(n)		(~((ALLONES << 1) << ((n) - 1)))$/
+maskcolors	src/lua/src/lgc.c	58
+match	src/lua/src/lstrlib.c	/^static const char *match (MatchState *ms, const ch/
+match_capture	src/lua/src/lstrlib.c	/^static const char *match_capture (MatchState *ms, /
+match_class	src/lua/src/lstrlib.c	/^static int match_class (int c, int cl) {$/
+matchbalance	src/lua/src/lstrlib.c	/^static const char *matchbalance (MatchState *ms, c/
+matchbracketclass	src/lua/src/lstrlib.c	/^static int matchbracketclass (int c, const char *p/
+matchdepth	src/lua/src/lstrlib.c	199
+math_abs	src/lua/src/lmathlib.c	/^static int math_abs (lua_State *L) {$/
+math_acos	src/lua/src/lmathlib.c	/^static int math_acos (lua_State *L) {$/
+math_asin	src/lua/src/lmathlib.c	/^static int math_asin (lua_State *L) {$/
+math_atan	src/lua/src/lmathlib.c	/^static int math_atan (lua_State *L) {$/
+math_atan2	src/lua/src/lmathlib.c	/^static int math_atan2 (lua_State *L) {$/
+math_ceil	src/lua/src/lmathlib.c	/^static int math_ceil (lua_State *L) {$/
+math_cos	src/lua/src/lmathlib.c	/^static int math_cos (lua_State *L) {$/
+math_cosh	src/lua/src/lmathlib.c	/^static int math_cosh (lua_State *L) {$/
+math_deg	src/lua/src/lmathlib.c	/^static int math_deg (lua_State *L) {$/
+math_exp	src/lua/src/lmathlib.c	/^static int math_exp (lua_State *L) {$/
+math_floor	src/lua/src/lmathlib.c	/^static int math_floor (lua_State *L) {$/
+math_fmod	src/lua/src/lmathlib.c	/^static int math_fmod (lua_State *L) {$/
+math_frexp	src/lua/src/lmathlib.c	/^static int math_frexp (lua_State *L) {$/
+math_ldexp	src/lua/src/lmathlib.c	/^static int math_ldexp (lua_State *L) {$/
+math_log	src/lua/src/lmathlib.c	/^static int math_log (lua_State *L) {$/
+math_log10	src/lua/src/lmathlib.c	/^static int math_log10 (lua_State *L) {$/
+math_max	src/lua/src/lmathlib.c	/^static int math_max (lua_State *L) {$/
+math_min	src/lua/src/lmathlib.c	/^static int math_min (lua_State *L) {$/
+math_modf	src/lua/src/lmathlib.c	/^static int math_modf (lua_State *L) {$/
+math_pow	src/lua/src/lmathlib.c	/^static int math_pow (lua_State *L) {$/
+math_rad	src/lua/src/lmathlib.c	/^static int math_rad (lua_State *L) {$/
+math_random	src/lua/src/lmathlib.c	/^static int math_random (lua_State *L) {$/
+math_randomseed	src/lua/src/lmathlib.c	/^static int math_randomseed (lua_State *L) {$/
+math_sin	src/lua/src/lmathlib.c	/^static int math_sin (lua_State *L) {$/
+math_sinh	src/lua/src/lmathlib.c	/^static int math_sinh (lua_State *L) {$/
+math_sqrt	src/lua/src/lmathlib.c	/^static int math_sqrt (lua_State *L) {$/
+math_tan	src/lua/src/lmathlib.c	/^static int math_tan (lua_State *L) {$/
+math_tanh	src/lua/src/lmathlib.c	/^static int math_tanh (lua_State *L) {$/
+mathlib	src/lua/src/lmathlib.c	233
+max_expand	src/lua/src/lstrlib.c	/^static const char *max_expand (MatchState *ms, con/
+maxn	src/lua/src/ltablib.c	/^static int maxn (lua_State *L) {$/
 mem_is_zero	src/carr/src/carr.c	/^int mem_is_zero(const void* const ptr, uint32_t si/
+mem_query	src/lua/src/ltests.c	/^static int mem_query (lua_State *L) {$/
+min_expand	src/lua/src/lstrlib.c	/^static const char *min_expand (MatchState *ms, con/
+mode	src/lua/src/ldo.c	626
+modinit	src/lua/src/loadlib.c	/^static void modinit (lua_State *L, const char *mod/
 mouse_config	lua_src/base/mouse.lua	/^function lued.mouse_config(val)$/
 mouse_event	lua_src/base/mouse.lua	/^function lued.mouse_event(str)$/
 move_down_and_repeat	lua_src/core/move.lua	/^function lued.move_down_and_repeat(dd)$/
@@ -786,20 +2107,71 @@ move_to_sol	lua_src/core/move.lua	/^function lued.move_to_sol(dd)$/
 move_to_sol_classic	lua_src/core/move.lua	/^function lued.move_to_sol_classic(dd)$/
 move_up_n_lines	lua_src/core/move.lua	/^function lued.move_up_n_lines(n,dd)$/
 move_up_n_pages	lua_src/core/move.lua	/^function lued.move_up_n_pages(n,dd)$/
+movegotosout	src/lua/src/lparser.c	/^static void movegotosout (FuncState *fs, BlockCnt /
+moveto	src/lua/src/lapi.c	/^static void moveto (lua_State *L, TValue *fr, int /
 my_strcpy	src/lued.c	/^uint32_t my_strcpy(char* base, uint32_t offset, co/
+n	src/lua/src/lauxlib.c	563
+na	src/lua/src/lparser.c	647
+nactvar	src/lua/src/lparser.c	46
+name	src/lua/src/lundump.c	27
+name	src/lua/src/ldo.c	627
+need_value	src/lua/src/lcode.c	/^static int need_value (FuncState *fs, int list) {$/
 new_file	lua_src/core/files.lua	/^function lued.new_file(filename, dd)$/
+new_localvar	src/lua/src/lparser.c	/^static void new_localvar (LexState *ls, TString *n/
+new_localvarliteral	src/lua/src/lparser.c	/^#define new_localvarliteral(ls,v) \\$/
+new_localvarliteral_	src/lua/src/lparser.c	/^static void new_localvarliteral_ (LexState *ls, co/
+newfile	src/lua/src/liolib.c	/^static LStream *newfile (lua_State *L) {$/
+newlabelentry	src/lua/src/lparser.c	/^static int newlabelentry (LexState *ls, Labellist /
+newprefile	src/lua/src/liolib.c	/^static LStream *newprefile (lua_State *L) {$/
+newshrstr	src/lua/src/lstring.c	/^static TString *newshrstr (lua_State *L, const cha/
+newstate	src/lua/src/ltests.c	/^static int newstate (lua_State *L) {$/
+newupvalue	src/lua/src/lparser.c	/^static int newupvalue (FuncState *fs, TString *nam/
+newuserdata	src/lua/src/ltests.c	/^static int newuserdata (lua_State *L) {$/
+next	src/lua/src/llex.c	/^#define next(ls) (ls->current = zgetc(ls->z))$/
+next_ci	src/lua/src/ldo.c	/^#define next_ci(L) (L->ci = (L->ci->next ? L->ci->/
 next_is_other	lua_src/core/booleans.lua	/^function lued.next_is_other()$/
 next_is_space	lua_src/core/booleans.lua	/^function lued.next_is_space()$/
 next_is_word	lua_src/core/booleans.lua	/^function lued.next_is_word()$/
+nh	src/lua/src/lparser.c	646
+nilK	src/lua/src/lcode.c	/^static int nilK (FuncState *fs) {$/
+noLuaClosure	src/lua/src/ldebug.c	/^#define noLuaClosure(f)		((f) == NULL || (f)->c.tt/
+noenv	src/lua/src/loadlib.c	/^static int noenv (lua_State *L) {$/
+noextrachars	src/lua/src/lua.c	/^#define noextrachars(x)		{if ((x)[2] != '\\0') retu/
 nohot	lua_src/core/hotkeys.lua	/^function lued.nohot(key, dd)$/
 non_repeatables	src/carr/src/carr_readline_lua.c	61
+nospecials	src/lua/src/lstrlib.c	/^static int nospecials (const char *p, size_t l) {$/
+nresults	src/lua/src/lapi.c	917
+num2int	src/lua/src/ltests.c	/^static int num2int (lua_State *L) {$/
+num_has	src/lua/src/lua.c	356
+numusearray	src/lua/src/ltable.c	/^static int numusearray (const Table *t, int *nums)/
+numusehash	src/lua/src/ltable.c	/^static int numusehash (const Table *t, int *nums, /
+obj_at	src/lua/src/ltests.c	/^#define obj_at(L,k)	(L->ci->func + (k))$/
 open_file	lua_src/core/files.lua	/^function lued.open_file(filenames,dd)$/
 open_file_bindings	lua_src/core/files.lua	/^function lued.open_file_bindings(dd)$/
 open_filelist	lua_src/core/files.lua	/^function lued.open_filelist(filelist,dd)$/
+open_func	src/lua/src/lparser.c	/^static void open_func (LexState *ls, FuncState *fs/
 open_partial_filename	lua_src/core/files.lua	/^function lued.open_partial_filename(dd)$/
+opencheck	src/lua/src/liolib.c	/^static void opencheck (lua_State *L, const char *f/
+opmode	src/lua/src/lopcodes.c	/^#define opmode(t,a,b,c,m) (((t)<<7) | ((a)<<6) | (/
+os_clock	src/lua/src/loslib.c	/^static int os_clock (lua_State *L) {$/
 os_cmd	lua_src/core/os.lua	/^function lued.os_cmd(cmd)$/
+os_date	src/lua/src/loslib.c	/^static int os_date (lua_State *L) {$/
+os_difftime	src/lua/src/loslib.c	/^static int os_difftime (lua_State *L) {$/
+os_execute	src/lua/src/loslib.c	/^static int os_execute (lua_State *L) {$/
+os_exit	src/lua/src/loslib.c	/^static int os_exit (lua_State *L) {$/
+os_getenv	src/lua/src/loslib.c	/^static int os_getenv (lua_State *L) {$/
+os_remove	src/lua/src/loslib.c	/^static int os_remove (lua_State *L) {$/
+os_rename	src/lua/src/loslib.c	/^static int os_rename (lua_State *L) {$/
+os_setlocale	src/lua/src/loslib.c	/^static int os_setlocale (lua_State *L) {$/
+os_time	src/lua/src/loslib.c	/^static int os_time (lua_State *L) {$/
+os_tmpname	src/lua/src/loslib.c	/^static int os_tmpname (lua_State *L) {$/
 overtype_string	lua_src/core/insert.lua	/^function lued.overtype_string(str,dd)$/
+p_end	src/lua/src/lstrlib.c	202
+pack	src/lua/src/ltablib.c	/^static int pack (lua_State *L) {$/
 package	lua_src/plugins/vhdl.lua	/^function lued.vhdl.package()$/
+pairsmeta	src/lua/src/lbaselib.c	/^static int pairsmeta (lua_State *L, const char *me/
+panic	src/lua/src/lauxlib.c	/^static int panic (lua_State *L) {$/
+parlist	src/lua/src/lparser.c	/^static void parlist (LexState *ls) {$/
 paste	lua_src/core/copypaste.lua	/^function lued.paste(dd)$/
 paste	lua_src/core/copy_paste.lua	/^function lued.paste(dd)$/
 paste_and_find_forward	lua_src/core/find.lua	/^function lued.paste_and_find_forward(dd)$/
@@ -808,49 +2180,124 @@ paste_line_after	lua_src/core/copypaste.lua	/^function lued.paste_line_after(dd)
 paste_line_after	lua_src/core/copy_paste.lua	/^function lued.paste_line_after(dd)$/
 paste_line_before	lua_src/core/copypaste.lua	/^function lued.paste_line_before(dd)$/
 paste_line_before	lua_src/core/copy_paste.lua	/^function lued.paste_line_before(dd)$/
+patchlistaux	src/lua/src/lcode.c	/^static void patchlistaux (FuncState *fs, int list,/
+patchtestreg	src/lua/src/lcode.c	/^static int patchtestreg (FuncState *fs, int node, /
 pathifier	lua_src/core/os.lua	/^function lued.pathifier(filename)$/
+pcallcont	src/lua/src/lbaselib.c	/^static int pcallcont (lua_State *L) {$/
+pk_funcs	src/lua/src/loadlib.c	656
+pmain	src/lua/src/lua.c	/^static int pmain (lua_State *L) {$/
 pop_jump_stack	lua_src/core/find.lua	/^function lued.pop_jump_stack(stack)$/
+posrelat	src/lua/src/lstrlib.c	/^static size_t posrelat (ptrdiff_t pos, size_t len)/
+preinit_state	src/lua/src/lstate.c	/^static void preinit_state (lua_State *L, global_St/
+preloadedlibs	src/lua/src/linit.c	47
+prev	src/lua/src/lparser.c	1097
 prev_is_other	lua_src/core/booleans.lua	/^function lued.prev_is_other()$/
 prev_is_space	lua_src/core/booleans.lua	/^function lued.prev_is_space()$/
 prev_is_word	lua_src/core/booleans.lua	/^function lued.prev_is_word()$/
+previous	src/lua/src/lparser.c	43
+previous	src/lua/src/ldo.c	78
+primaryexp	src/lua/src/lparser.c	/^static void primaryexp (LexState *ls, expdesc *v) /
+print_usage	src/lua/src/lua.c	/^static void print_usage (const char *badoption) {$/
+print_version	src/lua/src/lua.c	/^static void print_version (void) {$/
+printobj	src/lua/src/ltests.c	/^static void printobj (global_State *g, GCObject *o/
+priority	src/lua/src/lparser.c	1022
 proc	lua_src/plugins/vhdl.lua	/^function lued.vhdl.proc(dd)$/
 proc_all	lua_src/plugins/vhdl.lua	/^function lued.vhdl.proc_all()$/
+progname	src/lua/src/lua.c	92
 prompt	lua_src/core/prompt.lua	/^function lued.prompt(hist_id,prompt,hot,test_str)$/
 prompt	src/lued.c	/^int prompt(char* question, char* response, size_t /
+propagateall	src/lua/src/lgc.c	/^static void propagateall (global_State *g) {$/
+propagatelist	src/lua/src/lgc.c	/^static void propagatelist (global_State *g, GCObje/
+propagatemark	src/lua/src/lgc.c	/^static void propagatemark (global_State *g) {$/
 psub	lua_src/core/display.lua	/^function lued.psub(subject, from, to, index, lim)$/
+push_captures	src/lua/src/lstrlib.c	/^static int push_captures (MatchState *ms, const ch/
 push_jump_stack	lua_src/core/find.lua	/^function lued.push_jump_stack(stack, fileid, row, /
+push_onecapture	src/lua/src/lstrlib.c	/^static void push_onecapture (MatchState *ms, int i/
 push_undo	src/lued.c	/^static void push_undo(carr_t* all_sessions, char c/
+pushclosure	src/lua/src/lvm.c	/^static void pushclosure (lua_State *L, Proto *p, U/
+pushcode	src/lua/src/ltests.c	/^static void pushcode (lua_State *L, int code) {$/
+pusherror	src/lua/src/loadlib.c	/^static void pusherror (lua_State *L) {$/
+pushfuncname	src/lua/src/lauxlib.c	/^static void pushfuncname (lua_State *L, lua_Debug /
+pushglobalfuncname	src/lua/src/lauxlib.c	/^static int pushglobalfuncname (lua_State *L, lua_D/
+pushline	src/lua/src/lua.c	/^static int pushline (lua_State *L, int firstline) /
+pushnexttemplate	src/lua/src/loadlib.c	/^static const char *pushnexttemplate (lua_State *L,/
+pushobject	src/lua/src/ltests.c	/^static void pushobject (lua_State *L, const TValue/
+pushstr	src/lua/src/lobject.c	/^static void pushstr (lua_State *L, const char *str/
+pushuserdata	src/lua/src/ltests.c	/^static int pushuserdata (lua_State *L) {$/
+qnxnto	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	327
 quit_all	lua_src/core/quit.lua	/^function lued.quit_all(force, dd)$/
 quit_session	lua_src/core/quit.lua	/^function lued.quit_session(force,dd)$/
 raw_off	src/carr/src/carr_readline.c	/^void raw_off() { set_flag(1, ICANON | ECHO); }$/
 raw_on	src/carr/src/carr_readline.c	/^void raw_on() {$/
+read_all	src/lua/src/liolib.c	/^static void read_all (lua_State *L, FILE *f) {$/
+read_chars	src/lua/src/liolib.c	/^static int read_chars (lua_State *L, FILE *f, size/
 read_dir	lua_src/core/os.lua	/^function lued.read_dir(glob)$/
+read_line	src/lua/src/liolib.c	/^static int read_line (lua_State *L, FILE *f, int c/
+read_long_string	src/lua/src/llex.c	/^static void read_long_string (LexState *ls, SemInf/
+read_number	src/lua/src/liolib.c	/^static int read_number (lua_State *L, FILE *f) {$/
+read_numeral	src/lua/src/llex.c	/^static void read_numeral (LexState *ls, SemInfo *s/
+read_string	src/lua/src/llex.c	/^static void read_string (LexState *ls, int del, Se/
+readable	src/lua/src/loadlib.c	/^static int readable (const char *filename) {$/
+readdecesc	src/lua/src/llex.c	/^static int readdecesc (LexState *ls) {$/
+readhexa	src/lua/src/lobject.c	/^static lua_Number readhexa (const char **s, lua_Nu/
+readhexaesc	src/lua/src/llex.c	/^static int readhexaesc (LexState *ls) {$/
+reallymarkobject	src/lua/src/lgc.c	/^static void reallymarkobject (global_State *g, GCO/
 recenter	lua_src/base/center_page.lua	/^function lued.recenter(dd)$/
 recenter_top	lua_src/base/center_page.lua	/^function lued.recenter_top(dd)$/
+recfield	src/lua/src/lparser.c	/^static void recfield (LexState *ls, struct ConsCon/
 record	lua_src/plugins/vhdl.lua	/^function lued.vhdl.record()$/
+recover	src/lua/src/ldo.c	/^static int recover (lua_State *L, int status) {$/
 redo	src/lued.c	/^static void redo(carr_t* all_sessions) {$/
 redo_cmd	lua_src/core/undo.lua	/^function lued.redo_cmd(dd)$/
+registerlocalvar	src/lua/src/lparser.c	/^static int registerlocalvar (LexState *ls, TString/
+rehash	src/lua/src/ltable.c	/^static void rehash (lua_State *L, Table *t, const /
 reindent	lua_src/base/indent.lua	/^function lued.reindent(n,dd)$/
 reindent_all	lua_src/base/indent.lua	/^function lued.reindent_all(n,dd)$/
 reindent_selected	lua_src/base/indent.lua	/^function lued.reindent_selected(dd)$/
 reinit	lua_src/core/lued_lib.lua	/^function lued.reinit(dd)$/
 reload_file	lua_src/core/files.lua	/^function lued.reload_file(dd)$/
+remarkupvals	src/lua/src/lgc.c	/^static void remarkupvals (global_State *g) {$/
 remove_all_leading_tabs	lua_src/base/remove.lua	/^function lued.remove_all_leading_tabs(tab_size,dd)/
 remove_all_trailing_space	lua_src/base/remove.lua	/^function lued.remove_all_trailing_space(dd)$/
 remove_all_trailing_space_all_files	lua_src/base/remove.lua	/^function lued.remove_all_trailing_space_all_files(/
 remove_trailing_spaces	lua_src/core/lued_lib.lua	/^function lued.remove_trailing_spaces(next_row,next/
+removeentry	src/lua/src/lgc.c	/^static void removeentry (Node *n) {$/
+removevalues	src/lua/src/lcode.c	/^static void removevalues (FuncState *fs, int list)/
+removevars	src/lua/src/lparser.c	/^static void removevars (FuncState *fs, int tolevel/
 reopen	src/lued.c	/^lued_t* reopen(carr_t* all_sessions)$/
 repeatables	src/carr/src/carr_readline_lua.c	48
+repeatstat	src/lua/src/lparser.c	/^static void repeatstat (LexState *ls, int line) {$/
 replace_again	lua_src/core/find.lua	/^function lued.replace_again(dd)$/
 replace_line	lua_src/core/copypaste.lua	/^function lued.replace_line(newline,dd)$/
 replace_prompt	lua_src/core/find.lua	/^function lued.replace_prompt()$/
+report	src/lua/src/lua.c	/^static int report (lua_State *L, int status) {$/
 resize	lua_src/plugins/vhdl.lua	/^function lued.vhdl.resize(t)$/
+restartcollection	src/lua/src/lgc.c	/^static void restartcollection (global_State *g) {$/
+resume	src/lua/src/ldo.c	/^static void resume (lua_State *L, void *ud) {$/
+resume_error	src/lua/src/ldo.c	/^static l_noret resume_error (lua_State *L, const c/
+retraversegrays	src/lua/src/lgc.c	/^static void retraversegrays (global_State *g) {$/
+retstat	src/lua/src/lparser.c	/^static void retstat (LexState *ls) {$/
+right	src/lua/src/lparser.c	1021
+runC	src/lua/src/ltests.c	/^static int runC (lua_State *L, lua_State *L1, cons/
+runargs	src/lua/src/lua.c	/^static int runargs (lua_State *L, char **argv, int/
+s	src/lua/src/lauxlib.c	667
+s2d	src/lua/src/ltests.c	/^static int s2d (lua_State *L) {$/
+save	src/lua/src/llex.c	/^static void save (LexState *ls, int c) {$/
 save_all	lua_src/core/files.lua	/^function lued.save_all(dd)$/
+save_and_next	src/lua/src/llex.c	/^#define save_and_next(ls) (save(ls, ls->current), /
 save_as	lua_src/core/files.lua	/^function lued.save_as(filename, dd)$/
 save_file	lua_src/core/files.lua	/^function lued.save_file(dd)$/
 save_session	src/lued.c	/^int save_session(lued_t* session_p)$/
 save_session_file	lua_src/base/sessions.lua	/^function lued.save_session_file(dd)$/
+scanformat	src/lua/src/lstrlib.c	/^static const char *scanformat (lua_State *L, const/
 search_all_files	lua_src/core/find.lua	/^function lued.search_all_files(str,dd)$/
+searcher_C	src/lua/src/loadlib.c	/^static int searcher_C (lua_State *L) {$/
+searcher_Croot	src/lua/src/loadlib.c	/^static int searcher_Croot (lua_State *L) {$/
+searcher_Lua	src/lua/src/loadlib.c	/^static int searcher_Lua (lua_State *L) {$/
+searcher_preload	src/lua/src/loadlib.c	/^static int searcher_preload (lua_State *L) {$/
+searchpath	src/lua/src/loadlib.c	/^static const char *searchpath (lua_State *L, const/
+searchupvalue	src/lua/src/lparser.c	/^static int searchupvalue (FuncState *fs, TString */
+searchvar	src/lua/src/lparser.c	/^static int searchvar (FuncState *fs, TString *n) {/
 sel_all	lua_src/core/select.lua	/^function lued.sel_all(dd)$/
 sel_entity	lua_src/plugins/vhdl.lua	/^function lued.vhdl.sel_entity(dd)$/
 sel_eof	lua_src/core/select.lua	/^function lued.sel_eof(dd)$/
@@ -873,7 +2320,11 @@ sel_toggle	lua_src/core/select.lua	/^function lued.sel_toggle(dd)$/
 sel_word	lua_src/core/select.lua	/^function lued.sel_word(dd)$/
 select_tab	lua_src/base/multifile.lua	/^function lued.select_tab(filter)$/
 select_tab_menu	lua_src/base/multifile.lua	/^function lued.select_tab_menu(filter,dont_print)$/
+self_closing	lua_src/plugins/html.lua	/^function lued.html.self_closing(tag)$/
+semerror	src/lua/src/lparser.c	/^static l_noret semerror (LexState *ls, const char /
+separatetobefnz	src/lua/src/lgc.c	/^static void separatetobefnz (lua_State *L, int all/
 session_sel	lua_src/base/sessions.lua	/^function lued.session_sel(session_id,dd)$/
+set2	src/lua/src/ltablib.c	/^static void set2 (lua_State *L, int i, int j) {$/
 set_abs_line_numbers	lua_src/base/linenumbers.lua	/^function lued.set_abs_line_numbers(dd)$/
 set_auto_indent	lua_src/base/indent.lua	/^function lued.set_auto_indent(dd)$/
 set_comment	lua_src/base/comments.lua	/^function lued.set_comment(dd)$/
@@ -883,6 +2334,7 @@ set_ctrl_z_suspend	lua_src/core/terminal.lua	/^function lued.set_ctrl_z_suspend 
 set_cur_pos	src/lued.c	/^static int set_cur_pos(uint32_t row, uint32_t col)/
 set_cursor_position	src/lued.c	/^int set_cursor_position(lued_t* l, uint32_t r, uin/
 set_edit_mode	lua_src/core/getters_setters.lua	/^function lued.set_edit_mode(dd)$/
+set_env	src/lua/src/loadlib.c	/^static void set_env (lua_State *L) {$/
 set_fileid	src/lued.c	/^static void set_fileid(uint32_t id) {$/
 set_filename	src/lued.c	/^void set_filename(lued_t* session_p, const char* f/
 set_find_case_sensitive	lua_src/core/find.lua	/^function lued.set_find_case_sensitive(dd)$/
@@ -917,40 +2369,123 @@ set_sel_start	src/lued.c	/^int set_sel_start(int only_if_off) {$/
 set_show_line_numbers	src/lued.c	/^static void set_show_line_numbers(lued_t* session_/
 set_style	lua_src/core/style.lua	/^function lued.set_style(fg,bg,decorations)$/
 set_tab_size	lua_src/core/getters_setters.lua	/^function lued.set_tab_size(val,dd)$/
+setarrayvector	src/lua/src/ltable.c	/^static void setarrayvector (lua_State *L, Table *t/
+setboolfield	src/lua/src/loslib.c	/^static void setboolfield (lua_State *L, const char/
+seterrorobj	src/lua/src/ldo.c	/^static void seterrorobj (lua_State *L, int errcode/
+setfield	src/lua/src/loslib.c	/^static void setfield (lua_State *L, const char *ke/
+sethook	src/lua/src/ltests.c	/^static int sethook (lua_State *L) {$/
+sethookaux	src/lua/src/ltests.c	/^static void sethookaux (lua_State *L, int mask, in/
+setnameval	src/lua/src/ltests.c	/^static void setnameval (lua_State *L, const char */
+setnodevector	src/lua/src/ltable.c	/^static void setnodevector (lua_State *L, Table *t,/
+setpath	src/lua/src/loadlib.c	/^static void setpath (lua_State *L, const char *fie/
+setpause	src/lua/src/lgc.c	/^static void setpause (global_State *g, l_mem estim/
+setprogdir	src/lua/src/loadlib.c	/^#define setprogdir(L)		((void)0)$/
+setprogdir	src/lua/src/loadlib.c	158
+setprogdir	src/lua/src/loadlib.c	/^static void setprogdir (lua_State *L) {$/
+settabsb	src/lua/src/ldblib.c	/^static void settabsb (lua_State *L, const char *i,/
+settabsi	src/lua/src/ldblib.c	/^static void settabsi (lua_State *L, const char *i,/
+settabss	src/lua/src/ldblib.c	/^static void settabss (lua_State *L, const char *i,/
+settrick	src/lua/src/ltests.c	/^static int settrick (lua_State *L) {$/
 sidebar	lua_src/base/sidebar.lua	/^function lued.sidebar(lines)$/
 sidebar	lua_src/core/style.lua	/^function lued.sidebar(lines) -- Dummy function, us/
 sig_cont_handler	src/carr/src/carr_readline.c	/^void sig_cont_handler() {$/
 sig_from_entity	lua_src/plugins/vhdl.lua	/^function lued.vhdl.sig_from_entity()$/
 signed	lua_src/plugins/vhdl.lua	/^function lued.vhdl.signed()$/
 signed_resize	lua_src/plugins/vhdl.lua	/^function lued.vhdl.signed_resize() lued.vhdl.resiz/
+simpleexp	src/lua/src/lparser.c	/^static void simpleexp (LexState *ls, expdesc *v) {/
+singlematch	src/lua/src/lstrlib.c	/^static int singlematch (MatchState *ms, const char/
+singlestep	src/lua/src/lgc.c	/^static lu_mem singlestep (lua_State *L) {$/
+singlevar	src/lua/src/lparser.c	/^static void singlevar (LexState *ls, expdesc *var)/
+singlevaraux	src/lua/src/lparser.c	/^static int singlevaraux (FuncState *fs, TString *n/
+size	src/lua/src/ltests.c	80
+size	src/lua/src/lauxlib.c	668
+skip	src/lua/src/ltests.c	/^static void skip (const char **pc) {$/
+skipBOM	src/lua/src/lauxlib.c	/^static int skipBOM (LoadF *lf) {$/
+skip_sep	src/lua/src/llex.c	/^static int skip_sep (LexState *ls) {$/
 skip_spaces	lua_src/core/move.lua	/^function lued.skip_spaces(dd)$/
 skip_spaces_left	lua_src/core/move.lua	/^function lued.skip_spaces_left(dd)$/
 skip_spaces_right	lua_src/core/move.lua	/^function lued.skip_spaces_right(dd)$/
 skip_variable	lua_src/core/move.lua	/^function lued.skip_variable(dd)$/
 skip_word	lua_src/core/move.lua	/^function lued.skip_word(dd)$/
+skipcomment	src/lua/src/lauxlib.c	/^static int skipcomment (LoadF *lf, int *cp) {$/
+skipnoopstat	src/lua/src/lparser.c	/^static void skipnoopstat (LexState *ls) {$/
 sl	lua_src/plugins/vhdl.lua	/^function lued.vhdl.sl()$/
 slurp_file_into_array	lua_src/bindings/bindings2md.lua	/^function slurp_file_into_array(filename)$/
 slv	lua_src/plugins/vhdl.lua	/^function lued.vhdl.slv()$/
 slv_array	lua_src/plugins/vhdl.lua	/^function lued.vhdl.slv_array()$/
 slv_incr	lua_src/plugins/vhdl.lua	/^function lued.vhdl.slv_incr(dd)$/
 slv_resize	lua_src/plugins/vhdl.lua	/^function lued.vhdl.slv_resize() lued.vhdl.resize("/
+sort	src/lua/src/ltablib.c	/^static int sort (lua_State *L) {$/
+sort_comp	src/lua/src/ltablib.c	/^static int sort_comp (lua_State *L, int a, int b) /
 spare	lua_src/core/hotkeys.lua	/^function lued.spare()$/
 special_char	src/carr/src/carr_readline_lua.c	/^static void special_char(carr_t* str) {$/
 split_lines	src/lued.c	/^static carr_t* split_lines(const char* str, const /
 split_string	lua_src/base/ctags.lua	/^function lued.split_string (str, delimiter)$/
+src_end	src/lua/src/lstrlib.c	201
+src_init	src/lua/src/lstrlib.c	200
+stack_init	src/lua/src/lstate.c	/^static void stack_init (lua_State *L1, lua_State */
+stackinuse	src/lua/src/ldo.c	/^static int stackinuse (lua_State *L) {$/
+stacklevel	src/lua/src/ltests.c	/^static int stacklevel (lua_State *L) {$/
 start_aa	lua_src/plugins/ascii_art.lua	/^function start_aa(dd)$/
+start_capture	src/lua/src/lstrlib.c	/^static const char *start_capture (MatchState *ms, /
 state	lua_src/plugins/vhdl.lua	/^function lued.vhdl.state()$/
+statement	src/lua/src/lparser.c	/^static void statement (LexState *ls) {$/
+statlist	src/lua/src/lparser.c	/^static void statlist (LexState *ls) {$/
+status	src/lua/src/ldo.c	80
+status	src/lua/src/ldump.c	23
 stop_aa	lua_src/plugins/ascii_art.lua	/^function stop_aa()$/
+str_byte	src/lua/src/lstrlib.c	/^static int str_byte (lua_State *L) {$/
+str_char	src/lua/src/lstrlib.c	/^static int str_char (lua_State *L) {$/
+str_checkname	src/lua/src/lparser.c	/^static TString *str_checkname (LexState *ls) {$/
+str_dump	src/lua/src/lstrlib.c	/^static int str_dump (lua_State *L) {$/
+str_find	src/lua/src/lstrlib.c	/^static int str_find (lua_State *L) {$/
+str_find_aux	src/lua/src/lstrlib.c	/^static int str_find_aux (lua_State *L, int find) {/
+str_format	src/lua/src/lstrlib.c	/^static int str_format (lua_State *L) {$/
+str_gsub	src/lua/src/lstrlib.c	/^static int str_gsub (lua_State *L) {$/
+str_len	src/lua/src/lstrlib.c	/^static int str_len (lua_State *L) {$/
+str_lower	src/lua/src/lstrlib.c	/^static int str_lower (lua_State *L) {$/
+str_match	src/lua/src/lstrlib.c	/^static int str_match (lua_State *L) {$/
+str_rep	src/lua/src/lstrlib.c	/^static int str_rep (lua_State *L) {$/
+str_reverse	src/lua/src/lstrlib.c	/^static int str_reverse (lua_State *L) {$/
+str_sub	src/lua/src/lstrlib.c	/^static int str_sub (lua_State *L) {$/
+str_upper	src/lua/src/lstrlib.c	/^static int str_upper (lua_State *L) {$/
+string_query	src/lua/src/ltests.c	/^static int string_query (lua_State *L) {$/
+strip	src/lua/src/ldump.c	22
+strlib	src/lua/src/lstrlib.c	980
 style_page	lua_src/core/style.lua	/^function lued.style_page(lines, first_line_of_page/
+subexpr	src/lua/src/lparser.c	/^static BinOpr subexpr (LexState *ls, expdesc *v, i/
 subst	src/carr/src/carr_readline_lua.c	/^static size_t subst(char* from, const char* to, ca/
+suffixedexp	src/lua/src/lparser.c	/^static void suffixedexp (LexState *ls, expdesc *v)/
 swap_line_with_next	lua_src/base/swap.lua	/^function lued.swap_line_with_next(dd)$/
 swap_line_with_prev	lua_src/base/swap.lua	/^function lued.swap_line_with_prev(dd)$/
+swapextra	src/lua/src/ldebug.c	/^static void swapextra (lua_State *L) {$/
+sweeplist	src/lua/src/lgc.c	/^static GCObject **sweeplist (lua_State *L, GCObjec/
+sweepphases	src/lua/src/lgc.c	924
+sweepthread	src/lua/src/lgc.c	/^static void sweepthread (lua_State *L, lua_State */
+sweeptolive	src/lua/src/lgc.c	/^static GCObject **sweeptolive (lua_State *L, GCObj/
+sweepwholelist	src/lua/src/lgc.c	/^#define sweepwholelist(L,p)	sweeplist(L,p,MAX_LUME/
+syslib	src/lua/src/loslib.c	300
+t	src/lua/src/lparser.c	645
+tab_funcs	src/lua/src/ltablib.c	262
 tab_next	lua_src/base/multifile.lua	/^function lued.tab_next(dd)$/
 tab_prev	lua_src/base/multifile.lua	/^function lued.tab_prev(dd)$/
 tab_size	src/lued.c	/^size_t tab_size(const char* str, size_t offset) {$/
 tab_toggle	lua_src/base/multifile.lua	/^function lued.tab_toggle(dd)$/
+table_query	src/lua/src/ltests.c	/^static int table_query (lua_State *L) {$/
+tag	lua_src/plugins/html.lua	/^function lued.html.tag(t)$/
+tag_error	src/lua/src/lauxlib.c	/^static void tag_error (lua_State *L, int narg, int/
 tb	lua_src/plugins/vhdl.lua	/^function lued.vhdl.tb()$/
+tconcat	src/lua/src/ltablib.c	/^static int tconcat (lua_State *L) {$/
 template	lua_src/plugins/vhdl.lua	/^function lued.vhdl.template()$/
+testC	src/lua/src/ltests.c	/^static int testC (lua_State *L) {$/
+test_eof	src/lua/src/liolib.c	/^static int test_eof (lua_State *L, FILE *f) {$/
+test_then_block	src/lua/src/lparser.c	/^static void test_then_block (LexState *ls, int *es/
+testnext	src/lua/src/lparser.c	/^static int testnext (LexState *ls, int c) {$/
+testobjref	src/lua/src/ltests.c	/^static int testobjref (global_State *g, GCObject */
+testobjref1	src/lua/src/ltests.c	/^static int testobjref1 (global_State *g, GCObject /
+tests_funcs	src/lua/src/ltests.c	1451
+tinsert	src/lua/src/ltablib.c	/^static int tinsert (lua_State *L) {$/
+tofile	src/lua/src/liolib.c	/^static FILE *tofile (lua_State *L) {$/
 toggle_auto_indent	lua_src/base/indent.lua	/^function lued.toggle_auto_indent(dd)$/
 toggle_bottom	lua_src/core/move.lua	/^function lued.toggle_bottom(dd)$/
 toggle_ctrl_c_abort	lua_src/core/terminal.lua	/^function lued.toggle_ctrl_c_abort (dd)$/
@@ -964,15 +2499,53 @@ toggle_remove_trailing_spaces	lua_src/core/getters_setters.lua	/^function lued.t
 toggle_review_mode	lua_src/core/files.lua	/^function lued.toggle_review_mode(dd)$/
 toggle_show_trailing_spaces	lua_src/core/getters_setters.lua	/^function lued.toggle_show_trailing_spaces(dd)$/
 toggle_top	lua_src/core/move.lua	/^function lued.toggle_top(dd)$/
+tolstream	src/lua/src/liolib.c	/^#define tolstream(L)	((LStream *)luaL_checkudata(L/
+tostore	src/lua/src/lparser.c	648
+tpanic	src/lua/src/ltests.c	/^static int tpanic (lua_State *L) {$/
+traceback	src/lua/src/lua.c	/^static int traceback (lua_State *L) {$/
+traceexec	src/lua/src/lvm.c	/^static void traceexec (lua_State *L) {$/
+traverseCclosure	src/lua/src/lgc.c	/^static lu_mem traverseCclosure (global_State *g, C/
+traverseLclosure	src/lua/src/lgc.c	/^static lu_mem traverseLclosure (global_State *g, L/
+traverseephemeron	src/lua/src/lgc.c	/^static int traverseephemeron (global_State *g, Tab/
+traverseproto	src/lua/src/lgc.c	/^static int traverseproto (global_State *g, Proto */
+traversestack	src/lua/src/lgc.c	/^static lu_mem traversestack (global_State *g, lua_/
+traversestrongtable	src/lua/src/lgc.c	/^static void traversestrongtable (global_State *g, /
+traversetable	src/lua/src/lgc.c	/^static lu_mem traversetable (global_State *g, Tabl/
+traverseweakvalue	src/lua/src/lgc.c	/^static void traverseweakvalue (global_State *g, Ta/
+treatstackoption	src/lua/src/ldblib.c	/^static void treatstackoption (lua_State *L, lua_St/
+tref	src/lua/src/ltests.c	/^static int tref (lua_State *L) {$/
+tremove	src/lua/src/ltablib.c	/^static int tremove (lua_State *L) {$/
+trim	src/lua/src/lbitlib.c	/^#define trim(x)		((x) & ALLONES)$/
+trydecpoint	src/lua/src/llex.c	/^static void trydecpoint (LexState *ls, SemInfo *se/
+tryfuncTM	src/lua/src/ldo.c	/^static StkId tryfuncTM (lua_State *L, StkId func) /
+txtToken	src/lua/src/llex.c	/^static const char *txtToken (LexState *ls, int tok/
+type	src/lua/src/ltests.c	81
 type_slv_array	lua_src/plugins/vhdl.lua	/^function lued.vhdl.type_slv_array()$/
+typeerror	src/lua/src/lauxlib.c	/^static int typeerror (lua_State *L, int narg, cons/
+uchar	src/lua/src/lstrlib.c	/^#define uchar(c)	((unsigned char)(c))$/
+udata2finalize	src/lua/src/lgc.c	/^static GCObject *udata2finalize (global_State *g) /
+udatatypename	src/lua/src/ltm.c	22
+udataval	src/lua/src/ltests.c	/^static int udataval (lua_State *L) {$/
+unbound_search	src/lua/src/ltable.c	/^static int unbound_search (Table *t, unsigned int /
 uncomment	lua_src/base/comments.lua	/^function lued.uncomment(dd)$/
 uncomment_selected	lua_src/base/comments.lua	/^function lued.uncomment_selected(dd)$/
+undefgoto	src/lua/src/lparser.c	/^static l_noret undefgoto (LexState *ls, Labeldesc /
 undo	src/lued.c	/^static void undo(carr_t* all_sessions) {$/
 undo_cmd	lua_src/core/undo.lua	/^function lued.undo_cmd(dd)$/
 unindent1	lua_src/base/indent.lua	/^function lued.unindent1(n, ch, goto_next, dd)$/
 unindent_selected	lua_src/base/indent.lua	/^function lued.unindent_selected(dd)$/
+unlinkupval	src/lua/src/lfunc.c	/^static void unlinkupval (UpVal *uv) {$/
+unmakemask	src/lua/src/ldblib.c	/^static char *unmakemask (int mask, char *smask) {$/
+unpack	src/lua/src/ltablib.c	/^static int unpack (lua_State *L) {$/
+unref	src/lua/src/ltests.c	/^static int unref (lua_State *L) {$/
+unroll	src/lua/src/ldo.c	/^static void unroll (lua_State *L, void *ud) {$/
 unsigned	lua_src/plugins/vhdl.lua	/^function lued.vhdl.unsigned()$/
 unsigned_resize	lua_src/plugins/vhdl.lua	/^function lued.vhdl.unsigned_resize() lued.vhdl.res/
+upval	src/lua/src/lparser.c	47
+upvalname	src/lua/src/ldebug.c	/^static const char *upvalname (Proto *p, int uv) {$/
+upvalue	src/lua/src/ltests.c	/^static int upvalue (lua_State *L) {$/
+v	src/lua/src/lparser.c	644
+v	src/lua/src/lparser.c	1098
 v_case	lua_src/plugins/verilog.lua	/^function v_case(dd)$/
 v_function	lua_src/plugins/verilog.lua	/^function v_function(dd)$/
 v_inst	lua_src/plugins/verilog.lua	/^function v_inst(dd)$/
@@ -993,8 +2566,18 @@ v_type_state	lua_src/plugins/verilog.lua	/^function v_type_state(dd)$/
 v_unsigned	lua_src/plugins/verilog.lua	/^function v_unsigned(dd)$/
 var_end	lua_src/core/move.lua	/^function lued.var_end(dd)$/
 var_start	lua_src/core/select.lua	/^function lued.var_start(dd)$/
+vmcase	src/lua/src/lvm.c	/^#define vmcase(l,b)	case l: {b}  break;$/
+vmcasenb	src/lua/src/lvm.c	/^#define vmcasenb(l,b)	case l: {b}		\/* nb = no brea/
+vmdispatch	src/lua/src/lvm.c	/^#define vmdispatch(o)	switch(o)$/
+volatile	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	11
 walter	lua_src/plugins/ascii_art.lua	/^function walter()$/
 walter2	lua_src/plugins/ascii_art.lua	/^function walter2(str,n)$/
+whilestat	src/lua/src/lparser.c	/^static void whilestat (LexState *ls, int line) {$/
+white2gray	src/lua/src/lgc.c	/^#define white2gray(x)	resetbits(gch(x)->marked, WH/
 word_end	lua_src/core/move.lua	/^function lued.word_end(dd)$/
 word_start	lua_src/core/select.lua	/^function lued.word_start(dd)$/
 wrap_line	lua_src/base/lines.lua	/^function lued.wrap_line(wrap_col,wrap_delim,dd)$/
+writer	src/lua/src/lstrlib.c	/^static int writer (lua_State *L, const void* b, si/
+writer	src/lua/src/ldump.c	20
+yindex	src/lua/src/lparser.c	/^static void yindex (LexState *ls, expdesc *v) {$/
+z	src/lua/src/ldo.c	623

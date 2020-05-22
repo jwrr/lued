@@ -709,6 +709,103 @@ int lua_get_page(lua_State* L)
    return 1;
 }
 
+
+
+int luedc_get_lines(lued_t* l, size_t from_row, size_t num_rows,
+                   char* dest, size_t dest_size)
+{
+   if (!isNULL(dest)) dest[0] = '\0';
+   if isNULL(l) return 0;
+   if isZERO(num_rows) return 0;
+   carr_t* text = l->text;
+   if isNULL(text) return 0;
+
+   uint32_t count = 0;
+   const char* cr = "\n";
+   uint32_t dest_len = 0;
+
+   size_t term_rows, term_cols;
+   term_rows = term_cols = 0;
+   get_termsize(&term_rows, &term_cols);
+   uint32_t cur_row, cur_col;
+   get_cur_pos(&cur_row, &cur_col);
+   uint32_t to_row = from_row + num_rows;
+   for (uint32_t line_number = from_row; line_number <= to_row; line_number++) {
+      
+     
+      if (line_number >= carr_len(text)) break;
+      carr_t* line;
+      carr_get(text, line_number, &line);
+      count++;
+
+      uint32_t current_line_len = carr_len(line);
+
+      char* src_ptr = line->arr;
+      uint32_t offset = 0;
+      
+      if (isEQ(line_number, carr_i(text)) && (offset <= carr_i(line)) ) {
+         uint32_t len_part1 = carr_i(line) - offset;
+         uint32_t max_size = min(dest_size, dest_len+len_part1+1);
+         dest_len += my_strcpy(dest, dest_len, src_ptr, max_size);
+         src_ptr += len_part1;
+         dest_len += my_strcpy(dest, dest_len, ESC_REVERSE, dest_size);
+         if isZERO(*src_ptr) {
+            dest_len += my_strcpy(dest, dest_len, " ", dest_size);
+         } else {
+            max_size = min(dest_size, dest_len+1+1);
+            if isEQ(*src_ptr, '\t') {
+               uint32_t offset = carr_i(line);
+               uint32_t actual_tab_size = tab_size(line->arr,offset);
+               char tab_replacement[16] = "TTTTTTTTTTTTTTT";
+               // for (int i=0; i<16; i++) tab_replacement[i] = 175;
+               tab_replacement[actual_tab_size] = '\0';
+               dest_len += my_strcpy(dest, dest_len, tab_replacement, 0);
+            } else {
+              dest_len += my_strcpy(dest, dest_len, src_ptr, max_size);
+            }
+            src_ptr++;
+         }
+         dest_len += my_strcpy(dest, dest_len, ESC_NORMAL, dest_size);
+         dest_len += my_strcpy(dest, dest_len, src_ptr, dest_size);
+      } else {
+         dest_len += my_strcpy(dest, dest_len, src_ptr, dest_size);
+      }
+      dest_len += my_strcpy(dest, dest_len, cr, dest_size);
+   }
+
+   for (u_int32_t i = count; i < num_rows; i++) {
+      dest_len += my_strcpy(dest, dest_len, cr, dest_size);
+   }
+   return dest_len;
+}
+
+
+int lua_toindex(lua_State* L, size_t i)
+{
+  return lua_tonumber(L, i) - 1;
+}
+
+int lua_get_lines(lua_State* L)
+{
+   size_t from_row = lua_toindex(L, 1);
+   size_t from_col = lua_toindex(L, 2);
+   size_t to_row   = lua_toindex(L, 3);
+   size_t to_col   = lua_toindex(L, 4);
+   size_t num_rows = to_row - from_row + 1;
+   size_t col = 0;
+//   get_termsize(&num_rows, &col);
+//   if (first_move) {
+//     num_rows--;
+//   }
+   lued_t* session_p = NULL;
+   carr_geti(LUED_SESSIONS, &session_p);
+   uint32_t len = luedc_get_lines(session_p, from_row, num_rows, NULL, 0);
+   char str[len+1];
+   luedc_get_lines(session_p, from_row, num_rows, str, len+1);
+   lua_pushstring(L, str);
+   return 1;
+}
+
 static int is_sel_off(carr_t* all_sessions) {
    lued_t* session_p = get_session(all_sessions);
    if isNULL(session_p) return 0;
@@ -1621,7 +1718,7 @@ void lued_atexit() {
    printf("%s",ESC_NORMSCREEN);
    printf("%s",ESC_PASTEOFF);
    raw_off();
-   system("stty sane");
+   int status = system("stty sane");
 }
 
 
@@ -1743,6 +1840,7 @@ lua_State* lued_reg () {
   lua_reg(L, lua_get_cur_pos, "get_cur_pos");
   lua_reg(L, lua_get_last_cmd, "get_last_cmd");
   lua_reg(L, lua_get_line, "get_line");
+  lua_reg(L, lua_get_lines, "get_lines");
   lua_reg(L, lua_get_line_len, "get_line_len");
   lua_reg(L, lua_set_page_pos, "set_page_pos");
   lua_reg(L, lua_get_page_pos, "get_page_pos");
