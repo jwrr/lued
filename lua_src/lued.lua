@@ -96,6 +96,7 @@ SOFTWARE.
   require "core.files"
   require "core.getters_setters"
   require "core.booleans"
+  require "core.cmdhist"
   require "core.display"
   require "core.move"
   require "core.select"

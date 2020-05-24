@@ -433,3 +433,7 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * move goto_mark from c to lua
 * add support for snippets
 
+* fixme - alt_cc delete space after comment if it's there
+* fixme - alt_CC delete commen even with leading spaces
+* fuxne - snippet lua.lua for_loop cleanup indenting
+* fixme - alt_dw when over _asdf, only _ is deleted  

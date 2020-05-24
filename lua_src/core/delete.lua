@@ -183,7 +183,8 @@ function lued.del_line(n,dd)
   set_sel_start()
   lued.move_down_n_lines(n,dd2)
   set_sel_end()
-  if (g_command_count == g_cut_line_command_count) then
+--   if (g_command_count == g_cut_line_command_count) then
+  if (lued.same_cmd()) then
     lued.global_cut_append(dd2)
   else
     lued.global_cut(dd2)

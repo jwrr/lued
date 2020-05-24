@@ -108,18 +108,14 @@ function lued.display_page_in_lua1(lua_mode, highlight_trailing_spaces)
   -- text = string.char(27) .. "[1m" .. text;
 
   io.write (text)
+
 end
+
+
 
 
 function lued.display_page_in_lua(lua_mode, highlight_trailing_spaces)
 
-  local cmd_str = get_last_cmd() or ""
-  if cmd_str ~= "" then
-    if lued.cmd_hist == nil then
-      lued.cmd_hist[#lued.cmd_hist] = cmd_str -- FIXME
-    end
-  end
-  
 
   lued.display_status_in_lua(lua_mode)
   local prow,pcol = get_page_pos() -- FIXME -1 to adjust from c to lua
@@ -206,6 +202,9 @@ function lued.disp(dd,center)
        lua_mode = 1
      end
      lued.display_page_in_lua1(lua_mode,g_show_trailing_spaces)
+
+     lued.push_cmd( get_last_cmd() )
+  
      -- display_status(lua_mode)
      -- display_text(lua_mode,g_show_trailing_spaces)
    end
