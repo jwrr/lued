@@ -436,4 +436,8 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * fixme - alt_cc delete space after comment if it's there
 * fixme - alt_CC delete commen even with leading spaces
 * fuxne - snippet lua.lua for_loop cleanup indenting
-* fixme - alt_dw when over _asdf, only _ is deleted  
+* fixme - alt_dw when over _asdf, only _ is deleted
+* fixme - alt_dw/DW.  When over non-space, delete non-space and spaces
+* fixme - alt_jj. remove extra whitespace between joined lines
+* feature - custom script.  load commands (similar to relued). readme files. examples...
+

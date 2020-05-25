@@ -78,10 +78,11 @@ alt_WW           = lued.move_left_n_words       lued.hot("WW")  -- Move left one
 alt_ee           = lued.toggle_express_mode     lued.hot("ee") -- Express mode - arrow keys move faster
 alt__gt_         = lued.move_halfsy_right            lued.hot(",>,") -- Move right half the distance
 alt__lt_         = lued.move_halfsy_left             lued.hot(",<,") -- Move left half the distance
-alt_R            = lued.move_left_n_char                   -- Move N char left.  alt_l42<Enter> moves 42 char to the left
-alt_RR           = lued.move_left_n_char        lued.hot("RR")  -- Move predefined numbed of char to the left.
-alt_r            = lued.set_move_right_n_char              -- Move N char right.  alt_r42<Enter> moves 42 char to the right
-alt_rr           = lued.move_right_n_char       lued.hot("rr")  -- Move predefined numbed of char to the right.
+alt_rr           = lued.repeat_again               lued.hot("rr")
+-- alt_R            = lued.move_left_n_char                   -- Move N char left.  alt_l42<Enter> moves 42 char to the left
+-- alt_RR           = lued.move_left_n_char        lued.hot("RR")  -- Move predefined numbed of char to the left.
+-- alt_r            = lued.set_move_right_n_char              -- Move N char right.  alt_r42<Enter> moves 42 char to the right
+-- alt_rr           = lued.move_right_n_char       lued.hot("rr")  -- Move predefined numbed of char to the right.
 
 --## ctag Exuberant Tags
 alt_cb           = lued.ctag_move_back_from_tag  lued.hot("cb") -- ctag back

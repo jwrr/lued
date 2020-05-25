@@ -146,6 +146,7 @@ end
 
 -- align cursor with previous line's next 'column'
 function lued.insert_tab(dd)
+  local dd2 = 1
   if g_tab_classic then
     lued.insert_tab_classic(dd)
     return
@@ -153,11 +154,11 @@ function lued.insert_tab(dd)
   
   local snip_found = false
   if g_handle_snippets then
-    snip_found = lued.handle_snippets(dd)
-  end
-  
-  if snip_found then
-    return
+    snip_found = lued.handle_snippets()
+    if snip_found then
+      disp(dd)
+      return
+    end
   end
   
   local dd2 = 1

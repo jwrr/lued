@@ -42,11 +42,11 @@ function lued.is_snippet(haystack, plain_text)
 end
 
 
-function lued.handle_snippets(dd)
+function lued.handle_snippets()
   local filetype = lued.get_filetype()
   if not lued.snippets[filetype] then return false end
   
-  local dd2 = false
+  local dd2 = 1
   local r,c=get_cur_pos()
   lued.sel_left_pattern( "[%w.#*()^+*:!]"  , dd2)
   local sel_str, sel_sr, sel_sc = lued.get_sel_str()
@@ -73,7 +73,7 @@ function lued.handle_snippets(dd)
     cnt = cnt + 1
   until tok == "" or cnt == 5  
   
-  lued.disp(dd)
+  -- lued.disp(dd)
   return true
 end
 
