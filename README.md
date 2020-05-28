@@ -326,6 +326,8 @@ TBD
 * fixme - alt_CC delete comment even with leading spaces - done
 * fuxne - snippet lua.lua for_loop cleanup indenting - done
 * fixme - alt_dw when over _asdf, only _ is deleted - done
+* fixme - alt_dw/DW.  When over non-space, delete non-space and spaces - done
+* fixme - alt_jj. remove extra whitespace between joined lines - done
 
 
 
@@ -437,7 +439,5 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * move goto_mark from c to lua
 * add support for snippets
 
-* fixme - alt_dw/DW.  When over non-space, delete non-space and spaces
-* fixme - alt_jj. remove extra whitespace between joined lines
 * feature - custom script.  load commands (similar to relued). readme files. examples...
 

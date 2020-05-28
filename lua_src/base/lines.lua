@@ -33,8 +33,14 @@ function lued.join_lines(delim,n,dd)
     local r,c = get_cur_pos()
     if not lued.is_eol() then
       lued.move_to_eol(dd2)
+      if lued.is_space() then
+        lued.del_sow() -- delete spaces
+      end
     end
     lued.del_char(dd2)
+    if lued.is_space() then
+      lued.del_eow() -- delete spaces
+    end
     ins_str(delim,dd2);
     set_cur_pos(r,c)
   end
