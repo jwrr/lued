@@ -1,4 +1,10 @@
+
 -- verilog.lua
+
+lued.verilog = {}
+lued.filetypes.v   = "verilog"
+lued.filetypes.sv  = "verilog"
+lued.line_comments.verilog = "//"
 
 -- Instantiates Verilog entity.
 --   1. Copy+paste the entity

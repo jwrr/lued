@@ -24,13 +24,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
 
+lued.line_comments = {}
 
 function lued.set_comment(dd)
   local dd2 = 1
+  local comment_str = lued.get_line_comment()
   set_comment_hist_id = set_comment_hist_id or lued.get_hist_id()
-  local comment_str = lued.prompt(set_comment_hist_id,"Enter Comment String (Default = '"..g_comment.."'): ")
-  if comment_str~=nil and comment_str~="" then
-    g_comment = comment_str
+  local comment_str = lued.prompt(set_comment_hist_id,"Enter Comment String (Default = '"..comment_str.."'): ")
+  local filetype = lued.get_filetype()
+  if filetype then
+    lued.line_comments[filetype] = comment_str
   end
   lued.disp(dd)
 end
@@ -39,7 +42,9 @@ end
 function lued.comment(dd)
   local dd2 = 1
   lued.move_to_sol_classic(dd2)
-  ins_str(g_comment,dd2);
+--   local comment_str = g_comment
+  local comment_str = lued.get_line_comment()
+  ins_str(comment_str, dd2);
   if not lued.is_eol() then
     ins_str(" ",dd2)
   end
@@ -56,11 +61,15 @@ end
 
 function lued.uncomment(dd)
   local dd2 = 1
-  local comment_len = string.len(g_comment)
+  local comment_str = lued.get_line_comment()
+  local comment_len = string.len(comment_str)
   lued.move_to_sol_classic(dd2)
   local line = get_line()
-  if string.find(line,g_comment,1,true) == 1 then
-    local del_len = math.min( comment_len+1 , #line)
+  if string.find(line, lued.get_line_comment(), 1, true) == 1 then
+    local del_len = math.min( comment_len, #line)
+    if string.find(line, comment_str.." ", 1, true) == 1 then
+      del_len = comment_len + 1
+    end
     lued.del_char(del_len,dd2)
   end
   lued.move_down_n_lines(1,dd)

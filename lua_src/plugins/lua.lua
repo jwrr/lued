@@ -96,6 +96,7 @@ end
 
 
 lued.filetypes.lua = "lua"
+lued.line_comments.lua = "--"
 
 local s = {}
 lued.def_snippet(s, "lua !"            , lued.lua.program)

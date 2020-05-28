@@ -240,11 +240,33 @@ function lued.get_filename()
 end
 
 
-function lued.get_filetype(filename)
+function lued.get_extension(filename)
   filename = filename or lued.get_filename()
   local extension = string.lower( filename:match "[^./]+$" or "" )
-  local filetype = lued.filetypes[extension] or extension
+  return extension
+end
+
+
+function lued.get_filetype(filename)
+  local extension = lued.get_extension(filename)
+  local filetype = extension
+  if lued.filetypes and lued.filetypes[extension] then
+    filetype = lued.filetypes[extension]
+  end
   return filetype
 end
+
+
+function lued.get_line_comment(filename)
+  local comment_start = g_comment
+  local filetype = lued.get_filetype(filename)
+  if lued.line_comments and lued.line_comments[filetype] then
+    comment_start = lued.line_comments[filetype]
+  end
+  return comment_start
+end
+
+
+  
 
 

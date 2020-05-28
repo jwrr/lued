@@ -4,6 +4,7 @@
 lued.vhdl = {}
 lued.filetypes.vhdl = "vhdl"
 lued.filetypes.vhd  = "vhdl"
+lued.line_comments.vhdl = "--"
 
 
 -- =============================================================================

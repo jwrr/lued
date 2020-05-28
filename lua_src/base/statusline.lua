@@ -62,7 +62,7 @@ function lued.display_status_in_lua(lua_mode)
 
   local status_line = string.format(
           "%s - %s File (%d) %s%s Line: %d, Col: %d, Sel: %d Cmd: %s - sr=%d sc=%d er=%d ec=%d, staysel=%d\n",
-          g_lued_version, mode_str, id, filename, save_str, row, col, sel_state, cmd_str, sel_sr, sel_sc, sel_er, sel_ec, stay_selected_int)
+          lued.version, mode_str, id, filename, save_str, row, col, sel_state, cmd_str, sel_sr, sel_sc, sel_er, sel_ec, stay_selected_int)
   status_line = string.sub(status_line,1,tcol)
   if g_status_line_reverse then
     status_line = lued.esc_rev(status_line)
