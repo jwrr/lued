@@ -322,6 +322,10 @@ TBD
 * alt_sb/SB select to File end or File start eof/sof - done
 * alt_bb/BB goto File end or File start eof/sof - done
 * add support for self-closing braces '()[]{}' - done
+* fixme - alt_cc delete space after comment if it's there - done
+* fixme - alt_CC delete comment even with leading spaces - done
+* fuxne - snippet lua.lua for_loop cleanup indenting - done
+* fixme - alt_dw when over _asdf, only _ is deleted - done
 
 
 
@@ -433,10 +437,6 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * move goto_mark from c to lua
 * add support for snippets
 
-* fixme - alt_cc delete space after comment if it's there
-* fixme - alt_CC delete comment even with leading spaces
-* fuxne - snippet lua.lua for_loop cleanup indenting
-* fixme - alt_dw when over _asdf, only _ is deleted
 * fixme - alt_dw/DW.  When over non-space, delete non-space and spaces
 * fixme - alt_jj. remove extra whitespace between joined lines
 * feature - custom script.  load commands (similar to relued). readme files. examples...

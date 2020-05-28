@@ -260,16 +260,16 @@ end
 function lued.sel_eow(dd)
   local dd2 = 1
   set_sel_start()
-  if lued.is_space() then
+  if lued.is_word() then
+    while lued.is_word() and not lued.is_eol() do
+      lued.move_right_n_char(1,dd2)
+    end
+  elseif lued.is_space() then
     while lued.is_space() and not lued.is_eol()  do
       lued.move_right_n_char(1,dd2)
     end
   elseif lued.is_punct() then
     while lued.is_punct() and not lued.is_eol() do
-      lued.move_right_n_char(1,dd2)
-    end
-  elseif lued.is_word() then
-    while lued.is_word() and not lued.is_eol() do
       lued.move_right_n_char(1,dd2)
     end
   else -- other

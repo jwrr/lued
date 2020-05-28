@@ -82,14 +82,24 @@ end
 function lued.del_sow(dd)
   local dd2 = 1
   lued.sel_sow(dd2)
-  lued.del_sel(dd)
+  lued.del_sel(dd2)
+  if lued.is_space() then
+    lued.sel_sow(dd2)
+    lued.del_sel(dd2)
+  end
+  lued.disp(dd)
 end
 
 
 function lued.del_eow(dd)
   local dd2 = 1
   lued.sel_eow(dd2)
-  lued.del_sel(dd)
+  lued.del_sel(dd2)
+  if lued.is_space() then
+    lued.sel_eow(dd2)
+    lued.del_sel(dd2)
+  end
+  lued.disp(dd)
 end
 
 
