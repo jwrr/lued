@@ -38,11 +38,11 @@ end
 
 function lued.lua.if_statement()
 str = [[
-  if COND then
-
-  elseif
-  else
-  end
+if COND then
+  
+elseif
+else
+end
 ]]
 lued.ins_str_after(str, "COND")
 end
@@ -53,9 +53,9 @@ end
 
 function lued.lua.while_loop()
 str = [[
-  while COND do
-
-  end
+while COND do
+  
+end
 ]]
 lued.ins_str_after(str, "COND")
 end
@@ -66,9 +66,9 @@ end
 
 function lued.lua.for_loop()
 str = [[
-  for i=1,NNN do
-
-  end
+for i=1,NNN do
+  
+end
 ]]
 lued.ins_str_after(str, "NNN")
 end
@@ -79,9 +79,9 @@ end
 
 function lued.lua.repeat_loop()
 str = [[
-  repeat
-    
-  until COND
+repeat
+  
+until COND
 ]]
 lued.ins_str_after(str, "COND")
 
