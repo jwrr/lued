@@ -792,6 +792,7 @@ esc_clear_screen	lua_src/core/display.lua	/^function lued.esc_clear_screen()$/
 esc_rev	lua_src/core/display.lua	/^function lued.esc_rev(str)$/
 escerror	src/lua/src/llex.c	/^static void escerror (LexState *ls, int *c, int n,/
 exactly_one_file_matches	lua_src/core/os.lua	/^function lued.exactly_one_file_matches(glob)$/
+exec_str	lua_src/core/replay.lua	/^function lued.exec_str(str,dd)$/
 exit_all	lua_src/core/quit.lua	/^function lued.exit_all(dd)$/
 exit_session	lua_src/core/quit.lua	/^function lued.exit_session(dd)$/
 exp1	src/lua/src/lparser.c	/^static int exp1 (LexState *ls) {$/
@@ -1168,7 +1169,6 @@ line_starts_with	lua_src/bindings/bindings2md.lua	/^function line_starts_with(li
 linit_c	src/lua/src/linit.c	16
 linktable	src/lua/src/lgc.c	/^#define linktable(h,p)	((h)->gclist = *(p), *(p) =/
 liolib_c	src/lua/src/liolib.c	23
-list_n_cmd	lua_src/core/cmdhist.lua	/^function lued.list_n_cmd(prompt)$/
 listcode	src/lua/src/ltests.c	/^static int listcode (lua_State *L) {$/
 listfield	src/lua/src/lparser.c	/^static void listfield (LexState *ls, struct ConsCo/
 listk	src/lua/src/ltests.c	/^static int listk (lua_State *L) {$/
@@ -1700,6 +1700,7 @@ lued.duplicate_line	lua_src/core/copy_paste.lua	/^function lued.duplicate_line(d
 lued.esc_clear_screen	lua_src/core/display.lua	/^function lued.esc_clear_screen()$/
 lued.esc_rev	lua_src/core/display.lua	/^function lued.esc_rev(str)$/
 lued.exactly_one_file_matches	lua_src/core/os.lua	/^function lued.exactly_one_file_matches(glob)$/
+lued.exec_str	lua_src/core/replay.lua	/^function lued.exec_str(str,dd)$/
 lued.exit_all	lua_src/core/quit.lua	/^function lued.exit_all(dd)$/
 lued.exit_session	lua_src/core/quit.lua	/^function lued.exit_session(dd)$/
 lued.explode	lua_src/core/lued_lib.lua	/^function lued.explode(subject, sep,  lim)$/
@@ -1799,7 +1800,6 @@ lued.jump_forward	lua_src/core/find.lua	/^function lued.jump_forward(jump_back_s
 lued.leading_ws	lua_src/core/lued_lib.lua	/^function lued.leading_ws()$/
 lued.line_contains	lua_src/core/select.lua	/^function lued.line_contains(needles, line)$/
 lued.line_ends_with	lua_src/core/select.lua	/^function lued.line_ends_with(needles, line)$/
-lued.list_n_cmd	lua_src/core/cmdhist.lua	/^function lued.list_n_cmd(prompt)$/
 lued.load_plugins	lua_src/base/plugins.lua	/^function lued.load_plugins(plugin_path)$/
 lued.load_session_file	lua_src/base/sessions.lua	/^function lued.load_session_file(dd)$/
 lued.logo	lua_src/base/help.lua	/^function lued.logo()$/
@@ -1858,8 +1858,8 @@ lued.prev_is_space	lua_src/core/booleans.lua	/^function lued.prev_is_space()$/
 lued.prev_is_word	lua_src/core/booleans.lua	/^function lued.prev_is_word()$/
 lued.prompt	lua_src/core/prompt.lua	/^function lued.prompt(hist_id,prompt,hot,test_str)$/
 lued.psub	lua_src/core/display.lua	/^function lued.psub(subject, from, to, index, lim)$/
-lued.push_cmd	lua_src/core/cmdhist.lua	/^function lued.push_cmd(cmd)$/
 lued.push_jump_stack	lua_src/core/find.lua	/^function lued.push_jump_stack(stack, fileid, row, /
+lued.push_keystroke	lua_src/core/replay.lua	/^function lued.push_keystroke(cmd)$/
 lued.quit_all	lua_src/core/quit.lua	/^function lued.quit_all(force, dd)$/
 lued.quit_session	lua_src/core/quit.lua	/^function lued.quit_session(force,dd)$/
 lued.read_dir	lua_src/core/os.lua	/^function lued.read_dir(glob)$/
@@ -1875,12 +1875,12 @@ lued.remove_all_leading_tabs	lua_src/base/remove.lua	/^function lued.remove_all_
 lued.remove_all_trailing_space	lua_src/base/remove.lua	/^function lued.remove_all_trailing_space(dd)$/
 lued.remove_all_trailing_space_all_files	lua_src/base/remove.lua	/^function lued.remove_all_trailing_space_all_files(/
 lued.remove_trailing_spaces	lua_src/core/lued_lib.lua	/^function lued.remove_trailing_spaces(next_row,next/
-lued.repeat_again	lua_src/core/cmdhist.lua	/^function lued.repeat_again(dd)$/
-lued.repeat_n_cmd	lua_src/core/cmdhist.lua	/^function lued.repeat_n_cmd(again,dd)$/
 lued.replace_again	lua_src/core/find.lua	/^function lued.replace_again(dd)$/
 lued.replace_prompt	lua_src/core/find.lua	/^function lued.replace_prompt()$/
-lued.run_string	lua_src/core/cmdhist.lua	/^function lued.run_string(str,dd)$/
-lued.same_cmd	lua_src/core/cmdhist.lua	/^function lued.same_cmd()$/
+lued.replay_again	lua_src/core/replay.lua	/^function lued.replay_again(dd)$/
+lued.replay_keystrokes	lua_src/core/replay.lua	/^function lued.replay_keystrokes(again,dd)$/
+lued.replay_name	lua_src/core/replay.lua	/^function lued.replay_name(dd)$/
+lued.same_keystroke	lua_src/core/replay.lua	/^function lued.same_keystroke()$/
 lued.save_all	lua_src/core/files.lua	/^function lued.save_all(dd)$/
 lued.save_as	lua_src/core/files.lua	/^function lued.save_as(filename, dd)$/
 lued.save_file	lua_src/core/files.lua	/^function lued.save_file(dd)$/
@@ -1937,6 +1937,8 @@ lued.set_scope_indent	lua_src/base/indent.lua	/^function lued.set_scope_indent(v
 lued.set_sel_from_to	lua_src/core/select.lua	/^function lued.set_sel_from_to(sel_sr,sel_sc,sel_er/
 lued.set_style	lua_src/core/style.lua	/^function lued.set_style(fg,bg,decorations)$/
 lued.set_tab_size	lua_src/core/getters_setters.lua	/^function lued.set_tab_size(val,dd)$/
+lued.show_keystroke_hist	lua_src/core/replay.lua	/^function lued.show_keystroke_hist(prompt)$/
+lued.show_list	lua_src/core/replay.lua	/^function lued.show_list(list,id,prompt)$/
 lued.sidebar	lua_src/base/sidebar.lua	/^function lued.sidebar(lines)$/
 lued.sidebar	lua_src/core/style.lua	/^function lued.sidebar(lines) -- Dummy function, us/
 lued.skip_spaces	lua_src/core/move.lua	/^function lued.skip_spaces(dd)$/
@@ -2200,8 +2202,8 @@ propagatelist	src/lua/src/lgc.c	/^static void propagatelist (global_State *g, GC
 propagatemark	src/lua/src/lgc.c	/^static void propagatemark (global_State *g) {$/
 psub	lua_src/core/display.lua	/^function lued.psub(subject, from, to, index, lim)$/
 push_captures	src/lua/src/lstrlib.c	/^static int push_captures (MatchState *ms, const ch/
-push_cmd	lua_src/core/cmdhist.lua	/^function lued.push_cmd(cmd)$/
 push_jump_stack	lua_src/core/find.lua	/^function lued.push_jump_stack(stack, fileid, row, /
+push_keystroke	lua_src/core/replay.lua	/^function lued.push_keystroke(cmd)$/
 push_onecapture	src/lua/src/lstrlib.c	/^static void push_onecapture (MatchState *ms, int i/
 push_undo	src/lued.c	/^static void push_undo(carr_t* all_sessions, char c/
 pushclosure	src/lua/src/lvm.c	/^static void pushclosure (lua_State *L, Proto *p, U/
@@ -2255,13 +2257,14 @@ removeentry	src/lua/src/lgc.c	/^static void removeentry (Node *n) {$/
 removevalues	src/lua/src/lcode.c	/^static void removevalues (FuncState *fs, int list)/
 removevars	src/lua/src/lparser.c	/^static void removevars (FuncState *fs, int tolevel/
 reopen	src/lued.c	/^lued_t* reopen(carr_t* all_sessions)$/
-repeat_again	lua_src/core/cmdhist.lua	/^function lued.repeat_again(dd)$/
 repeat_loop	lua_src/plugins/lua.lua	/^function lued.lua.repeat_loop()$/
-repeat_n_cmd	lua_src/core/cmdhist.lua	/^function lued.repeat_n_cmd(again,dd)$/
 repeatables	src/carr/src/carr_readline_lua.c	48
 repeatstat	src/lua/src/lparser.c	/^static void repeatstat (LexState *ls, int line) {$/
 replace_again	lua_src/core/find.lua	/^function lued.replace_again(dd)$/
 replace_prompt	lua_src/core/find.lua	/^function lued.replace_prompt()$/
+replay_again	lua_src/core/replay.lua	/^function lued.replay_again(dd)$/
+replay_keystrokes	lua_src/core/replay.lua	/^function lued.replay_keystrokes(again,dd)$/
+replay_name	lua_src/core/replay.lua	/^function lued.replay_name(dd)$/
 report	src/lua/src/lua.c	/^static int report (lua_State *L, int status) {$/
 resize	lua_src/plugins/vhdl.lua	/^function lued.vhdl.resize(t)$/
 restartcollection	src/lua/src/lgc.c	/^static void restartcollection (global_State *g) {$/
@@ -2271,11 +2274,10 @@ retraversegrays	src/lua/src/lgc.c	/^static void retraversegrays (global_State *g
 retstat	src/lua/src/lparser.c	/^static void retstat (LexState *ls) {$/
 right	src/lua/src/lparser.c	1021
 runC	src/lua/src/ltests.c	/^static int runC (lua_State *L, lua_State *L1, cons/
-run_string	lua_src/core/cmdhist.lua	/^function lued.run_string(str,dd)$/
 runargs	src/lua/src/lua.c	/^static int runargs (lua_State *L, char **argv, int/
 s	src/lua/src/lauxlib.c	667
 s2d	src/lua/src/ltests.c	/^static int s2d (lua_State *L) {$/
-same_cmd	lua_src/core/cmdhist.lua	/^function lued.same_cmd()$/
+same_keystroke	lua_src/core/replay.lua	/^function lued.same_keystroke()$/
 save	src/lua/src/llex.c	/^static void save (LexState *ls, int c) {$/
 save_all	lua_src/core/files.lua	/^function lued.save_all(dd)$/
 save_and_next	src/lua/src/llex.c	/^#define save_and_next(ls) (save(ls, ls->current), /
@@ -2379,6 +2381,8 @@ settabsb	src/lua/src/ldblib.c	/^static void settabsb (lua_State *L, const char *
 settabsi	src/lua/src/ldblib.c	/^static void settabsi (lua_State *L, const char *i,/
 settabss	src/lua/src/ldblib.c	/^static void settabss (lua_State *L, const char *i,/
 settrick	src/lua/src/ltests.c	/^static int settrick (lua_State *L) {$/
+show_keystroke_hist	lua_src/core/replay.lua	/^function lued.show_keystroke_hist(prompt)$/
+show_list	lua_src/core/replay.lua	/^function lued.show_list(list,id,prompt)$/
 sidebar	lua_src/base/sidebar.lua	/^function lued.sidebar(lines)$/
 sidebar	lua_src/core/style.lua	/^function lued.sidebar(lines) -- Dummy function, us/
 sig_cont_handler	src/carr/src/carr_readline.c	/^void sig_cont_handler() {$/

@@ -203,7 +203,7 @@ function lued.disp(dd,center)
      end
      lued.display_page_in_lua1(lua_mode,g_show_trailing_spaces)
 
-     lued.push_cmd( get_last_cmd() )
+     lued.push_keystroke( get_last_cmd() )
   
      -- display_status(lua_mode)
      -- display_text(lua_mode,g_show_trailing_spaces)
