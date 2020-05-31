@@ -1,180 +1,15 @@
 ALLONES	src/lua/src/lbitlib.c	22
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	447
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	450
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	453
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	456
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	460
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	462
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	464
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	468
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	471
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	474
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	479
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	482
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	485
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	490
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	493
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	496
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	499
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	502
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	505
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	508
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	511
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	514
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	517
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	522
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	525
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	528
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	531
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	534
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	537
-ARCHITECTURE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	540
 AUXMARK	src/lua/src/loadlib.c	622
 BlockCnt	src/lua/src/lparser.c	42
 BlockCnt	src/lua/src/lparser.c	49
 CAP_POSITION	src/lua/src/lstrlib.c	195
 CAP_UNFINISHED	src/lua/src/lstrlib.c	194
 CLIBS	src/lua/src/loadlib.c	96
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	19
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	56
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	64
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	70
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	76
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	85
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	94
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	108
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	115
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	122
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	129
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	137
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	144
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	151
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	159
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	164
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	171
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	174
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	183
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	186
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	189
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	192
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	207
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	222
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	229
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	243
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	253
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	271
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	280
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	294
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	311
-COMPILER_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	314
-COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	226
-COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	285
-COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	290
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	27
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	57
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	65
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	72
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	78
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	87
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	97
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	102
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	110
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	117
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	124
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	130
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	139
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	146
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	152
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	160
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	166
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	177
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	195
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	200
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	211
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	223
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	233
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	244
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	255
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	274
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	282
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	287
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	296
-COMPILER_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	301
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	28
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	58
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	66
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	73
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	79
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	88
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	98
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	103
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	111
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	118
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	125
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	131
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	140
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	147
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	153
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	161
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	167
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	178
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	196
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	201
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	212
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	224
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	234
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	246
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	256
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	275
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	283
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	288
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	297
-COMPILER_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	302
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	30
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	32
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	60
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	67
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	81
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	90
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	99
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	104
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	112
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	119
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	126
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	132
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	141
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	148
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	155
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	168
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	179
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	197
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	202
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	213
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	225
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	235
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	249
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	260
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	263
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	276
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	284
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	289
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	298
-COMPILER_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	303
-COMPILER_VERSION_TWEAK	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	36
-COMPILER_VERSION_TWEAK	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	133
-COMPILER_VERSION_TWEAK	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	219
-COMPILER_VERSION_TWEAK	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	267
-C_DIALECT	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	623
-C_DIALECT	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	625
-C_DIALECT	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	628
-C_DIALECT	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	630
-C_DIALECT	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	632
 CallS	src/lua/src/lapi.c	915
 Cfunc	src/lua/src/ltests.c	/^static int Cfunc (lua_State *L) {$/
 Cfunck	src/lua/src/ltests.c	/^static int Cfunck (lua_State *L) {$/
 Chook	src/lua/src/ltests.c	/^static void Chook (lua_State *L, lua_Debug *ar) {$/
 ConsControl	src/lua/src/lparser.c	643
-DEC	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(n)                   \\$/
 DLMSG	src/lua/src/loadlib.c	226
 DumpBlock	src/lua/src/ldump.c	/^static void DumpBlock(const void* b, size_t size, /
 DumpChar	src/lua/src/ldump.c	/^static void DumpChar(int y, DumpState* D)$/
@@ -203,18 +38,16 @@ GCFINALIZENUM	src/lua/src/lgc.c	37
 GCSWEEPCOST	src/lua/src/lgc.c	31
 GCSWEEPMAX	src/lua/src/lgc.c	34
 GCTM	src/lua/src/lgc.c	/^static void GCTM (lua_State *L, int propagateerror/
-HEX	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(n)             \\$/
 HOOKKEY	src/lua/src/ldblib.c	21
 Header	src/lua/src/ltests.c	77
 Header	src/lua/src/ltests.c	83
-ID_VOID_MAIN	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	6
 IO_INPUT	src/lua/src/liolib.c	118
 IO_OUTPUT	src/lua/src/liolib.c	119
 IO_PREFIX	src/lua/src/liolib.c	117
 KBx	src/lua/src/lvm.c	/^#define KBx(i)  \\$/
+L	src/lua/src/ldump.c	19
 L	src/lua/src/lstrlib.c	203
 L	src/lua/src/lundump.c	24
-L	src/lua/src/ldump.c	19
 LEVELS1	src/lua/src/lauxlib.c	34
 LEVELS2	src/lua/src/lauxlib.c	35
 LG	src/lua/src/lstate.c	70
@@ -235,27 +68,27 @@ LUAI_THROW	src/lua/src/ldo.c	/^#define LUAI_THROW(L,c)		longjmp((c)->b, 1)$/
 LUAI_TRY	src/lua/src/ldo.c	/^#define LUAI_TRY(L,c,a) \\$/
 LUAI_TRY	src/lua/src/ldo.c	/^#define LUAI_TRY(L,c,a)		if (_setjmp((c)->b) == 0)/
 LUAI_TRY	src/lua/src/ldo.c	/^#define LUAI_TRY(L,c,a)		if (setjmp((c)->b) == 0) /
-LUA_CORE	src/lua/src/lctype.c	8
-LUA_CORE	src/lua/src/lmem.c	11
 LUA_CORE	src/lua/src/lapi.c	12
-LUA_CORE	src/lua/src/ldebug.c	14
-LUA_CORE	src/lua/src/lobject.c	13
-LUA_CORE	src/lua/src/ltests.c	14
-LUA_CORE	src/lua/src/lstring.c	11
-LUA_CORE	src/lua/src/llex.c	12
-LUA_CORE	src/lua/src/lparser.c	11
-LUA_CORE	src/lua/src/lundump.c	10
-LUA_CORE	src/lua/src/lstate.c	12
 LUA_CORE	src/lua/src/lcode.c	11
-LUA_CORE	src/lua/src/lfunc.c	11
-LUA_CORE	src/lua/src/ltable.c	24
+LUA_CORE	src/lua/src/lctype.c	8
+LUA_CORE	src/lua/src/ldebug.c	14
 LUA_CORE	src/lua/src/ldo.c	13
-LUA_CORE	src/lua/src/lzio.c	11
-LUA_CORE	src/lua/src/lvm.c	13
-LUA_CORE	src/lua/src/ltm.c	11
-LUA_CORE	src/lua/src/lgc.c	10
-LUA_CORE	src/lua/src/lopcodes.c	9
 LUA_CORE	src/lua/src/ldump.c	10
+LUA_CORE	src/lua/src/lfunc.c	11
+LUA_CORE	src/lua/src/lgc.c	10
+LUA_CORE	src/lua/src/llex.c	12
+LUA_CORE	src/lua/src/lmem.c	11
+LUA_CORE	src/lua/src/lobject.c	13
+LUA_CORE	src/lua/src/lopcodes.c	9
+LUA_CORE	src/lua/src/lparser.c	11
+LUA_CORE	src/lua/src/lstate.c	12
+LUA_CORE	src/lua/src/lstring.c	11
+LUA_CORE	src/lua/src/ltable.c	24
+LUA_CORE	src/lua/src/ltests.c	14
+LUA_CORE	src/lua/src/ltm.c	11
+LUA_CORE	src/lua/src/lundump.c	10
+LUA_CORE	src/lua/src/lvm.c	13
+LUA_CORE	src/lua/src/lzio.c	11
 LUA_CPATH	src/lua/src/loadlib.c	42
 LUA_CPATHVERSION	src/lua/src/loadlib.c	48
 LUA_CSUBSEP	src/lua/src/loadlib.c	80
@@ -269,18 +102,18 @@ LUA_INTFRMLEN	src/lua/src/lstrlib.c	797
 LUA_INTFRMLEN	src/lua/src/lstrlib.c	802
 LUA_INTFRM_T	src/lua/src/lstrlib.c	798
 LUA_INTFRM_T	src/lua/src/lstrlib.c	803
-LUA_LIB	src/lua/src/liolib.c	24
-LUA_LIB	src/lua/src/lbitlib.c	8
-LUA_LIB	src/lua/src/loslib.c	15
+LUA_LIB	src/lua/src/lauxlib.c	20
 LUA_LIB	src/lua/src/lbaselib.c	15
-LUA_LIB	src/lua/src/lstrlib.c	15
-LUA_LIB	src/lua/src/ltablib.c	12
+LUA_LIB	src/lua/src/lbitlib.c	8
 LUA_LIB	src/lua/src/lcorolib.c	12
 LUA_LIB	src/lua/src/ldblib.c	13
+LUA_LIB	src/lua/src/linit.c	17
+LUA_LIB	src/lua/src/liolib.c	24
 LUA_LIB	src/lua/src/lmathlib.c	12
 LUA_LIB	src/lua/src/loadlib.c	25
-LUA_LIB	src/lua/src/lauxlib.c	20
-LUA_LIB	src/lua/src/linit.c	17
+LUA_LIB	src/lua/src/loslib.c	15
+LUA_LIB	src/lua/src/lstrlib.c	15
+LUA_LIB	src/lua/src/ltablib.c	12
 LUA_LLE_FLAGS	src/lua/src/loadlib.c	164
 LUA_LSUBSEP	src/lua/src/loadlib.c	84
 LUA_MAXCAPTURES	src/lua/src/lstrlib.c	28
@@ -342,27 +175,13 @@ MAXVARS	src/lua/src/lparser.c	32
 MAX_FORMAT	src/lua/src/lstrlib.c	830
 MAX_ITEM	src/lua/src/lstrlib.c	823
 MAX_SIZE_T	src/lua/src/liolib.c	393
-MCMakeCCompilerId	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/
-MCMakeCCompilerId	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^int main(argc, argv) int argc; char *argv[];$/
 MEMERRMSG	src/lua/src/lstate.c	42
 MINSIZEARRAY	src/lua/src/lmem.c	43
 MYINT	src/lua/src/lundump.c	/^#define MYINT(s)	(s[0]-'0')$/
-Marrlen_test	src/carr/test/arrlen_test.c	/^int main(int argc, char* argv[])$/
 MatchState	src/lua/src/lstrlib.c	198
 MatchState	src/lua/src/lstrlib.c	209
-Mcarr_copy_test	src/carr/test/carr_copy_test.c	/^int main(int argc, char* argv[])$/
-Mcarr_dup_test	src/carr/test/carr_dup_test.c	/^int main(int argc, char* argv[])$/
-Mcarr_init_test	src/carr/test/carr_init_test.c	/^int main(int argc, char* argv[])$/
-Mcarr_new_test	src/carr/test/carr_new_test.c	/^int main(int argc, char* argv[])$/
-Mcarr_resize_if_needed_test	src/carr/test/carr_resize_if_needed_test.c	/^int main(int argc, char* argv[])$/
-Mcarr_resize_test	src/carr/test/carr_resize_test.c	/^int main(int argc, char* argv[])$/
-Mcarr_test	src/carr/test/carr_test.c	/^int main()$/
-Mcstra_new	src/carr/test/cstra_new.c	/^int main(int argc, char* argv[])$/
 Mlua	src/lua/src/lua.c	/^int main (int argc, char **argv) {$/
 Mmain	src/main.c	/^int main(int argc, char* argv[])$/
-Mmem_is_zero_test	src/carr/test/mem_is_zero_test.c	/^int main(int argc, char* argv[])$/
-Mtest1	src/carr/test/test1.c	/^int main()$/
-Mtest2	src/carr/test/test2.c	/^int main()$/
 N0	src/lua/src/lundump.c	185
 N1	src/lua/src/lundump.c	186
 N2	src/lua/src/lundump.c	187
@@ -371,38 +190,6 @@ NONVALIDVALUE	src/lua/src/lapi.c	38
 PAUSEADJ	src/lua/src/lgc.c	51
 PI	src/lua/src/lmathlib.c	20
 PI	src/lua/src/lmathlib.c	21
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	339
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	342
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	345
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	348
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	351
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	354
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	357
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	360
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	363
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	366
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	369
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	372
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	375
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	378
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	381
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	384
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	387
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	390
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	393
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	396
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	399
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	402
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	405
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	408
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	412
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	415
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	418
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	421
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	424
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	429
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	432
-PLATFORM_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	436
 POS	src/lua/src/lobject.c	248
 PRE	src/lua/src/lobject.c	247
 Protect	src/lua/src/lvm.c	/^#define Protect(x)	{ {x;}; base = ci->u.l.base; }$/
@@ -414,26 +201,10 @@ RESERVEDSLOT	src/lua/src/lbaselib.c	283
 RETS	src/lua/src/lobject.c	246
 RKB	src/lua/src/lvm.c	/^#define RKB(i)	check_exp(getBMode(GET_OPCODE(i)) =/
 RKC	src/lua/src/lvm.c	/^#define RKC(i)	check_exp(getCMode(GET_OPCODE(i)) =/
-SIMULATE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	21
-SIMULATE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	24
-SIMULATE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	209
-SIMULATE_ID	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	231
-SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	40
-SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	44
-SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	46
-SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	216
-SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	238
-SIMULATE_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	41
-SIMULATE_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	49
-SIMULATE_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	217
-SIMULATE_VERSION_MINOR	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	239
-SIMULATE_VERSION_PATCH	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	52
 SPACECHARS	src/lua/src/lbaselib.c	46
 SPECIALS	src/lua/src/lstrlib.c	223
 SParser	src/lua/src/ldo.c	622
 STEPMULADJ	src/lua/src/lgc.c	44
-STRINGIFY	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY(X) STRINGIFY_HELPER(X)$/
-STRINGIFY_HELPER	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY_HELPER(X) #X$/
 STRLEN	src/lued.c	1783
 TESTGRAYBIT	src/lua/src/ltests.c	375
 UNARY_PRIORITY	src/lua/src/lparser.c	1030
@@ -482,8 +253,8 @@ auxgetinfo	src/lua/src/ldebug.c	/^static int auxgetinfo (lua_State *L, const cha
 auxresume	src/lua/src/lcorolib.c	/^static int auxresume (lua_State *L, lua_State *co,/
 auxsort	src/lua/src/ltablib.c	/^static void auxsort (lua_State *L, int l, int u) {/
 auxupvalue	src/lua/src/ldblib.c	/^static int auxupvalue (lua_State *L, int get) {$/
-b	src/lua/src/lundump.c	26
 b	src/lua/src/ldo.c	79
+b	src/lua/src/lundump.c	26
 b_and	src/lua/src/lbitlib.c	/^static int b_and (lua_State *L) {$/
 b_arshift	src/lua/src/lbitlib.c	/^static int b_arshift (lua_State *L) {$/
 b_extract	src/lua/src/lbitlib.c	/^static int b_extract (lua_State *L) {$/
@@ -516,9 +287,9 @@ bubble_selected_lines_down	lua_src/base/swap.lua	/^function lued.bubble_selected
 bubble_selected_lines_up	lua_src/base/swap.lua	/^function lued.bubble_selected_lines_up(dd)$/
 bubble_word_left	lua_src/base/swap.lua	/^function lued.bubble_word_left(dd)$/
 bubble_word_right	lua_src/base/swap.lua	/^function lued.bubble_word_right(dd)$/
-buff	src/lua/src/lstate.c	61
-buff	src/lua/src/ldo.c	624
 buff	src/lua/src/lauxlib.c	565
+buff	src/lua/src/ldo.c	624
+buff	src/lua/src/lstate.c	61
 buff2d	src/lua/src/llex.c	/^#define buff2d(b,e)	luaO_str2d(luaZ_buffer(b), lua/
 buffonstack	src/lua/src/lauxlib.c	/^#define buffonstack(B)	((B)->b != (B)->initb)$/
 buffreplace	src/lua/src/llex.c	/^static void buffreplace (LexState *ls, char from, /
@@ -585,8 +356,6 @@ carr_set_len	src/carr/src/carr.c	/^void carr_set_len(carr_t* ca, uint32_t new_le
 carr_seti	src/carr/src/carr.c	/^void carr_seti(carr_t* ca, void* value)$/
 carr_slicei	src/carr/src/carr.c	/^carr_t* carr_slicei(carr_t* ca, uint32_t len)$/
 carr_split	src/carr/src/carr.c	/^void carr_split(carr_t* const outs, carr_t* const /
-carr_test	src/carr/test/test_src/carr_test.c	/^int carr_test(const int argc, char* argv[])$/
-carr_test	src/carr/test/carr_test.c	/^int carr_test(const int argc, char* argv[])$/
 carr_to_end	src/carr/src/carr.c	/^uint32_t carr_to_end(carr_t* ca)$/
 carr_too_big	src/carr/src/carr.c	/^int carr_too_big(const carr_t* const ca, uint32_t /
 carr_validei	src/carr/src/carr.c	/^int carr_validei(const carr_t* const ca, void* ele/
@@ -621,8 +390,8 @@ checkoption	src/lua/src/loslib.c	/^static const char *checkoption (lua_State *L,
 checkproto	src/lua/src/ltests.c	/^static void checkproto (global_State *g, Proto *f)/
 checkrepeated	src/lua/src/lparser.c	/^static void checkrepeated (FuncState *fs, Labellis/
 checkresults	src/lua/src/lapi.c	/^#define checkresults(L,na,nr) \\$/
-checkstack	src/lua/src/ltests.c	/^static void checkstack (global_State *g, lua_State/
 checkstack	src/lua/src/ldblib.c	/^static void checkstack (lua_State *L, lua_State *L/
+checkstack	src/lua/src/ltests.c	/^static void checkstack (global_State *g, lua_State/
 checktable	src/lua/src/ltests.c	/^static void checktable (global_State *g, Table *h)/
 checkupval	src/lua/src/ldblib.c	/^static int checkupval (lua_State *L, int argf, int/
 checkvalref	src/lua/src/ltests.c	/^static void checkvalref (global_State *g, GCObject/
@@ -658,7 +427,6 @@ comment_selected	lua_src/base/comments.lua	/^function lued.comment_selected(dd)$
 computesizes	src/lua/src/ltable.c	/^static int computesizes (int nums[], int *narray) /
 cond	src/lua/src/lparser.c	/^static int cond (LexState *ls) {$/
 condjump	src/lua/src/lcode.c	/^static int condjump (FuncState *fs, OpCode op, int/
-const	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	10
 constfolding	src/lua/src/lcode.c	/^static int constfolding (OpCode op, expdesc *e1, e/
 constructor	src/lua/src/lparser.c	/^static void constructor (LexState *ls, expdesc *t)/
 convergeephemerons	src/lua/src/lgc.c	/^static void convergeephemerons (global_State *g) {/
@@ -677,23 +445,12 @@ createmetatable	src/lua/src/lstrlib.c	/^static void createmetatable (lua_State *
 createsearcherstable	src/lua/src/loadlib.c	/^static void createsearcherstable (lua_State *L) {$/
 createstdfile	src/lua/src/liolib.c	/^static void createstdfile (lua_State *L, FILE *f, /
 createstrobj	src/lua/src/lstring.c	/^static TString *createstrobj (lua_State *L, const /
-cstr_test	src/carr/test/test_src/cstr_test.c	/^int cstr_test(const int argc, char* argv[])$/
 cstra_new	src/carr/src/carr.c	/^carr_t* cstra_new(uint32_t const max_size, const c/
 ctag_jump_back	lua_src/base/ctags.lua	/^function lued.ctag_jump_back(dd)$/
 ctag_jump_forward	lua_src/base/ctags.lua	/^function lued.ctag_jump_forward(dd)$/
 ctag_move_back_from_tag	lua_src/base/ctags.lua	/^function lued.ctag_move_back_from_tag(dd)$/
 ctag_move_to_tag	lua_src/base/ctags.lua	/^function lued.ctag_move_to_tag(dd)$/
 ctag_read_file	lua_src/base/ctags.lua	/^function lued.ctag_read_file(tagfile, dd)$/
-ctest_eqi	src/carr/test/test_src/ctest.c	/^void ctest_eqi(ctest_type* test, const int actual,/
-ctest_eqs	src/carr/test/test_src/ctest.c	/^void ctest_eqs(ctest_type* test, const char* const/
-ctest_free	src/carr/test/test_src/ctest.c	/^void ctest_free(ctest_type* test)$/
-ctest_mode	src/carr/test/test_src/ctest.c	/^void ctest_mode(ctest_type* test, uint32_t mode)$/
-ctest_new	src/carr/test/test_src/ctest.c	/^ctest_type* ctest_new(int argc, char* argv[]) $/
-ctest_test_result	src/carr/test/test_src/ctest.c	/^void ctest_test_result(ctest_type* test)$/
-ctest_total_result	src/carr/test/test_src/ctest.c	/^void ctest_total_result(ctest_type* test)$/
-ctest_unit	src/carr/test/test_src/ctest.c	/^int ctest_unit(ctest_type* test, const char* name)/
-ctestfl_eqi	src/carr/test/test_src/ctest.c	/^void ctestfl_eqi(ctest_type* test, const int actua/
-ctestfl_eqs	src/carr/test/test_src/ctest.c	/^void ctestfl_eqs(ctest_type* test, const char* act/
 currIsNewline	src/lua/src/llex.c	/^#define currIsNewline(ls)	(ls->current == '\\n' || /
 currentline	src/lua/src/ldebug.c	/^static int currentline (CallInfo *ci) {$/
 currentpc	src/lua/src/ldebug.c	/^static int currentpc (CallInfo *ci) {$/
@@ -802,6 +559,7 @@ exp2reg	src/lua/src/lcode.c	/^static void exp2reg (FuncState *fs, expdesc *e, in
 expand_path	lua_src/lued.lua	/^  function expand_path(filename)$/
 explist	src/lua/src/lparser.c	/^static int explist (LexState *ls, expdesc *v) {$/
 explode	lua_src/core/lued_lib.lua	/^function lued.explode(subject, sep,  lim)$/
+explode_keys	lua_src/core/lued_lib.lua	/^function lued.explode_keys(subject, sep, lim)$/
 expr	src/lua/src/lparser.c	/^static void expr (LexState *ls, expdesc *v) {$/
 exprstat	src/lua/src/lparser.c	/^static void exprstat (LexState *ls) {$/
 f	src/lua/src/lauxlib.c	564
@@ -1003,8 +761,8 @@ hashpow2	src/lua/src/ltable.c	/^#define hashpow2(t,n)		(gnode(t, lmod((n), sizen
 hashstr	src/lua/src/ltable.c	/^#define hashstr(t,str)		hashpow2(t, (str)->tsv.has/
 hasjumps	src/lua/src/lcode.c	/^#define hasjumps(e)	((e)->t != (e)->f)$/
 hasmultret	src/lua/src/lparser.c	/^#define hasmultret(k)		((k) == VCALL || (k) == VVA/
-help	lua_src/plugins/vhdl.lua	/^function lued.vhdl.help()$/
 help	lua_src/base/help.lua	/^function lued.help(n,dd)$/
+help	lua_src/plugins/vhdl.lua	/^function lued.vhdl.help()$/
 hi	lua_src/plugins/ascii_art.lua	/^function hi()$/
 history_next	src/carr/src/carr_readline.c	/^static void history_next(carr_t* history, carr_t* /
 history_prev	src/carr/src/carr_readline.c	/^static void history_prev(carr_t* history, carr_t* /
@@ -1020,24 +778,15 @@ implode	lua_src/core/lued_lib.lua	/^function lued.implode(pieces, sep, trailing_
 in_array	src/carr/src/carr.c	/^int in_array(void* needle, void* haystack, uint32_/
 inclinenumber	src/lua/src/llex.c	/^static void inclinenumber (LexState *ls) {$/
 incomplete	src/lua/src/lua.c	/^static int incomplete (lua_State *L, int status) {/
-incr	lua_src/plugins/vhdl.lua	/^  function incr(slv :std_logic_vector) return std_/
-incr	lua_src/plugins/verilog.lua	/^  function incr(slv :std_logic_vector) return std_/
 incr	lua_src/base/increment.lua	/^function lued.incr(step_size, dd)$/
+incr	lua_src/plugins/verilog.lua	/^  function incr(slv :std_logic_vector) return std_/
+incr	lua_src/plugins/vhdl.lua	/^  function incr(slv :std_logic_vector) return std_/
 incstep	src/lua/src/lgc.c	/^static void incstep (lua_State *L) {$/
 indent	lua_src/base/indent.lua	/^function lued.indent(dd)$/
 indent1	lua_src/base/indent.lua	/^function lued.indent1(n, ch, goto_next, dd)$/
 indent_scope	lua_src/base/indent.lua	/^function lued.indent_scope(str,dd)$/
 indent_selected	lua_src/base/indent.lua	/^function lued.indent_selected(dd)$/
 index2addr	src/lua/src/lapi.c	/^static TValue *index2addr (lua_State *L, int idx) /
-info_arch	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	615
-info_compiler	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	321
-info_cray	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	331
-info_language_dialect_default	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	634
-info_platform	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	614
-info_simulate	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	323
-info_simulate_version	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	594
-info_version	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	567
-info_version_internal	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	585
 init	src/lua/src/lstrlib.c	206
 init_exp	src/lua/src/lparser.c	/^static void init_exp (expdesc *e, expkind k, int i/
 init_lued	lua_src/core/lued_lib.lua	/^function lued.init_lued(lued_path, bindings_file)$/
@@ -1090,6 +839,7 @@ is_firstline	lua_src/core/booleans.lua	/^function lued.is_firstline()$/
 is_glob	lua_src/core/booleans.lua	/^function lued.is_glob(filename)$/
 is_inlist	src/carr/src/carr_readline.c	/^static int is_inlist(const char* keylist, const ca/
 is_inrange	src/carr/src/carr_readline_lua.c	/^static int is_inrange(char ch, char lower, char up/
+is_keyword	lua_src/core/style.lua	/^function lued.is_keyword(str)$/
 is_lastline	lua_src/core/booleans.lua	/^function lued.is_lastline()$/
 is_modified	src/lued.c	/^static int is_modified(carr_t* all_sessions, uint3/
 is_number	lua_src/core/booleans.lua	/^function lued.is_number(str)$/
@@ -1711,6 +1461,7 @@ lued.exec_str	lua_src/core/replay.lua	/^function lued.exec_str(str,dd)$/
 lued.exit_all	lua_src/core/quit.lua	/^function lued.exit_all(dd)$/
 lued.exit_session	lua_src/core/quit.lua	/^function lued.exit_session(dd)$/
 lued.explode	lua_src/core/lued_lib.lua	/^function lued.explode(subject, sep,  lim)$/
+lued.explode_keys	lua_src/core/lued_lib.lua	/^function lued.explode_keys(subject, sep, lim)$/
 lued.file_exists	lua_src/core/booleans.lua	/^function lued.file_exists(filename)$/
 lued.find_all_on_line	lua_src/core/find.lua	/^function lued.find_all_on_line(line,str)$/
 lued.find_and_replace	lua_src/core/find.lua	/^function lued.find_and_replace(from,to,options,dd)/
@@ -1791,6 +1542,7 @@ lued.is_eof	lua_src/core/booleans.lua	/^function lued.is_eof()$/
 lued.is_eol	lua_src/core/booleans.lua	/^function lued.is_eol()$/
 lued.is_firstline	lua_src/core/booleans.lua	/^function lued.is_firstline()$/
 lued.is_glob	lua_src/core/booleans.lua	/^function lued.is_glob(filename)$/
+lued.is_keyword	lua_src/core/style.lua	/^function lued.is_keyword(str)$/
 lued.is_lastline	lua_src/core/booleans.lua	/^function lued.is_lastline()$/
 lued.is_number	lua_src/core/booleans.lua	/^function lued.is_number(str)$/
 lued.is_open	lua_src/core/booleans.lua	/^function lued.is_open(filename)$/
@@ -1948,6 +1700,7 @@ lued.set_scope_indent	lua_src/base/indent.lua	/^function lued.set_scope_indent(v
 lued.set_sel_from_to	lua_src/core/select.lua	/^function lued.set_sel_from_to(sel_sr,sel_sc,sel_er/
 lued.set_style	lua_src/core/style.lua	/^function lued.set_style(fg,bg,decorations)$/
 lued.set_tab_size	lua_src/core/getters_setters.lua	/^function lued.set_tab_size(val,dd)$/
+lued.show_colors	lua_src/core/style.lua	/^function lued.show_colors()$/
 lued.show_keystroke_hist	lua_src/core/replay.lua	/^function lued.show_keystroke_hist(prompt)$/
 lued.show_list	lua_src/core/replay.lua	/^function lued.show_list(list,id,prompt)$/
 lued.sidebar	lua_src/base/sidebar.lua	/^function lued.sidebar(lines)$/
@@ -1959,6 +1712,8 @@ lued.skip_variable	lua_src/core/move.lua	/^function lued.skip_variable(dd)$/
 lued.skip_word	lua_src/core/move.lua	/^function lued.skip_word(dd)$/
 lued.spare	lua_src/core/hotkeys.lua	/^function lued.spare()$/
 lued.split_string	lua_src/base/ctags.lua	/^function lued.split_string (str, delimiter)$/
+lued.style_keyword	lua_src/core/style.lua	/^function lued.style_keyword(str)$/
+lued.style_keywords	lua_src/core/style.lua	/^function lued.style_keywords(line)$/
 lued.style_page	lua_src/core/style.lua	/^function lued.style_page(lines, first_line_of_page/
 lued.swap_line_with_next	lua_src/base/swap.lua	/^function lued.swap_line_with_next(dd)$/
 lued.swap_line_with_prev	lua_src/base/swap.lua	/^function lued.swap_line_with_prev(dd)$/
@@ -2021,7 +1776,6 @@ lued_insertx	src/lued.c	/^int lued_insertx(lued_t* l, uint32_t row, uint32_t/
 lued_main	src/lued.c	/^int lued_main (int argc, char** argv)$/
 lued_open	src/lued.c	/^lued_t* lued_open(carr_t* all_sessions, const char/
 lued_reg	src/lued.c	/^lua_State* lued_reg () {$/
-lued_test	src/carr/test/test_src/lued_test.c	/^int lued_test(const int argc, char* argv[])$/
 luedc_get_lines	src/lued.c	/^int luedc_get_lines(lued_t* l, size_t from_row, si/
 luedc_get_page	src/lued.c	/^int luedc_get_page(lued_t* l, uint32_t from_row, u/
 luedc_insert	src/lued.c	/^int luedc_insert(lued_t* l, uint32_t r, uint32_t c/
@@ -2117,8 +1871,8 @@ my_strcpy	src/lued.c	/^uint32_t my_strcpy(char* base, uint32_t offset, co/
 n	src/lua/src/lauxlib.c	563
 na	src/lua/src/lparser.c	647
 nactvar	src/lua/src/lparser.c	46
-name	src/lua/src/lundump.c	27
 name	src/lua/src/ldo.c	627
+name	src/lua/src/lundump.c	27
 need_value	src/lua/src/lcode.c	/^static int need_value (FuncState *fs, int list) {$/
 new_file	lua_src/core/files.lua	/^function lued.new_file(filename, dd)$/
 new_localvar	src/lua/src/lparser.c	/^static void new_localvar (LexState *ls, TString *n/
@@ -2195,8 +1949,8 @@ prev	src/lua/src/lparser.c	1097
 prev_is_other	lua_src/core/booleans.lua	/^function lued.prev_is_other()$/
 prev_is_space	lua_src/core/booleans.lua	/^function lued.prev_is_space()$/
 prev_is_word	lua_src/core/booleans.lua	/^function lued.prev_is_word()$/
-previous	src/lua/src/lparser.c	43
 previous	src/lua/src/ldo.c	78
+previous	src/lua/src/lparser.c	43
 primaryexp	src/lua/src/lparser.c	/^static void primaryexp (LexState *ls, expdesc *v) /
 print_usage	src/lua/src/lua.c	/^static void print_usage (const char *badoption) {$/
 print_version	src/lua/src/lua.c	/^static void print_version (void) {$/
@@ -2227,7 +1981,6 @@ pushnexttemplate	src/lua/src/loadlib.c	/^static const char *pushnexttemplate (lu
 pushobject	src/lua/src/ltests.c	/^static void pushobject (lua_State *L, const TValue/
 pushstr	src/lua/src/lobject.c	/^static void pushstr (lua_State *L, const char *str/
 pushuserdata	src/lua/src/ltests.c	/^static int pushuserdata (lua_State *L) {$/
-qnxnto	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	327
 quit_all	lua_src/core/quit.lua	/^function lued.quit_all(force, dd)$/
 quit_session	lua_src/core/quit.lua	/^function lued.quit_session(force,dd)$/
 raw_off	src/carr/src/carr_readline.c	/^void raw_off() { set_flag(1, ICANON | ECHO); }$/
@@ -2393,6 +2146,7 @@ settabsb	src/lua/src/ldblib.c	/^static void settabsb (lua_State *L, const char *
 settabsi	src/lua/src/ldblib.c	/^static void settabsi (lua_State *L, const char *i,/
 settabss	src/lua/src/ldblib.c	/^static void settabss (lua_State *L, const char *i,/
 settrick	src/lua/src/ltests.c	/^static int settrick (lua_State *L) {$/
+show_colors	lua_src/core/style.lua	/^function lued.show_colors()$/
 show_keystroke_hist	lua_src/core/replay.lua	/^function lued.show_keystroke_hist(prompt)$/
 show_list	lua_src/core/replay.lua	/^function lued.show_list(list,id,prompt)$/
 sidebar	lua_src/base/sidebar.lua	/^function lued.sidebar(lines)$/
@@ -2406,8 +2160,8 @@ singlematch	src/lua/src/lstrlib.c	/^static int singlematch (MatchState *ms, cons
 singlestep	src/lua/src/lgc.c	/^static lu_mem singlestep (lua_State *L) {$/
 singlevar	src/lua/src/lparser.c	/^static void singlevar (LexState *ls, expdesc *var)/
 singlevaraux	src/lua/src/lparser.c	/^static int singlevaraux (FuncState *fs, TString *n/
-size	src/lua/src/ltests.c	80
 size	src/lua/src/lauxlib.c	668
+size	src/lua/src/ltests.c	80
 skip	src/lua/src/ltests.c	/^static void skip (const char **pc) {$/
 skipBOM	src/lua/src/lauxlib.c	/^static int skipBOM (LoadF *lf) {$/
 skip_sep	src/lua/src/llex.c	/^static int skip_sep (LexState *ls) {$/
@@ -2461,6 +2215,8 @@ str_upper	src/lua/src/lstrlib.c	/^static int str_upper (lua_State *L) {$/
 string_query	src/lua/src/ltests.c	/^static int string_query (lua_State *L) {$/
 strip	src/lua/src/ldump.c	22
 strlib	src/lua/src/lstrlib.c	980
+style_keyword	lua_src/core/style.lua	/^function lued.style_keyword(str)$/
+style_keywords	lua_src/core/style.lua	/^function lued.style_keywords(line)$/
 style_page	lua_src/core/style.lua	/^function lued.style_page(lines, first_line_of_page/
 subexpr	src/lua/src/lparser.c	/^static BinOpr subexpr (LexState *ls, expdesc *v, i/
 subst	src/carr/src/carr_readline_lua.c	/^static size_t subst(char* from, const char* to, ca/
@@ -2578,7 +2334,6 @@ var_start	lua_src/core/select.lua	/^function lued.var_start(dd)$/
 vmcase	src/lua/src/lvm.c	/^#define vmcase(l,b)	case l: {b}  break;$/
 vmcasenb	src/lua/src/lvm.c	/^#define vmcasenb(l,b)	case l: {b}		\/* nb = no brea/
 vmdispatch	src/lua/src/lvm.c	/^#define vmdispatch(o)	switch(o)$/
-volatile	build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c	11
 walter	lua_src/plugins/ascii_art.lua	/^function walter()$/
 walter2	lua_src/plugins/ascii_art.lua	/^function walter2(str,n)$/
 while_loop	lua_src/plugins/lua.lua	/^function lued.lua.while_loop()$/
@@ -2587,7 +2342,7 @@ white2gray	src/lua/src/lgc.c	/^#define white2gray(x)	resetbits(gch(x)->marked, W
 word_end	lua_src/core/move.lua	/^function lued.word_end(dd)$/
 word_start	lua_src/core/select.lua	/^function lued.word_start(dd)$/
 wrap_line	lua_src/base/lines.lua	/^function lued.wrap_line(wrap_col,wrap_delim,dd)$/
-writer	src/lua/src/lstrlib.c	/^static int writer (lua_State *L, const void* b, si/
 writer	src/lua/src/ldump.c	20
+writer	src/lua/src/lstrlib.c	/^static int writer (lua_State *L, const void* b, si/
 yindex	src/lua/src/lparser.c	/^static void yindex (LexState *ls, expdesc *v) {$/
 z	src/lua/src/ldo.c	623

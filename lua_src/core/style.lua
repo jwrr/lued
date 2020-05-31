@@ -92,12 +92,11 @@ styles.line_number          = lued.set_style( 8,  nil , 0)
 styles.cursor_line_number   = lued.set_style( 15, 8   , 0)
 styles.sb_files             = lued.set_style( 7, nil   , 0)
 styles.comment              = lued.set_style( 8,  nil , 0 )
-styles.comment_regex2       = "%-%-[^\n]*"
-styles.comment_regex3       = "%-%-[^\n]*"
-styles.string               = lued.set_style( 3,  nil       , 0 )
-styles.string_regex         = "[\"][^\"][\"]"
+styles.keyword              = lued.set_style( 9,  nil , 0 )
 
--- Lua Magic: (   )   .   %   +   –   *   ?   [   ^   $
+styles.string               = lued.set_style( 3,  nil       , 0 )
+styles.dq_string_regex       = '["][^"]*["]'
+styles.sq_string_regex       = "['][^']*[']"
 
 styles.fg0                  = lued.set_style ( 0, nil , 0)
 styles.fg1                  = lued.set_style ( 1, nil , 0)
@@ -133,41 +132,44 @@ styles.bg14                  = lued.set_style ( nil, 14  ,  0)
 styles.bg15                  = lued.set_style ( nil, 15  ,  0)
 
 
--- lued.dbg_prompt("\n" ..
---            styles.fg0 .. "000000" ..
---            styles.fg1 .. "111111" ..
---            styles.fg2 .. "222222" ..
---            styles.fg3 .. "333333" ..
---            styles.fg4 .. "444444" ..
---            styles.fg5 .. "555555" ..
---            styles.fg6 .. "666666" ..
---            styles.fg7 .. "777777" .. "\n" ..
---            styles.fg8 .. "888888" ..
---            styles.fg9 .. "999999" ..
---            styles.fg10 .. "aaaaaa" ..
---            styles.fg11 .. "bbbbbb" ..
---            styles.fg12 .. "cccccc" ..
---            styles.fg13 .. "dddddd" ..
---            styles.fg14 .. "eeeeee" ..
---            styles.fg15 .. "ffffff" .. "\n" ..
---            styles.bg0 .. "0     " ..
---            styles.bg1 .. "1     " ..
---            styles.bg2 .. "2     " ..
---            styles.bg3 .. "3     " ..
---            styles.bg4 .. "4     " ..
---            styles.bg5 .. "5     " ..
---            styles.bg6 .. "6     " ..
---            styles.bg7 .. "7     " .. "\n" ..
---            styles.bg8 .. "8     " ..
---            styles.bg9 .. "9     " ..
---            styles.bg10 .. "a     " ..
---            styles.bg11 .. "b     " ..
---            styles.bg12 .. "c     " ..
---            styles.bg13 .. "d     " ..
---            styles.bg14 .. "e     " ..
---            styles.bg15 .. "f     "
---           )
---
+
+function lued.show_colors()
+  print("\n" ..
+    styles.fg0 .. "fg0000" ..
+    styles.fg1 .. "fg1111" ..
+    styles.fg2 .. "fg2222" ..
+    styles.fg3 .. "fg3333" ..
+    styles.fg4 .. "fg4444" ..
+    styles.fg5 .. "fg5555" ..
+    styles.fg6 .. "fg6666" ..
+    styles.fg7 .. "fg7777" .. "\n" ..
+    styles.fg8 .. "fg8888" ..
+    styles.fg9 .. "fg9999" ..
+    styles.fg9 .. "fg9999" ..
+    styles.fg10 .. "fgaaaaa" ..
+    styles.fg11 .. "fgbbbbb" ..
+    styles.fg12 .. "fgccccc" ..
+    styles.fg13 .. "fgddddd" ..
+    styles.fg14 .. "fgeeeee" ..
+    styles.fg15 .. "fgfffff" .. "\n" ..
+    styles.bg0  .. "bg0     " ..
+    styles.bg1  .. "bg1     " ..
+    styles.bg2  .. "bg2     " ..
+    styles.bg3  .. "bg3     " ..
+    styles.bg4  .. "bg4     " ..
+    styles.bg5  .. "bg5     " ..
+    styles.bg6  .. "bg6     " ..
+    styles.bg7  .. "bg7     " .. "\n" ..
+    styles.bg8  .. "bg8     " ..
+    styles.bg9  .. "bg9     " ..
+    styles.bg10 .. "bga     " ..
+    styles.bg11 .. "bgb     " ..
+    styles.bg12 .. "bgc     " ..
+    styles.bg13 .. "bgd     " ..
+    styles.bg14 .. "bge     " ..
+    styles.bg15 .. "bgf     "
+    )
+end
 
 
 function lued.sidebar(lines) -- Dummy function, usually replaced by base.sidebar
@@ -197,6 +199,27 @@ function lued.get_line_comment_regex()
 end
   
 
+function lued.is_keyword(str)
+  local filetype = lued.get_filetype()
+  if lued.keywords==nil or filetype==nil or lued.keywords[filetype]==nil or str==nil then return end
+  local keyword_exists = lued.keywords[filetype][str] ~= nil 
+  return keyword_exists
+end
+
+
+function lued.style_keyword(str)
+  if not lued.is_keyword(str) then return str end
+  local styled_str = styles.keyword .. str .. styles.normal
+  return styled_str
+end
+
+
+function lued.style_keywords(line)
+  line = string.gsub (line, "%w+", function (str) return lued.style_keyword(str) end )
+  return line
+end
+
+
 function lued.style_page(lines, first_line_of_page, row_offset)
 
   -- ensure all styles are define
@@ -224,8 +247,9 @@ function lued.style_page(lines, first_line_of_page, row_offset)
   local comment_from, comment_to = lued.get_line_comment_regex()
 
     
-  local string_from = "(" .. styles.string_regex .. ")"
-  local string_to   = styles.comment .. "%1" .. styles.normal
+  local dq_string_from = "(" .. styles.dq_string_regex .. ")"
+  local sq_string_from = "(" .. styles.sq_string_regex .. ")"
+  local string_to   = styles.string .. "%1" .. styles.normal
 
   for ii=start_line,stop_line do
     local line_style = styles.enable and styles.normal or ""
@@ -246,8 +270,12 @@ function lued.style_page(lines, first_line_of_page, row_offset)
       end
 
       if styles.string~="" then
-        lines[ii] = string.gsub(lines[ii], string_from, string_to )
+        lines[ii] = string.gsub(lines[ii], dq_string_from, string_to )
+        lines[ii] = string.gsub(lines[ii], sq_string_from, string_to )
       end
+
+      lines[ii] = lued.style_keywords(lines[ii])
+
     end
 
     local t={}

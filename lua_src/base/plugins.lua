@@ -24,7 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
 
-
+lued.keywords = {}
 
 function lued.load_plugins(plugin_path)
   plugin_path = lued.pathifier(plugin_path)
@@ -35,6 +35,8 @@ function lued.load_plugins(plugin_path)
     end
   end
 end
+
+
 
 
 

@@ -244,6 +244,7 @@ alt__dollar_     = lued.del_eol                 lued.hot("$")   -- delete from c
 alt__slash_      = lued.find_forward            lued.hot(",/,") -- find forward
 alt__colon_w     = lued.save_file               lued.hot(":w")  -- Save File. Similar to Vi :w
 
+alt_colors       = lued.show_colors             
 alt_cd           = lued.cd_change_dir;          lued.hot("cd")  -- Change directory
 alt_ed           = set_edit_mode           lued.hot("ed")  -- Change to EDIT mode. You almost always want to be in EDIT mode.
 alt_help         = lued.open_file_bindings      lued.hot("lued.help")  -- Help. Open lued_bindings.lua

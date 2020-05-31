@@ -126,6 +126,17 @@ function lued.explode(subject, sep,  lim)
 end
 
 
+function lued.explode_keys(subject, sep, lim)
+  local pieces = lued.explode(subject, sep, lim)
+  if pieces == nil then return end
+  local t = {}
+  for i=1,#pieces do
+    t[ pieces[i] ] = true
+  end
+  return t
+end
+
+
 function lued.implode(pieces, sep, trailing_sep, first, last)
   sep = sep or "\n"
   trailing_sep = trailing_sep or sep

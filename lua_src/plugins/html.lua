@@ -2,7 +2,7 @@
 
 lued.html = {}
 
-lued.html.tags = string.gsub([[
+local keyword_str = string.gsub([[
  a abbr acronym address applet area article aside audio b  
  base basefont bb bdo big blockquote body button canvas 
  caption center  cite code col colgroup command datagrid 
@@ -17,6 +17,8 @@ lued.html.tags = string.gsub([[
  table tbody td textarea tfoot th thead time title tr 
  track tt u ul var video wbr 
 ]] , "%s+", " ")
+
+lued.keywords.html = lued.explode_keys(keyword_str, " ")
 
 
 function lued.html.html5()
@@ -59,10 +61,10 @@ end
 -- ============================================================================
 
 lued.filetypes.html = "html"
-lued.filetypes.htm  = "htm"
+lued.filetypes.htm  = "html"
 
 local s = {}
-lued.def_snippet(s, lued.html.tags  , lued.html.tag)
+lued.def_snippet(s, keyword_str  , lued.html.tag)
 lued.def_snippet(s, "html html5 !"  , lued.html.html5)
 lued.def_snippet(s, "br hr"         , lued.html.self_closing)
 lued.def_snippet(s, "a"             , lued.html.anchor)
