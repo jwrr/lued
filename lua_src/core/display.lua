@@ -94,29 +94,41 @@ function lued.psub(subject, from, to, index, lim)
   return result, count, start, stop
 end
 
+function lued.resize_lines(lines,offset,len)
+  if lines==nil then return end
+  local upper_limit = offset+len-1
+  for i=1,#lines do
+    lines[i] = string.sub(lines[i], offset, upper_limit)
+    if #lines[i] < len then
+      lines[i] =  lines[i] .. string.rep(' ',len-#lines[i])
+    end
+  end
+  return lines
+end
 
-function lued.display_page_in_lua1(lua_mode, highlight_trailing_spaces)
+
+lued.g_first_col = 1
+
+function lued.display_page_in_lua(lua_mode, highlight_trailing_spaces)
   lued.display_status_in_lua(lua_mode)
+  local tr,tc = get_termsize()
   local prow,pcol = get_page_pos() -- FIXME -1 to adjust from c to lua
   local crow,ccol = get_cur_pos()
   local row_offset = crow - prow + 1
   local text = get_page(prow-1,highlight_trailing_spaces)
-  local lines = lued.style_page( lued.explode(text) , prow, row_offset)
+  local lines = lued.explode(text)
+--   lines = lued.resize_lines(lines,lued.g_first_col,tc)
+  lines = lued.style_page( lines , prow, row_offset)
   text = lued.implode(lines)
 
   -- text = lued.insert_line_numbers_orig(text)
   -- text = string.char(27) .. "[1m" .. text;
 
   io.write (text)
-
 end
 
 
-
-
-function lued.display_page_in_lua(lua_mode, highlight_trailing_spaces)
-
-
+function lued.display_page_in_lua_depricated(lua_mode, highlight_trailing_spaces)
   lued.display_status_in_lua(lua_mode)
   local prow,pcol = get_page_pos() -- FIXME -1 to adjust from c to lua
   local crow,ccol = get_cur_pos()
@@ -132,6 +144,29 @@ function lued.display_page_in_lua(lua_mode, highlight_trailing_spaces)
 end
 
 
+function lued.check_if_file_changed()
+  if g_enable_file_changed then
+    local id = get_fileid()
+    local filename = get_filename(id)
+    local file_has_changed = false
+    local mtime, ts
+    if lued.file_exists(filename) then
+      file_has_changed,mtime,ts = is_file_modified(0)
+    end
+    if file_has_changed==1 then
+      io.write("\n\n=======================================\n\n")
+      local prompt = "File '" .. filename .. "' has changed. Do you want to reload <y/n>?"
+      local reload = lued.get_yesno(prompt)=="Y"
+      if reload then
+        reopen()
+      else
+        g_enable_file_changed = false -- stop telling me the file has changed. I don't care
+      end
+    end
+  end
+end
+ 
+ 
 function lued.disp(dd,center)
    dd = dd or g_dont_display
    center = center or false
@@ -140,27 +175,8 @@ function lued.disp(dd,center)
    local r,c = get_cur_pos()
    local pr,pc = get_page_pos()
 
-   if g_enable_file_changed then
+   lued.check_if_file_changed()
 
-     local id = get_fileid()
-     local filename = get_filename(id)
-     local file_has_changed = false
-     local mtime, ts
-     if lued.file_exists(filename) then
-       file_has_changed,mtime,ts = is_file_modified(0)
-     end
-
-     if file_has_changed==1 then
-       io.write("\n\n=======================================\n\n")
-       local prompt = "File '" .. filename .. "' has changed. Do you want to reload <y/n>?"
-       local reload = lued.get_yesno(prompt)=="Y"
-       if reload then
-         reopen()
-       else
-         g_enable_file_changed = false -- stop telling me the file has changed. I don't care
-       end
-     end
-   end
    local tr,tc = get_termsize()
    local page_offset_changed = false
    local half = math.floor(tr / 2)
@@ -201,7 +217,7 @@ function lued.disp(dd,center)
      if g_lua_mode then
        lua_mode = 1
      end
-     lued.display_page_in_lua1(lua_mode,g_show_trailing_spaces)
+     lued.display_page_in_lua(lua_mode,g_show_trailing_spaces)
 
      lued.push_keystroke( get_last_cmd() )
   

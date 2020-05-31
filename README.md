@@ -322,6 +322,10 @@ TBD
 * alt_sb/SB select to File end or File start eof/sof - done
 * alt_bb/BB goto File end or File start eof/sof - done
 * add support for self-closing braces '()[]{}' - done
+* Repeat previous N keystrokes - done
+* add support for snippets - done
+* Check compatibility with tmux and screen - done compatible with tmux. some conflicts with screen
+
 * fixme - alt_cc delete space after comment if it's there - done
 * fixme - alt_CC delete comment even with leading spaces - done
 * fuxne - snippet lua.lua for_loop cleanup indenting - done
@@ -430,14 +434,13 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * alt_hh highlight selected text. this allows you to move without growing/shrinking/closing selected region.
 * alt_HH turns off highlight
 * Support multiple sessions. Each session has different set of files
-* Check compatibility with tmux and screen
 * When ctrl+R immediately follows ctrl+E (or E follows R) move a half step
 * Refine Jah when modifying partial word, and still maintaining alignment
 * After quiting Find+Replace, return to original screen offset
-* Repeat previous N
 
 * move goto_mark from c to lua
-* add support for snippets
 
 * feature - custom script.  load commands (similar to relued). readme files. examples...
-
+* fixme - alt_cc doesn't work when selection is on.
+* fixme - make comment highlighting filetype dependent
+* fixme - move line numbers from c to lua

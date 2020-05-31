@@ -92,7 +92,6 @@ styles.line_number          = lued.set_style( 8,  nil , 0)
 styles.cursor_line_number   = lued.set_style( 15, 8   , 0)
 styles.sb_files             = lued.set_style( 7, nil   , 0)
 styles.comment              = lued.set_style( 8,  nil , 0 )
-styles.comment_regex        = "//[^\n]*"
 styles.comment_regex2       = "%-%-[^\n]*"
 styles.comment_regex3       = "%-%-[^\n]*"
 styles.string               = lued.set_style( 3,  nil       , 0 )
@@ -176,6 +175,28 @@ function lued.sidebar(lines) -- Dummy function, usually replaced by base.sidebar
 end
 
 
+
+function lued.escape_magic_char(str)
+  -- ( ) . % + - * ? [ ^ $
+  if str == nil then return end
+  local magic_char = '[().%+-*?[^$]'
+  local esc_str = string.gsub(str, magic_char, "%%%1")
+--      print("esc_str="..esc_str.."xxx")
+  return esc_str
+end
+
+
+function lued.get_line_comment_regex()
+  local comment_str = lued.get_line_comment()
+  if comment_str == nil then return end
+  comment_str = lued.escape_magic_char(comment_str)
+--   if true then return end
+  local comment_from = comment_str .. "[^\n]*"
+  local comment_to = styles.comment .. "%1" .. styles.normal
+  return comment_from, comment_to
+end
+  
+
 function lued.style_page(lines, first_line_of_page, row_offset)
 
   -- ensure all styles are define
@@ -200,8 +221,9 @@ function lued.style_page(lines, first_line_of_page, row_offset)
   local start_line = update_only_cursor_line and row_offset or 1
   local stop_line = update_only_cursor_line and row_offset or #lines
 
-  local comment_from = "(" .. styles.comment_regex .. ")";
-  local comment_to = styles.comment .. "%1" .. styles.normal
+  local comment_from, comment_to = lued.get_line_comment_regex()
+
+    
   local string_from = "(" .. styles.string_regex .. ")"
   local string_to   = styles.comment .. "%1" .. styles.normal
 
@@ -219,7 +241,7 @@ function lued.style_page(lines, first_line_of_page, row_offset)
       lnum_style = styles.enable and styles.cursor_line_number or ""
     else
 
-      if styles.comment~="" then
+      if comment_from ~= nil then
         lines[ii] = string.gsub(lines[ii], comment_from, comment_to )
       end
 
