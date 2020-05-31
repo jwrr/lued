@@ -445,6 +445,8 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * fixme - make comment highlighting filetype dependent
 * fixme - move line numbers from c to lua
 * feature - grep - search all open files. return selectable list of matches
+* feature - timestamp on save.
 
+--
 
 

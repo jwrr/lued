@@ -255,7 +255,7 @@ function lued.style_page(lines, first_line_of_page, row_offset)
     local line_style = styles.enable and styles.normal or ""
     local lnum_style = styles.enable and styles.line_number or ""
 
-    if ii==row_offset then
+    if false then -- ii==row_offset then
       local curs_style = styles.enable and styles.cursor or ""
       if curs_style~="" then
         lines[ii] = lued.psub(lines[ii], styles.inverse, curs_style, 1)

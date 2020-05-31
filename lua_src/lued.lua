@@ -111,6 +111,7 @@ SOFTWARE.
   
   
   require "base.align"
+  require "base.autocomplete"
   require "base.center_page"
   require "base.comments"
   require "base.ctags"

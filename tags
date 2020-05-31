@@ -245,6 +245,9 @@ arrayindex	src/lua/src/ltable.c	/^static int arrayindex (const TValue *key) {$/
 arrlen	src/carr/src/carr.c	/^uint32_t arrlen(const void* arr, uint32_t elem_siz/
 assignment	src/lua/src/lparser.c	/^static void assignment (LexState *ls, struct LHS_a/
 atomic	src/lua/src/lgc.c	/^static l_mem atomic (lua_State *L) {$/
+auto_complete_insert_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_insert_word()$/
+auto_complete_lookup_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_lookup_word()$/
+auto_complete_select_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_select_word()$/
 aux_close	src/lua/src/liolib.c	/^static int aux_close (lua_State *L) {$/
 aux_getn	src/lua/src/ltablib.c	/^#define aux_getn(L,n)	(luaL_checktype(L, n, LUA_TT/
 aux_lines	src/lua/src/liolib.c	/^static void aux_lines (lua_State *L, int toclose) /
@@ -1391,6 +1394,9 @@ lued.align_delimiter_selected	lua_src/base/align.lua	/^function lued.align_delim
 lued.align_selected	lua_src/base/align.lua	/^function lued.align_selected(dd)$/
 lued.align_start_of_next_line	lua_src/base/align.lua	/^function lued.align_start_of_next_line(dd)$/
 lued.alt_z_wrapper	lua_src/core/undo.lua	/^function lued.alt_z_wrapper(dd)$/
+lued.auto_complete_insert_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_insert_word()$/
+lued.auto_complete_lookup_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_lookup_word()$/
+lued.auto_complete_select_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_select_word()$/
 lued.bracket_paste_start	lua_src/core/insert.lua	/^function lued.bracket_paste_start(dd)$/
 lued.bracket_paste_stop	lua_src/core/insert.lua	/^function lued.bracket_paste_stop(dd)$/
 lued.bubble_line_down	lua_src/base/swap.lua	/^function lued.bubble_line_down(dd)$/
@@ -1574,6 +1580,7 @@ lued.lua.program	lua_src/plugins/lua.lua	/^function lued.lua.program()$/
 lued.lua.repeat_loop	lua_src/plugins/lua.lua	/^function lued.lua.repeat_loop()$/
 lued.lua.while_loop	lua_src/plugins/lua.lua	/^function lued.lua.while_loop()$/
 lued.make_line_bold_orig	lua_src/core/style.lua	/^function lued.make_line_bold_orig(lnum1,lnum2)$/
+lued.minmax	lua_src/base/autocomplete.lua	/^function lued.minmax(min, actual, max)$/
 lued.mouse_config	lua_src/base/mouse.lua	/^function lued.mouse_config(val)$/
 lued.mouse_event	lua_src/base/mouse.lua	/^function lued.mouse_event(str)$/
 lued.move_down_and_repeat	lua_src/core/move.lua	/^function lued.move_down_and_repeat(dd)$/
@@ -1839,6 +1846,7 @@ maxn	src/lua/src/ltablib.c	/^static int maxn (lua_State *L) {$/
 mem_is_zero	src/carr/src/carr.c	/^int mem_is_zero(const void* const ptr, uint32_t si/
 mem_query	src/lua/src/ltests.c	/^static int mem_query (lua_State *L) {$/
 min_expand	src/lua/src/lstrlib.c	/^static const char *min_expand (MatchState *ms, con/
+minmax	lua_src/base/autocomplete.lua	/^function lued.minmax(min, actual, max)$/
 mode	src/lua/src/ldo.c	626
 modinit	src/lua/src/loadlib.c	/^static void modinit (lua_State *L, const char *mod/
 mouse_config	lua_src/base/mouse.lua	/^function lued.mouse_config(val)$/
