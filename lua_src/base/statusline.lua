@@ -25,8 +25,9 @@ SOFTWARE.
 --]]
 
 
-function lued.display_status_in_lua(lua_mode)
-  lued.esc_clear_screen()
+function lued.display_status_in_lua(lua_mode,dd)
+  
+  local status_line = lued.esc_clear_screen(dd)
   set_sel_end(0)
   -- if not g_status_line_on then return end
   local id = get_fileid()
@@ -60,12 +61,15 @@ function lued.display_status_in_lua(lua_mode)
   local save_str = save_needed and "*" or " "
   local stay_selected_int = stay_selected and 1 or 0
 
-  local status_line = string.format(
+  status_line = status_line .. string.format(
           "%s - %s File (%d) %s%s Line: %d, Col: %d, Sel: %d Cmd: %s - sr=%d sc=%d er=%d ec=%d, staysel=%d\n",
           lued.version, mode_str, id, filename, save_str, row, col, sel_state, cmd_str, sel_sr, sel_sc, sel_er, sel_ec, stay_selected_int)
   status_line = string.sub(status_line,1,tcol)
   if g_status_line_reverse then
     status_line = lued.esc_rev(status_line)
+  end
+  if dd then -- don't display
+    return status_line
   end
   io.write(status_line)
 end

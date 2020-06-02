@@ -26,10 +26,14 @@ SOFTWARE.
 
 
 
-function lued.esc_clear_screen()
+function lued.esc_clear_screen(dd)
   local ESC = string.char(27)
   local ESC_CLR_ALL  = ESC .. "[2J"
   local ESC_GO_HOME  = ESC .. "[H"
+  local str = ESC_CLR_ALL .. ESC_GO_HOME
+  if dd then
+    return str
+  end
   io.write(ESC_CLR_ALL .. ESC_GO_HOME)
 end
 
@@ -43,8 +47,8 @@ end
 
 
 
-function lued.display_status_in_lua()
-  lued.esc_clear_screen()
+function lued.display_status_in_lua(lua_mode,dd)
+  return lued.esc_clear_screen(dd)
 end
 
 
@@ -110,7 +114,9 @@ end
 lued.g_first_col = 1
 
 function lued.display_page_in_lua(lua_mode, highlight_trailing_spaces)
-  lued.display_status_in_lua(lua_mode)
+  local dont_display = true
+  local status_line = lued.display_status_in_lua(lua_mode,dont_display)
+  status_line = status_line or ""
   local tr,tc = get_termsize()
   local prow,pcol = get_page_pos() -- FIXME -1 to adjust from c to lua
   local crow,ccol = get_cur_pos()
@@ -124,7 +130,7 @@ function lued.display_page_in_lua(lua_mode, highlight_trailing_spaces)
   -- text = lued.insert_line_numbers_orig(text)
   -- text = string.char(27) .. "[1m" .. text;
 
-  io.write (text)
+  io.write (status_line..text)
 end
 
 
