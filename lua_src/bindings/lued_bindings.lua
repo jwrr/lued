@@ -10,7 +10,7 @@
 --  set_repeatables(",alt_uu,")
 
 -- set_repeatables(",,")
-set_non_repeatables(",alt_ee,alt_EE,")
+set_non_repeatables(",alt_ee,alt_EE,alt_bb,alt_BB,")
 
 -- Pressing ALT plus KEY is the same as pressing ESC followed by KEY.
 -- This is a feature of terminals, not just LUED.

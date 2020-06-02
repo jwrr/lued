@@ -24,6 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
 
+lued.auto_complete = {}
+lued.auto_complete.full = {}
+lued.auto_complete.partial = {}
+
 
 -- called from ins_str
 function lued.auto_complete_insert_word()

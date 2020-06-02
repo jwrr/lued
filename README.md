@@ -446,7 +446,8 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * fixme - move line numbers from c to lua
 * feature - grep - search all open files. return selectable list of matches
 * feature - timestamp on save.
-
---
+* fixme - if moving away fro '()' then change to '('
+* fixme - ctrl+d if partial word selected the deselect/reselect
+* fixme - alt+bb/BB (got to bottom/Beginning). turn off autorepeat
 
 
