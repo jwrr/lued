@@ -441,13 +441,13 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * move goto_mark from c to lua
 
 * feature - custom script.  load commands (similar to relued). readme files. examples...
-* fixme - alt_cc doesn't work when selection is on.
-* fixme - make comment highlighting filetype dependent
+* fixme - alt_cc doesn't work when selection is on. - done
+* fixme - make comment highlighting filetype dependent - done
 * fixme - move line numbers from c to lua
 * feature - grep - search all open files. return selectable list of matches
 * feature - timestamp on save.
-* fixme - if moving away fro '()' then change to '('
-* fixme - ctrl+d if partial word selected the deselect/reselect
-* fixme - alt+bb/BB (got to bottom/Beginning). turn off autorepeat
+* feature - if moving away fro '()' then change to '('
+* fixme - ctrl+d if partial word selected the deselect/reselect - 
+* fixme - alt+bb/BB (got to bottom/Beginning). turn off autorepeat - done
 
 

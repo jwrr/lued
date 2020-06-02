@@ -55,6 +55,10 @@ end
 
 
 function lued.comment_selected(dd)
+  if lued.is_sel_on() then
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+    if sel_sr==sel_er then set_sel_off() end
+  end
   lued.foreach_selected(lued.comment, dd)
 end
 
@@ -77,6 +81,10 @@ end
 
 
 function lued.uncomment_selected(dd)
+  if lued.is_sel_on() then
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+    if sel_sr==sel_er then set_sel_off() end
+  end
   lued.foreach_selected(lued.uncomment, dd)
 end
 
