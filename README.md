@@ -450,4 +450,15 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * fixme - ctrl+d if partial word selected the deselect/reselect - 
 * fixme - alt+bb/BB (got to bottom/Beginning). turn off autorepeat - done
 
+* fixme - highlight keywords if not in comment
+* fixme - xxx_in_xxx. in matched, and shouldn't have
+* fixme - if string not closed, highlight to end of page
+* feature - multiline comments
+* feature - pipes: find | get_select | format | paste;
+*           grep rex1 * | grep_v rex2 | sed 's#abc#def#'
+* feature - grep, sed, awk
+* feature - embed real regex support. lua patterns are powerful but not what end-user expects
+* experimental - pforth
+* experimental   - speedup reading large files. slurp into large, then break into lines
 
+ 

@@ -249,6 +249,7 @@ alt_cd           = lued.cd_change_dir;          lued.hot("cd")  -- Change direct
 alt_ed           = set_edit_mode           lued.hot("ed")  -- Change to EDIT mode. You almost always want to be in EDIT mode.
 alt_help         = lued.open_file_bindings      lued.hot("lued.help")  -- Help. Open lued_bindings.lua
 alt_jj           = lued.join_lines              lued.hot("jj")  -- Similar to Sublime Ctrl+J. Join lines.
+alt_jw           = lued.set_join_wrap           lued.hot("jw")  -- set join wrap
 alt_ln           = lued.set_abs_line_numbers    lued.hot("ln")  -- show absolute line numbers
 alt_LN           = lued.clr_abs_line_numbers    lued.hot("LN")  -- hide absolute line numbers
 

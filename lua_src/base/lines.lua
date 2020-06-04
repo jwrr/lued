@@ -25,6 +25,43 @@ SOFTWARE.
 --]]
 
 
+function lued.wrap_line(wrap_col,wrap_delim,dd)
+  wrap_col = wrap_col or 60
+  wrap_delim = wrap_delim or " "
+  local dd2 = 1
+  lued.move_to_eol(dd2)
+  local r,c = get_cur_pos()
+  while c > wrap_col do
+    lued.move_left_n_words(dd2)
+    r,c = get_cur_pos()
+  end
+  lued.ins_string("\n",dd2)
+  if get_line_len() <= wrap_col then
+    lued.join_lines(wrap_delim,dd2)
+  end
+  lued.disp(dd)
+end
+
+
+lued.join_wrap_prompt_hist_id = lued.join_wrap_prompt_hist_id or lued.get_hist_id()
+lued.join_wrap_column = nil
+
+function lued.set_join_wrap(test_str,dd)
+  local default_str = ""
+  if lued.join_wrap_column then
+    default_str = " (default='..lued.join_wrap_column..')"
+  end
+  local prompt = "Wrap at column: "..default_str..": "
+  local hot=""
+  local test_str=""
+  local str = lued.prompt(find_prompt_hist_id, prompt, hot, test_str)
+  if str~=nil then
+    lued.join_wrap_column = tonumber(str)
+  end
+  lued.disp(dd)
+end
+
+
 function lued.join_lines(delim,n,dd)
   delim = delim or " "
   n = n or 1
@@ -44,26 +81,14 @@ function lued.join_lines(delim,n,dd)
     ins_str(delim,dd2);
     set_cur_pos(r,c)
   end
+
+  if lued.join_wrap_column then
+    lued.wrap_line(lued.join_wrap_column, " ", dd2)
+  end
   lued.disp(dd)
 end
 
 
-function lued.wrap_line(wrap_col,wrap_delim,dd)
-  wrap_col = wrap_col or 60
-  wrap_delim = wrap_delim or " "
-  local dd2 = 1
-  lued.move_to_eol(dd2)
-  local r,c = get_cur_pos()
-  while c > wrap_col do
-    lued.move_left_n_words(dd2)
-    r,c = get_cur_pos()
-  end
-  lued.ins_string("\n",dd2)
-  if get_line_len() <= wrap_col then
-    lued.join_lines(wrap_delim,dd2)
-  end
-  lued.disp(dd)
-end
 
 
 
