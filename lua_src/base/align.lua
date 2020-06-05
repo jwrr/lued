@@ -3,7 +3,7 @@
 function lued.align_start_of_next_line(dd)
   local dd2 = 1
   local ws1,ws1_len = lued.leading_ws()
-  lued.move_down_n_lines(1,dd2)
+  lued.move_down(dd2)
   lued.move_to_sol_classic(dd2)
   local ws2,ws2_len = lued.leading_ws()
   lued.del_char(ws2_len,dd2)
@@ -25,7 +25,7 @@ function lued.align_delimiter_of_next_line(delim, dd)
   local dd2 = 1
   local delim_pos1 = string.find( get_line(), g_align_delimiter_of_next_line, 1, true)
   if delim_pos1 then
-    lued.move_down_n_lines(1,dd2)
+    lued.move_down(dd2)
     local line = get_line() or ""
     local delim_pos2 = string.find( line, g_align_delimiter_of_next_line, 1, true)
     if delim_pos2 then
@@ -62,7 +62,7 @@ function lued.align_cur_char(dd)
   local dd2 = 1
   local cur_char = lued.get_char()
   local r1,c1 = get_cur_pos()
-  lued.move_down_n_lines(1,dd2)
+  lued.move_down(dd2)
   lued.move_to_sol_classic(dd2)
   found = lued.find_forward(cur_char,true,false,true,"",dd2)
   if not found then

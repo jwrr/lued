@@ -98,7 +98,7 @@ function lued.move_right_n_char(n,dd)
   for i=1,n do
     if lued.is_eof() then break end
     if lued.is_eol() then
-      lued.move_down_n_lines(1,dd2)
+      lued.move_down(dd2)
       lued.move_to_sol_classic(dd2)
     else
       local r,c = get_cur_pos()
@@ -401,7 +401,7 @@ function lued.move_to_eol(dd)
   local dd2 = 1
   if not lued.is_eof() then
     if lued.is_eol() then
-      lued.move_down_n_lines(1,dd2)
+      lued.move_down(dd2)
     end
     local r,c = get_cur_pos()
     local line_len = get_line_len()
@@ -434,7 +434,7 @@ function lued.move_down_and_repeat(dd)
     local prev_r, prev_c = g_prev_pos;
     local prev_cmd = get_last_cmd() or ""
     set_cur_pos(prev_r, prev_c);
-    lued.move_down_n_lines(1,dd2)
+    lued.move_down(dd2)
   end
   lued.disp(dd)
 end
@@ -509,10 +509,6 @@ function lued.skip_spaces_left(dd)
   end
   lued.disp(dd)
 end
-
-
-
-
 
 
 

@@ -39,14 +39,15 @@ function lued.join_lines(delim,dd)
   local dd2 = 1
   if lued.is_lastline() then lued.disp(dd) return end
 
+  local nex_is_blankline = lued.next_is_blankline()
   local next_is_blankcomment = lued.next_is_blankcomment()
-  if lued.next_is_blankline() or lued.next_is_blankcomment() then
+--   lued.disp() io.read()
+  if next_is_blankline or next_is_blankcomment then
     if lued.next_is_lastline() then lued.disp(dd) return end
     lued.move_down_n_lines(2,dd2)
     lued.disp(dd)
     return
   end
-
   local is_comment = lued.is_comment()
   local next_is_comment = lued.next_is_comment()
   local r,c = get_cur_pos()
@@ -82,7 +83,7 @@ function lued.wrap_line(dd)
   local line_len = get_line_len()
 
 
-  if get_line_len() < wrap_col then
+  if get_line_len() <= wrap_col then
     lued.join_lines(wrap_delim,dd2)
   end
   if get_line_len() <= wrap_col then lued.disp(dd) return end

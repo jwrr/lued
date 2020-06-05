@@ -48,7 +48,7 @@ function lued.comment(dd)
   if not lued.is_eol() then
     ins_str(" ",dd2)
   end
-  lued.move_down_n_lines(1,dd2)
+  lued.move_down(dd2)
   lued.move_to_sol_classic(dd2)
   lued.disp(dd)
 end
@@ -76,7 +76,7 @@ function lued.uncomment(dd)
     end
     lued.del_char(del_len,dd2)
   end
-  lued.move_down_n_lines(1,dd)
+  lued.move_down(dd)
 end
 
 
@@ -117,6 +117,7 @@ function lued.next_is_blankcomment()
     lued.uncomment(dd2)
     set_cur_pos(r+1,c)
     is_blank = lued.is_blankline()
+    lued.comment(dd2)
   end
   set_cur_pos(r,c)
   return is_blank

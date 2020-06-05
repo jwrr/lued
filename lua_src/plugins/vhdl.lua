@@ -115,7 +115,7 @@ function lued.vhdl.sel_entity(dd)
   if not lued.save_find_whole_word then
     lued.clr_find_whole_word(dd2)
   end
-  lued.move_down_n_lines(1, dd2)
+  lued.move_down(dd2)
   lued.sel_mark_to_cursor(dd2)
   lued.disp(dd)
 end
