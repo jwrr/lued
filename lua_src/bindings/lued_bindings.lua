@@ -111,6 +111,7 @@ alt_DS           = lued.del_sow                 lued.hot("DS") -- Delete spaces 
 alt_dd           = lued.del_word                lued.hot("dd") -- Delete word under cursor
 alt_dw           = lued.del_eow                 lued.hot("dw") -- Similar to Sublime Ctrl+KW
 alt_DW           = lued.del_sow                 lued.hot("DW") -- Similar to Sublime Ctrl+Backspace
+alt_x            = lued.cut_line                               -- Cut multiple lines alt+x42<enter>
 
 alt_pl           = lued.paste_line_after        lued.hot("pl") -- Paste Line after current line
 alt_PL           = lued.paste_line_before       lued.hot("PL") -- Paste Line before current line
