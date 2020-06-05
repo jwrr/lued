@@ -249,7 +249,6 @@ alt_cd           = lued.cd_change_dir;          lued.hot("cd")  -- Change direct
 alt_ed           = set_edit_mode           lued.hot("ed")  -- Change to EDIT mode. You almost always want to be in EDIT mode.
 alt_help         = lued.open_file_bindings      lued.hot("lued.help")  -- Help. Open lued_bindings.lua
 alt_jj           = lued.join_lines              lued.hot("jj")  -- Similar to Sublime Ctrl+J. Join lines.
-alt_jw           = lued.set_join_wrap           lued.hot("jw")  -- set join wrap
 alt_ln           = lued.set_abs_line_numbers    lued.hot("ln")  -- show absolute line numbers
 alt_LN           = lued.clr_abs_line_numbers    lued.hot("LN")  -- hide absolute line numbers
 
@@ -259,6 +258,7 @@ alt_RLN          = lued.clr_rel_line_numbers    lued.hot("RLN")  -- hide relativ
 alt_ls           = lued.ls_dir                  lued.hot("ls")  -- unix ls command. dos dir command
 alt_LU           = set_lua_mode            lued.hot("LU")  -- Change to LUA mode. You rarely want to be in lua mode.
 alt_qq           = lued.wrap_line               lued.hot("qq")  -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
+alt_QQ           = lued.set_wrap_col            lued.hot("QQ")  -- set join wrap
 alt_reinit       = lued.reinit                             -- Reload lued script
 alt_review       = lued.toggle_review_mode                 -- Review mode prevents saving file
 alt_refresh      = lued.reload_file                        -- Reload current file

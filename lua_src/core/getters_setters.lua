@@ -267,6 +267,25 @@ function lued.get_line_comment(filename)
 end
 
 
+function lued.set_number(prompt_id, prompt, num)
+  local default_str = ""
+  if lued.wrap_col then
+    default_str = " (default='"..tostring(num).."')"
+  end
+  local prompt = prompt..default_str..": "
+  local hot=""
+  local test_str=""
+  local str = lued.prompt(prompt_id, prompt, hot, test_str)
+  if str~=nil then
+    local tmp = tonumber(str)
+    if tmp~=nil then num = tmp end
+  end
+  return num
+end
+
+
+
+
   
 
 

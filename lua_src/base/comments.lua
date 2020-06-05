@@ -89,5 +89,41 @@ function lued.uncomment_selected(dd)
 end
 
 
+function lued.is_comment()
+  local line = get_line()
+  local retval =  string.find(line, lued.get_line_comment(), 1, true) == 1
+  return retval 
+end
+
+
+function lued.next_is_comment()
+  if lued.is_lastline() then return false end
+  local r,c = get_cur_pos()
+  set_cur_pos(r+1,c)
+  local is_comment = lued.is_comment()
+  set_cur_pos(r,c)
+  return is_comment
+end
+
+
+function lued.next_is_blankcomment()
+  local dd2 = 1
+  if lued.is_lastline() then return false end
+  local r,c = get_cur_pos()
+  set_cur_pos(r+1,c)
+  local is_comment = lued.is_comment()
+  local is_blank = false
+  if is_comment then
+    lued.uncomment(dd2)
+    set_cur_pos(r+1,c)
+    is_blank = lued.is_blankline()
+  end
+  set_cur_pos(r,c)
+  return is_blank
+end
+
+
+
+
 
 
