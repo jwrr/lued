@@ -27,13 +27,13 @@ SOFTWARE.
 
 function lued.ins_str_after(str, fstr, r, c, dd)
   local dd2 = 1
-  lued.move_to(r,c)
+  lued.move_to(r,c,dd2)
   local r1,c1 = lued.get_cur_pos(dd2)
   local indent_size = c1 - 1
   local spaces = string.rep(" ", indent_size)
   local indented_str = string.gsub(str, "\n", "\n"..spaces)
   lued.ins_str(indented_str,dd2)
-  lued.set_cur_pos(r,c,dd2)
+  lued.set_cur_pos(r1,c1,dd2)
   if fstr and #fstr>0 then
     lued.find_forward(fstr, dd2)
   end

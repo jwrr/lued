@@ -30,12 +30,12 @@ SOFTWARE.
 
 function lued.move_to(r,c,dd)
   local dd2 = 1
-  local r1,c1 = lued.get_cur_pos(dd2)
+  local r1,c1 = get_cur_pos()
   r = r or r1
   r = r>0 and r or r1
   c = c or c1
   c = c>0 and c or c1
-  lued.set_cur_pos(r,c,dd2)
+  set_cur_pos(r,c)
   lued.disp(dd)
 end
 
