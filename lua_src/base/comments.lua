@@ -48,10 +48,16 @@ function lued.comment(dd)
   if not lued.is_eol() then
     ins_str(" ",dd2)
   end
-  lued.move_down(dd2)
-  lued.move_to_sol_classic(dd2)
   lued.disp(dd)
 end
+
+
+function lued.comment_move_down(dd)
+  local dd2 = 1
+  lued.comment(dd2)
+  lued.move_down(dd2)
+  lued.move_to_sol_classic(dd2)
+end  
 
 
 function lued.comment_selected(dd)
@@ -59,7 +65,7 @@ function lued.comment_selected(dd)
     local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
     if sel_sr==sel_er then set_sel_off() end
   end
-  lued.foreach_selected(lued.comment, dd)
+  lued.foreach_selected(lued.comment_move_down, dd)
 end
 
 
@@ -76,16 +82,20 @@ function lued.uncomment(dd)
     end
     lued.del_char(del_len,dd2)
   end
-  lued.move_down(dd)
 end
 
+function lued.uncomment_move_down(dd)
+  local dd2 = 1
+  lued.uncomment(dd2)
+  lued.move_down(dd)
+end
 
 function lued.uncomment_selected(dd)
   if lued.is_sel_on() then
     local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
     if sel_sr==sel_er then set_sel_off() end
   end
-  lued.foreach_selected(lued.uncomment, dd)
+  lued.foreach_selected(lued.uncomment_move_down, dd)
 end
 
 
@@ -93,6 +103,24 @@ function lued.is_comment()
   local line = get_line()
   local retval =  string.find(line, lued.get_line_comment(), 1, true) == 1
   return retval 
+end
+
+
+function lued.is_blankcomment()
+  local dd2 = 1
+  if lued.is_lastline() then return false end
+  local r,c = get_cur_pos()
+  local is_comment = lued.is_comment()
+  local is_blank = false
+  local current_line = get_line()
+  if is_comment then
+    lued.uncomment(dd2)
+    current_line = get_line()
+    is_blank = lued.is_blankline()
+    lued.comment(dd2)
+  end
+  set_cur_pos(r,c)
+  return is_blank, current_line
 end
 
 
@@ -113,14 +141,15 @@ function lued.next_is_blankcomment()
   set_cur_pos(r+1,c)
   local is_comment = lued.is_comment()
   local is_blank = false
+  local next_line = get_line()
   if is_comment then
     lued.uncomment(dd2)
-    set_cur_pos(r+1,c)
+    next_line = get_line()
     is_blank = lued.is_blankline()
     lued.comment(dd2)
   end
   set_cur_pos(r,c)
-  return is_blank
+  return is_blank, next_line
 end
 
 

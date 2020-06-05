@@ -25,6 +25,20 @@ SOFTWARE.
 --]]
 
 
+
+-- Names of chickens, in no particular order, or perhaps a rank order of an underfined metric.
+-- the
+-- quick
+-- brown
+-- fox
+-- * Vlad the Impaler prowled the outer garden for unsuspecting victims that unwittingly entered into the killing zone.
+-- * Sweetie
+-- * Comrad
+-- * Monk aka Orayoh
+-- * Yesterday's Jam
+-- If I had a hammer, I'd hammer in the morning. I'd hammer in the evening all over this land 
+
+
 function lued.set_wrap_col(dd)
   local prompt = "Wrap at column"
   lued.set_wrap_prompt_id = lued.set_wrap_prompt_id or lued.get_hist_id()
@@ -39,12 +53,24 @@ function lued.join_lines(delim,dd)
   local dd2 = 1
   if lued.is_lastline() then lued.disp(dd) return end
 
-  local nex_is_blankline = lued.next_is_blankline()
-  local next_is_blankcomment = lued.next_is_blankcomment()
+
+  local is_blankline = lued.is_blankline()
+  local is_blankcomment, current_line = lued.is_blankcomment()
+  local first_char = string.sub(current_line, 1, 1) or " "
+  local dont_merge = string.find(" *+-", first_char, 1, true)
+  
+  local next_is_blankline = lued.next_is_blankline()
+  local next_is_blankcomment, next_line = lued.next_is_blankcomment()
+  local next_first_char = string.sub(next_line, 1, 1) or " "
+  local dont_merge_next = string.find(" *+-", next_first_char, 1, true)
 --   lued.disp() io.read()
   if next_is_blankline or next_is_blankcomment then
     if lued.next_is_lastline() then lued.disp(dd) return end
     lued.move_down_n_lines(2,dd2)
+    lued.disp(dd)
+    return
+  elseif dont_merge or dont_merge_next then
+    lued.move_down(dd2)
     lued.disp(dd)
     return
   end
@@ -59,7 +85,7 @@ function lued.join_lines(delim,dd)
   end
   
   if is_comment and next_is_comment then
-    lued.move_down_n_lines(1,dd2)
+    lued.move_down(dd2)
     lued.uncomment(dd2)
     lued.move_up_n_lines(1,dd2)
     lued.move_to_eol(dd2)
@@ -108,7 +134,7 @@ function lued.wrap_line(dd)
     end
     
   else
-    lued.move_down_n_lines(1,dd2)
+    lued.move_down(dd2)
   end
   lued.disp(dd)
 end

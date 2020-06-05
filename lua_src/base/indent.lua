@@ -216,7 +216,7 @@ function lued.indent1(n, ch, goto_next, dd)
   set_cur_pos(r,1)
   ins_str(spaces,dd2)
   if goto_next then
-    lued.move_down_n_lines(1,dd2)
+    lued.move_down(dd2)
     lued.move_to_sol_classic(dd2)
   else
     set_cur_pos(r,c+n)
@@ -236,7 +236,7 @@ function lued.unindent1(n, ch, goto_next, dd)
   set_cur_pos(r,1)
   lued.del_char(n,dd2)
   if goto_next then
-    lued.move_down_n_lines(1,dd2)
+    lued.move_down(dd2)
     lued.move_to_sol_classic(dd2)
   else
     set_cur_pos(r,c-n)
@@ -306,7 +306,7 @@ function lued.unindent_selected(dd)
     local ws, ws_len = lued.leading_ws()
     if ws_len < g_indent_size then
       lued.del_spaces(dd2)
-      lued.move_down_n_lines(1,dd2)
+      lued.move_down(dd2)
     else
       lued.unindent1(g_indent_size, g_indent_char, goto_next_line, dd2)
     end

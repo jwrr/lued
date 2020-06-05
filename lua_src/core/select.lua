@@ -109,7 +109,7 @@ function lued.sel_word(dd)
     set_sel_start()
   else
     if lued.is_blankline() then
-      lued.move_down_n_lines(1,dd2)
+      lued.move_down(dd2)
     end
     lued.move_right_n_words(1, dd2)
   end

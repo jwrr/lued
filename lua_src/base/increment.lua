@@ -40,7 +40,7 @@ function lued.incr(step_size, dd)
   local num = tonumber( tmp_str ) + step_size
   local num_str = tostring ( num )
   set_cur_pos(r,c)
-  lued.move_down_n_lines(1,dd2)
+  lued.move_down(dd2)
   lued.sel_number(dd2)
   if lued.is_sel_on() then
     ins_str(num_str,dd2)

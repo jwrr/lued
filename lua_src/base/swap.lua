@@ -36,7 +36,7 @@ end
 function lued.swap_line_with_next(dd)
   local dd2 = 1
   lued.cut_line(dd2)
-  lued.move_down_n_lines(1,dd2)
+  lued.move_down(dd2)
   lued.paste_line_before(dd2)
   lued.move_up_n_lines(2,dd)
 end
@@ -69,7 +69,7 @@ end
 function lued.bubble_line_down(dd)
   local dd2 = 1
   lued.swap_line_with_next(dd2)
-  lued.move_down_n_lines(1,dd)
+  lued.move_down(dd)
 end
 
 
@@ -78,7 +78,7 @@ function lued.bubble_selected_lines_down(dd)
   if lued.is_sel_on() then
     local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
     lued.global_cut(dd2)
-    lued.move_down_n_lines(1,dd2)
+    lued.move_down(dd2)
     lued.paste_line_before(dd)
     lued.set_sel_from_to(sel_sr+1, 1, sel_er+1, 1, dd)
     lued.disp(dd)

@@ -426,6 +426,7 @@ codestring	src/lua/src/lparser.c	/^static void codestring (LexState *ls, expdesc
 collectargs	src/lua/src/lua.c	/^static int collectargs (char **argv, int *args) {$/
 collectvalidlines	src/lua/src/ldebug.c	/^static void collectvalidlines (lua_State *L, Closu/
 comment	lua_src/base/comments.lua	/^function lued.comment(dd)$/
+comment_move_down	lua_src/base/comments.lua	/^function lued.comment_move_down(dd)$/
 comment_selected	lua_src/base/comments.lua	/^function lued.comment_selected(dd)$/
 computesizes	src/lua/src/ltable.c	/^static int computesizes (int nums[], int *narray) /
 cond	src/lua/src/lparser.c	/^static int cond (LexState *ls) {$/
@@ -462,7 +463,8 @@ cursor_home	src/carr/src/carr_readline.c	/^static void cursor_home(carr_t* line)
 cursor_left	src/carr/src/carr_readline.c	/^static void cursor_left(carr_t* line, size_t n) {$/
 cursor_right	src/carr/src/carr_readline.c	/^static void cursor_right(carr_t* line, size_t n) {/
 cut	lua_src/core/copy_paste.lua	/^function lued.cut(dd)$/
-cut_line	lua_src/core/copy_paste.lua	/^function lued.cut_line(n,dd)$/
+cut_line	lua_src/core/copy_paste.lua	/^function lued.cut_line(dd)$/
+cut_n_lines	lua_src/core/copy_paste.lua	/^function lued.cut_n_lines(n,dd)$/
 d	src/lua/src/ltests.c	82
 d2s	src/lua/src/ltests.c	/^static int d2s (lua_State *L) {$/
 data	src/lua/src/ldump.c	21
@@ -521,8 +523,8 @@ dischargejpc	src/lua/src/lcode.c	/^static void dischargejpc (FuncState *fs) {$/
 disp	lua_src/core/display.lua	/^function lued.disp(dd,center)$/
 display_page_in_lua	lua_src/core/display.lua	/^function lued.display_page_in_lua(lua_mode, highli/
 display_page_in_lua_depricated	lua_src/core/display.lua	/^function lued.display_page_in_lua_depricated(lua_m/
-display_status_in_lua	lua_src/base/statusline.lua	/^function lued.display_status_in_lua(lua_mode)$/
-display_status_in_lua	lua_src/core/display.lua	/^function lued.display_status_in_lua()$/
+display_status_in_lua	lua_src/base/statusline.lua	/^function lued.display_status_in_lua(lua_mode,dd)$/
+display_status_in_lua	lua_src/core/display.lua	/^function lued.display_status_in_lua(lua_mode,dd)$/
 docall	src/lua/src/lua.c	/^static int docall (lua_State *L, int narg, int nre/
 dofile	src/lua/src/lua.c	/^static int dofile (lua_State *L, const char *name)/
 dofilecont	src/lua/src/lbaselib.c	/^static int dofilecont (lua_State *L) {$/
@@ -539,6 +541,7 @@ dotty	src/lua/src/lua.c	/^static void dotty (lua_State *L) {$/
 dummynode	src/lua/src/ltable.c	67
 dummynode_	src/lua/src/ltable.c	71
 duplicate_line	lua_src/core/copy_paste.lua	/^function lued.duplicate_line(dd)$/
+duplicate_n_lines	lua_src/core/copy_paste.lua	/^function lued.duplicate_n_lines(n,dd)$/
 dyd	src/lua/src/ldo.c	625
 end_capture	src/lua/src/lstrlib.c	/^static const char *end_capture (MatchState *ms, co/
 enterblock	src/lua/src/lparser.c	/^static void enterblock (FuncState *fs, BlockCnt *b/
@@ -549,7 +552,7 @@ error	src/lua/src/lundump.c	/^static l_noret error(LoadState* S, const char* why
 error_expected	src/lua/src/lparser.c	/^static l_noret error_expected (LexState *ls, int t/
 errorlimit	src/lua/src/lparser.c	/^static l_noret errorlimit (FuncState *fs, int limi/
 esc_append	src/carr/src/carr_readline.c	/^static void esc_append(char* str, size_t* i, char /
-esc_clear_screen	lua_src/core/display.lua	/^function lued.esc_clear_screen()$/
+esc_clear_screen	lua_src/core/display.lua	/^function lued.esc_clear_screen(dd)$/
 esc_rev	lua_src/core/display.lua	/^function lued.esc_rev(str)$/
 escape_magic_char	lua_src/core/style.lua	/^function lued.escape_magic_char(str)$/
 escerror	src/lua/src/llex.c	/^static void escerror (LexState *ls, int *c, int n,/
@@ -831,7 +834,9 @@ io_type	src/lua/src/liolib.c	/^static int io_type (lua_State *L) {$/
 io_write	src/lua/src/liolib.c	/^static int io_write (lua_State *L) {$/
 iolib	src/lua/src/liolib.c	590
 ipairsaux	src/lua/src/lbaselib.c	/^static int ipairsaux (lua_State *L) {$/
+is_blankcomment	lua_src/base/comments.lua	/^function lued.is_blankcomment()$/
 is_blankline	lua_src/core/booleans.lua	/^function lued.is_blankline(line)$/
+is_comment	lua_src/base/comments.lua	/^function lued.is_comment()$/
 is_digit	lua_src/core/booleans.lua	/^function lued.is_digit(ch)$/
 is_dir	lua_src/core/booleans.lua	/^function lued.is_dir(filename)$/
 is_empty	lua_src/core/booleans.lua	/^function lued.is_empty(str)$/
@@ -871,7 +876,7 @@ isnumeral	src/lua/src/lcode.c	/^static int isnumeral(expdesc *e) {$/
 ispseudo	src/lua/src/lapi.c	/^#define ispseudo(i)		((i) <= LUA_REGISTRYINDEX)$/
 isstackindex	src/lua/src/lapi.c	/^#define isstackindex(i, o)	(isvalid(o) && !ispseud/
 isvalid	src/lua/src/lapi.c	/^#define isvalid(o)	((o) != luaO_nilobject)$/
-join_lines	lua_src/base/lines.lua	/^function lued.join_lines(delim,n,dd)$/
+join_lines	lua_src/base/wrap.lua	/^function lued.join_lines(delim,dd)$/
 jump_back	lua_src/core/find.lua	/^function lued.jump_back(jump_back_stack, jump_forw/
 jump_forward	lua_src/core/find.lua	/^function lued.jump_forward(jump_back_stack, jump_f/
 jumponcond	src/lua/src/lcode.c	/^static int jumponcond (FuncState *fs, expdesc *e, /
@@ -1415,6 +1420,7 @@ lued.clr_find_whole_word	lua_src/core/find.lua	/^function lued.clr_find_whole_wo
 lued.clr_rel_line_numbers	lua_src/base/linenumbers.lua	/^function lued.clr_rel_line_numbers(dd)$/
 lued.clr_sb_files	lua_src/base/sidebar.lua	/^function lued.clr_sb_files(dd)$/
 lued.comment	lua_src/base/comments.lua	/^function lued.comment(dd)$/
+lued.comment_move_down	lua_src/base/comments.lua	/^function lued.comment_move_down(dd)$/
 lued.comment_selected	lua_src/base/comments.lua	/^function lued.comment_selected(dd)$/
 lued.copy	lua_src/core/copy_paste.lua	/^function lued.copy(dd)$/
 lued.copy_eol	lua_src/core/copy_paste.lua	/^function lued.copy_eol(dd)$/
@@ -1427,7 +1433,8 @@ lued.ctag_move_back_from_tag	lua_src/base/ctags.lua	/^function lued.ctag_move_ba
 lued.ctag_move_to_tag	lua_src/base/ctags.lua	/^function lued.ctag_move_to_tag(dd)$/
 lued.ctag_read_file	lua_src/base/ctags.lua	/^function lued.ctag_read_file(tagfile, dd)$/
 lued.cut	lua_src/core/copy_paste.lua	/^function lued.cut(dd)$/
-lued.cut_line	lua_src/core/copy_paste.lua	/^function lued.cut_line(n,dd)$/
+lued.cut_line	lua_src/core/copy_paste.lua	/^function lued.cut_line(dd)$/
+lued.cut_n_lines	lua_src/core/copy_paste.lua	/^function lued.cut_n_lines(n,dd)$/
 lued.dbg_prompt	lua_src/core/prompt.lua	/^function lued.dbg_prompt(dbg_str)$/
 lued.decr	lua_src/base/increment.lua	/^function lued.decr(step_size,dd)$/
 lued.decrst	lua_src/core/terminal.lua	/^function lued.decrst(val)$/
@@ -1455,11 +1462,12 @@ lued.del_word	lua_src/core/delete.lua	/^function lued.del_word(n,dd)$/
 lued.disp	lua_src/core/display.lua	/^function lued.disp(dd,center)$/
 lued.display_page_in_lua	lua_src/core/display.lua	/^function lued.display_page_in_lua(lua_mode, highli/
 lued.display_page_in_lua_depricated	lua_src/core/display.lua	/^function lued.display_page_in_lua_depricated(lua_m/
-lued.display_status_in_lua	lua_src/base/statusline.lua	/^function lued.display_status_in_lua(lua_mode)$/
-lued.display_status_in_lua	lua_src/core/display.lua	/^function lued.display_status_in_lua()$/
+lued.display_status_in_lua	lua_src/base/statusline.lua	/^function lued.display_status_in_lua(lua_mode,dd)$/
+lued.display_status_in_lua	lua_src/core/display.lua	/^function lued.display_status_in_lua(lua_mode,dd)$/
 lued.dont_use	lua_src/core/hotkeys.lua	/^function lued.dont_use()$/
 lued.duplicate_line	lua_src/core/copy_paste.lua	/^function lued.duplicate_line(dd)$/
-lued.esc_clear_screen	lua_src/core/display.lua	/^function lued.esc_clear_screen()$/
+lued.duplicate_n_lines	lua_src/core/copy_paste.lua	/^function lued.duplicate_n_lines(n,dd)$/
+lued.esc_clear_screen	lua_src/core/display.lua	/^function lued.esc_clear_screen(dd)$/
 lued.esc_rev	lua_src/core/display.lua	/^function lued.esc_rev(str)$/
 lued.escape_magic_char	lua_src/core/style.lua	/^function lued.escape_magic_char(str)$/
 lued.exactly_one_file_matches	lua_src/core/os.lua	/^function lued.exactly_one_file_matches(glob)$/
@@ -1540,7 +1548,9 @@ lued.insert_line_numbers_orig	lua_src/base/linenumbers.lua	/^function lued.inser
 lued.insert_tab	lua_src/core/insert.lua	/^function lued.insert_tab(dd)$/
 lued.insert_tab_classic	lua_src/core/insert.lua	/^function lued.insert_tab_classic(dd)$/
 lued.insert_tab_selected	lua_src/core/insert.lua	/^function lued.insert_tab_selected(dd)$/
+lued.is_blankcomment	lua_src/base/comments.lua	/^function lued.is_blankcomment()$/
 lued.is_blankline	lua_src/core/booleans.lua	/^function lued.is_blankline(line)$/
+lued.is_comment	lua_src/base/comments.lua	/^function lued.is_comment()$/
 lued.is_digit	lua_src/core/booleans.lua	/^function lued.is_digit(ch)$/
 lued.is_dir	lua_src/core/booleans.lua	/^function lued.is_dir(filename)$/
 lued.is_empty	lua_src/core/booleans.lua	/^function lued.is_empty(str)$/
@@ -1562,7 +1572,7 @@ lued.is_sol	lua_src/core/booleans.lua	/^function lued.is_sol()$/
 lued.is_sow	lua_src/core/booleans.lua	/^function lued.is_sow()$/
 lued.is_space	lua_src/core/booleans.lua	/^function lued.is_space(line,pos)$/
 lued.is_word	lua_src/core/booleans.lua	/^function lued.is_word(line,pos)$/
-lued.join_lines	lua_src/base/lines.lua	/^function lued.join_lines(delim,n,dd)$/
+lued.join_lines	lua_src/base/wrap.lua	/^function lued.join_lines(delim,dd)$/
 lued.jump_back	lua_src/core/find.lua	/^function lued.jump_back(jump_back_stack, jump_forw/
 lued.jump_forward	lua_src/core/find.lua	/^function lued.jump_forward(jump_back_stack, jump_f/
 lued.leading_ws	lua_src/core/lued_lib.lua	/^function lued.leading_ws()$/
@@ -1583,6 +1593,7 @@ lued.make_line_bold_orig	lua_src/core/style.lua	/^function lued.make_line_bold_o
 lued.minmax	lua_src/base/autocomplete.lua	/^function lued.minmax(min, actual, max)$/
 lued.mouse_config	lua_src/base/mouse.lua	/^function lued.mouse_config(val)$/
 lued.mouse_event	lua_src/base/mouse.lua	/^function lued.mouse_event(str)$/
+lued.move_down	lua_src/core/move.lua	/^function lued.move_down(dd)$/
 lued.move_down_and_repeat	lua_src/core/move.lua	/^function lued.move_down_and_repeat(dd)$/
 lued.move_down_n_lines	lua_src/core/move.lua	/^function lued.move_down_n_lines(n,dd)$/
 lued.move_down_n_pages	lua_src/core/move.lua	/^function lued.move_down_n_pages(n,dd)$/
@@ -1591,10 +1602,11 @@ lued.move_halfsy_right	lua_src/core/move.lua	/^function lued.move_halfsy_right(d
 lued.move_left_fast	lua_src/core/move.lua	/^function lued.move_left_fast(dd)$/
 lued.move_left_n_char	lua_src/core/move.lua	/^function lued.move_left_n_char(n,dd)$/
 lued.move_left_n_words	lua_src/core/move.lua	/^function lued.move_left_n_words(n,dd)$/
-lued.move_left_n_words	lua_src/core/move.lua	/^function lued.move_left_n_words(n,dd)$/
+lued.move_left_word	lua_src/core/move.lua	/^function lued.move_left_word(dd)$/
 lued.move_right_fast	lua_src/core/move.lua	/^function lued.move_right_fast(dd)$/
 lued.move_right_n_char	lua_src/core/move.lua	/^function lued.move_right_n_char(n,dd)$/
 lued.move_right_n_words	lua_src/core/move.lua	/^function lued.move_right_n_words(n,dd)$/
+lued.move_right_word	lua_src/core/move.lua	/^function lued.move_right_word(dd)$/
 lued.move_to	lua_src/core/move.lua	/^function lued.move_to(r,c,dd)$/
 lued.move_to_eol	lua_src/core/move.lua	/^function lued.move_to_eol(dd)$/
 lued.move_to_first_line	lua_src/core/move.lua	/^function lued.move_to_first_line(dd)$/
@@ -1605,10 +1617,15 @@ lued.move_to_sol_classic	lua_src/core/move.lua	/^function lued.move_to_sol_class
 lued.move_up_n_lines	lua_src/core/move.lua	/^function lued.move_up_n_lines(n,dd)$/
 lued.move_up_n_pages	lua_src/core/move.lua	/^function lued.move_up_n_pages(n,dd)$/
 lued.new_file	lua_src/core/files.lua	/^function lued.new_file(filename, dd)$/
+lued.next_is_blankcomment	lua_src/base/comments.lua	/^function lued.next_is_blankcomment()$/
+lued.next_is_blankline	lua_src/core/booleans.lua	/^function lued.next_is_blankline()$/
+lued.next_is_comment	lua_src/base/comments.lua	/^function lued.next_is_comment()$/
+lued.next_is_lastline	lua_src/core/booleans.lua	/^function lued.next_is_lastline()$/
 lued.next_is_other	lua_src/core/booleans.lua	/^function lued.next_is_other()$/
 lued.next_is_space	lua_src/core/booleans.lua	/^function lued.next_is_space()$/
 lued.next_is_word	lua_src/core/booleans.lua	/^function lued.next_is_word()$/
 lued.nohot	lua_src/core/hotkeys.lua	/^function lued.nohot(key, dd)$/
+lued.noop	lua_src/core/display.lua	/^function lued.noop (dd)$/
 lued.open_file	lua_src/core/files.lua	/^function lued.open_file(filenames,dd)$/
 lued.open_file_bindings	lua_src/core/files.lua	/^function lued.open_file_bindings(dd)$/
 lued.open_filelist	lua_src/core/files.lua	/^function lued.open_filelist(filelist,dd)$/
@@ -1697,6 +1714,7 @@ lued.set_move_right_n_char	lua_src/core/move.lua	/^function lued.set_move_right_
 lued.set_move_up_n_lines	lua_src/core/move.lua	/^function lued.set_move_up_n_lines(val,dd)$/
 lued.set_named_mark	lua_src/base/markers.lua	/^function lued.set_named_mark(dd)$/
 lued.set_nameless_mark	lua_src/base/markers.lua	/^function lued.set_nameless_mark(dd)$/
+lued.set_number	lua_src/core/getters_setters.lua	/^function lued.set_number(prompt_id, prompt, num)$/
 lued.set_overtype	lua_src/core/getters_setters.lua	/^function lued.set_overtype(val,dd)$/
 lued.set_page_offset_percent	lua_src/base/center_page.lua	/^function lued.set_page_offset_percent(offset,dd)$/
 lued.set_pagesize	lua_src/core/getters_setters.lua	/^function lued.set_pagesize(val,dd)$/
@@ -1707,6 +1725,7 @@ lued.set_scope_indent	lua_src/base/indent.lua	/^function lued.set_scope_indent(v
 lued.set_sel_from_to	lua_src/core/select.lua	/^function lued.set_sel_from_to(sel_sr,sel_sc,sel_er/
 lued.set_style	lua_src/core/style.lua	/^function lued.set_style(fg,bg,decorations)$/
 lued.set_tab_size	lua_src/core/getters_setters.lua	/^function lued.set_tab_size(val,dd)$/
+lued.set_wrap_col	lua_src/base/wrap.lua	/^function lued.set_wrap_col(dd)$/
 lued.show_colors	lua_src/core/style.lua	/^function lued.show_colors()$/
 lued.show_keystroke_hist	lua_src/core/replay.lua	/^function lued.show_keystroke_hist(prompt)$/
 lued.show_list	lua_src/core/replay.lua	/^function lued.show_list(list,id,prompt)$/
@@ -1741,6 +1760,7 @@ lued.toggle_review_mode	lua_src/core/files.lua	/^function lued.toggle_review_mod
 lued.toggle_show_trailing_spaces	lua_src/core/getters_setters.lua	/^function lued.toggle_show_trailing_spaces(dd)$/
 lued.toggle_top	lua_src/core/move.lua	/^function lued.toggle_top(dd)$/
 lued.uncomment	lua_src/base/comments.lua	/^function lued.uncomment(dd)$/
+lued.uncomment_move_down	lua_src/base/comments.lua	/^function lued.uncomment_move_down(dd)$/
 lued.uncomment_selected	lua_src/base/comments.lua	/^function lued.uncomment_selected(dd)$/
 lued.undo_cmd	lua_src/core/undo.lua	/^function lued.undo_cmd(dd)$/
 lued.unindent1	lua_src/base/indent.lua	/^function lued.unindent1(n, ch, goto_next, dd)$/
@@ -1774,7 +1794,7 @@ lued.vhdl.unsigned	lua_src/plugins/vhdl.lua	/^function lued.vhdl.unsigned()$/
 lued.vhdl.unsigned_resize	lua_src/plugins/vhdl.lua	/^function lued.vhdl.unsigned_resize() lued.vhdl.res/
 lued.word_end	lua_src/core/move.lua	/^function lued.word_end(dd)$/
 lued.word_start	lua_src/core/select.lua	/^function lued.word_start(dd)$/
-lued.wrap_line	lua_src/base/lines.lua	/^function lued.wrap_line(wrap_col,wrap_delim,dd)$/
+lued.wrap_line	lua_src/base/wrap.lua	/^function lued.wrap_line(dd)$/
 lued_args	src/lued.c	/^static int lued_args(int argc, char** argv, carr_t/
 lued_atexit	src/lued.c	/^void lued_atexit() {$/
 lued_atstart	src/lued.c	/^void lued_atstart() {$/
@@ -1851,6 +1871,7 @@ mode	src/lua/src/ldo.c	626
 modinit	src/lua/src/loadlib.c	/^static void modinit (lua_State *L, const char *mod/
 mouse_config	lua_src/base/mouse.lua	/^function lued.mouse_config(val)$/
 mouse_event	lua_src/base/mouse.lua	/^function lued.mouse_event(str)$/
+move_down	lua_src/core/move.lua	/^function lued.move_down(dd)$/
 move_down_and_repeat	lua_src/core/move.lua	/^function lued.move_down_and_repeat(dd)$/
 move_down_n_lines	lua_src/core/move.lua	/^function lued.move_down_n_lines(n,dd)$/
 move_down_n_pages	lua_src/core/move.lua	/^function lued.move_down_n_pages(n,dd)$/
@@ -1859,11 +1880,12 @@ move_halfsy_right	lua_src/core/move.lua	/^function lued.move_halfsy_right(dd)$/
 move_left_fast	lua_src/core/move.lua	/^function lued.move_left_fast(dd)$/
 move_left_n_char	lua_src/core/move.lua	/^function lued.move_left_n_char(n,dd)$/
 move_left_n_words	lua_src/core/move.lua	/^function lued.move_left_n_words(n,dd)$/
-move_left_n_words	lua_src/core/move.lua	/^function lued.move_left_n_words(n,dd)$/
+move_left_word	lua_src/core/move.lua	/^function lued.move_left_word(dd)$/
 move_marks	src/lued.c	/^static void move_marks(lued_t* session_p, uint32_t/
 move_right_fast	lua_src/core/move.lua	/^function lued.move_right_fast(dd)$/
 move_right_n_char	lua_src/core/move.lua	/^function lued.move_right_n_char(n,dd)$/
 move_right_n_words	lua_src/core/move.lua	/^function lued.move_right_n_words(n,dd)$/
+move_right_word	lua_src/core/move.lua	/^function lued.move_right_word(dd)$/
 move_to	lua_src/core/move.lua	/^function lued.move_to(r,c,dd)$/
 move_to_eol	lua_src/core/move.lua	/^function lued.move_to_eol(dd)$/
 move_to_first_line	lua_src/core/move.lua	/^function lued.move_to_first_line(dd)$/
@@ -1895,6 +1917,10 @@ newupvalue	src/lua/src/lparser.c	/^static int newupvalue (FuncState *fs, TString
 newuserdata	src/lua/src/ltests.c	/^static int newuserdata (lua_State *L) {$/
 next	src/lua/src/llex.c	/^#define next(ls) (ls->current = zgetc(ls->z))$/
 next_ci	src/lua/src/ldo.c	/^#define next_ci(L) (L->ci = (L->ci->next ? L->ci->/
+next_is_blankcomment	lua_src/base/comments.lua	/^function lued.next_is_blankcomment()$/
+next_is_blankline	lua_src/core/booleans.lua	/^function lued.next_is_blankline()$/
+next_is_comment	lua_src/base/comments.lua	/^function lued.next_is_comment()$/
+next_is_lastline	lua_src/core/booleans.lua	/^function lued.next_is_lastline()$/
 next_is_other	lua_src/core/booleans.lua	/^function lued.next_is_other()$/
 next_is_space	lua_src/core/booleans.lua	/^function lued.next_is_space()$/
 next_is_word	lua_src/core/booleans.lua	/^function lued.next_is_word()$/
@@ -1905,6 +1931,7 @@ noenv	src/lua/src/loadlib.c	/^static int noenv (lua_State *L) {$/
 noextrachars	src/lua/src/lua.c	/^#define noextrachars(x)		{if ((x)[2] != '\\0') retu/
 nohot	lua_src/core/hotkeys.lua	/^function lued.nohot(key, dd)$/
 non_repeatables	src/carr/src/carr_readline_lua.c	61
+noop	lua_src/core/display.lua	/^function lued.noop (dd)$/
 nospecials	src/lua/src/lstrlib.c	/^static int nospecials (const char *p, size_t l) {$/
 nresults	src/lua/src/lapi.c	917
 num2int	src/lua/src/ltests.c	/^static int num2int (lua_State *L) {$/
@@ -2120,6 +2147,7 @@ set_move_right_n_char	lua_src/core/move.lua	/^function lued.set_move_right_n_cha
 set_move_up_n_lines	lua_src/core/move.lua	/^function lued.set_move_up_n_lines(val,dd)$/
 set_named_mark	lua_src/base/markers.lua	/^function lued.set_named_mark(dd)$/
 set_nameless_mark	lua_src/base/markers.lua	/^function lued.set_nameless_mark(dd)$/
+set_number	lua_src/core/getters_setters.lua	/^function lued.set_number(prompt_id, prompt, num)$/
 set_overtype	lua_src/core/getters_setters.lua	/^function lued.set_overtype(val,dd)$/
 set_page_offset	src/lued.c	/^static void set_page_offset(carr_t* all_sessions, /
 set_page_offset_percent	lua_src/base/center_page.lua	/^function lued.set_page_offset_percent(offset,dd)$/
@@ -2137,6 +2165,7 @@ set_sel_start	src/lued.c	/^int set_sel_start(int only_if_off) {$/
 set_show_line_numbers	src/lued.c	/^static void set_show_line_numbers(lued_t* session_/
 set_style	lua_src/core/style.lua	/^function lued.set_style(fg,bg,decorations)$/
 set_tab_size	lua_src/core/getters_setters.lua	/^function lued.set_tab_size(val,dd)$/
+set_wrap_col	lua_src/base/wrap.lua	/^function lued.set_wrap_col(dd)$/
 setarrayvector	src/lua/src/ltable.c	/^static void setarrayvector (lua_State *L, Table *t/
 setboolfield	src/lua/src/loslib.c	/^static void setboolfield (lua_State *L, const char/
 seterrorobj	src/lua/src/ldo.c	/^static void seterrorobj (lua_State *L, int errcode/
@@ -2301,6 +2330,7 @@ udatatypename	src/lua/src/ltm.c	22
 udataval	src/lua/src/ltests.c	/^static int udataval (lua_State *L) {$/
 unbound_search	src/lua/src/ltable.c	/^static int unbound_search (Table *t, unsigned int /
 uncomment	lua_src/base/comments.lua	/^function lued.uncomment(dd)$/
+uncomment_move_down	lua_src/base/comments.lua	/^function lued.uncomment_move_down(dd)$/
 uncomment_selected	lua_src/base/comments.lua	/^function lued.uncomment_selected(dd)$/
 undefgoto	src/lua/src/lparser.c	/^static l_noret undefgoto (LexState *ls, Labeldesc /
 undo	src/lued.c	/^static void undo(carr_t* all_sessions) {$/
@@ -2349,7 +2379,7 @@ whilestat	src/lua/src/lparser.c	/^static void whilestat (LexState *ls, int line)
 white2gray	src/lua/src/lgc.c	/^#define white2gray(x)	resetbits(gch(x)->marked, WH/
 word_end	lua_src/core/move.lua	/^function lued.word_end(dd)$/
 word_start	lua_src/core/select.lua	/^function lued.word_start(dd)$/
-wrap_line	lua_src/base/lines.lua	/^function lued.wrap_line(wrap_col,wrap_delim,dd)$/
+wrap_line	lua_src/base/wrap.lua	/^function lued.wrap_line(dd)$/
 writer	src/lua/src/ldump.c	20
 writer	src/lua/src/lstrlib.c	/^static int writer (lua_State *L, const void* b, si/
 yindex	src/lua/src/lparser.c	/^static void yindex (LexState *ls, expdesc *v) {$/

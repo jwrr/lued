@@ -181,7 +181,7 @@ function lued.next_is_lastline()
   if lued.is_lastline() then return true end
   local r,c = get_cur_pos()
   local dd2 = 1
-  lued.move_down_n_lines(1,dd2)
+  lued.move_down(dd2)
   local is_last = lued.is_lastline()
   set_cur_pos(r,c)
   return is_last
@@ -205,7 +205,7 @@ function lued.next_is_blankline()
   local dd2 = 1
   if lued.is_lastline() then return true end
   local r,c = get_cur_pos()
-  lued.move_down_n_lines(1,dd2)
+  lued.move_down(dd2)
   local is_blank = lued.is_blankline()
   set_cur_pos(r,c)
   return is_blank

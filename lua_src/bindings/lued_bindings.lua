@@ -258,7 +258,9 @@ alt_rln          = lued.set_rel_line_numbers    lued.hot("rln")  -- show relativ
 alt_RLN          = lued.clr_rel_line_numbers    lued.hot("RLN")  -- hide relative line numbers
 
 alt_ls           = lued.ls_dir                  lued.hot("ls")  -- unix ls command. dos dir command
-alt_LU           = set_lua_mode            lued.hot("LU")  -- Change to LUA mode. You rarely want to be in lua mode.
+alt_LU           = set_lua_mode                 lued.hot("LU")  -- Change to LUA mode. You rarely want to be in lua mode.
+alt_nop          = lued.nop                     lued.hot("nop")
+alt_noop         = lued.noop                    lued.hot("noop")
 alt_qq           = lued.wrap_line               lued.hot("qq")  -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
 alt_QQ           = lued.set_wrap_col            lued.hot("QQ")  -- set join wrap
 alt_reinit       = lued.reinit                             -- Reload lued script

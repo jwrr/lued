@@ -232,3 +232,8 @@ function lued.disp(dd,center)
    end
 end
 
+
+function lued.noop (dd)
+  lued.disp(dd)
+end
+lued.nop = lued.noop
