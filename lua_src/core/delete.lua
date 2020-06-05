@@ -29,7 +29,7 @@ function lued.del_sof(dd)
   local dd2 = 1
   lued.sel_sof(dd2)
   set_sel_end()
-  lued.cut(dd)
+  lued.global_cut(dd)
 end
 
 
@@ -37,14 +37,14 @@ function lued.del_eof(dd)
   local dd2 = 1
   lued.sel_eof(dd2)
   set_sel_end()
-  lued.cut(dd)
+  lued.global_cut(dd)
 end
 
 
 function lued.del_all(dd)
   local dd2 = 1
   lued.sel_all(dd2)
-  lued.cut(dd)
+  lued.global_cut(dd)
 end
 
 
@@ -74,7 +74,7 @@ function lued.del_char(n,dd)
     lued.del_sel(dd)
   else
     set_sel_end()
-    lued.cut(dd)
+    lued.global_cut(dd)
   end
 end
 
@@ -112,7 +112,7 @@ function lued.del_spaces(dd)
   set_sel_start()
   lued.skip_spaces(dd2)
   set_sel_end()
-  lued.cut(dd)
+  lued.global_cut(dd)
 end
 
 
@@ -121,14 +121,14 @@ end
 function lued.del_spaces_next_line(dd)
   local dd2 = 1
   if not lued.is_space() then
-    lued.move_down_n_lines(1,dd2)
+    lued.move_down(dd2)
   end
   local r,c = get_cur_pos()
   set_sel_start()
   lued.skip_spaces(dd2)
   set_sel_end()
 --  set_cur_pos(r,c)
-  lued.cut(dd)
+  lued.global_cut(dd)
 end
 
 
@@ -142,7 +142,7 @@ function lued.del_word(n,dd)
   if lued.is_word() then
     lued.sel_word(dd2)
     set_sel_end()
-    lued.cut(dd)
+    lued.global_cut(dd)
   else
     while not lued.is_word() do
       lued.del_char(1,dd2)
@@ -155,12 +155,12 @@ end
 function lued.del_eol(dd)
   local dd2 = 1
   if lued.is_eol() then
-    lued.move_down_n_lines(1,dd2)
+    lued.move_down(dd2)
   end
   if not lued.is_eol() then
     lued.sel_eol(dd2)
     set_sel_end()
-    lued.cut(dd2)
+    lued.global_cut(dd2)
   end
   lued.disp(dd)
 end
@@ -180,7 +180,7 @@ function lued.del_sol(dd)
   else
     lued.sel_sol(dd2)
     set_sel_end()
-    lued.cut(dd)
+    lued.global_cut(dd)
   end
 end
 
