@@ -154,16 +154,7 @@ function lued.copy_line(n,dd)
 end
 
 
-function lued.duplicate_line(dd)
-  local dd2 = 1
-  lued.cut_line(1,dd2)
-  lued.global_paste(dd2)
-  lued.global_paste(dd2)
-  lued.move_up_n_lines(1,dd)
-end
-
-
-function lued.cut_line(n,dd)
+function lued.cut_n_lines(n,dd)
   n = n or 1
   local dd2 = 1
   if is_sel_off()==1 then
@@ -173,6 +164,24 @@ function lued.cut_line(n,dd)
   end
 end
 
+
+function lued.cut_line(dd)
+  return lued.cut_n_lines(1,dd)
+end
+
+
+function lued.duplicate_n_lines(n,dd)
+  local dd2 = 1
+  lued.cut_n_lines(n,dd2)
+  lued.global_paste(dd2)
+  lued.global_paste(dd2)
+  lued.move_up_n_lines(n,dd)
+end
+
+
+function lued.duplicate_line(dd)
+  return lued.duplicate_n_lines(dd)
+end
 
 function lued.paste_line_before(dd)
   local dd2 = 1

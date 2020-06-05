@@ -27,7 +27,7 @@ SOFTWARE.
 
 function lued.swap_line_with_prev(dd)
   local dd2 = 1
-  lued.cut_line(1,dd2)
+  lued.cut_line(dd2)
   lued.move_up_n_lines(1,dd2)
   lued.paste_line_before(dd)
 end
@@ -35,7 +35,7 @@ end
 
 function lued.swap_line_with_next(dd)
   local dd2 = 1
-  lued.cut_line(1,dd2)
+  lued.cut_line(dd2)
   lued.move_down_n_lines(1,dd2)
   lued.paste_line_before(dd2)
   lued.move_up_n_lines(2,dd)

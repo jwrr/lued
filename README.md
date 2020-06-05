@@ -460,5 +460,5 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * feature - embed real regex support. lua patterns are powerful but not what end-user expects
 * experimental - pforth
 * experimental   - speedup reading large files. slurp into large, then break into lines
-
+* change - move delete hot-keys from d? to x?. make them cut
  

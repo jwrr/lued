@@ -119,7 +119,6 @@ SOFTWARE.
   require "base.increment"
   require "base.indent"
   require "base.linenumbers"
-  require "base.lines"
   require "base.markers"
   require "base.mouse"
   require "base.multifile"
@@ -130,6 +129,7 @@ SOFTWARE.
   require "base.snippets"
   require "base.statusline"
   require "base.swap"
+  require "base.wrap"
 
   lued.init_lued(g_lued_root , g_bindings_file)
 

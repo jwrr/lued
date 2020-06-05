@@ -170,34 +170,6 @@ function lued.move_halfsy_right(dd)
 end
 
 
-function lued.move_left_n_words(n,dd)
-  n = n or 1
-  local dd2 = 1
-  for i=1,n do
-    if lued.is_sof() then break end
-    if lued.is_sol() then
-      lued.move_up_n_lines(1,dd2)
-      lued.move_to_eol(dd2)
-      break
-    end
-    local line = get_line()
-    local r,c = get_cur_pos()
---    while lued.is_space(line,c-1) do c = c - 1 end -- back through spaces
-    while not lued.is_word(line,c-1) do
-      if c == 1 then break end
-      c = c - 1
-    end -- back through spaces
-    while lued.is_word(line,c-1) do
-      if c == 1 then break end
-      c = c - 1
-    end -- back through alphanums
-    -- while not lued.is_space(line,c-1) do c = c - 1 end -- back through alphanums
-    set_cur_pos(r,c)
-  end
-  lued.disp(dd)
-end
-
-
 function lued.move_right_n_words(n,dd)
   n = n or 1
   local dd2 = 1
@@ -220,6 +192,11 @@ function lued.move_right_n_words(n,dd)
     end
   end
   lued.disp(dd)
+end
+
+
+function lued.move_right_word(dd)
+  return lued.move_right_n_words(1,dd)
 end
 
 
@@ -267,17 +244,9 @@ function lued.move_left_n_words(n,dd)
   lued.disp(dd)
 end
 
-function lued.move_up_n_pages(n,dd)
-  n = n or 1
-  local pagesize = lued.get_pagesize()
-  lued.move_up_n_lines(n*pagesize,dd)
-end
 
-
-function lued.move_down_n_pages(n,dd)
-  n = n or 1
-  local pagesize = lued.get_pagesize()
-  lued.move_down_n_lines(n*pagesize, dd)
+function lued.move_left_word(dd)
+  return lued.move_left_n_words(1,dd)
 end
 
 
@@ -300,6 +269,11 @@ function lued.move_down_n_lines(n,dd)
   r2 = r + g_scroll_speed
   lued.remove_trailing_spaces(r2,c,false,dd2)
   lued.disp(dd)
+end
+
+
+function lued.move_down(dd)
+  return lued.move_down_n_lines(1,dd)
 end
 
 
@@ -336,6 +310,20 @@ end
 function lued.set_move_up_n_lines(val,dd)
   g_move_up_n_lines = val or g_move_up_n_lines
   lued.move_up_n_lines(g_move_up_n_lines, dd)
+end
+
+
+function lued.move_up_n_pages(n,dd)
+  n = n or 1
+  local pagesize = lued.get_pagesize()
+  lued.move_up_n_lines(n*pagesize,dd)
+end
+
+
+function lued.move_down_n_pages(n,dd)
+  n = n or 1
+  local pagesize = lued.get_pagesize()
+  lued.move_down_n_lines(n*pagesize, dd)
 end
 
 

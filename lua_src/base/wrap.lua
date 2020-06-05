@@ -91,7 +91,7 @@ function lued.wrap_line(dd)
   lued.move_to_eol(dd2)
   local r,c = get_cur_pos()
   while c > wrap_col do
-    lued.move_left_n_words(dd2)
+    lued.move_left_n_words(1,dd2)
     r,c = get_cur_pos()
   end
   if c > 1 then
