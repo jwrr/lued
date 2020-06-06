@@ -105,9 +105,6 @@ local keyword_str = string.gsub([[
  & ~ | << >> // 
  == ~= <= >= < > = 
  :: ; : , . .. ... 
-]] , "%s+", "\n")
-
-local function_list = string.gsub([[
 assert collectgarbage dofile error gcinfo getfenv getmetatable ipairs load
 loadfile loadlib loadstring module next pairs pcall print rawequal rawget
 rawset require select setfenv setmetatable tonumber tostring type unpack

@@ -332,6 +332,11 @@ TBD
 * fixme - alt_dw when over _asdf, only _ is deleted - done
 * fixme - alt_dw/DW.  When over non-space, delete non-space and spaces - done
 * fixme - alt_jj. remove extra whitespace between joined lines - done
+* fixme - alt_cc doesn't work when selection is on. - done
+* fixme - make comment highlighting filetype dependent - done
+* fixme - alt+bb/BB (got to bottom/Beginning). turn off autorepeat - done
+* change - move delete hot-keys from d? to x?. make them cut - done
+
 
 
 
@@ -417,10 +422,10 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 ## Capitalize first letter subject line
 ## Do not end subject line with period
 # Body
-## Explain what and why vs how
-## Keep lines less than 72 char
-## Resolves: #123
-## See also: #456 #789
+## Explain what and why vs how## Ke
+ep lines less than 72 char
+## Resolves: #123## See also: #456 
+#789
 
 
 * Should sel_word incldule set_sel_end()? or should it be an argument?
@@ -441,14 +446,11 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * move goto_mark from c to lua
 
 * feature - custom script.  load commands (similar to relued). readme files. examples...
-* fixme - alt_cc doesn't work when selection is on. - done
-* fixme - make comment highlighting filetype dependent - done
 * fixme - move line numbers from c to lua
 * feature - grep - search all open files. return selectable list of matches
 * feature - timestamp on save.
 * feature - if moving away fro '()' then change to '('
-* fixme - ctrl+d if partial word selected the deselect/reselect - 
-* fixme - alt+bb/BB (got to bottom/Beginning). turn off autorepeat - done
+* fixme - ctrl+d if partial word selected then deselect/reselect - 
 
 * fixme - highlight keywords if not in comment
 * fixme - xxx_in_xxx. in matched, and shouldn't have
@@ -460,5 +462,5 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * feature - embed real regex support. lua patterns are powerful but not what end-user expects
 * experimental - pforth
 * experimental   - speedup reading large files. slurp into large, then break into lines
-* change - move delete hot-keys from d? to x?. make them cut
+
  

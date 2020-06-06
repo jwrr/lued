@@ -215,7 +215,7 @@ end
 
 
 function lued.style_keywords(line)
-  line = string.gsub (line, "%w+", function (str) return lued.style_keyword(str) end )
+  line = string.gsub (line, "[._%w]+", function (str) return lued.style_keyword(str) end )
   return line
 end
 
