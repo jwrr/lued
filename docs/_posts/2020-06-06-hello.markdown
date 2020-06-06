@@ -1,0 +1,39 @@
+---
+layout: post
+title:  "Hello!"
+date:   2020-06-06 12:35:48 -0400
+categories: jekyll update
+---
+
+Hello from JWRR.  Using Jekyll for the 1st time instead of efefomatic. Not terribly impress yet.
+
+Here is some Lua code:
+{% highlight lua %}
+
+function print_hi(name)
+  if name == "Paul" then
+    print("Hello, " .. name)
+  else
+    print("Hi, " .. name)
+  end
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+The same Lua code can be written on a single line without semicolons.
+
+{% highlight lua %}
+
+function print_hi(name) if name == "Paul" then print("Hello, " .. name) else print("Hi, " .. name) end end print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+
+Check out the [JWRR docs][jwrr-docs] for more info on how to get the most out of JWRR. File all bugs/feature requests at [JWRR's GitHub repo][jwrr-gh].
+
+[jwrr-gh]:   https://github.com/jwrr
+[jwrr-docs]: https://github.com/jwrr/jwrr.github.io
+
+
+

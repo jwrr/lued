@@ -459,8 +459,12 @@ ep lines less than 72 char
 * feature - pipes: find | get_select | format | paste;
 *           grep rex1 * | grep_v rex2 | sed 's#abc#def#'
 * feature - grep, sed, awk
-* feature - embed real regex support. lua patterns are powerful but not what end-user expects
 * experimental - pforth
 * experimental   - speedup reading large files. slurp into large, then break into lines
+* feature - embed real regex support. lua patterns are powerful but not what end-user expects
+* feature - find_last(pattern/regex) - find last occurrence of string.
+* feature - insert_below(str) - insert str on line below
+* feature - run script from command line: lued script file_list
+* feature - run one-liner from command line: - lued -e 'find_last(pat) insert_below("string1\nstr")' file_list
+* Compatiblity - Terminator, Guake, Tilda, Guake, Konsole
 
- 

@@ -26,8 +26,9 @@ str = [[
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>NAME</title>
+  <meta charset="UTF-8" />
+  <title>NAME</title>
+  <link rel="stylesheet" type="text/css" href="SSS.css">
 </head>
 <body>
   HI
@@ -62,6 +63,8 @@ end
 
 lued.filetypes.html = "html"
 lued.filetypes.htm  = "html"
+lued.filetypes.markdown  = "html"
+lued.filetypes.md   = "html"
 
 local s = {}
 lued.def_snippet(s, keyword_str  , lued.html.tag)
