@@ -19,7 +19,7 @@ set_non_repeatables(",alt_ee,alt_EE,alt_bb,alt_BB,")
 ctrl__at_        = lued.disp              -- Called when resuming from Ctrl+Z (fg at shell prompt). Not directly used by you.
 ctrl_Q           = lued.quit_all          -- Quit or Exit. Similar to Sublime Ctrl-Q.
 ctrl_W           = lued.quit_session      -- Close window or tab. Similar to Sublime Ctrl-W.
-ctrl_E           = lued.move_to_eol       -- Move to End of Line. Similar to Sublime <End>.
+ctrl_E           = lued.move_to_eol       -- Move to End of Line. Similar to Sublime &lt;End&gt;.
 --ctrl_R           = lued.move_right_fast   -- Move right defined number (4) of char
 ctrl_R           = lued.replay_keystrokes -- Move right defined number (4) of char
 ctrl_T           = lued.select_tab        -- Select file tab menu
@@ -29,7 +29,7 @@ ctrl_U           = lued.spare             -- Spare
 ctrl_I           = lued.insert_tab        -- Terminal interprets as `Tab` key
 ctrl_O           = lued.open_file         -- Open File. Similar to Word Ctrl+O
 ctrl_P           = lued.open_partial_filename -- Open File from partial name. Similar to Sublime Ctrl+P
-ctrl_A           = lued.move_to_sol       -- Move to Start of Line. Similar to Sublime <Home>.
+ctrl_A           = lued.move_to_sol       -- Move to Start of Line. Similar to Sublime &lt;Home&gt;.
 
 ctrl_S           = lued.save_file         -- Save File. Similar to Sublime Ctrl+S.
 ctrl_D           = lued.sel_word          -- Select Word under cursor. Similar to Sublime Ctrl+D
@@ -37,7 +37,7 @@ ctrl_F           = lued.find_forward_selected -- Find. Similar to Sublime Ctrl+F
 ctrl_G           = lued.move_to_line      -- Goto Line Number. Similar to Sublime Ctrl+G
 
 ctrl_H           = lued.find_and_replace  -- Find and Replace. Similar to Sublime Ctrl+H.
-ctrl_J           = lued.dont_use          -- Do Not Use. Same as <Enter>
+ctrl_J           = lued.dont_use          -- Do Not Use. Same as Enter Key
 ctrl_K           = lued.spare             -- Spare
 ctrl_L           = lued.sel_line          -- Select entire line. Similar to Sublime Ctrl+L
 
@@ -65,7 +65,7 @@ alt_SE           = lued.sel_sol                 lued.hot("SE") -- Select from cu
 alt_sb           = lued.sel_eof                 lued.hot("sb") -- Select to Bottom of File Buffer
 alt_SB           = lued.sel_sof                 lued.hot("SB") -- Select to Beginning of File Buffer
 alt_sm           = lued.sel_mark_to_cursor      lued.hot("sm") -- Select from mark (alt+mm) to cursor. Similar to Sublime Ctrl+K
-alt_ss           = lued.sel_toggle              lued.hot("ss") -- Turn off/on selection. Similar to Sublime <ESC>.
+alt_ss           = lued.sel_toggle              lued.hot("ss") -- Turn off/on selection. Similar to Sublime ESC-Key.
 alt_sw           = lued.sel_eow                 lued.hot("sw") -- Select to End of word.
 alt_SW           = lued.sel_sow                 lued.hot("SW") -- Select to starting End of word.
 
@@ -80,9 +80,9 @@ alt__gt_         = lued.move_halfsy_right       lued.hot(",>,") -- Move right ha
 alt__lt_         = lued.move_halfsy_left        lued.hot(",<,") -- Move left half the distance
 alt_rn           = lued.replay_name             lued.hot("rn")  -- replay named keystroke sequence
 alt_rr           = lued.replay_again            lued.hot("rr")  -- replay keystroke sequence again
--- alt_R            = lued.move_left_n_char                   -- Move N char left.  alt_l42<Enter> moves 42 char to the left
+-- alt_R            = lued.move_left_n_char                   -- Move N char left.  alt_l42&lt;Enter&gt; moves 42 char to the left
 -- alt_RR           = lued.move_left_n_char        lued.hot("RR")  -- Move predefined numbed of char to the left.
--- alt_r            = lued.set_move_right_n_char              -- Move N char right.  alt_r42<Enter> moves 42 char to the right
+-- alt_r            = lued.set_move_right_n_char              -- Move N char right.  alt_r42&lt;Enter&gt; moves 42 char to the right
 -- alt_rr           = lued.move_right_n_char       lued.hot("rr")  -- Move predefined numbed of char to the right.
 
 --## ctag Exuberant Tags
@@ -94,17 +94,17 @@ alt_cr           = lued.ctag_read_file           lued.hot("cr") -- ctag read
 alt_cx           = lued.ctag_delete_history      lued.hot("cx") -- ctag delete history
 
 --## Delete, Cut, Copy and Paste Commands
-alt_ce           = lued.copy_eol                lued.hot("ce") -- lued.copy current pos to eol
-alt_CE           = lued.copy_sol                lued.hot("CE") -- lued.copy sol to current pos
-alt_cw           = lued.copy_word               lued.hot("cw") -- lued.copy word
-alt_DD           = lued.duplicate_line          lued.hot("DD") -- Similar to Sublime Ctrl+Shift+D
-alt_dd           = lued.duplicate_n_lines                      -- alt+dd214 duplicates 214 lines. 214 can be any number
+alt_ce           = lued.copy_eol                lued.hot("ce") -- Copy current pos to eol
+alt_CE           = lued.copy_sol                lued.hot("CE") -- Copy sol to current pos
+alt_cw           = lued.copy_word               lued.hot("cw") -- Copy word
+alt_DD           = lued.duplicate_line          lued.hot("DD") -- Duplicate line. Similar to Sublime Ctrl+Shift+D
+alt_dd           = lued.duplicate_n_lines                      -- aslt+dd214 duplicates 214 lines. 214 can be any number
 
-alt_d            = lued.del_char                          -- del N char
+alt_d            = lued.del_char                               -- del N char
 alt_xb           = lued.del_eof                 lued.hot("xb") -- Delete to Bottom of Tab/Buffer/Window/File
 alt_XB           = lued.del_sof                 lued.hot("XB") -- Delete to Beginning of Tab
 alt_xe           = lued.del_eol                 lued.hot("xe") -- Similar to Sublime Ctrl+KK
-alt_XE           = lued.del_sol                 lued.hot("XE") -- Similar to Sublime Ctrl_K+<Backspace>
+alt_XE           = lued.del_sol                 lued.hot("XE") -- Similar to Sublime Ctrl_K+&lt;Backspace&gt;
 alt_xl           = lued.del_line                lued.hot("xl") -- Delete line
 alt_xm           = lued.del_mark_to_cursor      lued.hot("xm") -- Delete from mark (alt+mm) to cursor
 alt_xs           = lued.del_spaces_selected     lued.hot("xs") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
@@ -112,7 +112,7 @@ alt_XS           = lued.del_sow                 lued.hot("XS") -- Delete spaces 
 alt_xx           = lued.del_word                lued.hot("xx") -- Delete word under cursor
 alt_xw           = lued.del_eow                 lued.hot("xw") -- Similar to Sublime Ctrl+KW
 alt_XW           = lued.del_sow                 lued.hot("XW") -- Similar to Sublime Ctrl+Backspace
-alt_x            = lued.cut_n_lines                            -- Cut multiple lines alt+x42<enter>
+alt_x            = lued.cut_n_lines                            -- Cut multiple lines alt+x42&lt;enter&gt;
 
 alt_pl           = lued.paste_line_after        lued.hot("pl") -- Paste Line after current line
 alt_PL           = lued.paste_line_before       lued.hot("PL") -- Paste Line before current line
@@ -121,14 +121,14 @@ alt_PL           = lued.paste_line_before       lued.hot("PL") -- Paste Line bef
 alt_df           = lued.find_word               lued.hot("df")  -- find word under cursor
 alt_DF           = lued.find_reverse_word       lued.hot("DF")  -- find reverse word under cursor
 alt_fa           = lued.search_all_files        lued.hot("fa")  -- Similar to Sublime Ctrl+Shift+F. search all open files for match
-alt_fb           = find_back               lued.hot("fb")  -- find back. return to position before find operation.
+alt_fb           = find_back                    lued.hot("fb")  -- find back. return to position before find operation.
 alt_ff           = lued.find_forward_again      lued.hot("ff")  -- Similar to Sublime F3. Find next occurrence of search text.
 alt_FF           = lued.find_reverse_again      lued.hot("FF")  -- Similar to Sublime Shift+F3. Find previous occurrence.
-alt_kb        = lued.set_sb_files            lued.hot("kb") -- show sidebar with list of open files
-alt_KB        = lued.clr_sb_files            lued.hot("KB") -- hide sidbar with list of open files
+alt_kb           = lued.set_sb_files            lued.hot("kb") -- show sidebar with list of open files
+alt_KB           = lued.clr_sb_files            lued.hot("KB") -- hide sidbar with list of open files
 alt_FR           = lued.find_reverse_selected   lued.hot("FR")  -- Find previous occurrence.
-alt_fc           = lued.set_find_case_sensitive  lued.hot("fc")  -- set find case sensitive
-alt_FC           = lued.clr_find_case_sensitive  lued.hot("FC")  -- clear find case sensitive (case insensitive)
+alt_fc           = lued.set_find_case_sensitive lued.hot("fc")  -- set find case sensitive
+alt_FC           = lued.clr_find_case_sensitive lued.hot("FC")  -- clear find case sensitive (case insensitive)
 alt_fw           = lued.set_find_whole_word     lued.hot("fw")  -- set find whole word
 alt_FW           = lued.clr_find_whole_word     lued.hot("FW")  -- clear find whole word
 alt_hh           = lued.replace_again           lued.hot("hh")  -- Find and Replace again.
@@ -170,8 +170,8 @@ alt_ku           = lued.sel_to_upper            lued.hot("ku") -- Similar to Sub
 --## Mark Commands
 alt_sm           = lued.sel_mark_to_cursor      lued.hot("sm") -- Similar to Sublime Ctrl+KA. Select from mark to cursor (set mark with alt_mm)
 alt_dm           = lued.del_mark_to_cursor      lued.hot("dm") -- Similar to Sublime Ctrl+KW. Delete from mark to cursor (set mark with alt_mm)
-alt_m            = lued.set_named_mark 
-alt_M            = lued.goto_named_mark
+alt_m            = lued.set_named_mark                         -- Set Named Marker 
+alt_M            = lued.goto_named_mark                        -- Goto Named Marker
 alt_mm           = lued.set_nameless_mark       lued.hot("mm") -- Similar to Sublime Ctrl+K+space. Set Mark
 alt_MM           = lued.goto_nameless_mark_prev lued.hot("MM") -- Goto previous mark
 alt_mn           = lued.goto_nameless_mark_next lued.hot("mn") -- Goto next mark in stack
@@ -181,10 +181,10 @@ alt_ll           = lued.insert_cr_after         lued.hot("ll") -- Goto to end of
 alt_LL           = lued.insert_cr_before        lued.hot("LL") -- Goto beginning of line and insert new line. similar to vi's O. Similar to Sublime Ctrl+Shift+Enter
 
 --## Page Up / Down Commands
-alt_p            = lued.move_down_n_lines                 -- Move down N lines
-alt_P            = lued.move_up_n_lines                   -- Move up N lines
-alt_pp           = lued.move_down_n_pages       lued.hot("pp") -- Similar to Sublime <PageDown> (or ctrl+u in vintage mode) , move down half page
-alt_PP           = lued.move_up_n_pages         lued.hot("PP") -- Similar to Sublime <PageUP> (or ctrl+d in vintage mode), move up half page
+alt_p            = lued.move_down_n_lines                      -- Move down N lines
+alt_P            = lued.move_up_n_lines                        -- Move up N lines
+alt_pp           = lued.move_down_n_pages       lued.hot("pp") -- Similar to Sublime &lt;PageDn&gt; (or ctrl+u in vintage mode) , move down half page
+alt_PP           = lued.move_up_n_pages         lued.hot("PP") -- Similar to Sublime &lt;PageUp&gt; (or ctrl+d in vintage mode), move up half page
 
 --## Remove Tabs and Spaces
 alt_ralt         = lued.remove_all_leading_tabs              -- Replace all leading tabs with spaces at start of line
@@ -241,12 +241,12 @@ esc_pastestop    = lued.bracket_paste_stop  -- Mouse lued.paste stop
 
 --## Misc Commands
 
-alt__caret_      = lued.del_sol                 lued.hot("^")   -- delete from cursor to start of line
-alt__dollar_     = lued.del_eol                 lued.hot("$")   -- delete from cursor to end of line
-alt__slash_      = lued.find_forward            lued.hot(",/,") -- find forward
+alt__caret_      = lued.del_sol                 lued.hot("^")   -- Delete from cursor to start of line
+alt__dollar_     = lued.del_eol                 lued.hot("$")   -- Delete from cursor to end of line
+alt__slash_      = lued.find_forward            lued.hot(",/,") -- Find forward
 alt__colon_w     = lued.save_file               lued.hot(":w")  -- Save File. Similar to Vi :w
 
-alt_colors       = lued.show_colors             
+alt_colors       = lued.show_colors                             -- Show colors
 alt_cd           = lued.cd_change_dir;          lued.hot("cd")  -- Change directory
 alt_ed           = set_edit_mode           lued.hot("ed")  -- Change to EDIT mode. You almost always want to be in EDIT mode.
 alt_help         = lued.open_file_bindings      lued.hot("lued.help")  -- Help. Open lued_bindings.lua
@@ -259,16 +259,16 @@ alt_RLN          = lued.clr_rel_line_numbers    lued.hot("RLN")  -- hide relativ
 
 alt_ls           = lued.ls_dir                  lued.hot("ls")  -- unix ls command. dos dir command
 alt_LU           = set_lua_mode                 lued.hot("LU")  -- Change to LUA mode. You rarely want to be in lua mode.
-alt_nop          = lued.nop                     lued.hot("nop")
-alt_noop         = lued.noop                    lued.hot("noop")
+alt_nop          = lued.nop                     lued.hot("nop") -- No Op. (same as Alt+NOOP)
+alt_noop         = lued.noop                    lued.hot("noop") -- No Op (same as Alt+NOP)
 alt_qq           = lued.wrap_line               lued.hot("qq")  -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
 alt_QQ           = lued.set_wrap_col            lued.hot("QQ")  -- set join wrap
 alt_reinit       = lued.reinit                             -- Reload lued script
 alt_review       = lued.toggle_review_mode                 -- Review mode prevents saving file
 alt_refresh      = lued.reload_file                        -- Reload current file
 alt_sa           = lued.save_as                 lued.hot("sa")  -- Similar to Sublime Ctrl+Shift+S. File Save as.
-alt_SaveSession  = lued.save_session_file
-alt_LoadSession  = lued.load_session_file
+alt_SaveSession  = lued.save_session_file                       -- Save session file
+alt_LoadSession  = lued.load_session_file                       -- Load session file
 alt_Seti         = lued.set_scope_indent                  -- Set Scope Indent SI2 SI3 SI4
 -- alt_sw           = function() set_sel_start(); lued.var_end(1); set_sel_end(); lued.disp(); end lued.hot("sw")
 

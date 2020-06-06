@@ -1,14 +1,21 @@
 ---
 layout: page
-title: Lued Key Bindings
+title: Lued Key Bindings 
 permalink: /bindings/
 ---
+
+Key bindings are defined in <code>lued/lua_src/bindings/lued_bindings.lua</code>.
+This is fairly straight-forward, easily understandable Lua code.  You are 
+encouraged to modify the bindings to suite your style. You don't any Lua
+knowledge to figure out what to do.
+
+  
 ## Basic Control Key Commands
 <table>
 <tr><td><kbd>Ctrl+@</kbd></td><td>Called when resuming from Ctrl+Z (fg at shell prompt). Not directly used by you. </td></tr>
 <tr><td><kbd>Ctrl+Q</kbd></td><td>Quit or Exit. Similar to Sublime Ctrl-Q. </td></tr>
 <tr><td><kbd>Ctrl+W</kbd></td><td>Close window or tab. Similar to Sublime Ctrl-W. </td></tr>
-<tr><td><kbd>Ctrl+E</kbd></td><td>Move to End of Line. Similar to Sublime <End>. </td></tr>
+<tr><td><kbd>Ctrl+E</kbd></td><td>Move to End of Line. Similar to Sublime &lt;End&gt;. </td></tr>
 <tr><td><kbd>Ctrl+R</kbd></td><td>Move right defined number (4) of char </td></tr>
 <tr><td><kbd>Ctrl+T</kbd></td><td>Select file tab menu </td></tr>
 <tr><td><kbd>Ctrl+Y</kbd></td><td>Redo (undo undo). Similar to Sublime Ctrl+Y </td></tr>
@@ -16,13 +23,13 @@ permalink: /bindings/
 <tr><td><kbd>Ctrl+I</kbd></td><td>Terminal interprets as `Tab` key </td></tr>
 <tr><td><kbd>Ctrl+O</kbd></td><td>Open File. Similar to Word Ctrl+O </td></tr>
 <tr><td><kbd>Ctrl+P</kbd></td><td>Open File from partial name. Similar to Sublime Ctrl+P </td></tr>
-<tr><td><kbd>Ctrl+A</kbd></td><td>Move to Start of Line. Similar to Sublime <Home>. </td></tr>
+<tr><td><kbd>Ctrl+A</kbd></td><td>Move to Start of Line. Similar to Sublime &lt;Home&gt;. </td></tr>
 <tr><td><kbd>Ctrl+S</kbd></td><td>Save File. Similar to Sublime Ctrl+S. </td></tr>
 <tr><td><kbd>Ctrl+D</kbd></td><td>Select Word under cursor. Similar to Sublime Ctrl+D </td></tr>
 <tr><td><kbd>Ctrl+F</kbd></td><td>Find. Similar to Sublime Ctrl+F.  If text is selected the find selected text (Similar to Sublime Ctrl+F3). </td></tr>
 <tr><td><kbd>Ctrl+G</kbd></td><td>Goto Line Number. Similar to Sublime Ctrl+G </td></tr>
 <tr><td><kbd>Ctrl+H</kbd></td><td>Find and Replace. Similar to Sublime Ctrl+H. </td></tr>
-<tr><td><kbd>Ctrl+J</kbd></td><td>Do Not Use. Same as <Enter> </td></tr>
+<tr><td><kbd>Ctrl+J</kbd></td><td>Do Not Use. Same as Enter Key </td></tr>
 <tr><td><kbd>Ctrl+K</kbd></td><td>Spare </td></tr>
 <tr><td><kbd>Ctrl+L</kbd></td><td>Select entire line. Similar to Sublime Ctrl+L </td></tr>
 <tr><td><kbd>Ctrl+Z</kbd></td><td>Undo. Similar to Sublime Ctrl+Z </td></tr>
@@ -49,7 +56,7 @@ permalink: /bindings/
 <tr><td><kbd>Alt+sb</kbd></td><td>Select to Bottom of File Buffer </td></tr>
 <tr><td><kbd>Alt+SB</kbd></td><td>Select to Beginning of File Buffer </td></tr>
 <tr><td><kbd>Alt+sm</kbd></td><td>Select from mark (alt+mm) to cursor. Similar to Sublime Ctrl+K </td></tr>
-<tr><td><kbd>Alt+ss</kbd></td><td>Turn off/on selection. Similar to Sublime <ESC>. </td></tr>
+<tr><td><kbd>Alt+ss</kbd></td><td>Turn off/on selection. Similar to Sublime ESC-Key. </td></tr>
 <tr><td><kbd>Alt+sw</kbd></td><td>Select to End of word. </td></tr>
 <tr><td><kbd>Alt+SW</kbd></td><td>Select to starting End of word. </td></tr>
 </table>
@@ -76,16 +83,16 @@ permalink: /bindings/
 </table>
 ## Delete, Cut, Copy and Paste Commands
 <table>
-<tr><td><kbd>Alt+ce</kbd></td><td>lued.copy current pos to eol </td></tr>
-<tr><td><kbd>Alt+CE</kbd></td><td>lued.copy sol to current pos </td></tr>
-<tr><td><kbd>Alt+cw</kbd></td><td>lued.copy word </td></tr>
-<tr><td><kbd>Alt+DD</kbd></td><td>Similar to Sublime Ctrl+Shift+D </td></tr>
-<tr><td><kbd>Alt+dd</kbd></td><td>alt+dd214 duplicates 214 lines. 214 can be any number </td></tr>
+<tr><td><kbd>Alt+ce</kbd></td><td>Copy current pos to eol </td></tr>
+<tr><td><kbd>Alt+CE</kbd></td><td>Copy sol to current pos </td></tr>
+<tr><td><kbd>Alt+cw</kbd></td><td>Copy word </td></tr>
+<tr><td><kbd>Alt+DD</kbd></td><td>Duplicate line. Similar to Sublime Ctrl+Shift+D </td></tr>
+<tr><td><kbd>Alt+dd</kbd></td><td>aslt+dd214 duplicates 214 lines. 214 can be any number </td></tr>
 <tr><td><kbd>Alt+d</kbd></td><td>del N char </td></tr>
 <tr><td><kbd>Alt+xb</kbd></td><td>Delete to Bottom of Tab/Buffer/Window/File </td></tr>
 <tr><td><kbd>Alt+XB</kbd></td><td>Delete to Beginning of Tab </td></tr>
 <tr><td><kbd>Alt+xe</kbd></td><td>Similar to Sublime Ctrl+KK </td></tr>
-<tr><td><kbd>Alt+XE</kbd></td><td>Similar to Sublime Ctrl_K+<Backspace> </td></tr>
+<tr><td><kbd>Alt+XE</kbd></td><td>Similar to Sublime Ctrl_K+&lt;Backspace&gt; </td></tr>
 <tr><td><kbd>Alt+xl</kbd></td><td>Delete line </td></tr>
 <tr><td><kbd>Alt+xm</kbd></td><td>Delete from mark (alt+mm) to cursor </td></tr>
 <tr><td><kbd>Alt+xs</kbd></td><td>Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it. </td></tr>
@@ -93,7 +100,7 @@ permalink: /bindings/
 <tr><td><kbd>Alt+xx</kbd></td><td>Delete word under cursor </td></tr>
 <tr><td><kbd>Alt+xw</kbd></td><td>Similar to Sublime Ctrl+KW </td></tr>
 <tr><td><kbd>Alt+XW</kbd></td><td>Similar to Sublime Ctrl+Backspace </td></tr>
-<tr><td><kbd>Alt+x</kbd></td><td>Cut multiple lines alt+x42<enter> </td></tr>
+<tr><td><kbd>Alt+x</kbd></td><td>Cut multiple lines alt+x42&lt;enter&gt; </td></tr>
 <tr><td><kbd>Alt+pl</kbd></td><td>Paste Line after current line </td></tr>
 <tr><td><kbd>Alt+PL</kbd></td><td>Paste Line before current line </td></tr>
 </table>
@@ -157,8 +164,8 @@ permalink: /bindings/
 <table>
 <tr><td><kbd>Alt+sm</kbd></td><td>Similar to Sublime Ctrl+KA. Select from mark to cursor (set mark with alt_mm) </td></tr>
 <tr><td><kbd>Alt+dm</kbd></td><td>Similar to Sublime Ctrl+KW. Delete from mark to cursor (set mark with alt_mm) </td></tr>
-<tr><td><kbd>Alt+m            = lued.set_named_mark  </kbd></td></tr>
-<tr><td><kbd>Alt+M            = lued.goto_named_mark </kbd></td></tr>
+<tr><td><kbd>Alt+m</kbd></td><td>Set Named Marker  </td></tr>
+<tr><td><kbd>Alt+M</kbd></td><td>Goto Named Marker </td></tr>
 <tr><td><kbd>Alt+mm</kbd></td><td>Similar to Sublime Ctrl+K+space. Set Mark </td></tr>
 <tr><td><kbd>Alt+MM</kbd></td><td>Goto previous mark </td></tr>
 <tr><td><kbd>Alt+mn</kbd></td><td>Goto next mark in stack </td></tr>
@@ -172,8 +179,8 @@ permalink: /bindings/
 <table>
 <tr><td><kbd>Alt+p</kbd></td><td>Move down N lines </td></tr>
 <tr><td><kbd>Alt+P</kbd></td><td>Move up N lines </td></tr>
-<tr><td><kbd>Alt+pp</kbd></td><td>Similar to Sublime <PageDown> (or ctrl+u in vintage mode) , move down half page </td></tr>
-<tr><td><kbd>Alt+PP</kbd></td><td>Similar to Sublime <PageUP> (or ctrl+d in vintage mode), move up half page </td></tr>
+<tr><td><kbd>Alt+pp</kbd></td><td>Similar to Sublime &lt;PageDn&gt; (or ctrl+u in vintage mode) , move down half page </td></tr>
+<tr><td><kbd>Alt+PP</kbd></td><td>Similar to Sublime &lt;PageUp&gt; (or ctrl+d in vintage mode), move up half page </td></tr>
 </table>
 ## Remove Tabs and Spaces
 <table>
@@ -201,11 +208,11 @@ permalink: /bindings/
 </table>
 ## Misc Commands
 <table>
-<tr><td><kbd>Alt+^</kbd></td><td>delete from cursor to start of line </td></tr>
-<tr><td><kbd>Alt+$</kbd></td><td>delete from cursor to end of line </td></tr>
-<tr><td><kbd>Alt+//</kbd></td><td>find forward </td></tr>
+<tr><td><kbd>Alt+^</kbd></td><td>Delete from cursor to start of line </td></tr>
+<tr><td><kbd>Alt+$</kbd></td><td>Delete from cursor to end of line </td></tr>
+<tr><td><kbd>Alt+//</kbd></td><td>Find forward </td></tr>
 <tr><td><kbd>Alt+:w</kbd></td><td>Save File. Similar to Vi :w </td></tr>
-<tr><td><kbd>Alt+colors       = lued.show_colors              </kbd></td></tr>
+<tr><td><kbd>Alt+colors</kbd></td><td>Show colors </td></tr>
 <tr><td><kbd>Alt+cd</kbd></td><td>Change directory </td></tr>
 <tr><td><kbd>Alt+ed</kbd></td><td>Change to EDIT mode. You almost always want to be in EDIT mode. </td></tr>
 <tr><td><kbd>Alt+help</kbd></td><td>Help. Open lued_bindings.lua </td></tr>
@@ -216,15 +223,15 @@ permalink: /bindings/
 <tr><td><kbd>Alt+RLN</kbd></td><td>hide relative line numbers </td></tr>
 <tr><td><kbd>Alt+ls</kbd></td><td>unix ls command. dos dir command </td></tr>
 <tr><td><kbd>Alt+LU</kbd></td><td>Change to LUA mode. You rarely want to be in lua mode. </td></tr>
-<tr><td><kbd>Alt+nop          = lued.nop                     lued.hot("nop") </kbd></td></tr>
-<tr><td><kbd>Alt+noop         = lued.noop                    lued.hot("noop") </kbd></td></tr>
+<tr><td><kbd>Alt+nop</kbd></td><td>No Op. (same as Alt+NOOP) </td></tr>
+<tr><td><kbd>Alt+noop</kbd></td><td>No Op (same as Alt+NOP) </td></tr>
 <tr><td><kbd>Alt+qq</kbd></td><td>Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q </td></tr>
 <tr><td><kbd>Alt+QQ</kbd></td><td>set join wrap </td></tr>
 <tr><td><kbd>Alt+reinit</kbd></td><td>Reload lued script </td></tr>
 <tr><td><kbd>Alt+review</kbd></td><td>Review mode prevents saving file </td></tr>
 <tr><td><kbd>Alt+refresh</kbd></td><td>Reload current file </td></tr>
 <tr><td><kbd>Alt+sa</kbd></td><td>Similar to Sublime Ctrl+Shift+S. File Save as. </td></tr>
-<tr><td><kbd>Alt+SaveSession  = lued.save_session_file </kbd></td></tr>
-<tr><td><kbd>Alt+LoadSession  = lued.load_session_file </kbd></td></tr>
+<tr><td><kbd>Alt+SaveSession</kbd></td><td>Save session file </td></tr>
+<tr><td><kbd>Alt+LoadSession</kbd></td><td>Load session file </td></tr>
 <tr><td><kbd>Alt+Seti</kbd></td><td>Set Scope Indent SI2 SI3 SI4 </td></tr>
 </table>

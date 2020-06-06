@@ -17,6 +17,20 @@ end
 
 
 function format_lines(line_array)
+
+  print [[
+---
+layout: page
+title: Lued Key Bindings 
+permalink: /bindings/
+---
+
+Key bindings are defined in <code>lued/lua_src/bindings/lued_bindings.lua</code>.
+This is fairly straight-forward, easily understandable Lua code.  You are 
+encouraged to modify the bindings to suite your style. You don't Lua
+knowledge to figure out what to do.
+
+  ]]
   
   local section_count = 0
   for i=1,#line_array do

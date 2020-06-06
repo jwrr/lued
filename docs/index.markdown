@@ -33,7 +33,7 @@ respectively. <kbd>Ctrl+Z</kbd> and <kbd>Ctrl+Y</kbd> undo and redo.
 arrow keys. PgUp, PgDn, Home and End work as expected. For more advanced 
 commands, Lued attempts to be similar to [Sublime](https://www.sublimetext.com/)
 or [VScode](https://code.visualstudio.com/).  You can use the
-mouse to copy and paste and the scroll wheel lets you to easily navigate up
+mouse to copy and paste and the scroll wheel lets you easily navigate up
 and down the document.
  
 Lued is compatible with most xterms such as Konsole and Gnome Terminal. It also

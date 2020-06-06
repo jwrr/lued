@@ -23,7 +23,7 @@ email: jwrr.com@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Lued is a console-based text editor.  It's mostly written in Lua (and some C).
   It's easily configurable with Lua.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/lued" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jwrr13
 github_username:  jwrr
