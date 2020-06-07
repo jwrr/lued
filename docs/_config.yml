@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: LUED Github Pages
+title: Lued Text Editor
 email: jwrr.com@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Lued is a console-based text editor.  It's mostly written in Lua (and some C).
