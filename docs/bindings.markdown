@@ -4,11 +4,13 @@ title: Lued Key Bindings
 permalink: /bindings/
 ---
 
-Key bindings are defined in <code>
-[lued/lua_src/bindings/lued_bindings.lua](https://github.com/jwrr/lued/blob/master/lua_src/bindings/lued_bindings.lua)</code>.
+Key bindings are defined in <code>lued/lua_src/bindings/lued_bindings.lua</code>.
 This is fairly straight-forward, easily understandable Lua code.  You are 
 encouraged to modify the bindings to suite your style. You don't Lua
 knowledge to figure out what to do.
+
+* TOC
+{:toc}
 
   
 ## Basic Control Key Commands
@@ -45,8 +47,6 @@ knowledge to figure out what to do.
 <table>
 <tr><td><kbd>Alt+tt</kbd></td><td>Change to next file tab. Similar to Sublime next_view Ctrl+Tab or Command+Shift+]. </td></tr>
 <tr><td><kbd>Alt+TT</kbd></td><td>Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[. </td></tr>
-<tr><td><kbd>Alt+</kbd></td><td>Toggle to previous file tab </td></tr>
-<tr><td><kbd>Alt++</kbd></td><td>Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[ </td></tr>
 </table>
 ## Select Commands
 <table>
@@ -73,7 +73,7 @@ knowledge to figure out what to do.
 <tr><td><kbd>Alt+rn</kbd></td><td>replay named keystroke sequence </td></tr>
 <tr><td><kbd>Alt+rr</kbd></td><td>replay keystroke sequence again </td></tr>
 </table>
-## ctag Exuberant Tags
+## Ctags /  Exuberant Tags
 <table>
 <tr><td><kbd>Alt+cb</kbd></td><td>ctag back </td></tr>
 <tr><td><kbd>Alt+cf</kbd></td><td>ctag forward in stack  </td></tr>

@@ -54,8 +54,6 @@ ctrl_M           = lued.dont_use          -- Do Not Use.
 --## File Tab Commands
 alt_tt           = lued.tab_next                lued.hot("tt")  -- Change to next file tab. Similar to Sublime next_view Ctrl+Tab or Command+Shift+].
 alt_TT           = lued.tab_prev                lued.hot("TT")  -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[.
-alt__equal_      = lued.tab_toggle              lued.hot("=")   -- Toggle to previous file tab
-alt__plus_       = lued.tab_prev                lued.hot(",+,") -- Change to previous file tab. Similar to Sublime prev_view Ctrl+Shift+Tab or Command+Shift+[
 
 --## Select Commands
 alt_si           = lued.sel_indentation         lued.hot("si") -- Similar to Sublime Ctrl+shift+J.  Select lines with the indentation.
@@ -85,7 +83,7 @@ alt_rr           = lued.replay_again            lued.hot("rr")  -- replay keystr
 -- alt_r            = lued.set_move_right_n_char              -- Move N char right.  alt_r42&lt;Enter&gt; moves 42 char to the right
 -- alt_rr           = lued.move_right_n_char       lued.hot("rr")  -- Move predefined numbed of char to the right.
 
---## ctag Exuberant Tags
+--## Ctags /  Exuberant Tags
 alt_cb           = lued.ctag_move_back_from_tag  lued.hot("cb") -- ctag back
 alt_cf           = lued.ctag_move_forward_in_stack lued.hot("cf") -- ctag forward in stack 
 alt_ct           = lued.ctag_move_to_tag         lued.hot("ct") -- ctag jump. Similar Sublime Ctrl+R

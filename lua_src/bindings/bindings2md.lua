@@ -30,6 +30,9 @@ This is fairly straight-forward, easily understandable Lua code.  You are
 encouraged to modify the bindings to suite your style. You don't Lua
 knowledge to figure out what to do.
 
+* TOC
+{:toc}
+
   ]]
   
   local section_count = 0
@@ -44,8 +47,8 @@ knowledge to figure out what to do.
       print(l)
       print("<table>")
     elseif line_starts_with(l, "ctrl") or line_starts_with(l, "alt") then
-      l = string.gsub(l, "^ctrl_", "`k'Ctrl+")
-      l = string.gsub(l, "^alt_", "`k'Alt+")
+      l = string.gsub(l, "^ctrl_", "<kbd>Ctrl+")
+      l = string.gsub(l, "^alt_", "<kbd>Alt+")
       l = string.gsub(l, "_period_", ".")
       l = string.gsub(l, "_at_", "@")
       l = string.gsub(l, "_equal_", "=")
@@ -57,7 +60,7 @@ knowledge to figure out what to do.
       l = string.gsub(l, "_slash_", "//")
       l = string.gsub(l, "_colon_", ":")
       l = string.gsub(l, "_plus_", "+")
-      l = string.gsub(l, "%s*=.*[-][-]%s*", "</td><td>")
+      l = string.gsub(l, "%s*=.*[-][-]%s*", "</kbd></td><td>")
       print("<tr><td>"..l.." </td></tr>")
     end
   end
