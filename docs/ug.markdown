@@ -113,22 +113,19 @@ Repeat Magic
 Moving Around
 -----------
 
-Lued is a text editor that runs in the console like [emacs](https://www.gnu.org/software/emacs/)
-and [vim](https://www.vim.org/).  The goal is to be comfortable 
-for Windows users.  Common Windows keystrokes are supported.  For example,
-<kbd>Ctrl+C</kbd>, <kbd>Ctrl+X</kbd>, <kbd>Ctrl+V</kbd> do copy, cut and paste, 
-respectively. <kbd>Ctrl+Z</kbd> and <kbd>Ctrl+Y</kbd> undo and redo. 
-<kbd>Ctrl+S</kbd>, <kbd>Ctrl+Q</kbd> save and quit. You move arrow using the 
-arrow keys. PgUp, PgDn, Home and End work as expected. For more advanced 
-commands, Lued attempts to be similar to [Sublime](https://www.sublimetext.com/)
-or [VScode](https://code.visualstudio.com/).  You can use the
-mouse to copy and paste and the scroll wheel lets you easily navigate up
-and down the document.
- 
-Lued is compatible with most xterms such as Konsole and Gnome Terminal. It also
-works well with [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
-and [tmux](https://github.com/tmux/tmux).
 
+Terminal/Console Limitations
+--------------------
+
+### Control Keys are Case Insensitive
+
+The terminal maps upper and lower case <kbd>Ctrl</kbd>
+key combinations to the same value.  So Lued can't
+tell the difference.  For example, <kbd>Ctrl+d</kbd> (used by
+Sublime to select a word) and <kbd>Shift+Ctrl+D</kbd>
+(used by Sublime to duplicate a line) look the same to Lued.
+
+Note, the <kbd>Alt</kbd> key combinations **are** case sensitive.
 
 
 <hr style="margin-top:4em;">
