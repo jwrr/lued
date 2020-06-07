@@ -4,9 +4,10 @@ title: Lued Key Bindings
 permalink: /bindings/
 ---
 
-Key bindings are defined in <code>lued/lua_src/bindings/lued_bindings.lua</code>.
+Key bindings are defined in <code>
+[lued/lua_src/bindings/lued_bindings.lua](https://github.com/jwrr/lued/blob/master/lua_src/bindings/lued_bindings.lua)</code>.
 This is fairly straight-forward, easily understandable Lua code.  You are 
-encouraged to modify the bindings to suite your style. You don't any Lua
+encouraged to modify the bindings to suite your style. You don't Lua
 knowledge to figure out what to do.
 
   
