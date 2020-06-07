@@ -467,4 +467,5 @@ ep lines less than 72 char
 * feature - run script from command line: lued script file_list
 * feature - run one-liner from command line: - lued -e 'find_last(pat) insert_below("string1\nstr")' file_list
 * Compatiblity - Terminator, Guake, Tilda, Guake, Konsole
+* feature - add support for ctrl-K,ctrl-?
 

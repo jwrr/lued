@@ -53,6 +53,8 @@ function lued.display_status_in_lua(lua_mode,dd)
   end
 
   local cmd_str = get_last_cmd() or ""
+  cmd_str = string.gsub(cmd_str, "^x", "")
+  cmd_str = string.gsub(cmd_str, "%(.*", "")
   local max_cmd_len = 20
   cmd_str = string.sub(cmd_str,1,max_cmd_len)
   local pad_len = max_cmd_len - string.len(cmd_str);

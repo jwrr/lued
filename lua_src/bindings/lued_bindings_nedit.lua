@@ -175,7 +175,7 @@ ctrl_G         = lued.find_forward_again
 
 ctrl_H         = lued.find_forward_selected
 ctrl_J         = lued.dont_use          -- Same as <Enter>
-ctrl_K         = lued.sel_word
+--ctrl_K         = lued.sel_word
 ctrl_L         = goto_line
 
 ctrl_Z         = lued.undo_cmd          -- alt_z

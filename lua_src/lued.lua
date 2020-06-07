@@ -133,13 +133,32 @@ SOFTWARE.
 
   lued.init_lued(g_lued_root , g_bindings_file)
 
-
+  lued.ctrl_combo_key = ""
+  
   local lued_metatable = {
+    -- __index is called when a command is not defined
     __index = function ( t, k )
       if k == nil then return end
       if k == "_PROMPT" then return end
-      -- print ("KEY='"..k.."'")
+--        print ("KEY='"..k.."'") io.read()
 
+      if string.find(k, "xctrl_", 1, true) then
+        local k2 = string.gsub(k, "xctrl_", "ctrl_", 1, true)
+        if lued.ctrl_combo_key=="" then
+          if _G[k2] then return _G[k2] end
+          lued.ctrl_combo_key = k2
+        else
+          lued.ctrl_combo_key = lued.ctrl_combo_key .. string.gsub(k2, "ctrl_", "")
+          if _G[lued.ctrl_combo_key] then
+            local tmp = lued.ctrl_combo_key 
+            lued.ctrl_combo_key = ""
+--             print("tmp="..tmp) io.read()
+            return _G[tmp]
+          end
+        end
+        return lued.noop
+      end
+          
       local new_func_name, num_found = string.gsub(k, "alt_", "")
 
       if num_found == 0 then return end
