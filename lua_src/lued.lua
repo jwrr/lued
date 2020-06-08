@@ -141,9 +141,10 @@ SOFTWARE.
       if k == nil then return end
       if k == "_PROMPT" then return end -- FIXME
       if k == "row" then return end -- FIXME
---        print ("KEY='"..k.."'") io.read()
+      if string.find(k,"xins_str") then print ("KEY='"..k.."'") io.read() end
+--       print ("KEY='"..k.."'") io.read()
 
-      local k2, num_sub = string.gsub(k, "^x", "")
+      local k2, num_sub = string.gsub(k, "^x", "", 1)
       if num_sub==0 or k2==nil then return end
       
       if string.find(k2, "ctrl_", 1, true) then
@@ -151,7 +152,7 @@ SOFTWARE.
           if _G[k2] then return _G[k2] end
           lued.ctrl_combo_key = k2
         else
-          k2 = lued.ctrl_combo_key .. string.gsub(k2, "ctrl_", "")
+          k2 = lued.ctrl_combo_key .. string.gsub(k2, "ctrl_", "", 1)
           lued.ctrl_combo_key = ""
           if _G[k2] then return _G[k2] end 
         end
@@ -160,7 +161,7 @@ SOFTWARE.
 
       if lued.ctrl_combo_key=="" then
         if k2 and _G[k2] then return _G[k2] end
-        k2 = string.gsub(k2, "alt_", "")
+        k2 = string.gsub(k2, "alt_", "", 1)
         if k2 and _G[k2]  then return _G[k2] end
       else
         k2 = lued.ctrl_combo_key .. k2
