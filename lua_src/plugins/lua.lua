@@ -101,6 +101,7 @@ local keyword_str = string.gsub([[
  false for function goto if in 
  local nil not or repeat return 
  then true until while 
+ __index _G
  + - * / % ^ # 
  & ~ | << >> // 
  == ~= <= >= < > = 

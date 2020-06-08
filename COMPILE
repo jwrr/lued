@@ -6,8 +6,10 @@
 
 git submodule init
 git submodule update
+git submodule foreach git checkout master 
+git submodule foreach git pull origin master
 
-echo "Apply patch to Lua 5.2"
+echo "*** Apply patch to Lua 5.2"
 pushd src/lua/src
 git apply ../0001-Minor-changes-to-embed-lua-into-lued.patch
 popd
@@ -16,43 +18,17 @@ pushd src/carr/src
 rm lua_hacked.c lua.h
 popd
 
-
-## ## Clone lua if it hasn't been done yet.
-## if [ -d "src/lua/src" ]; then
-##   echo "Skipping clone... lua_5.2 exists"
-## else
-##   echo "Clone lua_5.2"
-##   pushd src/lua
-##   # git clone https://github.com/lua/lua.git --single-branch --branch v5-2 src
-##   git clone https://github.com/lua/lua.git --branch v5-2 src
-##   cd src
-##   git apply ../0001-Minor-changes-to-embed-lua-into-lued.patch
-##   popd
-## fi
-##
-## ## Clone large array library (carr) if it hasn't been done yet.
-## if [ -d "src/carr/src" ]; then
-##   echo "Skipping clone... carr exists"
-## else
-##   echo "Clone carr"
-##   pushd src
-##   git clone https://github.com/jwrr/carr.git
-##   cd carr/src
-##   rm lua_hacked.c lua.h
-##   popd
-## fi
-
 # Create new build directory
 rm -rf build
 mkdir build
 
-## Build lued executable by running cmake and make
+echo "*** Build lued executable by running cmake and make"
 pushd build
 cmake ..
 make
 popd
 
-## Copy lued executable to top directory
+echo "*** Copy lued executable to top directory"
 if [ -f build/lued ]; then
   echo "SUCCESS! 'lued' executable created in current directory"
   cp build/lued .

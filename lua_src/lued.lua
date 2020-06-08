@@ -139,32 +139,39 @@ SOFTWARE.
     -- __index is called when a command is not defined
     __index = function ( t, k )
       if k == nil then return end
-      if k == "_PROMPT" then return end
+      if k == "_PROMPT" then return end -- FIXME
+      if k == "row" then return end -- FIXME
 --        print ("KEY='"..k.."'") io.read()
 
-      if string.find(k, "xctrl_", 1, true) then
-        local k2 = string.gsub(k, "xctrl_", "ctrl_", 1, true)
+      local k2, num_sub = string.gsub(k, "^x", "")
+      if num_sub==0 or k2==nil then return end
+      
+      if string.find(k2, "ctrl_", 1, true) then
         if lued.ctrl_combo_key=="" then
           if _G[k2] then return _G[k2] end
           lued.ctrl_combo_key = k2
         else
-          lued.ctrl_combo_key = lued.ctrl_combo_key .. string.gsub(k2, "ctrl_", "")
-          if _G[lued.ctrl_combo_key] then
-            local tmp = lued.ctrl_combo_key 
-            lued.ctrl_combo_key = ""
---             print("tmp="..tmp) io.read()
-            return _G[tmp]
-          end
+          k2 = lued.ctrl_combo_key .. string.gsub(k2, "ctrl_", "")
+          lued.ctrl_combo_key = ""
+          if _G[k2] then return _G[k2] end 
         end
         return lued.noop
       end
-          
-      local new_func_name, num_found = string.gsub(k, "alt_", "")
 
-      if num_found == 0 then return end
-      if _G[new_func_name] == nil then return end
-
-      return _G[new_func_name]
+      if lued.ctrl_combo_key=="" then
+        if k2 and _G[k2] then return _G[k2] end
+        k2 = string.gsub(k2, "alt_", "")
+        if k2 and _G[k2]  then return _G[k2] end
+      else
+        k2 = lued.ctrl_combo_key .. k2
+        lued.ctrl_combo_key = ""
+        if _G[k2]==nil then
+          print ("KEY='" .. k2 .. "'"  .. " not defined. Press <Enter> to Continue...") io.read()
+          return lued.noop
+        end
+        return _G[k2]
+      end
+      return lued.noop
     end
   }
 

@@ -56,15 +56,16 @@ function lued.reinit(dd)
   lued.disp(dd)
 end
 
+lued.saved_line = ""
 
 function lued.remove_trailing_spaces(next_row,next_col,force,dd)
   local dd2 = 1
   local r,c = get_cur_pos()
   local line = get_line()
-  local row_changing = next_row ~= row
-  local saved_exists = saved_line ~= nil
+  local row_changing = next_row ~= r
+  local saved_exists = lued.saved_line ~= nil
   local line_exists = line ~= nil
-  local line_different = next_row==0 or line ~= saved_line
+  local line_different = next_row==0 or saved_exists and line ~= lued.saved_line
   local line_changed = row_changing and saved_exists and line_exists and line_different
   local remove = force==true or g_remove_trailing_spaces==true and line_changed==true
   if remove==true then
@@ -86,10 +87,10 @@ function lued.remove_trailing_spaces(next_row,next_col,force,dd)
       lued.move_to_eol(dd2);
     end
     if (next_row ~= row) then
-      saved_line = get_line()
+      lued.saved_line = get_line()
     end
   else
-    saved_line = ""
+    lued.saved_line = ""
   end
   lued.disp(dd)
 end

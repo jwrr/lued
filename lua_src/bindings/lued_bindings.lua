@@ -40,7 +40,8 @@ ctrl_H           = lued.find_and_replace  -- Find and Replace. Similar to Sublim
 ctrl_J           = lued.dont_use          -- Do Not Use. Same as Enter Key
 -- ctrl_K           = lued.ctrl_combo        -- Control Combo
 ctrl_KK          = lued.del_eol           -- Delete from cursor to end of line. Similar to Sublime Ctrl+KK
-ctrl_KH          = lued.del_sol           -- Delete from cursor to start of line. Press &lt;Backspace&gt; instead of 'H'. Similar to Sublime Ctrl+K,Backspace
+ctrl_KH          = lued.del_sol           -- Delete from cursor to start of line. Press Ctrl+&lt;Backspace&gt; instead of 'H'. Similar to Sublime Ctrl+K,Ctrl+Backspace
+ctrl_Kesc_backspace = lued.del_sol        -- Delete from cursor to start of line. Similar to Sublime Ctrl+K,Ctrl+Backspace
 ctrl_KL          = lued.sel_to_lower      -- Transform selection or current char to lowercase. Similar to Sublime Ctrl+KL 
 ctrl_KU          = lued.sel_to_upper      -- Transform selection or current char to uppercase. Similar to Sublime Ctrl+KU
 
