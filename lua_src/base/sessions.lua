@@ -28,7 +28,7 @@ SOFTWARE.
 function lued.save_session_file(dd)
   local n = get_numsessions()
   local id = get_fileid()
-  local sf = io.open("session.lued", "w")
+  local sf = io.open("session.lua", "w")
   for i=1,n do
     local filename, r, c = lued.get_filenamerc(i)
     local str = "lued.open_filerc('" .. filename .. "', " .. tonumber(r) .. ", " .. tonumber(c) .. ")\n"
@@ -43,7 +43,7 @@ end
 
 
 function lued.load_session_file(dd)
-  local sesh_file = io.open("session.lued","r")
+  local sesh_file = io.open("session.lua","r")
   local all_files = sesh_file:read("*all")
   lued.open_file(all_files, dd)
 end
