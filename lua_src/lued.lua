@@ -141,7 +141,7 @@ SOFTWARE.
       if k == nil then return end
       if k == "_PROMPT" then return end -- FIXME
       if k == "row" then return end -- FIXME
-      if string.find(k,"xins_str") then print ("KEY='"..k.."'") io.read() end
+--       if string.find(k,"xins_str") then print ("KEY='"..k.."'") io.read() end
 --       print ("KEY='"..k.."'") io.read()
 
       local k2, num_sub = string.gsub(k, "^x", "", 1)
