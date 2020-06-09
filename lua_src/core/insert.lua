@@ -77,13 +77,13 @@ function lued.ins_string(str, dd)
     end
     insert_str(str)
 
-    if is_inside_braces then
-      insert_str(str)
-      lued.move_up_n_lines(1,dd2)
-      lued.indent1(g_indent_size, g_indent_char, false, dd2)
-    elseif is_start_of_block then
-      lued.indent1(g_indent_size, g_indent_char, false, dd2)
-    end
+--FIXME     if is_inside_braces then
+--FIXME       insert_str(str)
+--FIXME       lued.move_up_n_lines(1,dd2)
+--FIXME       lued.indent1(g_indent_size, g_indent_char, false, dd2)
+--FIXME     elseif is_start_of_block then
+--FIXME       lued.indent1(g_indent_size, g_indent_char, false, dd2)
+--FIXME     end
 
     local r2,c2 = get_cur_pos()
     set_cur_pos(r,c)
@@ -217,7 +217,7 @@ end
 function lued.insert_cr_before(dd)
   local dd2 = 1
   local is_end_of_block = lued.line_contains(g_block_end)
-  lued.move_to_sol_classic(dd2)
+  lued.move_to_sol(dd2)
   set_sel_off()
   ins_str("\n",dd2)
   lued.move_up_n_lines(1,dd2)
