@@ -2,7 +2,7 @@
 layout: page
 title: User Guide
 permalink: /ug/
-sidbar: toc
+sidebar: toc
 ---
 
 <style type="text/css">
@@ -23,7 +23,6 @@ white-space: nowrap;
 
 * TOC
 {:toc}
-
 
 Enter Magic
 -------------------

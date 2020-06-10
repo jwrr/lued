@@ -1,6 +1,6 @@
 -- html.lua
 
-lued.html = {}
+lued.html = lued.html or {}
 
 local keyword_str = string.gsub([[
  a abbr acronym address applet area article aside audio b  
@@ -66,12 +66,10 @@ lued.filetypes.htm  = "html"
 lued.filetypes.markdown  = "html"
 lued.filetypes.md   = "html"
 
-local s = {}
-lued.def_snippet(s, keyword_str  , lued.html.tag)
-lued.def_snippet(s, "html html5 !"  , lued.html.html5)
-lued.def_snippet(s, "br hr"         , lued.html.self_closing)
-lued.def_snippet(s, "a"             , lued.html.anchor)
-lued.def_snippet(s, "ah"            , lued.html.anchor)
-lued.def_snippet(s, "ahs as"        , lued.html.anchor)
-lued.snippets.html = s
+lued.def_snippet(lued.snippets.html, keyword_str  , lued.html.tag)
+lued.def_snippet(lued.snippets.html, "html html5 !"  , lued.html.html5)
+lued.def_snippet(lued.snippets.html, "br hr"         , lued.html.self_closing)
+lued.def_snippet(lued.snippets.html, "a"             , lued.html.anchor)
+lued.def_snippet(lued.snippets.html, "ah"            , lued.html.anchor)
+lued.def_snippet(lued.snippets.html, "ahs as"        , lued.html.anchor)
 

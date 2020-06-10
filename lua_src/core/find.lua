@@ -451,7 +451,11 @@ function lued.find_and_replace(from,to,options,dd)
   repeat
 
     local test_str = ""
-    found = lued.find_forward(str,true,false,true,test_str,dd2)
+    if g_search_all_files then
+      found = lued.search_all_files(str,dd2)
+    else
+      found = lued.find_forward(str,true,false,true,test_str,dd2)
+    end
     str = str or g_find_str
     g_find_str = str
     if found then

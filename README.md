@@ -430,7 +430,6 @@ ep lines less than 72 char
 
 * Should sel_word incldule set_sel_end()? or should it be an argument?
 * <cr> in comment creates new comment line.
-* alt+jj joins two lines. if on comment line the remove next lines comment
 * Bracket highlighting
 * Move to open/close of bracket
 * Create php.lua language mode
@@ -468,4 +467,11 @@ ep lines less than 72 char
 * feature - run one-liner from command line: - lued -e 'find_last(pat) insert_below("string1\nstr")' file_list
 * Compatiblity - Terminator, Guake, Tilda, Guake, Konsole
 * feature - add support for ctrl-K,ctrl-?
-
+* alt+jj joins two lines. if on comment line the remove next lines comment
+* feature - test framework. open(filename) goto(r,c) del_word() save_as() diff(expect_file) report(stderr) quit()
+* feature - lued -e script.lued filenames
+* feature - lued -e script.lued < stdin > stdout > stderr
+* feature - alt_X13 - delete previous 13 lines (including current line)
+* fixme   - make relative line numbers solid
+* feateure - on paste and mouse paste, delete leading spaces and indent to current position
+* fixme    - square paren at end of line gets deleted.

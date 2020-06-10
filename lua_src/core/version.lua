@@ -1,1 +1,1 @@
-lued.version = "Lued v20.06d"
+lued.version = "Lued v20.06e"
