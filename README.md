@@ -467,7 +467,7 @@ ep lines less than 72 char
 * feature - run one-liner from command line: - lued -e 'find_last(pat) insert_below("string1\nstr")' file_list
 * Compatiblity - Terminator, Guake, Tilda, Guake, Konsole
 * feature - add support for ctrl-K,ctrl-?
-* alt+jj joins two lines. if on comment line the remove next lines comment
+* alt+jj joins two lines. if on omment line the remove next lines comment
 * feature - test framework. open(filename) goto(r,c) del_word() save_as() diff(expect_file) report(stderr) quit()
 * feature - lued -e script.lued filenames
 * feature - lued -e script.lued < stdin > stdout > stderr
@@ -480,6 +480,7 @@ Mag - Alt+xs del space. Press enter. Moves down line and deletes
 Mag – Ctrl-X
 Mag – Ctrl-C
 Mag - Ctrl-R repeat n keystrokes
+Mag - alt+>/< moving magic
 Mag – ctags
 Mag – alt+incr
 Feat - alt+math = +5; -7; *3; /2;
@@ -489,6 +490,11 @@ Fix – style return to previous instead of return to default
 Fix – nostyle in comment
 Feat – alt+xa cut aggregate.
 Feat – alt+xc clear X aggregate buffer
+Feat - alt+d? deletees without paste buffer
+Feat - alt+xv views paste buffers
+Feat - Alt+rN repeat previous command N times (alt+r123 repeats 123 times)
+Feat - If multiline paste and current line contains text after cursor, goto next line and paste
+Feat - If multiline paste and current line is indented then delete leading-ws in paste buffer before pasting
 
 https://bootstrapstarter.com/bootstrap-templates/template-basic-bootstrap-html/
 
