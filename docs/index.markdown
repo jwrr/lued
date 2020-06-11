@@ -5,23 +5,6 @@
 layout: home
 ---
 
-<style type="text/css">
-kbd {
-background-color: #eee;
-border-radius: 3px;
-border: 1px solid #b4b4b4;
-box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
-color: #333;
-display: inline-block;
-font-size: .85em;
-font-weight: 700;
-line-height: 1;
-padding: 2px 4px;
-white-space: nowrap;
-}
-</style>
-
-
 What is it?
 -----------
 
@@ -49,9 +32,9 @@ Lued source code is available under the [MIT License](https://opensource.org/lic
 at [github.com/jwrr/lued](http://github.com/jwrr/lued).  You can download a zip file or 
 clone the repo.
 
-<center>
-<a href="https://github.com/jwrr/lued/archive/master.zip"><img src="/assets/download.jpg" alt="Download Lued from Github"/></a>
-</center>
+<button class="favorite styled" type="button">
+  <a href="https://github.com/jwrr/lued/archive/master.zip">Download Lued from Github</a>
+</button>
 
 ```
 git clone https://github.com/jwrr/lued

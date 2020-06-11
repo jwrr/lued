@@ -5,6 +5,9 @@ permalink: /bindings/
 ---
 
 <nav class="toc" markdown="1">
+<button class="favorite styled" type="button">
+  <a href="https://github.com/jwrr/lued">Lued on Github</a>
+</button>
 * TOC
 {:toc}
 </nav>
