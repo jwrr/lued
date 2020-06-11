@@ -475,3 +475,25 @@ ep lines less than 72 char
 * fixme   - make relative line numbers solid
 * feateure - on paste and mouse paste, delete leading spaces and indent to current position
 * fixme    - square paren at end of line gets deleted.
+
+Mag - Alt+xs del space. Press enter. Moves down line and deletes
+Mag – Ctrl-X
+Mag – Ctrl-C
+Mag - Ctrl-R repeat n keystrokes
+Mag – ctags
+Mag – alt+incr
+Feat - alt+math = +5; -7; *3; /2;
+Feat – alt+box1, alt+box2, alt+boxclr
+Doc - <section id="categories" markdown="1">
+Fix – style return to previous instead of return to default
+Fix – nostyle in comment
+Feat – alt+xa cut aggregate.
+Feat – alt+xc clear X aggregate buffer
+
+https://bootstrapstarter.com/bootstrap-templates/template-basic-bootstrap-html/
+
+
+
+
+
+

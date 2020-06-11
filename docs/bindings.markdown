@@ -4,17 +4,18 @@ title: Lued Key Bindings
 permalink: /bindings/
 ---
 
+<nav class="toc" markdown="1">
+* TOC
+{:toc}
+</nav>
+
 Key bindings are defined in <code>lued/lua_src/bindings/lued_bindings.lua</code>.
 This is fairly straight-forward, easily understandable Lua code.  You are 
 encouraged to modify the bindings to suite your style. You don't Lua
 knowledge to figure out what to do.
 
-* TOC
-{:toc}
-
-  
 ## Basic Control Key Commands
-<table>
+<table class="">
 <tr><td><kbd>Ctrl+@</kbd></td><td>Called when resuming from Ctrl+Z (fg at shell prompt). Not directly used by you. </td></tr>
 <tr><td><kbd>Ctrl+Q</kbd></td><td>Quit or Exit. Similar to Sublime Ctrl-Q. </td></tr>
 <tr><td><kbd>Ctrl+W</kbd></td><td>Close window or tab. Similar to Sublime Ctrl-W. </td></tr>
@@ -236,3 +237,5 @@ knowledge to figure out what to do.
 <tr><td><kbd>Alt+LoadSession</kbd></td><td>Load session file </td></tr>
 <tr><td><kbd>Alt+Seti</kbd></td><td>Set Scope Indent SI2 SI3 SI4 </td></tr>
 </table>
+
+
