@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Lued Key Bindings 
+title: Key Bindings 
 permalink: /bindings/
 ---
 

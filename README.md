@@ -469,8 +469,8 @@ ep lines less than 72 char
 * feature - add support for ctrl-K,ctrl-?
 * alt+jj joins two lines. if on omment line the remove next lines comment
 * feature - test framework. open(filename) goto(r,c) del_word() save_as() diff(expect_file) report(stderr) quit()
-* feature - lued -e script.lued filenames
-* feature - lued -e script.lued < stdin > stdout > stderr
+* feature - lued -d script.lued filenames
+* feature - lued -d script.lued < stdin > stdout > stderr
 * feature - alt_X13 - delete previous 13 lines (including current line)
 * fixme   - make relative line numbers solid
 * feateure - on paste and mouse paste, delete leading spaces and indent to current position
@@ -495,8 +495,11 @@ Feat - alt+xv views paste buffers
 Feat - Alt+rN repeat previous command N times (alt+r123 repeats 123 times)
 Feat - If multiline paste and current line contains text after cursor, goto next line and paste
 Feat - If multiline paste and current line is indented then delete leading-ws in paste buffer before pasting
+Doc  - READTHEDOCS.ORG
 
 https://bootstrapstarter.com/bootstrap-templates/template-basic-bootstrap-html/
+
+
 
 
 
