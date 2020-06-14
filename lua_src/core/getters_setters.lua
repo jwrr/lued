@@ -83,38 +83,6 @@ function lued.get_yesno(prompt,default)
 end
 
 
-function lued.get_hist_id()
-  get_hist_id_cnt = get_hist_id_cnt or 0
-  get_hist_id_cnt = get_hist_id_cnt + 1
-  return get_hist_id_cnt;
-end
-
-
-function lued.get_yesno(prompt,default)
-  local yes = false
-  local no = false
-  local quit = false
-  local all = false
-  local valid_answer = false
-  local answer = ""
-  get_yesno_hist_id = get_yesno_hist_id or lued.get_hist_id()
-  repeat
-    answer = lued.prompt(get_yesno_hist_id,prompt .. " ")
-    if default~=nil and answer==nil or answer=="" then answer = default end
-    answer = string.upper(answer)
-    yes = answer=="Y"
-    no  = answer=="N"
-    quit = answer=="Q"
-    all = answer=="A"
-    valid_answer = yes or no or quit or all
-    if not valid_answer then
-      io.write("'"..answer.."' is not valid. ")
-    end
-  until (valid_answer)
-  return answer
-end
-
-
 function lued.get_cur_filename()
   local id = get_fileid()
   local filename = get_filename(id)

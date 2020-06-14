@@ -2,8 +2,6 @@
 
 lued.replay = lued.replay or {}
 lued.replay.names = lued.replay.names or {}
-lued.replay.prompt_id_name = lued.replay.prompt_id_name or lued.get_hist_id()
-lued.replay.prompt_id_keystrokes = lued.replay.prompt_id_keystrokes or lued.get_hist_id() 
 lued.replay.keystroke_hist = lued.replay.keystroke_hist or {}
 lued.replay.inhibit_push = false
 lued.replay.in_exec_str = false
@@ -44,6 +42,8 @@ function lued.show_keystroke_hist(prompt)
   end
 
   local p = prompt or "Command History (Press <Enter> to continue...)"
+  lued.replay.prompt_id_keystrokes = lued.replay.prompt_id_keystrokes or lued.get_hist_id() 
+  
   local user_response = lued.prompt(lued.replay.prompt_id_keystrokes, p)
   if user_response=="" then
     return lued.replay.num_keystrokes
@@ -73,6 +73,8 @@ function lued.replay_keystrokes(again,dd)
     local prompt = "replay N last Commands (Default="..lued.replay.num_keystrokes.."): "
     lued.replay.num_keystrokes = lued.show_keystroke_hist(prompt)
     lued.replay.most_recent_keystroke  = #lued.replay.keystroke_hist
+    lued.replay.prompt_id_name = lued.replay.prompt_id_name or lued.get_hist_id()
+    
     local name = lued.prompt(lued.replay.prompt_id_name, "Enter name (Optional): ")
     if name ~= "" then
       lued.replay.names[#lued.replay.names+1] = {

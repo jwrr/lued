@@ -661,6 +661,62 @@ function lued.vhdl.case()
 end
 
 
+-- =============================================================================
+-- Insert clock generator
+
+function lued.vhdl.clkgen()
+
+  local str = [[
+
+  constant CLK_PERIOD      : time := 10 ns;
+  constant CLK_HALF_PERIOD : time := CLK_PERIOD / 2;
+  signal   clk_en          : std_logic := '0';
+  signal   clk             : std_logic := '0';
+
+  clk_en <= not test_done;
+  clkgen: process
+  begin
+    while true loop
+      wait until clk_en;
+      while clk_en loop
+        clk <= not clk;
+        wait for CLK_HALF_PERIOD;
+      end loop;
+    end loop;
+    wait;
+  end process clkgen;
+
+]]
+
+  lued.ins_str_after(str, "clk")
+end
+
+
+-- =============================================================================
+-- Insert wait for N clocks
+
+function lued.vhdl.clkn()
+
+  local str = [[
+
+    for i in 1 to FOR_NN loop
+      wait until rising_edge(FOR_CLK);
+    end loop;
+
+]]
+
+  lued.ins_str_after(str)      -- Insert the template
+  lued.find_reverse("clk")     -- Search previous word with clk
+  lued.copy_word()             -- Put word in paste buffer
+  lued.find_forward("FOR_CLK") -- Find FOR_CLK
+  lued.paste()                 -- Replace FOR_CLK with clk signalname
+  lued.find_reverse("FOR_NN")  -- Select max loop count for easy replace
+end
+
+
+-- =============================================================================
+-- print help
+
 function lued.vhdl.help()
   local help_str = [[
 
@@ -704,6 +760,8 @@ lued.def_snippet(s, "inst instance e2i" , lued.vhdl.inst_from_entity)
 lued.def_snippet(s, "sig siglist sigent" , lued.vhdl.sig_from_entity)
 lued.def_snippet(s, "selent sel_ent sent" , lued.vhdl.sel_entity)
 lued.def_snippet(s, "help h"              , lued.vhdl.help)
+lued.def_snippet(s, "clkgen"              , lued.vhdl.clkgen)
+lued.def_snippet(s, "clkn"                , lued.vhdl.clkn)
 lued.snippets.vhdl = s
 
 

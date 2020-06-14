@@ -101,9 +101,30 @@ function lued.line_ends_with(needles, line)
 end
 
 
+function lued.sel(r1,c1,r2,c2)
+  local r,c1= get_cur_pos()
+  set_cur_pos(r1 or r,c1 or c)
+  set_sel_start()
+  set_cur_pos(r2 or r,c2 or c)
+end
+
 function lued.sel_word(dd)
   local dd2 = 1
-  if is_sel_off()==1 then
+
+  local partial = false
+  if lued.is_sel_on() then
+    local r,c = get_cur_pos()
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+    set_cur_pos(sel_sr,sel_sc)
+    partial = lued.is_word() and lued.prev_is_word()
+    if not partial then
+      set_cur_pos(sel_er,sel_ec)
+      partial = lued.is_word() and lued.prev_is_word()
+    end
+    set_cur_pos(r,c)
+  end
+
+  if partial or is_sel_off()==1 then
     lued.word_start(dd2)
     lued.var_start(dd2)
     set_sel_start()
@@ -210,6 +231,8 @@ function lued.sel_toggle(dd)
   end
   lued.disp(dd)
 end
+
+
 
 
 function lued.sel_sow(dd)

@@ -496,6 +496,7 @@ Feat - Alt+rN repeat previous command N times (alt+r123 repeats 123 times)
 Feat - If multiline paste and current line contains text after cursor, goto next line and paste
 Feat - If multiline paste and current line is indented then delete leading-ws in paste buffer before pasting
 Doc  - READTHEDOCS.ORG
+Feat - on_event("event", handler); on_signal(id, handler)
 
 https://bootstrapstarter.com/bootstrap-templates/template-basic-bootstrap-html/
 
