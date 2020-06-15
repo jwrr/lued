@@ -53,6 +53,29 @@ function lued.join_lines(delim,dd)
   local dd2 = 1
   if lued.is_lastline() then lued.disp(dd) return end
 
+  local r,c = get_cur_pos()
+  if not lued.is_eol() then
+    lued.move_to_eol(dd2)
+  end
+  if lued.is_space() then
+    lued.del_sow(dd2) -- delete spaces
+  end
+  
+  lued.del_char(1,dd2) -- delete '\n'
+  if lued.is_space() then
+    lued.del_eow(dd2) -- delete spaces
+  end
+  ins_str(delim,dd2);
+  set_cur_pos(r,c)
+  lued.disp(dd)
+end
+
+
+function lued.join_lines2(delim,dd)
+  delim = delim or " "
+  local dd2 = 1
+  if lued.is_lastline() then lued.disp(dd) return end
+
 
   local is_blankline = lued.is_blankline()
   local is_blankcomment, current_line = lued.is_blankcomment()
@@ -110,7 +133,7 @@ function lued.wrap_line(dd)
 
 
   if get_line_len() <= wrap_col then
-    lued.join_lines(wrap_delim,dd2)
+    lued.join_lines2(wrap_delim,dd2)
   end
   if get_line_len() <= wrap_col then lued.disp(dd) return end
   
