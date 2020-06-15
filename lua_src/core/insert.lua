@@ -90,7 +90,7 @@ function lued.ins_string(str, dd)
     lued.remove_trailing_spaces(r2,c2,false,dd2)
   else
     local brace_closed = false
-    if g_self_closing_braces then
+    if g_self_closing_braces and not lued.is_word() then
       if str=='{' then str= '{}'; brace_closed = true; end
       if str=='(' then str= '()'; brace_closed = true; end
       if str=='[' then str= '[]'; brace_closed = true; end

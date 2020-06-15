@@ -484,12 +484,12 @@ Mag - alt+>/< moving magic
 Mag – ctags
 Mag – alt+incr
 Feat - alt+math = +5; -7; *3; /2;
-Feat – alt+box1, alt+box2, alt+boxclr
+Feat -  alt+box1, alt+box2, alt+boxclr
 Doc - <section id="categories" markdown="1">
-Fix – style return to previous instead of return to default
-Fix – nostyle in comment
-Feat – alt+xa cut aggregate.
-Feat – alt+xc clear X aggregate buffer
+Fix - style return to previous instead of return to default
+Fix - nostyle in comment
+Feat - alt+xa cut aggregate.
+Feat - alt+xc clear X aggregate buffer
 Feat - alt+d? deletees without paste buffer
 Feat - alt+xv views paste buffers
 Feat - Alt+rN repeat previous command N times (alt+r123 repeats 123 times)

@@ -715,6 +715,26 @@ end
 
 
 -- =============================================================================
+-- Insert wait for 1 clock
+
+function lued.vhdl.clk1()
+
+  local str = [[
+
+    wait until rising_edge(FOR_CLK);
+
+]]
+
+  lued.ins_str_after(str)      -- Insert the template
+  lued.find_reverse("clk")     -- Search previous word with clk
+  lued.copy_word()             -- Put word in paste buffer
+  lued.find_forward("FOR_CLK") -- Find FOR_CLK
+  lued.paste()                 -- Replace FOR_CLK with clk signalname
+  lued.insert_cr_after()
+end
+
+
+-- =============================================================================
 -- print help
 
 function lued.vhdl.help()
@@ -762,6 +782,7 @@ lued.def_snippet(s, "selent sel_ent sent" , lued.vhdl.sel_entity)
 lued.def_snippet(s, "help h"              , lued.vhdl.help)
 lued.def_snippet(s, "clkgen"              , lued.vhdl.clkgen)
 lued.def_snippet(s, "clkn"                , lued.vhdl.clkn)
+lued.def_snippet(s, "clk1"                , lued.vhdl.clk1)
 lued.snippets.vhdl = s
 
 
