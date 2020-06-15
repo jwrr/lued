@@ -196,12 +196,12 @@ function lued.find_jump_forward(dd)
   lued.jump_back(g_find_jump_back_stack, g_find_jump_forward_stack, dd)
 end
 
+g_find_plaintext = g_find_plaintext or true
 
 function lued.find_all_on_line(line,str)
   local matchi = {}
   local s,e = 1,1
   local match_count = 0
-  g_find_plaintext = g_find_plaintext or false
 
   find_plaintext = g_find_plaintext and not g_find_whole_word
 
@@ -408,8 +408,11 @@ function lued.find_forward(str,nowrap,search_all,replace,test_str,dd)
     else
       lued.push_jump_stack(g_find_jump_back_stack, cfileid, cr, cc)
 
-      local match_str = string.match(line,g_find_str2,match_c) or ""
-      local match_len = string.len(match_str)
+      local match_len = string.len(g_find_str2)
+      if not g_find_plaintext then
+        local match_str = string.match(line,g_find_str2,match_c) or ""
+        match_len = string.len(match_str)
+      end
       set_cur_pos(i,match_c)
       set_sel_start()
       set_cur_pos(i, match_c+match_len)
