@@ -497,9 +497,12 @@ Feat - If multiline paste and current line contains text after cursor, goto next
 Feat - If multiline paste and current line is indented then delete leading-ws in paste buffer before pasting
 Doc  - READTHEDOCS.ORG
 Feat - on_event("event", handler); on_signal(id, handler)
-
+Feat - Table at beginning of line, when lined up with previous line's start, causes indent
 https://bootstrapstarter.com/bootstrap-templates/template-basic-bootstrap-html/
-
+Fix - alt+XW (cut-to-sow) bug when at eol
+Feat - alt+dn. delete up to but not include find string.
+Feat - alt+dn. if prev command was alt+dn then don't prompt
+Feat - alt_xn. repeated xn grows paste buffer.
 
 
 

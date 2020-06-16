@@ -1,0 +1,5 @@
+pushd lua_src/bindings
+lua bindings2md.lua > ../../docs/bindings.markdown
+popd
+ls -l docs/bindings.markdown
+

@@ -96,6 +96,13 @@ function lued.del_mark_to_cursor(dd)
 end
 
 
+function lued.cut_mark_to_cursor(dd)
+  local dd2 = 1
+  lued.sel_mark_to_cursor(dd2)
+  lued.global_cut(dd)
+end
+
+
 function lued.goto_nameless_mark_next(dd)
   g_nameless_stack = g_nameless_stack or 0
   g_nameless_stack = g_nameless_stack + 1

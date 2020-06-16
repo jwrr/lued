@@ -102,21 +102,37 @@ alt_ce           = lued.copy_eol                lued.hot("ce") -- Copy current p
 alt_CE           = lued.copy_sol                lued.hot("CE") -- Copy sol to current pos
 alt_cw           = lued.copy_word               lued.hot("cw") -- Copy word
 alt_DD           = lued.duplicate_line          lued.hot("DD") -- Duplicate line. Similar to Sublime Ctrl+Shift+D
-alt_dd           = lued.duplicate_n_lines                      -- aslt+dd214 duplicates 214 lines. 214 can be any number
 
-alt_d            = lued.del_char                               -- del N char
-alt_xb           = lued.del_eof                 lued.hot("xb") -- Delete to Bottom of Tab/Buffer/Window/File
-alt_XB           = lued.del_sof                 lued.hot("XB") -- Delete to Beginning of Tab
-alt_xe           = lued.del_eol                 lued.hot("xe") -- Similar to Sublime Ctrl+KK
-alt_XE           = lued.del_sol                 lued.hot("XE") -- Similar to Sublime Ctrl_K+&lt;Backspace&gt;
-alt_xl           = lued.del_line                lued.hot("xl") -- Delete line
-alt_xm           = lued.del_mark_to_cursor      lued.hot("xm") -- Delete from mark (alt+mm) to cursor
-alt_xs           = lued.del_spaces_selected     lued.hot("xs") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
-alt_XS           = lued.del_sow                 lued.hot("XS") -- Delete spaces to the left
-alt_xx           = lued.del_word                lued.hot("xx") -- Delete word under cursor
-alt_xw           = lued.del_eow                 lued.hot("xw") -- Similar to Sublime Ctrl+KW
-alt_XW           = lued.del_sow                 lued.hot("XW") -- Similar to Sublime Ctrl+Backspace
+alt_d            = lued.del_n_lines                            -- Delete N lines
+alt_da           = lued.del_all                 lued.hot("da") -- Delete all, entire file
+alt_db           = lued.del_eof                 lued.hot("db") -- Delete to Bottom of Tab/Buffer/Window/File
+alt_DB           = lued.del_sof                 lued.hot("DB") -- Delete to Beginning of Tab
+alt_de           = lued.del_eol                 lued.hot("de") -- Delete to end of line. Similar to Sublime Ctrl+KK
+alt_DE           = lued.del_sol                 lued.hot("DE") -- Delete to start of line. Similar to Sublime Ctrl_K+&lt;Backspace&gt;
+alt_dl           = lued.del_line                lued.hot("dl") -- Delete line
+alt_dn           = lued.del_next                lued.hot("dn") -- Delete up to  next find occurrence
+alt_dm           = lued.del_mark_to_cursor      lued.hot("dm") -- Delete from mark (alt+mm) to cursor
+alt_ds           = lued.del_spaces_selected     lued.hot("ds") -- Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
+alt_DS           = lued.del_sow                 lued.hot("DS") -- Delete spaces to the left
+alt_dd           = lued.del_word                lued.hot("dd") -- Delete word under cursor
+alt_dw           = lued.del_eow                 lued.hot("dw") -- Delete to end of word. Similar to Sublime Ctrl+KW
+alt_DW           = lued.del_sow                 lued.hot("DW") -- Delete to start of word. Similar to Sublime Ctrl+Backspace
+
+
 alt_x            = lued.cut_n_lines                            -- Cut multiple lines alt+x42&lt;enter&gt;
+alt_xa           = lued.cut_all                 lued.hot("xa") -- Cut all, entire file
+alt_xb           = lued.cut_eof                 lued.hot("xb") -- Cut to Bottom of Tab/Buffer/Window/File
+alt_XB           = lued.cut_sof                 lued.hot("XB") -- Cut to Beginning of Tab
+alt_xe           = lued.cut_eol                 lued.hot("xe") -- Cut to end of line. Similar to Sublime Ctrl+KK
+alt_XE           = lued.cut_sol                 lued.hot("XE") -- Cut to start of line. Similar to Sublime Ctrl_K+&lt;Backspace&gt;
+alt_xl           = lued.cut_line                lued.hot("xl") -- Cut line
+alt_xm           = lued.cut_mark_to_cursor      lued.hot("xm") -- Cut from mark (alt+mm) to cursor
+alt_xn           = lued.cut_next                lued.hot("xn") -- Cut up to next find occurrence
+alt_xs           = lued.cut_spaces_selected     lued.hot("xs") -- Cut spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it.
+alt_XS           = lued.cut_sow                 lued.hot("XS") -- Cut spaces to the left
+alt_xx           = lued.cut_word                lued.hot("xx") -- Cut word under cursor
+alt_xw           = lued.cut_eow                 lued.hot("xw") -- Cut to end of word. Similar to Sublime Ctrl+KW
+alt_XW           = lued.cut_sow                 lued.hot("XW") -- Cut to start of word. Similar to Sublime Ctrl+Backspace
 
 alt_pl           = lued.paste_line_after        lued.hot("pl") -- Paste Line after current line
 alt_PL           = lued.paste_line_before       lued.hot("PL") -- Paste Line before current line
@@ -246,7 +262,7 @@ esc_pastestop    = lued.bracket_paste_stop  -- Mouse lued.paste stop
 --## Misc Commands
 
 alt__caret_      = lued.del_sol                 lued.hot("^")   -- Delete from cursor to start of line
-alt__dollar_     = lued.del_eol                 lued.hot("$")   -- Delete from cursor to end of line
+alt__dollar_     = lued.cut_eol                 lued.hot("$")   -- Delete from cursor to end of line
 alt__slash_      = lued.find_forward            lued.hot(",/,") -- Find forward
 alt__colon_w     = lued.save_file               lued.hot(":w")  -- Save File. Similar to Vi :w
 

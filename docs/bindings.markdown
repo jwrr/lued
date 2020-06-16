@@ -1,24 +1,20 @@
 ---
 layout: page
-title: Key Bindings 
+title: Lued Key Bindings 
 permalink: /bindings/
 ---
-
-<nav class="toc" markdown="1">
-<button class="favorite styled" type="button">
-  <a href="https://github.com/jwrr/lued">Lued on Github</a>
-</button>
-* TOC
-{:toc}
-</nav>
 
 Key bindings are defined in <code>lued/lua_src/bindings/lued_bindings.lua</code>.
 This is fairly straight-forward, easily understandable Lua code.  You are 
 encouraged to modify the bindings to suite your style. You don't Lua
 knowledge to figure out what to do.
 
+* TOC
+{:toc}
+
+  
 ## Basic Control Key Commands
-<table class="">
+<table>
 <tr><td><kbd>Ctrl+@</kbd></td><td>Called when resuming from Ctrl+Z (fg at shell prompt). Not directly used by you. </td></tr>
 <tr><td><kbd>Ctrl+Q</kbd></td><td>Quit or Exit. Similar to Sublime Ctrl-Q. </td></tr>
 <tr><td><kbd>Ctrl+W</kbd></td><td>Close window or tab. Similar to Sublime Ctrl-W. </td></tr>
@@ -37,7 +33,11 @@ knowledge to figure out what to do.
 <tr><td><kbd>Ctrl+G</kbd></td><td>Goto Line Number. Similar to Sublime Ctrl+G </td></tr>
 <tr><td><kbd>Ctrl+H</kbd></td><td>Find and Replace. Similar to Sublime Ctrl+H. </td></tr>
 <tr><td><kbd>Ctrl+J</kbd></td><td>Do Not Use. Same as Enter Key </td></tr>
-<tr><td><kbd>Ctrl+K</kbd></td><td>Spare </td></tr>
+<tr><td><kbd>Ctrl+KK</kbd></td><td>Delete from cursor to end of line. Similar to Sublime Ctrl+KK </td></tr>
+<tr><td><kbd>Ctrl+KH</kbd></td><td>Delete from cursor to start of line. Press Ctrl+&lt;Backspace&gt; instead of 'H'. Similar to Sublime Ctrl+K,Ctrl+Backspace </td></tr>
+<tr><td><kbd>Ctrl+Kesc_backspace</kbd></td><td>Delete from cursor to start of line. Similar to Sublime Ctrl+K,Ctrl+Backspace </td></tr>
+<tr><td><kbd>Ctrl+KL</kbd></td><td>Transform selection or current char to lowercase. Similar to Sublime Ctrl+KL  </td></tr>
+<tr><td><kbd>Ctrl+KU</kbd></td><td>Transform selection or current char to uppercase. Similar to Sublime Ctrl+KU </td></tr>
 <tr><td><kbd>Ctrl+L</kbd></td><td>Select entire line. Similar to Sublime Ctrl+L </td></tr>
 <tr><td><kbd>Ctrl+Z</kbd></td><td>Undo. Similar to Sublime Ctrl+Z </td></tr>
 <tr><td><kbd>Ctrl+X</kbd></td><td>Cut. Similar to Word and Sublime Ctrl+X </td></tr>
@@ -92,20 +92,34 @@ knowledge to figure out what to do.
 <tr><td><kbd>Alt+CE</kbd></td><td>Copy sol to current pos </td></tr>
 <tr><td><kbd>Alt+cw</kbd></td><td>Copy word </td></tr>
 <tr><td><kbd>Alt+DD</kbd></td><td>Duplicate line. Similar to Sublime Ctrl+Shift+D </td></tr>
-<tr><td><kbd>Alt+dd</kbd></td><td>aslt+dd214 duplicates 214 lines. 214 can be any number </td></tr>
-<tr><td><kbd>Alt+d</kbd></td><td>del N char </td></tr>
-<tr><td><kbd>Alt+xb</kbd></td><td>Delete to Bottom of Tab/Buffer/Window/File </td></tr>
-<tr><td><kbd>Alt+XB</kbd></td><td>Delete to Beginning of Tab </td></tr>
-<tr><td><kbd>Alt+xe</kbd></td><td>Similar to Sublime Ctrl+KK </td></tr>
-<tr><td><kbd>Alt+XE</kbd></td><td>Similar to Sublime Ctrl_K+&lt;Backspace&gt; </td></tr>
-<tr><td><kbd>Alt+xl</kbd></td><td>Delete line </td></tr>
-<tr><td><kbd>Alt+xm</kbd></td><td>Delete from mark (alt+mm) to cursor </td></tr>
-<tr><td><kbd>Alt+xs</kbd></td><td>Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it. </td></tr>
-<tr><td><kbd>Alt+XS</kbd></td><td>Delete spaces to the left </td></tr>
-<tr><td><kbd>Alt+xx</kbd></td><td>Delete word under cursor </td></tr>
-<tr><td><kbd>Alt+xw</kbd></td><td>Similar to Sublime Ctrl+KW </td></tr>
-<tr><td><kbd>Alt+XW</kbd></td><td>Similar to Sublime Ctrl+Backspace </td></tr>
+<tr><td><kbd>Alt+d</kbd></td><td>Delete N lines </td></tr>
+<tr><td><kbd>Alt+da</kbd></td><td>Delete all, entire file </td></tr>
+<tr><td><kbd>Alt+db</kbd></td><td>Delete to Bottom of Tab/Buffer/Window/File </td></tr>
+<tr><td><kbd>Alt+DB</kbd></td><td>Delete to Beginning of Tab </td></tr>
+<tr><td><kbd>Alt+de</kbd></td><td>Delete to end of line. Similar to Sublime Ctrl+KK </td></tr>
+<tr><td><kbd>Alt+DE</kbd></td><td>Delete to start of line. Similar to Sublime Ctrl_K+&lt;Backspace&gt; </td></tr>
+<tr><td><kbd>Alt+dl</kbd></td><td>Delete line </td></tr>
+<tr><td><kbd>Alt+dn</kbd></td><td>Delete up to  next find occurrence </td></tr>
+<tr><td><kbd>Alt+dm</kbd></td><td>Delete from mark (alt+mm) to cursor </td></tr>
+<tr><td><kbd>Alt+ds</kbd></td><td>Delete spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it. </td></tr>
+<tr><td><kbd>Alt+DS</kbd></td><td>Delete spaces to the left </td></tr>
+<tr><td><kbd>Alt+dd</kbd></td><td>Delete word under cursor </td></tr>
+<tr><td><kbd>Alt+dw</kbd></td><td>Delete to end of word. Similar to Sublime Ctrl+KW </td></tr>
+<tr><td><kbd>Alt+DW</kbd></td><td>Delete to start of word. Similar to Sublime Ctrl+Backspace </td></tr>
 <tr><td><kbd>Alt+x</kbd></td><td>Cut multiple lines alt+x42&lt;enter&gt; </td></tr>
+<tr><td><kbd>Alt+xa</kbd></td><td>Cut all, entire file </td></tr>
+<tr><td><kbd>Alt+xb</kbd></td><td>Cut to Bottom of Tab/Buffer/Window/File </td></tr>
+<tr><td><kbd>Alt+XB</kbd></td><td>Cut to Beginning of Tab </td></tr>
+<tr><td><kbd>Alt+xe</kbd></td><td>Cut to end of line. Similar to Sublime Ctrl+KK </td></tr>
+<tr><td><kbd>Alt+XE</kbd></td><td>Cut to start of line. Similar to Sublime Ctrl_K+&lt;Backspace&gt; </td></tr>
+<tr><td><kbd>Alt+xl</kbd></td><td>Cut line </td></tr>
+<tr><td><kbd>Alt+xm</kbd></td><td>Cut from mark (alt+mm) to cursor </td></tr>
+<tr><td><kbd>Alt+xn</kbd></td><td>Cut up to next find occurrence </td></tr>
+<tr><td><kbd>Alt+xs</kbd></td><td>Cut spaces from cursor to non-whitespace.  If on non-whitespace then go to next line and do it. </td></tr>
+<tr><td><kbd>Alt+XS</kbd></td><td>Cut spaces to the left </td></tr>
+<tr><td><kbd>Alt+xx</kbd></td><td>Cut word under cursor </td></tr>
+<tr><td><kbd>Alt+xw</kbd></td><td>Cut to end of word. Similar to Sublime Ctrl+KW </td></tr>
+<tr><td><kbd>Alt+XW</kbd></td><td>Cut to start of word. Similar to Sublime Ctrl+Backspace </td></tr>
 <tr><td><kbd>Alt+pl</kbd></td><td>Paste Line after current line </td></tr>
 <tr><td><kbd>Alt+PL</kbd></td><td>Paste Line before current line </td></tr>
 </table>
@@ -240,5 +254,3 @@ knowledge to figure out what to do.
 <tr><td><kbd>Alt+LoadSession</kbd></td><td>Load session file </td></tr>
 <tr><td><kbd>Alt+Seti</kbd></td><td>Set Scope Indent SI2 SI3 SI4 </td></tr>
 </table>
-
-

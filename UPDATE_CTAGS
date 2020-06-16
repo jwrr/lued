@@ -1,0 +1,1 @@
+ctags lua_src/*.lua lua_src/*/*.lua src/*.c src/*/src/*.c
