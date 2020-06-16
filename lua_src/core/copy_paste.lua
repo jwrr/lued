@@ -102,8 +102,10 @@ function lued.global_paste(dd)
 --     lued.g_buffer = string.gsub(lued.g_buffer,"^%s*","")
 --     lued.g_buffer = string.gsub(lued.g_buffer,"\n"..spaces,"\n")
   end
-  set_paste(lued.g_buffer)
-  lued.paste(dd2)
+  if lued.g_buffer and lued.g_buffer ~= "" then
+    set_paste(lued.g_buffer)
+    lued.paste(dd2)
+  end
   lued.disp(dd)
 end
 
@@ -167,18 +169,17 @@ end
 
 function lued.cut_n_lines(n,dd)
   n = n or 1
-  local dd2 = 1
   if is_sel_off()==1 then
-    lued.del_line(n,dd)
+    lued.cut_line(n,dd)
   else
     lued.global_cut(dd)
   end
 end
 
 
-function lued.cut_line(dd)
-  return lued.cut_n_lines(1,dd)
-end
+-- function lued.cut_line(dd)
+--   return lued.cut_n_lines(1,dd)
+-- end
 
 
 function lued.duplicate_n_lines(n,dd)

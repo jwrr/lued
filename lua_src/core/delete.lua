@@ -76,19 +76,18 @@ function lued.cut_all(dd)
   lued.global_cut(dd)
 end
 
+g_cut_mode = true
 
-function lued.del_next(str,dd)
-  local dd2 = 1
-  local str = lued.same_keystroke() and g_find_str or ""
-  set_sel_off()
-  set_sel_start()
-  lued.find_forward(str,dd2)
-  lued.del_sel(dd2)
-  lued.disp(dd)
+
+function lued.cut_or_del_sel(cut_mode,dd)
+  if cut_mode then
+    lued.global_cut(dd)
+  else
+    lued.del_sel(dd)
+  end
 end
 
-
-function lued.cut_next(str,dd)
+function lued.cut_or_del_next(str, cut_mode, dd)
   local dd2 = 1
   local same_keystroke = lued.same_keystroke()
   local str = same_keystroke and g_find_str or ""
@@ -96,9 +95,19 @@ function lued.cut_next(str,dd)
   if lued.find_forward(str,dd2) then
     local r2,c2 = get_cur_pos()
     lued.sel(r1,c1,r2,c2)
-    lued.global_cut(dd2)
+    set_sel_end()
+    lued.cut_or_del_sel(cut_mode,dd2)
   end
   lued.disp(dd)
+end
+
+function lued.del_next(str, dd)
+  lued.cut_or_del_next(str,false,dd)
+end
+
+
+function lued.cut_next(str, dd)
+  lued.cut_or_del_next(str,true,dd)
 end
 
 
@@ -373,7 +382,6 @@ function lued.cut_line(n,dd)
   set_sel_start()
   lued.move_down_n_lines(n,dd2)
   set_sel_end()
---   if (g_command_count == g_cut_line_command_count) then
   if (lued.same_keystroke()) then
     lued.global_cut_append(dd2)
   else

@@ -508,5 +508,7 @@ Feat - alt_xn. repeated xn grows paste buffer.
 
 
 
-
+open auto-star - find file does not match then append '*' and try again
+alt_fw/FW - find and select word
+if seach is for one char then unselect after find.
 

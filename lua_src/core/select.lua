@@ -102,10 +102,12 @@ end
 
 
 function lued.sel(r1,c1,r2,c2)
-  local r,c1= get_cur_pos()
-  set_cur_pos(r1 or r,c1 or c)
+  if not (r1 and c1 and r2 and c2) then return end
+  local r,c= get_cur_pos()
+  set_sel_off()
+  set_cur_pos(r1,c1)
   set_sel_start()
-  set_cur_pos(r2 or r,c2 or c)
+  set_cur_pos(r2,c2)
 end
 
 function lued.sel_word(dd)
