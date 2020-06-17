@@ -512,3 +512,54 @@ open auto-star - find file does not match then append '*' and try again
 alt_fw/FW - find and select word
 if seach is for one char then unselect after find.
 
+refactor delete/cut to use cut_or_del_sel to remove duplicate code
+
+readline -> preprocessor -> repl. This could be used for generic DSL.
+
+rm ctag
+
+RELEASE script  os_version date(yyyy.mm.dd) led_version; bump version; zip; sha; scp
+
+Convert all script to lued or lua
+
+Change x to “” in readline.  Add lued to all bindings.  For all misses prepend lued.
+
+Alt+ra – replace all
+
+Add stack routines push/pop pos,
+
+ 
+
+Lued.push
+
+Lued.stacks[type(arg)] = arg
+
+ 
+
+Cur_pos_stack. Push_cur_pos. pop_cur_pos. clear_cur_pos.
+
+Tab_complete  
+
+push_bool(g_dd)
+
+g_dd = true
+
+push_pos()
+
+push_str(sel_sow)
+
+find_reverse(pop_str)
+
+push_str(sel_word)
+
+pop_pos()
+
+sel_word()
+
+ins_str(pop_str)
+
+g_dd = pop_bool()
+
+ctrl_X paste appears broken
+alt+DD appears broken
+change alt+kc to ctrl+KC
