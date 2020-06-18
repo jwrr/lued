@@ -475,26 +475,29 @@ cursor_home	src/carr/src/carr_readline.c	/^static void cursor_home(carr_t* line)
 cursor_left	src/carr/src/carr_readline.c	/^static void cursor_left(carr_t* line, size_t n) {$/
 cursor_right	src/carr/src/carr_readline.c	/^static void cursor_right(carr_t* line, size_t n) {/
 cut	lua_src/core/copy_paste.lua	/^function lued.cut(dd)$/
-cut_all	lua_src/core/delete.lua	/^function lued.cut_all(dd)$/
-cut_backspace	lua_src/core/delete.lua	/^function lued.cut_backspace(n,dd)$/
-cut_backword	lua_src/core/delete.lua	/^function lued.cut_backword(n,dd)$/
-cut_char	lua_src/core/delete.lua	/^function lued.cut_char(n,dd)$/
+cut_del_spaces	lua_src/core/delete.lua	/^function lued.cut_del_spaces(cut_mode, dd)$/
 cut_eof	lua_src/core/delete.lua	/^function lued.cut_eof(dd)$/
-cut_eol	lua_src/core/delete.lua	/^function lued.cut_eol(dd)$/
 cut_eol_selected	lua_src/core/delete.lua	/^function lued.cut_eol_selected(dd)$/
-cut_eow	lua_src/core/delete.lua	/^function lued.cut_eow(dd)$/
-cut_line	lua_src/core/copy_paste.lua	/^function lued.cut_line(dd)$/
 cut_line	lua_src/core/delete.lua	/^function lued.cut_line(n,dd)$/
 cut_mark_to_cursor	lua_src/base/markers.lua	/^function lued.cut_mark_to_cursor(dd)$/
 cut_n_lines	lua_src/core/copy_paste.lua	/^function lued.cut_n_lines(n,dd)$/
-cut_next	lua_src/core/delete.lua	/^function lued.cut_next(str,dd)$/
+cut_or_del_all	lua_src/core/delete.lua	/^function lued.cut_or_del_all(cut_mode, dd)$/
+cut_or_del_backword	lua_src/core/delete.lua	/^function lued.cut_or_del_backword(cut_mode, n, dd)/
+cut_or_del_char	lua_src/core/delete.lua	/^function lued.cut_or_del_char(cut_mode,n,dd)$/
+cut_or_del_eof	lua_src/core/delete.lua	/^function lued.cut_or_del_eof(cut_mode, dd)$/
+cut_or_del_eol	lua_src/core/delete.lua	/^function lued.cut_or_del_eol(cut_mode, dd)$/
+cut_or_del_eow	lua_src/core/delete.lua	/^function lued.cut_or_del_eow(cut_mode, dd)$/
+cut_or_del_next	lua_src/core/delete.lua	/^function lued.cut_or_del_next(cut_mode, str, dd)$/
+cut_or_del_sel	lua_src/core/delete.lua	/^function lued.cut_or_del_sel(cut_mode,dd)$/
+cut_or_del_sof	lua_src/core/delete.lua	/^function lued.cut_or_del_sof(cut_mode, dd)$/
+cut_or_del_sol	lua_src/core/delete.lua	/^function lued.cut_or_del_sol(cut_mode, dd)$/
+cut_or_del_sow	lua_src/core/delete.lua	/^function lued.cut_or_del_sow(cut_mode, dd)$/
+cut_or_del_spaces_next_line	lua_src/core/delete.lua	/^function lued.cut_or_del_spaces_next_line(cut_mode/
+cut_or_del_word	lua_src/core/delete.lua	/^function lued.cut_or_del_word(cut_mode, dd)$/
+cut_ot_del_backspace	lua_src/core/delete.lua	/^function lued.cut_ot_del_backspace(cut_mode, n, dd/
+cut_sel_or_line	lua_src/core/delete.lua	/^function lued.cut_sel_or_line(dd)$/
 cut_sof	lua_src/core/delete.lua	/^function lued.cut_sof(dd)$/
-cut_sol	lua_src/core/delete.lua	/^function lued.cut_sol(dd)$/
-cut_sow	lua_src/core/delete.lua	/^function lued.cut_sow(dd)$/
-cut_spaces	lua_src/core/delete.lua	/^function lued.cut_spaces(dd)$/
-cut_spaces_next_line	lua_src/core/delete.lua	/^function lued.cut_spaces_next_line(dd)$/
 cut_spaces_selected	lua_src/core/delete.lua	/^function lued.cut_spaces_selected(dd)$/
-cut_word	lua_src/core/delete.lua	/^function lued.cut_word(n,dd)$/
 d	src/lua/src/ltests.c	82
 d2s	src/lua/src/ltests.c	/^static int d2s (lua_State *L) {$/
 data	src/lua/src/ldump.c	21
@@ -521,26 +524,14 @@ decr	lua_src/base/increment.lua	/^function lued.decr(step_size,dd)$/
 decrst	lua_src/core/terminal.lua	/^function lued.decrst(val)$/
 decset	lua_src/core/terminal.lua	/^function lued.decset(val)$/
 def_snippet	lua_src/base/snippets.lua	/^function lued.def_snippet(snippets, key_str, fn)$/
-del_all	lua_src/core/delete.lua	/^function lued.del_all(dd)$/
-del_backspace	lua_src/core/delete.lua	/^function lued.del_backspace(n,dd)$/
-del_backword	lua_src/core/delete.lua	/^function lued.del_backword(n,dd)$/
-del_char	lua_src/core/delete.lua	/^function lued.del_char(n,dd)$/
 del_eof	lua_src/core/delete.lua	/^function lued.del_eof(dd)$/
-del_eol	lua_src/core/delete.lua	/^function lued.del_eol(dd)$/
 del_eol_selected	lua_src/core/delete.lua	/^function lued.del_eol_selected(dd)$/
-del_eow	lua_src/core/delete.lua	/^function lued.del_eow(dd)$/
 del_line	lua_src/core/delete.lua	/^function lued.del_line(n,dd)$/
 del_mark_to_cursor	lua_src/base/markers.lua	/^function lued.del_mark_to_cursor(dd)$/
 del_n_lines	lua_src/core/copy_paste.lua	/^function lued.del_n_lines(n,dd)$/
-del_next	lua_src/core/delete.lua	/^function lued.del_next(str,dd)$/
 del_sel	lua_src/core/delete.lua	/^function lued.del_sel(dd)$/
 del_sof	lua_src/core/delete.lua	/^function lued.del_sof(dd)$/
-del_sol	lua_src/core/delete.lua	/^function lued.del_sol(dd)$/
-del_sow	lua_src/core/delete.lua	/^function lued.del_sow(dd)$/
-del_spaces	lua_src/core/delete.lua	/^function lued.del_spaces(dd)$/
-del_spaces_next_line	lua_src/core/delete.lua	/^function lued.del_spaces_next_line(dd)$/
 del_spaces_selected	lua_src/core/delete.lua	/^function lued.del_spaces_selected(dd)$/
-del_word	lua_src/core/delete.lua	/^function lued.del_word(n,dd)$/
 delete_char	src/carr/src/carr_readline.c	/^static void delete_char(carr_t* line) {$/
 delete_selected	src/lued.c	/^static void delete_selected(carr_t* all_sessions) /
 delimits	src/lua/src/ltests.c	949
@@ -1463,51 +1454,42 @@ lued.ctag_move_back_from_tag	lua_src/base/ctags.lua	/^function lued.ctag_move_ba
 lued.ctag_move_to_tag	lua_src/base/ctags.lua	/^function lued.ctag_move_to_tag(dd)$/
 lued.ctag_read_file	lua_src/base/ctags.lua	/^function lued.ctag_read_file(tagfile, dd)$/
 lued.cut	lua_src/core/copy_paste.lua	/^function lued.cut(dd)$/
-lued.cut_all	lua_src/core/delete.lua	/^function lued.cut_all(dd)$/
-lued.cut_backspace	lua_src/core/delete.lua	/^function lued.cut_backspace(n,dd)$/
-lued.cut_backword	lua_src/core/delete.lua	/^function lued.cut_backword(n,dd)$/
-lued.cut_char	lua_src/core/delete.lua	/^function lued.cut_char(n,dd)$/
+lued.cut_del_spaces	lua_src/core/delete.lua	/^function lued.cut_del_spaces(cut_mode, dd)$/
 lued.cut_eof	lua_src/core/delete.lua	/^function lued.cut_eof(dd)$/
-lued.cut_eol	lua_src/core/delete.lua	/^function lued.cut_eol(dd)$/
 lued.cut_eol_selected	lua_src/core/delete.lua	/^function lued.cut_eol_selected(dd)$/
-lued.cut_eow	lua_src/core/delete.lua	/^function lued.cut_eow(dd)$/
-lued.cut_line	lua_src/core/copy_paste.lua	/^function lued.cut_line(dd)$/
 lued.cut_line	lua_src/core/delete.lua	/^function lued.cut_line(n,dd)$/
 lued.cut_mark_to_cursor	lua_src/base/markers.lua	/^function lued.cut_mark_to_cursor(dd)$/
 lued.cut_n_lines	lua_src/core/copy_paste.lua	/^function lued.cut_n_lines(n,dd)$/
-lued.cut_next	lua_src/core/delete.lua	/^function lued.cut_next(str,dd)$/
+lued.cut_or_del_all	lua_src/core/delete.lua	/^function lued.cut_or_del_all(cut_mode, dd)$/
+lued.cut_or_del_backword	lua_src/core/delete.lua	/^function lued.cut_or_del_backword(cut_mode, n, dd)/
+lued.cut_or_del_char	lua_src/core/delete.lua	/^function lued.cut_or_del_char(cut_mode,n,dd)$/
+lued.cut_or_del_eof	lua_src/core/delete.lua	/^function lued.cut_or_del_eof(cut_mode, dd)$/
+lued.cut_or_del_eol	lua_src/core/delete.lua	/^function lued.cut_or_del_eol(cut_mode, dd)$/
+lued.cut_or_del_eow	lua_src/core/delete.lua	/^function lued.cut_or_del_eow(cut_mode, dd)$/
+lued.cut_or_del_next	lua_src/core/delete.lua	/^function lued.cut_or_del_next(cut_mode, str, dd)$/
+lued.cut_or_del_sel	lua_src/core/delete.lua	/^function lued.cut_or_del_sel(cut_mode,dd)$/
+lued.cut_or_del_sof	lua_src/core/delete.lua	/^function lued.cut_or_del_sof(cut_mode, dd)$/
+lued.cut_or_del_sol	lua_src/core/delete.lua	/^function lued.cut_or_del_sol(cut_mode, dd)$/
+lued.cut_or_del_sow	lua_src/core/delete.lua	/^function lued.cut_or_del_sow(cut_mode, dd)$/
+lued.cut_or_del_spaces_next_line	lua_src/core/delete.lua	/^function lued.cut_or_del_spaces_next_line(cut_mode/
+lued.cut_or_del_word	lua_src/core/delete.lua	/^function lued.cut_or_del_word(cut_mode, dd)$/
+lued.cut_ot_del_backspace	lua_src/core/delete.lua	/^function lued.cut_ot_del_backspace(cut_mode, n, dd/
+lued.cut_sel_or_line	lua_src/core/delete.lua	/^function lued.cut_sel_or_line(dd)$/
 lued.cut_sof	lua_src/core/delete.lua	/^function lued.cut_sof(dd)$/
-lued.cut_sol	lua_src/core/delete.lua	/^function lued.cut_sol(dd)$/
-lued.cut_sow	lua_src/core/delete.lua	/^function lued.cut_sow(dd)$/
-lued.cut_spaces	lua_src/core/delete.lua	/^function lued.cut_spaces(dd)$/
-lued.cut_spaces_next_line	lua_src/core/delete.lua	/^function lued.cut_spaces_next_line(dd)$/
 lued.cut_spaces_selected	lua_src/core/delete.lua	/^function lued.cut_spaces_selected(dd)$/
-lued.cut_word	lua_src/core/delete.lua	/^function lued.cut_word(n,dd)$/
 lued.dbg_prompt	lua_src/core/prompt.lua	/^function lued.dbg_prompt(dbg_str)$/
 lued.decr	lua_src/base/increment.lua	/^function lued.decr(step_size,dd)$/
 lued.decrst	lua_src/core/terminal.lua	/^function lued.decrst(val)$/
 lued.decset	lua_src/core/terminal.lua	/^function lued.decset(val)$/
 lued.def_snippet	lua_src/base/snippets.lua	/^function lued.def_snippet(snippets, key_str, fn)$/
-lued.del_all	lua_src/core/delete.lua	/^function lued.del_all(dd)$/
-lued.del_backspace	lua_src/core/delete.lua	/^function lued.del_backspace(n,dd)$/
-lued.del_backword	lua_src/core/delete.lua	/^function lued.del_backword(n,dd)$/
-lued.del_char	lua_src/core/delete.lua	/^function lued.del_char(n,dd)$/
 lued.del_eof	lua_src/core/delete.lua	/^function lued.del_eof(dd)$/
-lued.del_eol	lua_src/core/delete.lua	/^function lued.del_eol(dd)$/
 lued.del_eol_selected	lua_src/core/delete.lua	/^function lued.del_eol_selected(dd)$/
-lued.del_eow	lua_src/core/delete.lua	/^function lued.del_eow(dd)$/
 lued.del_line	lua_src/core/delete.lua	/^function lued.del_line(n,dd)$/
 lued.del_mark_to_cursor	lua_src/base/markers.lua	/^function lued.del_mark_to_cursor(dd)$/
 lued.del_n_lines	lua_src/core/copy_paste.lua	/^function lued.del_n_lines(n,dd)$/
-lued.del_next	lua_src/core/delete.lua	/^function lued.del_next(str,dd)$/
 lued.del_sel	lua_src/core/delete.lua	/^function lued.del_sel(dd)$/
 lued.del_sof	lua_src/core/delete.lua	/^function lued.del_sof(dd)$/
-lued.del_sol	lua_src/core/delete.lua	/^function lued.del_sol(dd)$/
-lued.del_sow	lua_src/core/delete.lua	/^function lued.del_sow(dd)$/
-lued.del_spaces	lua_src/core/delete.lua	/^function lued.del_spaces(dd)$/
-lued.del_spaces_next_line	lua_src/core/delete.lua	/^function lued.del_spaces_next_line(dd)$/
 lued.del_spaces_selected	lua_src/core/delete.lua	/^function lued.del_spaces_selected(dd)$/
-lued.del_word	lua_src/core/delete.lua	/^function lued.del_word(n,dd)$/
 lued.disp	lua_src/core/display.lua	/^function lued.disp(dd,center)$/
 lued.display_page_in_lua	lua_src/core/display.lua	/^function lued.display_page_in_lua(lua_mode, highli/
 lued.display_page_in_lua_depricated	lua_src/core/display.lua	/^function lued.display_page_in_lua_depricated(lua_m/
