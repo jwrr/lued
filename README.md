@@ -563,3 +563,14 @@ g_dd = pop_bool()
 ctrl_X paste appears broken
 alt+DD appears broken
 change alt+kc to ctrl+KC
+
+----------------------------
+enhancement open_file(filename,r,c,dd)
+create and use session file of open_file and change tab
+- when you open a file from command line it is opened along with all session files
+delete file plugins/ctags.lua
+remove comma from mouse paste
+vhdl sig snippet does terrible things
+new command alt+mr removes most recent mark
+alt-incr should skip lines without numbers instead of just stopping.
+

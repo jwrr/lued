@@ -178,8 +178,8 @@ function lued.cut_or_del_spaces_next_line(cut_mode, dd)
 --  set_cur_pos(r,c)
   lued.cut_or_del_sel(cut_mode, dd)
 end
-lued.del_spaces_next_line = function(dd) return lued.cut_or_del_sel(false, dd)  end
-lued.cut_spaces_next_line = function(dd) return lued.cut_or_del_sel(true, dd) end
+lued.del_spaces_next_line = function(dd) return lued.cut_or_del_spaces_next_line(false, dd)  end
+lued.cut_spaces_next_line = function(dd) return lued.cut_or_del_spaces_next_line(true, dd) end
 
 
 function lued.del_spaces_selected(dd)
@@ -238,14 +238,15 @@ end
 function lued.cut_or_del_sol(cut_mode, dd)
   local dd2 = 1
   if lued.is_sof() then
-    lued.disp(dd)
+    lued.disp(dd2)
   elseif lued.is_sol() then
-    lued.del_backspace(1,dd)
+    lued.del_backspace(1,dd2)
   else
     lued.sel_sol(dd2)
     set_sel_end()
-    lued.cut_or_del_sel(dd)
+    lued.cut_or_del_sel(cut_mode,dd2)
   end
+  lued.disp(dd)
 end
 lued.del_sol = function(dd) return lued.cut_or_del_sol(false, dd) end
 lued.cut_sol = function(dd) return lued.cut_or_del_sol(true, dd) end
@@ -287,6 +288,14 @@ function lued.cut_line(n,dd)
   lued.disp(dd)
 end
 
+function lued.cut_sel_or_line(dd)
+  if lued.is_sel_on() then
+    return lued.global_cut(dd)
+  else
+    return lued.cut_line(1,dd)
+  end
+end
+
 
 function lued.cut_ot_del_backspace(cut_mode, n, dd)
   local dd2 = 1
@@ -316,7 +325,7 @@ function lued.cut_or_del_backword(cut_mode, n, dd)
   lued.move_left_n_words(n,dd2)
   set_sel_end()
   set_cur_pos(r,c)
-  lued.cut_or_del_sel(dd)
+  lued.cut_or_del_sel(cut_mode,dd)
 end
 lued.del_backword = function(n,dd) return lued.cut_or_del_backword(false, n, dd) end
 lued.cut_backword = function(n,dd) return lued.cut_or_del_backword(true, n, dd) end

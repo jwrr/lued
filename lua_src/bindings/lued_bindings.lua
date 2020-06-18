@@ -48,7 +48,7 @@ ctrl_KU          = lued.sel_to_upper      -- Transform selection or current char
 ctrl_L           = lued.sel_line          -- Select entire line. Similar to Sublime Ctrl+L
 
 ctrl_Z           = lued.undo_cmd          -- Undo. Similar to Sublime Ctrl+Z
-ctrl_X           = lued.cut_line          -- Cut. Similar to Word and Sublime Ctrl+X
+ctrl_X           = lued.cut_sel_or_line   -- Cut. Similar to Word and Sublime Ctrl+X
 ctrl_C           = lued.copy_line         -- Copy. Similar to Sublime Ctrl+C
 ctrl_V           = lued.global_paste      -- Paste. Similar to Sublime Ctrl+V
 ctrl_B           = lued.spare             -- Spare. - let's keep that way for tmux compatibility
@@ -242,6 +242,7 @@ alt_p_squote     = lued.set_paste_buffer -- Put string into lued.paste buffer
 -- These keys produce escape sequences (escape is not pressed)
 esc_backspace    = lued.del_backspace     -- BACKSPACE. Delete previous char. 
 esc_insert       = lued.toggle_overtype   -- INSERT. Toggle insert/overtype mode.
+exsc_insert = esc_insert
 esc_delete       = lued.del_char          -- DELETE. Delete current char.  If selection the delete selection.
 esc_up           = lued.move_up_n_lines   -- UP ARROW.  Move up one line.
 esc_down         = lued.move_down_n_lines -- DOWN ARROW. Move down one line.
