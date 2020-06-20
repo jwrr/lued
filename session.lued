@@ -1,0 +1,2 @@
+lued.open_filerc('PUBLISH_BINDINGS', 2, 15)
+lued.select_tab('PUBLISH_BINDINGS')
