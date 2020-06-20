@@ -1760,13 +1760,13 @@ static int lued_args(int argc, char** argv, carr_t* dofile, carr_t* cmd, carr_t*
 }
 
 
-static carr_t* lued_init_sessions(int argc, char* argv[], int optind) {
+static carr_t* lued_init_sessions(int argc, char* argv[], int optind, bool run_dofile) {
 
    // Open all of the files listed on the command line.
    // Open untitled file if no arguments listed
    carr_t* all_sessions = carr_new(0, sizeof(lued_t*));
 
-   if (optind >= argc) { // (argc <= 1) {
+   if ( (optind >= argc) && !run_dofile) { // (argc <= 1) {
       lued_open(all_sessions,"untitled_0.txt");
    } else {
 
@@ -1907,11 +1907,12 @@ int lued_main (int argc, char** argv)
    carr_t* arg_cmd    = carrs_new();
    carr_t* arg_linenumber = carrs_new();
    const int optind = lued_args(argc, argv, arg_dofile, arg_cmd, arg_linenumber);
+   const bool run_dofile = *(arg_dofile->arr) != '\0';
    // const carr_t* cargs = carr_arg(argc, argv, "-d 1 -e 1 -l 1");
-   LUED_SESSIONS = lued_init_sessions(argc, argv, optind);
+   LUED_SESSIONS = lued_init_sessions(argc, argv, optind, run_dofile);
 
    // Run lua dofile if specified on command line
-   if (*(arg_dofile->arr)) {
+   if (run_dofile) {
       char lua_cmd[STRLEN];
       sprintf(lua_cmd, "%s",arg_dofile->arr);
       const int err = luaL_dofile(L,lua_cmd);
@@ -1934,7 +1935,7 @@ int lued_main (int argc, char** argv)
       if (err) fprintf(stderr, "Error: luaL_dostring(L,%s);\n", lua_cmd);
    }
 
-   {
+   if (!run_dofile) {
       char lua_cmd[STRLEN];
       sprintf(lua_cmd, "first_line()\n");
       const int err = luaL_dostring(L, lua_cmd);

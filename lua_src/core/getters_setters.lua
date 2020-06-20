@@ -25,6 +25,22 @@ SOFTWARE.
 --]]
 
 
+function lued.get_rc(id)
+  local current_id = get_fileid()
+  if id==nil or id==current_id then return get_cur_pos() end
+  set_fileid(id)
+  local r,c = get_cur_pos()
+  set_fileid(current_id)
+  return r,c
+end
+
+
+function lued.get_filenamerc(id)
+  local filename = get_filename(id)
+  local r, c = lued.get_rc(id)
+  return filename, r, c
+end
+
 function lued.get_overtype()
   return g_overtype
 end

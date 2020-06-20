@@ -132,7 +132,7 @@ function lued.open_file(filenames,dd)
     if existing_fileid then
        g_tab_prev = get_fileid()
       set_fileid(existing_fileid,dd2)
-    elseif filename1~=nil and filename1~="" and lued.file_exists(filename1) and not lued.is_dir(filename1) and not lued.is_open(filename1) then
+    elseif filename1~=nil and filename1~="" and lued.file_exists(filename1) and not lued.is_dir(filename1)  then
       local prev = get_fileid()
       local fileid = lued_open(filename1)
       if fileid~=nil and fileid~=0 then
@@ -145,6 +145,17 @@ function lued.open_file(filenames,dd)
   lued.disp(dd)
 end
 
+
+function lued.open_filerc(filename, r, c)
+  lued.open_file(filename)
+  lued.set_cur_pos(r,c)
+  lued.disp()
+end
+
+function lued.open_filerc_test(dd)
+  lued.open_filerc('bin2gray.vhd', 1, 1)
+  lued.disp(dd)
+end
 
 function lued.open_partial_filename(dd)
   local dd2 = 1

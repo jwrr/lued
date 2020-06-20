@@ -253,7 +253,8 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+review</kbd></td><td>Review mode prevents saving file </td></tr>
 <tr><td><kbd>Alt+refresh</kbd></td><td>Reload current file </td></tr>
 <tr><td><kbd>Alt+sa</kbd></td><td>Similar to Sublime Ctrl+Shift+S. File Save as. </td></tr>
-<tr><td><kbd>Alt+SaveSession</kbd></td><td>Save session file </td></tr>
-<tr><td><kbd>Alt+LoadSession</kbd></td><td>Load session file </td></tr>
+<tr><td><kbd>Alt+Sesss</kbd></td><td>Save session file </td></tr>
+<tr><td><kbd>Alt+Sessl</kbd></td><td>Load session file </td></tr>
 <tr><td><kbd>Alt+Seti</kbd></td><td>Set Scope Indent SI2 SI3 SI4 </td></tr>
+<tr><td><kbd>Alt+test = lued.open_filerc_test </td></tr>
 </table>

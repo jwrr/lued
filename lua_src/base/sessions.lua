@@ -28,17 +28,17 @@ SOFTWARE.
 function lued.save_session_file(dd)
   local n = get_numsessions()
   local id = get_fileid()
-  local seshfile = io.open("session.lued","w")
+  local sf = io.open("session.lued", "w")
   for i=1,n do
-    local is_changed = is_modified(i) and "* " or "  "
-    local is_current = i==g_tab_prev and "TT" or "  "
-    is_current = i==id and "->" or is_current
---  local line = is_current..i..is_changed..get_filename(i)
-    local line = get_filename(i)
-    seshfile:write(line.."\n")
+    local filename, r, c = lued.get_filenamerc(i)
+    local str = "lued.open_filerc('" .. filename .. "', " .. tonumber(r) .. ", " .. tonumber(c) .. ")\n"
+    sf:write(str) io.write(str)
   end
-  seshfile:close()
-  lued.disp(dd)
+  local str = "lued.select_tab('" .. lued.get_filename(id) .. "')\n"
+  sf:write(str) io.write (str)
+  sf:close()
+--   io.read()
+--   lued.disp(dd)
 end
 
 
@@ -59,8 +59,5 @@ function lued.session_sel(session_id,dd)
   end
   lued.disp(dd)
 end
-
-
-
 
 
