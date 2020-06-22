@@ -118,6 +118,16 @@ function lued.get_pagesize()
 end
 
 
+function lued.get_all_matches(needle,haystack)
+  local match_list = {}
+  needle = "%f[%w]" .. needle
+  for word in string.gmatch(haystack, needle) do
+    match_list[#match_list+1] = word
+  end
+  return match_list
+end
+
+
 function lued.get_longest_word(words)
   local longest_word = "";
   for word in words:gmatch("(%S+)") do

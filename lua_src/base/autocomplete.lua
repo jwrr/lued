@@ -24,6 +24,62 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --]]
 
+
+function lued.get_partial_word(sel_partial)
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  local line = ""
+  if r>1 then line = string.sub( lued.get_line() , 1, r-1) end
+  local partial_word = string.gsub(line, "^.*[^%a_.]", "")
+--  if partial_word == line then return end
+  
+  if sel_partial then
+    local startc = c - #partial_word
+    if startc < 1 then startc = 1 end
+    set_cur_pos(r,startc)
+    set_sel_start()
+    set_cur_pos(r,c)
+  end
+  return partial_word
+end
+
+
+function lued.get_completion(partial_str,completion_list)
+  if partial_str == nil then return end
+  if completion_list == nil then
+    local filetype = lued.get_filetype()
+    if filetype==nil or lued[filetype].keyword_str==nil then return end
+    local keyword_str = lued[filetype].keyword_str
+    if keyword_str == nil then return end
+    local partial_pattern = partial_str ..  "[%a_.]+"
+    completion_list = lued.get_all_matches(partial_pattern, keyword_str)
+  end
+  if #completion_list==0 then return end
+  if #completion_list==1 then return completion_list[1] end
+  io.write("\n")
+  for i=1,#completion_list do
+    io.write(tostring(i) .. ". " .. completion_list[i] .. "\n" )
+  end
+  io.write("Enter id of completion: ")
+  local sel = tonumber(io.read() ) or 0
+  return completion_list[sel]
+end
+
+
+-- called from lued.insert_tab
+function lued.complete_keyword(dd)
+  local dd2 = 1
+  local sel_partial = true
+  local partial_word = lued.get_partial_word(sel_partial)
+  local completed_word = lued.get_completion(partial_word)
+  if completed_word==nil or complete_word=="" then return end
+  set_sel_end()
+  lued.ins_str(completed_word,dd2)
+  lued.disp()
+  return true
+end
+
+
 lued.auto_complete = {}
 lued.auto_complete.full = {}
 lued.auto_complete.partial = {}
@@ -35,14 +91,14 @@ function lued.auto_complete_insert_word()
 
   -- decrement count of word (because it is being modified to new_word)
   lued.auto_complete.full[word] = lued.auto_complete.full[word] or 1
-  lued.auto_complete.full[word] = lued.auto_complete.full[word] - 1 
+  lued.auto_complete.full[word] = lued.auto_complete.full[word] - 1
   if lued.auto_complete.full[word] == 0 then lued.auto_complete.full[word] = nil end
 
   -- increment count of new word
   local new_word = word .. ins_str
   local new_word = string.gsub(word..ins_str, "%s.*", "")
   lued.auto_complete.full[new_word] = lued.auto_complete.full[new_word] or 0
-  lued.auto_complete.full[new_word] = lued.auto_complete.full[new_word] + 1    
+  lued.auto_complete.full[new_word] = lued.auto_complete.full[new_word] + 1
 
   -- add new word to all the partial words
   for ii=1,#new_word do
@@ -91,7 +147,7 @@ function lued.auto_complete_select_word()
     --index = math.max(index,1)
     lued.replace_current_word_with( choices[index], dd)
   else
-    disp(dd)  
+    disp(dd)
   end
 end
 

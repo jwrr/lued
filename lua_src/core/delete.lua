@@ -93,7 +93,7 @@ function lued.cut_or_del_next(cut_mode, str, dd)
   local r1,c1 = get_cur_pos()
   if not  lued.find_forward(str,dd2) then return false end
   local r2,c2 = get_cur_pos()
-  lued.sel(r1,c1,r2,c2)
+  lued.sel_range(r1,c1,r2,c2)
   set_sel_end()
   lued.cut_or_del_sel(cut_mode,dd2)
   lued.disp(dd)

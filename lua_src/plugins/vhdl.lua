@@ -6,7 +6,7 @@ lued.filetypes.vhdl = "vhdl"
 lued.filetypes.vhd  = "vhdl"
 lued.line_comments.vhdl = "--"
 
-local keyword_str = string.gsub([[
+lued.vhdl.keyword_str = string.gsub([[
 abs configuration impure null rem type access constant in of report unaffected
 after disconnect inertial on return units alias downto inout open rol until
 all else is or ror use and elsif label others select variable architecture 
@@ -15,9 +15,13 @@ exit literal port shared while attribute file loop postponed sla with begin
 for map procedure sll xnor block function mod process sra xor body generate 
 nand pure srl buffer generic new range subtype bus group next record then 
 case guarded nor register to component if not reject transport
+boolean integer bit bit_vector std_logic std_logic_vector signed unsigned
+natural positive time length range rising_edge ns
+ieee ieee.std_logic_1164.all ieee.numeric_std.all ieee.std_logic_textio.all
+std_logic_textio std.textio.all
 ]] , "%s+", " ")
 
-lued.keywords.vhdl = lued.explode_keys(keyword_str, " ")
+lued.keywords.vhdl = lued.explode_keys(lued.vhdl.keyword_str, " ")
 
 
 -- =============================================================================
@@ -756,8 +760,8 @@ alt_vhdl_help      = vhdl_help
 
 local s = {}
 lued.def_snippet(s, "vhdl vhd !"     , lued.vhdl.template)
-lued.def_snippet(s, "package pack"   , lued.vhdl.package)
-lued.def_snippet(s, "process proc"   , lued.vhdl.proc)
+lued.def_snippet(s, "package"   , lued.vhdl.package)
+lued.def_snippet(s, "process"   , lued.vhdl.proc)
 lued.def_snippet(s, "testbench tb"   , lued.vhdl.tb)
 lued.def_snippet(s, "proc_all procall all" , lued.vhdl.proc_all)
 lued.def_snippet(s, "function func"  , lued.vhdl.func)
@@ -770,7 +774,7 @@ lued.def_snippet(s, "un uns unsign unsigned" , lued.vhdl.unsigned)
 lued.def_snippet(s, "si sign signed" , lued.vhdl.signed)
 lued.def_snippet(s, "log log2"       , lued.vhdl.log)
 lued.def_snippet(s, "ta tsa typea"   , lued.vhdl.type_slv_array)
-lued.def_snippet(s, "rec record"     , lued.vhdl.record)
+lued.def_snippet(s, "record"     , lued.vhdl.record)
 lued.def_snippet(s, "ts state"       , lued.vhdl.state)
 lued.def_snippet(s, "resize slvresize slvr" , lued.vhdl.slv_resize)
 lued.def_snippet(s, "uresize ures ur" , lued.vhdl.unsigned_resize)

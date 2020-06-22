@@ -101,7 +101,7 @@ function lued.line_ends_with(needles, line)
 end
 
 
-function lued.sel(r1,c1,r2,c2)
+function lued.sel_range(r1,c1,r2,c2)
   if not (r1 and c1 and r2 and c2) then return end
   local r,c= get_cur_pos()
   set_sel_off()

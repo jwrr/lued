@@ -154,7 +154,7 @@ function lued.insert_tab(dd)
     lued.insert_tab_classic(dd)
     return
   end
-  
+
   local snip_found = false
   if g_handle_snippets then
     snip_found = lued.handle_snippets()
@@ -163,7 +163,13 @@ function lued.insert_tab(dd)
       return
     end
   end
-  
+
+  if lued.complete_keyword(dd) then
+    lued.disp(dd)
+    return
+  end
+
+
   local dd2 = 1
   local r1,c1 = get_cur_pos()
   local len = get_line_len()
