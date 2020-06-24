@@ -168,6 +168,8 @@ the `PUBLISH_BINDINGS` script.
 </table>
 ## Center Cursor Commands
 <table>
+<tr><td><kbd>Alt+ce</kbd></td><td>Keep cursor centered </td></tr>
+<tr><td><kbd>Alt+CE</kbd></td><td>Turn off keep cursor centered </td></tr>
 <tr><td><kbd>Alt+kc</kbd></td><td>Recenters cursor to center, press again and recenters to top. Similar to Sublime's CTRL+KC. vim's zz/zt.  </td></tr>
 <tr><td><kbd>Alt+KC</kbd></td><td>Recenters cursor to top, press again and recenters to center. Similar to Sublime's CTRL+KC. vim's zz/zt.  </td></tr>
 </table>
