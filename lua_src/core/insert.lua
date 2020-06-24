@@ -168,7 +168,11 @@ function lued.insert_tab(dd)
     lued.disp(dd)
     return
   end
-
+  
+  if lued.complete_match(dd) then
+    lued_disp(dd)
+    return
+  end
 
   local dd2 = 1
   local r1,c1 = get_cur_pos()

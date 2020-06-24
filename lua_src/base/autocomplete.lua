@@ -66,17 +66,36 @@ function lued.get_completion(partial_str,completion_list)
 end
 
 
+
+
 -- called from lued.insert_tab
-function lued.complete_keyword(dd)
+function lued.complete_something(do_keyword, dd)
   local dd2 = 1
   local sel_partial = true
   local partial_word = lued.get_partial_word(sel_partial)
-  local completed_word = lued.get_completion(partial_word)
+  local completed_word = ""
+  if do_keyword then
+    completed_word = lued.get_completion(partial_word,nil)
+  else
+    local pat = partial_word .. "[%w_.]"
+    local plain = false
+    local all_matches = lued.find_all_matches_in_file(pat,plain)
+    completed_word = lued.get_completion(partial_word,all_matches)
+  end
   if completed_word==nil or complete_word=="" then return end
   set_sel_end()
   lued.ins_str(completed_word,dd2)
-  lued.disp()
+  lued.disp(dd)
   return true
+end
+
+
+function lued.complete_keyword(dd)
+  return lued.complete_something(true, dd)
+end
+
+function lued.complete_match(dd)
+  return lued.complete_something(false, dd)
 end
 
 

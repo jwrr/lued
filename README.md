@@ -324,3 +324,9 @@ vhdl sig snippet does terrible things
 new command alt+mr removes most recent mark
 alt-incr should skip lines without numbers instead of just stopping.
 
+alt_center - keep screen centered. alt_Center don't keep screen centered.
+alt_ff(i,dd) - multiple find buffers
+alt_findor(a,b,c,d...) find one of many
+alt_loadcode  load this script
+
+

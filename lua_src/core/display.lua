@@ -212,6 +212,7 @@ function lued.disp(dd,center)
    end
 
    if dd == 0 then
+     if lued.recenter_screen then lued.recenter(dd2) end
      g_command_count = g_command_count or 0
      g_command_count = g_command_count + 1
 

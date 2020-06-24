@@ -175,6 +175,8 @@ alt_al           = lued.align_cur_char          lued.hot("al") -- Align char on 
 alt_af           = lued.align_selected          lued.hot("af")  -- Align First char on next line with current line. If lines selected then align all lines with first line.
 
 --## Center Cursor Commands
+alt_ce           = set_recenter_screen          lued.hot("ce") -- Keep cursor centered
+alt_CE           = clr_recenter_screen          lued.hot("CE") -- Turn off keep cursor centered
 alt_kc           = lued.recenter                lued.hot("kc") -- Recenters cursor to center, press again and recenters to top. Similar to Sublime's CTRL+KC. vim's zz/zt. 
 alt_KC           = lued.recenter_top            lued.hot("KC") -- Recenters cursor to top, press again and recenters to center. Similar to Sublime's CTRL+KC. vim's zz/zt. 
 

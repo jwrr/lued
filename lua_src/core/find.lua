@@ -626,3 +626,22 @@ function lued.find_forward_selected(dd)
 end
 
 
+function lued.find_all_matches_in_file(pat, plain)
+  local r, c = get_cur_pos()
+  local tmp_g_find_plaintext = g_find_plaintext
+  g_find_plaintext = plain or false
+  set_cur_pos(1, 1)
+  local all_matches = {}
+  while true do
+--  local found = lued.find_forward(pat, nowrap, search_all, replace, test_str, dd2)
+    local found = lued.find_forward(pat, true,   false,      false,   "",       1)
+    if not found then break end
+    local match_str = lued.get_sel_str(dd2)
+    if match_str==nil then break end
+    all_matches[#all_matches] = match_str 
+  end
+  g_find_plaintext = tmp_g_find_plaintext
+  set_cur_pos(r, c)
+  lued.disp()  io.write(#all_matches,pat) io.read()
+  return all_matching_words
+end

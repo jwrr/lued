@@ -44,6 +44,16 @@ function lued.set_page_offset_percent(offset,dd)
   if (dd==0) then lued.disp(dd) end
 end
 
+function set_recenter_screen(dd)
+  lued.recenter_screen = true
+  lued.disp(dd)
+end
+
+function clr_recenter_screen(dd)
+  lued.recenter_screen = false
+  lued.disp(dd)
+end
+
 
 function lued.recenter(dd)
   local dd2 = 1
