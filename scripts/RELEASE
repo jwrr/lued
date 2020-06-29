@@ -1,7 +1,11 @@
 pushd ..
+cd build
+make clean
+popd
+pushd ..
 mv lued .lued
 rm -f lued-latest.zip
-zip lued-latest.zip `find .lued -type f |grep -v git |grep -v CMakeFiles |grep -v Cache`
+zip lued-latest.zip `find .lued -type f |grep -v git |grep -v Cache`
 mv .lued lued
 sha256sum lued-latest.zip > sha256sum.txt
 scp -P 2222 lued-latest.zip sha256sum.txt jwrr@lued.org:www/lued.org/download/
