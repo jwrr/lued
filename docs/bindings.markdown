@@ -247,8 +247,7 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+RLN</kbd></td><td>hide relative line numbers </td></tr>
 <tr><td><kbd>Alt+ls</kbd></td><td>unix ls command. dos dir command </td></tr>
 <tr><td><kbd>Alt+LU</kbd></td><td>Change to LUA mode. You rarely want to be in lua mode. </td></tr>
-<tr><td><kbd>Alt+nop</kbd></td><td>No Op. (same as Alt+NOOP) </td></tr>
-<tr><td><kbd>Alt+noop</kbd></td><td>No Op (same as Alt+NOP) </td></tr>
+<tr><td><kbd>Alt+no</kbd></td><td>No Op. Type no if you've pressed esc and can't think of any other command to type </td></tr>
 <tr><td><kbd>Alt+qq</kbd></td><td>Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q </td></tr>
 <tr><td><kbd>Alt+QQ</kbd></td><td>set join wrap </td></tr>
 <tr><td><kbd>Alt+reinit</kbd></td><td>Reload lued script </td></tr>

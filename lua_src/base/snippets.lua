@@ -60,9 +60,9 @@ function lued.handle_snippets()
     
   lued.del_sel(dd2)
   set_cur_pos(sel_sr,sel_sc)
-  local tok, ii, cnt = "", 1, 1
+  local cnt = 0
+  local tok, ii = lued.get_token(sel_str, 1)
   repeat
-    tok, ii = lued.get_token(sel_str,ii)
     local snippet_routine = lued.snippets[filetype][sel_str]
     if snippet_routine then
       g_dont_display = 1

@@ -331,7 +331,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_textio.all;
 library work;
-use work.tb_pkg.all;
+-- use work.tb_pkg.all;
 
 entity tb is
 end entity tb;
@@ -344,6 +344,7 @@ FINDME1 ]]
 
   lued.ins_str( [[
 
+  constant CLK_PERIOD : time := 10 ns;
   signal clk       : std_logic := '0';
   signal rst       : std_logic := '0';
   signal test_done : std_logic := '0';
@@ -362,23 +363,35 @@ FINDME2
   -- generate clocks until test_done is asserted
   process
   begin
-    clkgen(clk,test_done);
+    wait for CLK_PERIOD;
+    while test_done = '0'  loop
+      clk <= not clk;
+      wait for CLK_PERIOD / 2;
+    end loop;
     wait;  -- Simulation stops stop after clock stops
   end process;
+  
 
   main_test: process
   begin
 
     report("reset dut");
-    pulse(rst, clk, 10);
-
+    rst <= '0';
+    for i in 1 to 10 loop wait until rising_edge(clk); end loop; 
+    rst <= '1';
+    for i in 1 to 10 loop wait until rising_edge(clk); end loop; 
     report("After reset");
+    rst <= '0';
+    for i in 1 to 10 loop wait until rising_edge(clk); end loop; 
 
-    wait_re(clk,10);
+    report("Start of test");
 
-    report("test done"); -- severity NOTE, WARNING, ERROR, FAILURE (NOTE is default)
 
-    set(test_done);
+
+
+    report("Test done"); -- severity NOTE, WARNING, ERROR, FAILURE (NOTE is default)
+    for i in 1 to 10 loop wait until rising_edge(clk); end loop; 
+    test_done <= '1';
     wait;
   end process main_test;
 
@@ -505,17 +518,16 @@ function lued.vhdl.func()
 
   local str = [===[
 
-  function incr(slv :std_logic_vector) return std_logic_vector is
+  function CHANGE(slv :std_logic_vector) return std_logic_vector is
   begin
-    DELETEME
+    CHANGE
     return std_logic_vector( unsigned(slv) + 1);
   end function;
 
 ]===]
 
   lued.move_to(0,1)
-  lued.ins_str_after(str)
-  lued.del_next("DELETEME")
+  lued.ins_str_after(str, "CHANGE")
 end
 
 
@@ -723,11 +735,7 @@ end
 
 function lued.vhdl.clk1()
 
-  local str = [[
-
-    wait until rising_edge(FOR_CLK);
-
-]]
+  local str = [[wait until rising_edge(FOR_CLK);]]
 
   lued.ins_str_after(str)      -- Insert the template
   lued.find_reverse("clk")     -- Search previous word with clk
@@ -764,7 +772,7 @@ lued.def_snippet(s, "package"   , lued.vhdl.package)
 lued.def_snippet(s, "process"   , lued.vhdl.proc)
 lued.def_snippet(s, "testbench tb"   , lued.vhdl.tb)
 lued.def_snippet(s, "proc_all procall all" , lued.vhdl.proc_all)
-lued.def_snippet(s, "function func"  , lued.vhdl.func)
+lued.def_snippet(s, "func"           , lued.vhdl.func)
 lued.def_snippet(s, "sl stdl"        , lued.vhdl.sl)
 lued.def_snippet(s, "sv slv stdlv"   , lued.vhdl.slv)
 lued.def_snippet(s, "slva aslv"      , lued.vhdl.slv_array)

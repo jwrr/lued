@@ -328,5 +328,12 @@ alt_center - keep screen centered. alt_Center don't keep screen centered.
 alt_ff(i,dd) - multiple find buffers
 alt_findor(a,b,c,d...) find one of many
 alt_loadcode  load this script
-
+alt_rr - supress display until end of script
+ctrl+R - don't run script, just create it
+status line - add total number of lines to header
+status line - make status line user configurable
+alt_df/DF - if nothing selected then prompt for search string
+alt_margin80 - set margin to 80. All subsequent lines will wrap at margin.  Similar to alt-QQ, but in real-time.
+alt_qq incorrect splits at '.'.
+alt_no alias for alt_nop, alt_noop
 

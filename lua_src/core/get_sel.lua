@@ -63,7 +63,7 @@ function lued.get_token(str,ii)
     token = str:sub(ii,ii)
     ii = ii + 1
   end
-  return token, ii    
+  return token, ii
 end
   
 

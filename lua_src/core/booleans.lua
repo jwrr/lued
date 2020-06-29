@@ -66,10 +66,10 @@ end
 
 
 function lued.is_word(line,pos)
-  if lued.is_eol() then return false end
+  if not line and lued.is_eol() then return false end
   local is;
   if line then
-    is = string.match(line,"^[%w_]",pos) and true or false
+    is = string.match(line,"[%w_]",pos) and true or false
   else
     is = string.match(lued.get_char(),"^[%w_]",1) and true or false
   end
