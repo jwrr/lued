@@ -48,7 +48,7 @@ function lued.get_completion(partial_str,completion_list)
   if partial_str == nil then return end
   if completion_list == nil then
     local filetype = lued.get_filetype()
-    if filetype==nil or lued[filetype].keyword_str==nil then return end
+    if filetype==nil or lued[filetype]==nil or lued[filetype].keyword_str==nil then return end
     local keyword_str = lued[filetype].keyword_str
     if keyword_str == nil then return end
     local partial_pattern = partial_str ..  "[%a_.]+"
