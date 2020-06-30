@@ -29,7 +29,7 @@ function lued.get_partial_word(sel_partial)
   local dd2 = 1
   local r,c = get_cur_pos()
   local line = ""
-  if r>1 then line = string.sub( lued.get_line() , 1, r-1) end
+  if  c>1 then line = string.sub( lued.get_line() , 1, c-1) end
   local partial_word = string.gsub(line, "^.*[^%a_.]", "")
 --  if partial_word == line then return end
   
@@ -60,8 +60,13 @@ function lued.get_completion(partial_str,completion_list)
   for i=1,#completion_list do
     io.write(tostring(i) .. ". " .. completion_list[i] .. "\n" )
   end
-  io.write("Enter id of completion: ")
-  local sel = tonumber(io.read() ) or 0
+  lued.get_completion_hist_id = lued.get_completion_hist_id or lued.get_hist_id()
+  local hist_id = lued.get_completion_hist_id
+  local prompt = "Enter id of completion:"
+  local hot
+  if #completion_list < 10 then hot = ",1,2,3,4,5,6,7,8,9," end
+  resp = lued.prompt(hist_id, prompt, hot)
+  local sel = tonumber(resp) or 0
   return completion_list[sel]
 end
 
@@ -74,6 +79,7 @@ function lued.complete_something(do_keyword, dd)
   local sel_partial = true
   local partial_word = lued.get_partial_word(sel_partial)
   local completed_word = ""
+  if  partial_word == "" then lued.disp(dd) return false end
   if do_keyword then
     completed_word = lued.get_completion(partial_word,nil)
   else

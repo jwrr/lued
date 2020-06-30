@@ -147,6 +147,27 @@ function lued.insert_tab_classic(dd)
   ins_str(t,dd)
 end
 
+
+function lued.do_snippet(dd)
+  local snip_found = false
+  if g_handle_snippets then
+    snip_found = lued.handle_snippets()
+    if snip_found then
+      lued.disp(dd)
+    end
+  end
+  return snip_found
+end
+
+
+function lued.do_keyword(dd)
+  local keyword_found = lued.complete_keyword(dd)
+  if keyword_found then
+    lued.disp(dd)
+  end
+  return keyword_found
+end
+
 -- align cursor with previous line's next 'column'
 function lued.insert_tab(dd)
   local dd2 = 1
@@ -155,24 +176,8 @@ function lued.insert_tab(dd)
     return
   end
 
-  local snip_found = false
-  if g_handle_snippets then
-    snip_found = lued.handle_snippets()
-    if snip_found then
-      lued.disp(dd)
-      return
-    end
-  end
-
-  if lued.complete_keyword(dd) then
-    lued.disp(dd)
-    return
-  end
-  
-  if lued.complete_match(dd) then
-    lued_disp(dd)
-    return
-  end
+  if lued.do_snippet(dd) then return end
+  if lued.do_keyword(dd) then return end
 
   local dd2 = 1
   local r1,c1 = get_cur_pos()
