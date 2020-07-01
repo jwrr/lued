@@ -190,6 +190,15 @@ function lued.vhdl.inst_from_entity(dd)
 end -- vhdl inst_from_entity
 
 
+function lued.vhdl.inst_from_entity_wrapper()
+  lued.set_nameless_mark()
+  lued.find_forward("end")
+  lued.move_down_n_lines(1)
+  lued.sel_mark_to_cursor()
+  lued.vhdl.inst_from_entity()
+  lued.set_sel_off()
+end
+
 -- =============================================================================
 -- =============================================================================
 
@@ -411,13 +420,8 @@ end architecture sim;
   lued.move_to_first_line()
   lued.find_forward("FINDME2")
   lued.cut_line()
-  lued.set_nameless_mark()
-  lued.find_forward("end")
-  lued.move_down_n_lines(1)
-  lued.sel_mark_to_cursor()
-  lued.vhdl.inst_from_entity()
-  lued.set_sel_off()
-
+  
+  lued.vhdl.inst_from_entity_wrapper()
 
 
   if not save_find_whole_word then
@@ -531,8 +535,16 @@ function lued.vhdl.func()
 end
 
 
-function alt_oth (dd) lued.ins_str("(others => '0');\n",dd2); insert_tab(dd); end
-function alt_ooth (dd) lued.ins_str( "(others => (others => '0'));\n" ,dd2); insert_tab(dd); end
+function lued.vhdl.others()
+  lued.ins_str_after("(others => '0');", "0")
+end
+
+
+function lued.vhdl.others_2d()
+  lued.ins_str_after("(others => (others => '0'));", "0")
+end
+
+
 
 -- =============================================================================
 -- Insert signal sl : std_logic;
@@ -546,8 +558,13 @@ end
 -- Insert: std_logic_vector(FIXME-1 downto 0);
 -- ALT_slv15 produces std_logic_vector(15 downto 0);
 
+
 function lued.vhdl.slv()
-  lued.ins_str_after("signal signame     : std_logic_vector(".."H".." downto 0);" , "signame")
+  if lued.at_start_of_line() then
+    lued.ins_str_after("signal signame     : std_logic_vector(".."H".." downto 0);" , "signame")
+  else
+    lued.ins_str_after("std_logic_vector(".."SIZE".." downto 0);" , "SIZE")
+  end
 end
 
 
@@ -773,8 +790,10 @@ lued.def_snippet(s, "process"   , lued.vhdl.proc)
 lued.def_snippet(s, "testbench tb"   , lued.vhdl.tb)
 lued.def_snippet(s, "proc_all procall all" , lued.vhdl.proc_all)
 lued.def_snippet(s, "func"           , lued.vhdl.func)
+lued.def_snippet(s, "oth"            , lued.vhdl.others)
+lued.def_snippet(s, "ooth"           , lued.vhdl.others_2d)
 lued.def_snippet(s, "sl stdl"        , lued.vhdl.sl)
-lued.def_snippet(s, "sv slv stdlv"   , lued.vhdl.slv)
+lued.def_snippet(s, "slv"            , lued.vhdl.slv)
 lued.def_snippet(s, "slva aslv"      , lued.vhdl.slv_array)
 lued.def_snippet(s, "incr"           , lued.vhdl.slv_incr)
 lued.def_snippet(s, "resize"         , lued.vhdl.slv_resize)
@@ -788,7 +807,7 @@ lued.def_snippet(s, "resize slvresize slvr" , lued.vhdl.slv_resize)
 lued.def_snippet(s, "uresize ures ur" , lued.vhdl.unsigned_resize)
 lued.def_snippet(s, "sresize sres"    , lued.vhdl.signed_resize)
 lued.def_snippet(s, "case"            , lued.vhdl.case)
-lued.def_snippet(s, "inst instance e2i" , lued.vhdl.inst_from_entity)
+lued.def_snippet(s, "inst instance e2i" , lued.vhdl.inst_from_entity_wrapper)
 lued.def_snippet(s, "sig siglist sigent" , lued.vhdl.sig_from_entity)
 lued.def_snippet(s, "selent sel_ent sent" , lued.vhdl.sel_entity)
 lued.def_snippet(s, "help h"              , lued.vhdl.help)

@@ -31,6 +31,18 @@ function lued.is_sol()
 end
 
 
+function lued.at_start_of_line()
+  local r,c = get_cur_pos()
+  if c <= 1 then return true end
+  local line = lued.get_line()
+  local leading_str = string.sub(line,1,c)
+  if string.match(leading_str, "^%s*$") then 
+    return true
+  end
+  return false
+end
+
+
 function lued.is_eol()
   local r,c = get_cur_pos()
   return c > get_line_len()
