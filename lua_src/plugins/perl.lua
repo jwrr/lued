@@ -96,7 +96,7 @@ end
 lued.filetypes.pl = "perl"
 lued.line_comments.perl = "#"
 
-local keyword_str = string.gsub([[
+lued.perl.keyword_str = string.gsub([[
 __DATA__ 	else 	lock 	qw
 __END__ 	elsif 	lt 	qx
 __FILE__ 	eq 	m 	s
@@ -110,7 +110,7 @@ do 	le 	qr 	y
 ]] , "%s+", "\n") 
 
 
-lued.keywords.perl = lued.explode_keys(keyword_str)
+lued.keywords.perl = lued.explode_keys(lued.perl.keyword_str)
 
 local s = {}
 lued.def_snippet(s, "perl  !"        , lued.perl.program)

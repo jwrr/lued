@@ -94,6 +94,8 @@ function lued.ins_string(str, dd)
       if str=='{' then str= '{}'; brace_closed = true; end
       if str=='(' then str= '()'; brace_closed = true; end
       if str=='[' then str= '[]'; brace_closed = true; end
+      if str=='"' then str= '""'; brace_closed = true; end
+      if str=="'" then str= "''"; brace_closed = true; end
     end
 
     local ch = lued.get_char()

@@ -58,6 +58,64 @@ function lued.tab_toggle(dd)
 end
 
 
+
+
+function lued.create_tab_select_menu(filter, dont_print)
+  dont_print = dont_print or false
+  local n = get_numsessions()
+  local t = { "Open Files" }
+  local id = get_fileid()
+  local found_i = 0
+  local found_count = 0
+  g_tab_prev = g_tab_prev or 1
+  for i=1,n do
+    local is_changed = is_modified(i) and "* " or "  "
+    local is_current = i==g_tab_prev and "TT" or "  "
+    is_current = i==id and "->" or is_current
+    local line = is_current..i..is_changed..get_filename(i)
+    if filter==nil or string.find(line,filter) then
+      if id==n and found_i==0 or id~=n and found_i <= id then
+        found_i = i
+      end
+      found_count = found_count + 1
+      t[#t+1]=line
+    end
+  end
+  print( "\n" .. table.concat(t, "\n") .. "\n" )   
+  if found_count > 1 then found_i = 0 end
+  return found_i, t
+end
+
+
+function lued.display_menu(filter,dont_print)
+  dont_print = dont_print or false
+  local n = get_numsessions()
+  local t = { "Open Files" }
+  local id = get_fileid()
+  local found_i = 0
+  local found_count = 0
+  g_tab_prev = g_tab_prev or 1
+  for i=1,n do
+    local is_changed = is_modified(i) and "* " or "  "
+    local is_current = i==g_tab_prev and "TT" or "  "
+    is_current = i==id and "->" or is_current
+    local line = is_current..i..is_changed..get_filename(i)
+    if filter==nil or string.find(line,filter) then
+      if id==n and found_i==0 or id~=n and found_i <= id then
+        found_i = i
+      end
+      found_count = found_count + 1
+      t[#t+1]=line
+    end
+  end
+  print( "\n" .. table.concat(t, "\n") .. "\n" )   
+  if found_count > 1 then found_i = 0 end
+  return found_i, t
+end
+
+
+
+
 function lued.select_tab_menu(filter,dont_print)
   dont_print = dont_print or false
   local n = get_numsessions()

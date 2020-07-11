@@ -4,15 +4,52 @@ lua-based text editor
 
 Description
 -----------
-Lued is a text editor written in C and Lua.
-
+Lued is a text editor.  It runs in a terminal window such as konsole, gnome-terminal or PuTTY.
+I use it for all my coding and make tweaks as I go, but there's still work to be done.
 
 Table of Contents
 -----------------
 * [Lued Docs](https://jwrr.github.io/lued)
 * [Lued Key Bindings](https://jwrr.github.io/lued/bindings)
 * [Lued User Guide](https://jwrr.github.io/lued/ug)
-* [TBD](#tbd)
+* [Contribute](#contribute)
+* [Todo List](#tbd)
+
+<hr>
+Contribute
+----------
+Welcome to the lued development!
+
+We are an inclusive community with the common goal of improving the lued text 
+editor. This guide explains how to contribute to the project. All processes in 
+this document are designed to streamline the development effort, to avoid 
+bottlenecks, and to ultimately give a pleasant experience to all involved.
+
+All contributions must be under the [MIT LICENSE](https://opensource.org/licenses/MIT).
+[Lua](http://www.lua.org/) and many Lua-based projects use this license.
+
+Here is the typical flow for a contribution.
+
+* Create an [issue](https://github.com/jwrr/lued/issues). Describe the issue 
+  and why you want it. The 'proper' flow is to create an issue before doing any
+  development. But let's be real, it's likely you're already done coding,
+  it's working the way you like, and you're now ready to share.
+* Create a [Fork](https://help.github.com/articles/fork-a-repo/) of the Lued 
+  repo into your area (just click on the 'fork' button in the upper left of this page).
+* Clone your fork: git clone https://username@github.com/username/lued
+* Create a branch: git checkout -b username/featurename
+* Make your changes.  Please remember test cases and documentation.
+* Add and commit. The commit message should be a short title
+  (less than 50 char).  If more description is needed then insert a blank line
+  between the title line and the detailed description.
+* Push to your fork on Github: git push origin username/featurename
+* Create a pull request. Click 'Pull Request' on your fork's Github page.
+* Maintainer(s) will review your change and may make changes. When approved 
+  your changes (on your 
+  branch) will be pulled into the lued repo and merged to the dev branch. 
+  Eventually your changes will be merged into the master branch and will be
+  part of the next release.
+  
 
 <hr>
 
