@@ -5,7 +5,7 @@ lua-based text editor
 Description
 -----------
 Lued is a text editor.  It runs in a terminal window such as konsole, gnome-terminal or PuTTY.
-I use it for all my coding and make tweaks as I go, but there's still work to be done.
+I use it for most of my coding and make tweaks as I go, but there's still work to be done.
 
 Table of Contents
 -----------------
@@ -16,6 +16,8 @@ Table of Contents
 * [Todo List](#tbd)
 
 <hr>
+
+<a name="contribute"></a>
 Contribute
 ----------
 Welcome to the lued development!
