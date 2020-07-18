@@ -178,9 +178,11 @@ function lued.insert_tab(dd)
     return
   end
 
-  if lued.do_snippet(dd) then return end
-  if lued.do_keyword(dd) then return end
-
+  if (lued.is_eol() or lued.is_space()) and lued.prev_is_word() then
+    if lued.do_snippet(dd) then return end
+    if lued.do_keyword(dd) then return end
+  end
+  
   local dd2 = 1
   local r1,c1 = get_cur_pos()
   local len = get_line_len()
@@ -234,7 +236,7 @@ end
 function lued.insert_cr_before(dd)
   local dd2 = 1
   local is_end_of_block = lued.line_contains(g_block_end)
-  lued.move_to_sol(dd2)
+  if not lued.is_sol() then lued.move_to_sol(dd2) end
   set_sel_off()
   ins_str("\n",dd2)
   lued.move_up_n_lines(1,dd2)
