@@ -4,8 +4,14 @@ lua-based text editor
 
 Description
 -----------
+
 Lued is a text editor.  It runs in a terminal window such as konsole, gnome-terminal or PuTTY.
-I use it for most of my coding and make tweaks as I go, but there's still work to be done.
+
+If you can, use an IDE (such as IntelliJ or Eclipse) or GUI-based editor (such 
+as Sublime Text, VSCode or Atom). If you're stuck in a terminal, then try Vi 
+or Emacs. If those options don't work then give Lued a try. I use it regularly 
+and make tweaks as I go, but there's still work to be done.
+
 
 Table of Contents
 -----------------

@@ -178,7 +178,7 @@ function lued.insert_tab(dd)
     return
   end
 
-  if (lued.is_eol() or lued.is_space()) and lued.prev_is_word() then
+  if (lued.is_eol() or lued.is_space()) and not (lued.is_sol() or lued.prev_is_space()) then
     if lued.do_snippet(dd) then return end
     if lued.do_keyword(dd) then return end
   end
@@ -205,7 +205,7 @@ function lued.insert_tab(dd)
 
   set_cur_pos(r2,c2)
 
-  if not lued.is_eol() then
+  if not lued.is_eol() and not lued.is_space() then
     -- goto beginning of word
     while not lued.is_space() do
       if lued.is_sol() then break end
