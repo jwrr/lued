@@ -48,10 +48,10 @@ function lued.handle_snippets()
   
   local dd2 = 1
   local r,c=get_cur_pos()
-  lued.sel_left_pattern( "[%w.#*()^+*:!]"  , dd2)
+  lued.sel_left_pattern( "[%w_.#*()^+*:!]"  , dd2)
   local sel_str, sel_sr, sel_sc = lued.get_sel_str()
   if sel_str==nil or sel_str=='' then return false end
-  
+  io.write("sel_str = ",sel_str) io.read()
   if not lued.snippets[filetype][sel_str] then
     set_sel_off()
     set_cur_pos(r,c)

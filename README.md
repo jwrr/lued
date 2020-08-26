@@ -382,3 +382,18 @@ alt_margin80 - set margin to 80. All subsequent lines will wrap at margin.  Simi
 alt_qq incorrect splits at '.'.
 alt_no alias for alt_nop, alt_noop
 
+
+alt+BB - make no-repeat
+Backspace - delete one indent when only spaces precede
+language dependent indent
+session - save session only if more than one file open. prompt if session file does not exist
+session - don't fail if creation fails
+) ) at end of line incorrect behavior
+indentation marks
+light yellow current line
+alt-cc/CC - comment selected lines. undo just undo's one line at a time
+alt-ii/II use indent_size constant (set by ait-is), but TAB does not
+alt-todo = alt-f todo 
+max_comment_linelen, max_linelen hardwrap
+ctrl-T - for history store the filename instead of the index number
+tab - don't look for match if over space

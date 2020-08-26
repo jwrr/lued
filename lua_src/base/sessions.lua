@@ -26,9 +26,16 @@ SOFTWARE.
 
 
 function lued.save_session_file(dd)
+  local resp = lued.get_yesno("Save session <y/N>? ","N")
+  if resp ~= 'Y' then
+    return
+  end
   local n = get_numsessions()
   local id = get_fileid()
   local sf = io.open("session.lua", "w")
+  if sf == nil then
+    return
+  end
   for i=1,n do
     local filename, r, c = lued.get_filenamerc(i)
     local str = "lued.open_filerc('" .. filename .. "', " .. tonumber(r) .. ", " .. tonumber(c) .. ")\n"
