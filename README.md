@@ -7,9 +7,9 @@ Description
 
 Lued is a text editor.  It runs in a terminal window such as konsole, gnome-terminal or PuTTY.
 
-If you can, use an IDE (such as IntelliJ or Eclipse) or GUI-based editor (such 
-as Sublime Text, VSCode or Atom). If you're stuck in a terminal, then try Vi 
-or Emacs. If those options don't work then give Lued a try. I use it regularly 
+If you can, use an IDE (such as IntelliJ or Eclipse) or GUI-based editor (such
+as Sublime Text, VSCode or Atom). If you're stuck in a terminal, then try Vi
+or Emacs. If those options don't work then give Lued a try. I use it regularly
 and make tweaks as I go, but there's still work to be done.
 
 
@@ -26,38 +26,38 @@ Table of Contents
 <a name="contribute"></a>
 Contribute
 ----------
-Welcome to the lued development!
+Contributors are welcome.
 
-We are an inclusive community with the common goal of improving the lued text 
-editor. This guide explains how to contribute to the project. All processes in 
-this document are designed to streamline the development effort, to avoid 
-bottlenecks, and to ultimately give a pleasant experience to all involved.
+This guide explains how to contribute to the project. The goal is to
+streamline the development effort, avoid bottlenecks, and hopefully make
+a pleasant experience to all involved.  It's okay if you don't follow these
+steps, but it may lead to a less efficient process.
 
 All contributions must be under the [MIT LICENSE](https://opensource.org/licenses/MIT).
-[Lua](http://www.lua.org/) and many Lua-based projects use this license.
+This license is very permissive, granting the end-user maximum freedom.
+It's also a very brief, readable license. [Lua](http://www.lua.org/) and many
+Lua-based projects use this license.
 
 Here is the typical flow for a contribution.
 
-* Create an [issue](https://github.com/jwrr/lued/issues). Describe the issue 
-  and why you want it. The 'proper' flow is to create an issue before doing any
-  development. But let's be real, it's likely you're already done coding,
-  it's working the way you like, and you're now ready to share.
-* Create a [Fork](https://help.github.com/articles/fork-a-repo/) of the Lued 
-  repo into your area (just click on the 'fork' button in the upper left of this page).
-* Clone your fork: git clone https://username@github.com/username/lued
-* Create a branch: git checkout -b username/featurename
+* Create an [issue](https://github.com/jwrr/lued/issues) that describes what
+  you want and and why you want it.  The 'proper' flow is to create an issue 
+  before doing any development. But in reality, it's likely you're already 
+  done coding, you like how it works, and you're now ready to share.
+* Create a [Fork](https://help.github.com/articles/fork-a-repo/) of the Lued
+  repo (just click on the 'fork' button in the upper left of this page).
+* Clone your fork: `git clone https://username@github.com/username/lued`
+* Create a branch: `git checkout -b meaningful-branch-name`
 * Make your changes.  Please remember test cases and documentation.
-* Add and commit. The commit message should be a short title
-  (less than 50 char).  If more description is needed then insert a blank line
-  between the title line and the detailed description.
-* Push to your fork on Github: git push origin username/featurename
+* Add and commit. The commit message should be a short title.  If more 
+  description is needed then insert a blank line between the title line and 
+  the detailed description.
+* Push to your fork on Github: `git push origin branch-name`
 * Create a pull request. Click 'Pull Request' on your fork's Github page.
-* Maintainer(s) will review your change and may make changes. When approved 
-  your changes (on your 
-  branch) will be pulled into the lued repo and merged to the dev branch. 
-  Eventually your changes will be merged into the master branch and will be
-  part of the next release.
-  
+* A maintainer will review your change and may make changes. When approved
+  your changes (on your branch) will be pulled into the lued repo and merged
+  to the dev branch. Eventually your changes will be merged into the master
+  branch and will be part of the next release.
 
 <hr>
 
@@ -165,7 +165,7 @@ TBD
 
 
 * move 'file has changed' checking from C to Lua
-del_sol_in_region. 
+del_sol_in_region.
 esc_space goes into lua mode. any other esc seq exists lua mode
 
 * ctrl_O - Use the currently opened file as the starting directory.
@@ -219,7 +219,7 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 # Body
 ## Explain what and why vs how## Ke
 ep lines less than 72 char
-## Resolves: #123## See also: #456 
+## Resolves: #123## See also: #456
 #789
 
 
@@ -244,7 +244,7 @@ ep lines less than 72 char
 * feature - grep - search all open files. return selectable list of matches
 * feature - timestamp on save.
 * feature - if moving away fro '()' then change to '('
-* fixme - ctrl+d if partial word selected then deselect/reselect - 
+* fixme - ctrl+d if partial word selected then deselect/reselect -
 
 * fixme - highlight keywords if not in comment
 * fixme - xxx_in_xxx. in matched, and shouldn't have
@@ -323,17 +323,17 @@ Alt+ra – replace all
 
 Add stack routines push/pop pos,
 
- 
+
 
 Lued.push
 
 Lued.stacks[type(arg)] = arg
 
- 
+
 
 Cur_pos_stack. Push_cur_pos. pop_cur_pos. clear_cur_pos.
 
-Tab_complete  
+Tab_complete
 
 push_bool(g_dd)
 
@@ -393,7 +393,7 @@ indentation marks
 light yellow current line
 alt-cc/CC - comment selected lines. undo just undo's one line at a time
 alt-ii/II use indent_size constant (set by ait-is), but TAB does not
-alt-todo = alt-f todo 
+alt-todo = alt-f todo
 max_comment_linelen, max_linelen hardwrap
 ctrl-T - for history store the filename instead of the index number
 tab - don't look for match if over space

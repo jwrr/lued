@@ -26,11 +26,14 @@ SOFTWARE.
 
 
 function lued.save_session_file(dd)
+  local n = get_numsessions()
+  if n == 1 then
+    return
+  end
   local resp = lued.get_yesno("Save session <y/N>? ","N")
   if resp ~= 'Y' then
     return
   end
-  local n = get_numsessions()
   local id = get_fileid()
   local sf = io.open("session.lua", "w")
   if sf == nil then
