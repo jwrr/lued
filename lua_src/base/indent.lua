@@ -30,7 +30,7 @@ function lued.set_indent_size(dd)
   set_indent_size_hist_id = set_indent_size_hist_id or lued.get_hist_id()
   local  indent_size = lued.prompt(set_indent_size_hist_id,"Enter Indent Size (Default = '"..g_indent_size.."'): ")
   if indent_size ~= nil and tonumber(indent_size) > 0 then
-    g_indent_size = indent_size
+    g_indent_size = tonumber(indent_size)
   end
   lued.disp(dd)
 end

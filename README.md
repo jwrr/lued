@@ -396,4 +396,7 @@ alt-ii/II use indent_size constant (set by ait-is), but TAB does not
 alt-todo = alt-f todo
 max_comment_linelen, max_linelen hardwrap
 ctrl-T - for history store the filename instead of the index number
-tab - don't look for match if over space
+tab - don't look for match if over space - done
+Don't highlight text in comments
+
+ctrl-f of close paren ')' causes error
