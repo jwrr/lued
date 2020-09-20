@@ -44,9 +44,9 @@ function lued.ctag_read_file(tagfile, dd)
   tagfile = tagfile or "tags"  -- if nil then default to "tags"
   g_ctag_file = {}     -- clear hash table of filenames
   g_ctag_address = {}  -- clear hash table of line numbers (or search strings)
-  local file = io.open("tags", "r");
-  if file == nil then return; end
-  for line in file:lines() do
+  local ctag_file = io.open("tags", "r");
+  if ctag_file == nil then return; end
+  for line in ctag_file:lines() do
     line = line:gsub(';"\t.*','') -- Remove comment
     local fields = lued.split_string(line, '\t')
     local name = fields[1] or ""
@@ -66,7 +66,7 @@ function lued.ctag_move_to_tag(dd)
   end
   local sel_str, sel_sr, sel_sc = lued.get_sel_str()
 
-  local file = g_ctag_file[sel_str]
+  local ctag_file = g_ctag_file[sel_str]
   local address = g_ctag_address[sel_str] or 1
 
   -- save current position in jump stack
@@ -75,13 +75,13 @@ function lued.ctag_move_to_tag(dd)
   lued.push_jump_stack(g_find_jump_back_stack, g_ctag_id, g_ctag_r, g_ctag_c)
   lued.push_jump_stack(g_ctag_jump_back_stack, g_ctag_id, g_ctag_r, g_ctag_c)
   
-  lued.open_file(file, dd2)
+  lued.open_file(ctag_file, dd2)
   lued.move_to_first_line(dd2)
   if lued.is_number(address) then
     lued.move_to_line(tonumber(address), dd2)
   else
     address = address:sub(3,-3) -- remove '/^' and '$/'
---     dbg_prompt("file="..file.." address="..address)
+--     dbg_prompt("ctag_file="..ctag_file.." address="..address)
      local found = lued.find_forward(address,true,false,false,address,dd2)
      lued.move_to_sol(dd2)
      

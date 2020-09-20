@@ -283,6 +283,7 @@ alt_RLN          = lued.clr_rel_line_numbers    lued.hot("RLN")  -- hide relativ
 alt_ls           = lued.ls_dir                  lued.hot("ls")  -- unix ls command. dos dir command
 alt_LU           = set_lua_mode                 lued.hot("LU")  -- Change to LUA mode. You rarely want to be in lua mode.
 alt_no           = lued.noop                    lued.hot("noop") -- No Op. Type no if you've pressed esc and can't think of any other command to type
+alt_pwd          = lued.pwd                                      -- print working directory
 alt_qq           = lued.wrap_line               lued.hot("qq")  -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
 alt_QQ           = lued.set_wrap_col            lued.hot("QQ")  -- set join wrap
 alt_reinit       = lued.reinit                             -- Reload lued script

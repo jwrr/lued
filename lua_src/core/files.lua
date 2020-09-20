@@ -106,8 +106,15 @@ function lued.save_all(dd)
   lued.session_sel(fileid,dd)
 end
 
+function lued.pwd()
+  local home = os.getenv("HOME")
+  io.write(home)
+end
+
 
 function lued.open_file(filenames,dd)
+  print("in open_file") os.read()
+
   local dd2 = 1
   if filenames==nil then
     filenames = lued.cd_change_dir(dd2)
