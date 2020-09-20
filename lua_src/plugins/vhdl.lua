@@ -759,7 +759,7 @@ function lued.vhdl.clk1()
   lued.copy_word()             -- Put word in paste buffer
   lued.find_forward("FOR_CLK") -- Find FOR_CLK
   lued.paste()                 -- Replace FOR_CLK with clk signalname
-  lued.insert_cr_after()
+  lued.insert_line_after()
 end
 
 

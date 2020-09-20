@@ -199,8 +199,8 @@ alt_MM           = lued.goto_nameless_mark_prev lued.hot("MM") -- Goto previous 
 alt_mn           = lued.goto_nameless_mark_next lued.hot("mn") -- Goto next mark in stack
 
 --## Insert Line Before / After Commands
-alt_ll           = lued.insert_cr_after         lued.hot("ll") -- Goto to end of line and insert new line. similar to vi's o. Similar to Sublime Ctrl+Enter
-alt_LL           = lued.insert_cr_before        lued.hot("LL") -- Goto beginning of line and insert new line. similar to vi's O. Similar to Sublime Ctrl+Shift+Enter
+alt_ll           = lued.insert_line_after         lued.hot("ll") -- Goto to end of line and insert new line. similar to vi's o. Similar to Sublime Ctrl+Enter
+alt_LL           = lued.insert_line_before        lued.hot("LL") -- Goto beginning of line and insert new line. similar to vi's O. Similar to Sublime Ctrl+Shift+Enter
 
 --## Page Up / Down Commands
 alt_p            = lued.move_down_n_lines                      -- Move down N lines

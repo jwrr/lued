@@ -61,10 +61,6 @@ function lued.ins_string(str, dd)
   local inhibit_cr = sel_state~=0 and not first_line
   lued.del_sel(dd2)
 
-  is_start_of_block = lued.line_contains(g_block_start)
-  is_start_of_block = lued.line_ends_with(g_block_start)
-  is_inside_braces  = lued.get_char()=="}" and lued.get_char(-1)=="{"
-
   if str == "\n" then
     if g_auto_indent==true and c~=1 then
       local line = get_line()
@@ -74,17 +70,22 @@ function lued.ins_string(str, dd)
       else
         str = str .. indent_str
       end
+      local is_start_of_block = lued.line_ends_with(g_block_start)
+      local is_eol = lued.is_eol()
+      insert_str(str)
+      if is_start_of_block and is_eol then
+        lued.indent1(g_indent_size, g_indent_char, false, dd2)
+      end
+      
+      local is_end_of_block = lued.line_ends_with(g_block_end)
+      if is_end_of_block then
+        lued.insert_line_before(dd2)
+      end
+      
+    else
+      insert_str(str)
     end
-    insert_str(str)
-
---FIXME     if is_inside_braces then
---FIXME       insert_str(str)
---FIXME       lued.move_up_n_lines(1,dd2)
---FIXME       lued.indent1(g_indent_size, g_indent_char, false, dd2)
---FIXME     elseif is_start_of_block then
---FIXME       lued.indent1(g_indent_size, g_indent_char, false, dd2)
---FIXME     end
-
+    
     local r2,c2 = get_cur_pos()
     set_cur_pos(r,c)
     lued.remove_trailing_spaces(r2,c2,false,dd2)
@@ -233,26 +234,28 @@ function lued.insert_tab_selected(dd)
 end
 
 
-function lued.insert_cr_before(dd)
+function lued.insert_line_before(dd)
   local dd2 = 1
-  local is_end_of_block = lued.line_contains(g_block_end)
-  if not lued.is_sol() then lued.move_to_sol(dd2) end
   set_sel_off()
-  ins_str("\n",dd2)
-  lued.move_up_n_lines(1,dd2)
-  lued.indent(dd2)
-  if is_end_of_block then
-    lued.indent1(g_indent_size, g_indent_char, false, dd2)
+  if not lued.is_sol() then lued.move_to_sol(dd2) end
+  if lued.is_firstline() then
+    lued.move_to_sol(dd2)
+    ins_str("\n",dd2)
+    lued.move_up_n_lines(1, dd2)
+  else
+    lued.move_up_n_lines(1, dd2)
+    if not lued.is_eol() then lued.move_to_eol(dd2) end
+    ins_str("\n",dd2)
   end
   lued.disp(dd)
 end
 
 
-function lued.insert_cr_after(dd)
+function lued.insert_line_after(dd)
   local dd2 = 1
-  if not lued.is_eol() then lued.move_to_eol(dd2) end
   set_sel_off()
-  ins_str("\n",dd2)
+  if not lued.is_eol() then lued.move_to_eol(dd2) end
+  lued.ins_str("\n", dd2)
   lued.disp(dd)
 end
 
