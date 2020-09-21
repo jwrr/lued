@@ -26,7 +26,7 @@ ctrl_T           = lued.select_tab        -- Select file tab menu
 ctrl_Y           = lued.redo_cmd          -- Redo (undo undo). Similar to Sublime Ctrl+Y
 ctrl_U           = lued.spare             -- Spare
 
-ctrl_I           = lued.insert_tab        -- Terminal interprets as `Tab` key
+ctrl_I           = lued.insert_tab        -- Terminal interprets Ctrl+I as `Tab` key
 ctrl_O           = lued.open_file         -- Open File. Similar to Word Ctrl+O
 ctrl_P           = lued.open_partial_filename -- Open File from partial name. Similar to Sublime Ctrl+P
 ctrl_A           = lued.move_to_sol       -- Move to Start of Line. Similar to Sublime &lt;Home&gt;.

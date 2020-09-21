@@ -113,8 +113,6 @@ end
 
 
 function lued.open_file(filenames,dd)
-  print("in open_file") os.read()
-
   local dd2 = 1
   if filenames==nil then
     filenames = lued.cd_change_dir(dd2)

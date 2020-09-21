@@ -179,6 +179,13 @@ function lued.insert_tab(dd)
     return
   end
 
+  if lued.is_blankline() then
+    local goto_next_line = false
+    lued.indent1(g_indent_size, g_indent_char, goto_next_line, dd2)
+    lued.disp(dd)
+    return
+  end
+
   if (lued.is_eol() or lued.is_space()) and not (lued.is_sol() or lued.prev_is_space()) then
     if lued.do_snippet(dd) then return end
     if lued.do_keyword(dd) then return end

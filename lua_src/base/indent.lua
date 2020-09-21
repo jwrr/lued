@@ -210,7 +210,6 @@ end
 
 function lued.indent1(n, ch, goto_next, dd)
   local dd2 = 1
-
   local spaces = string.rep(ch,n)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
@@ -219,7 +218,9 @@ function lued.indent1(n, ch, goto_next, dd)
     lued.move_down(dd2)
     lued.move_to_sol_classic(dd2)
   else
-    set_cur_pos(r,c+n)
+    local newx = c + n
+    newx = math.floor(newx / n) * n + 1
+    set_cur_pos(r,newx)
   end
   lued.disp(dd)
 end
