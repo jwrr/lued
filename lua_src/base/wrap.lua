@@ -65,7 +65,7 @@ function lued.join_lines(delim,dd)
   if lued.is_space() then
     lued.del_eow(dd2) -- delete spaces
   end
-  ins_str(delim,dd2);
+  lued.ins_str(delim,dd2);
   set_cur_pos(r,c)
   lued.disp(dd)
 end
@@ -118,7 +118,7 @@ function lued.join_lines2(delim,dd)
   if lued.is_space() then
     lued.del_eow(dd2) -- delete spaces
   end
-  ins_str(delim,dd2);
+  lued.ins_str(delim,dd2);
   set_cur_pos(r,c)
   lued.disp(dd)
 end

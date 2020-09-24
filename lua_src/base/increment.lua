@@ -43,7 +43,7 @@ function lued.incr(step_size, dd)
   lued.move_down(dd2)
   lued.sel_number(dd2)
   if lued.is_sel_on() then
-    ins_str(num_str,dd2)
+    lued.ins_str(num_str,dd2)
     set_cur_pos(r+1, c)
   end
   lued.disp(dd)

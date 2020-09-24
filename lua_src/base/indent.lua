@@ -73,7 +73,7 @@ function lued.indent_scope(str,dd)
     local line = get_line()
     local leading_ws = string.match(line,"^%s+") or ""
     if (leading_ws == leading_ws1) then
-      ins_str(str,dd2)
+      lued.lued.ins_str(str,dd2)
     elseif lued.is_blankline(line)==false then
       break
     end
@@ -103,7 +103,7 @@ function lued.reindent(n,dd)
     ws_len = ws2_len
     local indent_str = ws1 .. string.rep(" ",n*indent_level)
     lued.del_char(ws2_len,dd2)
-    ins_str(indent_str,dd2)
+    lued.ins_str(indent_str,dd2)
   end
   set_cur_pos(r,c)
   lued.disp(dd)
@@ -139,7 +139,7 @@ function lued.reindent_selected(dd)
       ws_len = ws2_len
       local indent_str = ws1 .. string.rep(g_indent_char,g_indent_size*indent_level)
       lued.del_char(ws2_len,dd2)
-      ins_str(indent_str,dd2)
+      lued.ins_str(indent_str,dd2)
 --
     end
     set_cur_pos(initial_row,initial_col)
@@ -168,7 +168,7 @@ function lued.reindent_all(n,dd)
     ws_len = ws2_len
     local indent_str = ws1 .. string.rep(" ",n*indent_level)
     lued.del_char(ws2_len,dd2)
-    ins_str(indent_str,dd2)
+    lued.ins_str(indent_str,dd2)
   end
   set_cur_pos(r,c)
   lued.disp(dd)
@@ -213,7 +213,7 @@ function lued.indent1(n, ch, goto_next, dd)
   local spaces = string.rep(ch,n)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
-  ins_str(spaces,dd2)
+  lued.ins_str(spaces,dd2)
   if goto_next then
     lued.move_down(dd2)
     lued.move_to_sol_classic(dd2)
@@ -257,7 +257,7 @@ function lued.indent(dd)
     local line = get_line()
     local indent_str = line:match("^%s*") or ""
     set_cur_pos(r,1)
-    ins_str(indent_str,dd2)
+    lued.ins_str(indent_str,dd2)
     set_cur_pos(r,c+indent_str:len())
     lued.disp(dd)
   end
@@ -274,7 +274,7 @@ function lued.indent_selected(dd)
     set_sel_off()
     for row=sel_sr,sel_er-1 do
       set_cur_pos(row,1)
-      ins_str(g_indent_char,dd2)
+      lued.ins_str(g_indent_char,dd2)
     end
     set_cur_pos(sel_sr,sel_sc)
     set_sel_start()

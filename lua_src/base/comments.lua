@@ -44,9 +44,9 @@ function lued.comment(dd)
   lued.move_to_sol_classic(dd2)
 --   local comment_str = g_comment
   local comment_str = lued.get_line_comment()
-  ins_str(comment_str, dd2);
+  lued.ins_str(comment_str, dd2);
   if not lued.is_eol() then
-    ins_str(" ",dd2)
+    lued.ins_str(" ",dd2)
   end
   lued.disp(dd)
 end

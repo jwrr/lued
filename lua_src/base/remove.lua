@@ -80,7 +80,7 @@ function lued.remove_all_leading_tabs(tab_size,dd)
       set_cur_pos(i,leading_ws_len+1)
       set_sel_end()
       lued.del_sel(dd2)
-      ins_str(leading_ws,dd2)
+      lued.ins_str(leading_ws,dd2)
     end
   end -- for
   set_cur_pos(r,c)

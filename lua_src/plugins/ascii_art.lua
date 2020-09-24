@@ -29,16 +29,16 @@ function walter()
   local r,c = get_cur_pos()
   for i=1,10 do
     for j=1,70 do
-      ins_str(".",1)
+      lued.ins_str(".",1)
     end
-    ins_str("\n",1)
+    lued.ins_str("\n",1)
   end
 
   set_cur_pos(r,c)
   for i = 0,9 do
     set_cur_pos(r+i,2)
     del_char(1,1)
-    ins_str(" ",1)
+    lued.ins_str(" ",1)
   end
   disp()
 end
@@ -66,7 +66,7 @@ function walter2(str,n)
   for i=1,n do
     final_result = final_result .. result
   end
-  ins_str(final_result)
+  lued.ins_str(final_result)
 end
 
 function hi()
@@ -95,7 +95,7 @@ function fill_screen(ch,r,c)
   local str = string.rep(ch,c) .. "\n"
   str = string.rep(str,r)
   sol_classic(dd2)
-  ins_str(str)
+  lued.ins_str(str)
 end
 
 function dig_up(n,dd)
@@ -104,7 +104,7 @@ function dig_up(n,dd)
   for i=1,n do
     line_up(1,dd2)
     char_left(2,dd2)
-    ins_str("  ",dd2)
+    lued.ins_str("  ",dd2)
   end
   disp(dd)
 end
@@ -115,7 +115,7 @@ function dig_down(n,dd)
   for i=1,n do
     line_down(1,dd2)
     char_left(2,dd2)
-    ins_str("  ",dd2)
+    lued.ins_str("  ",dd2)
   end
   disp(dd)
 end
@@ -124,7 +124,7 @@ function dig_right(n,dd)
   n = n or 1
   local dd2 = 1
   for i=1,n do
-    ins_str(" ",dd2)
+    lued.ins_str(" ",dd2)
   end
   disp(dd)
 end
@@ -134,7 +134,7 @@ function dig_left(n,dd)
   local dd2 = 1
   for i=1,n do
     char_left(3,dd2)
-    ins_str(" ",dd2)
+    lued.ins_str(" ",dd2)
     char_right(1,dd2)
   end
   disp(dd)

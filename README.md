@@ -24,40 +24,31 @@ Table of Contents
 <hr>
 
 <a name="contribute"></a>
-Contribute
-----------
-Contributors are welcome.
+## Contribute
 
-This guide explains how to contribute to the project. The goal is to
-streamline the development effort, avoid bottlenecks, and hopefully make
-a pleasant experience to all involved.  It's okay if you don't follow these
-steps, but it may lead to a less efficient process.
+Thanks for wanting to contribute to LUED. Hopefully this guide helps make the
+process a little smoother.
+
+### License Requirements
 
 All contributions must be under the [MIT LICENSE](https://opensource.org/licenses/MIT).
-This license is very permissive, granting the end-user maximum freedom.
-It's also a very brief, readable license. [Lua](http://www.lua.org/) and many
-Lua-based projects use this license.
+The MIT license is permissive, brief and readable. [Lua](http://www.lua.org/) 
+and many Lua-based projects use it.
 
-Here is the typical flow for a contribution.
+### Pull Request Steps
 
-* Create an [issue](https://github.com/jwrr/lued/issues) that describes what
-  you want and and why you want it.  The 'proper' flow is to create an issue 
-  before doing any development. But in reality, it's likely you're already 
-  done coding, you like how it works, and you're now ready to share.
-* Create a [Fork](https://help.github.com/articles/fork-a-repo/) of the Lued
-  repo (just click on the 'fork' button in the upper left of this page).
+* Create an [issue](https://github.com/jwrr/lued/issues)
+* Create a [Fork](https://help.github.com/articles/fork-a-repo/). There's
+  a 'fork' button in the upper right of the Lued project page.
 * Clone your fork: `git clone https://username@github.com/username/lued`
 * Create a branch: `git checkout -b meaningful-branch-name`
-* Make your changes.  Please remember test cases and documentation.
-* Add and commit. The commit message should be a short title.  If more 
-  description is needed then insert a blank line between the title line and 
-  the detailed description.
-* Push to your fork on Github: `git push origin branch-name`
+* Make your changes.  Test cases and documentation are appreciated.
+* Git Add and commit. Commit messages should be short and meaningful.
+* Push to your fork: `git push origin branch-name`
 * Create a pull request. Click 'Pull Request' on your fork's Github page.
-* A maintainer will review your change and may make changes. When approved
-  your changes (on your branch) will be pulled into the lued repo and merged
-  to the dev branch. Eventually your changes will be merged into the master
-  branch and will be part of the next release.
+* We'll review your changes. When approved we will pull your changes into the 
+  LUED repo.
+
 
 <hr>
 
@@ -392,7 +383,7 @@ session - don't fail if creation fails
 indentation marks
 light yellow current line
 alt-cc/CC - comment selected lines. undo just undo's one line at a time
-alt-ii/II use indent_size constant (set by ait-is), but TAB does not
+alt-ii/II use indent_size constant (set by ait-is), but TAB does not - done
 ctrl-f of close paren ')' causes error - seems fine
 alt-todo = alt-f todo
 max_comment_linelen, max_linelen hardwrap
@@ -400,4 +391,5 @@ ctrl-T - for history store the filename instead of the index number
 tab - don't look for match if over space - done
 Don't highlight text in comments
 
-
+When sel_on, <Enter> finds the next occurrence of the selection (instead of deleting text and creating new line). - done
+vi style open file to previous row+col. (not session based)

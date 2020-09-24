@@ -66,7 +66,7 @@ function lued.paste(dd)
   g_auto_indent = false
   lued.del_sel(dd2)
   local pb = get_paste()
-  ins_str(pb, dd)
+  lued.ins_str(pb, dd)
   g_auto_indent = auto_indent_save
 end
 

@@ -59,9 +59,17 @@ function lued.ins_string(str, dd)
   local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local first_line = sel_sr<=1
   local inhibit_cr = sel_state~=0 and not first_line
+  
+  local prev_cmd = get_last_cmd() or ""
+--     print("prev_cmd=xxx"..prev_cmd.."xxx") io.read()
+  if lued.is_sel_on() then
+    lued.find_forward_again()
+    return
+  end
   lued.del_sel(dd2)
 
   if str == "\n" then
+    
     if g_auto_indent==true and c~=1 then
       local line = get_line()
       local indent_str = line:match("^%s*") or ""
@@ -133,6 +141,8 @@ end
 
 
 function ins_str(str,dd)
+--   print("DEBUG ERROR - ins_str called, but it has been depricated. use lued.ins_str instead")
+--   print(debug.traceback())
   if g_overtype==1 then
     lued.overtype_string(str,dd)
   else
@@ -141,13 +151,17 @@ function ins_str(str,dd)
 end
 
 function lued.ins_str(str,dd)
-  return ins_str(str,dd)
+  if g_overtype==1 then
+    lued.overtype_string(str,dd)
+  else
+    lued.ins_string(str,dd)
+  end
 end
 
 
 function lued.insert_tab_classic(dd)
   local t = (g_tab_size > 0) and string.rep(' ',g_tab_size) or "\t"
-  ins_str(t,dd)
+  lued.ins_str(t,dd)
 end
 
 
@@ -228,7 +242,7 @@ function lued.insert_tab(dd)
     r4,c4 = get_cur_pos()
     local num_spaces_to_insert = c3 - c4
     local t = string.rep(" ",num_spaces_to_insert) or " "
-    ins_str(t,dd2)
+    lued.ins_str(t,dd2)
   else
     lued.insert_tab_classic(dd2)
   end
@@ -247,12 +261,12 @@ function lued.insert_line_before(dd)
   if not lued.is_sol() then lued.move_to_sol(dd2) end
   if lued.is_firstline() then
     lued.move_to_sol(dd2)
-    ins_str("\n",dd2)
+    lued.ins_str("\n",dd2)
     lued.move_up_n_lines(1, dd2)
   else
     lued.move_up_n_lines(1, dd2)
     if not lued.is_eol() then lued.move_to_eol(dd2) end
-    ins_str("\n",dd2)
+    lued.ins_str("\n",dd2)
   end
   lued.disp(dd)
 end

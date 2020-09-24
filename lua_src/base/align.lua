@@ -7,7 +7,7 @@ function lued.align_start_of_next_line(dd)
   lued.move_to_sol_classic(dd2)
   local ws2,ws2_len = lued.leading_ws()
   lued.del_char(ws2_len,dd2)
-  ins_str(ws1,dd2)
+  lued.s(ws1,dd2)
   lued.disp(dd)
 end
 
@@ -34,7 +34,7 @@ function lued.align_delimiter_of_next_line(delim, dd)
       local delta = delim_pos1 - delim_pos2
       if delta > 0 then
         local ws = string.rep(" ", delta)
-        ins_str(ws, dd2)
+        lued.ins_str(ws, dd2)
       elseif delta < 0 then
         delta = -1 * delta
         for i = 1, delta do
@@ -76,14 +76,14 @@ function lued.align_cur_char(dd)
   local cnt = 0
   while not done do
     if c2 < c1 then
-      ins_str(" ",dd2)
+      lued.ins_str(" ",dd2)
     else
       if lued.is_sol() or not lued.is_space("",-1) then
         done = true
       else
         lued.del_backspace(1,dd2)
         if not lued.is_space("",-1) then
-          ins_str(" ",dd2)
+          lued.ins_str(" ",dd2)
           done = true
         end
       end
