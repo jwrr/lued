@@ -25,17 +25,15 @@ ctrl_R           = lued.replay_keystrokes -- Move right defined number (4) of ch
 ctrl_T           = lued.select_tab        -- Select file tab menu
 ctrl_Y           = lued.redo_cmd          -- Redo (undo undo). Similar to Sublime Ctrl+Y
 ctrl_U           = lued.spare             -- Spare
-
 ctrl_I           = lued.insert_tab        -- Terminal interprets Ctrl+I as `Tab` key
 ctrl_O           = lued.open_file         -- Open File. Similar to Word Ctrl+O
 ctrl_P           = lued.open_partial_filename -- Open File from partial name. Similar to Sublime Ctrl+P
-ctrl_A           = lued.move_to_sol       -- Move to Start of Line. Similar to Sublime &lt;Home&gt;.
 
+ctrl_A           = lued.move_to_sol       -- Move to Start of Line. Similar to Sublime &lt;Home&gt;.
 ctrl_S           = lued.save_file         -- Save File. Similar to Sublime Ctrl+S.
 ctrl_D           = lued.sel_word          -- Select Word under cursor. Similar to Sublime Ctrl+D
 ctrl_F           = lued.find_forward_selected -- Find. Similar to Sublime Ctrl+F.  If text is selected the find selected text (Similar to Sublime Ctrl+F3).
 ctrl_G           = lued.move_to_line      -- Goto Line Number. Similar to Sublime Ctrl+G
-
 ctrl_H           = lued.find_and_replace  -- Find and Replace. Similar to Sublime Ctrl+H.
 ctrl_J           = lued.dont_use          -- Do Not Use. Same as Enter Key
 -- ctrl_K           = lued.ctrl_combo        -- Control Combo

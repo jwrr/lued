@@ -62,8 +62,8 @@ function lued.ins_string(str, dd)
   
   local prev_cmd = get_last_cmd() or ""
 --     print("prev_cmd=xxx"..prev_cmd.."xxx") io.read()
-  if lued.is_sel_on() then
-    lued.find_forward_again()
+  if lued.is_sel_on() and str == "\n" then
+    lued.find_forward_selected()
     return
   end
   lued.del_sel(dd2)

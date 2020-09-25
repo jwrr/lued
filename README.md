@@ -120,8 +120,12 @@ TBD
 * fixme - alt_jj. remove extra whitespace between joined lines - done
 * fixme - alt_cc doesn't work when selection is on. - done
 * fixme - make comment highlighting filetype dependent - done
-* fixme - alt+bb/BB (got to bottom/Beginning). turn off autorepeat - done
+* fixme - alt+bb/BB (goto bottom/Beginning). turn off autorepeat - done
 * change - move delete hot-keys from d? to x?. make them cut - done
+* alt_db/DB delete to bottom/beginning of file - done
+* alt_dl/DL delete to end/start of line - done
+* fixme - ctrl+d if partial word selected then deselect/reselect - done
+* Add command alt_pwd to display current working directory - done
 
 
 
@@ -181,7 +185,6 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * Add delete_to_match (alt_df) to delete to find match
 * Add support for macros (alt_mm)
 * Enhance File open (ctrl_O) to perform partial match file open (ctrl_P) if file not found
-* Add command alt_pwd to display current working directory
 * Add command alt_os to get shell prompt
 * Add command alt_lua to get to lua repl
 * Enhance alt_tt to open file (ctrl_p) if file is not open
@@ -194,8 +197,6 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 * alt_mN - change mouse step size
 * alt_MM - toggle between stepsize of N and 1
 
-* alt_db/DB delete to bottom/beginning of file - done
-* alt_dl/DL delete to end/start of line - done
 * add support for double ctrl-K hot.
 * ctrl_H - when done with find and replace return page to original offset
 
@@ -235,7 +236,6 @@ ep lines less than 72 char
 * feature - grep - search all open files. return selectable list of matches
 * feature - timestamp on save.
 * feature - if moving away fro '()' then change to '('
-* fixme - ctrl+d if partial word selected then deselect/reselect -
 
 * fixme - highlight keywords if not in comment
 * fixme - xxx_in_xxx. in matched, and shouldn't have
@@ -391,5 +391,6 @@ ctrl-T - for history store the filename instead of the index number
 tab - don't look for match if over space - done
 Don't highlight text in comments
 
-When sel_on, <Enter> finds the next occurrence of the selection (instead of deleting text and creating new line). - done
+<Enter> when text is selected finds the next occurrence of text (instead of deleting text and creating new line).
+alt-dc = ctrl+d, ctrl+c. similar to alt-df = ctrl+d,ctrl+f
 vi style open file to previous row+col. (not session based)
