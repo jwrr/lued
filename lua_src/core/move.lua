@@ -266,7 +266,7 @@ function lued.move_down_n_lines(n,dd)
     g_move_down_n_lines_command_count = g_command_count + 1
   end
 
-  r2 = r + g_scroll_speed
+  r2 = math.min(r + g_scroll_speed, numlines)
   lued.remove_trailing_spaces(r2,c,false,dd2)
   lued.disp(dd)
 end
