@@ -107,18 +107,18 @@ function lued.ins_string(str, dd)
       if str=="'" then str= "''"; brace_closed = true; end
     end
 
-    local ch = lued.get_char()
-    if ch~='}' and ch~=')' and ch~=']' then
-      ch = '';
-    end
-    if str==ch then -- ch is '' or closing brace
-      lued.move_right_n_char(1,dd2)
-    else
+--     local ch = lued.get_char()
+--     if ch~='}' and ch~=')' and ch~=']' then
+--       ch = '';
+--     end
+--     if str==ch then -- ch is '' or closing brace
+--       lued.move_right_n_char(1,dd2)
+--     else
       insert_str(str)
       if brace_closed then
         lued.move_left_n_char(1,dd2)
       end
-    end
+--     end
   end
 
   if g_bracket_paste==1 then
