@@ -213,7 +213,7 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+ratsall</kbd></td><td>Remove all trailing spaces in all files </td></tr>
 <tr><td><kbd>Alt+z</kbd></td><td>Similar to Sublime Ctrl-z. Undo. After alt-z is used, ctrl-z becomes unix suspend command. </td></tr>
 <tr><td><kbd>Alt+incr</kbd></td><td>Read number at current position, go down a line, and replace number with incremented value. </td></tr>
-<tr><td><kbd>Alt+decr</kbd></td><td>Decrement next line's index. </td></tr>
+<tr><td><kbd>Alt+INCR</kbd></td><td>Decrement next line's index. </td></tr>
 </table>
 ## Configuration Commands
 <table>
@@ -247,7 +247,9 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+RLN</kbd></td><td>hide relative line numbers </td></tr>
 <tr><td><kbd>Alt+ls</kbd></td><td>unix ls command. dos dir command </td></tr>
 <tr><td><kbd>Alt+LU</kbd></td><td>Change to LUA mode. You rarely want to be in lua mode. </td></tr>
-<tr><td><kbd>Alt+no</kbd></td><td>No Op. Type no if you've pressed esc and can't think of any other command to type </td></tr>
+<tr><td><kbd>Alt+noop</kbd></td><td>No Op. Type no if you've pressed esc and can't think of any other command to type </td></tr>
+<tr><td><kbd>Alt+nop</kbd></td><td>No Op. Type no if you've pressed esc and can't think of any other command to type </td></tr>
+<tr><td><kbd>Alt+note</kbd></td><td>Open user's notes file </td></tr>
 <tr><td><kbd>Alt+pwd</kbd></td><td>print working directory </td></tr>
 <tr><td><kbd>Alt+qq</kbd></td><td>Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q </td></tr>
 <tr><td><kbd>Alt+QQ</kbd></td><td>set join wrap </td></tr>
@@ -258,6 +260,6 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+Sesss</kbd></td><td>Save session file </td></tr>
 <tr><td><kbd>Alt+Sessl</kbd></td><td>Load session file </td></tr>
 <tr><td><kbd>Alt+Seti</kbd></td><td>Set Scope Indent SI2 SI3 SI4 </td></tr>
-<tr><td><kbd>Alt+test = lued.open_filerc_test </td></tr>
-<tr><td><kbd>Alt+todo = lued.todo lued.hot("todo") </td></tr>
+<tr><td><kbd>Alt+test         = lued.open_filerc_test </td></tr>
+<tr><td><kbd>Alt+todo</kbd></td><td>open user's todo file   </td></tr>
 </table>

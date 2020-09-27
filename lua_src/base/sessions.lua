@@ -60,12 +60,18 @@ end
 
 
 function lued.session_sel(session_id,dd)
+  local dd2 = 1
   if session_id then
     local fileid = get_fileid()
     if session_id ~= fileid then
       g_tab_prev = fileid
     end
     set_fileid(session_id)
+  end
+  local r,c = get_cur_pos()
+  if r==1 and c==1 then
+    lued.move_to_eol(dd2)
+    lued.move_to_sol_classic(dd2)
   end
   lued.disp(dd)
 end
