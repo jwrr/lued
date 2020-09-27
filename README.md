@@ -1,6 +1,7 @@
 Lued
 ====
-lua-based text editor
+
+[Documention is on Github.io](https://jwrr.github.io/lued/)
 
 Description
 -----------
