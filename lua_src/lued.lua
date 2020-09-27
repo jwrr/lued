@@ -29,9 +29,10 @@ SOFTWARE.
     return string.gsub(filename, "^~", os.getenv("HOME") )
   end
 
-  g_lued_root                   = "~/.lued/lua_src" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
+  g_lued_root                   = "~/.lued" -- Path for plugins such as ascii_art.lua, vhdl.lua and verilog.lua
   g_lued_root                   = expand_path(g_lued_root)
-  g_bindings_file               = g_lued_root .. "/bindings/lued_bindings.lua"
+  g_lua_src                     = g_lued_root .. "/lua_src"
+  g_bindings_file               = g_lua_src .. "/bindings/lued_bindings.lua"
   g_auto_indent                 = true  -- Indent the same as the previous line
   g_block_start                 = { "{" , "begin" , "then" , "do" , "loop" , "repeat", ":" }
   g_block_end                   = { "}" , "end" , "until" }
@@ -85,7 +86,7 @@ SOFTWARE.
   snips = {}
 
 
-  package.path = g_lued_root .. "/?.lua;" ..  package.path
+  package.path = g_lua_src .. "/?.lua;" ..  package.path
 
   require "core.lued_lib"
   require "core.terminal"
@@ -131,7 +132,8 @@ SOFTWARE.
   require "base.swap"
   require "base.wrap"
 
-  lued.init_lued(g_lued_root , g_bindings_file)
+
+  lued.init_lued(g_lua_src , g_bindings_file)
 
   lued.ctrl_combo_key = ""
   

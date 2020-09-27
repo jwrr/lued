@@ -294,6 +294,7 @@ alt_Seti         = lued.set_scope_indent                  -- Set Scope Indent SI
 -- alt_sw           = function() set_sel_start(); lued.var_end(1); set_sel_end(); lued.disp(); end lued.hot("sw")
 
 alt_test = lued.open_filerc_test
+alt_todo = lued.todo lued.hot("todo")
 
 -- DONE
 

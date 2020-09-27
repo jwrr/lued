@@ -27,7 +27,9 @@ Table of Contents
 ## Contribute
 
 Thanks for wanting to contribute to LUED. Hopefully this guide helps make the
-process a little smoother.
+process a little smoother. {{
+  
+}}
 
 ### License Requirements
 
@@ -385,7 +387,7 @@ light yellow current line
 alt-cc/CC - comment selected lines. undo just undo's one line at a time
 alt-ii/II use indent_size constant (set by ait-is), but TAB does not - done
 ctrl-f of close paren ')' causes error - seems fine
-alt-todo = alt-f todo
+alt-todo = opens todo file - done
 max_comment_linelen, max_linelen hardwrap
 ctrl-T - for history store the filename instead of the index number
 tab - don't look for match if over space - done

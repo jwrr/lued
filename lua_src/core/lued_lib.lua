@@ -52,7 +52,7 @@ end
 
 
 function lued.reinit(dd)
-  dofile(lued.pathifier( g_lued_root .. "/lued.lua"))
+  dofile(lued.pathifier( g_lua_src .. "/lued.lua"))
   lued.disp(dd)
 end
 

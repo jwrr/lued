@@ -158,7 +158,7 @@ function lued.cut_del_spaces(cut_mode, dd)
   set_sel_start()
   lued.skip_spaces(dd2)
   set_sel_end()
-  lued.cut_del_sel(cut_mode, dd)
+  lued.cut_or_del_sel(cut_mode, dd)
 end
 lued.del_spaces = function(dd) return lued.cut_del_spaces(false, dd) end
 lued.cut_spaces = function(dd) return lued.cut_del_spaces(true, dd) end

@@ -1,3 +1,4 @@
+0]	lua_src/plugins/verilog.lua	/^  function [CHANGE:0] change (input [7:0] a, b);$/
 ALLONES	src/lua/src/lbitlib.c	22
 AUXMARK	src/lua/src/loadlib.c	622
 BlockCnt	src/lua/src/lparser.c	42
@@ -211,6 +212,7 @@ TESTGRAYBIT	src/lua/src/ltests.c	375
 UNARY_PRIORITY	src/lua/src/lparser.c	1030
 VERSION	src/lua/src/lundump.c	236
 Z	src/lua/src/lundump.c	25
+[CHANGE:0]	lua_src/plugins/verilog.lua	/^  function [CHANGE:0] change (input [7:0] a, b);$/
 _FILE_OFFSET_BITS	src/lua/src/liolib.c	14
 _LARGEFILE_SOURCE	src/lua/src/liolib.c	13
 a	src/lua/src/ltests.c	78
@@ -233,9 +235,9 @@ align_delimiter_selected	lua_src/base/align.lua	/^function lued.align_delimiter_
 align_selected	lua_src/base/align.lua	/^function lued.align_selected(dd)$/
 align_start_of_next_line	lua_src/base/align.lua	/^function lued.align_start_of_next_line(dd)$/
 all_hist	src/carr/src/carr_readline_lua.c	105
-alt_ooth	lua_src/plugins/vhdl.lua	/^function alt_ooth (dd) lued.ins_str( "(others => (/
-alt_oth	lua_src/plugins/vhdl.lua	/^function alt_oth (dd) lued.ins_str("(others => '0'/
 alt_z_wrapper	lua_src/core/undo.lua	/^function lued.alt_z_wrapper(dd)$/
+always_block	lua_src/plugins/verilog.lua	/^function lued.verilog.always_block(dd)$/
+always_star	lua_src/plugins/verilog.lua	/^function lued.verilog.always_star()$/
 anchor	lua_src/plugins/bootstrap.lua	/^function lued.html.anchor(tag)$/
 anchor	lua_src/plugins/html.lua	/^function lued.html.anchor(tag)$/
 anchor_token	src/lua/src/lparser.c	/^static void anchor_token (LexState *ls) {$/
@@ -246,6 +248,7 @@ arith_op	src/lua/src/lvm.c	/^#define arith_op(op,tm) { \\$/
 arrayindex	src/lua/src/ltable.c	/^static int arrayindex (const TValue *key) {$/
 arrlen	src/carr/src/carr.c	/^uint32_t arrlen(const void* arr, uint32_t elem_siz/
 assignment	src/lua/src/lparser.c	/^static void assignment (LexState *ls, struct LHS_a/
+at_start_of_line	lua_src/core/booleans.lua	/^function lued.at_start_of_line()$/
 atomic	src/lua/src/lgc.c	/^static l_mem atomic (lua_State *L) {$/
 auto_complete_insert_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_insert_word()$/
 auto_complete_lookup_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_lookup_word()$/
@@ -374,6 +377,7 @@ carr_too_big	src/carr/src/carr.c	/^int carr_too_big(const carr_t* const ca, uint
 carr_validei	src/carr/src/carr.c	/^int carr_validei(const carr_t* const ca, void* ele/
 carr_validi	src/carr/src/carr.c	/^int carr_validi(const carr_t* const ca)$/
 carr_write2d	src/carr/src/carr.c	/^int carr_write2d(carr_t* ca, char* filename)$/
+case	lua_src/plugins/verilog.lua	/^function lued.verilog.case()$/
 case	lua_src/plugins/vhdl.lua	/^function lued.vhdl.case()$/
 cd_change_dir	lua_src/core/os.lua	/^function lued.cd_change_dir(dd)$/
 check	src/lua/src/lparser.c	/^static void check (LexState *ls, int c) {$/
@@ -412,8 +416,11 @@ chomp	lua_src/core/os.lua	/^function lued.chomp(str)$/
 classend	src/lua/src/lstrlib.c	/^static const char *classend (MatchState *ms, const/
 clearkeys	src/lua/src/lgc.c	/^static void clearkeys (global_State *g, GCObject */
 clearvalues	src/lua/src/lgc.c	/^static void clearvalues (global_State *g, GCObject/
+clk1	lua_src/plugins/verilog.lua	/^function lued.verilog.clk1()$/
 clk1	lua_src/plugins/vhdl.lua	/^function lued.vhdl.clk1()$/
+clkgen	lua_src/plugins/verilog.lua	/^function lued.verilog.clkgen()$/
 clkgen	lua_src/plugins/vhdl.lua	/^function lued.vhdl.clkgen()$/
+clkn	lua_src/plugins/verilog.lua	/^function lued.verilog.clkn()$/
 clkn	lua_src/plugins/vhdl.lua	/^function lued.vhdl.clkn()$/
 close_func	src/lua/src/lparser.c	/^static void close_func (LexState *ls) {$/
 close_session	src/lued.c	/^static void close_session(carr_t* all_sessions) {$/
@@ -461,6 +468,7 @@ correctstack	src/lua/src/ldo.c	/^static void correctstack (lua_State *L, TValue 
 count_char	src/lued.c	/^size_t count_char(const char* str, const int start/
 countint	src/lua/src/ltable.c	/^static int countint (const TValue *key, int *nums)/
 countlevels	src/lua/src/lauxlib.c	/^static int countlevels (lua_State *L) {$/
+create_tab_select_menu	lua_src/base/multifile.lua	/^function lued.create_tab_select_menu(filter, dont_/
 createmeta	src/lua/src/liolib.c	/^static void createmeta (lua_State *L) {$/
 createmetatable	src/lua/src/lstrlib.c	/^static void createmetatable (lua_State *L) {$/
 createsearcherstable	src/lua/src/loadlib.c	/^static void createsearcherstable (lua_State *L) {$/
@@ -548,10 +556,13 @@ discharge2anyreg	src/lua/src/lcode.c	/^static void discharge2anyreg (FuncState *
 discharge2reg	src/lua/src/lcode.c	/^static void discharge2reg (FuncState *fs, expdesc /
 dischargejpc	src/lua/src/lcode.c	/^static void dischargejpc (FuncState *fs) {$/
 disp	lua_src/core/display.lua	/^function lued.disp(dd,center)$/
+display_menu	lua_src/base/multifile.lua	/^function lued.display_menu(filter,dont_print)$/
 display_page_in_lua	lua_src/core/display.lua	/^function lued.display_page_in_lua(lua_mode, highli/
 display_page_in_lua_depricated	lua_src/core/display.lua	/^function lued.display_page_in_lua_depricated(lua_m/
 display_status_in_lua	lua_src/base/statusline.lua	/^function lued.display_status_in_lua(lua_mode,dd)$/
 display_status_in_lua	lua_src/core/display.lua	/^function lued.display_status_in_lua(lua_mode,dd)$/
+do_keyword	lua_src/core/insert.lua	/^function lued.do_keyword(dd)$/
+do_snippet	lua_src/core/insert.lua	/^function lued.do_snippet(dd)$/
 docall	src/lua/src/lua.c	/^static int docall (lua_State *L, int narg, int nre/
 dofile	src/lua/src/lua.c	/^static int dofile (lua_State *L, const char *name)/
 dofilecont	src/lua/src/lbaselib.c	/^static int dofilecont (lua_State *L) {$/
@@ -651,7 +662,11 @@ firstgoto	src/lua/src/lparser.c	45
 firstlabel	src/lua/src/lparser.c	44
 fixjump	src/lua/src/lcode.c	/^static void fixjump (FuncState *fs, int pc, int de/
 flib	src/lua/src/liolib.c	609
+for_loop	lua_src/plugins/c.lua	/^function lued.clang.for_loop()$/
 for_loop	lua_src/plugins/lua.lua	/^function lued.lua.for_loop()$/
+for_loop	lua_src/plugins/perl.lua	/^function lued.perl.for_loop()$/
+for_loop	lua_src/plugins/python.lua	/^function lued.python.for_loop()$/
+for_loop	lua_src/plugins/verilog.lua	/^function lued.verilog.for_loop()$/
 forbody	src/lua/src/lparser.c	/^static void forbody (LexState *ls, int base, int l/
 foreach_selected	lua_src/core/select.lua	/^function lued.foreach_selected(fn, dd)$/
 forlist	src/lua/src/lparser.c	/^static void forlist (LexState *ls, TString *indexn/
@@ -666,7 +681,11 @@ freeobj	src/lua/src/lgc.c	/^static void freeobj (lua_State *L, GCObject *o) {$/
 freereg	src/lua/src/lcode.c	/^static void freereg (FuncState *fs, int reg) {$/
 freestack	src/lua/src/lstate.c	/^static void freestack (lua_State *L) {$/
 fromstate	src/lua/src/lstate.c	/^#define fromstate(L)	(cast(LX *, cast(lu_byte *, (/
+func	lua_src/plugins/c.lua	/^function lued.clang.func()$/
 func	lua_src/plugins/lua.lua	/^function lued.lua.func()$/
+func	lua_src/plugins/perl.lua	/^function lued.perl.func()$/
+func	lua_src/plugins/python.lua	/^function lued.python.func()$/
+func	lua_src/plugins/verilog.lua	/^function lued.verilog.func()$/
 func	lua_src/plugins/vhdl.lua	/^function lued.vhdl.func()$/
 func	src/lua/src/lapi.c	916
 funcargs	src/lua/src/lparser.c	/^static void funcargs (LexState *ls, expdesc *f, in/
@@ -799,6 +818,7 @@ hashstr	src/lua/src/ltable.c	/^#define hashstr(t,str)		hashpow2(t, (str)->tsv.ha
 hasjumps	src/lua/src/lcode.c	/^#define hasjumps(e)	((e)->t != (e)->f)$/
 hasmultret	src/lua/src/lparser.c	/^#define hasmultret(k)		((k) == VCALL || (k) == VVA/
 help	lua_src/base/help.lua	/^function lued.help(n,dd)$/
+help	lua_src/plugins/verilog.lua	/^function lued.verilog.help()$/
 help	lua_src/plugins/vhdl.lua	/^function lued.vhdl.help()$/
 hi	lua_src/plugins/ascii_art.lua	/^function hi()$/
 history_next	src/carr/src/carr_readline.c	/^static void history_next(carr_t* history, carr_t* /
@@ -809,14 +829,17 @@ hot	lua_src/core/hotkeys.lua	/^function lued.hot(key, dd)$/
 hot_range	lua_src/core/hotkeys.lua	/^function lued.hot_range(lower,upper)$/
 hotkeys	src/carr/src/carr_readline_lua.c	35
 html5	lua_src/plugins/html.lua	/^function lued.html.html5()$/
+if_statement	lua_src/plugins/c.lua	/^function lued.clang.if_statement()$/
+if_statement	lua_src/plugins/c.lua	/^function lued.clang.if_statement()$/
 if_statement	lua_src/plugins/lua.lua	/^function lued.lua.if_statement()$/
+if_statement	lua_src/plugins/perl.lua	/^function lued.perl.if_statement()$/
+if_statement	lua_src/plugins/python.lua	/^function lued.python.if_statement()$/
 ifstat	src/lua/src/lparser.c	/^static void ifstat (LexState *ls, int line) {$/
 implode	lua_src/core/lued_lib.lua	/^function lued.implode(pieces, sep, trailing_sep, f/
 in_array	src/carr/src/carr.c	/^int in_array(void* needle, void* haystack, uint32_/
 inclinenumber	src/lua/src/llex.c	/^static void inclinenumber (LexState *ls) {$/
 incomplete	src/lua/src/lua.c	/^static int incomplete (lua_State *L, int status) {/
 incr	lua_src/base/increment.lua	/^function lued.incr(step_size, dd)$/
-incr	lua_src/plugins/verilog.lua	/^  function incr(slv :std_logic_vector) return std_/
 incstep	src/lua/src/lgc.c	/^static void incstep (lua_State *L) {$/
 indent	lua_src/base/indent.lua	/^function lued.indent(dd)$/
 indent1	lua_src/base/indent.lua	/^function lued.indent1(n, ch, goto_next, dd)$/
@@ -832,8 +855,8 @@ ins_str	lua_src/core/insert.lua	/^function lued.ins_str(str,dd)$/
 ins_str_after	lua_src/core/insert.lua	/^function lued.ins_str_after(str, fstr, r, c, dd)$/
 ins_string	lua_src/core/insert.lua	/^function lued.ins_string(str, dd)$/
 insert_char	src/carr/src/carr_readline.c	/^static void insert_char(carr_t* line, char c) {$/
-insert_cr_after	lua_src/core/insert.lua	/^function lued.insert_cr_after(dd)$/
-insert_cr_before	lua_src/core/insert.lua	/^function lued.insert_cr_before(dd)$/
+insert_line_after	lua_src/core/insert.lua	/^function lued.insert_line_after(dd)$/
+insert_line_before	lua_src/core/insert.lua	/^function lued.insert_line_before(dd)$/
 insert_line_numbers_orig	lua_src/base/linenumbers.lua	/^function lued.insert_line_numbers_orig(text)$/
 insert_prefix	src/carr/src/carr_readline.c	/^static void insert_prefix(carr_t* line, char* str,/
 insert_str	src/lued.c	/^static void insert_str(carr_t* all_sessions, const/
@@ -844,6 +867,9 @@ insert_tab_selected	lua_src/core/insert.lua	/^function lued.insert_tab_selected(
 inspectstat	src/lua/src/lauxlib.c	/^#define inspectstat(stat,what)  \\$/
 inspectstat	src/lua/src/lauxlib.c	/^#define inspectstat(stat,what)  \/* no op *\/$/
 inst_from_entity	lua_src/plugins/vhdl.lua	/^function lued.vhdl.inst_from_entity(dd)$/
+inst_from_entity_wrapper	lua_src/plugins/vhdl.lua	/^function lued.vhdl.inst_from_entity_wrapper()$/
+inst_from_portlist	lua_src/plugins/verilog.lua	/^function lued.verilog.inst_from_portlist(dd)$/
+inst_from_portlist_wrapper	lua_src/plugins/verilog.lua	/^function lued.verilog.inst_from_portlist_wrapper()/
 int2fb_aux	src/lua/src/ltests.c	/^static int int2fb_aux (lua_State *L) {$/
 internshrstr	src/lua/src/lstring.c	/^static TString *internshrstr (lua_State *L, const /
 invertjump	src/lua/src/lcode.c	/^static void invertjump (FuncState *fs, expdesc *e)/
@@ -1001,6 +1027,7 @@ loadline	src/lua/src/lua.c	/^static int loadline (lua_State *L) {$/
 lobject_c	src/lua/src/lobject.c	12
 localfunc	src/lua/src/lparser.c	/^static void localfunc (LexState *ls) {$/
 localstat	src/lua/src/lparser.c	/^static void localstat (LexState *ls) {$/
+log	lua_src/plugins/verilog.lua	/^function lued.verilog.log()$/
 log	lua_src/plugins/vhdl.lua	/^function lued.vhdl.log()$/
 logo	lua_src/base/help.lua	/^function lued.logo()$/
 lopcodes_c	src/lua/src/lopcodes.c	8
@@ -1430,6 +1457,7 @@ lued.align_delimiter_selected	lua_src/base/align.lua	/^function lued.align_delim
 lued.align_selected	lua_src/base/align.lua	/^function lued.align_selected(dd)$/
 lued.align_start_of_next_line	lua_src/base/align.lua	/^function lued.align_start_of_next_line(dd)$/
 lued.alt_z_wrapper	lua_src/core/undo.lua	/^function lued.alt_z_wrapper(dd)$/
+lued.at_start_of_line	lua_src/core/booleans.lua	/^function lued.at_start_of_line()$/
 lued.auto_complete_insert_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_insert_word()$/
 lued.auto_complete_lookup_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_lookup_word()$/
 lued.auto_complete_select_word	lua_src/base/autocomplete.lua	/^function lued.auto_complete_select_word()$/
@@ -1444,6 +1472,14 @@ lued.bubble_word_right	lua_src/base/swap.lua	/^function lued.bubble_word_right(d
 lued.cd_change_dir	lua_src/core/os.lua	/^function lued.cd_change_dir(dd)$/
 lued.check_if_file_changed	lua_src/core/display.lua	/^function lued.check_if_file_changed()$/
 lued.chomp	lua_src/core/os.lua	/^function lued.chomp(str)$/
+lued.clang.for_loop	lua_src/plugins/c.lua	/^function lued.clang.for_loop()$/
+lued.clang.func	lua_src/plugins/c.lua	/^function lued.clang.func()$/
+lued.clang.if_statement	lua_src/plugins/c.lua	/^function lued.clang.if_statement()$/
+lued.clang.if_statement	lua_src/plugins/c.lua	/^function lued.clang.if_statement()$/
+lued.clang.program	lua_src/plugins/c.lua	/^function lued.clang.program()$/
+lued.clang.switch_statement	lua_src/plugins/c.lua	/^function lued.clang.switch_statement()$/
+lued.clang.typedef	lua_src/plugins/c.lua	/^function lued.clang.typedef()$/
+lued.clang.while_loop	lua_src/plugins/c.lua	/^function lued.clang.while_loop()$/
 lued.clr_abs_line_numbers	lua_src/base/linenumbers.lua	/^function lued.clr_abs_line_numbers(dd)$/
 lued.clr_auto_indent	lua_src/base/indent.lua	/^function lued.clr_auto_indent(dd)$/
 lued.clr_find_case_sensitive	lua_src/core/find.lua	/^function lued.clr_find_case_sensitive(dd)$/
@@ -1461,6 +1497,7 @@ lued.copy_eol	lua_src/core/copy_paste.lua	/^function lued.copy_eol(dd)$/
 lued.copy_line	lua_src/core/copy_paste.lua	/^function lued.copy_line(n,dd)$/
 lued.copy_sol	lua_src/core/copy_paste.lua	/^function lued.copy_sol(dd)$/
 lued.copy_word	lua_src/core/copy_paste.lua	/^function lued.copy_word(dd)$/
+lued.create_tab_select_menu	lua_src/base/multifile.lua	/^function lued.create_tab_select_menu(filter, dont_/
 lued.ctag_jump_back	lua_src/base/ctags.lua	/^function lued.ctag_jump_back(dd)$/
 lued.ctag_jump_forward	lua_src/base/ctags.lua	/^function lued.ctag_jump_forward(dd)$/
 lued.ctag_move_back_from_tag	lua_src/base/ctags.lua	/^function lued.ctag_move_back_from_tag(dd)$/
@@ -1504,10 +1541,13 @@ lued.del_sel	lua_src/core/delete.lua	/^function lued.del_sel(dd)$/
 lued.del_sof	lua_src/core/delete.lua	/^function lued.del_sof(dd)$/
 lued.del_spaces_selected	lua_src/core/delete.lua	/^function lued.del_spaces_selected(dd)$/
 lued.disp	lua_src/core/display.lua	/^function lued.disp(dd,center)$/
+lued.display_menu	lua_src/base/multifile.lua	/^function lued.display_menu(filter,dont_print)$/
 lued.display_page_in_lua	lua_src/core/display.lua	/^function lued.display_page_in_lua(lua_mode, highli/
 lued.display_page_in_lua_depricated	lua_src/core/display.lua	/^function lued.display_page_in_lua_depricated(lua_m/
 lued.display_status_in_lua	lua_src/base/statusline.lua	/^function lued.display_status_in_lua(lua_mode,dd)$/
 lued.display_status_in_lua	lua_src/core/display.lua	/^function lued.display_status_in_lua(lua_mode,dd)$/
+lued.do_keyword	lua_src/core/insert.lua	/^function lued.do_keyword(dd)$/
+lued.do_snippet	lua_src/core/insert.lua	/^function lued.do_snippet(dd)$/
 lued.dont_use	lua_src/core/hotkeys.lua	/^function lued.dont_use()$/
 lued.duplicate_line	lua_src/core/copy_paste.lua	/^function lued.duplicate_line(dd)$/
 lued.duplicate_n_lines	lua_src/core/copy_paste.lua	/^function lued.duplicate_n_lines(n,dd)$/
@@ -1600,8 +1640,8 @@ lued.init_lued	lua_src/core/lued_lib.lua	/^function lued.init_lued(lued_path, bi
 lued.ins_str	lua_src/core/insert.lua	/^function lued.ins_str(str,dd)$/
 lued.ins_str_after	lua_src/core/insert.lua	/^function lued.ins_str_after(str, fstr, r, c, dd)$/
 lued.ins_string	lua_src/core/insert.lua	/^function lued.ins_string(str, dd)$/
-lued.insert_cr_after	lua_src/core/insert.lua	/^function lued.insert_cr_after(dd)$/
-lued.insert_cr_before	lua_src/core/insert.lua	/^function lued.insert_cr_before(dd)$/
+lued.insert_line_after	lua_src/core/insert.lua	/^function lued.insert_line_after(dd)$/
+lued.insert_line_before	lua_src/core/insert.lua	/^function lued.insert_line_before(dd)$/
 lued.insert_line_numbers_orig	lua_src/base/linenumbers.lua	/^function lued.insert_line_numbers_orig(text)$/
 lued.insert_tab	lua_src/core/insert.lua	/^function lued.insert_tab(dd)$/
 lued.insert_tab_classic	lua_src/core/insert.lua	/^function lued.insert_tab_classic(dd)$/
@@ -1699,6 +1739,11 @@ lued.paste_and_find_reverse	lua_src/core/find.lua	/^function lued.paste_and_find
 lued.paste_line_after	lua_src/core/copy_paste.lua	/^function lued.paste_line_after(dd)$/
 lued.paste_line_before	lua_src/core/copy_paste.lua	/^function lued.paste_line_before(dd)$/
 lued.pathifier	lua_src/core/os.lua	/^function lued.pathifier(filename)$/
+lued.perl.for_loop	lua_src/plugins/perl.lua	/^function lued.perl.for_loop()$/
+lued.perl.func	lua_src/plugins/perl.lua	/^function lued.perl.func()$/
+lued.perl.if_statement	lua_src/plugins/perl.lua	/^function lued.perl.if_statement()$/
+lued.perl.program	lua_src/plugins/perl.lua	/^function lued.perl.program()$/
+lued.perl.while_loop	lua_src/plugins/perl.lua	/^function lued.perl.while_loop()$/
 lued.pop_jump_stack	lua_src/core/find.lua	/^function lued.pop_jump_stack(stack)$/
 lued.prev_is_other	lua_src/core/booleans.lua	/^function lued.prev_is_other()$/
 lued.prev_is_space	lua_src/core/booleans.lua	/^function lued.prev_is_space()$/
@@ -1707,6 +1752,12 @@ lued.prompt	lua_src/core/prompt.lua	/^function lued.prompt(hist_id,prompt,hot,te
 lued.psub	lua_src/core/display.lua	/^function lued.psub(subject, from, to, index, lim)$/
 lued.push_jump_stack	lua_src/core/find.lua	/^function lued.push_jump_stack(stack, fileid, row, /
 lued.push_keystroke	lua_src/core/replay.lua	/^function lued.push_keystroke(cmd)$/
+lued.pwd	lua_src/core/files.lua	/^function lued.pwd()$/
+lued.python.for_loop	lua_src/plugins/python.lua	/^function lued.python.for_loop()$/
+lued.python.func	lua_src/plugins/python.lua	/^function lued.python.func()$/
+lued.python.if_statement	lua_src/plugins/python.lua	/^function lued.python.if_statement()$/
+lued.python.program	lua_src/plugins/python.lua	/^function lued.python.program()$/
+lued.python.while_loop	lua_src/plugins/python.lua	/^function lued.python.while_loop()$/
 lued.quit_all	lua_src/core/quit.lua	/^function lued.quit_all(force, dd)$/
 lued.quit_session	lua_src/core/quit.lua	/^function lued.quit_session(force,dd)$/
 lued.read_dir	lua_src/core/os.lua	/^function lued.read_dir(glob)$/
@@ -1808,6 +1859,7 @@ lued.swap_line_with_prev	lua_src/base/swap.lua	/^function lued.swap_line_with_pr
 lued.tab_next	lua_src/base/multifile.lua	/^function lued.tab_next(dd)$/
 lued.tab_prev	lua_src/base/multifile.lua	/^function lued.tab_prev(dd)$/
 lued.tab_toggle	lua_src/base/multifile.lua	/^function lued.tab_toggle(dd)$/
+lued.todo	lua_src/plugins/todo.lua	/^  function lued.todo()$/
 lued.toggle_auto_indent	lua_src/base/indent.lua	/^function lued.toggle_auto_indent(dd)$/
 lued.toggle_bottom	lua_src/core/move.lua	/^function lued.toggle_bottom(dd)$/
 lued.toggle_ctrl_c_abort	lua_src/core/terminal.lua	/^function lued.toggle_ctrl_c_abort (dd)$/
@@ -1829,6 +1881,25 @@ lued.unindent1	lua_src/base/indent.lua	/^function lued.unindent1(n, ch, goto_nex
 lued.unindent_selected	lua_src/base/indent.lua	/^function lued.unindent_selected(dd)$/
 lued.var_end	lua_src/core/move.lua	/^function lued.var_end(dd)$/
 lued.var_start	lua_src/core/select.lua	/^function lued.var_start(dd)$/
+lued.verilog.always_block	lua_src/plugins/verilog.lua	/^function lued.verilog.always_block(dd)$/
+lued.verilog.always_star	lua_src/plugins/verilog.lua	/^function lued.verilog.always_star()$/
+lued.verilog.case	lua_src/plugins/verilog.lua	/^function lued.verilog.case()$/
+lued.verilog.clk1	lua_src/plugins/verilog.lua	/^function lued.verilog.clk1()$/
+lued.verilog.clkgen	lua_src/plugins/verilog.lua	/^function lued.verilog.clkgen()$/
+lued.verilog.clkn	lua_src/plugins/verilog.lua	/^function lued.verilog.clkn()$/
+lued.verilog.for_loop	lua_src/plugins/verilog.lua	/^function lued.verilog.for_loop()$/
+lued.verilog.func	lua_src/plugins/verilog.lua	/^function lued.verilog.func()$/
+lued.verilog.help	lua_src/plugins/verilog.lua	/^function lued.verilog.help()$/
+lued.verilog.inst_from_portlist	lua_src/plugins/verilog.lua	/^function lued.verilog.inst_from_portlist(dd)$/
+lued.verilog.inst_from_portlist_wrapper	lua_src/plugins/verilog.lua	/^function lued.verilog.inst_from_portlist_wrapper()/
+lued.verilog.log	lua_src/plugins/verilog.lua	/^function lued.verilog.log()$/
+lued.verilog.record	lua_src/plugins/verilog.lua	/^function lued.verilog.record()$/
+lued.verilog.sel_entity	lua_src/plugins/verilog.lua	/^function lued.verilog.sel_entity(dd)$/
+lued.verilog.sig_from_portlist	lua_src/plugins/verilog.lua	/^function lued.verilog.sig_from_portlist()$/
+lued.verilog.state	lua_src/plugins/verilog.lua	/^function lued.verilog.state()$/
+lued.verilog.tb	lua_src/plugins/verilog.lua	/^function lued.verilog.tb()$/
+lued.verilog.template	lua_src/plugins/verilog.lua	/^function lued.verilog.template()$/
+lued.verilog.type_slv_array	lua_src/plugins/verilog.lua	/^function lued.verilog.type_slv_array()$/
 lued.vhdl.case	lua_src/plugins/vhdl.lua	/^function lued.vhdl.case()$/
 lued.vhdl.clk1	lua_src/plugins/vhdl.lua	/^function lued.vhdl.clk1()$/
 lued.vhdl.clkgen	lua_src/plugins/vhdl.lua	/^function lued.vhdl.clkgen()$/
@@ -1836,7 +1907,10 @@ lued.vhdl.clkn	lua_src/plugins/vhdl.lua	/^function lued.vhdl.clkn()$/
 lued.vhdl.func	lua_src/plugins/vhdl.lua	/^function lued.vhdl.func()$/
 lued.vhdl.help	lua_src/plugins/vhdl.lua	/^function lued.vhdl.help()$/
 lued.vhdl.inst_from_entity	lua_src/plugins/vhdl.lua	/^function lued.vhdl.inst_from_entity(dd)$/
+lued.vhdl.inst_from_entity_wrapper	lua_src/plugins/vhdl.lua	/^function lued.vhdl.inst_from_entity_wrapper()$/
 lued.vhdl.log	lua_src/plugins/vhdl.lua	/^function lued.vhdl.log()$/
+lued.vhdl.others	lua_src/plugins/vhdl.lua	/^function lued.vhdl.others()$/
+lued.vhdl.others_2d	lua_src/plugins/vhdl.lua	/^function lued.vhdl.others_2d()$/
 lued.vhdl.package	lua_src/plugins/vhdl.lua	/^function lued.vhdl.package()$/
 lued.vhdl.proc	lua_src/plugins/vhdl.lua	/^function lued.vhdl.proc(dd)$/
 lued.vhdl.proc_all	lua_src/plugins/vhdl.lua	/^function lued.vhdl.proc_all()$/
@@ -2025,6 +2099,8 @@ os_rename	src/lua/src/loslib.c	/^static int os_rename (lua_State *L) {$/
 os_setlocale	src/lua/src/loslib.c	/^static int os_setlocale (lua_State *L) {$/
 os_time	src/lua/src/loslib.c	/^static int os_time (lua_State *L) {$/
 os_tmpname	src/lua/src/loslib.c	/^static int os_tmpname (lua_State *L) {$/
+others	lua_src/plugins/vhdl.lua	/^function lued.vhdl.others()$/
+others_2d	lua_src/plugins/vhdl.lua	/^function lued.vhdl.others_2d()$/
 overtype_string	lua_src/core/insert.lua	/^function lued.overtype_string(str,dd)$/
 p_end	src/lua/src/lstrlib.c	202
 pack	src/lua/src/ltablib.c	/^static int pack (lua_State *L) {$/
@@ -2061,7 +2137,10 @@ priority	src/lua/src/lparser.c	1022
 proc	lua_src/plugins/vhdl.lua	/^function lued.vhdl.proc(dd)$/
 proc_all	lua_src/plugins/vhdl.lua	/^function lued.vhdl.proc_all()$/
 progname	src/lua/src/lua.c	92
+program	lua_src/plugins/c.lua	/^function lued.clang.program()$/
 program	lua_src/plugins/lua.lua	/^function lued.lua.program()$/
+program	lua_src/plugins/perl.lua	/^function lued.perl.program()$/
+program	lua_src/plugins/python.lua	/^function lued.python.program()$/
 prompt	lua_src/core/prompt.lua	/^function lued.prompt(hist_id,prompt,hot,test_str)$/
 prompt	src/lued.c	/^int prompt(char* question, char* response, size_t /
 propagateall	src/lua/src/lgc.c	/^static void propagateall (global_State *g) {$/
@@ -2083,6 +2162,7 @@ pushnexttemplate	src/lua/src/loadlib.c	/^static const char *pushnexttemplate (lu
 pushobject	src/lua/src/ltests.c	/^static void pushobject (lua_State *L, const TValue/
 pushstr	src/lua/src/lobject.c	/^static void pushstr (lua_State *L, const char *str/
 pushuserdata	src/lua/src/ltests.c	/^static int pushuserdata (lua_State *L) {$/
+pwd	lua_src/core/files.lua	/^function lued.pwd()$/
 quit_all	lua_src/core/quit.lua	/^function lued.quit_all(force, dd)$/
 quit_session	lua_src/core/quit.lua	/^function lued.quit_session(force,dd)$/
 raw_off	src/carr/src/carr_readline.c	/^void raw_off() { set_flag(1, ICANON | ECHO); }$/
@@ -2103,6 +2183,7 @@ reallymarkobject	src/lua/src/lgc.c	/^static void reallymarkobject (global_State 
 recenter	lua_src/base/center_page.lua	/^function lued.recenter(dd)$/
 recenter_top	lua_src/base/center_page.lua	/^function lued.recenter_top(dd)$/
 recfield	src/lua/src/lparser.c	/^static void recfield (LexState *ls, struct ConsCon/
+record	lua_src/plugins/verilog.lua	/^function lued.verilog.record()$/
 record	lua_src/plugins/vhdl.lua	/^function lued.vhdl.record()$/
 recover	src/lua/src/ldo.c	/^static int recover (lua_State *L, int status) {$/
 redo	src/lued.c	/^static void redo(carr_t* all_sessions) {$/
@@ -2162,6 +2243,7 @@ searchpath	src/lua/src/loadlib.c	/^static const char *searchpath (lua_State *L, 
 searchupvalue	src/lua/src/lparser.c	/^static int searchupvalue (FuncState *fs, TString */
 searchvar	src/lua/src/lparser.c	/^static int searchvar (FuncState *fs, TString *n) {/
 sel_all	lua_src/core/select.lua	/^function lued.sel_all(dd)$/
+sel_entity	lua_src/plugins/verilog.lua	/^function lued.verilog.sel_entity(dd)$/
 sel_entity	lua_src/plugins/vhdl.lua	/^function lued.vhdl.sel_entity(dd)$/
 sel_eof	lua_src/core/select.lua	/^function lued.sel_eof(dd)$/
 sel_eol	lua_src/core/select.lua	/^function lued.sel_eol(dd)$/
@@ -2260,6 +2342,7 @@ sidebar	lua_src/base/sidebar.lua	/^function lued.sidebar(lines)$/
 sidebar	lua_src/core/style.lua	/^function lued.sidebar(lines) -- Dummy function, us/
 sig_cont_handler	src/carr/src/carr_readline.c	/^void sig_cont_handler() {$/
 sig_from_entity	lua_src/plugins/vhdl.lua	/^function lued.vhdl.sig_from_entity()$/
+sig_from_portlist	lua_src/plugins/verilog.lua	/^function lued.verilog.sig_from_portlist()$/
 signed	lua_src/plugins/vhdl.lua	/^function lued.vhdl.signed()$/
 signed_resize	lua_src/plugins/vhdl.lua	/^function lued.vhdl.signed_resize() lued.vhdl.resiz/
 simpleexp	src/lua/src/lparser.c	/^static void simpleexp (LexState *ls, expdesc *v) {/
@@ -2298,6 +2381,7 @@ stackinuse	src/lua/src/ldo.c	/^static int stackinuse (lua_State *L) {$/
 stacklevel	src/lua/src/ltests.c	/^static int stacklevel (lua_State *L) {$/
 start_aa	lua_src/plugins/ascii_art.lua	/^function start_aa(dd)$/
 start_capture	src/lua/src/lstrlib.c	/^static const char *start_capture (MatchState *ms, /
+state	lua_src/plugins/verilog.lua	/^function lued.verilog.state()$/
 state	lua_src/plugins/vhdl.lua	/^function lued.vhdl.state()$/
 statement	src/lua/src/lparser.c	/^static void statement (LexState *ls) {$/
 statlist	src/lua/src/lparser.c	/^static void statlist (LexState *ls) {$/
@@ -2336,6 +2420,7 @@ sweepphases	src/lua/src/lgc.c	924
 sweepthread	src/lua/src/lgc.c	/^static void sweepthread (lua_State *L, lua_State */
 sweeptolive	src/lua/src/lgc.c	/^static GCObject **sweeptolive (lua_State *L, GCObj/
 sweepwholelist	src/lua/src/lgc.c	/^#define sweepwholelist(L,p)	sweeplist(L,p,MAX_LUME/
+switch_statement	lua_src/plugins/c.lua	/^function lued.clang.switch_statement()$/
 syslib	src/lua/src/loslib.c	300
 t	src/lua/src/lparser.c	645
 tab_funcs	src/lua/src/ltablib.c	262
@@ -2347,8 +2432,10 @@ table_query	src/lua/src/ltests.c	/^static int table_query (lua_State *L) {$/
 tag	lua_src/plugins/bootstrap.lua	/^function lued.html.tag(t)$/
 tag	lua_src/plugins/html.lua	/^function lued.html.tag(t)$/
 tag_error	src/lua/src/lauxlib.c	/^static void tag_error (lua_State *L, int narg, int/
+tb	lua_src/plugins/verilog.lua	/^function lued.verilog.tb()$/
 tb	lua_src/plugins/vhdl.lua	/^function lued.vhdl.tb()$/
 tconcat	src/lua/src/ltablib.c	/^static int tconcat (lua_State *L) {$/
+template	lua_src/plugins/verilog.lua	/^function lued.verilog.template()$/
 template	lua_src/plugins/vhdl.lua	/^function lued.vhdl.template()$/
 testC	src/lua/src/ltests.c	/^static int testC (lua_State *L) {$/
 test_eof	src/lua/src/liolib.c	/^static int test_eof (lua_State *L, FILE *f) {$/
@@ -2358,6 +2445,7 @@ testobjref	src/lua/src/ltests.c	/^static int testobjref (global_State *g, GCObje
 testobjref1	src/lua/src/ltests.c	/^static int testobjref1 (global_State *g, GCObject /
 tests_funcs	src/lua/src/ltests.c	1451
 tinsert	src/lua/src/ltablib.c	/^static int tinsert (lua_State *L) {$/
+todo	lua_src/plugins/todo.lua	/^  function lued.todo()$/
 tofile	src/lua/src/liolib.c	/^static FILE *tofile (lua_State *L) {$/
 toggle_auto_indent	lua_src/base/indent.lua	/^function lued.toggle_auto_indent(dd)$/
 toggle_bottom	lua_src/core/move.lua	/^function lued.toggle_bottom(dd)$/
@@ -2393,7 +2481,9 @@ trydecpoint	src/lua/src/llex.c	/^static void trydecpoint (LexState *ls, SemInfo 
 tryfuncTM	src/lua/src/ldo.c	/^static StkId tryfuncTM (lua_State *L, StkId func) /
 txtToken	src/lua/src/llex.c	/^static const char *txtToken (LexState *ls, int tok/
 type	src/lua/src/ltests.c	81
+type_slv_array	lua_src/plugins/verilog.lua	/^function lued.verilog.type_slv_array()$/
 type_slv_array	lua_src/plugins/vhdl.lua	/^function lued.vhdl.type_slv_array()$/
+typedef	lua_src/plugins/c.lua	/^function lued.clang.typedef()$/
 typeerror	src/lua/src/lauxlib.c	/^static int typeerror (lua_State *L, int narg, cons/
 uchar	src/lua/src/lstrlib.c	/^#define uchar(c)	((unsigned char)(c))$/
 udata2finalize	src/lua/src/lgc.c	/^static GCObject *udata2finalize (global_State *g) /
@@ -2420,24 +2510,6 @@ upvalname	src/lua/src/ldebug.c	/^static const char *upvalname (Proto *p, int uv)
 upvalue	src/lua/src/ltests.c	/^static int upvalue (lua_State *L) {$/
 v	src/lua/src/lparser.c	644
 v	src/lua/src/lparser.c	1098
-v_case	lua_src/plugins/verilog.lua	/^function v_case(dd)$/
-v_function	lua_src/plugins/verilog.lua	/^function v_function(dd)$/
-v_inst	lua_src/plugins/verilog.lua	/^function v_inst(dd)$/
-v_inst_selected	lua_src/plugins/verilog.lua	/^function v_inst_selected(dd)$/
-v_package	lua_src/plugins/verilog.lua	/^function v_package(dd)$/
-v_proc	lua_src/plugins/verilog.lua	/^function v_proc(dd)$/
-v_proc_all	lua_src/plugins/verilog.lua	/^function v_proc_all(dd)$/
-v_signed	lua_src/plugins/verilog.lua	/^function v_signed(dd)$/
-v_sl	lua_src/plugins/verilog.lua	/^function v_sl(dd)$/
-v_slv	lua_src/plugins/verilog.lua	/^function v_slv(dd)$/
-v_slv_array	lua_src/plugins/verilog.lua	/^function v_slv_array(dd)$/
-v_slv_incr	lua_src/plugins/verilog.lua	/^function v_slv_incr(dd)$/
-v_tb	lua_src/plugins/verilog.lua	/^function v_tb(dd)$/
-v_template	lua_src/plugins/verilog.lua	/^function v_template(dd)$/
-v_type_record	lua_src/plugins/verilog.lua	/^function v_type_record(dd)$/
-v_type_slv_array	lua_src/plugins/verilog.lua	/^function v_type_slv_array(dd)$/
-v_type_state	lua_src/plugins/verilog.lua	/^function v_type_state(dd)$/
-v_unsigned	lua_src/plugins/verilog.lua	/^function v_unsigned(dd)$/
 var_end	lua_src/core/move.lua	/^function lued.var_end(dd)$/
 var_start	lua_src/core/select.lua	/^function lued.var_start(dd)$/
 vmcase	src/lua/src/lvm.c	/^#define vmcase(l,b)	case l: {b}  break;$/
@@ -2445,7 +2517,10 @@ vmcasenb	src/lua/src/lvm.c	/^#define vmcasenb(l,b)	case l: {b}		\/* nb = no brea
 vmdispatch	src/lua/src/lvm.c	/^#define vmdispatch(o)	switch(o)$/
 walter	lua_src/plugins/ascii_art.lua	/^function walter()$/
 walter2	lua_src/plugins/ascii_art.lua	/^function walter2(str,n)$/
+while_loop	lua_src/plugins/c.lua	/^function lued.clang.while_loop()$/
 while_loop	lua_src/plugins/lua.lua	/^function lued.lua.while_loop()$/
+while_loop	lua_src/plugins/perl.lua	/^function lued.perl.while_loop()$/
+while_loop	lua_src/plugins/python.lua	/^function lued.python.while_loop()$/
 whilestat	src/lua/src/lparser.c	/^static void whilestat (LexState *ls, int line) {$/
 white2gray	src/lua/src/lgc.c	/^#define white2gray(x)	resetbits(gch(x)->marked, WH/
 word_end	lua_src/core/move.lua	/^function lued.word_end(dd)$/

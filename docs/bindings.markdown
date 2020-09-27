@@ -26,7 +26,7 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Ctrl+T</kbd></td><td>Select file tab menu </td></tr>
 <tr><td><kbd>Ctrl+Y</kbd></td><td>Redo (undo undo). Similar to Sublime Ctrl+Y </td></tr>
 <tr><td><kbd>Ctrl+U</kbd></td><td>Spare </td></tr>
-<tr><td><kbd>Ctrl+I</kbd></td><td>Terminal interprets as `Tab` key </td></tr>
+<tr><td><kbd>Ctrl+I</kbd></td><td>Terminal interprets Ctrl+I as `Tab` key </td></tr>
 <tr><td><kbd>Ctrl+O</kbd></td><td>Open File. Similar to Word Ctrl+O </td></tr>
 <tr><td><kbd>Ctrl+P</kbd></td><td>Open File from partial name. Similar to Sublime Ctrl+P </td></tr>
 <tr><td><kbd>Ctrl+A</kbd></td><td>Move to Start of Line. Similar to Sublime &lt;Home&gt;. </td></tr>
@@ -248,6 +248,7 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+ls</kbd></td><td>unix ls command. dos dir command </td></tr>
 <tr><td><kbd>Alt+LU</kbd></td><td>Change to LUA mode. You rarely want to be in lua mode. </td></tr>
 <tr><td><kbd>Alt+no</kbd></td><td>No Op. Type no if you've pressed esc and can't think of any other command to type </td></tr>
+<tr><td><kbd>Alt+pwd</kbd></td><td>print working directory </td></tr>
 <tr><td><kbd>Alt+qq</kbd></td><td>Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q </td></tr>
 <tr><td><kbd>Alt+QQ</kbd></td><td>set join wrap </td></tr>
 <tr><td><kbd>Alt+reinit</kbd></td><td>Reload lued script </td></tr>
@@ -258,4 +259,5 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+Sessl</kbd></td><td>Load session file </td></tr>
 <tr><td><kbd>Alt+Seti</kbd></td><td>Set Scope Indent SI2 SI3 SI4 </td></tr>
 <tr><td><kbd>Alt+test = lued.open_filerc_test </td></tr>
+<tr><td><kbd>Alt+todo = lued.todo lued.hot("todo") </td></tr>
 </table>
