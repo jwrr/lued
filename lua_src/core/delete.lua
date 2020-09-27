@@ -271,6 +271,23 @@ function lued.del_line(n,dd)
 end
 
 
+function lued.del_n_lines(n,dd)
+  n = n or 1
+  local dd2 = 1
+  if is_sel_off()==1 then
+    lued.del_line(n,dd)
+  else
+    lued.del_sel(dd)
+  end
+end
+
+
+function lued.del_n_char(n,dd)
+  n = n or 1
+  lued.del_char(n,dd)
+end
+
+
 function lued.cut_line(n,dd)
   n = n or 1
   local dd2 = 1

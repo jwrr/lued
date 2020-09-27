@@ -541,7 +541,8 @@ del_eof	lua_src/core/delete.lua	/^function lued.del_eof(dd)$/
 del_eol_selected	lua_src/core/delete.lua	/^function lued.del_eol_selected(dd)$/
 del_line	lua_src/core/delete.lua	/^function lued.del_line(n,dd)$/
 del_mark_to_cursor	lua_src/base/markers.lua	/^function lued.del_mark_to_cursor(dd)$/
-del_n_lines	lua_src/core/copy_paste.lua	/^function lued.del_n_lines(n,dd)$/
+del_n_char	lua_src/core/delete.lua	/^function lued.del_n_char(n,dd)$/
+del_n_lines	lua_src/core/delete.lua	/^function lued.del_n_lines(n,dd)$/
 del_sel	lua_src/core/delete.lua	/^function lued.del_sel(dd)$/
 del_sof	lua_src/core/delete.lua	/^function lued.del_sof(dd)$/
 del_spaces_selected	lua_src/core/delete.lua	/^function lued.del_spaces_selected(dd)$/
@@ -1536,7 +1537,8 @@ lued.del_eof	lua_src/core/delete.lua	/^function lued.del_eof(dd)$/
 lued.del_eol_selected	lua_src/core/delete.lua	/^function lued.del_eol_selected(dd)$/
 lued.del_line	lua_src/core/delete.lua	/^function lued.del_line(n,dd)$/
 lued.del_mark_to_cursor	lua_src/base/markers.lua	/^function lued.del_mark_to_cursor(dd)$/
-lued.del_n_lines	lua_src/core/copy_paste.lua	/^function lued.del_n_lines(n,dd)$/
+lued.del_n_char	lua_src/core/delete.lua	/^function lued.del_n_char(n,dd)$/
+lued.del_n_lines	lua_src/core/delete.lua	/^function lued.del_n_lines(n,dd)$/
 lued.del_sel	lua_src/core/delete.lua	/^function lued.del_sel(dd)$/
 lued.del_sof	lua_src/core/delete.lua	/^function lued.del_sof(dd)$/
 lued.del_spaces_selected	lua_src/core/delete.lua	/^function lued.del_spaces_selected(dd)$/
@@ -1725,6 +1727,7 @@ lued.next_is_space	lua_src/core/booleans.lua	/^function lued.next_is_space()$/
 lued.next_is_word	lua_src/core/booleans.lua	/^function lued.next_is_word()$/
 lued.nohot	lua_src/core/hotkeys.lua	/^function lued.nohot(key, dd)$/
 lued.noop	lua_src/core/display.lua	/^function lued.noop (dd)$/
+lued.notes	lua_src/plugins/notes.lua	/^  function lued.notes()$/
 lued.open_file	lua_src/core/files.lua	/^function lued.open_file(filenames,dd)$/
 lued.open_file_bindings	lua_src/core/files.lua	/^function lued.open_file_bindings(dd)$/
 lued.open_filelist	lua_src/core/files.lua	/^function lued.open_filelist(filelist,dd)$/
@@ -2072,6 +2075,7 @@ nohot	lua_src/core/hotkeys.lua	/^function lued.nohot(key, dd)$/
 non_repeatables	src/carr/src/carr_readline_lua.c	61
 noop	lua_src/core/display.lua	/^function lued.noop (dd)$/
 nospecials	src/lua/src/lstrlib.c	/^static int nospecials (const char *p, size_t l) {$/
+notes	lua_src/plugins/notes.lua	/^  function lued.notes()$/
 nresults	src/lua/src/lapi.c	917
 num2int	src/lua/src/ltests.c	/^static int num2int (lua_State *L) {$/
 num_has	src/lua/src/lua.c	356

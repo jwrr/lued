@@ -99,6 +99,8 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+da</kbd></td><td>Delete all, entire file </td></tr>
 <tr><td><kbd>Alt+db</kbd></td><td>Delete to Bottom of Tab/Buffer/Window/File </td></tr>
 <tr><td><kbd>Alt+DB</kbd></td><td>Delete to Beginning of Tab </td></tr>
+<tr><td><kbd>Alt+dc</kbd></td><td>Delete N char. alt+dc20 deletes 20 char </td></tr>
+<tr><td><kbd>Alt+DC</kbd></td><td>Delete N char backwards alt+dc20 deletes backwards 20 char </td></tr>
 <tr><td><kbd>Alt+de</kbd></td><td>Delete to end of line. Similar to Sublime Ctrl+KK </td></tr>
 <tr><td><kbd>Alt+DE</kbd></td><td>Delete to start of line. Similar to Sublime Ctrl_K+&lt;Backspace&gt; </td></tr>
 <tr><td><kbd>Alt+dl</kbd></td><td>Delete line </td></tr>
