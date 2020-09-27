@@ -137,13 +137,21 @@ function lued.open_file(filenames,dd)
     if existing_fileid then
        g_tab_prev = get_fileid()
       set_fileid(existing_fileid,dd2)
-    elseif filename1~=nil and filename1~="" and lued.file_exists(filename1) and not lued.is_dir(filename1)  then
-      local prev = get_fileid()
-      local fileid = lued_open(filename1)
-      if fileid~=nil and fileid~=0 then
-        g_tab_prev = prev
-        set_fileid(fileid)
-        lued.move_to_first_line(dd2)
+    elseif filename1~=nil and filename1~="" then
+      if not lued.file_exists(filename1) then
+        file_exists_hist_id = file_exists_hist_id or lued.get_hist_id()
+        local create_file = lued.get_yesno( "File '" .. filename1 .. "' does not exist. Create (y/n default: n)?", "N")
+        if create_file == "Y" then
+          lued.new_file(filename1)
+        end
+      elseif not lued.is_dir(filename1)  then
+        local prev = get_fileid()
+        local fileid = lued_open(filename1)
+        if fileid~=nil and fileid~=0 then
+          g_tab_prev = prev
+          set_fileid(fileid)
+          lued.move_to_first_line(dd2)
+        end
       end
     end
   end
