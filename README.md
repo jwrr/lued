@@ -1,7 +1,7 @@
 Lued
 ====
 
-[Documention is on Github.io](https://jwrr.github.io/lued/)
+[Documentation on Github.io](https://jwrr.github.io/lued/)
 
 Description
 -----------
