@@ -32,7 +32,7 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Ctrl+A</kbd></td><td>Move to Start of Line. Similar to Sublime &lt;Home&gt;. </td></tr>
 <tr><td><kbd>Ctrl+S</kbd></td><td>Save File. Similar to Sublime Ctrl+S. </td></tr>
 <tr><td><kbd>Ctrl+D</kbd></td><td>Select Word under cursor. Similar to Sublime Ctrl+D </td></tr>
-<tr><td><kbd>Ctrl+F</kbd></td><td>Find. Similar to Sublime Ctrl+F.  If text is selected the find selected text (Similar to Sublime Ctrl+F3). </td></tr>
+<tr><td><kbd>Ctrl+F</kbd></td><td>Find. If text is selected the find selected text (Similar to Sublime Ctrl+F3). </td></tr>
 <tr><td><kbd>Ctrl+G</kbd></td><td>Goto Line Number. Similar to Sublime Ctrl+G </td></tr>
 <tr><td><kbd>Ctrl+H</kbd></td><td>Find and Replace. Similar to Sublime Ctrl+H. </td></tr>
 <tr><td><kbd>Ctrl+J</kbd></td><td>Do Not Use. Same as Enter Key </td></tr>
@@ -63,6 +63,8 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+SE</kbd></td><td>Select from cursor to starting End of line </td></tr>
 <tr><td><kbd>Alt+sb</kbd></td><td>Select to Bottom of File Buffer </td></tr>
 <tr><td><kbd>Alt+SB</kbd></td><td>Select to Beginning of File Buffer </td></tr>
+<tr><td><kbd>Alt+sf</kbd></td><td>Select to match </td></tr>
+<tr><td><kbd>Alt+SF</kbd></td><td>Select to match (reverse) </td></tr>
 <tr><td><kbd>Alt+sm</kbd></td><td>Select from mark (alt+mm) to cursor. Similar to Sublime Ctrl+K </td></tr>
 <tr><td><kbd>Alt+ss</kbd></td><td>Turn off/on selection. Similar to Sublime ESC-Key. </td></tr>
 <tr><td><kbd>Alt+sw</kbd></td><td>Select to End of word. </td></tr>

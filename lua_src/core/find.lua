@@ -626,6 +626,30 @@ function lued.find_forward_selected(dd)
 end
 
 
+function lued.sel_to_match(dd)
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  local found = lued.find_forward(nil,false,false,false,'',dd2)
+  if found then
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+    lued.set_sel_from_to(r, c, sel_er, sel_ec,dd2)
+  end  
+  lued.disp(dd)
+end
+
+
+function lued.sel_to_match_reverse(dd)
+  local dd2 = 1
+  local r,c = get_cur_pos()
+  local found = lued.find_reverse(nil, dd2)
+  if found then
+    local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
+    lued.set_sel_from_to(sel_sr, sel_sc, r, c, dd2)
+  end  
+  lued.disp(dd)
+end
+
+
 function lued.find_all_matches_in_file(pat, plain)
   local r, c = get_cur_pos()
   local tmp_g_find_plaintext = g_find_plaintext

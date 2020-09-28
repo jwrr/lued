@@ -129,6 +129,7 @@ TBD
 * alt_dl/DL delete to end/start of line - done
 * fixme - ctrl+d if partial word selected then deselect/reselect - done
 * Add command alt_pwd to display current working directory - done
+<Enter> when text is selected finds the next occurrence of text (instead of deleting text and creating new line). - done
 
 
 
@@ -394,6 +395,4 @@ ctrl-T - for history store the filename instead of the index number
 tab - don't look for match if over space - done
 Don't highlight text in comments
 
-<Enter> when text is selected finds the next occurrence of text (instead of deleting text and creating new line).
-alt-dc = ctrl+d, ctrl+c. similar to alt-df = ctrl+d,ctrl+f
 vi style open file to previous row+col. (not session based)
