@@ -118,16 +118,18 @@ function lued.open_file(filenames,dd)
     filenames = lued.cd_change_dir(dd2)
   end
   if filenames==nil then
-    open_file_hist_id = open_file_hist_id or lued.get_hist_id()
-    filenames = lued.prompt(open_file_hist_id, "Enter Filename: ")
-    local home = os.getenv("HOME")
-    filenames = string.gsub(filenames,"^~",home)
-    local env_name = string.match(filenames,"%${?([%w_]+)}?")
-    while env_name ~= nil do
-      local env_value = os.getenv(env_name)
-      filenames = string.gsub(filenames, "%${?" .. env_name .. "}?", env_value)
-      env_name = string.match(filenames,"%${?([%w_]+)}?")
-    end
+    io.write("No files found\n")
+    return
+--     open_file_hist_id = open_file_hist_id or lued.get_hist_id()
+--     filenames = lued.prompt(open_file_hist_id, "Enter Filename: ")
+--     local home = os.getenv("HOME")
+--     filenames = string.gsub(filenames,"^~",home)
+--     local env_name = string.match(filenames,"%${?([%w_]+)}?")
+--     while env_name ~= nil do
+--       local env_value = os.getenv(env_name)
+--       filenames = string.gsub(filenames, "%${?" .. env_name .. "}?", env_value)
+--       env_name = string.match(filenames,"%${?([%w_]+)}?")
+--     end
   end
 
   local filename_list,count = filenames:gmatch("(%S+)")
@@ -181,7 +183,10 @@ function lued.open_partial_filename(dd)
     print(i..": "..f)
   end
   local filename = nil
-  if #filenames_table == 1 then
+  if #filenames_table == 0 then
+    io.write("File not found\n");
+    return
+  elseif #filenames_table == 1 then
     filename = filenames_table[1]
   end
   lued.open_file(filename,dd)

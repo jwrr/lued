@@ -136,7 +136,7 @@ TBD
 
 ==========================
 
-* Split screen
+* Split screen - Is this worth it, because Lued works nicely with tmux
 * Document API for plugins
 * toggle find whole word, case sensitive, regex, incremental
 * Improve Goto Label
@@ -203,21 +203,6 @@ esc_space goes into lua mode. any other esc seq exists lua mode
 
 * add support for double ctrl-K hot.
 * ctrl_H - when done with find and replace return page to original offset
-
-# Subject Line
-## Keep subject brief and meaningful
-## Use imperative mode
-### Subject should answer What will change if I apply this commit? If applied, this commit will ...
-### Common imperative verbs: Add, Remove, Update, Fix, Refactor, Polish, Rework
-## Separate subject from body with a blank line
-## Capitalize first letter subject line
-## Do not end subject line with period
-# Body
-## Explain what and why vs how## Ke
-ep lines less than 72 char
-## Resolves: #123## See also: #456
-#789
-
 
 * Should sel_word incldule set_sel_end()? or should it be an argument?
 * <cr> in comment creates new comment line.
