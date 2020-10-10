@@ -294,7 +294,11 @@ function lued.cut_line(n,dd)
   local r,c = get_cur_pos()
   set_cur_pos(r,1)
   set_sel_start()
-  lued.move_down_n_lines(n,dd2)
+  if lued.is_lastline() then
+    lued.move_to_eol(dd2)
+  else
+    lued.move_down_n_lines(n,dd2)
+  end
   set_sel_end()
   if (lued.same_keystroke()) then
     lued.global_cut_append(dd2)
