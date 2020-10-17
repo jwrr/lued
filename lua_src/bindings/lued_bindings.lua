@@ -287,6 +287,7 @@ alt_LU           = set_lua_mode                 lued.hot("LU")   -- Change to LU
 alt_noop         = lued.noop                    lued.hot("noop") -- No Op. Type no if you've pressed esc and can't think of any other command to type
 alt_nop          = lued.nop                     lued.hot("nop")  -- No Op. Type no if you've pressed esc and can't think of any other command to type
 alt_note         = lued.notes                   lued.hot("note") -- Open user's notes file
+alt_os           = lued.os_cmdline              lued.hot("os")   -- Run Operating System Command
 alt_pwd          = lued.pwd                                      -- print working directory
 alt_qq           = lued.wrap_line               lued.hot("qq")   -- Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q
 alt_QQ           = lued.set_wrap_col            lued.hot("QQ")   -- set join wrap

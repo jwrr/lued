@@ -38,10 +38,27 @@ end
 
 
 function lued.os_cmd(cmd)
+  if cmd == nil then
+    return ""
+  end
   local stream  = assert(io.popen(cmd, "r"))
   local output_string  = assert(stream:read("*all"))
   stream:close()
   return output_string
+end
+
+
+function lued.os_cmdline(dd)
+  local dd2 = 1
+  set_os_cmd = set_os_cmd or lued.get_hist_id()
+  io.write(" -- Press <Enter> to exit\n")  
+  while true do
+    local cmd = lued.prompt(set_os_cmd, "cmd> ")
+    if cmd == nil or cmd == "" or cmd == "exit" then break end
+    local results = lued.os_cmd(cmd)
+    io.write("\n" .. results)
+  end
+  lued.disp(dd)
 end
 
 
