@@ -55,8 +55,10 @@ function lued.os_cmdline(dd)
   while true do
     local cmd = lued.prompt(set_os_cmd, "cmd> ")
     if cmd == nil or cmd == "" or cmd == "exit" then break end
-    local results = lued.os_cmd(cmd)
-    io.write("\n" .. results)
+       io.write("\n")
+       os.execute(cmd)
+--     local results = lued.os_cmd(cmd)
+--     io.write("\n" .. results)
   end
   lued.disp(dd)
 end
