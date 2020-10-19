@@ -64,6 +64,12 @@ function lued.os_cmdline(dd)
 end
 
 
+-- This function is called when just a number is entered at the prompt
+function goto_line(dd)
+  lued.os_cmdline(0)
+end
+
+
 function lued.read_dir(glob)
   glob = glob or "*"
   local files = lued.os_cmd("ls " .. glob)
