@@ -83,6 +83,16 @@ end
 
 
 function lued.move_left_fast(dd)
+  local dd2 = 1
+  if g_tab_mode == 1 then
+    local r, c = get_cur_pos()
+    set_cur_pos(r+1, g_tab_col)
+    lued.insert_tab(dd2)
+    lued.disp(dd)
+    g_tab_mode = 1
+    return
+  end
+    
   if g_express_mode then
     lued.move_left_n_char(g_move_left_n_char,dd)
   else

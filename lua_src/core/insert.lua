@@ -239,7 +239,7 @@ function lued.insert_tab(dd)
   
   -- remember this position (especially the column)
   local r3, c3 = get_cur_pos()
-
+  
   -- if a longer long wasn't found then just do a normal tab
   if c3 <= c2 then
     set_cur_pos(r1, c1)
@@ -248,6 +248,7 @@ function lued.insert_tab(dd)
     return
   end
 
+  -----------------------------------------------------------------------------
   -- go back to the original position
   set_cur_pos(r2,c2)
 
@@ -266,6 +267,7 @@ function lued.insert_tab(dd)
 
   -- indent word to the start of the previous line's next word
   r4, c4 = get_cur_pos()
+  g_tab_col = c4
   local num_spaces_to_insert = c3 - c4
   if num_spaces_to_insert > 0 then
     local t = string.rep(" ", num_spaces_to_insert) or " "
@@ -273,6 +275,8 @@ function lued.insert_tab(dd)
   end
   
   lued.disp(dd)
+  g_tab_mode = 1
+  return
 end
 
 

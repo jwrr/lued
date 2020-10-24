@@ -131,6 +131,7 @@ TBD
 * Add command alt_pwd to display current working directory - done
 <Enter> when text is selected finds the next occurrence of text (instead of deleting text and creating new line). - done
 Jah - get it working for middle of the word matches - done
+<tab> aligns current word with previous line's next word. left-arrow jumps back to initial pos, goes down 1 line and tabs again - done 
 
 
 
@@ -385,7 +386,6 @@ vi style open file to previous row+col. (not session based)
 
 
 bug - last letter of file gets chomped when last line is not empty.
-<tab> when used to justify then keep cursor over same column
 
 
 
