@@ -193,6 +193,7 @@ function lued.insert_tab(dd)
     return
   end
 
+  -- if the line is blank or just has spaces then move to the next indent column.
   if lued.is_blankline() then
     local goto_next_line = false
     lued.indent1(g_indent_size, g_indent_char, goto_next_line, dd2)
@@ -200,18 +201,23 @@ function lued.insert_tab(dd)
     return
   end
 
-  if (lued.is_eol() or lued.is_space()) and not (lued.is_sol() or lued.prev_is_space()) then
-    if lued.do_snippet(dd) then return end
-    if lued.do_keyword(dd) then return end
+  -- Only do snippet/keyword replacement when typist directly entered <tab>,
+  -- which is indicated by dd2=false/nil
+  if not dd2 then  
+    if (lued.is_eol() or lued.is_space()) and not (lued.is_sol() or lued.prev_is_space()) then
+      if lued.do_snippet(dd) then return end
+      if lued.do_keyword(dd) then return end
+    end
   end
   
   local dd2 = 1
   local r1,c1 = get_cur_pos()
   local len = get_line_len()
   local r2 = r1
-  local c2 = math.min(len+1,c1)
+  local c2 = math.min(len+1, c1)
 
-  set_cur_pos(r2,c2)
+  -- search up until a longer line is found
+  set_cur_pos(r2, c2)
   local done = false
   repeat
     if lued.is_firstline() then break end
@@ -220,32 +226,52 @@ function lued.insert_tab(dd)
     local short_line = (len <= c2)
     done = not short_line
   until done
-  if not lued.is_eol() then
-    lued.move_right_n_words(1,dd2)
+  
+  -- in the longer line, if in a word go to next non-space
+  if not lued.is_eol() and not lued.is_space() then
+    lued.move_right_to_space(dd2)
   end
-  local r3,c3 = get_cur_pos()
+  
+  -- in the longer line, skip spaces to next word
+  while not lued.is_eol() and lued.is_space() do
+    lued.move_right_n_char(1, dd2)
+  end
+  
+  -- remember this position (especially the column)
+  local r3, c3 = get_cur_pos()
 
+  -- if a longer long wasn't found then just do a normal tab
+  if c3 <= c2 then
+    set_cur_pos(r1, c1)
+    lued.insert_tab_classic(dd2)
+    lued.disp(dd)
+    return
+  end
+
+  -- go back to the original position
   set_cur_pos(r2,c2)
 
+  -- if in a word then goto beginning of word
   if not lued.is_eol() and not lued.is_space() then
-    -- goto beginning of word
     while not lued.is_space() do
       if lued.is_sol() then break end
-      lued.move_left_n_char(1,dd2)
+      lued.move_left_n_char(1, dd2)
     end
+  end
+  
+  -- delete any spaces before next word
+  while not lued.is_eol() and lued.is_space() do
+    lued.del_n_char(1, dd2) -- delete to end of spaces
   end
 
-  if (c3 > c2) then
-    if lued.is_space() then
-      lued.del_eow(dd2) -- delete to end of spaces
-    end
-    r4,c4 = get_cur_pos()
-    local num_spaces_to_insert = c3 - c4
-    local t = string.rep(" ",num_spaces_to_insert) or " "
-    lued.ins_str(t,dd2)
-  else
-    lued.insert_tab_classic(dd2)
+  -- indent word to the start of the previous line's next word
+  r4, c4 = get_cur_pos()
+  local num_spaces_to_insert = c3 - c4
+  if num_spaces_to_insert > 0 then
+    local t = string.rep(" ", num_spaces_to_insert) or " "
+    lued.ins_str(t, dd2)
   end
+  
   lued.disp(dd)
 end
 

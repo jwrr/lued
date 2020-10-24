@@ -130,6 +130,7 @@ TBD
 * fixme - ctrl+d if partial word selected then deselect/reselect - done
 * Add command alt_pwd to display current working directory - done
 <Enter> when text is selected finds the next occurrence of text (instead of deleting text and creating new line). - done
+Jah - get it working for middle of the word matches - done
 
 
 
@@ -381,3 +382,12 @@ tab - don't look for match if over space - done
 Don't highlight text in comments
 
 vi style open file to previous row+col. (not session based)
+
+
+bug - last letter of file gets chomped when last line is not empty.
+<tab> when used to justify then keep cursor over same column
+
+
+
+
+

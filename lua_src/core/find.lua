@@ -470,7 +470,7 @@ function lued.find_and_replace(from,to,options,dd)
         resp = lued.prompt(find_and_replace_hist_id,"Replace <y/n/j/a/q/s>?", ",y,n,j,a,q,s,")
         -- Y = yes and goto next
         -- N = no and goto next
-        -- J = Jagged. Yes + Fix jagged alignment after replace
+        -- J = Jagged or Justified or Jah or Jes. Yes + Fix jagged alignment after replace
         -- A = replace All
         -- Q = quit and return cursor to beginning
         -- S = Stop (Yes, quit and Stop at current position)
@@ -496,7 +496,12 @@ function lued.find_and_replace(from,to,options,dd)
         end
         lued.ins_string(to, dd2)
         if resp=="j" then
-          lued.insert_tab(dd2)
+          if not lued.is_space() then
+            lued.move_right_to_space(dd2)
+          end
+           if lued.is_space() then
+            lued.insert_tab(dd2)
+           end
         end
         if resp=="s" then break end
       elseif resp=="n" then

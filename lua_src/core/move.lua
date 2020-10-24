@@ -440,20 +440,14 @@ function lued.move_down_and_repeat(dd)
 end
 
 
-function lued.word_end(dd)
+function lued.move_right_to_space(dd)
   local r,c = get_cur_pos()
   local len = get_line_len()
   local line = get_line()
   c = string.find(line, "%s", c) -- find space after end of word
-  c = c and c-1 or len
+  c = c or len + 1
   set_cur_pos(r, c)
   lued.disp(dd)
-end
-
-
-function lued.skip_word(dd)
-  local dd2 = 1
-  lued.word_end(dd2)
 end
 
 
