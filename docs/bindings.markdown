@@ -98,6 +98,7 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+cw</kbd></td><td>Copy word </td></tr>
 <tr><td><kbd>Alt+DD</kbd></td><td>Duplicate line. Similar to Sublime Ctrl+Shift+D </td></tr>
 <tr><td><kbd>Alt+d</kbd></td><td>Delete N lines </td></tr>
+<tr><td><kbd>Alt+D</kbd></td><td>Delete previous N lines plus current line </td></tr>
 <tr><td><kbd>Alt+da</kbd></td><td>Delete all, entire file </td></tr>
 <tr><td><kbd>Alt+db</kbd></td><td>Delete to Bottom of Tab/Buffer/Window/File </td></tr>
 <tr><td><kbd>Alt+DB</kbd></td><td>Delete to Beginning of Tab </td></tr>
@@ -114,6 +115,7 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+dw</kbd></td><td>Delete to end of word. Similar to Sublime Ctrl+KW </td></tr>
 <tr><td><kbd>Alt+DW</kbd></td><td>Delete to start of word. Similar to Sublime Ctrl+Backspace </td></tr>
 <tr><td><kbd>Alt+x</kbd></td><td>Cut multiple lines alt+x42&lt;enter&gt; </td></tr>
+<tr><td><kbd>Alt+X</kbd></td><td>Cut previous N lines plus current line </td></tr>
 <tr><td><kbd>Alt+xa</kbd></td><td>Cut all, entire file </td></tr>
 <tr><td><kbd>Alt+xb</kbd></td><td>Cut to Bottom of Tab/Buffer/Window/File </td></tr>
 <tr><td><kbd>Alt+XB</kbd></td><td>Cut to Beginning of Tab </td></tr>
@@ -254,6 +256,7 @@ the `PUBLISH_BINDINGS` script.
 <tr><td><kbd>Alt+noop</kbd></td><td>No Op. Type no if you've pressed esc and can't think of any other command to type </td></tr>
 <tr><td><kbd>Alt+nop</kbd></td><td>No Op. Type no if you've pressed esc and can't think of any other command to type </td></tr>
 <tr><td><kbd>Alt+note</kbd></td><td>Open user's notes file </td></tr>
+<tr><td><kbd>Alt+os</kbd></td><td>Run Operating System Command </td></tr>
 <tr><td><kbd>Alt+pwd</kbd></td><td>print working directory </td></tr>
 <tr><td><kbd>Alt+qq</kbd></td><td>Wrap line at cursor. Subsequent lines end at previous line. Similar to Sublime Alt+q </td></tr>
 <tr><td><kbd>Alt+QQ</kbd></td><td>set join wrap </td></tr>

@@ -173,6 +173,20 @@ function lued.cut_n_lines_plus1(n,dd)
 end
 
 
+-- cuts previous n lines plus current line
+function lued.cut_prev_n_lines_plus1(n,dd)
+  n = n or 1
+  local r, c = get_cur_pos()
+  new_r = r - n
+  if new_r < 1 then
+    new_r = 1
+    n = r - 1
+  end
+  set_cur_pos(new_r, c)
+  lued.cut_n_lines_plus1(n, dd)
+end
+
+
 function lued.duplicate_n_lines(n,dd)
   local dd2 = 1
   lued.cut_n_lines(n,dd2)

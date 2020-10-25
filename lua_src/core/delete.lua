@@ -288,6 +288,19 @@ function lued.del_n_lines_plus1(n,dd)
   lued.del_n_lines(n, dd)  
 end
 
+-- deletes previous n lines plus current line
+function lued.del_prev_n_lines_plus1(n,dd)
+  n = n or 1
+  local r, c = get_cur_pos()
+  new_r = r - n
+  if new_r < 1 then
+    new_r = 1
+    n = r - 1
+  end
+  set_cur_pos(new_r, c)
+  lued.del_n_lines_plus1(n, dd)
+end
+
 function lued.del_n_char(n,dd)
   n = n or 1
   lued.del_char(n,dd)
