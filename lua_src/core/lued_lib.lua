@@ -150,5 +150,25 @@ lued.set_cur_pos = set_cur_pos
 lued.set_sel_off = set_sel_off
 
 
+function lued.string_trim(s)
+  return (string.gsub(s, "^%s*(.-)%s*$", "%1"))
+end
+
+function lued.string_ltrim(s)
+  return (string.gsub(s, "^%s*(.*)", "%1"))
+end
+
+function lued.string_rtrim(s)
+  return (string.gsub(s, "^(.-)%s*$", "%1"))
+end
+
+function lued.string_num_leading_spaces(s)
+  local str_len = string.len(s)
+  local ltrimmed = lued.string_ltrim(s)
+  local ltrimmed_len = string.len(ltrimmed)
+  local num_leading_spaces = str_len - ltrimmed_len
+  return num_leading_spaces
+end
+
 
 

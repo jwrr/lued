@@ -56,6 +56,7 @@ end
 function lued.ins_string(str, dd)
   local dd2 = 1
   local r,c = get_cur_pos()
+  local current_indent = lued.get_indent_len()
   local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local first_line = sel_sr<=1
   local inhibit_cr = sel_state~=0 and not first_line
@@ -68,9 +69,10 @@ function lued.ins_string(str, dd)
   end
   lued.del_sel(dd2)
 
+  local  _, str_line_cnt = string.gsub(str, '\n', '\n')
+
   if str == "\n" then
-    
-    if g_auto_indent==true and c~=1 then
+    if g_auto_indent==true and c>1 then
       local line = get_line()
       local indent_str = line:match("^%s*") or ""
       if inhibit_cr then
@@ -97,6 +99,27 @@ function lued.ins_string(str, dd)
     local r2,c2 = get_cur_pos()
     set_cur_pos(r,c)
     lued.remove_trailing_spaces(r2,c2,false,dd2)
+  elseif str_line_cnt > 1 then   
+    local str_indent_len = lued.string_num_leading_spaces(str)
+    local delete_spaces = ""
+    if str_indent_len > 0 then
+      delete_spaces = string.rep(" ", str_indent_len)
+    end
+    str = string.gsub(str, '^ *', '')
+    str = string.gsub(str, '\n' .. delete_spaces, '\n')
+
+
+    local spaces = ""
+    if current_indent > 0 then
+      spaces = string.rep(" ", current_indent)
+    end
+    str = string.gsub(str, '^', spaces)
+    str = string.gsub(str, '\n', '\n' .. spaces)
+    local r3,c3 = get_cur_pos()
+    if c3 > 1 then
+      lued.del_sol(dd2)
+    end
+    insert_str(str)
   else
     local brace_closed = false
     if g_self_closing_braces and not lued.is_word() then
