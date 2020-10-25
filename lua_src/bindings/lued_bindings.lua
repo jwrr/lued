@@ -244,9 +244,9 @@ alt__period_rts  = lued.toggle_remove_trailing_spaces -- Toggle on/off remove tr
 alt_p_squote     = lued.set_paste_buffer -- Put string into lued.paste buffer
 
 -- These keys produce escape sequences (escape is not pressed)
-esc_backspace    = lued.del_backspace     -- BACKSPACE. Delete previous char. 
+esc_backspace    = lued.del_backspace2    -- BACKSPACE. Delete previous char. 
 esc_insert       = lued.toggle_overtype   -- INSERT. Toggle insert/overtype mode.
-exsc_insert = esc_insert
+exsc_insert      = esc_insert
 esc_delete       = lued.del_char          -- DELETE. Delete current char.  If selection the delete selection.
 esc_up           = lued.move_up_n_lines   -- UP ARROW.  Move up one line.
 esc_down         = lued.move_down_n_lines -- DOWN ARROW. Move down one line.

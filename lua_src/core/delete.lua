@@ -335,8 +335,40 @@ function lued.cut_ot_del_backspace(cut_mode, n, dd)
     lued.cut_or_del_sel(cut_mode, dd)
   end
 end
-lued.del_backspace = function(n,dd) return lued.cut_ot_del_backspace(false, n, dd) end
-lued.cut_backspace = function(n,dd) return lued.cut_ot_del_backspace(true, n, dd) end
+
+
+function lued.del_backspace(n,dd)
+  return lued.cut_ot_del_backspace(false, n, dd)
+end
+
+
+function lued.del_backspace2(dd)
+  local num_to_delete = 1
+  local r, c = get_cur_pos()
+  local indent_len = lued.get_indent_len()
+  if c > 1 and indent_len >= c-1 then
+    local gis = lued.get_global_indent_size()
+    local indent_level = math.floor( (c-1) / gis)
+    local new_indent_level = indent_level
+    local mod = math.fmod(c-1, gis)
+    local on_indent_boundary = mod == 0 
+    if on_indent_boundary then
+      new_indent_level = new_indent_level - 1
+    end
+    local new_c = new_indent_level * gis + 1
+    num_to_delete = c - new_c
+  end
+  lued.del_backspace(num_to_delete, dd)
+end
+
+
+function lued.cut_backspace(n,dd)
+  return lued.cut_ot_del_backspace(true, n, dd)
+end
+
+
+-- lued.del_backspace = function(n,dd) return lued.cut_ot_del_backspace(false, n, dd) end
+-- lued.cut_backspace = function(n,dd) return lued.cut_ot_del_backspace(true, n, dd) end
 
 
 function lued.cut_or_del_backword(cut_mode, n, dd)

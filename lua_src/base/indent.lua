@@ -175,11 +175,22 @@ function lued.reindent_all(n,dd)
 end
 
 
+function lued.get_indent_str()
+  local line = get_line()
+  local leading_ws = string.match(line,"^%s+") or ""
+  return leading_ws
+end
+
+
 function lued.get_indent_len()
   local line = get_line()
   local leading_ws = string.match(line,"^%s+") or ""
   local leading_ws_len = string.len(leading_ws)
   return leading_ws_len
+end
+
+function lued.get_global_indent_size()
+  return g_indent_size
 end
 
 
