@@ -166,9 +166,11 @@ function lued.cut_n_lines(n,dd)
 end
 
 
--- function lued.cut_line(dd)
---   return lued.cut_n_lines(1,dd)
--- end
+function lued.cut_n_lines_plus1(n,dd)
+  n = n or 1
+  n = n + 1
+  lued.cut_n_lines(n, dd)  
+end
 
 
 function lued.duplicate_n_lines(n,dd)

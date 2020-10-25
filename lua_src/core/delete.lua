@@ -282,6 +282,12 @@ function lued.del_n_lines(n,dd)
 end
 
 
+function lued.del_n_lines_plus1(n,dd)
+  n = n or 1
+  n = n + 1
+  lued.del_n_lines(n, dd)  
+end
+
 function lued.del_n_char(n,dd)
   n = n or 1
   lued.del_char(n,dd)

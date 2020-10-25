@@ -26,12 +26,22 @@ SOFTWARE.
 
 
 function lued.clr_abs_line_numbers(dd)
+  local dd2 = 1
+  if g_show_rel_line_numbers then
+    lued.clr_rel_line_numbers(dd2)
+  end
   g_show_abs_line_numbers = false
   set_show_line_numbers(0)
   lued.disp(dd)
 end
 
 function lued.set_abs_line_numbers(dd)
+  local dd2 = 1
+  if g_show_abs_line_numbers then
+    lued.clr_abs_line_numbers(dd2)
+    lued.set_rel_line_numbers(dd)
+    return
+  end
   g_show_abs_line_numbers = true
   set_show_line_numbers(0)
   lued.disp(dd)
@@ -46,6 +56,8 @@ end
 
 
 function lued.set_rel_line_numbers(dd)
+  local dd2 = 1
+  lued.clr_abs_line_numbers(dd2)
   g_show_rel_line_numbers = true
   set_show_line_numbers(0)
   lued.disp(dd)

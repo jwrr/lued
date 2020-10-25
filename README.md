@@ -278,7 +278,6 @@ bug - last letter of file gets chomped when last line is not empty.
 
 * feature - grep - search all open files. return selectable list of matches
 * feature - alt_X13 - delete previous 13 lines (including current line)
-*  * fixme   - make relative line numbers solid
 * Feat - If multiline paste and current line contains text after cursor, goto next line and paste
 * Feat - If multiline paste and current line is indented then delete leading-ws in paste buffer before pasting
 * Feat - alt+dn. delete up to but not include find string.

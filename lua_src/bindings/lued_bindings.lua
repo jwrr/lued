@@ -103,7 +103,7 @@ alt_CE           = lued.copy_sol                lued.hot("CE") -- Copy sol to cu
 alt_cw           = lued.copy_word               lued.hot("cw") -- Copy word
 alt_DD           = lued.duplicate_line          lued.hot("DD") -- Duplicate line. Similar to Sublime Ctrl+Shift+D
 
-alt_d            = lued.del_n_lines                            -- Delete N lines
+alt_d            = lued.del_n_lines_plus1                      -- Delete N lines
 alt_da           = lued.del_all                 lued.hot("da") -- Delete all, entire file
 alt_db           = lued.del_eof                 lued.hot("db") -- Delete to Bottom of Tab/Buffer/Window/File
 alt_DB           = lued.del_sof                 lued.hot("DB") -- Delete to Beginning of Tab
@@ -121,7 +121,7 @@ alt_dw           = lued.del_eow                 lued.hot("dw") -- Delete to end 
 alt_DW           = lued.del_sow                 lued.hot("DW") -- Delete to start of word. Similar to Sublime Ctrl+Backspace
 
 
-alt_x            = lued.cut_n_lines                            -- Cut multiple lines alt+x42&lt;enter&gt;
+alt_x            = lued.cut_n_lines_plus1                      -- Cut multiple lines alt+x42&lt;enter&gt;
 alt_xa           = lued.cut_all                 lued.hot("xa") -- Cut all, entire file
 alt_xb           = lued.cut_eof                 lued.hot("xb") -- Cut to Bottom of Tab/Buffer/Window/File
 alt_XB           = lued.cut_sof                 lued.hot("XB") -- Cut to Beginning of Tab
