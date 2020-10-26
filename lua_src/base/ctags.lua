@@ -67,6 +67,10 @@ function lued.ctag_move_to_tag(dd)
   local sel_str, sel_sr, sel_sc = lued.get_sel_str()
 
   local ctag_file = g_ctag_file[sel_str]
+  if ctag_file == nil then
+    io.write(" - CTAG '" .. sel_str .. "' does not exist\n")
+    return
+  end
   local address = g_ctag_address[sel_str] or 1
 
   -- save current position in jump stack
