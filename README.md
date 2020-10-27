@@ -23,9 +23,7 @@ Table of Contents
 * [Contribute](#contribute)
 * [Todo List](#tbd)
 
-
 <hr>
-
 
 <a name="install"></a>
 ## Install
@@ -41,18 +39,16 @@ source COMPILE
 <a name="contribute"></a>
 ## Contribute
 
-Thanks for wanting to contribute to LUED. Hopefully this guide helps make the
-process a little smoother. {{
-  
-}}
+Thanks for wanting to contribute to LUED. This guide will hopefully make the
+process a little smoother.
 
-### License Requirements
+### License
 
 All contributions must be under the [MIT LICENSE](https://opensource.org/licenses/MIT).
 The MIT license is permissive, brief and readable. [Lua](http://www.lua.org/) 
 and many Lua-based projects use it.
 
-### Pull Request Steps
+### Steps
 
 * Create an [issue](https://github.com/jwrr/lued/issues)
 * Create a [Fork](https://help.github.com/articles/fork-a-repo/). There's
@@ -60,19 +56,17 @@ and many Lua-based projects use it.
 * Clone your fork: `git clone https://username@github.com/username/lued`
 * Create a branch: `git checkout -b meaningful-branch-name`
 * Make your changes.  Test cases and documentation are appreciated.
-* Git Add and commit. Commit messages should be short and meaningful.
+* Git commit to your local repo with a meaningful commit message
 * Push to your fork: `git push origin branch-name`
 * Create a pull request. Click 'Pull Request' on your fork's Github page.
-* We'll review your changes. When approved we will pull your changes into the 
+* We'll review your changes. When approved we'll pull your changes into the 
   LUED repo.
-
 
 <hr>
 
 <a name="tbd"></a>
 TBD
 ---
-
 
 * Split screen - Is this worth it, because Lued works nicely with tmux
 * Document API for plugins

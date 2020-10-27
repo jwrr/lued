@@ -172,6 +172,27 @@ function lued.open_filerc_test(dd)
   lued.disp(dd)
 end
 
+
+function lued.selector_menu(sel_table)
+
+  if #sel_table == 0 then
+    return nil
+  elseif #sel_table == 1 then
+    return sel_table[1]
+  end  
+  for i, field in pairs(sel_table) do
+    io.write(i .. ": " .. field .. "\n")
+  end
+  sel_str = lued.prompt(0, "Enter number: ")
+  sel_i = tonumber(sel_str)
+  if sel_i == nil then return nil end
+  if (1 <= sel_i) and (sel_i <= #sel_table) then
+    return sel_table[sel_i]
+  end
+  return nil
+end
+
+
 function lued.open_partial_filename(dd)
   local dd2 = 1
   local file_filter = ""
@@ -179,16 +200,12 @@ function lued.open_partial_filename(dd)
   file_filter = lued.prompt(open_partial_filename_hist_id, "Enter Partial Filename: ")
   print("\n")
   local filenames_table = lued.ls_recursive(".", file_filter)
-  for i, f in pairs(filenames_table) do
-    print(i..": "..f)
-  end
-  local filename = nil
-  if #filenames_table == 0 then
-    io.write("File not found\n");
+  local filename = lued.selector_menu(filenames_table)
+  if filename == nil then
+    io.write("\nFile not found\n");
     return
-  elseif #filenames_table == 1 then
-    filename = filenames_table[1]
   end
+    
   lued.open_file(filename,dd)
 end
 
