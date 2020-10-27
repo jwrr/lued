@@ -86,7 +86,7 @@ function lued.save_as(filename, dd)
       end
     until done
   end
-
+  filename = string.gsub(filename, "^./", "")
   set_filename(filename)
   save_session()
   lued.disp(dd)
@@ -135,6 +135,7 @@ function lued.open_file(filenames,dd)
   local filename_list,count = filenames:gmatch("(%S+)")
 
   for filename1 in filename_list do
+    filename1 = string.gsub(filename1, "^./", "")
     local existing_fileid = lued.is_open(filename1)
     if existing_fileid then
        g_tab_prev = get_fileid()
@@ -220,7 +221,6 @@ function lued.open_partial_filename(dd)
     io.write("\nFile not found\n");
     return
   end
-
   lued.open_file(filename,dd)
 end
 
