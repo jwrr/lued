@@ -179,12 +179,27 @@ function lued.selector_menu(sel_table)
     return nil
   elseif #sel_table == 1 then
     return sel_table[1]
-  end  
+  end
+  local page_size = lued.get_pagesize() - 4
+  
+  local line_cnt = 0
+  local sel_str = nil
   for i, field in pairs(sel_table) do
     io.write(i .. ": " .. field .. "\n")
+    line_cnt = line_cnt + 1
+    if line_cnt >= page_size then
+      local hot = 'q'
+      sel_str = lued.prompt(0, "Enter number. Press <Enter> for more. Press 'q' to quit: ", hot)
+      if sel_str ~= nil and sel_str ~= "" then
+        break
+      end
+      line_cnt = 0
+    end
   end
-  sel_str = lued.prompt(0, "Enter number: ")
-  sel_i = tonumber(sel_str)
+  if sel_str == nil or sel_str == "" then
+    sel_str = lued.prompt(0, "Enter number: ")
+  end
+  local sel_i = tonumber(sel_str)
   if sel_i == nil then return nil end
   if (1 <= sel_i) and (sel_i <= #sel_table) then
     return sel_table[sel_i]
@@ -205,7 +220,7 @@ function lued.open_partial_filename(dd)
     io.write("\nFile not found\n");
     return
   end
-    
+
   lued.open_file(filename,dd)
 end
 
