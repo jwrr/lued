@@ -1773,7 +1773,9 @@ static carr_t* lued_init_sessions(int argc, char* argv[], int optind, bool run_d
       //   for (int i = 1; i < argc; i++) {
       for (int i = optind; i < argc; i++) {
          // printf("argv[%d] = '%s'\n", i, argv[i]);
-         lued_open(all_sessions,argv[i]);
+         char* str = argv[i];
+         if (str[0]=='.'  && str[1]=='/') str += 2;
+         lued_open(all_sessions, str);
       }
   }
   return all_sessions;

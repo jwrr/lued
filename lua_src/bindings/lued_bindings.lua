@@ -297,10 +297,10 @@ alt_reinit       = lued.reinit                                   -- Reload lued 
 alt_review       = lued.toggle_review_mode                       -- Review mode prevents saving file
 alt_refresh      = lued.reload_file                              -- Reload current file
 alt_sa           = lued.save_as                 lued.hot("sa")   -- Similar to Sublime Ctrl+Shift+S. File Save as.
-alt_Sesss        = lued.save_session_file                        -- Save session file
-alt_Sessl        = lued.load_session_file                        -- Load session file
+alt_Ss           = lued.save_session_file       lued.hot("Ss")   -- Save session file
+alt_Sl           = lued.load_session_file       lued.hot("Sl")   -- Load session file
 alt_Seti         = lued.set_scope_indent                         -- Set Scope Indent SI2 SI3 SI4
--- alt_sw           = function() set_sel_start(); lued.var_end(1); set_sel_end(); lued.disp(); end lued.hot("sw")
+-- alt_sw           = function() set_sel_start();                lued.var_end(1); set_sel_end(); lued.disp(); end lued.hot("sw")
 
 alt_test         = lued.open_filerc_test
 alt_todo         = lued.todo                    lued.hot("todo")  -- open user's todo file  

@@ -67,7 +67,9 @@ end
 
 function lued.quit_all(force, dd)
   local dd2 = 1
-  lued.save_session_file(dd2)
+  if g_save_session_on_quit then
+    lued.save_session_file(dd2)
+  end
   force = force or false
   local abort = false
   while (not abort) do
