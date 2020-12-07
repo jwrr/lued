@@ -275,3 +275,9 @@ bug - last letter of file gets chomped when last line is not empty.
 * Feat - alt_xn. repeated xn grows paste buffer.
 
 
+TAB,back-arrow - If cursor ends in a word then goto end of word
+ctrl+V - If on first col of line then don't delete leading spaces
+
+
+
+

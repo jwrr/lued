@@ -56,11 +56,10 @@ end
 function lued.ins_string(str, dd)
   local dd2 = 1
   local r,c = get_cur_pos()
-  local current_indent = lued.get_indent_len()
   local sel_state, sel_sr, sel_sc, sel_er, sel_ec = get_sel()
   local first_line = sel_sr<=1
   local inhibit_cr = sel_state~=0 and not first_line
-  
+
   local prev_cmd = get_last_cmd() or ""
 --     print("prev_cmd=xxx"..prev_cmd.."xxx") io.read()
   if lued.is_sel_on() and str == "\n" then
@@ -70,6 +69,8 @@ function lued.ins_string(str, dd)
   lued.del_sel(dd2)
 
   local  _, str_line_cnt = string.gsub(str, '\n', '\n')
+
+  local line_len = get_line_len()
 
   if str == "\n" then
     if g_auto_indent==true and c>1 then
@@ -86,20 +87,20 @@ function lued.ins_string(str, dd)
       if is_start_of_block and is_eol then
         lued.indent1(g_indent_size, g_indent_char, false, dd2)
       end
-      
+
       local is_end_of_block = lued.line_ends_with(g_block_end)
       if is_end_of_block then
         lued.insert_line_before(dd2)
       end
-      
+
     else
       insert_str(str)
     end
-    
+
     local r2,c2 = get_cur_pos()
     set_cur_pos(r,c)
     lued.remove_trailing_spaces(r2,c2,false,dd2)
-  elseif str_line_cnt > 1 then   
+  elseif str_line_cnt > 0 and line_len > 1 and lued.is_blankline() then
     local str_indent_len = lued.string_num_leading_spaces(str)
     local delete_spaces = ""
     if str_indent_len > 0 then
@@ -108,8 +109,10 @@ function lued.ins_string(str, dd)
     str = string.gsub(str, '^ *', '')
     str = string.gsub(str, '\n' .. delete_spaces, '\n')
 
-
+    if not lued.is_eol() then lued.del_eol(dd2); end
     local spaces = ""
+    local current_indent = lued.get_indent_len()
+
     if current_indent > 0 then
       spaces = string.rep(" ", current_indent)
     end
@@ -226,13 +229,13 @@ function lued.insert_tab(dd)
 
   -- Only do snippet/keyword replacement when typist directly entered <tab>,
   -- which is indicated by dd2=false/nil
-  if not dd2 then  
+  if not dd2 then
     if (lued.is_eol() or lued.is_space()) and not (lued.is_sol() or lued.prev_is_space()) then
       if lued.do_snippet(dd) then return end
       if lued.do_keyword(dd) then return end
     end
   end
-  
+
   local dd2 = 1
   local r1,c1 = get_cur_pos()
   local len = get_line_len()
@@ -249,20 +252,20 @@ function lued.insert_tab(dd)
     local short_line = (len <= c2)
     done = not short_line
   until done
-  
+
   -- in the longer line, if in a word go to next non-space
   if not lued.is_eol() and not lued.is_space() then
     lued.move_right_to_space(dd2)
   end
-  
+
   -- in the longer line, skip spaces to next word
   while not lued.is_eol() and lued.is_space() do
     lued.move_right_n_char(1, dd2)
   end
-  
+
   -- remember this position (especially the column)
   local r3, c3 = get_cur_pos()
-  
+
   -- if a longer long wasn't found then just do a normal tab
   if c3 <= c2 then
     set_cur_pos(r1, c1)
@@ -282,7 +285,7 @@ function lued.insert_tab(dd)
       lued.move_left_n_char(1, dd2)
     end
   end
-  
+
   -- delete any spaces before next word
   while not lued.is_eol() and lued.is_space() do
     lued.del_n_char(1, dd2) -- delete to end of spaces
@@ -296,7 +299,7 @@ function lued.insert_tab(dd)
     local t = string.rep(" ", num_spaces_to_insert) or " "
     lued.ins_str(t, dd2)
   end
-  
+
   lued.disp(dd)
   g_tab_mode = 1
   return
