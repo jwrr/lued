@@ -153,7 +153,7 @@ end
 function lued.check_if_file_changed()
   if g_enable_file_changed then
     local id = get_fileid()
-    local filename = get_filename(id)
+    local filename = lued.get_filename()
     local file_has_changed = false
     local mtime, ts
     if lued.file_exists(filename) then

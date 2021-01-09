@@ -228,8 +228,8 @@ function lued.set_lua_mode(dd)
 end
 
 
-function lued.get_filename()
-  local id = get_fileid() or 1
+function lued.get_filename(id)
+  id = id or get_fileid() or 1
   return get_filename(id) or ""
 end
 

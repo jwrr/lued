@@ -280,4 +280,87 @@ ctrl+V - If on first col of line then don't delete leading spaces
 
 
 
+n't is not the start of a comment so don't highlight
+
+create backup with version number on every save, like vax edt
+  purge command to delete old backups
+  Step back/forward through backups
+  diff between versions
+side-by-side diff/merge tool
+  possibly just re-formatted diff tool.
+spell check
+  use unix words. As word is found in words, move to local hash for speed. 
+  alt+add - add word to file, project, user dictionary
+  
+git suppport
+  add
+  commit, commit-all, 
+  push
+  branch
+  highlight delta
+  merge
+  status
+
+
+look into vim/tabularize
+Track Changes.
+  highlight changes from specific version
+  approve changes
+  backout changes
+  comment on changes
+  
+  
+alt+LL - indent to level the current line is.
+
+auto-close - [('""')] < autoclose > when line starts with  #include
+
+tab - have ctrl-z work correctly for tab. ie:  cont<tab> -> continue ctrl_z -> cont
+
+tab - search for matching word in file, project, user dictionary, global dictionary
+
+alt+ln alt+ln alt+LN alt+ln - remember if absolute or relative line numbers is active  
+
+alt----<tab> repeat - for the length of the line above
+alt--===<tab> repeat = for the length of the line above
+alt-###, *** ^^^ 3char<tab> repeats char for length of the previous line
+
+
+
+alt+DD fails when on last line.
+
+Top-line bug when window is narrow.  missing <cr>
+alt+fa - list all matches in file
+alt+FA - list all matches in all open files
+find - highlight all matches number all matches. alt+f# jumps to the specific match
+
+jah finds start_col of next word and after paste adds spaced to current word as needed to align next word to same start_col.
+I don't know what the action is for this request.
+
+tab-backspace
+  needs cleanup
+  goto save column, go down one
+  if not is_space() then
+    
+tab at start of line
+  use indent rules instead of align with previous line rules.
+
+auto-comment - on <cr> if current line is a comment then make the next line a comment
+
+Find and Replace
+  Y - replace and stop at cursor
+  N - dont' replace and stop at cursor
+  Q - quit and stay at cursor
+  
+Line number
+  When line numbers are enable, put indicator around the current line number.
+  
+Dictionaries
+  Add selected word to dictionary. highlight words not in dictionary.
+
+line-wrap=off - don't wrap lines that are too line
+
+
+  
+
+
 

@@ -46,8 +46,7 @@ function lued.quit_session(force,dd)
   local numsessions = get_numsessions()
   local what_should_i_do = "Y"
   if not force and not_saved_yet==1 and numsessions>0 then
-    local id = get_fileid()
-    local prompt = "Save '" .. get_filename(id) .. "' <y/n/a for abort (don't quit)>?";
+    local prompt = "Save '" .. lued.get_filename() .. "' <y/n/a for abort (don't quit)>?";
     what_should_i_do = lued.get_yesno(prompt, "A")
     if what_should_i_do=="Y" then
       save_session()
@@ -79,8 +78,5 @@ function lued.quit_all(force, dd)
     lued.disp(dd)
   end
 end
-
-
-
 
 

@@ -30,54 +30,34 @@ function lued.set_find_case_sensitive(dd)
   lued.disp(dd)
 end
 
+
 function lued.clr_find_case_sensitive(dd)
   g_find_case_sensitive = false
   lued.disp(dd)
 end
 
+
 function lued.get_find_whole_word()
   return g_find_whole_word
 end
+
 
 function lued.set_find_whole_word(dd)
   g_find_whole_word = true
   lued.disp(dd)
 end
 
+
 function lued.clr_find_whole_word(dd)
   g_find_whole_word = false
   lued.disp(dd)
 end
 
+
 function lued.toggle_find_whole_word(dd)
   g_find_whole_word = not g_find_whole_word
   lued.disp(dd)
 end
-
-
--- Not used anymore FIXME DELETE ME
--- function find(str,dd)
---   local dd2 = 1
---   local r,c = get_cur_pos()
---   local found,r2,c2 = find_str(str)
---   if found==0 then
---     lued.move_to_first_line(dd2)
---
---     found,r2,c2 = find_str(str)
---     set_cur_pos(r,c)
---   end
---   if found ~= 0 then
---     -- lued.remove_trailing_spaces(r2,c2,false,dd2)
---     local pr,pc = get_page_pos()
---     local tr,tc = get_termsize()
---     local lr = pr+tr
---     local page_change = r2 > lr-third or r2 < pr+third
---     if page_change==true then
---       lued.set_page_offset_percent(third,dd2)
---     end
---   end
---   lued.disp(dd)
--- end
 
 
 function lued.find_prompt(test_str)
@@ -382,8 +362,8 @@ function lued.find_forward(str,nowrap,search_all,replace,test_str,dd)
   for k=1,numlines,1 do
     local ibefore = i
     i = (((r+k-1)-1) % numlines)+1
-    local wrap = i < ibefore
-    if wrap==true and nowrap==true then break end
+    local wrap_happened = i < ibefore
+    if wrap_happened==true and nowrap==true then break end
     set_cur_pos(i,1)
     local line = get_line()
     if not g_find_case_sensitive then
@@ -572,6 +552,73 @@ function lued.search_all_files(str,dd)
   g_search_all_files = true
   lued.disp(dd)
   return match
+end
+
+
+function lued.grep(str,dd)
+  local dd2 = 1
+
+  find_str = str
+  file_file = "*"  
+  if str==nil or str=="" then
+    grep_str_prompt_hist_id = grep_str_prompt_hist_id or lued.get_hist_id()
+    find_str = lued.prompt(grep_str_prompt_hist_id, "Enter search string: ", "", "")
+    if response == "" then
+      return
+    end
+    grep_file_prompt_hist_id = grep_file_prompt_hist_id or lued.get_hist_id()
+    file_filter = lued.prompt(grep_file_prompt_hist_id, "Enter file filter: ", "", "")
+    if file_filter == "" then
+      file_filter = lued.get_filename()
+    end
+  end
+
+  local save_fileid = get_fileid()
+  io.write("\n")
+  local match_count = 0
+  local match_array = {}
+  for i = 1,get_numsessions() do
+    local filename = lued.get_filename(i)
+    local filename_match = file_filter=="*" or filename==file_filter
+    if filename_match then
+      set_fileid(i)
+      local save_r, save_c = get_cur_pos()
+      set_cur_pos(1, 1)
+      while true do
+        match = lued.find_forward(find_str, true, true, false, "", dd2)
+        if not match then break end
+        match_count = match_count + 1;
+        
+        local r,c = get_cur_pos()
+        match_array[match_count] = {fileid=i, row=r}        
+        io.write(match_count..": "..lued.get_filename()..":"..get_cur_pos().." "..get_line(), "\n")
+        lued.move_down(dd2)
+        lued.move_to_sol_classic(dd2)
+      end
+      set_cur_pos(save_r, save_c)
+    end
+  end
+  if match_count==0 then
+    io.write("no matches found\n")
+    set_fileid(save_fileid)
+  else
+    grep_sel_prompt_hist_id = grep_sel_prompt_hist_id or lued.get_hist_id()
+    local sel_str = lued.prompt(grep_sel_prompt_hist_id, "Enter selection number: ", "", "")
+    local sel = tonumber(sel_str) or 0
+    if sel > 0 and sel <= #match_array then
+      local new_fileid = match_array[sel].fileid
+      local new_row = match_array[sel].row
+      set_fileid(new_fileid)
+      set_cur_pos(new_row, 1)
+      lued.disp(dd)
+    end
+  end
+end
+
+
+function lued.grep_sel(dd)
+  local str = lued.is_sel_on() and lued.get_sel_str() or ""
+  lued.grep(str, dd)
 end
 
 

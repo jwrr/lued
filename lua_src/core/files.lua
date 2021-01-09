@@ -39,7 +39,7 @@ function lued.save_file(dd)
 
   local r,c = get_cur_pos()
   local id = get_fileid()
-  local filename = get_filename(id)
+  local filename = lued.get_filename()
   local file_has_changed = false
   local mtime, ts
   if lued.file_exists(filename) then
@@ -48,7 +48,7 @@ function lued.save_file(dd)
 
   if file_has_changed==1 then
     local id = get_fileid()
-    local filename = get_filename(id)
+    local filename = lued.get_filename()
     io.write("\n\n=======================================\n\n")
     local overwrite = lued.get_yesno("File '" .. filename .. "' has changed. Do you want to overwrite <y/n>?")=="Y"
     if overwrite then

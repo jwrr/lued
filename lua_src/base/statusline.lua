@@ -31,7 +31,7 @@ function lued.display_status_in_lua(lua_mode,dd)
   set_sel_end(0)
   -- if not g_status_line_on then return end
   local id = get_fileid()
-  local filename = get_filename(id)
+  local filename = lued.get_filename()
   local save_needed = is_modified()
   local row,col = get_cur_pos()
   local trow,tcol = get_termsize()
