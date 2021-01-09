@@ -559,20 +559,21 @@ function lued.grep(str,dd)
   local dd2 = 1
 
   find_str = str
-  file_file = "*"  
+  file_filter = "*"  
   if str==nil or str=="" then
     grep_str_prompt_hist_id = grep_str_prompt_hist_id or lued.get_hist_id()
     find_str = lued.prompt(grep_str_prompt_hist_id, "Enter search string: ", "", "")
     if response == "" then
       return
     end
-    grep_file_prompt_hist_id = grep_file_prompt_hist_id or lued.get_hist_id()
-    file_filter = lued.prompt(grep_file_prompt_hist_id, "Enter file filter: ", "", "")
-    if file_filter == "" then
-      file_filter = lued.get_filename()
-    end
+--     grep_file_prompt_hist_id = grep_file_prompt_hist_id or lued.get_hist_id()
+--     file_filter = lued.prompt(grep_file_prompt_hist_id, "Enter file filter: ", "", "")
+--     if file_filter == "" then
+--       file_filter = lued.get_filename()
+--     end
   end
 
+  local save_r, save_c = get_cur_pos(r,c)
   local save_fileid = get_fileid()
   io.write("\n")
   local match_count = 0
@@ -610,8 +611,11 @@ function lued.grep(str,dd)
       local new_row = match_array[sel].row
       set_fileid(new_fileid)
       set_cur_pos(new_row, 1)
-      lued.disp(dd)
+    else -- no matches selected
+      set_fileid(save_fileid)
+      set_cur_pos(save_r, save_c)
     end
+    lued.disp(dd)
   end
 end
 

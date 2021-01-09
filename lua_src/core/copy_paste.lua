@@ -141,19 +141,20 @@ end
 function lued.copy_line(n,dd)
   n = n or 1
   local dd2 = 1
-  if is_sel_off()==1 then
+  if is_sel_off()==1 then -- copy entire line
     lued.move_to_sol_classic(dd2)
     local r1,c1 = get_cur_pos()
     set_sel_start()
-    lued.move_down_n_lines(n,dd)
-    local r2,c2 = get_cur_pos()
---    set_sel_end()
+    lued.move_down_n_lines(n,dd2)
+    if lued.is_lastline() then
+      lued.move_to_eol(dd2)
+    end
     lued.global_copy(dd)
---    lued.move_to_sol_classic(dd)
-  else
+  else -- copy selection
     lued.global_copy(dd)
   end
 end
+
 
 
 function lued.cut_n_lines(n,dd)
@@ -187,21 +188,23 @@ function lued.cut_prev_n_lines_plus1(n,dd)
 end
 
 
-function lued.duplicate_n_lines(n,dd)
-  local dd2 = 1
-  lued.cut_n_lines(n,dd2)
-  lued.global_paste(dd2)
-  lued.global_paste(dd2)
-  lued.move_up_n_lines(n,dd)
-end
-
-
 function lued.duplicate_line(dd)
-  return lued.duplicate_n_lines(dd)
+  local dd2 = 1
+  lued.copy_line(1,dd2)
+  lued.move_to_sol(dd2)
+  if lued.is_lastline() then
+    lued.insert_line_before(dd2)
+  end
+  lued.global_paste(dd2)
+  lued.disp(dd)
 end
 
 function lued.paste_line_before(dd)
   local dd2 = 1
+  lued.copy_n_lines(1,dd2)
+  lued.global_paste(dd2)
+  lued.global_paste(dd2)
+  lued.move_up_n_lines(1,dd)
   lued.move_to_sol_classic(dd2)
   lued.global_paste(dd)
 end
