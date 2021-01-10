@@ -98,6 +98,7 @@ function lued.psub(subject, from, to, index, lim)
   return result, count, start, stop
 end
 
+
 function lued.resize_lines(lines,offset,len)
   if lines==nil then return end
   local upper_limit = offset+len-1

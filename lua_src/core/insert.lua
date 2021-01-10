@@ -311,6 +311,13 @@ function lued.insert_tab_selected(dd)
 end
 
 
+function lued.insert_line(dd)
+  local dd2 = 1
+  lued.ins_str("\n",dd2)
+  lued.disp(dd)
+end
+
+
 function lued.insert_line_before(dd)
   local dd2 = 1
   set_sel_off()

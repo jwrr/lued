@@ -188,14 +188,33 @@ function lued.cut_prev_n_lines_plus1(n,dd)
 end
 
 
+function lued.copy_1_line(dd)
+  local dd2 = 1
+  set_sel_off()
+  lued.move_to_sol_classic(dd2)
+  set_sel_start()
+  if lued.is_lastline() then
+    lued.move_to_eol(dd2)
+  else
+    lued.move_down_n_lines(1,dd2)
+  end
+  lued.global_copy(dd2)
+  lued.disp(dd)
+end
+
+
 function lued.duplicate_line(dd)
   local dd2 = 1
-  lued.copy_line(1,dd2)
-  lued.move_to_sol(dd2)
   if lued.is_lastline() then
-    lued.insert_line_before(dd2)
+    lued.copy_1_line(dd2)
+    lued.move_to_sol(dd2)
+    lued.global_paste(dd2)
+    lued.insert_line(dd2)
+  else
+    lued.copy_1_line(dd2)
+    lued.global_paste(dd2)
+    lued.move_up_n_lines(1,dd2)
   end
-  lued.global_paste(dd2)
   lued.disp(dd)
 end
 
