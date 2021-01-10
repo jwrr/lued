@@ -1,4 +1,3 @@
-
 -- vhdl.lua - plugin for lued text editor
 
 lued.vhdl = {}

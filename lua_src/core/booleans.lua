@@ -167,7 +167,6 @@ function lued.next_is_other()
 end
 
 
-
 function lued.is_sow()
   local r,c = get_cur_pos()
   local line = get_line()

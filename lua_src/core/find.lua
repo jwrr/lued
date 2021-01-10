@@ -555,22 +555,30 @@ function lued.search_all_files(str,dd)
 end
 
 
-function lued.grep(str,dd)
-  local dd2 = 1
+function lued.is_in_glob(str, glob)
+  glob = string.gsub(glob, "%*", ".*")
+  local found = string.find(str, glob)
+  return found
+end
 
-  find_str = str
-  file_filter = "*"  
-  if str==nil or str=="" then
+
+function lued.grep(find_str, file_glob, dd)
+  local dd2 = 1
+  find_str = find_str or ""
+  file_glob = file_glob or "*"
+  if find_str=="" then
     grep_str_prompt_hist_id = grep_str_prompt_hist_id or lued.get_hist_id()
     find_str = lued.prompt(grep_str_prompt_hist_id, "Enter search string: ", "", "")
-    if response == "" then
+    if find_str == "" then
       return
     end
---     grep_file_prompt_hist_id = grep_file_prompt_hist_id or lued.get_hist_id()
---     file_filter = lued.prompt(grep_file_prompt_hist_id, "Enter file filter: ", "", "")
---     if file_filter == "" then
---       file_filter = lued.get_filename()
---     end
+  end
+  if file_glob=="" then
+    grep_file_prompt_hist_id = grep_file_prompt_hist_id or lued.get_hist_id()
+    file_glob = lued.prompt(grep_file_prompt_hist_id, "Enter file filter: ", "", "")
+    if file_glob == "" then
+      file_glob = lued.get_filename()
+    end
   end
 
   local save_r, save_c = get_cur_pos(r,c)
@@ -580,7 +588,10 @@ function lued.grep(str,dd)
   local match_array = {}
   for i = 1,get_numsessions() do
     local filename = lued.get_filename(i)
-    local filename_match = file_filter=="*" or filename==file_filter
+
+    lued.is_in_glob("xx", file_glob)
+
+    local filename_match = file_glob=="*" or filename==file_glob or lued.is_in_glob(filename, file_glob)
     if filename_match then
       set_fileid(i)
       local save_r, save_c = get_cur_pos()
@@ -589,7 +600,6 @@ function lued.grep(str,dd)
         match = lued.find_forward(find_str, true, true, false, "", dd2)
         if not match then break end
         match_count = match_count + 1;
-        
         local r,c = get_cur_pos()
         match_array[match_count] = {fileid=i, row=r}        
         io.write(match_count..": "..lued.get_filename()..":"..get_cur_pos().." "..get_line(), "\n")
@@ -620,9 +630,21 @@ function lued.grep(str,dd)
 end
 
 
-function lued.grep_sel(dd)
+function lued.grep_sel_all_files(dd)
   local str = lued.is_sel_on() and lued.get_sel_str() or ""
-  lued.grep(str, dd)
+  lued.grep(str, "*", dd)
+end
+
+
+function lued.grep_sel_this_file(dd)
+  local str = lued.is_sel_on() and lued.get_sel_str() or ""
+  lued.grep(str, lued.get_filename(), dd)
+end
+
+
+function lued.grep_sel_file_glob(dd)
+  local str = lued.is_sel_on() and lued.get_sel_str() or ""
+  lued.grep(str, "", dd)
 end
 
 
