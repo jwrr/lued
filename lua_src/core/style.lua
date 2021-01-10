@@ -319,10 +319,3 @@ function lued.make_line_bold_orig(lnum1,lnum2)
 end
 
 
-
-
-
-
-
-
-

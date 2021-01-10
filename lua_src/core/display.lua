@@ -112,6 +112,18 @@ function lued.resize_lines(lines,offset,len)
 end
 
 
+function lued.chomp_lines(lines, maxlen)
+  if g_wrap_mode then
+    return
+  end
+  for i=1,#lines do
+    if string.len(lines[i]) > maxlen then
+      lines[i] = string.sub(lines[i],1,maxlen-1) .. "+"
+    end 
+  end
+end
+
+
 lued.g_first_col = 1
 
 function lued.display_page_in_lua(lua_mode, highlight_trailing_spaces)
@@ -124,6 +136,14 @@ function lued.display_page_in_lua(lua_mode, highlight_trailing_spaces)
   local row_offset = crow - prow + 1
   local text = get_page(prow-1,highlight_trailing_spaces)
   local lines = lued.explode(text)
+  
+  local maxlen = tc
+  if g_show_abs_line_numbers or g_show_rel_line_numbers then
+    maxlen = maxlen - 8
+  end
+  lued.chomp_lines(lines, maxlen)
+  
+  
 --   lines = lued.resize_lines(lines,lued.g_first_col,tc)
   lines = lued.style_page( lines , prow, row_offset)
   text = lued.implode(lines)
