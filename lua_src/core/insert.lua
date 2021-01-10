@@ -73,6 +73,7 @@ function lued.ins_string(str, dd)
   local line_len = get_line_len()
 
   if str == "\n" then
+    local line_is_comment = lued.is_comment()
     if g_auto_indent==true and c>1 then
       local line = get_line()
       local indent_str = line:match("^%s*") or ""
@@ -96,10 +97,16 @@ function lued.ins_string(str, dd)
     else
       insert_str(str)
     end
-
-    local r2,c2 = get_cur_pos()
-    set_cur_pos(r,c)
-    lued.remove_trailing_spaces(r2,c2,false,dd2)
+    if line_is_comment then
+      lued.comment(dd2)
+      if lued.is_blankcomment() then
+        lued.ins_string(" ",dd2)
+      end
+    else
+      local r2,c2 = get_cur_pos()
+      set_cur_pos(r,c)
+      lued.remove_trailing_spaces(r2,c2,false,dd2)
+    end
   elseif str_line_cnt > 0 and line_len > 1 and lued.is_blankline() then
     local str_indent_len = lued.string_num_leading_spaces(str)
     local delete_spaces = ""

@@ -325,9 +325,6 @@ alt--===<tab> repeat = for the length of the line above
 alt-###, *** ^^^ 3char<tab> repeats char for length of the previous line
 
 
-duplicate line - fixed
-  alt+DD fails when on last line.
-
 Top-line bug when window is narrow.  missing <cr>
 alt+fa - list all matches in file
 alt+FA - list all matches in all open files
@@ -344,20 +341,26 @@ tab-backspace
 tab at start of line
   use indent rules instead of align with previous line rules.
 
-auto-comment - on <cr> if current line is a comment then make the next line a comment
+duplicate line - done
+  alt+DD fails when on last line.
+
+auto-comment - done
+  on <cr> if current line is a comment then make the next line a comment
+
+Line number - done
+  When line numbers are enable, put indicator around the current line number.
+  
+Long lines - done
+  line-wrap=off - don't wrap lines that are too line
 
 Find and Replace
   Y - replace and stop at cursor
   N - dont' replace and stop at cursor
   Q - quit and stay at cursor
   
-Line number - done
-  When line numbers are enable, put indicator around the current line number.
-  
 Dictionaries
   Add selected word to dictionary. highlight words not in dictionary.
 
-line-wrap=off - don't wrap lines that are too line
 
 
   
