@@ -340,10 +340,20 @@ Long lines - done
 Status Line - done
   Top-line bug when window is narrow.  missing <cr>
 
+grep - done
+  alt+gg - list all matches in all open files
+  alt+GG - list all matches in file
+  alt+grep - lis all matches in glob of open files
+
+tabs at start of line - done
+  When on a blankline or in the leading whitespace the <tab> has two behaviors.
+  If the cursor is before the first non-whitespace of the previos line then the
+  cursor will align to the previous line's first non-whitespace. If the cursor
+  is at or after the previous line's first non-whitespace then the cursor will
+  advance to the next indent level.
+
 
 ==============================
-alt+grep - list all matches in all open files
-alt+Grep - list all matches in file
 find - highlight all matches number all matches. alt+f# jumps to the specific match
 
 jah finds start_col of next word and after paste adds spaced to current word as needed to align next word to same start_col.
@@ -354,9 +364,6 @@ tab-backspace
   goto save column, go down one
   if not is_space() then
     
-tab at start of line
-  use indent rules instead of align with previous line rules.
-
 Find and Replace
   Y - replace and stop at cursor
   N - dont' replace and stop at cursor

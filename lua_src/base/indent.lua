@@ -182,12 +182,19 @@ function lued.get_indent_str()
 end
 
 
-function lued.get_indent_len()
-  local line = get_line()
+function lued.get_indent_len(line_number)
+  local dd2 = 1
+  local line
+  if line_number==nil then
+    line = get_line()
+  else
+    line = lued.get_line(line_number)
+  end
   local leading_ws = string.match(line,"^%s+") or ""
   local leading_ws_len = string.len(leading_ws)
   return leading_ws_len
 end
+
 
 function lued.get_global_indent_size()
   return g_indent_size

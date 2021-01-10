@@ -226,8 +226,17 @@ function lued.insert_tab(dd)
     return
   end
 
+
+  --
+  local r,c = lued.get_rc()
+  local curr_line_indent_len = lued.get_indent_len()
+  local in_leading_whitespace = c <= curr_line_indent_len+1 -- including first non-ws
+  local prev_line_indent_len = lued.get_indent_len(r-1)
+  local after_prev_lines_first_char = c > prev_line_indent_len
+  
   -- if the line is blank or just has spaces then move to the next indent column.
-  if lued.is_blankline() then
+  if (lued.is_blankline() or in_leading_whitespace) and after_prev_lines_first_char then
+--     print("is_blannkline", after_prev_lines_first_char) io.read()
     local goto_next_line = false
     lued.indent1(g_indent_size, g_indent_char, goto_next_line, dd2)
     lued.disp(dd)

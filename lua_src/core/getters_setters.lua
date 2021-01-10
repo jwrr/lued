@@ -278,8 +278,23 @@ function lued.set_number(prompt_id, prompt, num)
 end
 
 
+lued.get_cur_pos = get_cur_pos
+-- lued.get_line    = get_line
+lued.set_cur_pos = set_cur_pos
+lued.set_sel_off = set_sel_off
 
 
-  
-
+function lued.get_line(linenumber)
+  if linenumber==nil then
+    return get_line()
+  end
+  if linenumber==0 then
+    return ""
+  end
+  local r,c = lued.get_rc()
+  lued.move_to(linenumber, 1)
+  local line = get_line()
+  lued.move_to(r,c)
+  return line
+end
 
