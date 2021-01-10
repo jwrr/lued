@@ -325,8 +325,8 @@ alt--===<tab> repeat = for the length of the line above
 alt-###, *** ^^^ 3char<tab> repeats char for length of the previous line
 
 
-
-alt+DD fails when on last line.
+duplicate line - fixed
+  alt+DD fails when on last line.
 
 Top-line bug when window is narrow.  missing <cr>
 alt+fa - list all matches in file
@@ -351,7 +351,7 @@ Find and Replace
   N - dont' replace and stop at cursor
   Q - quit and stay at cursor
   
-Line number
+Line number - done
   When line numbers are enable, put indicator around the current line number.
   
 Dictionaries

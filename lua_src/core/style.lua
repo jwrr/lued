@@ -287,9 +287,16 @@ function lued.style_page(lines, first_line_of_page, row_offset)
       local abs_ln = first_line_of_page+ii
       local rel_ln = math.abs(row_offset-ii) 
       local tmp = g_show_abs_line_numbers and abs_ln or rel_ln
+
       tmp = tmp==0 and abs_ln or tmp
-      local linenum_str = string.format("  %4d  ", tmp)
-      lines[ii] = lnum_style .. linenum_str .. styles.reset .. lines[ii]
+      local r,c = get_cur_pos()
+      if abs_ln == r then
+        local linenum_str = string.format("==%4d==", tmp)
+        lines[ii] = lnum_style .. linenum_str .. styles.reset .. lines[ii]
+      else
+        local linenum_str = string.format("  %4d  ", tmp)
+        lines[ii] = lnum_style .. linenum_str .. styles.reset .. lines[ii]
+      end
     end
     
     if g_show_sb_files then
