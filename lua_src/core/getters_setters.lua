@@ -27,11 +27,14 @@ SOFTWARE.
 
 function lued.get_rc(id)
   local current_id = get_fileid()
-  if id==nil or id==current_id then return get_cur_pos() end
+  if id==nil or id==current_id then
+    local r,c = get_cur_pos()
+    return r, c, current_id
+  end
   set_fileid(id)
   local r,c = get_cur_pos()
   set_fileid(current_id)
-  return r,c
+  return r, c, id
 end
 
 
@@ -287,7 +290,32 @@ function lued.set_cur_pos(r_new, c_new)
   return r_old, c_old
 end
 
-lued.set_sel_off = set_sel_off
+
+function lued.get_rc()
+  return get_cur_pos() -- c api
+end
+
+function lued.get_rcf()
+  local fileid = get_fileid() -- capi
+  local r, c = lued.get_rc()
+  return r, c, fileid
+end
+
+function lued.set_rc(row, col, dd)
+  set_cur_pos(row, col) -- c api
+  lued.disp(dd)
+end
+
+
+function lued.set_rcf(row, col, fileid, dd)
+  set_fileid(fileid) -- c api
+  lued.set_rc(row, col, dd)
+end
+
+
+function lued.set_sel_off()
+  set_sel_off() -- c api
+end
 
 
 function lued.get_line(linenumber)

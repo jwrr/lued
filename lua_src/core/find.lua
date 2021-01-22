@@ -562,6 +562,28 @@ function lued.is_in_glob(str, glob)
 end
 
 
+function lued.push_grep_stack(row, col, fileid)
+  if g_grep_stack == nil then
+    g_grep_stack = {}
+  end
+  table.insert(g_grep_stack, {row, col, fileid})
+end
+
+
+function lued.pop_grep_stack()
+  if g_grep_stack == nil or #g_grep_stack==0 then
+    return lued.get_rcf()
+  end
+  return table.unpack(table.remove(g_grep_stack))
+end
+
+
+function lued.grep_goback(dd)
+  local r,c,f = lued.pop_grep_stack()
+  lued.set_rcf(r, c, f, dd)
+end
+
+
 function lued.grep(find_str, file_glob, dd)
   local dd2 = 1
   find_str = find_str or ""
@@ -583,50 +605,61 @@ function lued.grep(find_str, file_glob, dd)
 
   local save_r, save_c = get_cur_pos(r,c)
   local save_fileid = get_fileid()
-  io.write("\n")
-  local match_count = 0
-  local match_array = {}
-  for i = 1,get_numsessions() do
-    local filename = lued.get_filename(i)
 
-    lued.is_in_glob("xx", file_glob)
-
-    local filename_match = file_glob=="*" or filename==file_glob or lued.is_in_glob(filename, file_glob)
-    if filename_match then
-      set_fileid(i)
-      local save_r, save_c = get_cur_pos()
-      set_cur_pos(1, 1)
-      while true do
-        match = lued.find_forward(find_str, true, true, false, "", dd2)
-        if not match then break end
-        match_count = match_count + 1;
-        local r,c = get_cur_pos()
-        match_array[match_count] = {fileid=i, row=r}        
-        io.write(match_count..": "..lued.get_filename()..":"..get_cur_pos().." "..get_line(), "\n")
-        lued.move_down(dd2)
-        lued.move_to_sol_classic(dd2)
+  while true do
+    io.write("\n")
+    local match_count = 0
+    local match_array = {}
+    for i = 1,get_numsessions() do
+      local filename = lued.get_filename(i)
+  
+      lued.is_in_glob("xx", file_glob)
+  
+      local filename_match = file_glob=="*" or filename==file_glob or lued.is_in_glob(filename, file_glob)
+      if filename_match then
+        set_fileid(i)
+        local save_r, save_c = get_cur_pos()
+        set_cur_pos(1, 1)
+        while true do
+          match = lued.find_forward(find_str, true, true, false, "", dd2)
+          if not match then break end
+          match_count = match_count + 1;
+          local r,c = get_cur_pos()
+          match_array[match_count] = {fileid=i, row=r}        
+          io.write(match_count..": "..lued.get_filename()..":"..get_cur_pos().." "..get_line(), "\n")
+          lued.move_down(dd2)
+          lued.move_to_sol_classic(dd2)
+        end
+        set_cur_pos(save_r, save_c)
       end
-      set_cur_pos(save_r, save_c)
     end
-  end
-  if match_count==0 then
-    io.write("no matches found\n")
-    set_fileid(save_fileid)
-  else
-    grep_sel_prompt_hist_id = grep_sel_prompt_hist_id or lued.get_hist_id()
-    local sel_str = lued.prompt(grep_sel_prompt_hist_id, "Enter selection number: ", "", "")
-    local sel = tonumber(sel_str) or 0
-    if sel > 0 and sel <= #match_array then
-      local new_fileid = match_array[sel].fileid
-      local new_row = match_array[sel].row
-      set_fileid(new_fileid)
-      set_cur_pos(new_row, 1)
-    else -- no matches selected
+    if match_count==0 then
+      io.write("no matches found\n")
       set_fileid(save_fileid)
-      set_cur_pos(save_r, save_c)
+      return
     end
-    lued.disp(dd)
-  end
+    
+    grep_sel_prompt_hist_id = grep_sel_prompt_hist_id or lued.get_hist_id()
+    local user_sel_str = lued.prompt(grep_sel_prompt_hist_id, "Enter selection number or next search string: ", "", "")
+    
+    local user_selected_nothing = user_sel_str == ""
+    if user_selected_nothing then
+      lued.set_rcf(save_r, save_c, save_fileid, dd)
+      return
+    end
+
+    local user_sel = tonumber(user_sel_str)
+    local user_sel_valid = user_sel ~= nil and user_sel > 0 and user_sel <= #match_array
+    if user_sel_valid then
+      lued.push_grep_stack(save_r, save_c, save_fileid)
+      lued.set_rcf(match_array[user_sel].row, 1, match_array[user_sel].fileid, dd)
+      return
+    end
+    
+    find_str = user_sel_str
+
+  end -- while true
+    
 end
 
 

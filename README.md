@@ -352,6 +352,12 @@ tabs at start of line - done
   is at or after the previous line's first non-whitespace then the cursor will
   advance to the next indent level.
 
+Join Lines - done
+alt+jj - this command joins two lines, the current line with the next line.
+  When joining two comment lines, the comment indicator is removed from the
+  second line.
+
+
 
 ==============================
 find - highlight all matches number all matches. alt+f# jumps to the specific match
@@ -372,10 +378,6 @@ Find and Replace
 Dictionaries
   Add selected word to dictionary. highlight words not in dictionary.
 
-
-alt+jj - this command joins two lines, the current line with the next line.
-  When joining two comment lines, the comment indicator is removed from the
-  second line.
 
 alt+gg - grep all files. Enter the id number to jump to the file/line. Enter a
 alt+d<cr> - Delete N char. You will be prompted for N. 
