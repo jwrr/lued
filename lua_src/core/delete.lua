@@ -120,6 +120,30 @@ end
 lued.del_char = function(n,dd) return lued.cut_or_del_char(false, n, dd) end
 lued.cut_char = function(n,dd) return lued.cut_or_del_char(true, n, dd) end
 
+function lued.del_char_n(n, dd)
+  local dd2 = 1
+  if n == nil then
+    g_del_char_prompt_hist_id = g_del_char_prompt_hist_id or lued.get_hist_id()
+    n_str = lued.prompt(g_del_char_prompt_hist_id, "n: ", "", "")
+    n = tonumber(n_str)
+  end
+  n_valid = n ~= nil and n > 0
+  if n_valid then
+    lued.cut_or_del_char(false, n, dd2)
+  end
+  lued.disp(dd)
+end
+
+function lued.del_char_1(dd) lued.del_char_prompt(1,dd) end
+function lued.del_char_2(dd) lued.del_char_prompt(2,dd) end
+function lued.del_char_3(dd) lued.del_char_prompt(3,dd) end
+function lued.del_char_4(dd) lued.del_char_prompt(4,dd) end
+function lued.del_char_5(dd) lued.del_char_prompt(5,dd) end
+function lued.del_char_6(dd) lued.del_char_prompt(6,dd) end
+function lued.del_char_7(dd) lued.del_char_prompt(7,dd) end
+function lued.del_char_8(dd) lued.del_char_prompt(8,dd) end
+function lued.del_char_9(dd) lued.del_char_prompt(9,dd) end
+
 
 function lued.cut_or_del_sow(cut_mode, dd)
   local dd2 = 1
