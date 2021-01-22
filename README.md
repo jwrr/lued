@@ -373,8 +373,14 @@ Dictionaries
   Add selected word to dictionary. highlight words not in dictionary.
 
 
+alt+jj - this command joins two lines, the current line with the next line.
+  When joining two comment lines, the comment indicator is removed from the
+  second line.
 
-  
+alt+gg - grep all files. Enter the id number to jump to the file/line. Enter a
+alt+d<cr> - Delete N char. You will be prompted for N. 
+alt+d9 - Delete 9 char (including current char). Does not go beyond curent line.
+alt+D9 - Delete previous 9 char (not including current char). Does not go beyond the current line.
 
-
+alt+r2 - Repeat the last two command
 

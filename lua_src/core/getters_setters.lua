@@ -280,7 +280,13 @@ end
 
 lued.get_cur_pos = get_cur_pos
 -- lued.get_line    = get_line
-lued.set_cur_pos = set_cur_pos
+
+function lued.set_cur_pos(r_new, c_new)
+  local r_old, c_old = lued.get_cur_pos()
+  set_cur_pos(r,c) -- c api
+  return r_old, c_old
+end
+
 lued.set_sel_off = set_sel_off
 
 
@@ -298,3 +304,21 @@ function lued.get_line(linenumber)
   return line
 end
 
+
+function lued.save_pos()
+  local r,c = lued.get_cur_pos()
+  if g_pos_stack == nil then
+    g_pos_stack = {}
+  end
+  table.insert(g_pos_stack, {r,c})
+end
+
+
+function lued.restore_pos()
+  if g_pos_stack == nil then
+    return
+  end
+  r,c = table.unpack(table.remove(g_pos_stack))
+  lued.set_cur_pos(r,c)
+end
+  

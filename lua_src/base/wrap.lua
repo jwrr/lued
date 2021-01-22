@@ -53,6 +53,13 @@ function lued.join_lines(delim,dd)
   local dd2 = 1
   if lued.is_lastline() then lued.disp(dd) return end
 
+  if lued.is_comment() and lued.next_is_comment() then
+    lued.save_pos()
+    lued.move_down(dd2)
+    lued.uncomment(dd2)
+    lued.restore_pos()
+  end
+
   local r,c = get_cur_pos()
   if not lued.is_eol() then
     lued.move_to_eol(dd2)

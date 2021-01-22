@@ -99,10 +99,11 @@ function lued.uncomment_selected(dd)
 end
 
 
-function lued.is_comment()
-  local line = get_line()
-  local retval =  string.find(line, lued.get_line_comment(), 1, true) == 1
-  return retval 
+function lued.is_comment(linenumber)
+  local line = lued.get_line(linenumber)
+  local comment_marker = lued.get_line_comment()
+  local line_starts_with_comment = string.find(line, comment_marker, 1, true) == 1
+  return line_starts_with_comment
 end
 
 
