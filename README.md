@@ -357,10 +357,16 @@ alt+jj - this command joins two lines, the current line with the next line.
   When joining two comment lines, the comment indicator is removed from the
   second line.
 
-Grep / Search all open files
+Grep / Search all open files - done
 alt+gg - When choosing file to goto, the user can enter a new search string to grep again.
 alt+GG - Return to previous file after grepping. This is implemented as a stack so you can
   go back multiple files. 
+  
+Delete Multiple Characters - done
+alt+dN - Delete N char (including current char). N must be less than 10.
+
+Repeat Previous N Commands - done
+alt+rN - Repeat the last N command
 
 
 ==============================
@@ -383,9 +389,4 @@ Dictionaries
   Add selected word to dictionary. highlight words not in dictionary.
 
 
-alt+d<cr> - Delete N char. You will be prompted for N. 
-alt+d9 - Delete 9 char (including current char). Does not go beyond curent line.
-alt+D9 - Delete previous 9 char (not including current char). Does not go beyond the current line.
-
-alt+r2 - Repeat the last two command
 

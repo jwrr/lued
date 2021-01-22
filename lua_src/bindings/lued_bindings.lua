@@ -40,7 +40,7 @@ ctrl_J           = lued.dont_use          -- Do Not Use. Same as Enter Key
 ctrl_KK          = lued.del_eol           -- Delete from cursor to end of line. Similar to Sublime Ctrl+KK
 ctrl_KH          = lued.del_sol           -- Delete from cursor to start of line. Press Ctrl+&lt;Backspace&gt; instead of 'H'. Similar to Sublime Ctrl+K,Ctrl+Backspace
 ctrl_Kesc_backspace = lued.del_sol        -- Delete from cursor to start of line. Similar to Sublime Ctrl+K,Ctrl+Backspace
-ctrl_KL          = lued.sel_to_lower      -- Transform selection or current char to lowercase. Similar to Sublime Ctrl+KL 
+ctrl_KL          = lued.sel_to_lower      -- Transform selection or current char to lowercase. Similar to Sublime Ctrl+KL
 ctrl_KU          = lued.sel_to_upper      -- Transform selection or current char to uppercase. Similar to Sublime Ctrl+KU
 
 ctrl_L           = lued.sel_line          -- Select entire line. Similar to Sublime Ctrl+L
@@ -84,6 +84,7 @@ alt__gt_         = lued.move_halfsy_right       lued.hot(",>,") -- Move right ha
 alt__lt_         = lued.move_halfsy_left        lued.hot(",<,") -- Move left half the distance
 alt_rn           = lued.replay_name             lued.hot("rn")  -- replay named keystroke sequence
 alt_rr           = lued.replay_again            lued.hot("rr")  -- replay keystroke sequence again
+alt_r            = lued.replay_keystrokes_bind                  -- replay previous N commands. example: alt+r3<cr> replaces previous 3 commands
 -- alt_R            = lued.move_left_n_char                   -- Move N char left.  alt_l42&lt;Enter&gt; moves 42 char to the left
 -- alt_RR           = lued.move_left_n_char        lued.hot("RR")  -- Move predefined numbed of char to the left.
 -- alt_r            = lued.set_move_right_n_char              -- Move N char right.  alt_r42&lt;Enter&gt; moves 42 char to the right
@@ -91,7 +92,7 @@ alt_rr           = lued.replay_again            lued.hot("rr")  -- replay keystr
 
 --## Ctags /  Exuberant Tags
 alt_cb           = lued.ctag_move_back_from_tag  lued.hot("cb") -- ctag back
-alt_cf           = lued.ctag_move_forward_in_stack lued.hot("cf") -- ctag forward in stack 
+alt_cf           = lued.ctag_move_forward_in_stack lued.hot("cf") -- ctag forward in stack
 alt_ct           = lued.ctag_move_to_tag         lued.hot("ct") -- ctag jump. Similar Sublime Ctrl+R
 alt_CT           = lued.ctag_jump_back           lued.hot("CT") -- ctag jump back.
 alt_cr           = lued.ctag_read_file           lued.hot("cr") -- ctag read
@@ -104,7 +105,7 @@ alt_cw           = lued.copy_word               lued.hot("cw") -- Copy word
 alt_DD           = lued.duplicate_line          lued.hot("DD") -- Duplicate line. Similar to Sublime Ctrl+Shift+D
 
 --alt_d          = lued.del_n_lines_plus1                      -- Delete N lines
-alt_d            = lued.del_char_n                             -- Delete N char. alt+dc22<cr> deletes the next 22 char (including current char). 
+alt_d            = lued.del_char_n                             -- Delete N char. alt+dc22<cr> deletes the next 22 char (including current char).
 alt_d1           = lued.del_char_1              lued.hot("d1") -- Delete 1 char. alt+d1 deletes 1 char
 alt_d2           = lued.del_char_2              lued.hot("d2") -- Delete 2 char. alt+d2 deletes 2 char
 alt_d3           = lued.del_char_3              lued.hot("d3") -- Delete 3 char. alt+d3 deletes 3 char
@@ -194,8 +195,8 @@ alt_af           = lued.align_selected          lued.hot("af")  -- Align First c
 --## Center Cursor Commands
 alt_ce           = set_recenter_screen          lued.hot("ce") -- Keep cursor centered
 alt_CE           = clr_recenter_screen          lued.hot("CE") -- Turn off keep cursor centered
-alt_kc           = lued.recenter                lued.hot("kc") -- Recenters cursor to center, press again and recenters to top. Similar to Sublime's CTRL+KC. vim's zz/zt. 
-alt_KC           = lued.recenter_top            lued.hot("KC") -- Recenters cursor to top, press again and recenters to center. Similar to Sublime's CTRL+KC. vim's zz/zt. 
+alt_kc           = lued.recenter                lued.hot("kc") -- Recenters cursor to center, press again and recenters to top. Similar to Sublime's CTRL+KC. vim's zz/zt.
+alt_KC           = lued.recenter_top            lued.hot("KC") -- Recenters cursor to top, press again and recenters to center. Similar to Sublime's CTRL+KC. vim's zz/zt.
 
 --## Comment Commands
 alt_cc           = lued.comment_selected        lued.hot("cc") -- Comment out line. Similar to Sublime Ctrl+slash.
@@ -209,7 +210,7 @@ alt_ku           = lued.sel_to_upper            lued.hot("ku") -- Similar to Sub
 --## Mark Commands
 alt_sm           = lued.sel_mark_to_cursor      lued.hot("sm") -- Similar to Sublime Ctrl+KA. Select from mark to cursor (set mark with alt_mm)
 alt_dm           = lued.del_mark_to_cursor      lued.hot("dm") -- Similar to Sublime Ctrl+KW. Delete from mark to cursor (set mark with alt_mm)
-alt_m            = lued.set_named_mark                         -- Set Named Marker 
+alt_m            = lued.set_named_mark                         -- Set Named Marker
 alt_M            = lued.goto_named_mark                        -- Goto Named Marker
 alt_mm           = lued.set_nameless_mark       lued.hot("mm") -- Similar to Sublime Ctrl+K+space. Set Mark
 alt_MM           = lued.goto_nameless_mark_prev lued.hot("MM") -- Goto previous mark
@@ -245,7 +246,7 @@ alt__period_ind  = lued.toggle_auto_indent          -- Turn auto-lued.indent on/
 --alt__period_cts  = lued.set_ctrl_s_flow_control
 --a lt__period_ctz  = lued.toggle_ctrl_z_suspend
 --a lt__period_dsp  = lued.toggle_doublespeed
-alt__period_edi  = set_edit_mode               -- Change from Lua mode to Edit mode. You almost always want to be in edit mode. 
+alt__period_edi  = set_edit_mode               -- Change from Lua mode to Edit mode. You almost always want to be in edit mode.
 --a lt__period_fch  = lued.toggle_enable_file_changed
 alt__period_lua  = set_lua_mode                -- Toggle to Lua mode to enter lua commands. Rarely used.
 alt__period_mlt  = lued.set_min_lines_from_top      -- Set minimum lines to from top of page to cursor
@@ -259,7 +260,7 @@ alt__period_rts  = lued.toggle_remove_trailing_spaces -- Toggle on/off remove tr
 alt_p_squote     = lued.set_paste_buffer -- Put string into lued.paste buffer
 
 -- These keys produce escape sequences (escape is not pressed)
-esc_backspace    = lued.del_backspace2    -- BACKSPACE. Delete previous char. 
+esc_backspace    = lued.del_backspace2    -- BACKSPACE. Delete previous char.
 esc_insert       = lued.toggle_overtype   -- INSERT. Toggle insert/overtype mode.
 exsc_insert      = esc_insert
 esc_delete       = lued.del_char          -- DELETE. Delete current char.  If selection the delete selection.
@@ -316,7 +317,7 @@ alt_Seti         = lued.set_scope_indent                         -- Set Scope In
 -- alt_sw           = function() set_sel_start();                lued.var_end(1); set_sel_end(); lued.disp(); end lued.hot("sw")
 
 alt_test         = lued.open_filerc_test
-alt_todo         = lued.todo                    lued.hot("todo")  -- open user's todo file  
+alt_todo         = lued.todo                    lued.hot("todo")  -- open user's todo file
 
 -- DONE
 

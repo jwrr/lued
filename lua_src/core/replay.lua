@@ -64,49 +64,63 @@ function lued.exec_str(str,dd)
 end
 
 
+function lued.replay_n_keystrokes(n, dd)
+  local dd2 = 1
+  local l  = lued.replay.most_recent_keystroke
+  local f = l - n + 1
+  for i=f,l do
+    cmd = lued.replay.keystroke_hist[i]
+    if not string.find(cmd, '(', 1, true) then
+      cmd = cmd .. '()'
+    end
+    lued.exec_str(cmd,dd)
+  end
+end
+
+
 function lued.replay_keystrokes(again,dd)
   local dd2 = 1
   if lued.replay.num_keystrokes==nil or lued.replay.num_keystrokes<1 then
     lued.replay.num_keystrokes = 1
   end
   if not again and not lued.same_keystroke() then
-    local prompt = "replay N last Commands (Default="..lued.replay.num_keystrokes.."): "
+    lued.replay.num_keystrokes = 0;
+    local prompt = "replay previous N Commands: "
     lued.replay.num_keystrokes = lued.show_keystroke_hist(prompt)
     lued.replay.most_recent_keystroke  = #lued.replay.keystroke_hist
-    lued.replay.prompt_id_name = lued.replay.prompt_id_name or lued.get_hist_id()
-    
-    local name = lued.prompt(lued.replay.prompt_id_name, "Enter name (Optional): ")
-    if name ~= "" then
-      lued.replay.names[#lued.replay.names+1] = {
-        name=name,
-        most_recent=lued.replay.most_recent_keystroke,
-        num_keystrokes=lued.replay.num_keystrokes
-      }
-    end
+--     lued.replay.prompt_id_name = lued.replay.prompt_id_name or lued.get_hist_id()
+--     local name = lued.prompt(lued.replay.prompt_id_name, "Enter name (Optional): ")
+--     if name ~= "" then
+--       lued.replay.names[#lued.replay.names+1] = {
+--         name=name,
+--         most_recent=lued.replay.most_recent_keystroke,
+--         num_keystrokes=lued.replay.num_keystrokes
+--       }
+--     end
   end
-    
-  if lued.replay.num_keystrokes > 0 then
-    local l  = lued.replay.most_recent_keystroke
-    local f = l - lued.replay.num_keystrokes + 1
---     print('abc=',f, l, lued.replay.num_keystrokes) ; str = io_read()
-    for i=f,l do
-      cmd = lued.replay.keystroke_hist[i]
-      if not string.find(cmd, '(', 1, true) then
-        cmd = cmd .. '()'
-      end
-      lued.exec_str(cmd,dd2)
-    end
-  else
+
+  if not lued.replay.num_keystrokes then
     lued.replay.inhibit_push = true -- hide replace command
     lued.disp(dd)
     lued.replay.inhibit_push = false
+    return
   end
+  
+  lued.replay_n_keystrokes(lued.replay.num_keystrokes, dd)
+end
+
+
+function lued.replay_keystrokes_bind(n, dd)
+  lued.replay.most_recent_keystroke = #lued.replay.keystroke_hist
+  lued.replay.num_keystrokes = n
+  lued.replay_keystrokes(true,dd)
 end
 
 
 function lued.replay_again(dd)
   lued.replay_keystrokes(true,dd)
 end
+
 
 
 function lued.show_list(list,id,prompt)
