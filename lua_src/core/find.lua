@@ -363,7 +363,11 @@ function lued.find_forward(str,nowrap,search_all,replace,test_str,dd)
     local ibefore = i
     i = (((r+k-1)-1) % numlines)+1
     local wrap_happened = i < ibefore
-    if wrap_happened==true and nowrap==true then break end
+    if wrap_happened==true then
+      if nowrap==true then
+        break 
+      end
+    end
     set_cur_pos(i,1)
     local line = get_line()
     if not g_find_case_sensitive then
@@ -403,10 +407,13 @@ function lued.find_forward(str,nowrap,search_all,replace,test_str,dd)
     end
   end
   
-  if get_page_pos() ~= pr then
-    lued.recenter_top(dd2)
+  lued.recenter_top(dd2)
+
+  local rfinal,cfinal = lued.get_rc()
+
+  if rfinal < cr  then
+    io.write("WRAP ++++++++++++++++++++++++++++++++++++++++++++++++++++") io.read()
   end
-  
   lued.disp(dd)
   return found
 end
