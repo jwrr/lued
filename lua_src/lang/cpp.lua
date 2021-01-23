@@ -76,9 +76,10 @@ local basename = remove_extension(filename)
 local basename_uc = string.upper(basename)
 local guardname = "_" .. basename_uc .. "_H_"
 local classname = ucfirst(basename)
+local headername = basename .. ".hpp"
 
 str = [[
-// ================================================
+
 // ]] .. basename .. [[.h
  
 #ifndef ]] .. guardname .. [[
@@ -105,8 +106,18 @@ public:
 
 #endif // ]] .. guardname .. [[
 
+]]
 
+local r,c,f = lued.get_rcf()
+lued.new_file(headername)
+lued.ins_str(str)
+lued.save_file()
+lued.set_rcf(r,c,f)
+
+
+str = [[
 // ================================================
+#include "]] .. headername .. [["
 
 int ]] .. classname .. [[::MethodName()
 
