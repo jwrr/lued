@@ -33,6 +33,7 @@ lued.g_buffer = ""    -- The global buffer is used for lued.cut and lued.paste b
 
 function lued.init_lued(lued_path, bindings_file)
   lued.load_plugins( lued_path .. "/plugins" )
+  lued.load_plugins( lued_path .. "/lang" )
   dofile( bindings_file)
 
   local dd2 = 1

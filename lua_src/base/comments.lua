@@ -42,7 +42,6 @@ end
 function lued.comment(dd)
   local dd2 = 1
   lued.move_to_sol_classic(dd2)
---   local comment_str = g_comment
   local comment_str = lued.get_line_comment()
   lued.ins_str(comment_str, dd2);
   if not lued.is_eol() then
@@ -75,7 +74,7 @@ function lued.uncomment(dd)
   local comment_len = string.len(comment_str)
   lued.move_to_sol_classic(dd2)
   local line = get_line()
-  if string.find(line, lued.get_line_comment(), 1, true) == 1 then
+  if lued.is_comment() then
     local del_len = math.min( comment_len, #line)
     if string.find(line, comment_str.." ", 1, true) == 1 then
       del_len = comment_len + 1

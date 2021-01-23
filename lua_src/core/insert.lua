@@ -226,7 +226,6 @@ function lued.insert_tab(dd)
     return
   end
 
-
   --
   local r,c = lued.get_rc()
   local curr_line_indent_len = lued.get_indent_len()
@@ -236,7 +235,6 @@ function lued.insert_tab(dd)
   
   -- if the line is blank or just has spaces then move to the next indent column.
   if (lued.is_blankline() or in_leading_whitespace) and after_prev_lines_first_char then
---     print("is_blannkline", after_prev_lines_first_char) io.read()
     local goto_next_line = false
     lued.indent1(g_indent_size, g_indent_char, goto_next_line, dd2)
     lued.disp(dd)
@@ -244,12 +242,10 @@ function lued.insert_tab(dd)
   end
 
   -- Only do snippet/keyword replacement when typist directly entered <tab>,
-  -- which is indicated by dd2=false/nil
-  if not dd2 then
-    if (lued.is_eol() or lued.is_space()) and not (lued.is_sol() or lued.prev_is_space()) then
-      if lued.do_snippet(dd) then return end
-      if lued.do_keyword(dd) then return end
-    end
+  -- which is indicated by dd=false/nil
+  if not dd then
+    if lued.do_snippet(dd) then return end
+    if lued.do_keyword(dd) then return end
   end
 
   local dd2 = 1
