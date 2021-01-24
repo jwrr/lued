@@ -97,11 +97,14 @@ class ]] .. classname  .. [[
 
 {
 private:
-  string  name_{"Rudolf"};
+  string  name_;
   int     class_variable_{37};
   
 public:
-  int MethodName();
+  ]] .. classname  .. [[ (string filename);
+  
+  ~]] .. classname  .. [[ ();
+  int methodName();
 };
 
 #endif // ]] .. guardname .. [[
@@ -111,6 +114,7 @@ public:
 local r,c,f = lued.get_rcf()
 lued.new_file(headername)
 lued.ins_str(str)
+lued.set_rc(1,1)
 lued.save_file()
 lued.set_rcf(r,c,f)
 
@@ -119,7 +123,17 @@ str = [[
 // ================================================
 #include "]] .. headername .. [["
 
-int ]] .. classname .. [[::MethodName()
+]] .. classname  .. "::" .. classname .. [[ (string filename)
+{
+  name_ = filename;
+}
+   
+]] .. classname  .. "::~" .. classname .. [[ ()
+{
+  // Destructor
+}
+
+int ]] .. classname .. [[::methodName()
 
 {
   int local_variable_name{5};
@@ -129,17 +143,18 @@ int ]] .. classname .. [[::MethodName()
 
 int main()
 {
-  ]] .. classname .. [[ obj1;
+  ]] .. classname .. [[ obj1("filename.txt");
   
-  cout << obj1.MethodName() << endl;
+  cout << obj1.methodName() << endl;
   
   return 0;
 }
 
 ]]
 
-lued.ins_str_after(str, "class")
-lued.find_forward(classname)
+  lued.ins_str(str)
+  lued.set_rc(1,1)
+  lued.save_file()
 end
 
 
