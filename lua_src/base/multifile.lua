@@ -137,7 +137,33 @@ function lued.select_tab_menu(filter,dont_print)
       t[#t+1]=line
     end
   end
-  print( "\n" .. table.concat(t, "\n") .. "\n" )   
+  print("\n", table.concat(t, "\n"))
+
+  print("----------------------")
+  local current_id = get_fileid()
+  local current_filename = get_filename(current_id)
+  g_recent_files = g_recent_files or {}
+  
+  for i,val in ipairs(g_recent_files) do
+    if val == current_id then
+      table.remove(g_recent_files, i)
+      break
+    end
+  end
+  
+  table.insert(g_recent_files, 1, current_id)
+  n = math.min(#g_recent_files, 5) -- local
+  t = {} -- local
+  for recent_i=1,n do
+    local i = g_recent_files[recent_i]
+    local is_changed = is_modified(i) and "* " or "  "
+    local is_current = i==g_tab_prev and "TT" or "  "
+    is_current = i==id and "->" or is_current
+    local line = is_current..i..is_changed..get_filename(i)
+    t[#t+1]=line
+  end
+  print(table.concat(t, "\n"))
+     
   if found_count > 1 then found_i = 0 end
   return found_i, t
 end

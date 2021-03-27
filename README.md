@@ -368,6 +368,8 @@ alt+dN - Delete N char (including current char). N must be less than 10.
 Repeat Previous N Commands - done
 alt+rN - Repeat the last N command
 
+Ctrl-T - show most-recent 5 files after listing all files - done
+
 
 ==============================
 find - highlight all matches number all matches. alt+f# jumps to the specific match
@@ -387,6 +389,5 @@ Find and Replace
   
 Dictionaries
   Add selected word to dictionary. highlight words not in dictionary.
-
 
 
