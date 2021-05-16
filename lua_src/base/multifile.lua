@@ -139,7 +139,6 @@ function lued.select_tab_menu(filter,dont_print)
   end
   print("\n", table.concat(t, "\n"))
 
-  print("----------------------")
   local current_id = get_fileid()
   local current_filename = get_filename(current_id)
   g_recent_files = g_recent_files or {}
@@ -152,7 +151,7 @@ function lued.select_tab_menu(filter,dont_print)
   end
   
   table.insert(g_recent_files, 1, current_id)
-  n = math.min(#g_recent_files, 5) -- local
+  n = math.min(#g_recent_files, g_num_most_recent) -- local
   t = {} -- local
   for recent_i=1,n do
     local i = g_recent_files[recent_i]
@@ -162,8 +161,12 @@ function lued.select_tab_menu(filter,dont_print)
     local line = is_current..i..is_changed..get_filename(i)
     t[#t+1]=line
   end
-  print(table.concat(t, "\n"))
-     
+
+  if filter ==  nil or filter == "" then
+    print("----------------------")
+    print(table.concat(t, "\n"))
+  end
+       
   if found_count > 1 then found_i = 0 end
   return found_i, t
 end

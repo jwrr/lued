@@ -370,6 +370,8 @@ alt+rN - Repeat the last N command
 
 Ctrl-T - show most-recent 5 files after listing all files - done
 
+alt-t - The file menu shows the most recent files even when the file filter is not "". This
+  is confusing. Only show most recent when  filter="". done
 
 ==============================
 find - highlight all matches number all matches. alt+f# jumps to the specific match
@@ -389,5 +391,23 @@ Find and Replace
   
 Dictionaries
   Add selected word to dictionary. highlight words not in dictionary.
+
+alt-gg/grep/ct add support for most-recent lines
+
+Comment contination - On <Enter> only start next line with comment if the
+current and subsequent line starts with a comment.  Currently the next
+line will start with a comment if the current line is a comment. This is
+too aggressive.
+
+alt-gg (grep) needs its own dedicated search history
+
+paste indent needs fixing. sometimes it works, othertimes it doesn't.
+
+if linenumber is greater than numlines then supress
+
+find - if string is on the page then move the cursor, and keep page alignment the same.
+find - bug find multiple occurrences on the same line sometimes doesn't work
+
+Need better rules for quote/bracket completion. 
 
 

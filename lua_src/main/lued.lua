@@ -79,6 +79,7 @@ SOFTWARE.
   g_incr_step                   = 1     -- step size for incr command
   g_decr_step                   = 1     -- step size for incr command
   g_wrap_mode                   = false -- true = wrap lines. false = truncate long lines
+  g_num_most_recent             = 10    -- Show this many most recent files when alt_T
 
   g_lnum = 1
   
